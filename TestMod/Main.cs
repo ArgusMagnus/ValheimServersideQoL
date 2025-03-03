@@ -1,6 +1,5 @@
 ﻿using BepInEx.Logging;
 using BepInEx;
-using System.Linq.Expressions;
 using System.Diagnostics;
 
 namespace TestMod;
@@ -16,19 +15,9 @@ public class Main : BaseUnityPlugin
     static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(pluginName);
     static readonly IReadOnlyList<string> __clockEmojis = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
 
-    static Func<ZDOMan, IReadOnlyList<ZDO>[]> GetObjectsBySector { get; } = Expression.Lambda<Func<ZDOMan, IReadOnlyList<ZDO>[]>>(
-        Expression.Field(
-            Expression.Parameter(typeof(ZDOMan)) is { } par ? par : throw new Exception(),
-            typeof(ZDOMan).GetField("m_objectsBySector", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)),
-        par).Compile();
-
-    static Func<ZDOMan, IReadOnlyDictionary<Vector2i, List<ZDO>>> GetObjectsByOutsideSector { get; } = Expression.Lambda<Func<ZDOMan, IReadOnlyDictionary<Vector2i, List<ZDO>>>>(
-        Expression.Field(
-            Expression.Parameter(typeof(ZDOMan)) is { } par ? par : throw new Exception(),
-            typeof(ZDOMan).GetField("m_objectsByOutsideSector", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)),
-        par).Compile();
-
     static readonly int __signPefab = "sign".GetStableHashCode();
+    static readonly int __mapTablePrefab = "piece_cartographytable".GetStableHashCode();
+    static readonly List<ZDO> __zdos = new();
 
     public void Awake()
     {
@@ -64,16 +53,20 @@ public class Main : BaseUnityPlugin
 
         var watch = Stopwatch.StartNew();
 
-        string? newText = null;
+        //var icons = Minimap.instance.m_locationIcons.Select(x => x.m_name).Concat(Minimap.instance.m_icons.Select(x => x.m_name.ToString()));
 
-        foreach (var zdo in GetObjectsBySector(ZDOMan.instance).Where(x => x is not null).SelectMany(x => x)
-            .Concat(GetObjectsByOutsideSector(ZDOMan.instance).Values.SelectMany(x => x).Where(x => x.IsValid())))
+        var playerSectors = ZNet.instance.GetPeers().Select(x => ZoneSystem.GetZone(x.m_refPos)).ToHashSet();
+
+        __zdos.Clear();
+        foreach (var sector in playerSectors)
+            ZDOMan.instance.FindSectorObjects(sector, 1, 0, __zdos);
+
+        string? newText = null;
+        byte[]? mapData = null;
+        foreach (var zdo in __zdos)
         {
             if (zdo.GetPrefab() == __signPefab)
             {
-                if (!ZNet.instance.GetPeers().Any(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition()) < 32))
-                    continue;
-
                 var text = zdo.GetString(ZDOVars.s_text);
                 if (!__clockEmojis.Any(text.StartsWith))
                     continue;
@@ -93,10 +86,41 @@ public class Main : BaseUnityPlugin
                 zdo.Set(ZDOVars.s_text, newText);
                 //zdo.Set(ZDOVars.s_author, );
             }
+            else if (zdo.GetPrefab() == __mapTablePrefab)
+            {
+                // not working yet
+                if (mapData is null)
+                {
+                    //taken from Minimap.instance.GetSharedMapData
+                    var pkg = new ZPackage();
+                    pkg.Write(3);
+                    pkg.Write(0);
+
+                    var portals = ZDOMan.instance.GetPortals().Where(x => playerSectors.Contains(ZoneSystem.GetZone(x.GetPosition()))).ToList();
+                    pkg.Write(portals.Count);
+                    foreach (var portal in portals)
+                    {
+                        pkg.Write(0L);
+                        pkg.Write(portal.GetString(ZDOVars.s_tag));
+                        pkg.Write(portal.GetPosition());
+                        pkg.Write((int)Minimap.PinType.Icon4);
+                        pkg.Write(true);
+                        pkg.Write("");
+                    }
+                    mapData = Utils.Compress(pkg.GetArray());
+                }
+                zdo.Set(ZDOVars.s_data, mapData);
+            }
+            else if (zdo.GetBool(ZDOVars.s_tamed))
+            {
+                zdo.Set($"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}".GetStableHashCode(), true);
+                zdo.Set($"HasFields{nameof(Tameable)}".GetStableHashCode(), true);
+                zdo.Set("HasFields".GetStableHashCode(), true);
+            }
         }
 
-        Logger.LogDebug($"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
-        if (watch.ElapsedMilliseconds > 50)
-            Logger.LogWarning($"{nameof(Execute)} took more than 50 ms to process");
+        Logger.Log(watch.ElapsedMilliseconds > 50 ? LogLevel.Warning : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
+
+        __zdos.Clear();
     }
 }
