@@ -1,5 +1,7 @@
 ﻿using BepInEx.Logging;
 using BepInEx;
+using System.Linq.Expressions;
+using System.Diagnostics;
 
 namespace TestMod;
 
@@ -13,7 +15,21 @@ public class Main : BaseUnityPlugin
     //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);
     static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(pluginName);
     static readonly IReadOnlyList<string> __clockEmojis = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
-    
+
+    static Func<ZDOMan, IReadOnlyList<ZDO>[]> GetObjectsBySector { get; } = Expression.Lambda<Func<ZDOMan, IReadOnlyList<ZDO>[]>>(
+        Expression.Field(
+            Expression.Parameter(typeof(ZDOMan)) is { } par ? par : throw new Exception(),
+            typeof(ZDOMan).GetField("m_objectsBySector", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)),
+        par).Compile();
+
+    static Func<ZDOMan, IReadOnlyDictionary<Vector2i, List<ZDO>>> GetObjectsByOutsideSector { get; } = Expression.Lambda<Func<ZDOMan, IReadOnlyDictionary<Vector2i, List<ZDO>>>>(
+        Expression.Field(
+            Expression.Parameter(typeof(ZDOMan)) is { } par ? par : throw new Exception(),
+            typeof(ZDOMan).GetField("m_objectsByOutsideSector", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)),
+        par).Compile();
+
+    static readonly int __signPefab = "sign".GetStableHashCode();
+
     public void Awake()
     {
         Logger.LogInfo("Thank you for using my mod!");
@@ -43,15 +59,17 @@ public class Main : BaseUnityPlugin
             return;
         }
 
-        if (ZNetScene.instance is null)
+        if (ZNetScene.instance is null || ZDOMan.instance is null)
             return;
 
-        List<ZDO> zdos = [];
-        int idx = 0;
+        var watch = Stopwatch.StartNew();
+
         string? newText = null;
-        while (!ZDOMan.instance.GetAllZDOsWithPrefabIterative("sign", zdos, ref idx))
+
+        foreach (var zdo in GetObjectsBySector(ZDOMan.instance).Where(x => x is not null).SelectMany(x => x)
+            .Concat(GetObjectsByOutsideSector(ZDOMan.instance).Values.SelectMany(x => x).Where(x => x.IsValid())))
         {
-            foreach (var zdo in zdos)
+            if (zdo.GetPrefab() == __signPefab)
             {
                 if (!ZNet.instance.GetPeers().Any(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition()) < 32))
                     continue;
@@ -75,7 +93,10 @@ public class Main : BaseUnityPlugin
                 zdo.Set(ZDOVars.s_text, newText);
                 //zdo.Set(ZDOVars.s_author, );
             }
-            zdos.Clear();
         }
+
+        Logger.LogDebug($"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
+        if (watch.ElapsedMilliseconds > 50)
+            Logger.LogWarning($"{nameof(Execute)} took more than 50 ms to process");
     }
 }
