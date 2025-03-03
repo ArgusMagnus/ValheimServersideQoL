@@ -3,6 +3,7 @@ using BepInEx;
 using System.Diagnostics;
 using System.Collections.Concurrent;
 using UnityEngine;
+using System.Text.RegularExpressions;
 
 namespace TestMod;
 
@@ -16,6 +17,7 @@ public class Main : BaseUnityPlugin
     //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);
     static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(pluginName);
     static readonly IReadOnlyList<string> __clockEmojis = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
+    static readonly Regex __clockRegex = new($@"(?:{string.Join("|", __clockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
     static readonly List<ZDO> __zdos = new();
     //static readonly Dictionary<ZDO, string?> __tameFollow = new();
@@ -93,23 +95,24 @@ public class Main : BaseUnityPlugin
         foreach (var sector in playerSectors)
             ZDOMan.instance.FindSectorObjects(sector, 1, 0, __zdos);
 
-        string? newText = null;
+        string? timeText = null;
         byte[]? mapData = null;
         foreach (var zdo in __zdos)
         {
             if (zdo.GetPrefab() == SignEx.Prefab)
             {
                 var text = zdo.GetString(ZDOVars.s_text);
-                if (!__clockEmojis.Any(text.StartsWith))
-                    continue;
-
-                if (newText is null)
+                var newText = __clockRegex.Replace(text, match =>
                 {
-                    var dayFraction = EnvMan.instance.GetDayFraction();
-                    var emojiIdx = (int)Math.Floor(__clockEmojis.Count * 2 * dayFraction) % __clockEmojis.Count;
-                    var time = TimeSpan.FromDays(dayFraction);
-                    newText = $@"{__clockEmojis[emojiIdx]} {time:hh\:mm}";
-                }
+                    if (timeText is null)
+                    {
+                        var dayFraction = EnvMan.instance.GetDayFraction();
+                        var emojiIdx = (int)Math.Floor(__clockEmojis.Count * 2 * dayFraction) % __clockEmojis.Count;
+                        var time = TimeSpan.FromDays(dayFraction);
+                        timeText = $@"{__clockEmojis[emojiIdx]} {time:hh\:mm}";
+                    }
+                    return timeText;
+                });
 
                 if (text == newText)
                     continue;
