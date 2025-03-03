@@ -20,6 +20,7 @@ public class Main : BaseUnityPlugin
     static readonly Regex __clockRegex = new($@"(?:{string.Join("|", __clockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
     static readonly List<ZDO> __zdos = new();
+    static HashSet<int>? __fireplacePrefabs;
     //static readonly Dictionary<ZDO, string?> __tameFollow = new();
 
     static class Hashes
@@ -49,7 +50,13 @@ public class Main : BaseUnityPlugin
         }
 
         public static int GetHasFields<T>() where T : MonoBehaviour => _HasFields<T>.HasFields;
+
         public static int TameableCommandable { get; } = Hashes.Get($"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}");
+
+        public static int FireplaceInfiniteFuel { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_infiniteFuel)}");
+        public static int FireplaceCanTurnOff { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_canTurnOff)}");
+        public static int FireplaceCanRefill { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_canRefill)}");
+        public static int FireplaceFuelPerSec { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_secPerFuel)}");
     }
 
     public void Awake()
@@ -85,6 +92,8 @@ public class Main : BaseUnityPlugin
             return;
 
         var watch = Stopwatch.StartNew();
+
+        __fireplacePrefabs ??= ZNetScene.instance.m_prefabs.Where(x => x.TryGetComponent<Fireplace>(out _)).Select(x => x.name.GetStableHashCode()).ToHashSet();
 
         //var icons = Minimap.instance.m_locationIcons.Select(x => x.m_name).Concat(Minimap.instance.m_icons.Select(x => x.m_name.ToString()));
 
@@ -152,6 +161,8 @@ public class Main : BaseUnityPlugin
                 zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
                 zdo.Set(ZDOVarsEx.HasFields, true);
 
+                //zdo.GetConnection().m_type
+                //zdo.GetConnectionType() is ZDOExtraData.ConnectionType.Target
                 //if (zdo.GetString(ZDOVars.s_follow) is { Length: > 0} follow)
                 //{
                 //    Logger.LogInfo($"Following {follow}");
@@ -172,6 +183,16 @@ public class Main : BaseUnityPlugin
                 //        zdo.Set(ZDOVars.s_follow, follow);
                 //    }
                 //}
+            }
+            else if (__fireplacePrefabs.Contains(zdo.GetPrefab()))
+            {
+                // setting FireplaceInfiniteFuel to true works, but remove tha turn on/off hover text (turning on/off still works)
+                //zdo.Set(ZDOVarsEx.FireplaceInfiniteFuel, true);
+                zdo.Set(ZDOVarsEx.FireplaceFuelPerSec, 0f);
+                zdo.Set(ZDOVarsEx.FireplaceCanTurnOff, true);
+                zdo.Set(ZDOVarsEx.FireplaceCanRefill, false);
+                zdo.Set(ZDOVarsEx.GetHasFields<Fireplace>(), true);
+                zdo.Set(ZDOVarsEx.HasFields, true);
             }
         }
 
