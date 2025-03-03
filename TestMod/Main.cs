@@ -21,7 +21,8 @@ public class Main : BaseUnityPlugin
 
     static readonly List<ZDO> __zdos = new();
     static HashSet<int>? __fireplacePrefabs;
-    //static readonly Dictionary<ZDO, string?> __tameFollow = new();
+    static HashSet<int>? __containerPrefabs;
+    static IReadOnlyList<(string Tag, Vector3 Pos)> __portals = [];
 
     static class Hashes
     {
@@ -94,6 +95,7 @@ public class Main : BaseUnityPlugin
         var watch = Stopwatch.StartNew();
 
         __fireplacePrefabs ??= ZNetScene.instance.m_prefabs.Where(x => x.TryGetComponent<Fireplace>(out _)).Select(x => x.name.GetStableHashCode()).ToHashSet();
+        __containerPrefabs ??= ZNetScene.instance.m_prefabs.Where(x => x.TryGetComponent<Container>(out _)).Select(x => x.name.GetStableHashCode()).ToHashSet();
 
         //var icons = Minimap.instance.m_locationIcons.Select(x => x.m_name).Concat(Minimap.instance.m_icons.Select(x => x.m_name.ToString()));
 
@@ -132,28 +134,42 @@ public class Main : BaseUnityPlugin
             }
             else if (zdo.GetPrefab() == MapTableEx.Prefab)
             {
-                // not working yet
                 if (mapData is null)
                 {
-                    //taken from Minimap.instance.GetSharedMapData
+                    var portals = ZDOMan.instance.GetPortals().Select(x => (Tag: x.GetString(ZDOVars.s_tag), Pos: x.GetPosition())).OrderBy(x => x.Tag).ToList();
+                    if (portals.SequenceEqual(__portals))
+                    {
+                        mapData = [];
+                        continue;
+                    }
+                    __portals = portals;
+
+                    /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
                     var pkg = new ZPackage();
                     pkg.Write(3);
-                    pkg.Write(0);
 
-                    var portals = ZDOMan.instance.GetPortals().Where(x => playerSectors.Contains(ZoneSystem.GetZone(x.GetPosition()))).ToList();
+                    pkg.Write(new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]);
+
                     pkg.Write(portals.Count);
                     foreach (var portal in portals)
                     {
-                        pkg.Write(0L);
-                        pkg.Write(portal.GetString(ZDOVars.s_tag));
-                        pkg.Write(portal.GetPosition());
+                        pkg.Write(1L); // dummy ownerId
+                        pkg.Write(portal.Tag);
+                        pkg.Write(portal.Pos);
                         pkg.Write((int)Minimap.PinType.Icon4);
-                        pkg.Write(true);
+                        pkg.Write(false); // isChecked
                         pkg.Write("");
                     }
+
                     mapData = Utils.Compress(pkg.GetArray());
                 }
-                zdo.Set(ZDOVars.s_data, mapData);
+
+                if (mapData is { Length: > 0 })
+                {
+                    zdo.Set(ZDOVars.s_data, mapData);
+                    /// Call <see cref="Chat.RPC_ChatMessage"/>
+                    ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.Everybody, "ChatMessage", zdo.GetPosition(), (int)Talker.Type.Shout, new UserInfo { Gamertag = "Server", Name = "Server", NetworkUserId = PrivilegeManager.GetNetworkUserId() }, "MapTable updated", PrivilegeManager.GetNetworkUserId());
+                }
             }
             else if (zdo.GetBool(ZDOVars.s_tamed))
             {
@@ -186,7 +202,7 @@ public class Main : BaseUnityPlugin
             }
             else if (__fireplacePrefabs.Contains(zdo.GetPrefab()))
             {
-                // setting FireplaceInfiniteFuel to true works, but remove tha turn on/off hover text (turning on/off still works)
+                // setting FireplaceInfiniteFuel to true works, but removes the turn on/off hover text (turning on/off still works)
                 //zdo.Set(ZDOVarsEx.FireplaceInfiniteFuel, true);
                 zdo.Set(ZDOVarsEx.FireplaceFuelPerSec, 0f);
                 zdo.Set(ZDOVarsEx.FireplaceCanTurnOff, true);
@@ -194,10 +210,13 @@ public class Main : BaseUnityPlugin
                 zdo.Set(ZDOVarsEx.GetHasFields<Fireplace>(), true);
                 zdo.Set(ZDOVarsEx.HasFields, true);
             }
+            else if (__containerPrefabs.Contains(zdo.GetPrefab()))
+            {
+            }
         }
 
-        Logger.Log(watch.ElapsedMilliseconds > 50 ? LogLevel.Warning : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
-
         __zdos.Clear();
+
+        Logger.Log(watch.ElapsedMilliseconds > 50 ? LogLevel.Warning : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
     }
 }
