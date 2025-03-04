@@ -203,77 +203,78 @@ public class Main : BaseUnityPlugin
                 }
 
                 byte[]? data = null;
-                if (ReferenceEquals(pins, __pins) || (data = zdo.GetByteArray(ZDOVars.s_data)) is null)
+                if (!ReferenceEquals(pins, __pins) && __dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                    continue;
+
+                existingPins?.Clear();
+                ZPackage pkg;
+                data = null;
+                //data ??= zdo.GetByteArray(ZDOVars.s_data);
+                //if (data is not null)
+                //{
+                //    data = Utils.Decompress(data);
+                //    pkg = new ZPackage(data);
+                //    var version = pkg.ReadInt();
+                //    if (version is not 3)
+                //    {
+                //        Logger.LogWarning($"MapTable data version {version} is not supported");
+                //        continue;
+                //    }
+                //    data = pkg.ReadByteArray();
+                //    if (data.Length != Minimap.instance.m_textureSize * Minimap.instance.m_textureSize)
+                //    {
+                //        Logger.LogWarning("Invalid explored map data length");
+                //        data = null;
+                //    }
+
+                //    var pinCount = pkg.ReadInt();
+                //    existingPins ??= new(pinCount);
+                //    if (existingPins.Capacity < pinCount)
+                //        existingPins.Capacity = pinCount;
+
+                //    foreach (var i in Enumerable.Range(0, pinCount))
+                //    {
+                //        try
+                //        {
+                //            var ownerId = pkg.ReadLong();
+                //            if (ownerId != PluginGuidHash)
+                //                existingPins.Add(new(ownerId,
+                //                    pkg.ReadString(),
+                //                    pkg.ReadVector3(),
+                //                    (Minimap.PinType)pkg.ReadInt(),
+                //                    pkg.ReadBool(),
+                //                    pkg.ReadString()));
+                //        }
+                //        catch (EndOfStreamException ex)
+                //        {
+                //            data = null;
+                //            Logger.LogError($"Error reading pin {i} of {pinCount}: {ex}");
+                //            break;
+                //        }
+                //    }
+                //}
+
+                /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
+                pkg = new ZPackage();
+                pkg.Write(3);
+
+                pkg.Write(data ?? (emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
+
+                pkg.Write(pins.Count + (existingPins?.Count ?? 0));
+                foreach (var pin in pins.Concat(existingPins?.AsEnumerable() ?? []))
                 {
-                    existingPins?.Clear();
-                    ZPackage pkg;
-                    data = null;
-                    //data ??= zdo.GetByteArray(ZDOVars.s_data);
-                    //if (data is not null)
-                    //{
-                    //    data = Utils.Decompress(data);
-                    //    pkg = new ZPackage(data);
-                    //    var version = pkg.ReadInt();
-                    //    if (version is not 3)
-                    //    {
-                    //        Logger.LogWarning($"MapTable data version {version} is not supported");
-                    //        continue;
-                    //    }
-                    //    data = pkg.ReadByteArray();
-                    //    if (data.Length != Minimap.instance.m_textureSize * Minimap.instance.m_textureSize)
-                    //    {
-                    //        Logger.LogWarning("Invalid explored map data length");
-                    //        data = null;
-                    //    }
-
-                    //    var pinCount = pkg.ReadInt();
-                    //    existingPins ??= new(pinCount);
-                    //    if (existingPins.Capacity < pinCount)
-                    //        existingPins.Capacity = pinCount;
-
-                    //    foreach (var i in Enumerable.Range(0, pinCount))
-                    //    {
-                    //        try
-                    //        {
-                    //            var ownerId = pkg.ReadLong();
-                    //            if (ownerId != PluginGuidHash)
-                    //                existingPins.Add(new(ownerId,
-                    //                    pkg.ReadString(),
-                    //                    pkg.ReadVector3(),
-                    //                    (Minimap.PinType)pkg.ReadInt(),
-                    //                    pkg.ReadBool(),
-                    //                    pkg.ReadString()));
-                    //        }
-                    //        catch (EndOfStreamException ex)
-                    //        {
-                    //            data = null;
-                    //            Logger.LogError($"Error reading pin {i} of {pinCount}: {ex}");
-                    //            break;
-                    //        }
-                    //    }
-                    //}
-
-                    /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
-                    pkg = new ZPackage();
-                    pkg.Write(3);
-
-                    pkg.Write(data ?? (emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
-
-                    pkg.Write(pins.Count + (existingPins?.Count ?? 0));
-                    foreach (var pin in pins.Concat(existingPins?.AsEnumerable() ?? []))
-                    {
-                        pkg.Write(pin.OwnerId);
-                        pkg.Write(pin.Tag);
-                        pkg.Write(pin.Pos);
-                        pkg.Write((int)pin.Type);
-                        pkg.Write(pin.IsChecked);
-                        pkg.Write(pin.Author);
-                    }
-
-                    zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
-
-                    ShowMessage(MessageHud.MessageType.TopLeft, "$piece_cartographytable updated");
+                    pkg.Write(pin.OwnerId);
+                    pkg.Write(pin.Tag);
+                    pkg.Write(pin.Pos);
+                    pkg.Write((int)pin.Type);
+                    pkg.Write(pin.IsChecked);
+                    pkg.Write(pin.Author);
                 }
+
+                zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
+                __dataRevisions[zdo.m_uid] = zdo.DataRevision;
+
+                ShowMessage(MessageHud.MessageType.TopLeft, "$msg_mapsaved");
             }
             else if (__shipPrefabs.Contains(zdo.GetPrefab()))
             {
@@ -281,9 +282,13 @@ public class Main : BaseUnityPlugin
             }
             else if (zdo.GetBool(ZDOVars.s_tamed))
             {
-                zdo.Set(ZDOVarsEx.TameableCommandable, true);
-                zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
+                if (__dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                    continue;
+
                 zdo.Set(ZDOVarsEx.HasFields, true);
+                zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
+                zdo.Set(ZDOVarsEx.TameableCommandable, true);
+                __dataRevisions[zdo.m_uid] = zdo.DataRevision;
 
                 //zdo.GetConnection().m_type
                 //zdo.GetConnectionType() is ZDOExtraData.ConnectionType.Target
@@ -310,13 +315,17 @@ public class Main : BaseUnityPlugin
             }
             else if (__fireplacePrefabs.Contains(zdo.GetPrefab()))
             {
+                if (__dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                    continue;
+
+                zdo.Set(ZDOVarsEx.HasFields, true);
+                zdo.Set(ZDOVarsEx.GetHasFields<Fireplace>(), true);
                 // setting FireplaceInfiniteFuel to true works, but removes the turn on/off hover text (turning on/off still works)
-                //zdo.Set(ZDOVarsEx.FireplaceInfiniteFuel, true);
+                //zdo.Set(ZDOVarsEx.FireplaceInfiniteFuel, false);
                 zdo.Set(ZDOVarsEx.FireplaceFuelPerSec, 0f);
                 zdo.Set(ZDOVarsEx.FireplaceCanTurnOff, true);
                 zdo.Set(ZDOVarsEx.FireplaceCanRefill, false);
-                zdo.Set(ZDOVarsEx.GetHasFields<Fireplace>(), true);
-                zdo.Set(ZDOVarsEx.HasFields, true);
+                __dataRevisions[zdo.m_uid] = zdo.DataRevision;
             }
             else if (__containerPrefabs.TryGetValue(zdo.GetPrefab(), out var container))
             {
@@ -370,6 +379,7 @@ public class Main : BaseUnityPlugin
                     inventory.Save(pkg);
                     data = pkg.GetBase64();
                     zdo.Set(ZDOVars.s_items, data);
+                    __dataRevisions[zdo.m_uid] = zdo.DataRevision;
                     ShowMessage(MessageHud.MessageType.TopLeft, $"{(__pieceNames.TryGetValue(zdo.GetPrefab(), out var name) ? name : "Container")} sorted");
                 }
             }
