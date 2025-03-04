@@ -147,11 +147,10 @@ public class Main : BaseUnityPlugin
             ZDOMan.instance.FindSectorObjects(sector, 1, 0, __zdos);
 
         string? timeText = null;
-        List<Pin>? pins = null;
+        IReadOnlyList<Pin>? pins = null;
         List<ZDOID>? invalidShips = null;
         List<Pin>? existingPins = null;
         byte[]? emptyExplored = null;
-
         for (int idx = 0; idx < __zdos.Count && watch.ElapsedMilliseconds < MaxProcessingTimeMs; ++idx, ++__zdoIdx)
         {
             if (__zdoIdx >= __zdos.Count)
@@ -202,57 +201,41 @@ public class Main : BaseUnityPlugin
                         __pins = pins;
                 }
 
-                byte[]? data = null;
                 if (!ReferenceEquals(pins, __pins) && __dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                     continue;
 
                 existingPins?.Clear();
                 ZPackage pkg;
-                data = null;
-                //data ??= zdo.GetByteArray(ZDOVars.s_data);
-                //if (data is not null)
-                //{
-                //    data = Utils.Decompress(data);
-                //    pkg = new ZPackage(data);
-                //    var version = pkg.ReadInt();
-                //    if (version is not 3)
-                //    {
-                //        Logger.LogWarning($"MapTable data version {version} is not supported");
-                //        continue;
-                //    }
-                //    data = pkg.ReadByteArray();
-                //    if (data.Length != Minimap.instance.m_textureSize * Minimap.instance.m_textureSize)
-                //    {
-                //        Logger.LogWarning("Invalid explored map data length");
-                //        data = null;
-                //    }
+                var data = zdo.GetByteArray(ZDOVars.s_data);
+                if (data is not null)
+                {
+                    data = Utils.Decompress(data);
+                    pkg = new ZPackage(data);
+                    var version = pkg.ReadInt();
+                    if (version is not 3)
+                    {
+                        Logger.LogWarning($"MapTable data version {version} is not supported");
+                        continue;
+                    }
+                    data = pkg.ReadByteArray();
+                    if (data.Length != Minimap.instance.m_textureSize * Minimap.instance.m_textureSize)
+                    {
+                        Logger.LogWarning("Invalid explored map data length");
+                        data = null;
+                    }
 
-                //    var pinCount = pkg.ReadInt();
-                //    existingPins ??= new(pinCount);
-                //    if (existingPins.Capacity < pinCount)
-                //        existingPins.Capacity = pinCount;
+                    var pinCount = pkg.ReadInt();
+                    existingPins ??= new(pinCount);
+                    if (existingPins.Capacity < pinCount)
+                        existingPins.Capacity = pinCount;
 
-                //    foreach (var i in Enumerable.Range(0, pinCount))
-                //    {
-                //        try
-                //        {
-                //            var ownerId = pkg.ReadLong();
-                //            if (ownerId != PluginGuidHash)
-                //                existingPins.Add(new(ownerId,
-                //                    pkg.ReadString(),
-                //                    pkg.ReadVector3(),
-                //                    (Minimap.PinType)pkg.ReadInt(),
-                //                    pkg.ReadBool(),
-                //                    pkg.ReadString()));
-                //        }
-                //        catch (EndOfStreamException ex)
-                //        {
-                //            data = null;
-                //            Logger.LogError($"Error reading pin {i} of {pinCount}: {ex}");
-                //            break;
-                //        }
-                //    }
-                //}
+                    foreach (var i in Enumerable.Range(0, pinCount))
+                    {
+                        var pin = new Pin(pkg.ReadLong(), pkg.ReadString(), pkg.ReadVector3(), (Minimap.PinType)pkg.ReadInt(), pkg.ReadBool(), pkg.ReadString());
+                        if (pin.OwnerId != PluginGuidHash)
+                            existingPins.Add(pin);
+                    }
+                }
 
                 /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
                 pkg = new ZPackage();
