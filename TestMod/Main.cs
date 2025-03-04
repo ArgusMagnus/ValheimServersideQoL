@@ -327,7 +327,7 @@ public class Main : BaseUnityPlugin
                 zdo.Set(ZDOVarsEx.FireplaceCanRefill, false);
                 __dataRevisions[zdo.m_uid] = zdo.DataRevision;
             }
-            else if (__containerPrefabs.TryGetValue(zdo.GetPrefab(), out var container))
+            else if (__containerPrefabs.TryGetValue(zdo.GetPrefab(), out var container) && __pieceNames.TryGetValue(zdo.GetPrefab(), out var containerName))
             {
                 if (__dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
                     continue;
@@ -380,7 +380,7 @@ public class Main : BaseUnityPlugin
                     data = pkg.GetBase64();
                     zdo.Set(ZDOVars.s_items, data);
                     __dataRevisions[zdo.m_uid] = zdo.DataRevision;
-                    ShowMessage(MessageHud.MessageType.TopLeft, $"{(__pieceNames.TryGetValue(zdo.GetPrefab(), out var name) ? name : "Container")} sorted");
+                    ShowMessage(MessageHud.MessageType.TopLeft, $"{containerName} sorted");
                 }
             }
         }
