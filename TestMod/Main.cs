@@ -4,25 +4,34 @@ using System.Diagnostics;
 using System.Collections.Concurrent;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace TestMod;
 
-[BepInPlugin(pluginGUID, pluginName, pluginVersion)]
+[BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 public class Main : BaseUnityPlugin
 {
-    const string pluginGUID = "argusmagnus.TestMod";
-    const string pluginName = "TestMod";
-    const string pluginVersion = "1.0.0";
+    const string PluginGuid = "argusmagnus.TestMod";
+    const string PluginName = "TestMod";
+    const string PluginVersion = "1.0.0";
+    static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
+
+    const int MaxProcessingTimeMs = 50;
 
     //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);
-    static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(pluginName);
+    static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
     static readonly IReadOnlyList<string> __clockEmojis = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     static readonly Regex __clockRegex = new($@"(?:{string.Join("|", __clockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
     static readonly List<ZDO> __zdos = new();
+    static int __zdoIdx;
     static HashSet<int>? __fireplacePrefabs;
     static HashSet<int>? __containerPrefabs;
-    static IReadOnlyList<(string Tag, Vector3 Pos)> __portals = [];
+    static HashSet<int>? __shipPrefabs;
+    static HashSet<ZDOID>? __ships;
+
+    record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
+    static IReadOnlyList<Pin> __pins = [];
 
     static class Hashes
     {
@@ -96,6 +105,11 @@ public class Main : BaseUnityPlugin
 
         __fireplacePrefabs ??= ZNetScene.instance.m_prefabs.Where(x => x.TryGetComponent<Fireplace>(out _)).Select(x => x.name.GetStableHashCode()).ToHashSet();
         __containerPrefabs ??= ZNetScene.instance.m_prefabs.Where(x => x.TryGetComponent<Container>(out _)).Select(x => x.name.GetStableHashCode()).ToHashSet();
+        __shipPrefabs ??= ZNetScene.instance.m_prefabs.Where(x => x.TryGetComponent<Ship>(out _)).Select(x => x.name.GetStableHashCode()).ToHashSet();
+        __ships ??= ((IReadOnlyDictionary<ZDOID, ZDO>)typeof(ZDOMan).GetField("m_objectsByID", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+            .GetValue(ZDOMan.instance)).Values.Where(x => __shipPrefabs.Contains(x.GetPrefab()))
+            .Select(x => x.m_uid)
+            .ToHashSet();
 
         //var icons = Minimap.instance.m_locationIcons.Select(x => x.m_name).Concat(Minimap.instance.m_icons.Select(x => x.m_name.ToString()));
 
@@ -107,9 +121,17 @@ public class Main : BaseUnityPlugin
             ZDOMan.instance.FindSectorObjects(sector, 1, 0, __zdos);
 
         string? timeText = null;
-        byte[]? mapData = null;
-        foreach (var zdo in __zdos)
+        List<Pin>? pins = null;
+        List<ZDOID>? invalidShips = null;
+        List<Pin>? existingPins = null;
+        byte[]? emptyExplored = null;
+
+        for (int idx = 0; idx < __zdos.Count && watch.ElapsedMilliseconds < MaxProcessingTimeMs; ++idx, ++__zdoIdx)
         {
+            if (__zdoIdx >= __zdos.Count)
+                __zdoIdx = 0;
+            var zdo = __zdos[__zdoIdx];
+
             if (zdo.GetPrefab() == SignEx.Prefab)
             {
                 var text = zdo.GetString(ZDOVars.s_text);
@@ -134,42 +156,103 @@ public class Main : BaseUnityPlugin
             }
             else if (zdo.GetPrefab() == MapTableEx.Prefab)
             {
-                if (mapData is null)
+                if (pins is null)
                 {
-                    var portals = ZDOMan.instance.GetPortals().Select(x => (Tag: x.GetString(ZDOVars.s_tag), Pos: x.GetPosition())).OrderBy(x => x.Tag).ToList();
-                    if (portals.SequenceEqual(__portals))
-                    {
-                        mapData = [];
-                        continue;
-                    }
-                    __portals = portals;
+                    pins = ZDOMan.instance.GetPortals().Select(x => new Pin(PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, PluginGuid))
+                        .Concat(__ships
+                            .Select(x =>
+                            {
+                                var y = ZDOMan.instance.GetZDO(x);
+                                if (y is null)
+                                    (invalidShips ??= []).Add(x);
+                                return y;
+                            })
+                            .Where(x => x is not null)
+                            .Select(x => new Pin(PluginGuidHash, $"${ZNetScene.instance.GetPrefab(x.GetPrefab())?.name}", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid)))
+                        .OrderBy(x => x.Pos.x).ThenBy(x => x.Pos.z)
+                        .ToList();
 
-                    /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
-                    var pkg = new ZPackage();
-                    pkg.Write(3);
-
-                    pkg.Write(new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]);
-
-                    pkg.Write(portals.Count);
-                    foreach (var portal in portals)
-                    {
-                        pkg.Write(1L); // dummy ownerId
-                        pkg.Write(portal.Tag);
-                        pkg.Write(portal.Pos);
-                        pkg.Write((int)Minimap.PinType.Icon4);
-                        pkg.Write(false); // isChecked
-                        pkg.Write("");
-                    }
-
-                    mapData = Utils.Compress(pkg.GetArray());
+                    if (!pins.SequenceEqual(__pins))
+                        __pins = pins;
                 }
 
-                if (mapData is { Length: > 0 })
+                if (ReferenceEquals(pins, __pins) || zdo.GetByteArray(ZDOVars.s_data) is null)
                 {
-                    zdo.Set(ZDOVars.s_data, mapData);
+                    existingPins?.Clear();
+                    ZPackage pkg;
+                    byte[]? data = null; //zdo.GetByteArray(ZDOVars.s_data);
+                    //if (data is not null)
+                    //{
+                    //    data = Utils.Decompress(data);
+                    //    pkg = new ZPackage(data);
+                    //    var version = pkg.ReadInt();
+                    //    if (version is not 3)
+                    //    {
+                    //        Logger.LogWarning($"MapTable data version {version} is not supported");
+                    //        continue;
+                    //    }
+                    //    data = pkg.ReadByteArray();
+                    //    if (data.Length != Minimap.instance.m_textureSize * Minimap.instance.m_textureSize)
+                    //    {
+                    //        Logger.LogWarning("Invalid explored map data length");
+                    //        data = null;
+                    //    }
+
+                    //    var pinCount = pkg.ReadInt();
+                    //    existingPins ??= new(pinCount);
+                    //    if (existingPins.Capacity < pinCount)
+                    //        existingPins.Capacity = pinCount;
+
+                    //    foreach (var i in Enumerable.Range(0, pinCount))
+                    //    {
+                    //        try
+                    //        {
+                    //            var ownerId = pkg.ReadLong();
+                    //            if (ownerId != PluginGuidHash)
+                    //                existingPins.Add(new(ownerId,
+                    //                    pkg.ReadString(),
+                    //                    pkg.ReadVector3(),
+                    //                    (Minimap.PinType)pkg.ReadInt(),
+                    //                    pkg.ReadBool(),
+                    //                    pkg.ReadString()));
+                    //        }
+                    //        catch (EndOfStreamException ex)
+                    //        {
+                    //            data = null;
+                    //            Logger.LogError($"Error reading pin {i} of {pinCount}: {ex}");
+                    //        }
+                    //    }
+                    //}
+
+                    /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
+                    pkg = new ZPackage();
+                    pkg.Write(3);
+
+                    pkg.Write(data ?? (emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
+
+                    int pinCount = pins.Count + (existingPins?.Count ?? 0);
+                    pkg.Write(pinCount);
+                    foreach (var pin in pins.Concat(existingPins?.AsEnumerable() ?? []))
+                    {
+                        pkg.Write(pin.OwnerId);
+                        pkg.Write(pin.Tag);
+                        pkg.Write(pin.Pos);
+                        pkg.Write((int)pin.Type);
+                        pkg.Write(pin.IsChecked);
+                        pkg.Write(pin.Author);
+                    }
+
+                    zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
+
+                    Logger.LogInfo($"{pinCount} pins written to map table {zdo.m_uid}");
+
                     /// Call <see cref="Chat.RPC_ChatMessage"/>
                     ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.Everybody, "ChatMessage", zdo.GetPosition(), (int)Talker.Type.Shout, new UserInfo { Gamertag = "Server", Name = "Server", NetworkUserId = PrivilegeManager.GetNetworkUserId() }, "MapTable updated", PrivilegeManager.GetNetworkUserId());
                 }
+            }
+            else if (__shipPrefabs.Contains(zdo.GetPrefab()))
+            {
+                __ships.Add(zdo.m_uid);
             }
             else if (zdo.GetBool(ZDOVars.s_tamed))
             {
@@ -215,8 +298,14 @@ public class Main : BaseUnityPlugin
             }
         }
 
+        if (invalidShips is { Count: > 0})
+        {
+            foreach (var x in invalidShips)
+                __ships.Remove(x);
+        }
+
         __zdos.Clear();
 
-        Logger.Log(watch.ElapsedMilliseconds > 50 ? LogLevel.Warning : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
+        Logger.Log(watch.ElapsedMilliseconds > MaxProcessingTimeMs ? LogLevel.Warning : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
     }
 }
