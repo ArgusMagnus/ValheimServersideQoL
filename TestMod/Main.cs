@@ -230,8 +230,7 @@ public class Main : BaseUnityPlugin
 
                     pkg.Write(data ?? (emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
 
-                    int pinCount = pins.Count + (existingPins?.Count ?? 0);
-                    pkg.Write(pinCount);
+                    pkg.Write(pins.Count + (existingPins?.Count ?? 0));
                     foreach (var pin in pins.Concat(existingPins?.AsEnumerable() ?? []))
                     {
                         pkg.Write(pin.OwnerId);
@@ -244,10 +243,8 @@ public class Main : BaseUnityPlugin
 
                     zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
 
-                    Logger.LogInfo($"{pinCount} pins written to map table {zdo.m_uid}");
-
-                    /// Call <see cref="Chat.RPC_ChatMessage"/>
-                    ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.Everybody, "ChatMessage", zdo.GetPosition(), (int)Talker.Type.Shout, new UserInfo { Gamertag = "Server", Name = "Server", NetworkUserId = PrivilegeManager.GetNetworkUserId() }, "MapTable updated", PrivilegeManager.GetNetworkUserId());
+                    /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
+                    ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.Everybody, "ShowMessage", (int)MessageHud.MessageType.TopLeft, "$piece_cartographytable updated");
                 }
             }
             else if (__shipPrefabs.Contains(zdo.GetPrefab()))
