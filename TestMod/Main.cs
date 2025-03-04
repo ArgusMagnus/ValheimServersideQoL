@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Collections.Concurrent;
 using UnityEngine;
 using System.Text.RegularExpressions;
-using System.Collections.Generic;
 
 namespace TestMod;
 
@@ -28,6 +27,7 @@ public class Main : BaseUnityPlugin
     static HashSet<int>? __fireplacePrefabs;
     static HashSet<int>? __containerPrefabs;
     static HashSet<int>? __shipPrefabs;
+    static IReadOnlyDictionary<int, string>? __pieceNames;
     static HashSet<ZDOID>? __ships;
 
     record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
@@ -110,6 +110,9 @@ public class Main : BaseUnityPlugin
             .GetValue(ZDOMan.instance)).Values.Where(x => __shipPrefabs.Contains(x.GetPrefab()))
             .Select(x => x.m_uid)
             .ToHashSet();
+        __pieceNames ??= ZNetScene.instance.m_prefabs.Select(x => (Prefab: x.name.GetStableHashCode(), Piece: x.GetComponent<Piece>()))
+            .Where(x => x.Piece is not null)
+            .ToDictionary(x => x.Prefab, x => x.Piece.m_name);
 
         //var icons = Minimap.instance.m_locationIcons.Select(x => x.m_name).Concat(Minimap.instance.m_icons.Select(x => x.m_name.ToString()));
 
@@ -168,7 +171,7 @@ public class Main : BaseUnityPlugin
                                 return y;
                             })
                             .Where(x => x is not null)
-                            .Select(x => new Pin(PluginGuidHash, $"${ZNetScene.instance.GetPrefab(x.GetPrefab())?.name}", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid)))
+                            .Select(x => new Pin(PluginGuidHash, __pieceNames.TryGetValue(x!.GetPrefab(), out var name) ? name : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid)))
                         .OrderBy(x => x.Pos.x).ThenBy(x => x.Pos.z)
                         .ToList();
 
@@ -176,11 +179,13 @@ public class Main : BaseUnityPlugin
                         __pins = pins;
                 }
 
-                if (ReferenceEquals(pins, __pins) || zdo.GetByteArray(ZDOVars.s_data) is null)
+                byte[]? data = null;
+                if (ReferenceEquals(pins, __pins) || (data = zdo.GetByteArray(ZDOVars.s_data)) is null)
                 {
                     existingPins?.Clear();
                     ZPackage pkg;
-                    byte[]? data = null; //zdo.GetByteArray(ZDOVars.s_data);
+                    data = null;
+                    //data ??= zdo.GetByteArray(ZDOVars.s_data);
                     //if (data is not null)
                     //{
                     //    data = Utils.Decompress(data);
@@ -220,6 +225,7 @@ public class Main : BaseUnityPlugin
                     //        {
                     //            data = null;
                     //            Logger.LogError($"Error reading pin {i} of {pinCount}: {ex}");
+                    //            break;
                     //        }
                     //    }
                     //}
