@@ -32,11 +32,13 @@ public class Main : BaseUnityPlugin
     static readonly ConcurrentDictionary<string, ConcurrentDictionary<ZDOID, Inventory>> __containersByItemName = new();
 
     static ulong __executeCounter;
+    static readonly HashSet<Vector2i> __playerSectors = new();
+    static int __playerSectorsHash;
     static readonly List<ZDO> __currentZdos = new();
-    static int __currentZdoIdx;
 
     record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
-    static IReadOnlyList<Pin> __pins = [];
+    static readonly List<Pin> __pins = new();
+    static int __pinsHash;
 
     static class Hashes
     {
@@ -154,21 +156,33 @@ public class Main : BaseUnityPlugin
         }
 
         var peers = ZNet.instance.GetPeers();
-        var playerSectors = peers.Select(x => ZoneSystem.GetZone(x.m_refPos)).ToHashSet();
+        __playerSectors.Clear();
+        (var oldPlayerSectorHash, __playerSectorsHash) = (__playerSectorsHash, 0);
+        foreach (var sector in peers.Select(x => ZoneSystem.GetZone(x.m_refPos)))
+        {
+            if (__playerSectors.Add(sector))
+                __playerSectorsHash = (__playerSectorsHash, sector).GetHashCode();
+        }
 
-        __currentZdos.Clear();
-        foreach (var sector in playerSectors)
-            ZDOMan.instance.FindSectorObjects(sector, 1, 0, __currentZdos);
+        if (oldPlayerSectorHash != __playerSectorsHash)
+            __currentZdos.Clear();
+
+        if (__currentZdos is { Count: 0})
+        {
+            foreach (var sector in __playerSectors)
+                ZDOMan.instance.FindSectorObjects(sector, 1, 0, __currentZdos);
+        }
 
         string? timeText = null;
-        IReadOnlyList<Pin>? pins = null;
         List<Pin>? existingPins = null;
         byte[]? emptyExplored = null;
+        __pins.Clear();
+        int oldPinsHash = 0;
 
-        for (int idx = 0; idx < __currentZdos.Count && watch.ElapsedMilliseconds < MaxProcessingTimeMs; ++idx, ++__currentZdoIdx)
+        while (__currentZdos is { Count: > 0 } && watch.ElapsedMilliseconds < MaxProcessingTimeMs)
         {
-            __currentZdoIdx %= __currentZdos.Count;
-            var zdo = __currentZdos[__currentZdoIdx];
+            var zdo = __currentZdos[__currentZdos.Count - 1];
+            __currentZdos.RemoveAt(__currentZdos.Count - 1);
 
             if (zdo.GetPrefab() == SignEx.Prefab)
             {
@@ -194,9 +208,9 @@ public class Main : BaseUnityPlugin
             }
             else if (zdo.GetPrefab() == MapTableEx.Prefab)
             {
-                if (pins is null)
+                if (__pins is { Count: 0})
                 {
-                    pins = ZDOMan.instance.GetPortals().Select(x => new Pin(PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, PluginGuid))
+                    foreach (var pin in ZDOMan.instance.GetPortals().Select(x => new Pin(PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, PluginGuid))
                         .Concat(__ships
                             .Select(x =>
                             {
@@ -206,15 +220,16 @@ public class Main : BaseUnityPlugin
                                 return y;
                             })
                             .Where(x => x is not null)
-                            .Select(x => new Pin(PluginGuidHash, __pieceNames.TryGetValue(x!.GetPrefab(), out var name) ? name : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid)))
-                        .OrderBy(x => x.Pos.x).ThenBy(x => x.Pos.z)
-                        .ToList();
+                            .Select(x => new Pin(PluginGuidHash, __pieceNames.TryGetValue(x!.GetPrefab(), out var name) ? name : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid))))
+                    {
+                        __pins.Add(pin);
+                        oldPinsHash = (oldPinsHash, pin).GetHashCode();
+                    }
 
-                    if (!pins.SequenceEqual(__pins))
-                        __pins = pins;
+                    (__pinsHash, oldPinsHash) = (oldPinsHash, __pinsHash);
                 }
 
-                if (!ReferenceEquals(pins, __pins) && __dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                if (__pinsHash == oldPinsHash && __dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                     continue;
                 
                 existingPins?.Clear();
@@ -256,8 +271,8 @@ public class Main : BaseUnityPlugin
 
                 pkg.Write(data ?? (emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
 
-                pkg.Write(pins.Count + (existingPins?.Count ?? 0));
-                foreach (var pin in pins.Concat(existingPins?.AsEnumerable() ?? []))
+                pkg.Write(__pins.Count + (existingPins?.Count ?? 0));
+                foreach (var pin in __pins.Concat(existingPins?.AsEnumerable() ?? []))
                 {
                     pkg.Write(pin.OwnerId);
                     pkg.Write(pin.Tag);
@@ -468,6 +483,7 @@ public class Main : BaseUnityPlugin
                         containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
                         __dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
                         data.m_stack = stack;
+                        zdo.SetOwner(ZDOMan.GetSessionID());
                         ItemDrop.SaveToZDO(data, zdo);
                         ShowMessage(MessageHud.MessageType.TopLeft, $"Dropped {shared.m_name} moved to {__pieceNames[containerZdo.GetPrefab()]}");
                     }
