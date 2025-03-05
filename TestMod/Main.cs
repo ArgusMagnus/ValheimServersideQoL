@@ -33,9 +33,9 @@ public class Main : BaseUnityPlugin
     readonly ConcurrentDictionary<string, ConcurrentDictionary<ZDOID, Inventory>> _containersByItemName = new();
 
     ulong _executeCounter;
-    readonly HashSet<Vector2i> _playerSectors = new();
-    int _playerSectorsHash;
-    readonly List<ZDO> _currentZdos = new();
+    record SectorInfo(List<ZNetPeer> Peers, List<ZDO> ZDOs);
+    ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
+    ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
     record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
     readonly List<Pin> _pins = new();
@@ -137,8 +137,11 @@ public class Main : BaseUnityPlugin
                 .GetField("m_objectsByID", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                 .GetValue(ZDOMan.instance)).Values.Where(x => _shipPrefabs.Contains(x.GetPrefab())))
                 _ships.Add(zdo.m_uid);
+
+            return;
         }
-        else if (_executeCounter % 60 is 0)
+
+        if (_executeCounter % 60 is 0)
         {
             foreach (var id in _dataRevisions.Keys)
             {
@@ -157,21 +160,21 @@ public class Main : BaseUnityPlugin
         }
 
         var peers = ZNet.instance.GetPeers();
+        (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
         _playerSectors.Clear();
-        (var oldPlayerSectorHash, _playerSectorsHash) = (_playerSectorsHash, 0);
-        foreach (var sector in peers.Select(x => ZoneSystem.GetZone(x.m_refPos)))
+        foreach (var peer in peers)
         {
-            if (_playerSectors.Add(sector))
-                _playerSectorsHash = (_playerSectorsHash, sector).GetHashCode();
-        }
-
-        if (oldPlayerSectorHash != _playerSectorsHash)
-            _currentZdos.Clear();
-
-        if (_currentZdos is { Count: 0})
-        {
-            foreach (var sector in _playerSectors)
-                ZDOMan.instance.FindSectorObjects(sector, 1, 0, _currentZdos);
+            var sector = ZoneSystem.GetZone(peer.m_refPos);
+            if (_playerSectorsOld.TryRemove(sector, out var sectorInfo))
+            {
+                _playerSectors.TryAdd(sector, sectorInfo);
+                sectorInfo.Peers.Clear();
+                sectorInfo.Peers.Add(peer);
+            }
+            else if (_playerSectors.TryGetValue(sector, out sectorInfo))
+                sectorInfo.Peers.Add(peer);
+            else
+                _playerSectors.TryAdd(sector, new([peer], []));
         }
 
         string? timeText = null;
@@ -179,336 +182,344 @@ public class Main : BaseUnityPlugin
         byte[]? emptyExplored = null;
         _pins.Clear();
         int oldPinsHash = 0;
-
-        while (_currentZdos is { Count: > 0 } && watch.ElapsedMilliseconds < MaxProcessingTimeMs)
+        foreach (var (sector, sectorInfo) in _playerSectors.Select(x => (x.Key, x.Value)))
         {
-            var zdo = _currentZdos[_currentZdos.Count - 1];
-            _currentZdos.RemoveAt(_currentZdos.Count - 1);
+            if (watch.ElapsedMilliseconds > MaxProcessingTimeMs)
+                break;
+            if (sectorInfo is { ZDOs: { Count: 0 } })
+                ZDOMan.instance.FindSectorObjects(sector, 1, 0, sectorInfo.ZDOs);
 
-            if (zdo.GetPrefab() == SignEx.Prefab)
+            while (sectorInfo is { ZDOs: { Count: > 0 } } && watch.ElapsedMilliseconds < MaxProcessingTimeMs)
             {
-                var text = zdo.GetString(ZDOVars.s_text);
-                var newText = _clockRegex.Replace(text, match =>
-                {
-                    if (timeText is null)
-                    {
-                        var dayFraction = EnvMan.instance.GetDayFraction();
-                        var emojiIdx = (int)Math.Floor(__clockEmojis.Count * 2 * dayFraction) % __clockEmojis.Count;
-                        var time = TimeSpan.FromDays(dayFraction);
-                        timeText = $@"{__clockEmojis[emojiIdx]} {time:hh\:mm}";
-                    }
-                    return timeText;
-                });
-
-                if (text == newText)
+                var zdo = sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
+                sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
+                if (!zdo.IsValid())
                     continue;
 
-                Logger.LogDebug($"Changing sign text from '{text}' to '{newText}'");
-                zdo.Set(ZDOVars.s_text, newText);
-                //zdo.Set(ZDOVars.s_author, );
-            }
-            else if (zdo.GetPrefab() == MapTableEx.Prefab)
-            {
-                if (_pins is { Count: 0})
+                if (zdo.GetPrefab() == SignEx.Prefab)
                 {
-                    foreach (var pin in ZDOMan.instance.GetPortals().Select(x => new Pin(PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, PluginGuid))
-                        .Concat(_ships
-                            .Select(x =>
-                            {
-                                var y = ZDOMan.instance.GetZDO(x);
-                                if (y is null)
-                                    _ships.Remove(x);
-                                return y;
-                            })
-                            .Where(x => x is not null)
-                            .Select(x => new Pin(PluginGuidHash, _pieceNames.TryGetValue(x!.GetPrefab(), out var name) ? name : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid))))
+                    var text = zdo.GetString(ZDOVars.s_text);
+                    var newText = _clockRegex.Replace(text, match =>
                     {
-                        _pins.Add(pin);
-                        oldPinsHash = (oldPinsHash, pin).GetHashCode();
-                    }
+                        if (timeText is null)
+                        {
+                            var dayFraction = EnvMan.instance.GetDayFraction();
+                            var emojiIdx = (int)Math.Floor(__clockEmojis.Count * 2 * dayFraction) % __clockEmojis.Count;
+                            var time = TimeSpan.FromDays(dayFraction);
+                            timeText = $@"{__clockEmojis[emojiIdx]} {time:hh\:mm}";
+                        }
+                        return timeText;
+                    });
 
-                    (_pinsHash, oldPinsHash) = (oldPinsHash, _pinsHash);
-                }
-
-                if (_pinsHash == oldPinsHash && _dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
-                    continue;
-                
-                existingPins?.Clear();
-                ZPackage pkg;
-                var data = zdo.GetByteArray(ZDOVars.s_data);
-                if (data is not null)
-                {
-                    data = Utils.Decompress(data);
-                    pkg = new ZPackage(data);
-                    var version = pkg.ReadInt();
-                    if (version is not 3)
-                    {
-                        Logger.LogWarning($"MapTable data version {version} is not supported");
+                    if (text == newText)
                         continue;
-                    }
-                    data = pkg.ReadByteArray();
-                    if (data.Length != Minimap.instance.m_textureSize * Minimap.instance.m_textureSize)
-                    {
-                        Logger.LogWarning("Invalid explored map data length");
-                        data = null;
-                    }
 
-                    var pinCount = pkg.ReadInt();
-                    existingPins ??= new(pinCount);
-                    if (existingPins.Capacity < pinCount)
-                        existingPins.Capacity = pinCount;
-
-                    foreach (var i in Enumerable.Range(0, pinCount))
-                    {
-                        var pin = new Pin(pkg.ReadLong(), pkg.ReadString(), pkg.ReadVector3(), (Minimap.PinType)pkg.ReadInt(), pkg.ReadBool(), pkg.ReadString());
-                        if (pin.OwnerId != PluginGuidHash)
-                            existingPins.Add(pin);
-                    }
+                    Logger.LogDebug($"Changing sign text from '{text}' to '{newText}'");
+                    zdo.Set(ZDOVars.s_text, newText);
+                    //zdo.Set(ZDOVars.s_author, );
                 }
-
-                /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
-                pkg = new ZPackage();
-                pkg.Write(3);
-
-                pkg.Write(data ?? (emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
-
-                pkg.Write(_pins.Count + (existingPins?.Count ?? 0));
-                foreach (var pin in _pins.Concat(existingPins?.AsEnumerable() ?? []))
+                else if (zdo.GetPrefab() == MapTableEx.Prefab)
                 {
-                    pkg.Write(pin.OwnerId);
-                    pkg.Write(pin.Tag);
-                    pkg.Write(pin.Pos);
-                    pkg.Write((int)pin.Type);
-                    pkg.Write(pin.IsChecked);
-                    pkg.Write(pin.Author);
-                }
-
-                zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
-                _dataRevisions[zdo.m_uid] = zdo.DataRevision;
-
-                ShowMessage(MessageHud.MessageType.TopLeft, "$msg_mapsaved");
-            }
-
-            if (_shipPrefabs.Contains(zdo.GetPrefab()))
-                _ships.Add(zdo.m_uid);
-
-            if (zdo.GetBool(ZDOVars.s_tamed))
-            {
-                if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
-                    continue;
-
-                zdo.Set(ZDOVarsEx.HasFields, true);
-                zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
-                zdo.Set(ZDOVarsEx.TameableCommandable, true);
-                _dataRevisions[zdo.m_uid] = zdo.DataRevision;
-
-                //zdo.GetConnection().m_type
-                //zdo.GetConnectionType() is ZDOExtraData.ConnectionType.Target
-                //if (zdo.GetString(ZDOVars.s_follow) is { Length: > 0} follow)
-                //{
-                //    Logger.LogInfo($"Following {follow}");
-                //    if (peers.FirstOrDefault(x => x.m_playerName == follow) is { } player && Utils.DistanceXZ(player.m_refPos, zdo.GetPosition()) < 10)
-                //    {
-                //        Logger.LogInfo($"Pause following {follow}");
-                //        __tameFollow[zdo] = follow;
-                //        zdo.Set($"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}".GetStableHashCode(), true);
-                //        zdo.Set(ZDOVars.s_follow, "");
-                //    }
-                //}
-                //else if (__tameFollow.TryGetValue(zdo, out follow) && !string.IsNullOrEmpty(follow))
-                //{
-                //    if (peers.FirstOrDefault(x => x.m_playerName == follow) is { } player && Utils.DistanceXZ(player.m_refPos, zdo.GetPosition()) >= 10)
-                //    {
-                //        Logger.LogInfo($"Resume following {follow}");
-                //        __tameFollow[zdo] = null;
-                //        zdo.Set(ZDOVars.s_follow, follow);
-                //    }
-                //}
-            }
-
-            if (_fireplacePrefabs.Contains(zdo.GetPrefab()))
-            {
-                if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
-                    continue;
-
-                zdo.Set(ZDOVarsEx.HasFields, true);
-                zdo.Set(ZDOVarsEx.GetHasFields<Fireplace>(), true);
-                // setting FireplaceInfiniteFuel to true works, but removes the turn on/off hover text (turning on/off still works)
-                //zdo.Set(ZDOVarsEx.FireplaceInfiniteFuel, false);
-                zdo.Set(ZDOVarsEx.FireplaceFuelPerSec, 0f);
-                zdo.Set(ZDOVarsEx.FireplaceCanTurnOff, true);
-                zdo.Set(ZDOVarsEx.FireplaceCanRefill, false);
-                _dataRevisions[zdo.m_uid] = zdo.DataRevision;
-            }
-
-            if (_containerPrefabs.TryGetValue(zdo.GetPrefab(), out var container) && _pieceNames.TryGetValue(zdo.GetPrefab(), out var containerName))
-            {
-                if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
-                    continue;
-
-                if (zdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 5)
-                    continue; // in use or player to close
-
-                _dataRevisions[zdo.m_uid] = zdo.DataRevision;
-
-                var data = zdo.GetString(ZDOVars.s_items);
-                if (string.IsNullOrEmpty(data))
-                    continue;
-
-                /// <see cref="Container.Load"/>
-                /// <see cref="Container.Save"/>
-                var width = zdo.GetInt(ZDOVarsEx.ContainerWidth, container.m_width);
-                var height = zdo.GetInt(ZDOVarsEx.ContainerHeight, container.m_height);
-                Inventory inventory = new(container.m_name, container.m_bkg, width, height);
-                inventory.Load(new(data));
-                var changed = false;
-                var x = 0;
-                var y = 0;
-                foreach (var item in inventory.GetAllItems()
-                    .OrderBy(x => x.IsEquipable() ? 0 : 1)
-                    .ThenBy(x => x.m_shared.m_name)
-                    .ThenByDescending(x => x.m_stack))
-                {
-                    var dict = _containersByItemName.GetOrAdd(item.m_shared.m_name, static _ => new());
-                    dict[zdo.m_uid] = inventory;
-                    if (item.m_gridPos.x != x || item.m_gridPos.y != y)
+                    if (_pins is { Count: 0 })
                     {
-                        item.m_gridPos.x = x;
-                        item.m_gridPos.y = y;
-                        changed = true;
+                        foreach (var pin in ZDOMan.instance.GetPortals().Select(x => new Pin(PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, PluginGuid))
+                            .Concat(_ships
+                                .Select(x =>
+                                {
+                                    var y = ZDOMan.instance.GetZDO(x);
+                                    if (y is null)
+                                        _ships.Remove(x);
+                                    return y;
+                                })
+                                .Where(x => x is not null)
+                                .Select(x => new Pin(PluginGuidHash, _pieceNames.TryGetValue(x!.GetPrefab(), out var name) ? name : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid))))
+                        {
+                            _pins.Add(pin);
+                            oldPinsHash = (oldPinsHash, pin).GetHashCode();
+                        }
+
+                        (_pinsHash, oldPinsHash) = (oldPinsHash, _pinsHash);
                     }
-                    if (++x >= width)
+
+                    if (_pinsHash == oldPinsHash && _dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                        continue;
+
+                    existingPins?.Clear();
+                    ZPackage pkg;
+                    var data = zdo.GetByteArray(ZDOVars.s_data);
+                    if (data is not null)
                     {
-                        x = 0;
-                        y++;
+                        data = Utils.Decompress(data);
+                        pkg = new ZPackage(data);
+                        var version = pkg.ReadInt();
+                        if (version is not 3)
+                        {
+                            Logger.LogWarning($"MapTable data version {version} is not supported");
+                            continue;
+                        }
+                        data = pkg.ReadByteArray();
+                        if (data.Length != Minimap.instance.m_textureSize * Minimap.instance.m_textureSize)
+                        {
+                            Logger.LogWarning("Invalid explored map data length");
+                            data = null;
+                        }
+
+                        var pinCount = pkg.ReadInt();
+                        existingPins ??= new(pinCount);
+                        if (existingPins.Capacity < pinCount)
+                            existingPins.Capacity = pinCount;
+
+                        foreach (var i in Enumerable.Range(0, pinCount))
+                        {
+                            var pin = new Pin(pkg.ReadLong(), pkg.ReadString(), pkg.ReadVector3(), (Minimap.PinType)pkg.ReadInt(), pkg.ReadBool(), pkg.ReadString());
+                            if (pin.OwnerId != PluginGuidHash)
+                                existingPins.Add(pin);
+                        }
                     }
-                }
 
-                if (!changed)
-                    continue;
+                    /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
+                    pkg = new ZPackage();
+                    pkg.Write(3);
 
-                if (zdo.GetBool(ZDOVars.s_inUse))
-                    _dataRevisions.TryRemove(zdo.m_uid, out _);
-                else
-                {
-                    var pkg = new ZPackage();
-                    inventory.Save(pkg);
-                    data = pkg.GetBase64();
-                    zdo.Set(ZDOVars.s_items, data);
+                    pkg.Write(data ?? (emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
+
+                    pkg.Write(_pins.Count + (existingPins?.Count ?? 0));
+                    foreach (var pin in _pins.Concat(existingPins?.AsEnumerable() ?? []))
+                    {
+                        pkg.Write(pin.OwnerId);
+                        pkg.Write(pin.Tag);
+                        pkg.Write(pin.Pos);
+                        pkg.Write((int)pin.Type);
+                        pkg.Write(pin.IsChecked);
+                        pkg.Write(pin.Author);
+                    }
+
+                    zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
                     _dataRevisions[zdo.m_uid] = zdo.DataRevision;
-                    ShowMessage(MessageHud.MessageType.TopLeft, $"{containerName} sorted");
+
+                    ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, "$msg_mapsaved");
                 }
-            }
-            
-            if (_itemDropPrefabs.Contains(zdo.GetPrefab()))
-            {
-                if (peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 10)
-                    continue; // player to close
 
-                var shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared;
-                if (!_containersByItemName.TryGetValue(shared.m_name, out var dict))
-                    continue;
+                if (_shipPrefabs.Contains(zdo.GetPrefab()))
+                    _ships.Add(zdo.m_uid);
 
-                ItemDrop.ItemData? data = null;
-                HashSet<Vector2i>? usedSlots = null;
-
-                foreach (var (containerZdoId, inventory) in dict.Select(x => (x.Key, x.Value)))
+                if (zdo.GetBool(ZDOVars.s_tamed))
                 {
-                    if (ZDOMan.instance.GetZDO(containerZdoId) is not { } containerZdo)
-                    {
-                        dict.TryRemove(containerZdoId, out _);
-                        continue;
-                    }
-
-                    if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
-                        continue; // inventory not up-to-date
-
-                    if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > ZoneSystem.c_ZoneSize)
+                    if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                         continue;
 
-                    if (containerZdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, containerZdo.GetPosition())) < 5)
+                    zdo.Set(ZDOVarsEx.HasFields, true);
+                    zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
+                    zdo.Set(ZDOVarsEx.TameableCommandable, true);
+                    _dataRevisions[zdo.m_uid] = zdo.DataRevision;
+
+                    //zdo.GetConnection().m_type
+                    //zdo.GetConnectionType() is ZDOExtraData.ConnectionType.Target
+                    //if (zdo.GetString(ZDOVars.s_follow) is { Length: > 0} follow)
+                    //{
+                    //    Logger.LogInfo($"Following {follow}");
+                    //    if (peers.FirstOrDefault(x => x.m_playerName == follow) is { } player && Utils.DistanceXZ(player.m_refPos, zdo.GetPosition()) < 10)
+                    //    {
+                    //        Logger.LogInfo($"Pause following {follow}");
+                    //        __tameFollow[zdo] = follow;
+                    //        zdo.Set($"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}".GetStableHashCode(), true);
+                    //        zdo.Set(ZDOVars.s_follow, "");
+                    //    }
+                    //}
+                    //else if (__tameFollow.TryGetValue(zdo, out follow) && !string.IsNullOrEmpty(follow))
+                    //{
+                    //    if (peers.FirstOrDefault(x => x.m_playerName == follow) is { } player && Utils.DistanceXZ(player.m_refPos, zdo.GetPosition()) >= 10)
+                    //    {
+                    //        Logger.LogInfo($"Resume following {follow}");
+                    //        __tameFollow[zdo] = null;
+                    //        zdo.Set(ZDOVars.s_follow, follow);
+                    //    }
+                    //}
+                }
+
+                if (_fireplacePrefabs.Contains(zdo.GetPrefab()))
+                {
+                    if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                        continue;
+
+                    zdo.Set(ZDOVarsEx.HasFields, true);
+                    zdo.Set(ZDOVarsEx.GetHasFields<Fireplace>(), true);
+                    // setting FireplaceInfiniteFuel to true works, but removes the turn on/off hover text (turning on/off still works)
+                    //zdo.Set(ZDOVarsEx.FireplaceInfiniteFuel, false);
+                    zdo.Set(ZDOVarsEx.FireplaceFuelPerSec, 0f);
+                    zdo.Set(ZDOVarsEx.FireplaceCanTurnOff, true);
+                    zdo.Set(ZDOVarsEx.FireplaceCanRefill, false);
+                    _dataRevisions[zdo.m_uid] = zdo.DataRevision;
+                }
+
+                if (_containerPrefabs.TryGetValue(zdo.GetPrefab(), out var container) && _pieceNames.TryGetValue(zdo.GetPrefab(), out var containerName))
+                {
+                    if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
+                        continue;
+
+                    if (zdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 5)
                         continue; // in use or player to close
 
-                    if (data is null)
+                    _dataRevisions[zdo.m_uid] = zdo.DataRevision;
+
+                    var data = zdo.GetString(ZDOVars.s_items);
+                    if (string.IsNullOrEmpty(data))
+                        continue;
+
+                    /// <see cref="Container.Load"/>
+                    /// <see cref="Container.Save"/>
+                    var width = zdo.GetInt(ZDOVarsEx.ContainerWidth, container.m_width);
+                    var height = zdo.GetInt(ZDOVarsEx.ContainerHeight, container.m_height);
+                    Inventory inventory = new(container.m_name, container.m_bkg, width, height);
+                    inventory.Load(new(data));
+                    var changed = false;
+                    var x = 0;
+                    var y = 0;
+                    foreach (var item in inventory.GetAllItems()
+                        .OrderBy(x => x.IsEquipable() ? 0 : 1)
+                        .ThenBy(x => x.m_shared.m_name)
+                        .ThenByDescending(x => x.m_stack))
                     {
-                        data = new() { m_shared = shared };
-                        PrivateAccessor.LoadFromZDO(data, zdo);
-                    }
-
-                    var stack = data.m_stack;
-                    usedSlots ??= new();
-                    usedSlots.Clear();
-
-                    foreach (var slot in inventory.GetAllItems())
-                    {
-                        usedSlots.Add(new(slot.m_gridPos.x, slot.m_gridPos.y));
-                        var maxAmount = slot.m_shared.m_maxStackSize - slot.m_stack;
-                        if (slot.m_shared.m_name != shared.m_name || maxAmount <= 0 || slot.m_quality != data.m_quality || slot.m_variant != data.m_variant)
-                            continue;
-
-                        var amount = Math.Min(stack, maxAmount);
-                        slot.m_stack += amount;
-                        stack -= amount;
-                        if (stack is 0)
-                            break;
-                    }
-
-                    if (!ReferenceEquals(inventory.GetAllItems(), inventory.GetAllItems()))
-                        throw new Exception("Algorithm assumption violated");
-
-                    for (var emptySlots = inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
-                    {
-                        var amount = Math.Min(stack, shared.m_maxStackSize);
-
-                        var slot = data.Clone();
-                        slot.m_stack = amount;
-                        for (int x = 0; x < inventory.GetWidth(); x++)
+                        var dict = _containersByItemName.GetOrAdd(item.m_shared.m_name, static _ => new());
+                        dict[zdo.m_uid] = inventory;
+                        if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                         {
-                            for (int y = 0; y < inventory.GetHeight(); y++)
-                            {
-                                if (!usedSlots.Contains(new(x,y)))
-                                {
-                                    (slot.m_gridPos.x, slot.m_gridPos.y) = (x, y);
-                                    break;
-                                }
-                            }
+                            item.m_gridPos.x = x;
+                            item.m_gridPos.y = y;
+                            changed = true;
                         }
-                        inventory.GetAllItems().Add(slot);
-                        stack -= amount;
+                        if (++x >= width)
+                        {
+                            x = 0;
+                            y++;
+                        }
                     }
 
-                    if (stack != data.m_stack && !containerZdo.GetBool(ZDOVars.s_inUse))
+                    if (!changed)
+                        continue;
+
+                    if (zdo.GetBool(ZDOVars.s_inUse))
+                        _dataRevisions.TryRemove(zdo.m_uid, out _);
+                    else
                     {
                         var pkg = new ZPackage();
                         inventory.Save(pkg);
-                        containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
-                        _dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
-                        data.m_stack = stack;
-                        zdo.SetOwner(ZDOMan.GetSessionID());
-                        ItemDrop.SaveToZDO(data, zdo);
-                        ShowMessage(MessageHud.MessageType.TopLeft, $"Dropped {shared.m_name} moved to {_pieceNames[containerZdo.GetPrefab()]}");
+                        data = pkg.GetBase64();
+                        zdo.Set(ZDOVars.s_items, data);
+                        _dataRevisions[zdo.m_uid] = zdo.DataRevision;
+                        ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"{containerName} sorted");
                     }
-
-                    if (data.m_stack is 0)
-                        break;
                 }
 
-                if (data?.m_stack is 0)
+                if (_itemDropPrefabs.Contains(zdo.GetPrefab()))
                 {
-                    zdo.SetOwner(ZDOMan.GetSessionID());
-                    ZDOMan.instance.DestroyZDO(zdo);
+                    if (peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 10)
+                        continue; // player to close
+
+                    var shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared;
+                    if (!_containersByItemName.TryGetValue(shared.m_name, out var dict))
+                        continue;
+
+                    ItemDrop.ItemData? data = null;
+                    HashSet<Vector2i>? usedSlots = null;
+
+                    foreach (var (containerZdoId, inventory) in dict.Select(x => (x.Key, x.Value)))
+                    {
+                        if (ZDOMan.instance.GetZDO(containerZdoId) is not { } containerZdo)
+                        {
+                            dict.TryRemove(containerZdoId, out _);
+                            continue;
+                        }
+
+                        if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
+                            continue; // inventory not up-to-date
+
+                        if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > ZoneSystem.c_ZoneSize)
+                            continue;
+
+                        if (containerZdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, containerZdo.GetPosition())) < 5)
+                            continue; // in use or player to close
+
+                        if (data is null)
+                        {
+                            data = new() { m_shared = shared };
+                            PrivateAccessor.LoadFromZDO(data, zdo);
+                        }
+
+                        var stack = data.m_stack;
+                        usedSlots ??= new();
+                        usedSlots.Clear();
+
+                        foreach (var slot in inventory.GetAllItems())
+                        {
+                            usedSlots.Add(new(slot.m_gridPos.x, slot.m_gridPos.y));
+                            var maxAmount = slot.m_shared.m_maxStackSize - slot.m_stack;
+                            if (slot.m_shared.m_name != shared.m_name || maxAmount <= 0 || slot.m_quality != data.m_quality || slot.m_variant != data.m_variant)
+                                continue;
+
+                            var amount = Math.Min(stack, maxAmount);
+                            slot.m_stack += amount;
+                            stack -= amount;
+                            if (stack is 0)
+                                break;
+                        }
+
+                        if (!ReferenceEquals(inventory.GetAllItems(), inventory.GetAllItems()))
+                            throw new Exception("Algorithm assumption violated");
+
+                        for (var emptySlots = inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
+                        {
+                            var amount = Math.Min(stack, shared.m_maxStackSize);
+
+                            var slot = data.Clone();
+                            slot.m_stack = amount;
+                            for (int x = 0; x < inventory.GetWidth(); x++)
+                            {
+                                for (int y = 0; y < inventory.GetHeight(); y++)
+                                {
+                                    if (!usedSlots.Contains(new(x, y)))
+                                    {
+                                        (slot.m_gridPos.x, slot.m_gridPos.y) = (x, y);
+                                        break;
+                                    }
+                                }
+                            }
+                            inventory.GetAllItems().Add(slot);
+                            stack -= amount;
+                        }
+
+                        if (stack != data.m_stack && !containerZdo.GetBool(ZDOVars.s_inUse))
+                        {
+                            var pkg = new ZPackage();
+                            inventory.Save(pkg);
+                            containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
+                            _dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+                            data.m_stack = stack;
+                            zdo.SetOwner(ZDOMan.GetSessionID());
+                            ItemDrop.SaveToZDO(data, zdo);
+                            ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"Dropped {shared.m_name} moved to {_pieceNames[containerZdo.GetPrefab()]}");
+                        }
+
+                        if (data.m_stack is 0)
+                            break;
+                    }
+
+                    if (data?.m_stack is 0)
+                    {
+                        zdo.SetOwner(ZDOMan.GetSessionID());
+                        ZDOMan.instance.DestroyZDO(zdo);
+                    }
                 }
             }
         }
 
-        _currentZdos.Clear();
-
         Logger.Log(watch.ElapsedMilliseconds > MaxProcessingTimeMs ? LogLevel.Warning : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
     }
 
-    static void ShowMessage(MessageHud.MessageType type, string message)
+    static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
     {
         /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
-        ZRoutedRpc.instance.InvokeRoutedRPC(ZRoutedRpc.Everybody, "ShowMessage", (int)type, message);
+        foreach (var peer in peers)
+            ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "ShowMessage", (int)type, message);
     }
 }
