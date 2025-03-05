@@ -19,26 +19,27 @@ public class Main : BaseUnityPlugin
 
     //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);
     static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
+
     static readonly IReadOnlyList<string> __clockEmojis = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
-    static readonly Regex __clockRegex = new($@"(?:{string.Join("|", __clockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
+    readonly Regex _clockRegex = new($@"(?:{string.Join("|", __clockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
-    static readonly HashSet<int> __fireplacePrefabs = new();
-    static readonly IReadOnlyDictionary<int, Container> __containerPrefabs = new Dictionary<int, Container>();
-    static readonly HashSet<int> __shipPrefabs = new();
-    static readonly HashSet<int> __itemDropPrefabs = new();
-    static readonly IReadOnlyDictionary<int, string> __pieceNames = new Dictionary<int, string>();
-    static readonly ConcurrentHashSet<ZDOID> __ships = new();
-    static readonly ConcurrentDictionary<ZDOID, uint> __dataRevisions = new();
-    static readonly ConcurrentDictionary<string, ConcurrentDictionary<ZDOID, Inventory>> __containersByItemName = new();
+    readonly HashSet<int> _fireplacePrefabs = new();
+    readonly IReadOnlyDictionary<int, Container> _containerPrefabs = new Dictionary<int, Container>();
+    readonly HashSet<int> _shipPrefabs = new();
+    readonly HashSet<int> _itemDropPrefabs = new();
+    readonly IReadOnlyDictionary<int, string> _pieceNames = new Dictionary<int, string>();
+    readonly ConcurrentHashSet<ZDOID> _ships = new();
+    readonly ConcurrentDictionary<ZDOID, uint> _dataRevisions = new();
+    readonly ConcurrentDictionary<string, ConcurrentDictionary<ZDOID, Inventory>> _containersByItemName = new();
 
-    static ulong __executeCounter;
-    static readonly HashSet<Vector2i> __playerSectors = new();
-    static int __playerSectorsHash;
-    static readonly List<ZDO> __currentZdos = new();
+    ulong _executeCounter;
+    readonly HashSet<Vector2i> _playerSectors = new();
+    int _playerSectorsHash;
+    readonly List<ZDO> _currentZdos = new();
 
     record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
-    static readonly List<Pin> __pins = new();
-    static int __pinsHash;
+    readonly List<Pin> _pins = new();
+    int _pinsHash;
 
     static class Hashes
     {
@@ -113,7 +114,7 @@ public class Main : BaseUnityPlugin
 
         var watch = Stopwatch.StartNew();
 
-        if (__executeCounter++ is 0)
+        if (_executeCounter++ is 0)
         {
             foreach (var prefab in ZNetScene.instance.m_prefabs)
             {
@@ -121,31 +122,31 @@ public class Main : BaseUnityPlugin
                 int GetHash() => hash is 0 ? (hash = prefab.name.GetStableHashCode()) : hash;
 
                 if (prefab.TryGetComponent<Fireplace>(out _))
-                    __fireplacePrefabs.Add(GetHash());
+                    _fireplacePrefabs.Add(GetHash());
                 if (prefab.TryGetComponent<Container>(out var container))
-                    ((IDictionary<int, Container>)__containerPrefabs).Add(GetHash(), container);
+                    ((IDictionary<int, Container>)_containerPrefabs).Add(GetHash(), container);
                 if (prefab.TryGetComponent<Ship>(out _))
-                    __shipPrefabs.Add(GetHash());
+                    _shipPrefabs.Add(GetHash());
                 if (prefab.TryGetComponent<Piece>(out var piece))
-                    ((IDictionary<int, string>)__pieceNames).Add(GetHash(), piece.m_name);
+                    ((IDictionary<int, string>)_pieceNames).Add(GetHash(), piece.m_name);
                 if (prefab.TryGetComponent<ItemDrop>(out _))
-                    __itemDropPrefabs.Add(GetHash());
+                    _itemDropPrefabs.Add(GetHash());
             }
 
             foreach (var zdo in ((IReadOnlyDictionary<ZDOID, ZDO>)typeof(ZDOMan)
                 .GetField("m_objectsByID", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                .GetValue(ZDOMan.instance)).Values.Where(x => __shipPrefabs.Contains(x.GetPrefab())))
-                __ships.Add(zdo.m_uid);
+                .GetValue(ZDOMan.instance)).Values.Where(x => _shipPrefabs.Contains(x.GetPrefab())))
+                _ships.Add(zdo.m_uid);
         }
-        else if (__executeCounter % 60 is 0)
+        else if (_executeCounter % 60 is 0)
         {
-            foreach (var id in __dataRevisions.Keys)
+            foreach (var id in _dataRevisions.Keys)
             {
                 if (ZDOMan.instance.GetZDO(id) is null)
-                    __dataRevisions.TryRemove(id, out _);
+                    _dataRevisions.TryRemove(id, out _);
             }
 
-            foreach (var dict in __containersByItemName.Values)
+            foreach (var dict in _containersByItemName.Values)
             {
                 foreach (var id in dict.Keys)
                 {
@@ -156,38 +157,38 @@ public class Main : BaseUnityPlugin
         }
 
         var peers = ZNet.instance.GetPeers();
-        __playerSectors.Clear();
-        (var oldPlayerSectorHash, __playerSectorsHash) = (__playerSectorsHash, 0);
+        _playerSectors.Clear();
+        (var oldPlayerSectorHash, _playerSectorsHash) = (_playerSectorsHash, 0);
         foreach (var sector in peers.Select(x => ZoneSystem.GetZone(x.m_refPos)))
         {
-            if (__playerSectors.Add(sector))
-                __playerSectorsHash = (__playerSectorsHash, sector).GetHashCode();
+            if (_playerSectors.Add(sector))
+                _playerSectorsHash = (_playerSectorsHash, sector).GetHashCode();
         }
 
-        if (oldPlayerSectorHash != __playerSectorsHash)
-            __currentZdos.Clear();
+        if (oldPlayerSectorHash != _playerSectorsHash)
+            _currentZdos.Clear();
 
-        if (__currentZdos is { Count: 0})
+        if (_currentZdos is { Count: 0})
         {
-            foreach (var sector in __playerSectors)
-                ZDOMan.instance.FindSectorObjects(sector, 1, 0, __currentZdos);
+            foreach (var sector in _playerSectors)
+                ZDOMan.instance.FindSectorObjects(sector, 1, 0, _currentZdos);
         }
 
         string? timeText = null;
         List<Pin>? existingPins = null;
         byte[]? emptyExplored = null;
-        __pins.Clear();
+        _pins.Clear();
         int oldPinsHash = 0;
 
-        while (__currentZdos is { Count: > 0 } && watch.ElapsedMilliseconds < MaxProcessingTimeMs)
+        while (_currentZdos is { Count: > 0 } && watch.ElapsedMilliseconds < MaxProcessingTimeMs)
         {
-            var zdo = __currentZdos[__currentZdos.Count - 1];
-            __currentZdos.RemoveAt(__currentZdos.Count - 1);
+            var zdo = _currentZdos[_currentZdos.Count - 1];
+            _currentZdos.RemoveAt(_currentZdos.Count - 1);
 
             if (zdo.GetPrefab() == SignEx.Prefab)
             {
                 var text = zdo.GetString(ZDOVars.s_text);
-                var newText = __clockRegex.Replace(text, match =>
+                var newText = _clockRegex.Replace(text, match =>
                 {
                     if (timeText is null)
                     {
@@ -208,28 +209,28 @@ public class Main : BaseUnityPlugin
             }
             else if (zdo.GetPrefab() == MapTableEx.Prefab)
             {
-                if (__pins is { Count: 0})
+                if (_pins is { Count: 0})
                 {
                     foreach (var pin in ZDOMan.instance.GetPortals().Select(x => new Pin(PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, PluginGuid))
-                        .Concat(__ships
+                        .Concat(_ships
                             .Select(x =>
                             {
                                 var y = ZDOMan.instance.GetZDO(x);
                                 if (y is null)
-                                    __ships.Remove(x);
+                                    _ships.Remove(x);
                                 return y;
                             })
                             .Where(x => x is not null)
-                            .Select(x => new Pin(PluginGuidHash, __pieceNames.TryGetValue(x!.GetPrefab(), out var name) ? name : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid))))
+                            .Select(x => new Pin(PluginGuidHash, _pieceNames.TryGetValue(x!.GetPrefab(), out var name) ? name : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid))))
                     {
-                        __pins.Add(pin);
+                        _pins.Add(pin);
                         oldPinsHash = (oldPinsHash, pin).GetHashCode();
                     }
 
-                    (__pinsHash, oldPinsHash) = (oldPinsHash, __pinsHash);
+                    (_pinsHash, oldPinsHash) = (oldPinsHash, _pinsHash);
                 }
 
-                if (__pinsHash == oldPinsHash && __dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                if (_pinsHash == oldPinsHash && _dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                     continue;
                 
                 existingPins?.Clear();
@@ -271,8 +272,8 @@ public class Main : BaseUnityPlugin
 
                 pkg.Write(data ?? (emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
 
-                pkg.Write(__pins.Count + (existingPins?.Count ?? 0));
-                foreach (var pin in __pins.Concat(existingPins?.AsEnumerable() ?? []))
+                pkg.Write(_pins.Count + (existingPins?.Count ?? 0));
+                foreach (var pin in _pins.Concat(existingPins?.AsEnumerable() ?? []))
                 {
                     pkg.Write(pin.OwnerId);
                     pkg.Write(pin.Tag);
@@ -283,23 +284,23 @@ public class Main : BaseUnityPlugin
                 }
 
                 zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
-                __dataRevisions[zdo.m_uid] = zdo.DataRevision;
+                _dataRevisions[zdo.m_uid] = zdo.DataRevision;
 
                 ShowMessage(MessageHud.MessageType.TopLeft, "$msg_mapsaved");
             }
 
-            if (__shipPrefabs.Contains(zdo.GetPrefab()))
-                __ships.Add(zdo.m_uid);
+            if (_shipPrefabs.Contains(zdo.GetPrefab()))
+                _ships.Add(zdo.m_uid);
 
             if (zdo.GetBool(ZDOVars.s_tamed))
             {
-                if (__dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                     continue;
 
                 zdo.Set(ZDOVarsEx.HasFields, true);
                 zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
                 zdo.Set(ZDOVarsEx.TameableCommandable, true);
-                __dataRevisions[zdo.m_uid] = zdo.DataRevision;
+                _dataRevisions[zdo.m_uid] = zdo.DataRevision;
 
                 //zdo.GetConnection().m_type
                 //zdo.GetConnectionType() is ZDOExtraData.ConnectionType.Target
@@ -325,9 +326,9 @@ public class Main : BaseUnityPlugin
                 //}
             }
 
-            if (__fireplacePrefabs.Contains(zdo.GetPrefab()))
+            if (_fireplacePrefabs.Contains(zdo.GetPrefab()))
             {
-                if (__dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                     continue;
 
                 zdo.Set(ZDOVarsEx.HasFields, true);
@@ -337,18 +338,18 @@ public class Main : BaseUnityPlugin
                 zdo.Set(ZDOVarsEx.FireplaceFuelPerSec, 0f);
                 zdo.Set(ZDOVarsEx.FireplaceCanTurnOff, true);
                 zdo.Set(ZDOVarsEx.FireplaceCanRefill, false);
-                __dataRevisions[zdo.m_uid] = zdo.DataRevision;
+                _dataRevisions[zdo.m_uid] = zdo.DataRevision;
             }
 
-            if (__containerPrefabs.TryGetValue(zdo.GetPrefab(), out var container) && __pieceNames.TryGetValue(zdo.GetPrefab(), out var containerName))
+            if (_containerPrefabs.TryGetValue(zdo.GetPrefab(), out var container) && _pieceNames.TryGetValue(zdo.GetPrefab(), out var containerName))
             {
-                if (__dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
+                if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
                     continue;
 
                 if (zdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 5)
                     continue; // in use or player to close
 
-                __dataRevisions[zdo.m_uid] = zdo.DataRevision;
+                _dataRevisions[zdo.m_uid] = zdo.DataRevision;
 
                 var data = zdo.GetString(ZDOVars.s_items);
                 if (string.IsNullOrEmpty(data))
@@ -368,7 +369,7 @@ public class Main : BaseUnityPlugin
                     .ThenBy(x => x.m_shared.m_name)
                     .ThenByDescending(x => x.m_stack))
                 {
-                    var dict = __containersByItemName.GetOrAdd(item.m_shared.m_name, static _ => new());
+                    var dict = _containersByItemName.GetOrAdd(item.m_shared.m_name, static _ => new());
                     dict[zdo.m_uid] = inventory;
                     if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                     {
@@ -387,25 +388,25 @@ public class Main : BaseUnityPlugin
                     continue;
 
                 if (zdo.GetBool(ZDOVars.s_inUse))
-                    __dataRevisions.TryRemove(zdo.m_uid, out _);
+                    _dataRevisions.TryRemove(zdo.m_uid, out _);
                 else
                 {
                     var pkg = new ZPackage();
                     inventory.Save(pkg);
                     data = pkg.GetBase64();
                     zdo.Set(ZDOVars.s_items, data);
-                    __dataRevisions[zdo.m_uid] = zdo.DataRevision;
+                    _dataRevisions[zdo.m_uid] = zdo.DataRevision;
                     ShowMessage(MessageHud.MessageType.TopLeft, $"{containerName} sorted");
                 }
             }
             
-            if (__itemDropPrefabs.Contains(zdo.GetPrefab()))
+            if (_itemDropPrefabs.Contains(zdo.GetPrefab()))
             {
                 if (peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 10)
                     continue; // player to close
 
                 var shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared;
-                if (!__containersByItemName.TryGetValue(shared.m_name, out var dict))
+                if (!_containersByItemName.TryGetValue(shared.m_name, out var dict))
                     continue;
 
                 ItemDrop.ItemData? data = null;
@@ -419,7 +420,7 @@ public class Main : BaseUnityPlugin
                         continue;
                     }
 
-                    if (!__dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
+                    if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
                         continue; // inventory not up-to-date
 
                     if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > ZoneSystem.c_ZoneSize)
@@ -481,11 +482,11 @@ public class Main : BaseUnityPlugin
                         var pkg = new ZPackage();
                         inventory.Save(pkg);
                         containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
-                        __dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+                        _dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
                         data.m_stack = stack;
                         zdo.SetOwner(ZDOMan.GetSessionID());
                         ItemDrop.SaveToZDO(data, zdo);
-                        ShowMessage(MessageHud.MessageType.TopLeft, $"Dropped {shared.m_name} moved to {__pieceNames[containerZdo.GetPrefab()]}");
+                        ShowMessage(MessageHud.MessageType.TopLeft, $"Dropped {shared.m_name} moved to {_pieceNames[containerZdo.GetPrefab()]}");
                     }
 
                     if (data.m_stack is 0)
@@ -500,7 +501,7 @@ public class Main : BaseUnityPlugin
             }
         }
 
-        __currentZdos.Clear();
+        _currentZdos.Clear();
 
         Logger.Log(watch.ElapsedMilliseconds > MaxProcessingTimeMs ? LogLevel.Warning : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
     }
