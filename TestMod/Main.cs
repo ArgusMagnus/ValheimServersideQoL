@@ -27,8 +27,8 @@ public class Main : BaseUnityPlugin
     static readonly HashSet<int> __shipPrefabs = new();
     static readonly HashSet<int> __itemDropPrefabs = new();
     static readonly IReadOnlyDictionary<int, string> __pieceNames = new Dictionary<int, string>();
-    static readonly HashSet<ZDOID> __ships = new();
-    static readonly Dictionary<ZDOID, uint> __dataRevisions = new();
+    static readonly ConcurrentHashSet<ZDOID> __ships = new();
+    static readonly ConcurrentDictionary<ZDOID, uint> __dataRevisions = new();
 
     static ulong __executeCounter;
     static readonly List<ZDO> __currentZdos = new();
@@ -135,21 +135,12 @@ public class Main : BaseUnityPlugin
                 .GetValue(ZDOMan.instance)).Values.Where(x => __shipPrefabs.Contains(x.GetPrefab())))
                 __ships.Add(zdo.m_uid);
         }
-
-        //var icons = Minimap.instance.m_locationIcons.Select(x => x.m_name).Concat(Minimap.instance.m_icons.Select(x => x.m_name.ToString()));
-
-        if (__executeCounter % 60 is 0)
+        else if (__executeCounter % 60 is 0)
         {
-            List<ZDOID>? remove = null;
             foreach (var id in __dataRevisions.Keys)
             {
                 if (ZDOMan.instance.GetZDO(id) is null)
-                    (remove ??= []).Add(id);
-            }
-            if (remove is { Count: > 0})
-            {
-                foreach (var id in remove)
-                    __dataRevisions.Remove(id);
+                    __dataRevisions.TryRemove(id, out _);
             }
         }
 
@@ -163,7 +154,6 @@ public class Main : BaseUnityPlugin
 
         string? timeText = null;
         IReadOnlyList<Pin>? pins = null;
-        List<ZDOID>? invalidShips = null;
         List<Pin>? existingPins = null;
         byte[]? emptyExplored = null;
         bool currentContainersInitialized = false;
@@ -205,7 +195,7 @@ public class Main : BaseUnityPlugin
                             {
                                 var y = ZDOMan.instance.GetZDO(x);
                                 if (y is null)
-                                    (invalidShips ??= []).Add(x);
+                                    __ships.Remove(x);
                                 return y;
                             })
                             .Where(x => x is not null)
@@ -375,7 +365,7 @@ public class Main : BaseUnityPlugin
                     continue;
 
                 if (zdo.GetBool(ZDOVars.s_inUse))
-                    __dataRevisions.Remove(zdo.m_uid);
+                    __dataRevisions.TryRemove(zdo.m_uid, out _);
                 else
                 {
                     var pkg = new ZPackage();
@@ -420,12 +410,6 @@ public class Main : BaseUnityPlugin
                 //        UnityEngine.Object.Destroy(obj);
                 //}
             }
-        }
-
-        if (invalidShips is { Count: > 0})
-        {
-            foreach (var x in invalidShips)
-                __ships.Remove(x);
         }
 
         __currentZdos.Clear();
