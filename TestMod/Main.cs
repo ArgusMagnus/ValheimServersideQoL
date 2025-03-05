@@ -32,15 +32,13 @@ public sealed class Main : BaseUnityPlugin
     readonly ConfigEntry<bool> _containersAutoSortEnabled;
     readonly ConfigEntry<bool> _containersAutoPickupEnabled;
     readonly ConfigEntry<float> _containerAutoPickupRange;
+    readonly ConfigEntry<bool> _containersAutoFeedSmelters;
 
     static readonly IReadOnlyList<string> __clockEmojis = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", __clockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
-    readonly HashSet<int> _fireplacePrefabs = new();
-    readonly IReadOnlyDictionary<int, Container> _containerPrefabs = new Dictionary<int, Container>();
-    readonly HashSet<int> _shipPrefabs = new();
-    readonly HashSet<int> _itemDropPrefabs = new();
-    readonly IReadOnlyDictionary<int, string> _pieceNames = new Dictionary<int, string>();
+    record PrefabInfo(Fireplace? Fireplace, Container? Container, Ship? Ship, ItemDrop? ItemDrop, Piece? Piece, Smelter? Smelter);
+    readonly IReadOnlyDictionary<int, PrefabInfo> _prefabInfo = new Dictionary<int, PrefabInfo>();
     readonly ConcurrentHashSet<ZDOID> _ships = new();
     readonly ConcurrentDictionary<ZDOID, uint> _dataRevisions = new();
     readonly ConcurrentDictionary<string, ConcurrentDictionary<ZDOID, Inventory>> _containersByItemName = new();
@@ -84,6 +82,7 @@ public sealed class Main : BaseUnityPlugin
         _containersAutoSortEnabled = Config.Bind<bool>(section, "AutoSort", true, "True to auto sort container inventories");
         _containersAutoPickupEnabled = Config.Bind<bool>(section, "AutoPickup", true, "True to automatically put dropped items into containers if they already contain said item");
         _containerAutoPickupRange = Config.Bind<float>(section, "AutoPickupRange", ZoneSystem.c_ZoneSize, "Required proximity of a container to a item drop to be considered as auto pickup target");
+        _containersAutoFeedSmelters = Config.Bind<bool>(section, "AutoFeedSmelters", true, "True to automatically feed smelters from nearby containers");
     }
 
     //public void Awake()
@@ -134,32 +133,28 @@ public sealed class Main : BaseUnityPlugin
 
         if (_executeCounter++ is 0)
         {
+            var dict = (IDictionary<int, PrefabInfo>)_prefabInfo;
             foreach (var prefab in ZNetScene.instance.m_prefabs)
             {
-                int hash = 0;
-                int GetHash() => hash is 0 ? (hash = prefab.name.GetStableHashCode()) : hash;
-
-                if (prefab.TryGetComponent<Fireplace>(out _))
-                    _fireplacePrefabs.Add(GetHash());
-                if (prefab.TryGetComponent<Container>(out var container))
-                    ((IDictionary<int, Container>)_containerPrefabs).Add(GetHash(), container);
-                if (prefab.TryGetComponent<Ship>(out _))
-                    _shipPrefabs.Add(GetHash());
-                if (prefab.TryGetComponent<Piece>(out var piece))
-                    ((IDictionary<int, string>)_pieceNames).Add(GetHash(), piece.m_name);
-                if (prefab.TryGetComponent<ItemDrop>(out _))
-                    _itemDropPrefabs.Add(GetHash());
+                var fireplace = prefab.GetComponent<Fireplace>();
+                var container = prefab.GetComponent<Container>();
+                var ship = prefab.GetComponent<Ship>();
+                var itemDrop = prefab.GetComponent<ItemDrop>();
+                var piece = prefab.GetComponent<Piece>();
+                var smelter = prefab.GetComponent<Smelter>();
+                if (fireplace ?? container ?? ship ?? piece ?? itemDrop ?? smelter is not null)
+                    dict.Add(prefab.name.GetStableHashCode(), new(fireplace, container, ship, itemDrop, piece, smelter));
             }
 
             foreach (var zdo in ((IReadOnlyDictionary<ZDOID, ZDO>)typeof(ZDOMan)
                 .GetField("m_objectsByID", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                .GetValue(ZDOMan.instance)).Values.Where(x => _shipPrefabs.Contains(x.GetPrefab())))
+                .GetValue(ZDOMan.instance)).Values.Where(x => _prefabInfo.TryGetValue(x.GetPrefab(), out var info) && info.Ship is not null))
                 _ships.Add(zdo.m_uid);
 
             return;
         }
 
-        if (_executeCounter % 60 is 0)
+        if (_executeCounter % (ulong)(60 * _frequencyCfg.Value) is 0)
         {
             foreach (var id in _dataRevisions.Keys)
             {
@@ -228,8 +223,11 @@ public sealed class Main : BaseUnityPlugin
                 if (!zdo.IsValid())
                     continue;
 
-                if (_timeSignEnabled.Value && zdo.GetPrefab() == SignEx.Prefab)
+                if (zdo.GetPrefab() == SignEx.Prefab)
                 {
+                    if (!_timeSignEnabled.Value)
+                        continue;
+
                     var text = zdo.GetString(ZDOVars.s_text);
                     var newText = _clockRegex.Replace(text, match =>
                     {
@@ -249,9 +247,14 @@ public sealed class Main : BaseUnityPlugin
                     Logger.LogDebug($"Changing sign text from '{text}' to '{newText}'");
                     zdo.Set(ZDOVars.s_text, newText);
                     //zdo.Set(ZDOVars.s_author, );
+                    continue;
                 }
-                else if (_mapTableEnabled.Value && zdo.GetPrefab() == MapTableEx.Prefab)
+
+                if (zdo.GetPrefab() == MapTableEx.Prefab)
                 {
+                    if (!_mapTableEnabled.Value)
+                        continue;
+
                     if (_pins is { Count: 0 })
                     {
                         foreach (var pin in ZDOMan.instance.GetPortals().Select(x => new Pin(PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, PluginGuid))
@@ -264,7 +267,7 @@ public sealed class Main : BaseUnityPlugin
                                     return y;
                                 })
                                 .Where(x => x is not null)
-                                .Select(x => new Pin(PluginGuidHash, _pieceNames.TryGetValue(x!.GetPrefab(), out var name) ? name : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid))))
+                                .Select(x => new Pin(PluginGuidHash, _prefabInfo.TryGetValue(x!.GetPrefab(), out var info) ? info.Piece?.m_name ?? "" : "", x.GetPosition(), Minimap.PinType.Player, false, PluginGuid))))
                         {
                             _pins.Add(pin);
                             oldPinsHash = (oldPinsHash, pin).GetHashCode();
@@ -330,13 +333,14 @@ public sealed class Main : BaseUnityPlugin
                     _dataRevisions[zdo.m_uid] = zdo.DataRevision;
 
                     ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, "$msg_mapsaved");
+                    continue;
                 }
 
-                if (_shipPrefabs.Contains(zdo.GetPrefab()))
-                    _ships.Add(zdo.m_uid);
-
-                if (_commandableTamesEnabled.Value && zdo.GetBool(ZDOVars.s_tamed))
+                if (zdo.GetBool(ZDOVars.s_tamed))
                 {
+                    if (!_commandableTamesEnabled.Value)
+                        continue;
+
                     if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                         continue;
 
@@ -369,8 +373,17 @@ public sealed class Main : BaseUnityPlugin
                     //}
                 }
 
-                if (_fireplaceEnabled.Value && _fireplacePrefabs.Contains(zdo.GetPrefab()))
+                if (!_prefabInfo.TryGetValue(zdo.GetPrefab(), out var prefabInfo))
+                    continue;
+
+                if (prefabInfo.Ship is not null)
+                    _ships.Add(zdo.m_uid);
+
+                if (prefabInfo.Fireplace is not null)
                 {
+                    if (!_fireplaceEnabled.Value)
+                        continue;
+
                     if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                         continue;
 
@@ -386,7 +399,7 @@ public sealed class Main : BaseUnityPlugin
 
                 if (_containersEnabled.Value)
                 {
-                    if (_containerPrefabs.TryGetValue(zdo.GetPrefab(), out var container) && _pieceNames.TryGetValue(zdo.GetPrefab(), out var containerName))
+                    if (prefabInfo is {Container: not null, Piece: not null })
                     {
                         if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
                             continue;
@@ -402,9 +415,9 @@ public sealed class Main : BaseUnityPlugin
 
                         /// <see cref="Container.Load"/>
                         /// <see cref="Container.Save"/>
-                        var width = zdo.GetInt(ZDOVarsEx.ContainerWidth, container.m_width);
-                        var height = zdo.GetInt(ZDOVarsEx.ContainerHeight, container.m_height);
-                        Inventory inventory = new(container.m_name, container.m_bkg, width, height);
+                        var width = zdo.GetInt(ZDOVarsEx.ContainerWidth, prefabInfo.Container.m_width);
+                        var height = zdo.GetInt(ZDOVarsEx.ContainerHeight, prefabInfo.Container.m_height);
+                        Inventory inventory = new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height);
                         inventory.Load(new(data));
                         var changed = false;
                         var x = 0;
@@ -444,12 +457,15 @@ public sealed class Main : BaseUnityPlugin
                             data = pkg.GetBase64();
                             zdo.Set(ZDOVars.s_items, data);
                             _dataRevisions[zdo.m_uid] = zdo.DataRevision;
-                            ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"{containerName} sorted");
+                            ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
                         }
                     }
 
-                    if (_containersAutoPickupEnabled.Value && _itemDropPrefabs.Contains(zdo.GetPrefab()))
+                    if (prefabInfo.ItemDrop is not null)
                     {
+                        if (!_containersAutoPickupEnabled.Value)
+                            continue;
+
                         if (peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 10)
                             continue; // player to close
 
@@ -534,7 +550,7 @@ public sealed class Main : BaseUnityPlugin
                                 data.m_stack = stack;
                                 zdo.SetOwner(ZDOMan.GetSessionID());
                                 ItemDrop.SaveToZDO(data, zdo);
-                                ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"Dropped {shared.m_name} moved to {_pieceNames[containerZdo.GetPrefab()]}");
+                                ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"Dropped {shared.m_name} moved to {_prefabInfo[containerZdo.GetPrefab()].Piece!.m_name}");
                             }
 
                             if (data.m_stack is 0)
@@ -546,6 +562,13 @@ public sealed class Main : BaseUnityPlugin
                             zdo.SetOwner(ZDOMan.GetSessionID());
                             ZDOMan.instance.DestroyZDO(zdo);
                         }
+                    }
+
+                    if (prefabInfo.Smelter is not null)
+                    {
+                        if (!_containersAutoFeedSmelters.Value)
+                            continue;
+                        /// <see cref="Smelter.OnAddFuel"/> <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
                     }
                 }
             }
