@@ -4,21 +4,24 @@ using System.Diagnostics;
 using System.Collections.Concurrent;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using BepInEx.Configuration;
 
 namespace TestMod;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-public class Main : BaseUnityPlugin
+public sealed class Main : BaseUnityPlugin
 {
     const string PluginGuid = "argusmagnus.TestMod";
     const string PluginName = "TestMod";
     const string PluginVersion = "1.0.0";
     static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
 
-    const int MaxProcessingTimeMs = 50;
-
     //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);
     static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
+
+    readonly ConfigEntry<float> _startDelayCfg;
+    readonly ConfigEntry<float> _frequencyCfg;
+    readonly ConfigEntry<int> _maxProcessingTimeMs;
 
     static readonly IReadOnlyList<string> __clockEmojis = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", __clockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
@@ -41,48 +44,16 @@ public class Main : BaseUnityPlugin
     readonly List<Pin> _pins = new();
     int _pinsHash;
 
-    static class Hashes
+    public Main()
     {
-        static readonly ConcurrentDictionary<string, int> __hashes = new();
-
-        public static int Get(string key) => __hashes.GetOrAdd(key, static k => k.GetStableHashCode());
-    }
-
-    static class SignEx
-    {
-        public static int Prefab { get; } = Hashes.Get("sign");
-    }
-
-    static class MapTableEx
-    {
-        public static int Prefab { get; } = Hashes.Get("piece_cartographytable");
-    }
-
-    static class ZDOVarsEx
-    {
-        public static int HasFields { get; } = Hashes.Get(ZNetView.CustomFieldsStr);
-
-        static class _HasFields<T> where T : MonoBehaviour
-        {
-            public static int HasFields { get; } = Hashes.Get($"{ZNetView.CustomFieldsStr}{typeof(T).Name}");
-        }
-
-        public static int GetHasFields<T>() where T : MonoBehaviour => _HasFields<T>.HasFields;
-
-        public static int TameableCommandable { get; } = Hashes.Get($"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}");
-
-        public static int FireplaceInfiniteFuel { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_infiniteFuel)}");
-        public static int FireplaceCanTurnOff { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_canTurnOff)}");
-        public static int FireplaceCanRefill { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_canRefill)}");
-        public static int FireplaceFuelPerSec { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_secPerFuel)}");
-
-        public static int ContainerWidth { get; } = Hashes.Get($"{nameof(Container)}.{nameof(Container.m_width)}");
-        public static int ContainerHeight { get; } = Hashes.Get($"{nameof(Container)}.{nameof(Container.m_height)}");
+        _startDelayCfg = Config.Bind<float>("General", "StartDelay", 10, "Time (in seconds) before the mod starts processing the world");
+        _frequencyCfg = Config.Bind<float>("General", "Frequency", 2, "How many times per second the mod processes the world");
+        _maxProcessingTimeMs = Config.Bind<int>("General", "MaxProcessingTime", 50, "Max processing time (in ms) per update");
     }
 
     public void Awake()
     {
-        Logger.LogInfo("Thank you for using my mod!");
+        //Logger.LogInfo("Thank you for using my mod!");
 
         //Assembly assembly = Assembly.GetExecutingAssembly();
         //HarmonyInstance.PatchAll(assembly);
@@ -93,11 +64,20 @@ public class Main : BaseUnityPlugin
 
     public void Start()
     {
-        Logger.LogInfo("Start called");
-        InvokeRepeating(nameof(Execute), 10, 0.5f);
+        StartCoroutine(CallExecute());
+
+        IEnumerator<YieldInstruction> CallExecute()
+        {
+            yield return new WaitForSeconds(_startDelayCfg.Value);
+            while (true)
+            {
+                Execute();
+                yield return new WaitForSeconds(1f / _frequencyCfg.Value);
+            }
+        }
     }
 
-    public void Execute()
+    void Execute()
     {
         if (ZNet.instance is null)
             return;
@@ -184,12 +164,12 @@ public class Main : BaseUnityPlugin
         int oldPinsHash = 0;
         foreach (var (sector, sectorInfo) in _playerSectors.Select(x => (x.Key, x.Value)))
         {
-            if (watch.ElapsedMilliseconds > MaxProcessingTimeMs)
+            if (watch.ElapsedMilliseconds > _maxProcessingTimeMs.Value)
                 break;
             if (sectorInfo is { ZDOs: { Count: 0 } })
                 ZDOMan.instance.FindSectorObjects(sector, 1, 0, sectorInfo.ZDOs);
 
-            while (sectorInfo is { ZDOs: { Count: > 0 } } && watch.ElapsedMilliseconds < MaxProcessingTimeMs)
+            while (sectorInfo is { ZDOs: { Count: > 0 } } && watch.ElapsedMilliseconds < _maxProcessingTimeMs.Value)
             {
                 var zdo = sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
                 sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
@@ -513,7 +493,7 @@ public class Main : BaseUnityPlugin
             }
         }
 
-        Logger.Log(watch.ElapsedMilliseconds > MaxProcessingTimeMs ? LogLevel.Warning : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
+        Logger.Log(watch.ElapsedMilliseconds > _maxProcessingTimeMs.Value ? LogLevel.Info : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
     }
 
     static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
@@ -521,5 +501,44 @@ public class Main : BaseUnityPlugin
         /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
         foreach (var peer in peers)
             ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "ShowMessage", (int)type, message);
+    }
+
+    static class Hashes
+    {
+        static readonly ConcurrentDictionary<string, int> __hashes = new();
+
+        public static int Get(string key) => __hashes.GetOrAdd(key, static k => k.GetStableHashCode());
+    }
+
+    static class SignEx
+    {
+        public static int Prefab { get; } = Hashes.Get("sign");
+    }
+
+    static class MapTableEx
+    {
+        public static int Prefab { get; } = Hashes.Get("piece_cartographytable");
+    }
+
+    static class ZDOVarsEx
+    {
+        public static int HasFields { get; } = Hashes.Get(ZNetView.CustomFieldsStr);
+
+        static class _HasFields<T> where T : MonoBehaviour
+        {
+            public static int HasFields { get; } = Hashes.Get($"{ZNetView.CustomFieldsStr}{typeof(T).Name}");
+        }
+
+        public static int GetHasFields<T>() where T : MonoBehaviour => _HasFields<T>.HasFields;
+
+        public static int TameableCommandable { get; } = Hashes.Get($"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}");
+
+        public static int FireplaceInfiniteFuel { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_infiniteFuel)}");
+        public static int FireplaceCanTurnOff { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_canTurnOff)}");
+        public static int FireplaceCanRefill { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_canRefill)}");
+        public static int FireplaceFuelPerSec { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_secPerFuel)}");
+
+        public static int ContainerWidth { get; } = Hashes.Get($"{nameof(Container)}.{nameof(Container.m_width)}");
+        public static int ContainerHeight { get; } = Hashes.Get($"{nameof(Container)}.{nameof(Container.m_height)}");
     }
 }
