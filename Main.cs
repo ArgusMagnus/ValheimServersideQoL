@@ -49,7 +49,14 @@ public sealed class Main : BaseUnityPlugin
     readonly IReadOnlyDictionary<int, PrefabInfo> _prefabInfo = new Dictionary<int, PrefabInfo>();
     readonly ConcurrentHashSet<ZDOID> _ships = new();
     readonly ConcurrentDictionary<ZDOID, uint> _dataRevisions = new();
-    readonly ConcurrentDictionary<string, ConcurrentDictionary<ZDOID, Inventory>> _containersByItemName = new();
+
+    record struct ItemKey(string Name, int Quality, int Variant)
+    {
+        public static implicit operator ItemKey(ItemDrop.ItemData data) => new(data);
+        public ItemKey(ItemDrop.ItemData data) : this(data.m_shared.m_name, data.m_quality, data.m_variant) { }
+    }
+
+    readonly ConcurrentDictionary<ItemKey, ConcurrentDictionary<ZDOID, Inventory>> _containersByItemName = new();
 
     ulong _executeCounter;
     uint _unfinishedProcessingInRow;
@@ -507,7 +514,7 @@ public sealed class Main : BaseUnityPlugin
                         .ThenBy(x => x.m_shared.m_name)
                         .ThenByDescending(x => x.m_stack))
                     {
-                        var dict = _containersByItemName.GetOrAdd(item.m_shared.m_name, static _ => new());
+                        var dict = _containersByItemName.GetOrAdd(item, static _ => new());
                         dict[zdo.m_uid] = inventory;
                         if (!_cfg.Containers.AutoSort.Value)
                             continue;
@@ -546,11 +553,11 @@ public sealed class Main : BaseUnityPlugin
                     if (!CheckMinDistance(peers, zdo, _cfg.Containers.AutoPickupMinPlayerDistance.Value))
                         continue; // player to close
 
-                    var shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared;
-                    if (!_containersByItemName.TryGetValue(shared.m_name, out var dict))
+                    var item = new ItemDrop.ItemData { m_shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared };
+                    PrivateAccessor.LoadFromZDO(item, zdo);
+                    if (!_containersByItemName.TryGetValue(item, out var dict))
                         continue;
 
-                    ItemDrop.ItemData? data = null;
                     HashSet<Vector2i>? usedSlots = null;
 
                     foreach (var (containerZdoId, inventory) in dict.Select(x => (x.Key, x.Value)))
@@ -572,13 +579,7 @@ public sealed class Main : BaseUnityPlugin
 
                         inventory.Update(containerZdo);
 
-                        if (data is null)
-                        {
-                            data = new() { m_shared = shared };
-                            PrivateAccessor.LoadFromZDO(data, zdo);
-                        }
-
-                        var stack = data.m_stack;
+                        var stack = item.m_stack;
                         usedSlots ??= new();
                         usedSlots.Clear();
                         bool found = false;
@@ -586,11 +587,15 @@ public sealed class Main : BaseUnityPlugin
                         foreach (var slot in inventory.GetAllItems())
                         {
                             usedSlots.Add(new(slot.m_gridPos.x, slot.m_gridPos.y));
-                            var maxAmount = slot.m_shared.m_maxStackSize - slot.m_stack;
-                            if (slot.m_shared.m_name != shared.m_name || maxAmount <= 0 || slot.m_quality != data.m_quality || slot.m_variant != data.m_variant)
+                            if (new ItemKey(item) != slot)
                                 continue;
 
                             found = true;
+
+                            var maxAmount = slot.m_shared.m_maxStackSize - slot.m_stack;
+                            if (maxAmount <= 0)
+                                continue;
+
                             var amount = Math.Min(stack, maxAmount);
                             slot.m_stack += amount;
                             stack -= amount;
@@ -602,7 +607,7 @@ public sealed class Main : BaseUnityPlugin
                         {
                             dict.TryRemove(containerZdoId, out _);
                             if (dict is { Count: 0 })
-                                _containersByItemName.TryRemove(shared.m_name, out _);
+                                _containersByItemName.TryRemove(item, out _);
                             continue;
                         }
 
@@ -611,9 +616,9 @@ public sealed class Main : BaseUnityPlugin
 
                         for (var emptySlots = inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
                         {
-                            var amount = Math.Min(stack, shared.m_maxStackSize);
+                            var amount = Math.Min(stack, item.m_shared.m_maxStackSize);
 
-                            var slot = data.Clone();
+                            var slot = item.Clone();
                             slot.m_stack = amount;
                             for (int x = 0; x < inventory.GetWidth(); x++)
                             {
@@ -630,23 +635,23 @@ public sealed class Main : BaseUnityPlugin
                             stack -= amount;
                         }
 
-                        if (stack != data.m_stack && !containerZdo.GetBool(ZDOVars.s_inUse))
+                        if (stack != item.m_stack)
                         {
                             var pkg = new ZPackage();
                             inventory.Save(pkg);
                             containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
                             _dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
-                            data.m_stack = stack;
+                            item.m_stack = stack;
                             zdo.SetOwner(ZDOMan.GetSessionID());
-                            ItemDrop.SaveToZDO(data, zdo);
-                            ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"Dropped {shared.m_name} moved to {_prefabInfo[containerZdo.GetPrefab()].Piece!.m_name}");
+                            ItemDrop.SaveToZDO(item, zdo);
+                            ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"Dropped {item.m_shared.m_name} moved to {_prefabInfo[containerZdo.GetPrefab()].Piece!.m_name}");
                         }
 
-                        if (data.m_stack is 0)
+                        if (item.m_stack is 0)
                             break;
                     }
 
-                    if (data?.m_stack is 0)
+                    if (item.m_stack is 0)
                     {
                         zdo.SetOwner(ZDOMan.GetSessionID());
                         ZDOMan.instance.DestroyZDO(zdo);
@@ -669,7 +674,7 @@ public sealed class Main : BaseUnityPlugin
                         var maxFuelAdd = (int)(maxFuel - currentFuel);
                         if (maxFuelAdd > maxFuel / 2)
                         {
-                            var fuelItem = prefabInfo.Smelter.m_fuelItem.m_itemData.m_shared.m_name;
+                            var fuelItem = prefabInfo.Smelter.m_fuelItem.m_itemData;
                             var addedFuel = 0;
                             if (_containersByItemName.TryGetValue(fuelItem, out var containers))
                             {
@@ -695,7 +700,7 @@ public sealed class Main : BaseUnityPlugin
 
                                     removeSlots?.Clear();
                                     float addFuel = 0;
-                                    foreach (var slot in inventory.GetAllItems().Where(x => x.m_shared.m_name == fuelItem).OrderBy(x => x.m_stack))
+                                    foreach (var slot in inventory.GetAllItems().Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
                                     {
                                         var take = Math.Min(maxFuelAdd, slot.m_stack);
                                         addFuel += take;
@@ -762,7 +767,7 @@ public sealed class Main : BaseUnityPlugin
                         {
                             foreach (var conversion in prefabInfo.Smelter.m_conversion)
                             {
-                                var oreItem = conversion.m_from.m_itemData.m_shared.m_name;
+                                var oreItem = conversion.m_from.m_itemData;
                                 var addedOre = 0;
                                 if (_containersByItemName.TryGetValue(oreItem, out var containers))
                                 {
@@ -788,7 +793,7 @@ public sealed class Main : BaseUnityPlugin
 
                                         removeSlots?.Clear();
                                         int addOre = 0;
-                                        foreach (var slot in inventory.GetAllItems().Where(x => x.m_shared.m_name == oreItem).OrderBy(x => x.m_stack))
+                                        foreach (var slot in inventory.GetAllItems().Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
                                         {
                                             var take = Math.Min(maxOreAdd, slot.m_stack);
                                             addOre += take;
