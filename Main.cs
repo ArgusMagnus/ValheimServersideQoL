@@ -830,7 +830,7 @@ public sealed class Main : BaseUnityPlugin
         => CheckMinDistance(peers, zdo, _cfg.General.MinPlayerDistance.Value);
 
     bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo, float minDistance)
-        => peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) >= minDistance;
+        => peers.Min(x => Utils.DistanceSqr(x.m_refPos, zdo.GetPosition())) >= minDistance;
 
     static string ConvertToRegexPattern(string searchPattern)
     {
