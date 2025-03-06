@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<LangVersion>latest</LangVersion>
+	<DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -73,5 +74,24 @@
 		<Private>False</Private>
 	</Reference>
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="CreatePackage" AfterTargets="AfterBuild">
+	<ZipDirectory
+	  SourceDirectory="$(OutDir)"
+	  DestinationFile="$(OutDir)..\$(TargetName).zip"
+	  Overwrite="true" />
+  </Target>
 
 </Project>

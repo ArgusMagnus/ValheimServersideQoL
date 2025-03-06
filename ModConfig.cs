@@ -13,12 +13,6 @@ sealed class ModConfig(ConfigFile cfg)
     public ContainersConfig Containers { get; } = new(cfg, "6. Containers");
     public SmeltersConfig Smelters { get; } = new(cfg, "7. Smelters");
 
-    //public bool NeedsSigns => Signs.TimeSigns.Value;
-    //public bool NeedsMapTables => MapTables.AutoUpdatePortals.Value || MapTables.AutoUpdateShips.Value;
-    //public bool NeedsTames => Tames.MakeCommandable.Value;
-    //public bool NeedsFireplaces => Fireplaces.MakeToggleable.Value;
-    //public bool NeedsContainers => Containers.AutoSort.Value || Containers.AutoPickup.Value;
-
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
