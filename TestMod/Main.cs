@@ -37,7 +37,7 @@ public sealed class Main : BaseUnityPlugin
     static readonly IReadOnlyList<string> __clockEmojis = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", __clockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
-    record PrefabInfo(Fireplace? Fireplace, Container? Container, Ship? Ship, ItemDrop? ItemDrop, Piece? Piece, Smelter? Smelter);
+    record PrefabInfo(Sign? Sign, MapTable? MapTable, Tameable? Tameable, Fireplace? Fireplace, Container? Container, Ship? Ship, ItemDrop? ItemDrop, Piece? Piece, Smelter? Smelter);
     readonly IReadOnlyDictionary<int, PrefabInfo> _prefabInfo = new Dictionary<int, PrefabInfo>();
     readonly ConcurrentHashSet<ZDOID> _ships = new();
     readonly ConcurrentDictionary<ZDOID, uint> _dataRevisions = new();
@@ -137,14 +137,18 @@ public sealed class Main : BaseUnityPlugin
             var dict = (IDictionary<int, PrefabInfo>)_prefabInfo;
             foreach (var prefab in ZNetScene.instance.m_prefabs)
             {
+                var sign = prefab.GetComponent<Sign>();
+                var mapTable = prefab.GetComponent<MapTable>();
+                var tameable = prefab.GetComponent<Tameable>();
                 var fireplace = prefab.GetComponent<Fireplace>();
                 var container = prefab.GetComponent<Container>();
                 var ship = prefab.GetComponent<Ship>();
                 var itemDrop = prefab.GetComponent<ItemDrop>();
                 var piece = prefab.GetComponent<Piece>();
                 var smelter = prefab.GetComponent<Smelter>();
-                if (fireplace ?? container ?? ship ?? piece ?? itemDrop ?? smelter is not null)
-                    dict.Add(prefab.name.GetStableHashCode(), new(fireplace, container, ship, itemDrop, piece, smelter));
+                // Piece is never used on its on
+                if (sign ?? mapTable ?? tameable ?? fireplace ?? container ?? ship /*?? piece*/ ?? itemDrop ?? smelter is not null)
+                    dict.Add(prefab.name.GetStableHashCode(), new(sign, mapTable, tameable, fireplace, container, ship, itemDrop, piece, smelter));
             }
 
             foreach (var zdo in ((IReadOnlyDictionary<ZDOID, ZDO>)typeof(ZDOMan)
@@ -237,10 +241,10 @@ public sealed class Main : BaseUnityPlugin
                 processedZdos++;
                 var zdo = sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
                 sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
-                if (!zdo.IsValid())
+                if (!zdo.IsValid() || !_prefabInfo.TryGetValue(zdo.GetPrefab(), out var prefabInfo))
                     continue;
 
-                if (zdo.GetPrefab() == SignEx.Prefab)
+                if (prefabInfo.Sign is not null)
                 {
                     if (!_timeSignEnabled.Value)
                         continue;
@@ -267,7 +271,7 @@ public sealed class Main : BaseUnityPlugin
                     continue;
                 }
 
-                if (zdo.GetPrefab() == MapTableEx.Prefab)
+                if (prefabInfo.MapTable is not null)
                 {
                     if (!_mapTableEnabled.Value)
                         continue;
@@ -353,7 +357,7 @@ public sealed class Main : BaseUnityPlugin
                     continue;
                 }
 
-                if (zdo.GetBool(ZDOVars.s_tamed))
+                if (prefabInfo.Tameable is not null && zdo.GetBool(ZDOVars.s_tamed))
                 {
                     if (!_commandableTamesEnabled.Value)
                         continue;
@@ -389,9 +393,6 @@ public sealed class Main : BaseUnityPlugin
                     //    }
                     //}
                 }
-
-                if (!_prefabInfo.TryGetValue(zdo.GetPrefab(), out var prefabInfo))
-                    continue;
 
                 if (prefabInfo.Ship is not null)
                     _ships.Add(zdo.m_uid);
@@ -612,40 +613,26 @@ public sealed class Main : BaseUnityPlugin
             ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "ShowMessage", (int)type, message);
     }
 
-    static class Hashes
-    {
-        static readonly ConcurrentDictionary<string, int> __hashes = new();
-
-        public static int Get(string key) => __hashes.GetOrAdd(key, static k => k.GetStableHashCode());
-    }
-
-    static class SignEx
-    {
-        public static int Prefab { get; } = Hashes.Get("sign");
-    }
-
-    static class MapTableEx
-    {
-        public static int Prefab { get; } = Hashes.Get("piece_cartographytable");
-    }
-
     static class ZDOVarsEx
     {
-        public static int HasFields { get; } = Hashes.Get(ZNetView.CustomFieldsStr);
+        public static int HasFields { get; } = ZNetView.CustomFieldsStr.GetStableHashCode();
 
         static class _HasFields<T> where T : MonoBehaviour
         {
-            public static int HasFields { get; } = Hashes.Get($"{ZNetView.CustomFieldsStr}{typeof(T).Name}");
+            public static int HasFields { get; } = $"{ZNetView.CustomFieldsStr}{typeof(T).Name}".GetStableHashCode();
         }
 
         public static int GetHasFields<T>() where T : MonoBehaviour => _HasFields<T>.HasFields;
 
-        public static int TameableCommandable { get; } = Hashes.Get($"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}");
+        public static int TameableCommandable { get; } = $"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}".GetStableHashCode();
 
-        public static int FireplaceInfiniteFuel { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_infiniteFuel)}");
-        public static int FireplaceCanTurnOff { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_canTurnOff)}");
-        public static int FireplaceCanRefill { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_canRefill)}");
-        public static int FireplaceFuelPerSec { get; } = Hashes.Get($"{nameof(Fireplace)}.{nameof(Fireplace.m_secPerFuel)}");
+        public static int FireplaceInfiniteFuel { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_infiniteFuel)}".GetStableHashCode();
+        public static int FireplaceCanTurnOff { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_canTurnOff)}".GetStableHashCode();
+        public static int FireplaceCanRefill { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_canRefill)}".GetStableHashCode();
+        public static int FireplaceFuelPerSec { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_secPerFuel)}".GetStableHashCode( );
+
+        public static int ContainerWidth { get; } = $"{nameof(Container)}.{nameof(Container.m_width)}".GetStableHashCode();
+        public static int ContainerHeight { get; } = $"{nameof(Container)}.{nameof(Container.m_height)}".GetStableHashCode();
 
         public static int ContainerWidth { get; } = Hashes.Get($"{nameof(Container)}.{nameof(Container.m_width)}");
         public static int ContainerHeight { get; } = Hashes.Get($"{nameof(Container)}.{nameof(Container.m_height)}");
