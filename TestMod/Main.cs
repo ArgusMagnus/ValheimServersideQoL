@@ -124,24 +124,31 @@ public sealed class Main : BaseUnityPlugin
                 RequiredPrefabsAttribute? classAttr = null;
                 foreach (var keyProperty in sectionProperty.PropertyType.GetProperties())
                 {
-                    if (keyProperty.GetCustomAttribute<RequiredPrefabsAttribute>() is not { } attr)
-                        continue;
+                    var attr = keyProperty.GetCustomAttribute<RequiredPrefabsAttribute>();
                     if (keyProperty.PropertyType != typeof(ConfigEntry<bool>))
-                        throw new Exception($"{nameof(RequiredPrefabsAttribute)} only supported on classes and properties of type {nameof(ConfigEntry<bool>)}");
-
-                    if (section is null)
                     {
-                        section = sectionProperty.GetValue(_cfg);
-                        classAttr = sectionProperty.PropertyType.GetCustomAttribute<RequiredPrefabsAttribute>();
+                        if (attr is not null)
+                            throw new Exception($"{nameof(RequiredPrefabsAttribute)} only supported on classes and properties of type {nameof(ConfigEntry<bool>)}");
+                        continue;
                     }
+
+                    section ??= sectionProperty.GetValue(_cfg);
 
                     if (!((ConfigEntry<bool>)keyProperty.GetValue(section)).Value)
                         continue;
 
-                    var types = attr.Prefabs.Concat(classAttr?.Prefabs ?? []).ToHashSet();
+                    classAttr ??= sectionProperty.PropertyType.GetCustomAttribute<RequiredPrefabsAttribute>();
+
+                    if (attr is null)
+                        continue;
+
+                    var types = attr.Prefabs.ToHashSet();
                     if (!requiredTypes.Any(x => x.SequenceEqual(types)))
                         requiredTypes.Add(types);
                 }
+
+                if (classAttr?.Prefabs.ToHashSet() is { } classTypes && !requiredTypes.Any(x => x.SequenceEqual(classTypes)))
+                    requiredTypes.Add(classTypes);
             }
 
             if (requiredTypes is { Count: > 0 })
@@ -199,7 +206,9 @@ public sealed class Main : BaseUnityPlugin
             }
         }
 
-        var peers = ZNet.instance.GetPeers();
+        if (ZNet.instance.GetPeers() is not { Count: > 0 } peers)
+            return;
+
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
         _playerSectors.Clear();
         const int SortPlayerSectorsThreshold = 10;

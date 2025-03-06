@@ -22,7 +22,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
-        public ConfigEntry<float> StartDelay { get; } = cfg.Bind(section, nameof(StartDelay), 10f, "Time (in seconds) before the mod starts processing the world");
+        public ConfigEntry<float> StartDelay { get; } = cfg.Bind(section, nameof(StartDelay), 0f, "Time (in seconds) before the mod starts processing the world");
         public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 2f, "How many times per second the mod processes the world");
         public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 50, "Max processing time (in ms) per update");
         public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.Bind(section, nameof(ZonesAroundPlayers), 1, "Zones to process around each player");
@@ -55,7 +55,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> MakeToggleable { get; } = cfg.Bind(section, nameof(MakeToggleable), true, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
     }
 
-    [RequiredPrefabs<Container, Piece>]
+    [RequiredPrefabs<Container, Piece> /* Require Container and Piece */]
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), true, "True to auto sort container inventories");
