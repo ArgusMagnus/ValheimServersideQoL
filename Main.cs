@@ -74,13 +74,13 @@ public sealed class Main : BaseUnityPlugin
 
     //public void Awake()
     //{
-        //Logger.LogInfo("Thank you for using my mod!");
+    //Logger.LogInfo("Thank you for using my mod!");
 
-        //Assembly assembly = Assembly.GetExecutingAssembly();
-        //HarmonyInstance.PatchAll(assembly);
+    //Assembly assembly = Assembly.GetExecutingAssembly();
+    //HarmonyInstance.PatchAll(assembly);
 
-        //ItemManager.OnItemsRegistered += OnItemsRegistered;
-        //PrefabManager.OnPrefabsRegistered += OnPrefabsRegistered;
+    //ItemManager.OnItemsRegistered += OnItemsRegistered;
+    //PrefabManager.OnPrefabsRegistered += OnPrefabsRegistered;
     //}
 
     public void Start()
@@ -655,7 +655,7 @@ public sealed class Main : BaseUnityPlugin
                             maxFuel = zdo.GetInt(ZDOVarsEx.SmelterMaxFuel, maxFuel);
                         var currentFuel = zdo.GetFloat(ZDOVars.s_fuel);
                         var maxFuelAdd = (int)(maxFuel - currentFuel);
-                        if (maxFuelAdd > 0)
+                        if (maxFuelAdd > maxFuel / 2)
                         {
                             var fuelItem = prefabInfo.Smelter.m_fuelItem.m_itemData.m_shared.m_name;
                             var addedFuel = 0;
@@ -731,7 +731,7 @@ public sealed class Main : BaseUnityPlugin
                             maxOre = zdo.GetInt(ZDOVarsEx.SmelterMaxOre, maxOre);
                         var currentOre = zdo.GetInt(ZDOVars.s_queued);
                         var maxOreAdd = maxOre - zdo.GetInt(ZDOVars.s_queued);
-                        if (maxOreAdd > 0)
+                        if (maxOreAdd > maxOre / 2)
                         {
                             foreach (var conversion in prefabInfo.Smelter.m_conversion)
                             {
@@ -855,7 +855,7 @@ public sealed class Main : BaseUnityPlugin
         public static int FireplaceInfiniteFuel { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_infiniteFuel)}".GetStableHashCode();
         public static int FireplaceCanTurnOff { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_canTurnOff)}".GetStableHashCode();
         public static int FireplaceCanRefill { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_canRefill)}".GetStableHashCode();
-        public static int FireplaceFuelPerSec { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_secPerFuel)}".GetStableHashCode( );
+        public static int FireplaceFuelPerSec { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_secPerFuel)}".GetStableHashCode();
 
         public static int ContainerWidth { get; } = $"{nameof(Container)}.{nameof(Container.m_width)}".GetStableHashCode();
         public static int ContainerHeight { get; } = $"{nameof(Container)}.{nameof(Container.m_height)}".GetStableHashCode();
