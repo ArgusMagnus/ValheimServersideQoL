@@ -108,9 +108,8 @@ public sealed class Main : BaseUnityPlugin
 
         if (ZNet.instance.IsServer() is false)
         {
-            CancelInvoke(nameof(Execute));
             Logger.LogWarning("Mod should only be installed on the host");
-            return;
+            throw new OperationCanceledException();
         }
 
         if (ZNetScene.instance is null || ZDOMan.instance is null)
