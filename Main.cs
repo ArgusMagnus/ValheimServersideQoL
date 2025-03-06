@@ -20,8 +20,8 @@ public sealed class Main : BaseUnityPlugin
     /// - Show taming progress to nearby players via messages (<see cref="Tameable.GetTameness"/>
     /// </summary>
 
-    const string PluginGuid = "argusmagnus.TestMod";
-    const string PluginName = "TestMod";
+    const string PluginName = "ServersideQoL";
+    const string PluginGuid = $"argusmagnus.{PluginName}";
     const string PluginVersion = "0.1.1";
     static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
 
@@ -660,7 +660,7 @@ public sealed class Main : BaseUnityPlugin
                             item.m_stack = stack;
                             zdo.SetOwner(ZDOMan.GetSessionID());
                             ItemDrop.SaveToZDO(item, zdo);
-                            ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"Dropped {item.m_shared.m_name} moved to {_prefabInfo[containerZdo.GetPrefab()].Piece!.m_name}");
+                            ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"{_prefabInfo[containerZdo.GetPrefab()].Piece!.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
                         }
 
                         if (item.m_stack is 0)
@@ -774,7 +774,7 @@ public sealed class Main : BaseUnityPlugin
                             }
 
                             if (addedFuel is not 0)
-                                ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name} $msg_added {addedFuel} {fuelItem.m_shared.m_name}");
+                                ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
                         }
                     }
 
@@ -876,7 +876,7 @@ public sealed class Main : BaseUnityPlugin
                                 }
 
                                 if (addedOre is not 0)
-                                    ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name} $msg_added {addedOre} {oreItem.m_shared.m_name}");
+                                    ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x");
                             }
                         }
                     }
