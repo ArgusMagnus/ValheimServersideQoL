@@ -63,6 +63,8 @@ public sealed class Main : BaseUnityPlugin
     record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
     readonly List<Pin> _pins = new();
     int _pinsHash;
+    Regex? _includePortalRegex;
+    Regex? _excludePortalRegex;
 
     public Main()
     {
@@ -122,6 +124,11 @@ public sealed class Main : BaseUnityPlugin
             var dict = (IDictionary<int, PrefabInfo>)_prefabInfo;
             dict.Clear();
             _ships.Clear();
+
+            var filter = _cfg.MapTables.AutoUpdatePortalsInclude.Value.Trim();
+            _includePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
+            filter = _cfg.MapTables.AutoUpdatePortalsExclude.Value.Trim();
+            _excludePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
 
             List<HashSet<Type>> requiredTypes = new();
             foreach (var sectionProperty in _cfg.GetType().GetProperties().Where(x => x.PropertyType.IsClass))
@@ -326,7 +333,11 @@ public sealed class Main : BaseUnityPlugin
                     {
                         var pins = Enumerable.Empty<Pin>();
                         if (_cfg.MapTables.AutoUpdatePortals.Value)
+                        {
                             pins = pins.Concat(ZDOMan.instance.GetPortals().Select(x => new Pin(PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, PluginGuid)));
+                            if ((_includePortalRegex ?? _excludePortalRegex) is not null)
+                                pins = pins.Where(x => _includePortalRegex?.IsMatch(x.Tag) is not false && _excludePortalRegex?.IsMatch(x.Tag) is not true);
+                        }
                         if (_cfg.MapTables.AutoUpdateShips.Value)
                         {
                             pins = pins.Concat(_ships
@@ -819,7 +830,14 @@ public sealed class Main : BaseUnityPlugin
         => CheckMinDistance(peers, zdo, _cfg.General.MinPlayerDistance.Value);
 
     bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo, float minDistance)
-        => peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) <= minDistance;
+        => peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) >= minDistance;
+
+    static string ConvertToRegexPattern(string searchPattern)
+    {
+        searchPattern = Regex.Escape(searchPattern);
+        searchPattern = searchPattern.Replace("\\*", ".*").Replace("\\?", ".?");
+        return $"(?i)^{searchPattern}$";
+    }
 
     static class ZDOVarsEx
     {
