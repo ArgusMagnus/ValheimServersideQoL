@@ -26,6 +26,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 2f, "How many times per second the mod processes the world");
         public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 50, "Max processing time (in ms) per update");
         public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.Bind(section, nameof(ZonesAroundPlayers), 1, "Zones to process around each player");
+        public ConfigEntry<float> MinPlayerDistance { get; } = cfg.Bind(section, nameof(MinPlayerDistance), 8f, "Min distance all players must have to a ZDO for it to be modified");
     }
 
     [RequiredPrefabs<Sign>]
@@ -61,7 +62,8 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), true, "True to auto sort container inventories");
         [RequiredPrefabs<ItemDrop>]
         public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), true, "True to automatically put dropped items into containers if they already contain said item");
-        public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a item drop to be considered as auto pickup target");
+        public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a dropped item to be considered as auto pickup target");
+        public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 16f, "Min distance all player must have to a dropped item for it to be picked up");
     }
 
     [RequiredPrefabs<Smelter>]
@@ -69,6 +71,7 @@ sealed class ModConfig(ConfigFile cfg)
     {
         [RequiredPrefabs<Container, Piece>]
         public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), true, "True to automatically feed smelters from nearby containers");
+        public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.Bind(section, nameof(FeedFromContainersRange), 4f, "Required proxmity of a container to a smelter to be used as feeding source");
     }
 }
 

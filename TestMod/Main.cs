@@ -468,7 +468,7 @@ public sealed class Main : BaseUnityPlugin
                     if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
                         continue;
 
-                    if (zdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 5)
+                    if (zdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, zdo))
                         continue; // in use or player to close
 
                     _dataRevisions[zdo.m_uid] = zdo.DataRevision;
@@ -530,9 +530,9 @@ public sealed class Main : BaseUnityPlugin
                     }
                 }
 
-                if (prefabInfo.ItemDrop is not null && _cfg.Containers.AutoSort.Value)
+                if (prefabInfo.ItemDrop is not null && _cfg.Containers.AutoPickup.Value)
                 {
-                    if (peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 10)
+                    if (!CheckMinDistance(peers, zdo, _cfg.Containers.AutoPickupMinPlayerDistance.Value))
                         continue; // player to close
 
                     var shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared;
@@ -556,7 +556,7 @@ public sealed class Main : BaseUnityPlugin
                         if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > _cfg.Containers.AutoPickupRange.Value)
                             continue;
 
-                        if (containerZdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, containerZdo.GetPosition())) < 5)
+                        if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
                             continue; // in use or player to close
 
                         if (data is null)
@@ -632,7 +632,7 @@ public sealed class Main : BaseUnityPlugin
 
                 if (_cfg.Smelters.FeedFromContainers.Value && prefabInfo.Smelter is not null)
                 {
-                    if (peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 5)
+                    if (!CheckMinDistance(peers, zdo))
                         continue; // player to close
 
                     var hasFields = zdo.GetBool(ZDOVarsEx.GetHasFields<Smelter>());
@@ -665,7 +665,7 @@ public sealed class Main : BaseUnityPlugin
                                     if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
                                         continue;
 
-                                    if (containerZdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, containerZdo.GetPosition())) < 5)
+                                    if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
                                         continue; // in use or player to close
 
                                     removeSlots?.Clear();
@@ -743,7 +743,7 @@ public sealed class Main : BaseUnityPlugin
                                         if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
                                             continue;
 
-                                        if (containerZdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, containerZdo.GetPosition())) < 5)
+                                        if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
                                             continue; // in use or player to close
 
                                         removeSlots?.Clear();
@@ -814,6 +814,12 @@ public sealed class Main : BaseUnityPlugin
         foreach (var peer in peers)
             ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "ShowMessage", (int)type, message);
     }
+
+    bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo)
+        => CheckMinDistance(peers, zdo, _cfg.General.MinPlayerDistance.Value);
+
+    bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo, float minDistance)
+        => peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) <= minDistance;
 
     static class ZDOVarsEx
     {
