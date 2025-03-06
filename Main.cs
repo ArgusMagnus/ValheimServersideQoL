@@ -20,7 +20,7 @@ public sealed class Main : BaseUnityPlugin
 
     const string PluginGuid = "argusmagnus.TestMod";
     const string PluginName = "TestMod";
-    const string PluginVersion = "1.0.0";
+    const string PluginVersion = "0.1.0";
     static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
 
     //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);

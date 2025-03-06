@@ -9,67 +9,67 @@
 
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="assembly_utils">
-      <HintPath>..\..\..\..\Games\valheim\valheim_server_Data\Managed\assembly_utils.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\valheim_server_Data\Managed\assembly_utils.dll</HintPath>
 	  <Private>False</Private>
     </Reference>
     <Reference Include="assembly_valheim">
-      <HintPath>..\..\..\..\Games\valheim\valheim_server_Data\Managed\assembly_valheim.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\valheim_server_Data\Managed\assembly_valheim.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\BepInEx.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\BepInEx.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Harmony">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\BepInEx.Harmony.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\BepInEx.Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Preloader">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\BepInEx.Preloader.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\BepInEx.Preloader.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="HarmonyXInterop">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\HarmonyXInterop.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\HarmonyXInterop.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\Mono.Cecil.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\Mono.Cecil.Mdb.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\Mono.Cecil.Mdb.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\Mono.Cecil.Pdb.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\Mono.Cecil.Pdb.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\Mono.Cecil.Rocks.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\Mono.Cecil.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MonoMod.RuntimeDetour">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\MonoMod.RuntimeDetour.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\MonoMod.RuntimeDetour.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MonoMod.Utils">
-      <HintPath>..\..\..\..\Games\valheim\BepInEx\core\MonoMod.Utils.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\BepInEx\core\MonoMod.Utils.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\Games\valheim\valheim_server_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\valheim_server_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\Games\valheim\valheim_server_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\valheim_server_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\..\..\..\Games\valheim\valheim_server_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>..\..\..\Games\valheim\valheim_server_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
 		<Private>False</Private>
 	</Reference>
   </ItemGroup>
