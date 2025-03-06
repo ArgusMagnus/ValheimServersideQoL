@@ -59,6 +59,7 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), true, "True to auto sort container inventories");
         [RequiredPrefabs<ItemDrop>]
+        [RequiredPrefabs<Piece>]
         public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), true, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a dropped item to be considered as auto pickup target");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
@@ -73,19 +74,17 @@ sealed class ModConfig(ConfigFile cfg)
     }
 }
 
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = true)]
 abstract class RequiredPrefabsAttribute(params Type[] prefabs) : Attribute
 {
     public Type[] Prefabs { get; } = prefabs;
 }
 
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property)]
 sealed class RequiredPrefabsAttribute<T> : RequiredPrefabsAttribute where T : Component
 {
     public RequiredPrefabsAttribute() : base(typeof(T)) { }
 }
 
-
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property)]
 sealed class RequiredPrefabsAttribute<T1, T2> : RequiredPrefabsAttribute where T1 : Component where T2 : Component
 {
     public RequiredPrefabsAttribute() : base(typeof(T1), typeof(T2)) { }

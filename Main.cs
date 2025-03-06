@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Text.RegularExpressions;
 using BepInEx.Configuration;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Valheim.ServersideQoL;
 
@@ -32,18 +33,18 @@ public sealed class Main : BaseUnityPlugin
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
-    record PrefabInfo(IReadOnlyDictionary<Type, Component> Prefabs)
+    record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, Component> Components)
     {
         static T? Get<T>(IReadOnlyDictionary<Type, Component> prefabs) where T : Component => prefabs.TryGetValue(typeof(T), out var value) ? (T)value : null;
-        public Sign? Sign { get; } = Get<Sign>(Prefabs);
-        public MapTable? MapTable { get; } = Get<MapTable>(Prefabs);
-        public Tameable? Tameable { get; } = Get<Tameable>(Prefabs);
-        public Fireplace? Fireplace { get; } = Get<Fireplace>(Prefabs);
-        public Container? Container { get; } = Get<Container>(Prefabs);
-        public Ship? Ship { get; } = Get<Ship>(Prefabs);
-        public ItemDrop? ItemDrop { get; } = Get<ItemDrop>(Prefabs);
-        public Piece? Piece { get; } = Get<Piece>(Prefabs);
-        public Smelter? Smelter { get; } = Get<Smelter>(Prefabs);
+        public Sign? Sign { get; } = Get<Sign>(Components);
+        public MapTable? MapTable { get; } = Get<MapTable>(Components);
+        public Tameable? Tameable { get; } = Get<Tameable>(Components);
+        public Fireplace? Fireplace { get; } = Get<Fireplace>(Components);
+        public Container? Container { get; } = Get<Container>(Components);
+        public Ship? Ship { get; } = Get<Ship>(Components);
+        public ItemDrop? ItemDrop { get; } = Get<ItemDrop>(Components);
+        public Piece? Piece { get; } = Get<Piece>(Components);
+        public Smelter? Smelter { get; } = Get<Smelter>(Components);
     }
 
     readonly IReadOnlyDictionary<int, PrefabInfo> _prefabInfo = new Dictionary<int, PrefabInfo>();
@@ -56,7 +57,12 @@ public sealed class Main : BaseUnityPlugin
         public ItemKey(ItemDrop.ItemData data) : this(data.m_shared.m_name, data.m_quality, data.m_variant) { }
     }
 
-    readonly ConcurrentDictionary<ItemKey, ConcurrentDictionary<ZDOID, Inventory>> _containersByItemName = new();
+    record struct SharedItemDataKey(string Name)
+    {
+        public static implicit operator SharedItemDataKey(ItemDrop.ItemData.SharedData data) => new(data.m_name);
+    }
+
+    readonly ConcurrentDictionary<SharedItemDataKey, ConcurrentDictionary<ZDOID, Inventory>> _containersByItemName = new();
 
     ulong _executeCounter;
     uint _unfinishedProcessingInRow;
@@ -141,13 +147,13 @@ public sealed class Main : BaseUnityPlugin
             foreach (var sectionProperty in _cfg.GetType().GetProperties().Where(x => x.PropertyType.IsClass))
             {
                 object? section = null;
-                RequiredPrefabsAttribute? classAttr = null;
+                IEnumerable<RequiredPrefabsAttribute>? classAttr = null;
                 foreach (var keyProperty in sectionProperty.PropertyType.GetProperties())
                 {
-                    var attr = keyProperty.GetCustomAttribute<RequiredPrefabsAttribute>();
+                    var attrs = keyProperty.GetCustomAttributes<RequiredPrefabsAttribute>();
                     if (keyProperty.PropertyType != typeof(ConfigEntry<bool>))
                     {
-                        if (attr is not null)
+                        if (attrs.Any())
                             throw new Exception($"{nameof(RequiredPrefabsAttribute)} only supported on classes and properties of type {nameof(ConfigEntry<bool>)}");
                         continue;
                     }
@@ -157,18 +163,21 @@ public sealed class Main : BaseUnityPlugin
                     if (!((ConfigEntry<bool>)keyProperty.GetValue(section)).Value)
                         continue;
 
-                    classAttr ??= sectionProperty.PropertyType.GetCustomAttribute<RequiredPrefabsAttribute>();
+                    classAttr ??= sectionProperty.PropertyType.GetCustomAttributes<RequiredPrefabsAttribute>();
 
-                    if (attr is null)
-                        continue;
-
-                    var types = attr.Prefabs.ToHashSet();
-                    if (!requiredTypes.Any(x => x.SequenceEqual(types)))
-                        requiredTypes.Add(types);
+                    foreach (var attr in attrs)
+                    {
+                        var types = attr.Prefabs.ToHashSet();
+                        if (!requiredTypes.Any(x => x.SequenceEqual(types)))
+                            requiredTypes.Add(types);
+                    }
                 }
 
-                if (classAttr?.Prefabs.ToHashSet() is { } classTypes && !requiredTypes.Any(x => x.SequenceEqual(classTypes)))
-                    requiredTypes.Add(classTypes);
+                foreach (var attr in classAttr ?? [])
+                {
+                    if (attr.Prefabs.ToHashSet() is { } classTypes && !requiredTypes.Any(x => x.SequenceEqual(classTypes)))
+                        requiredTypes.Add(classTypes);
+                }
             }
 
             if (requiredTypes is { Count: > 0 })
@@ -176,7 +185,7 @@ public sealed class Main : BaseUnityPlugin
                 var needsShips = false;
                 foreach (var prefab in ZNetScene.instance.m_prefabs)
                 {
-                    Dictionary<Type, Component>? prefabDict = null;
+                    Dictionary<Type, Component>? components = null;
                     foreach (var requiredTypeList in requiredTypes)
                     {
                         var prefabs = requiredTypeList.Select(x => (Type: x, Component: prefab.GetComponent(x))).Where(x => x.Component is not null).ToList();
@@ -184,14 +193,14 @@ public sealed class Main : BaseUnityPlugin
                             continue;
                         foreach (var (type, component) in prefabs)
                         {
-                            prefabDict ??= new();
-                            if (!prefabDict.ContainsKey(type))
-                                prefabDict.Add(type, component);
+                            components ??= new();
+                            if (!components.ContainsKey(type))
+                                components.Add(type, component);
                         }
                     }
-                    if (prefabDict is not null)
+                    if (components is not null)
                     {
-                        var prefabInfo = new PrefabInfo(prefabDict);
+                        var prefabInfo = new PrefabInfo(prefab, components);
                         dict.Add(prefab.name.GetStableHashCode(), prefabInfo);
                         needsShips = needsShips || prefabInfo.Ship is not null;
                     }
@@ -482,9 +491,11 @@ public sealed class Main : BaseUnityPlugin
 
                 if (prefabInfo is { Container: not null, Piece: not null })
                 {
-                    // todo: ignore non-player-built chests (such as TreasureChest_*)
                     if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
                         continue;
+
+                    if (zdo.GetLong(ZDOVars.s_creator) is 0)
+                        continue; // ignore non-player-built chests (such as TreasureChest_*)
 
                     if (zdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, zdo))
                         continue; // in use or player to close
@@ -514,7 +525,7 @@ public sealed class Main : BaseUnityPlugin
                         .ThenBy(x => x.m_shared.m_name)
                         .ThenByDescending(x => x.m_stack))
                     {
-                        var dict = _containersByItemName.GetOrAdd(item, static _ => new());
+                        var dict = _containersByItemName.GetOrAdd(item.m_shared, static _ => new());
                         dict[zdo.m_uid] = inventory;
                         if (!_cfg.Containers.AutoSort.Value)
                             continue;
@@ -535,30 +546,28 @@ public sealed class Main : BaseUnityPlugin
                     if (!changed)
                         continue;
 
-                    if (zdo.GetBool(ZDOVars.s_inUse))
-                        _dataRevisions.TryRemove(zdo.m_uid, out _);
-                    else
-                    {
-                        var pkg = new ZPackage();
-                        inventory.Save(pkg);
-                        data = pkg.GetBase64();
-                        zdo.Set(ZDOVars.s_items, data);
-                        _dataRevisions[zdo.m_uid] = zdo.DataRevision;
-                        ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
-                    }
+                    var pkg = new ZPackage();
+                    inventory.Save(pkg);
+                    data = pkg.GetBase64();
+                    zdo.Set(ZDOVars.s_items, data);
+                    _dataRevisions[zdo.m_uid] = zdo.DataRevision;
+                    ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
                 }
 
                 if (prefabInfo.ItemDrop is not null && _cfg.Containers.AutoPickup.Value)
                 {
+                    if (prefabInfo.Piece is not null && zdo.GetBool(ZDOVars.s_piece))
+                        continue; // ignore placed items (such as feasts)
+
                     if (!CheckMinDistance(peers, zdo, _cfg.Containers.AutoPickupMinPlayerDistance.Value))
                         continue; // player to close
 
-                    var item = new ItemDrop.ItemData { m_shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared };
-                    PrivateAccessor.LoadFromZDO(item, zdo);
-                    if (!_containersByItemName.TryGetValue(item, out var dict))
+                    var shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared;
+                    if (!_containersByItemName.TryGetValue(shared, out var dict))
                         continue;
 
                     HashSet<Vector2i>? usedSlots = null;
+                    ItemDrop.ItemData? item = null;
 
                     foreach (var (containerZdoId, inventory) in dict.Select(x => (x.Key, x.Value)))
                     {
@@ -571,13 +580,19 @@ public sealed class Main : BaseUnityPlugin
                         if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
                             continue;
 
-                        if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > _cfg.Containers.AutoPickupRange.Value)
+                        if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > _cfg.Containers.AutoPickupRange.Value)
                             continue;
 
                         if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
                             continue; // in use or player to close
 
                         inventory.Update(containerZdo);
+
+                        if (item is null)
+                        {
+                            item = new() { m_shared = shared };
+                            PrivateAccessor.LoadFromZDO(item, zdo);
+                        }
 
                         var stack = item.m_stack;
                         usedSlots ??= new();
@@ -607,7 +622,7 @@ public sealed class Main : BaseUnityPlugin
                         {
                             dict.TryRemove(containerZdoId, out _);
                             if (dict is { Count: 0 })
-                                _containersByItemName.TryRemove(item, out _);
+                                _containersByItemName.TryRemove(item.m_shared, out _);
                             continue;
                         }
 
@@ -651,7 +666,7 @@ public sealed class Main : BaseUnityPlugin
                             break;
                     }
 
-                    if (item.m_stack is 0)
+                    if (item?.m_stack is 0)
                     {
                         zdo.SetOwner(ZDOMan.GetSessionID());
                         ZDOMan.instance.DestroyZDO(zdo);
@@ -676,7 +691,7 @@ public sealed class Main : BaseUnityPlugin
                         {
                             var fuelItem = prefabInfo.Smelter.m_fuelItem.m_itemData;
                             var addedFuel = 0;
-                            if (_containersByItemName.TryGetValue(fuelItem, out var containers))
+                            if (_containersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
                             {
                                 List<ItemDrop.ItemData>? removeSlots = null;
                                 foreach (var (containerZdoId, inventory) in containers.Select(x => (x.Key, x.Value)))
@@ -717,7 +732,7 @@ public sealed class Main : BaseUnityPlugin
                                     {
                                         containers.TryRemove(containerZdoId, out _);
                                         if (containers is { Count: 0 })
-                                            _containersByItemName.TryRemove(fuelItem, out _);
+                                            _containersByItemName.TryRemove(fuelItem.m_shared, out _);
                                         continue;
                                     }
 
@@ -732,8 +747,7 @@ public sealed class Main : BaseUnityPlugin
                                         {
                                             containers.TryRemove(containerZdoId, out _);
                                             if (containers is { Count: 0 })
-                                                _containersByItemName.TryRemove(fuelItem, out _);
-                                            continue;
+                                                _containersByItemName.TryRemove(fuelItem.m_shared, out _);
                                         }
                                     }
 
@@ -769,7 +783,7 @@ public sealed class Main : BaseUnityPlugin
                             {
                                 var oreItem = conversion.m_from.m_itemData;
                                 var addedOre = 0;
-                                if (_containersByItemName.TryGetValue(oreItem, out var containers))
+                                if (_containersByItemName.TryGetValue(oreItem.m_shared, out var containers))
                                 {
                                     List<ItemDrop.ItemData>? removeSlots = null;
                                     foreach (var (containerZdoId, inventory) in containers.Select(x => (x.Key, x.Value)))
@@ -810,7 +824,7 @@ public sealed class Main : BaseUnityPlugin
                                         {
                                             containers.TryRemove(containerZdoId, out _);
                                             if (containers is { Count: 0 })
-                                                _containersByItemName.TryRemove(oreItem, out _);
+                                                _containersByItemName.TryRemove(oreItem.m_shared, out _);
                                             continue;
                                         }
 
@@ -825,8 +839,7 @@ public sealed class Main : BaseUnityPlugin
                                             {
                                                 containers.TryRemove(containerZdoId, out _);
                                                 if (containers is { Count: 0 })
-                                                    _containersByItemName.TryRemove(oreItem, out _);
-                                                continue;
+                                                    _containersByItemName.TryRemove(oreItem.m_shared, out _);
                                             }
                                         }
 
@@ -865,6 +878,9 @@ public sealed class Main : BaseUnityPlugin
         else
             _unfinishedProcessingInRow = 0;
     }
+
+    static void LogLine(LogLevel logLevel, string text = "", [CallerLineNumber] int lineNo = default)
+        => Logger.Log(logLevel, string.IsNullOrEmpty(text) ? $"Line: {lineNo}" : $"Line: {lineNo}: {text}");
 
     static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
     {
