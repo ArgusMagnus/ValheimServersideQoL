@@ -12,6 +12,12 @@ namespace TestMod;
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 public sealed class Main : BaseUnityPlugin
 {
+    /// <Ideas>
+    /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
+    /// - Option to make fireplaces consume fuel from containers to have an alternative to infinite fuel when making them toggleable
+    /// - Scale eggs by quality by setting <see cref="ItemDrop.ItemData.SharedData.m_scaleByQuality". Not sure if we can modify shared data on clients though. />
+    /// </summary>
+
     const string PluginGuid = "argusmagnus.TestMod";
     const string PluginName = "TestMod";
     const string PluginVersion = "1.0.0";
@@ -458,6 +464,7 @@ public sealed class Main : BaseUnityPlugin
 
                 if (prefabInfo is { Container: not null, Piece: not null })
                 {
+                    // todo: ignore non-player-built chests (such as TreasureChest_*)
                     if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
                         continue;
 
@@ -623,11 +630,171 @@ public sealed class Main : BaseUnityPlugin
                     }
                 }
 
-                if (prefabInfo.Smelter is not null)
+                if (_cfg.Smelters.FeedFromContainers.Value && prefabInfo.Smelter is not null)
                 {
-                    //if (!_containersAutoFeedSmelters.Value)
-                    //    continue;
-                    /// <see cref="Smelter.OnAddFuel"/> <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
+                    if (peers.Min(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition())) < 5)
+                        continue; // player to close
+
+                    var hasFields = zdo.GetBool(ZDOVarsEx.GetHasFields<Smelter>());
+
+                    /// <see cref="Smelter.OnAddFuel"/>
+                    {
+                        int maxFuel = prefabInfo.Smelter.m_maxFuel;
+                        if (hasFields)
+                            maxFuel = zdo.GetInt(ZDOVarsEx.SmelterMaxFuel, maxFuel);
+                        var currentFuel = zdo.GetFloat(ZDOVars.s_fuel);
+                        var maxFuelAdd = (int)(maxFuel - currentFuel);
+                        if (maxFuelAdd > 0)
+                        {
+                            var fuelItem = prefabInfo.Smelter.m_fuelItem.m_itemData.m_shared.m_name;
+                            var addedFuel = 0;
+                            if (_containersByItemName.TryGetValue(fuelItem, out var containers))
+                            {
+                                List<ItemDrop.ItemData>? removeSlots = null;
+                                foreach (var (containerZdoId, inventory) in containers.Select(x => (x.Key, x.Value)))
+                                {
+                                    if (ZDOMan.instance.GetZDO(containerZdoId) is not { } containerZdo)
+                                    {
+                                        containers.TryRemove(containerZdoId, out _);
+                                        continue;
+                                    }
+
+                                    if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
+                                        continue; // inventory not up-to-date
+
+                                    if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
+                                        continue;
+
+                                    if (containerZdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, containerZdo.GetPosition())) < 5)
+                                        continue; // in use or player to close
+
+                                    removeSlots?.Clear();
+                                    float addFuel = 0;
+                                    foreach (var slot in inventory.GetAllItems().Where(x => x.m_shared.m_name == fuelItem).OrderBy(x => x.m_stack))
+                                    {
+                                        var take = Math.Min(maxFuelAdd, slot.m_stack);
+                                        addFuel += take;
+                                        slot.m_stack -= take;
+                                        if (slot.m_stack is 0)
+                                            (removeSlots ??= new()).Add(slot);
+
+                                        maxFuelAdd -= take;
+                                        if (maxFuelAdd is 0)
+                                            break;
+                                    }
+
+                                    if (addFuel is 0)
+                                        continue;
+
+                                    if (removeSlots is { Count: > 0 })
+                                    {
+                                        if (!ReferenceEquals(inventory.GetAllItems(), inventory.GetAllItems()))
+                                            throw new Exception("Algorithm assumption violated");
+                                        foreach (var remove in removeSlots)
+                                            inventory.GetAllItems().Remove(remove);
+                                    }
+
+                                    zdo.Set(ZDOVars.s_fuel, currentFuel + addFuel);
+
+                                    var pkg = new ZPackage();
+                                    inventory.Save(pkg);
+                                    containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
+                                    _dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+
+                                    addedFuel += (int)addFuel;
+
+                                    if (maxFuelAdd is 0)
+                                        break;
+                                }
+                            }
+
+                            if (addedFuel is not 0)
+                                ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name} $msg_added {addedFuel} {fuelItem}");
+                        }
+                    }
+
+                    /// <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
+                    {
+                        int maxOre = prefabInfo.Smelter.m_maxOre;
+                        if (hasFields)
+                            maxOre = zdo.GetInt(ZDOVarsEx.SmelterMaxOre, maxOre);
+                        var currentOre = zdo.GetInt(ZDOVars.s_queued);
+                        var maxOreAdd = maxOre - zdo.GetInt(ZDOVars.s_queued);
+                        if (maxOreAdd > 0)
+                        {
+                            foreach (var conversion in prefabInfo.Smelter.m_conversion)
+                            {
+                                var oreItem = conversion.m_from.m_itemData.m_shared.m_name;
+                                var addedOre = 0;
+                                if (_containersByItemName.TryGetValue(oreItem, out var containers))
+                                {
+                                    List<ItemDrop.ItemData>? removeSlots = null;
+                                    foreach (var (containerZdoId, inventory) in containers.Select(x => (x.Key, x.Value)))
+                                    {
+                                        if (ZDOMan.instance.GetZDO(containerZdoId) is not { } containerZdo)
+                                        {
+                                            containers.TryRemove(containerZdoId, out _);
+                                            continue;
+                                        }
+
+                                        if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
+                                            continue; // inventory not up-to-date
+
+                                        if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
+                                            continue;
+
+                                        if (containerZdo.GetBool(ZDOVars.s_inUse) || peers.Min(x => Utils.DistanceXZ(x.m_refPos, containerZdo.GetPosition())) < 5)
+                                            continue; // in use or player to close
+
+                                        removeSlots?.Clear();
+                                        int addOre = 0;
+                                        foreach (var slot in inventory.GetAllItems().Where(x => x.m_shared.m_name == oreItem).OrderBy(x => x.m_stack))
+                                        {
+                                            var take = Math.Min(maxOreAdd, slot.m_stack);
+                                            addOre += take;
+                                            slot.m_stack -= take;
+                                            if (slot.m_stack is 0)
+                                                (removeSlots ??= new()).Add(slot);
+
+                                            maxOreAdd -= take;
+                                            if (maxOreAdd is 0)
+                                                break;
+                                        }
+
+                                        if (addOre is 0)
+                                            continue;
+
+                                        if (removeSlots is { Count: > 0 })
+                                        {
+                                            if (!ReferenceEquals(inventory.GetAllItems(), inventory.GetAllItems()))
+                                                throw new Exception("Algorithm assumption violated");
+                                            foreach (var remove in removeSlots)
+                                                inventory.GetAllItems().Remove(remove);
+                                        }
+
+                                        zdo.SetOwner(ZDOMan.GetSessionID());
+                                        for (int i = 0; i < addOre; i++)
+                                            zdo.Set($"item{currentOre + i}", conversion.m_from.gameObject.name);
+                                        zdo.Set(ZDOVars.s_queued, currentOre + addOre);
+
+                                        var pkg = new ZPackage();
+                                        inventory.Save(pkg);
+                                        containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
+                                        _dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+
+                                        addedOre += addOre;
+
+                                        if (maxOreAdd is 0)
+                                            break;
+                                    }
+                                }
+
+                                if (addedOre is not 0)
+                                    ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name} $msg_added {addedOre} {oreItem}");
+                            }
+                        }
+                    }
+
                 }
             }
         }
@@ -668,5 +835,8 @@ public sealed class Main : BaseUnityPlugin
 
         public static int ContainerWidth { get; } = $"{nameof(Container)}.{nameof(Container.m_width)}".GetStableHashCode();
         public static int ContainerHeight { get; } = $"{nameof(Container)}.{nameof(Container.m_height)}".GetStableHashCode();
+
+        public static int SmelterMaxFuel { get; } = $"{nameof(Smelter)}.{nameof(Smelter.m_maxFuel)}".GetStableHashCode();
+        public static int SmelterMaxOre { get; } = $"{nameof(Smelter)}.{nameof(Smelter.m_maxOre)}".GetStableHashCode();
     }
 }
