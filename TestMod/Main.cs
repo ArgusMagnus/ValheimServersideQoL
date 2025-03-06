@@ -44,9 +44,10 @@ public sealed class Main : BaseUnityPlugin
     readonly ConcurrentDictionary<string, ConcurrentDictionary<ZDOID, Inventory>> _containersByItemName = new();
 
     ulong _executeCounter;
+    uint _unfinishedProcessingInRow;
     record SectorInfo(List<ZNetPeer> Peers, List<ZDO> ZDOs)
     {
-        public bool HasPlayer { get; set; }
+        public int InverseWeight { get; set; }
     }
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
@@ -180,13 +181,13 @@ public sealed class Main : BaseUnityPlugin
             var playerSector = ZoneSystem.GetZone(peer.m_refPos);
             for (int x = playerSector.x - _zonesAroundPlayers.Value; x <= playerSector.x + _zonesAroundPlayers.Value; x++)
             {
-                for (int y = playerSector.y - _zonesAroundPlayers.Value; y <= playerSector.y+_zonesAroundPlayers.Value; y++)
+                for (int y = playerSector.y - _zonesAroundPlayers.Value; y <= playerSector.y + _zonesAroundPlayers.Value; y++)
                 {
                     var sector = new Vector2i(x, y);
                     if (_playerSectorsOld.TryRemove(sector, out var sectorInfo))
                     {
                         _playerSectors.TryAdd(sector, sectorInfo);
-                        sectorInfo.HasPlayer = false;
+                        sectorInfo.InverseWeight = 0;
                         sectorInfo.Peers.Clear();
                         sectorInfo.Peers.Add(peer);
                     }
@@ -198,26 +199,42 @@ public sealed class Main : BaseUnityPlugin
                         _playerSectors.TryAdd(sector, sectorInfo);
                     }
 
-                    if (playerSector == sector)
-                        sectorInfo.HasPlayer = true;
+                    var dx = x - playerSector.x;
+                    var dy = y - playerSector.y;
+                    sectorInfo.InverseWeight += dx * dx + dy * dy;
                 }
             }
         }
+
+        int processedSectors = 0;
+        int processedZdos = 0;
+        int totalZdos = 0;
 
         string? timeText = null;
         List<Pin>? existingPins = null;
         byte[]? emptyExplored = null;
         _pins.Clear();
         int oldPinsHash = 0;
-        foreach (var (sector, sectorInfo) in _playerSectors.Select(x => (x.Key, x.Value)).OrderBy(x => x.Value.HasPlayer ? 0 : 1))
+
+        var playerSectors = _playerSectors.AsEnumerable();
+        if (_unfinishedProcessingInRow > 10)
+            playerSectors = playerSectors.OrderBy(x => x.Value.InverseWeight);
+
+        foreach (var (sector, sectorInfo) in playerSectors.Select(x => (x.Key, x.Value)))
         {
             if (watch.ElapsedMilliseconds > _maxProcessingTimeMs.Value)
                 break;
+
+            processedSectors++;
+
             if (sectorInfo is { ZDOs: { Count: 0 } })
                 ZDOMan.instance.FindSectorObjects(sector, 1, 0, sectorInfo.ZDOs);
 
+            totalZdos += sectorInfo.ZDOs.Count;
+
             while (sectorInfo is { ZDOs: { Count: > 0 } } && watch.ElapsedMilliseconds < _maxProcessingTimeMs.Value)
             {
+                processedZdos++;
                 var zdo = sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
                 sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
                 if (!zdo.IsValid())
@@ -415,8 +432,13 @@ public sealed class Main : BaseUnityPlugin
 
                         /// <see cref="Container.Load"/>
                         /// <see cref="Container.Save"/>
-                        var width = zdo.GetInt(ZDOVarsEx.ContainerWidth, prefabInfo.Container.m_width);
-                        var height = zdo.GetInt(ZDOVarsEx.ContainerHeight, prefabInfo.Container.m_height);
+                        var width = prefabInfo.Container.m_width;
+                        var height = prefabInfo.Container.m_height;
+                        if (zdo.GetBool(ZDOVarsEx.GetHasFields<Container>()))
+                        {
+                            width = zdo.GetInt(ZDOVarsEx.ContainerWidth, width);
+                            height = zdo.GetInt(ZDOVarsEx.ContainerHeight, height);
+                        }
                         Inventory inventory = new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height);
                         inventory.Load(new(data));
                         var changed = false;
@@ -574,7 +596,13 @@ public sealed class Main : BaseUnityPlugin
             }
         }
 
-        Logger.Log(watch.ElapsedMilliseconds > _maxProcessingTimeMs.Value ? LogLevel.Info : LogLevel.Debug, $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process");
+        Logger.Log(watch.ElapsedMilliseconds > _maxProcessingTimeMs.Value ? LogLevel.Info : LogLevel.Debug,
+            $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones");
+
+        if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
+            _unfinishedProcessingInRow++;
+        else
+            _unfinishedProcessingInRow = 0;
     }
 
     static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
