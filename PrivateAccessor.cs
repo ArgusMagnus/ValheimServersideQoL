@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace TestMod;
+namespace Valheim.ServersideQoL;
 
 static class PrivateAccessor
 {

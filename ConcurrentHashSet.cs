@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Concurrent;
 
-namespace TestMod;
+namespace Valheim.ServersideQoL;
 
 sealed class ConcurrentHashSet<T> : ICollection<T>, IReadOnlyCollection<T>
     where T : notnull

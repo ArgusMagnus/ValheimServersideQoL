@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using BepInEx.Configuration;
 using System.Reflection;
 
-namespace TestMod;
+namespace Valheim.ServersideQoL;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 public sealed class Main : BaseUnityPlugin

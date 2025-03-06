@@ -1,7 +1,7 @@
 ﻿using BepInEx.Configuration;
 using UnityEngine;
 
-namespace TestMod;
+namespace Valheim.ServersideQoL;
 
 sealed class ModConfig(ConfigFile cfg)
 {
