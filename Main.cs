@@ -580,7 +580,7 @@ public sealed class Main : BaseUnityPlugin
                         if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
                             continue;
 
-                        if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > _cfg.Containers.AutoPickupRange.Value)
+                        if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > _cfg.Containers.AutoPickupRange.Value * _cfg.Containers.AutoPickupRange.Value)
                             continue;
 
                         if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
@@ -597,15 +597,15 @@ public sealed class Main : BaseUnityPlugin
                         var stack = item.m_stack;
                         usedSlots ??= new();
                         usedSlots.Clear();
-                        bool found = false;
 
+                        ItemDrop.ItemData? containerItem = null;
                         foreach (var slot in inventory.GetAllItems())
                         {
-                            usedSlots.Add(new(slot.m_gridPos.x, slot.m_gridPos.y));
+                            usedSlots.Add(slot.m_gridPos);
                             if (new ItemKey(item) != slot)
                                 continue;
 
-                            found = true;
+                            containerItem ??= slot;
 
                             var maxAmount = slot.m_shared.m_maxStackSize - slot.m_stack;
                             if (maxAmount <= 0)
@@ -618,7 +618,7 @@ public sealed class Main : BaseUnityPlugin
                                 break;
                         }
 
-                        if (!found)
+                        if (containerItem is null)
                         {
                             dict.TryRemove(containerZdoId, out _);
                             if (dict is { Count: 0 })
@@ -633,13 +633,14 @@ public sealed class Main : BaseUnityPlugin
                         {
                             var amount = Math.Min(stack, item.m_shared.m_maxStackSize);
 
-                            var slot = item.Clone();
+                            var slot = containerItem.Clone();
                             slot.m_stack = amount;
-                            for (int x = 0; x < inventory.GetWidth(); x++)
+                            slot.m_gridPos.x = -1;
+                            for (int x = 0; x < inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
                             {
                                 for (int y = 0; y < inventory.GetHeight(); y++)
                                 {
-                                    if (!usedSlots.Contains(new(x, y)))
+                                    if (usedSlots.Add(new(x, y)))
                                     {
                                         (slot.m_gridPos.x, slot.m_gridPos.y) = (x, y);
                                         break;
@@ -715,9 +716,16 @@ public sealed class Main : BaseUnityPlugin
 
                                     removeSlots?.Clear();
                                     float addFuel = 0;
+                                    var leave = _cfg.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
                                     foreach (var slot in inventory.GetAllItems().Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
                                     {
                                         var take = Math.Min(maxFuelAdd, slot.m_stack);
+                                        var leaveDiff = Math.Min(take, leave);
+                                        leave -= leaveDiff;
+                                        take -= leaveDiff;
+                                        if (take is 0)
+                                            continue;
+
                                         addFuel += take;
                                         slot.m_stack -= take;
                                         if (slot.m_stack is 0)
@@ -766,7 +774,7 @@ public sealed class Main : BaseUnityPlugin
                             }
 
                             if (addedFuel is not 0)
-                                ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name} $msg_added {addedFuel} {fuelItem}");
+                                ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name} $msg_added {addedFuel} {fuelItem.m_shared.m_name}");
                         }
                     }
 
@@ -807,9 +815,16 @@ public sealed class Main : BaseUnityPlugin
 
                                         removeSlots?.Clear();
                                         int addOre = 0;
+                                        var leave = _cfg.Smelters.FeedFromContainersLeaveAtLeastOre.Value;
                                         foreach (var slot in inventory.GetAllItems().Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
                                         {
                                             var take = Math.Min(maxOreAdd, slot.m_stack);
+                                            var leaveDiff = Math.Min(take, leave);
+                                            leave -= leaveDiff;
+                                            take -= leaveDiff;
+                                            if (take is 0)
+                                                continue;
+
                                             addOre += take;
                                             slot.m_stack -= take;
                                             if (slot.m_stack is 0)
@@ -861,7 +876,7 @@ public sealed class Main : BaseUnityPlugin
                                 }
 
                                 if (addedOre is not 0)
-                                    ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name} $msg_added {addedOre} {oreItem}");
+                                    ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name} $msg_added {addedOre} {oreItem.m_shared.m_name}");
                             }
                         }
                     }
@@ -879,7 +894,7 @@ public sealed class Main : BaseUnityPlugin
             _unfinishedProcessingInRow = 0;
     }
 
-    static void LogLine(LogLevel logLevel, string text = "", [CallerLineNumber] int lineNo = default)
+    static void Log(LogLevel logLevel, string text = "", [CallerLineNumber] int lineNo = default)
         => Logger.Log(logLevel, string.IsNullOrEmpty(text) ? $"Line: {lineNo}" : $"Line: {lineNo}: {text}");
 
     static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
@@ -893,7 +908,7 @@ public sealed class Main : BaseUnityPlugin
         => CheckMinDistance(peers, zdo, _cfg.General.MinPlayerDistance.Value);
 
     bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo, float minDistance)
-        => peers.Min(x => Utils.DistanceSqr(x.m_refPos, zdo.GetPosition())) >= minDistance;
+        => peers.Min(x => Utils.DistanceSqr(x.m_refPos, zdo.GetPosition())) >= minDistance * minDistance;
 
     static string ConvertToRegexPattern(string searchPattern)
     {
