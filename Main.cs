@@ -562,13 +562,15 @@ public sealed class Main : BaseUnityPlugin
                         }
 
                         if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
-                            continue; // inventory not up-to-date
+                            continue;
 
                         if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > _cfg.Containers.AutoPickupRange.Value)
                             continue;
 
                         if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
                             continue; // in use or player to close
+
+                        inventory.Update(containerZdo);
 
                         if (data is null)
                         {
@@ -579,6 +581,7 @@ public sealed class Main : BaseUnityPlugin
                         var stack = data.m_stack;
                         usedSlots ??= new();
                         usedSlots.Clear();
+                        bool found = false;
 
                         foreach (var slot in inventory.GetAllItems())
                         {
@@ -587,11 +590,20 @@ public sealed class Main : BaseUnityPlugin
                             if (slot.m_shared.m_name != shared.m_name || maxAmount <= 0 || slot.m_quality != data.m_quality || slot.m_variant != data.m_variant)
                                 continue;
 
+                            found = true;
                             var amount = Math.Min(stack, maxAmount);
                             slot.m_stack += amount;
                             stack -= amount;
                             if (stack is 0)
                                 break;
+                        }
+
+                        if (!found)
+                        {
+                            dict.TryRemove(containerZdoId, out _);
+                            if (dict is { Count: 0 })
+                                _containersByItemName.TryRemove(shared.m_name, out _);
+                            continue;
                         }
 
                         if (!ReferenceEquals(inventory.GetAllItems(), inventory.GetAllItems()))
@@ -671,13 +683,15 @@ public sealed class Main : BaseUnityPlugin
                                     }
 
                                     if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
-                                        continue; // inventory not up-to-date
+                                        continue;
 
                                     if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
                                         continue;
 
                                     if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
                                         continue; // in use or player to close
+
+                                    inventory.Update(containerZdo);
 
                                     removeSlots?.Clear();
                                     float addFuel = 0;
@@ -695,7 +709,12 @@ public sealed class Main : BaseUnityPlugin
                                     }
 
                                     if (addFuel is 0)
+                                    {
+                                        containers.TryRemove(containerZdoId, out _);
+                                        if (containers is { Count: 0 })
+                                            _containersByItemName.TryRemove(fuelItem, out _);
                                         continue;
+                                    }
 
                                     if (removeSlots is { Count: > 0 })
                                     {
@@ -703,6 +722,14 @@ public sealed class Main : BaseUnityPlugin
                                             throw new Exception("Algorithm assumption violated");
                                         foreach (var remove in removeSlots)
                                             inventory.GetAllItems().Remove(remove);
+
+                                        if (inventory.GetAllItems() is { Count: 0 })
+                                        {
+                                            containers.TryRemove(containerZdoId, out _);
+                                            if (containers is { Count: 0 })
+                                                _containersByItemName.TryRemove(fuelItem, out _);
+                                            continue;
+                                        }
                                     }
 
                                     zdo.Set(ZDOVars.s_fuel, currentFuel + addFuel);
@@ -749,13 +776,15 @@ public sealed class Main : BaseUnityPlugin
                                         }
 
                                         if (!_dataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
-                                            continue; // inventory not up-to-date
+                                            continue;
 
                                         if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
                                             continue;
 
                                         if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
                                             continue; // in use or player to close
+
+                                        inventory.Update(containerZdo);
 
                                         removeSlots?.Clear();
                                         int addOre = 0;
@@ -773,7 +802,12 @@ public sealed class Main : BaseUnityPlugin
                                         }
 
                                         if (addOre is 0)
+                                        {
+                                            containers.TryRemove(containerZdoId, out _);
+                                            if (containers is { Count: 0 })
+                                                _containersByItemName.TryRemove(oreItem, out _);
                                             continue;
+                                        }
 
                                         if (removeSlots is { Count: > 0 })
                                         {
@@ -781,6 +815,14 @@ public sealed class Main : BaseUnityPlugin
                                                 throw new Exception("Algorithm assumption violated");
                                             foreach (var remove in removeSlots)
                                                 inventory.GetAllItems().Remove(remove);
+
+                                            if (inventory.GetAllItems() is { Count: 0})
+                                            {
+                                                containers.TryRemove(containerZdoId, out _);
+                                                if (containers is { Count: 0 })
+                                                    _containersByItemName.TryRemove(oreItem, out _);
+                                                continue;
+                                            }
                                         }
 
                                         zdo.SetOwner(ZDOMan.GetSessionID());
