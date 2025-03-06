@@ -16,6 +16,7 @@ public sealed class Main : BaseUnityPlugin
     /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
     /// - Option to make fireplaces consume fuel from containers to have an alternative to infinite fuel when making them toggleable
     /// - Scale eggs by quality by setting <see cref="ItemDrop.ItemData.SharedData.m_scaleByQuality". Not sure if we can modify shared data on clients though. />
+    /// - Show taming progress to nearby players via messages (<see cref="Tameable.GetTameness"/>
     /// </summary>
 
     const string PluginGuid = "argusmagnus.TestMod";
