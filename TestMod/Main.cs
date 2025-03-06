@@ -202,6 +202,7 @@ public sealed class Main : BaseUnityPlugin
         var peers = ZNet.instance.GetPeers();
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
         _playerSectors.Clear();
+        const int SortPlayerSectorsThreshold = 10;
         foreach (var peer in peers)
         {
             var playerSector = ZoneSystem.GetZone(peer.m_refPos);
@@ -218,15 +219,30 @@ public sealed class Main : BaseUnityPlugin
                         sectorInfo.Peers.Add(peer);
                     }
                     else if (_playerSectors.TryGetValue(sector, out sectorInfo))
+                    {
+                        sectorInfo.InverseWeight = 0;
                         sectorInfo.Peers.Add(peer);
+                    }
                     else
                     {
                         sectorInfo = new([peer], []);
                         _playerSectors.TryAdd(sector, sectorInfo);
                     }
+                }
+            }
+        }
 
-                    var dx = x - playerSector.x;
-                    var dy = y - playerSector.y;
+        if (_unfinishedProcessingInRow > SortPlayerSectorsThreshold)
+        {
+            // The idea here is to process zones in order of player proximity.
+            // However, if all ZDOs are processed anyway, this ordering is a waste of time.
+            foreach (var peer in peers)
+            {
+                var playerSector = ZoneSystem.GetZone(peer.m_refPos);
+                foreach (var (sector, sectorInfo) in _playerSectors.Select(x => (x.Key, x.Value)))
+                {
+                    var dx = sector.x - playerSector.x;
+                    var dy = sector.y - playerSector.y;
                     sectorInfo.InverseWeight += dx * dx + dy * dy;
                 }
             }
@@ -243,7 +259,7 @@ public sealed class Main : BaseUnityPlugin
         int oldPinsHash = 0;
 
         var playerSectors = _playerSectors.AsEnumerable();
-        if (_unfinishedProcessingInRow > 10)
+        if (_unfinishedProcessingInRow > SortPlayerSectorsThreshold)
             playerSectors = playerSectors.OrderBy(x => x.Value.InverseWeight);
 
         foreach (var (sector, sectorInfo) in playerSectors.Select(x => (x.Key, x.Value)))
