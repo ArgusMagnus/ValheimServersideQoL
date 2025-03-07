@@ -530,6 +530,8 @@ public sealed class Main : BaseUnityPlugin
                         if (!_cfg.Containers.AutoSort.Value)
                             continue;
 
+                        // todo: merge stacks
+
                         if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                         {
                             item.m_gridPos.x = x;
