@@ -8,6 +8,7 @@
 	<DebugSymbols>true</DebugSymbols>
 	<DebugType>embedded</DebugType>
 	<ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
+	<Version>0.1.2-pre</Version>
   </PropertyGroup>
 	
   <ItemGroup>	  
@@ -96,6 +97,26 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="GenerateBuildInfo" BeforeTargets="CoreCompile">
+    <PropertyGroup>
+      <BuildInfoFile>$(IntermediateOutputPath)BuildInfo.cs</BuildInfoFile>
+      <MyTextLines>
+namespace $(RootNamespace)%3B
+
+partial class Main
+{
+    const string PluginVersion = "$(Version)"%3B
+}
+      </MyTextLines> 
+    </PropertyGroup>
+    
+    <WriteLinesToFile File="$(BuildInfoFile)" Overwrite="true" Lines="$(MyTextLines)" />
+
+    <ItemGroup>
+      <Compile Include="$(BuildInfoFile)" />
+    </ItemGroup>
+  </Target>
 	
   <Target Name="CopyDependencies" AfterTargets="AfterBuild" Condition="'$(Configuration)' == 'Debug'">
 	<ItemGroup>

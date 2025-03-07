@@ -11,8 +11,12 @@ using System.Runtime.CompilerServices;
 namespace Valheim.ServersideQoL;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-public sealed class Main : BaseUnityPlugin
+public sealed partial class Main : BaseUnityPlugin
 {
+    /// <Todo>
+    /// - Generate manifest.json during build
+    /// </Todo>
+    ///
     /// <Ideas>
     /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
     /// - Option to make fireplaces consume fuel from containers to have an alternative to infinite fuel when making them toggleable
@@ -22,7 +26,6 @@ public sealed class Main : BaseUnityPlugin
 
     const string PluginName = "ServersideQoL";
     const string PluginGuid = $"argusmagnus.{PluginName}";
-    const string PluginVersion = "0.1.1";
     static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
 
     //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);
