@@ -112,7 +112,8 @@ public sealed partial class Main : BaseUnityPlugin
             yield return new WaitForSeconds(_cfg.General.StartDelay.Value);
             while (true)
             {
-                Execute();
+                try { Execute(); }
+                catch (OperationCanceledException) { break; }
                 yield return new WaitForSeconds(1f / _cfg.General.Frequency.Value);
             }
         }
