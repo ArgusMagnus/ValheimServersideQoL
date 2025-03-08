@@ -53,9 +53,9 @@ jobs:
     #     dotnet-version: 7.0.x
     - name: Build
       run: |
-        $version = '${{ github.ref }}'.Substring(10)
-        Add-Content -Path $env:GITHUB_ENV -Value "RELEASE_TAG=$version" -Encoding UTF8
+        $version = '${{ github.ref }}'.Substring(11)
         dotnet build -c Release -o ./publish/bin -p:Version=$version
+        Add-Content -Path $env:GITHUB_ENV -Value "VERSION=$version" -Encoding UTF8
         $manifest = Get-Content -LiteralPath ./publish/bin/manifest.json -Raw | ConvertFrom-Json
         Add-Content -Path $env:GITHUB_ENV -Value "MOD_NAME=$($manifest.name)" -Encoding UTF8
         Add-Content -Path $env:GITHUB_ENV -Value "MOD_DESC=$($manifest.description)" -Encoding UTF8
@@ -77,7 +77,7 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./publish/Valheim.ServersideQoL.zip
-        asset_name: Valheim.ServersideQoL-${{ env.RELEASE_TAG }}.zip
+        asset_name: Valheim.ServersideQoL-v${{ env.VERSION }}.zip
         asset_content_type: application/zip
         
     - name: Publish package to Thunderstore
@@ -87,7 +87,7 @@ jobs:
         description: ${{ env.MOD_DESC }}
         token: ${{ secrets.THUNDERSTORE_TOKEN }}
         name: ${{ env.MOD_NAME }}
-        version: ${{ env.RELEASE_TAG }}
+        version: ${{ env.VERSION }}
         community: valheim
         repo: https://thunderstore.io/c/valheim/
         file: ./publish/Valheim.ServersideQoL.zip
