@@ -79,18 +79,19 @@ jobs:
         asset_path: ./publish/Valheim.ServersideQoL.zip
         asset_name: Valheim.ServersideQoL-v${{ env.VERSION }}.zip
         asset_content_type: application/zip
-        
-    - name: Publish package to Thunderstore
-      uses: GreenTF/upload-thunderstore-package@v4.3
-      with:
-        namespace: ArgusMagnus
-        description: ${{ env.MOD_DESC }}
-        token: ${{ secrets.THUNDERSTORE_TOKEN }}
-        name: ${{ env.MOD_NAME }}
-        version: ${{ env.VERSION }}
-        community: valheim
-        repo: https://thunderstore.io/c/valheim/
-        file: ./publish/Valheim.ServersideQoL.zip
-        categories: |
-          bog-witch-update
-          server-side
+
+    # runs only on linux
+    # - name: Publish package to Thunderstore
+    #   uses: GreenTF/upload-thunderstore-package@v4.3
+    #   with:
+    #     namespace: ArgusMagnus
+    #     description: ${{ env.MOD_DESC }}
+    #     token: ${{ secrets.THUNDERSTORE_TOKEN }}
+    #     name: ${{ env.MOD_NAME }}
+    #     version: ${{ env.VERSION }}
+    #     community: valheim
+    #     repo: https://thunderstore.io/c/valheim/
+    #     file: ./publish/Valheim.ServersideQoL.zip
+    #     categories: |
+    #       bog-witch-update
+    #       server-side

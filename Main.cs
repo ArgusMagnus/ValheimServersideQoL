@@ -24,6 +24,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - make ship pickup sunken items
     /// - Change effect of <see cref="GlobalKeys.NoPortals"/> to prevent building of portal, but not the use of existing portals.
     ///   Show $msg_nobuildzone <see cref="Player.TryPlacePiece(Piece)"/>
+    /// - Allow tames to follow through portals
     /// </summary>
 
     const string PluginName = "ServersideQoL";
