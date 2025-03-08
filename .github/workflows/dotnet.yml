@@ -31,3 +31,47 @@ jobs:
       run: dotnet build -c Release
     # - name: Test
     #   run: dotnet test --no-build --verbosity normal
+          
+  publish:
+
+    runs-on: windows-latest
+    if: startsWith(github.ref, 'refs/tags/v') # works only version tagged
+    needs: [build]
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        lfs: true
+        submodules: true
+        token: ${{ secrets.DEP_ACCESS_TOKEN }}
+    # - name: Setup .NET
+    #   uses: actions/setup-dotnet@v3
+    #   with:
+    #     dotnet-version: 7.0.x
+    - name: Build
+      run: |
+        $version = '${{ github.ref }}'.Substring(10)
+        Add-Content -Path $env:GITHUB_ENV -Value "RELEASE_TAG=$version" -Encoding UTF8
+        dotnet build -c Release -o ./publish/bin -p:Version=$version
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+    - name: Upload Release Asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./publish/Valheim.ServersideQoL.zip
+        asset_name: Valheim.ServersideQoL-${{ env.RELEASE_TAG }}.zip
+        asset_content_type: application/zip
