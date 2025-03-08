@@ -19,6 +19,7 @@ jobs:
       with:
         lfs: true
         submodules: true
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     # - name: Setup .NET
     #   uses: actions/setup-dotnet@v4
