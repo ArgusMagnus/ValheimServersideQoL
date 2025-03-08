@@ -2,7 +2,7 @@
 This mod adds some QoL features as a serverside-only mod. It's designed and tested for dedicated servers and clients running vanilla (e.g. xbox users).
 
 ## Disclaimer
-This mod is in active development and not yet considered stable. Backup your world bevor using this mod.
+This mod is in early development and the features experimental. Backup your world bevor using this mod.
 
 ## Features
 - Time Signs: Signs which show the ingame time
