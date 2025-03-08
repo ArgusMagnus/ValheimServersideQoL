@@ -50,6 +50,8 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> MakeCommandable { get; } = cfg.Bind(section, nameof(MakeCommandable), true, "True to make all tames commandable (like wolves)");
         //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), true, "True to feed tames from containers");
+        [RequiredPrefabs<Character>]
+        public ConfigEntry<bool> SendTamingPogressMessages { get; } = cfg.Bind(section, nameof(SendTamingPogressMessages), true, "True to send taming progress messages to nearby players");
     }
 
     [RequiredPrefabs<Fireplace>]

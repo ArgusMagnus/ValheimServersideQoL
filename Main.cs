@@ -45,6 +45,7 @@ public sealed partial class Main : BaseUnityPlugin
         public Sign? Sign { get; } = Get<Sign>(Components);
         public MapTable? MapTable { get; } = Get<MapTable>(Components);
         public Tameable? Tameable { get; } = Get<Tameable>(Components);
+        public Character? Character { get; } = Get<Character>(Components);
         public Fireplace? Fireplace { get; } = Get<Fireplace>(Components);
         public Container? Container { get; } = Get<Container>(Components);
         public Ship? Ship { get; } = Get<Ship>(Components);
@@ -496,14 +497,37 @@ public sealed partial class Main : BaseUnityPlugin
                     continue;
                 }
 
-                if (prefabInfo.Tameable is not null && _cfg.Tames.MakeCommandable.Value && !prefabInfo.Tameable.m_commandable && zdo.GetBool(ZDOVars.s_tamed))
+                if (prefabInfo.Tameable is not null)
                 {
                     if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                         continue;
 
-                    zdo.Set(ZDOVarsEx.HasFields, true);
-                    zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
-                    zdo.Set(ZDOVarsEx.TameableCommandable, true);
+                    OptionalBool tamed = default;
+
+                    if (_cfg.Tames.MakeCommandable.Value && !prefabInfo.Tameable.m_commandable && (tamed = zdo.GetBool(ZDOVars.s_tamed)))
+                    {
+                        zdo.Set(ZDOVarsEx.HasFields, true);
+                        zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
+                        zdo.Set(ZDOVarsEx.TameableCommandable, true);
+                    }
+                    if (_cfg.Tames.SendTamingPogressMessages.Value && !(tamed.HasValue ? tamed : (tamed = zdo.GetBool(ZDOVars.s_tamed))))
+                    {
+                        /// <see cref="Tameable.GetRemainingTime()"/>
+                        var tameTime = prefabInfo.Tameable.m_tamingTime;
+                        var hasFields = zdo.GetBool(ZDOVarsEx.GetHasFields<Tameable>());
+                        if (hasFields)
+                            tameTime = zdo.GetFloat(ZDOVarsEx.TameableTamingTime, tameTime);
+                        var tameTimeLeft = zdo.GetFloat(ZDOVars.s_tameTimeLeft, tameTime);
+                        if (tameTimeLeft < tameTime)
+                        {
+                            var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
+                            var range = prefabInfo.Tameable.m_tamingSpeedMultiplierRange;
+                            if (hasFields)
+                                range = zdo.GetFloat(ZDOVarsEx.TameableTamingSpeedMultiplierRange, range);
+                            var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo.GetPosition()) < range);
+                            ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{prefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");
+                        }
+                    }
                     _dataRevisions[zdo.m_uid] = zdo.DataRevision;
 
                     //zdo.GetConnection().m_type
@@ -718,7 +742,7 @@ public sealed partial class Main : BaseUnityPlugin
                             inventory.Save(pkg);
                             containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
                             _dataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
-                            item.m_stack = stack;
+                            (item.m_stack, stack) = (stack, item.m_stack);
                             zdo.SetOwner(ZDOMan.GetSessionID());
                             ItemDrop.SaveToZDO(item, zdo);
                             ShowMessage(sectorInfo.Peers, MessageHud.MessageType.TopLeft, $"{_prefabInfo[containerZdo.GetPrefab()].Piece!.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
@@ -946,13 +970,13 @@ public sealed partial class Main : BaseUnityPlugin
             }
         }
 
-        Logger.Log(watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug,
-            $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones");
-
         if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
             _unfinishedProcessingInRow++;
         else
             _unfinishedProcessingInRow = 0;
+
+        Logger.Log(watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug,
+            $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
     }
 
     static void Log(LogLevel logLevel, string text = "", [CallerLineNumber] int lineNo = default)
@@ -978,6 +1002,16 @@ public sealed partial class Main : BaseUnityPlugin
         return $"(?i)^{searchPattern}$";
     }
 
+    readonly struct OptionalBool
+    {
+        readonly int _value;
+        public bool HasValue => _value is not 0;
+
+        public OptionalBool(bool value) => _value = value ? 1 : -1;
+        public static implicit operator OptionalBool(bool value) => new(value);
+        public static implicit operator bool(OptionalBool value) => value.HasValue ? (value._value is 1) : throw new InvalidOperationException();
+    }
+
     static class ZDOVarsEx
     {
         public static int HasFields { get; } = ZNetView.CustomFieldsStr.GetStableHashCode();
@@ -990,6 +1024,8 @@ public sealed partial class Main : BaseUnityPlugin
         public static int GetHasFields<T>() where T : MonoBehaviour => _HasFields<T>.HasFields;
 
         public static int TameableCommandable { get; } = $"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}".GetStableHashCode();
+        public static int TameableTamingTime { get; } = $"{nameof(Tameable)}.{nameof(Tameable.m_tamingTime)}".GetStableHashCode();
+        public static int TameableTamingSpeedMultiplierRange { get; } = $"{nameof(Tameable)}.{nameof(Tameable.m_tamingSpeedMultiplierRange)}".GetStableHashCode();
 
         public static int FireplaceInfiniteFuel { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_infiniteFuel)}".GetStableHashCode();
         public static int FireplaceCanTurnOff { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_canTurnOff)}".GetStableHashCode();
