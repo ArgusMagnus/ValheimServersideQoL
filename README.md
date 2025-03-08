@@ -13,5 +13,6 @@ This mod is in early development and the features experimental. Backup your worl
 - Sort Containers: Automatically sort chest inventories
 - Pickup drops: Automatically put dropped items into chests
 - Feed Smelters: Feed/refuel smelters from nearby containers
+- Windmills: Make windmills ignore wind intensity
 
 All of these features can be enabled/disabled separately via config.

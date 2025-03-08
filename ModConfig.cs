@@ -12,6 +12,7 @@ sealed class ModConfig(ConfigFile cfg)
     public FireplacesConfig Fireplaces { get; } = new(cfg, "5. Fireplaces");
     public ContainersConfig Containers { get; } = new(cfg, "6. Containers");
     public SmeltersConfig Smelters { get; } = new(cfg, "7. Smelters");
+    public WindmillsConfig Windmills { get; } = new(cfg, "8. Windmills");
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -79,6 +80,12 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.Bind(section, nameof(FeedFromContainersRange), 4f, "Required proxmity of a container to a smelter to be used as feeding source");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastFuel), 1, "Minimum amout of fuel to leave in a container");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastOre), 1, "Minimum amout of ore to leave in a container");
+    }
+
+    [RequiredPrefabs<Windmill>]
+    public sealed class WindmillsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> IgnoreWind { get; } = cfg.Bind(section, nameof(IgnoreWind), true, "True to make windmills ignore wind (Cover still decreases operating efficiency though)");
     }
 }
 

@@ -21,7 +21,6 @@ public sealed partial class Main : BaseUnityPlugin
     ///   -> Probably not possible
     /// - Scale mobs by level
     ///   -> Probably not possible
-    /// - Show taming progress to nearby players via messages (<see cref="Tameable.GetTameness"/>
     /// - make ship pickup sunken items
     /// - Change effect of <see cref="GlobalKeys.NoPortals"/> to prevent building of portal, but not the use of existing portals.
     ///   Show $msg_nobuildzone <see cref="Player.TryPlacePiece(Piece)"/>
@@ -52,6 +51,7 @@ public sealed partial class Main : BaseUnityPlugin
         public ItemDrop? ItemDrop { get; } = Get<ItemDrop>(Components);
         public Piece? Piece { get; } = Get<Piece>(Components);
         public Smelter? Smelter { get; } = Get<Smelter>(Components);
+        public Windmill? Windmill { get; } = Get<Windmill>(Components);
     }
 
     readonly IReadOnlyDictionary<int, PrefabInfo> _prefabInfo = new Dictionary<int, PrefabInfo>();
@@ -967,6 +967,17 @@ public sealed partial class Main : BaseUnityPlugin
                     }
 
                 }
+
+                if (prefabInfo.Windmill is not null && _cfg.Windmills.IgnoreWind.Value)
+                {
+                    if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                        continue;
+
+                    /// <see cref="Windmill.GetPowerOutput()"/>
+                    zdo.Set(ZDOVarsEx.HasFields, true);
+                    zdo.Set(ZDOVarsEx.GetHasFields<Windmill>(), true);
+                    zdo.Set(ZDOVarsEx.WindmillMinWindSpeed, float.MinValue);
+                }
             }
         }
 
@@ -1037,5 +1048,7 @@ public sealed partial class Main : BaseUnityPlugin
 
         public static int SmelterMaxFuel { get; } = $"{nameof(Smelter)}.{nameof(Smelter.m_maxFuel)}".GetStableHashCode();
         public static int SmelterMaxOre { get; } = $"{nameof(Smelter)}.{nameof(Smelter.m_maxOre)}".GetStableHashCode();
+
+        public static int WindmillMinWindSpeed { get; } = $"{nameof(Windmill)}.{nameof(Windmill.m_minWindSpeed)}".GetStableHashCode();
     }
 }
