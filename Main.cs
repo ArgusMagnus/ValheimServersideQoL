@@ -22,6 +22,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Option to make fireplaces consume fuel from containers to have an alternative to infinite fuel when making them toggleable
     /// - Scale eggs by quality by setting <see cref="ItemDrop.ItemData.SharedData.m_scaleByQuality". Not sure if we can modify shared data on clients though. />
     /// - Show taming progress to nearby players via messages (<see cref="Tameable.GetTameness"/>
+    /// - make ship pickup sunken items
     /// </summary>
 
     const string PluginName = "ServersideQoL";
@@ -100,10 +101,62 @@ public sealed partial class Main : BaseUnityPlugin
     //PrefabManager.OnPrefabsRegistered += OnPrefabsRegistered;
     //}
 
+    readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.220.3");
+    const uint ExpectedNetworkVersion = 33;
+    const uint ExpectedItemDataVersion = 106;
+    const uint ExpectedWorldVersion = 35;
+
     public void Start()
     {
         if (!_cfg.General.Enabled.Value)
             return;
+
+        var failed = false;
+        var abort = false;
+        var versionType = typeof(Game).Assembly.GetType("Version", true);
+        if (versionType.GetProperty("CurrentVersion")?.GetValue(null) is not GameVersion gameVersion)
+            gameVersion = default;
+        if (gameVersion != ExpectedGameVersion)
+        {
+            Logger.LogWarning($"Unsupported game version: {gameVersion}, expected: {ExpectedGameVersion}");
+            failed = true;
+            abort |= !_cfg.General.IgnoreGameVersionCheck.Value;
+        }
+        if (versionType.GetField("m_networkVersion")?.GetValue(null) is not uint networkVersion)
+            networkVersion = default;
+        if (networkVersion != ExpectedNetworkVersion)
+        {
+            Logger.LogWarning($"Unsupported network version: {networkVersion}, expected: {ExpectedNetworkVersion}");
+            failed = true;
+            abort |= !_cfg.General.IgnoreNetworkVersionCheck.Value;
+        }
+        if (versionType.GetField("m_itemDataVersion")?.GetValue(null) is not int itemDataVersion)
+            itemDataVersion = default;
+        if (itemDataVersion != ExpectedItemDataVersion)
+        {
+            Logger.LogWarning($"Unsupported item data version: {itemDataVersion}, expected: {ExpectedItemDataVersion}");
+            failed = true;
+            abort |= !_cfg.General.IgnoreItemDataVersionCheck.Value;
+        }
+        if (versionType.GetField("m_worldVersion")?.GetValue(null) is not int worldVersion)
+            worldVersion = default;
+        if (worldVersion != ExpectedWorldVersion)
+        {
+            Logger.LogWarning($"Unsupported world version: {worldVersion}, expected: {ExpectedWorldVersion}");
+            failed = true;
+            abort |= !_cfg.General.IgnoreWorldVersionCheck.Value;
+        }
+
+        if (failed)
+        {
+            if (!abort)
+                Logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
+            else
+            {
+                Logger.LogError("Version checks failed. Mod execution is stopped");
+                return;
+            }
+        }
 
         StartCoroutine(CallExecute());
 
@@ -856,7 +909,7 @@ public sealed partial class Main : BaseUnityPlugin
                                             foreach (var remove in removeSlots)
                                                 inventory.GetAllItems().Remove(remove);
 
-                                            if (inventory.GetAllItems() is { Count: 0})
+                                            if (inventory.GetAllItems() is { Count: 0 })
                                             {
                                                 containers.TryRemove(containerZdoId, out _);
                                                 if (containers is { Count: 0 })

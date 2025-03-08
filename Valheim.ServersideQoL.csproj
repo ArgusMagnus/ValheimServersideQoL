@@ -4,17 +4,17 @@
     <TargetFramework>net48</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<LangVersion>latest</LangVersion>
-	<DebugSymbols>true</DebugSymbols>
-	<DebugType>embedded</DebugType>
-	<ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
-	<Version>0.1.2-pre</Version>
+    <LangVersion>latest</LangVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+    <ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
+    <Version>0.1.2</Version>
   </PropertyGroup>
-	
-  <ItemGroup>	  
+
+  <ItemGroup>
     <RequiredReference Include="assembly_utils">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_utils.dll</HintPath>
-	  <Private>False</Private>
+    <Private>False</Private>
     </RequiredReference>
     <RequiredReference Include="assembly_valheim">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_valheim.dll</HintPath>
@@ -33,13 +33,13 @@
       <Private>False</Private>
     </RequiredReference>
   </ItemGroup>
-	
+  
   <ItemGroup Condition="'$(Configuration)' != 'Debug'">
-	  <Reference Include="@(RequiredReference)" HintPath="Dependencies\%(RequiredReference.HintPath.Filename)"/>
+    <Reference Include="@(RequiredReference)" HintPath="Dependencies\%(RequiredReference.HintPath.Filename)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-	<Reference Include="@(RequiredReference)"/>
+  <Reference Include="@(RequiredReference)" />
     <Reference Include="0Harmony">
       <HintPath>$(ValheimDir)BepInEx\core\0Harmony.dll</HintPath>
       <Private>False</Private>
@@ -82,8 +82,8 @@
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-		<Private>False</Private>
-	</Reference>
+    <Private>False</Private>
+  </Reference>
   </ItemGroup>
 
   <ItemGroup>
@@ -117,20 +117,17 @@ partial class Main
       <Compile Include="$(BuildInfoFile)" />
     </ItemGroup>
   </Target>
-	
+  
   <Target Name="CopyDependencies" AfterTargets="AfterBuild" Condition="'$(Configuration)' == 'Debug'">
-	<ItemGroup>
-	  <FilesToDelete Include="Dependencies/**/*.dll" />
-	</ItemGroup>
-	<Delete Files="@(FilesToDelete)" />
-	<Copy SourceFiles="%(RequiredReference.HintPath)" DestinationFolder="Dependencies" />
+    <ItemGroup>
+      <FilesToDelete Include="Dependencies/**/*.dll" />
+    </ItemGroup>
+    <Delete Files="@(FilesToDelete)" />
+    <Copy SourceFiles="%(RequiredReference.HintPath)" DestinationFolder="Dependencies" />
   </Target>
 
   <Target Name="CreatePackage" AfterTargets="AfterBuild">
-	<ZipDirectory
-	  SourceDirectory="$(OutDir)"
-	  DestinationFile="$(OutDir)..\$(TargetName).zip"
-	  Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(OutDir)" DestinationFile="$(OutDir)..\$(TargetName).zip" Overwrite="true" />
   </Target>
 
 </Project>
