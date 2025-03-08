@@ -15,6 +15,7 @@ public sealed partial class Main : BaseUnityPlugin
 {
     /// <Ideas>
     /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
+    ///   Would probably not retain the value when picked up and dropped again. Could probably be solved by abusing same field in <see cref="EggGrow.m_item"/>
     /// - Option to make fireplaces consume fuel from containers to have an alternative to infinite fuel when making them toggleable
     /// - Scale eggs by quality by setting <see cref="ItemDrop.ItemData.SharedData.m_scaleByQuality". Not sure if we can modify shared data on clients though.
     ///   Check <see cref="ZNetView.LoadFields"/>
@@ -35,6 +36,7 @@ public sealed partial class Main : BaseUnityPlugin
     static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
 
     readonly ModConfig _cfg;
+    readonly Stopwatch _watch = new();
 
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
@@ -190,7 +192,7 @@ public sealed partial class Main : BaseUnityPlugin
         if (ZNetScene.instance is null || ZDOMan.instance is null)
             return;
 
-        var watch = Stopwatch.StartNew();
+        _watch.Restart();
 
         if (_executeCounter++ is 0 || _resetPrefabInfo)
         {
@@ -363,7 +365,7 @@ public sealed partial class Main : BaseUnityPlugin
 
         foreach (var (sector, sectorInfo) in playerSectors.Select(x => (x.Key, x.Value)))
         {
-            if (watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value)
+            if (_watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value)
                 break;
 
             processedSectors++;
@@ -373,7 +375,7 @@ public sealed partial class Main : BaseUnityPlugin
 
             totalZdos += sectorInfo.ZDOs.Count;
 
-            while (sectorInfo is { ZDOs: { Count: > 0 } } && watch.ElapsedMilliseconds < _cfg.General.MaxProcessingTime.Value)
+            while (sectorInfo is { ZDOs: { Count: > 0 } } && _watch.ElapsedMilliseconds < _cfg.General.MaxProcessingTime.Value)
             {
                 processedZdos++;
                 var zdo = sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
@@ -987,8 +989,9 @@ public sealed partial class Main : BaseUnityPlugin
         else
             _unfinishedProcessingInRow = 0;
 
-        Logger.Log(watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug,
-            $"{nameof(Execute)} took {watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
+        _watch.Stop();
+        Logger.Log(_watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug,
+            $"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
     }
 
     static void Log(LogLevel logLevel, string text = "", [CallerLineNumber] int lineNo = default)
