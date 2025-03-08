@@ -20,9 +20,15 @@ public sealed partial class Main : BaseUnityPlugin
     /// <Ideas>
     /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
     /// - Option to make fireplaces consume fuel from containers to have an alternative to infinite fuel when making them toggleable
-    /// - Scale eggs by quality by setting <see cref="ItemDrop.ItemData.SharedData.m_scaleByQuality". Not sure if we can modify shared data on clients though. />
+    /// - Scale eggs by quality by setting <see cref="ItemDrop.ItemData.SharedData.m_scaleByQuality". Not sure if we can modify shared data on clients though.
+    ///   Check <see cref="ZNetView.LoadFields"/>
+    ///   -> Probably not possible
+    /// - Scale mobs by level
+    ///   -> Probably not possible
     /// - Show taming progress to nearby players via messages (<see cref="Tameable.GetTameness"/>
     /// - make ship pickup sunken items
+    /// - Change effect of <see cref="GlobalKeys.NoPortals"/> to prevent building of portal, but not the use of existing portals.
+    ///   Show $msg_nobuildzone <see cref="Player.TryPlacePiece(Piece)"/>
     /// </summary>
 
     const string PluginName = "ServersideQoL";
