@@ -55,6 +55,9 @@ jobs:
         $version = '${{ github.ref }}'.Substring(10)
         Add-Content -Path $env:GITHUB_ENV -Value "RELEASE_TAG=$version" -Encoding UTF8
         dotnet build -c Release -o ./publish/bin -p:Version=$version
+        $manifest = Get-Content -LiteralPath ./publish/bin/manifest.json -Raw | ConvertFrom-Json
+        Add-Content -Path $env:GITHUB_ENV -Value "MOD_NAME=$($manifest.name)" -Encoding UTF8
+        Add-Content -Path $env:GITHUB_ENV -Value "MOD_DESC=$($manifest.description)" -Encoding UTF8
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1.0.0
@@ -75,3 +78,18 @@ jobs:
         asset_path: ./publish/Valheim.ServersideQoL.zip
         asset_name: Valheim.ServersideQoL-${{ env.RELEASE_TAG }}.zip
         asset_content_type: application/zip
+        
+    - name: Publish package to Thunderstore
+      uses: GreenTF/upload-thunderstore-package@v4.3
+      with:
+        namespace: ArgusMagnus
+        description: ${{ env.MOD_DESC }}
+        token: ${{ secrets.THUNDERSTORE_TOKEN }}
+        name: ${{ env.MOD_NAME }}
+        version: ${{ env.RELEASE_TAG }}
+        community: valheim
+        repo: https://thunderstore.io/c/valheim/
+        file: ./publish/Valheim.ServersideQoL.zip
+        categories: |
+          bog-witch-update
+          server-side
