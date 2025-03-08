@@ -127,6 +127,7 @@ partial class Main
   </Target>
 
   <Target Name="CreatePackage" AfterTargets="AfterBuild">
+    <Exec Command="powershell -ExecutionPolicy ByPass -File Update-Manifest.ps1 -Path $(OutDir)manifest.json -Version $(Version)" />
     <ZipDirectory SourceDirectory="$(OutDir)" DestinationFile="$(OutDir)..\$(TargetName).zip" Overwrite="true" />
   </Target>
 

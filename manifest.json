@@ -1,6 +1,6 @@
 {
   "name": "ServersideQoL",
-  "version_number": "0.1.1",
+  "version_number": "{Version}",
   "website_url": "https://github.com/ArgusMagnus/ValheimServersideQoL",
   "description": "Serverside-only QoL mod (no client-installation needed)",
   "dependencies": [
