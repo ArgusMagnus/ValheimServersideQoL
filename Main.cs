@@ -513,24 +513,24 @@ public sealed partial class Main : BaseUnityPlugin
 
                     if (_cfg.Tames.MakeCommandable.Value && !prefabInfo.Tameable.m_commandable && (tamed = zdo.GetBool(ZDOVars.s_tamed)).Value)
                     {
-                        zdo.Set(ZDOVarsEx.HasFields, true);
-                        zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
-                        zdo.Set(ZDOVarsEx.TameableCommandable, true);
+                        zdo.Fields<Tameable>()
+                            .SetHasFields(true)
+                            .Set(x => x.m_commandable, true);
                     }
                     if (_cfg.Tames.SendTamingPogressMessages.Value && !(tamed ??= zdo.GetBool(ZDOVars.s_tamed)))
                     {
                         /// <see cref="Tameable.GetRemainingTime()"/>
                         var tameTime = prefabInfo.Tameable.m_tamingTime;
-                        var hasFields = zdo.GetBool(ZDOVarsEx.GetHasFields<Tameable>());
+                        var hasFields = zdo.Fields<Tameable>().GetHasFields();
                         if (hasFields)
-                            tameTime = zdo.GetFloat(ZDOVarsEx.TameableTamingTime, tameTime);
+                            tameTime = zdo.Fields<Tameable>().GetFloat(x => x.m_tamingTime, tameTime);
                         var tameTimeLeft = zdo.GetFloat(ZDOVars.s_tameTimeLeft, tameTime);
                         if (tameTimeLeft < tameTime)
                         {
                             var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
                             var range = prefabInfo.Tameable.m_tamingSpeedMultiplierRange;
                             if (hasFields)
-                                range = zdo.GetFloat(ZDOVarsEx.TameableTamingSpeedMultiplierRange, range);
+                                range = zdo.Fields<Tameable>().GetFloat(x => x.m_tamingSpeedMultiplierRange, range);
                             var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo.GetPosition()) < range);
                             ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{prefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");
                         }
@@ -569,13 +569,13 @@ public sealed partial class Main : BaseUnityPlugin
                     if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                         continue;
 
-                    zdo.Set(ZDOVarsEx.HasFields, true);
-                    zdo.Set(ZDOVarsEx.GetHasFields<Fireplace>(), true);
-                    // setting FireplaceInfiniteFuel to true works, but removes the turn on/off hover text (turning on/off still works)
-                    //zdo.Set(ZDOVarsEx.FireplaceInfiniteFuel, false);
-                    zdo.Set(ZDOVarsEx.FireplaceFuelPerSec, 0f);
-                    zdo.Set(ZDOVarsEx.FireplaceCanTurnOff, true);
-                    zdo.Set(ZDOVarsEx.FireplaceCanRefill, false);
+                    zdo.Fields<Fireplace>()
+                        .SetHasFields(true)
+                        //.Set(x => x.m_infiniteFuel, true) // works, but removes the turn on/off hover text (turning on/off still works)
+                        .Set(x => x.m_secPerFuel, 0)
+                        .Set(x => x.m_canTurnOff, true)
+                        .Set(x => x.m_canRefill, false);
+
                     _dataRevisions[zdo.m_uid] = zdo.DataRevision;
                 }
 
@@ -600,10 +600,10 @@ public sealed partial class Main : BaseUnityPlugin
                     /// <see cref="Container.Save"/>
                     var width = prefabInfo.Container.m_width;
                     var height = prefabInfo.Container.m_height;
-                    if (zdo.GetBool(ZDOVarsEx.GetHasFields<Container>()))
+                    if (zdo.Fields<Container>().GetHasFields())
                     {
-                        width = zdo.GetInt(ZDOVarsEx.ContainerWidth, width);
-                        height = zdo.GetInt(ZDOVarsEx.ContainerHeight, height);
+                        width = zdo.Fields<Container>().GetInt(x => x.m_width, width);
+                        height = zdo.Fields<Container>().GetInt(x => x.m_height, height);
                     }
                     Inventory inventory = new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height);
                     inventory.Load(new(data));
@@ -771,13 +771,13 @@ public sealed partial class Main : BaseUnityPlugin
                     if (!CheckMinDistance(peers, zdo))
                         continue; // player to close
 
-                    var hasFields = zdo.GetBool(ZDOVarsEx.GetHasFields<Smelter>());
+                    var hasFields = zdo.Fields<Smelter>().GetHasFields();
 
                     /// <see cref="Smelter.OnAddFuel"/>
                     {
                         int maxFuel = prefabInfo.Smelter.m_maxFuel;
                         if (hasFields)
-                            maxFuel = zdo.GetInt(ZDOVarsEx.SmelterMaxFuel, maxFuel);
+                            maxFuel = zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel, maxFuel);
                         var currentFuel = zdo.GetFloat(ZDOVars.s_fuel);
                         var maxFuelAdd = (int)(maxFuel - currentFuel);
                         if (maxFuelAdd > maxFuel / 2)
@@ -874,7 +874,7 @@ public sealed partial class Main : BaseUnityPlugin
                     {
                         int maxOre = prefabInfo.Smelter.m_maxOre;
                         if (hasFields)
-                            maxOre = zdo.GetInt(ZDOVarsEx.SmelterMaxOre, maxOre);
+                            maxOre = zdo.Fields<Smelter>().GetInt(x => x.m_maxOre, maxOre);
                         var currentOre = zdo.GetInt(ZDOVars.s_queued);
                         var maxOreAdd = maxOre - zdo.GetInt(ZDOVars.s_queued);
                         if (maxOreAdd > maxOre / 2)
@@ -981,9 +981,9 @@ public sealed partial class Main : BaseUnityPlugin
                         continue;
 
                     /// <see cref="Windmill.GetPowerOutput()"/>
-                    zdo.Set(ZDOVarsEx.HasFields, true);
-                    zdo.Set(ZDOVarsEx.GetHasFields<Windmill>(), true);
-                    zdo.Set(ZDOVarsEx.WindmillMinWindSpeed, float.MinValue);
+                    zdo.Fields<Windmill>()
+                        .SetHasFields(true)
+                        .Set(x => x.m_minWindSpeed, float.MinValue);
                 }
 
                 if (prefabInfo.Vagon is not null && !float.IsNaN(_cfg.Carts.ContentMassMultiplier.Value))
@@ -992,9 +992,9 @@ public sealed partial class Main : BaseUnityPlugin
                         continue;
 
                     /// <see cref="Vagon.UpdateMass()"/>
-                    zdo.Set(ZDOVarsEx.HasFields, true);
-                    zdo.Set(ZDOVarsEx.GetHasFields<Vagon>(), true);
-                    zdo.Set(ZDOVarsEx.VagonItemWeightMassFactor, _cfg.Carts.ContentMassMultiplier.Value);
+                    zdo.Fields<Vagon>()
+                        .SetHasFields(true)
+                        .Set(x => x.m_itemWeightMassFactor, _cfg.Carts.ContentMassMultiplier.Value);
                 }
             }
         }
@@ -1030,36 +1030,5 @@ public sealed partial class Main : BaseUnityPlugin
         searchPattern = Regex.Escape(searchPattern);
         searchPattern = searchPattern.Replace("\\*", ".*").Replace("\\?", ".?");
         return $"(?i)^{searchPattern}$";
-    }
-
-    static class ZDOVarsEx
-    {
-        public static int HasFields { get; } = ZNetView.CustomFieldsStr.GetStableHashCode();
-
-        static class _HasFields<T> where T : MonoBehaviour
-        {
-            public static int HasFields { get; } = $"{ZNetView.CustomFieldsStr}{typeof(T).Name}".GetStableHashCode();
-        }
-
-        public static int GetHasFields<T>() where T : MonoBehaviour => _HasFields<T>.HasFields;
-
-        public static int TameableCommandable { get; } = $"{nameof(Tameable)}.{nameof(Tameable.m_commandable)}".GetStableHashCode();
-        public static int TameableTamingTime { get; } = $"{nameof(Tameable)}.{nameof(Tameable.m_tamingTime)}".GetStableHashCode();
-        public static int TameableTamingSpeedMultiplierRange { get; } = $"{nameof(Tameable)}.{nameof(Tameable.m_tamingSpeedMultiplierRange)}".GetStableHashCode();
-
-        public static int FireplaceInfiniteFuel { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_infiniteFuel)}".GetStableHashCode();
-        public static int FireplaceCanTurnOff { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_canTurnOff)}".GetStableHashCode();
-        public static int FireplaceCanRefill { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_canRefill)}".GetStableHashCode();
-        public static int FireplaceFuelPerSec { get; } = $"{nameof(Fireplace)}.{nameof(Fireplace.m_secPerFuel)}".GetStableHashCode();
-
-        public static int ContainerWidth { get; } = $"{nameof(Container)}.{nameof(Container.m_width)}".GetStableHashCode();
-        public static int ContainerHeight { get; } = $"{nameof(Container)}.{nameof(Container.m_height)}".GetStableHashCode();
-
-        public static int SmelterMaxFuel { get; } = $"{nameof(Smelter)}.{nameof(Smelter.m_maxFuel)}".GetStableHashCode();
-        public static int SmelterMaxOre { get; } = $"{nameof(Smelter)}.{nameof(Smelter.m_maxOre)}".GetStableHashCode();
-
-        public static int WindmillMinWindSpeed { get; } = $"{nameof(Windmill)}.{nameof(Windmill.m_minWindSpeed)}".GetStableHashCode();
-
-        public static int VagonItemWeightMassFactor { get; } = $"{nameof(Vagon)}.{nameof(Vagon.m_itemWeightMassFactor)}".GetStableHashCode();
     }
 }

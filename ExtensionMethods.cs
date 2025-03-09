@@ -1,4 +1,6 @@
-﻿namespace Valheim.ServersideQoL;
+﻿using UnityEngine;
+
+namespace Valheim.ServersideQoL;
 
 static class ExtensionMethods
 {
@@ -10,4 +12,8 @@ static class ExtensionMethods
         else
             inventory.Load(new(inventoryData));
     }
+
+    public static ZDOComponentFieldAccessor<TComponent> Fields<TComponent>(this ZDO zdo)
+        where TComponent : Component
+        => new(zdo);
 }
