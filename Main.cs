@@ -509,15 +509,15 @@ public sealed partial class Main : BaseUnityPlugin
                     if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
                         continue;
 
-                    OptionalBool tamed = default;
+                    bool? tamed = null;
 
-                    if (_cfg.Tames.MakeCommandable.Value && !prefabInfo.Tameable.m_commandable && (tamed = zdo.GetBool(ZDOVars.s_tamed)))
+                    if (_cfg.Tames.MakeCommandable.Value && !prefabInfo.Tameable.m_commandable && (tamed = zdo.GetBool(ZDOVars.s_tamed)).Value)
                     {
                         zdo.Set(ZDOVarsEx.HasFields, true);
                         zdo.Set(ZDOVarsEx.GetHasFields<Tameable>(), true);
                         zdo.Set(ZDOVarsEx.TameableCommandable, true);
                     }
-                    if (_cfg.Tames.SendTamingPogressMessages.Value && !(tamed.HasValue ? tamed : (tamed = zdo.GetBool(ZDOVars.s_tamed))))
+                    if (_cfg.Tames.SendTamingPogressMessages.Value && !(tamed ??= zdo.GetBool(ZDOVars.s_tamed)))
                     {
                         /// <see cref="Tameable.GetRemainingTime()"/>
                         var tameTime = prefabInfo.Tameable.m_tamingTime;
@@ -1030,16 +1030,6 @@ public sealed partial class Main : BaseUnityPlugin
         searchPattern = Regex.Escape(searchPattern);
         searchPattern = searchPattern.Replace("\\*", ".*").Replace("\\?", ".?");
         return $"(?i)^{searchPattern}$";
-    }
-
-    readonly struct OptionalBool
-    {
-        readonly int _value;
-        public bool HasValue => _value is not 0;
-
-        public OptionalBool(bool value) => _value = value ? 1 : -1;
-        public static implicit operator OptionalBool(bool value) => new(value);
-        public static implicit operator bool(OptionalBool value) => value.HasValue ? (value._value is 1) : throw new InvalidOperationException();
     }
 
     static class ZDOVarsEx
