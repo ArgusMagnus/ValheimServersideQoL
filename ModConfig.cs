@@ -1,6 +1,7 @@
 ﻿using BepInEx.Configuration;
 using System.Linq.Expressions;
 using UnityEngine;
+using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
@@ -37,7 +38,7 @@ sealed class ModConfig(ConfigFile cfg)
     [RequiredPrefabs<Sign>]
     public sealed class SignsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), true, $"True to update sign texts which contain time emojis (any of {string.Concat(Main.ClockEmojis)}) with the in-game time");
+        public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), true, $"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time");
     }
 
     [RequiredPrefabs<MapTable>]
