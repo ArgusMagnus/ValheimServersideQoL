@@ -1,18 +1,22 @@
 ﻿using BepInEx.Configuration;
+using System.Linq.Expressions;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL;
 
 sealed class ModConfig(ConfigFile cfg)
 {
-    public GeneralConfig General { get; } = new(cfg, "1. General");
-    public SignsConfig Signs { get; } = new(cfg, "2. Signs");
-    public MapTableConfig MapTables { get; } = new(cfg, "3. Map Tables");
-    public TamesConfig Tames { get; } = new(cfg, "4. Tames");
-    public FireplacesConfig Fireplaces { get; } = new(cfg, "5. Fireplaces");
-    public ContainersConfig Containers { get; } = new(cfg, "6. Containers");
-    public SmeltersConfig Smelters { get; } = new(cfg, "7. Smelters");
-    public WindmillsConfig Windmills { get; } = new(cfg, "8. Windmills");
+    public GeneralConfig General { get; } = new(cfg, "A - General");
+    public SignsConfig Signs { get; } = new(cfg, "B - Signs");
+    public MapTableConfig MapTables { get; } = new(cfg, "B - Map Tables");
+    public TamesConfig Tames { get; } = new(cfg, "B - Tames");
+    public FireplacesConfig Fireplaces { get; } = new(cfg, "B - Fireplaces");
+    public ContainersConfig Containers { get; } = new(cfg, "B - Containers");
+    public SmeltersConfig Smelters { get; } = new(cfg, "B - Smelters");
+    public WindmillsConfig Windmills { get; } = new(cfg, "B - Windmills");
+
+    //PrefabsConfig? _prefabs;
+    //public PrefabsConfig? Prefabs => _prefabs ??= ZNetScene.instance is null ? null : new PrefabsConfig(cfg, "C - Prefabs", ZNetScene.instance);
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -87,6 +91,67 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> IgnoreWind { get; } = cfg.Bind(section, nameof(IgnoreWind), true, "True to make windmills ignore wind (Cover still decreases operating efficiency though)");
     }
+
+    //public sealed class PrefabsConfig
+    //{
+    //    public IReadOnlyList<ConfigEntryBase> Entries { get; }
+
+    //    public PrefabsConfig(ConfigFile cfg, string section, ZNetScene zNetScene)
+    //    {
+    //        static Func<string, object?, ConfigEntryBase> GetBind(ConfigFile cfg, string section, Type type)
+    //        {
+    //            var valueType = type;
+    //            var parName = Expression.Parameter(typeof(string));
+    //            var parValue = Expression.Parameter(type);
+    //            Expression argValue = parValue;
+    //            if (type == typeof(GameObject) || type == typeof(ItemDrop))
+    //            {
+    //                valueType = typeof(string);
+    //                argValue = Expression.Condition(
+    //                    Expression.ReferenceEqual(parValue, Expression.Constant(null, type)),
+    //                    Expression.Constant(""),
+    //                    Expression.Property(parValue, nameof(UnityEngine.Object.name)));
+    //            }
+    //            return Expression.Lambda<Func<string, object?, ConfigEntryBase>>(
+    //                Expression.Call(
+    //                    Expression.Constant(cfg),
+    //                    typeof(ConfigFile).GetMethod(nameof(ConfigFile.Bind)).MakeGenericMethod(valueType),
+    //                    Expression.Constant(section), parName, argValue, Expression.Constant("")),
+    //                parName, parValue).Compile();
+    //        }
+
+    //        /// <see cref="ZNetView.LoadFields()"/>
+    //        var supportedFieldTypes = ((IEnumerable<Type>)[typeof(int), typeof(float), typeof(bool), typeof(Vector3), typeof(string), typeof(GameObject), typeof(ItemDrop)])
+    //            .ToDictionary(x => x, x => GetBind(cfg, section, x));
+
+    //        var componentInfo = typeof(Game).Assembly.ExportedTypes.Where(x => x.IsClass && typeof(MonoBehaviour).IsAssignableFrom(x))
+    //            .Select(x => (Type: x, Fields: x
+    //                .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance)
+    //                .Where(y => supportedFieldTypes.ContainsKey(y.FieldType))
+    //                .ToList()))
+    //            .Where(x => x.Fields.Count > 0)
+    //            .ToList();
+
+    //        List<ConfigEntryBase> entries = [];
+    //        Entries = entries;
+
+    //        foreach (var prefab in zNetScene.m_prefabs)
+    //        {
+    //            foreach (var (componentType, fields) in componentInfo)
+    //            {
+    //                if (prefab.GetComponent(componentType) is not { } component)
+    //                    continue;
+
+    //                foreach (var field in fields)
+    //                {
+    //                    var name = $"{prefab.name}.{componentType.Name}.{field.Name}";
+    //                    var value = field.GetValue(component);
+    //                    entries.Add(supportedFieldTypes[field.FieldType].Invoke(name, value));
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 }
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = true)]

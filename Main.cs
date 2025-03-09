@@ -26,6 +26,9 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Change effect of <see cref="GlobalKeys.NoPortals"/> to prevent building of portal, but not the use of existing portals.
     ///   Show $msg_nobuildzone <see cref="Player.TryPlacePiece(Piece)"/>
     /// - Allow tames to follow through portals
+    /// - Allow carts through portals
+    /// - Modify container inventory sizes
+    /// - Make carts ignore weights <see cref="Vagon"/>
     /// </summary>
 
     const string PluginName = "ServersideQoL";
