@@ -14,6 +14,8 @@ sealed class ModConfig(ConfigFile cfg)
     public ContainersConfig Containers { get; } = new(cfg, "B - Containers");
     public SmeltersConfig Smelters { get; } = new(cfg, "B - Smelters");
     public WindmillsConfig Windmills { get; } = new(cfg, "B - Windmills");
+    public CartsConfig Carts { get; } = new(cfg, "B - Carts");
+
 
     //PrefabsConfig? _prefabs;
     //public PrefabsConfig? Prefabs => _prefabs ??= ZNetScene.instance is null ? null : new PrefabsConfig(cfg, "C - Prefabs", ZNetScene.instance);
@@ -90,6 +92,12 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class WindmillsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> IgnoreWind { get; } = cfg.Bind(section, nameof(IgnoreWind), true, "True to make windmills ignore wind (Cover still decreases operating efficiency though)");
+    }
+
+    [RequiredPrefabs<Vagon>]
+    public sealed class CartsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), float.NaN, "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight");
     }
 
     //public sealed class PrefabsConfig

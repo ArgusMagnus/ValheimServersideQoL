@@ -58,6 +58,7 @@ public sealed partial class Main : BaseUnityPlugin
         public Piece? Piece { get; } = Get<Piece>(Components);
         public Smelter? Smelter { get; } = Get<Smelter>(Components);
         public Windmill? Windmill { get; } = Get<Windmill>(Components);
+        public Vagon? Vagon { get; } = Get<Vagon>(Components);
     }
 
     readonly IReadOnlyDictionary<int, PrefabInfo> _prefabInfo = new Dictionary<int, PrefabInfo>();
@@ -984,6 +985,17 @@ public sealed partial class Main : BaseUnityPlugin
                     zdo.Set(ZDOVarsEx.GetHasFields<Windmill>(), true);
                     zdo.Set(ZDOVarsEx.WindmillMinWindSpeed, float.MinValue);
                 }
+
+                if (prefabInfo.Vagon is not null && !float.IsNaN(_cfg.Carts.ContentMassMultiplier.Value))
+                {
+                    if (_dataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+                        continue;
+
+                    /// <see cref="Vagon.UpdateMass()"/>
+                    zdo.Set(ZDOVarsEx.HasFields, true);
+                    zdo.Set(ZDOVarsEx.GetHasFields<Vagon>(), true);
+                    zdo.Set(ZDOVarsEx.VagonItemWeightMassFactor, _cfg.Carts.ContentMassMultiplier.Value);
+                }
             }
         }
 
@@ -1057,5 +1069,7 @@ public sealed partial class Main : BaseUnityPlugin
         public static int SmelterMaxOre { get; } = $"{nameof(Smelter)}.{nameof(Smelter.m_maxOre)}".GetStableHashCode();
 
         public static int WindmillMinWindSpeed { get; } = $"{nameof(Windmill)}.{nameof(Windmill.m_minWindSpeed)}".GetStableHashCode();
+
+        public static int VagonItemWeightMassFactor { get; } = $"{nameof(Vagon)}.{nameof(Vagon.m_itemWeightMassFactor)}".GetStableHashCode();
     }
 }
