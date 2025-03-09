@@ -2,9 +2,8 @@
 using System.Collections.Concurrent;
 using System.Reflection;
 using UnityEngine;
-using Valheim.ServersideQoL.Processors;
 
-namespace Valheim.ServersideQoL;
+namespace Valheim.ServersideQoL.Processors;
 
 sealed class SharedProcessorState
 {

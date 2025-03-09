@@ -68,8 +68,7 @@ public sealed partial class Main : BaseUnityPlugin
             new ItemDropProcessor(Logger, _cfg, _sharedProcessorState),
             new SmelterProcessor(Logger, _cfg, _sharedProcessorState),
             new WindmillProcesser(Logger, _cfg, _sharedProcessorState),
-            new VagonProcesser(Logger, _cfg, _sharedProcessorState),
-            ];
+            new VagonProcesser(Logger, _cfg, _sharedProcessorState)];
 
         Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
     }
