@@ -17,6 +17,14 @@ static class ExtensionMethods
         inventory.DataRevision = zdo.DataRevision;
     }
 
+    public static void Save(this InventoryEx inventory, ZDO zdo)
+    {
+        var pkg = new ZPackage();
+        inventory.Inventory.Save(pkg);
+        zdo.Set(ZDOVars.s_items, pkg.GetBase64());
+        inventory.DataRevision = zdo.DataRevision;
+    }
+
     public static ZDOComponentFieldAccessor<TComponent> Fields<TComponent>(this ZDO zdo)
         where TComponent : Component
         => new(zdo);

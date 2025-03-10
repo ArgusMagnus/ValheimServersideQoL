@@ -94,10 +94,8 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
 
                         zdo.Set(ZDOVars.s_fuel, currentFuel + addFuel);
 
-                        var pkg = new ZPackage();
-                        inventory.Inventory.Save(pkg);
-                        containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
-                        SharedState.DataRevisions[containerZdo.m_uid] = inventory.DataRevision = containerZdo.DataRevision;
+                        inventory.Save(containerZdo);
+                        SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
 
                         addedFuel += (int)addFuel;
 
@@ -196,10 +194,8 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                                 zdo.Set($"item{currentOre + i}", conversion.m_from.gameObject.name);
                             zdo.Set(ZDOVars.s_queued, currentOre + addOre);
 
-                            var pkg = new ZPackage();
-                            inventory.Inventory.Save(pkg);
-                            containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
-                            SharedState.DataRevisions[containerZdo.m_uid] = inventory.DataRevision = containerZdo.DataRevision;
+                            inventory.Save(containerZdo);
+                            SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
 
                             addedOre += addOre;
 

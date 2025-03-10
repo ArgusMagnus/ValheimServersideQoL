@@ -106,10 +106,8 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
 
             if (stack != item.m_stack)
             {
-                var pkg = new ZPackage();
-                inventory.Inventory.Save(pkg);
-                containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
-                SharedState.DataRevisions[containerZdo.m_uid] = inventory.DataRevision = containerZdo.DataRevision;
+                inventory.Save(containerZdo);
+                SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
                 (item.m_stack, stack) = (stack, item.m_stack);
                 zdo.SetOwner(ZDOMan.GetSessionID());
                 ItemDrop.SaveToZDO(item, zdo);

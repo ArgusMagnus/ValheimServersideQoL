@@ -33,7 +33,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
             width = zdo.Fields<Container>().GetInt(x => x.m_width, width);
             height = zdo.Fields<Container>().GetInt(x => x.m_height, height);
         }
-        InventoryEx inventory = new(new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height));
+        InventoryEx inventory = new(new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height)) { DataRevision = zdo.DataRevision };
         inventory.Inventory.Load(new(data));
         var changed = false;
         var x = 0;
@@ -65,13 +65,9 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
 
         if (changed)
         {
-            var pkg = new ZPackage();
-            inventory.Inventory.Save(pkg);
-            data = pkg.GetBase64();
-            zdo.Set(ZDOVars.s_items, data);
+            inventory.Save(zdo);
             SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
             Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
         }
-        inventory.DataRevision = zdo.DataRevision;
     }
 }
