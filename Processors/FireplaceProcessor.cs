@@ -12,9 +12,9 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
         if (SharedState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
             return;
 
-        if (zdo.Fields<Fireplace>().GetHasFields() && zdo.Fields<Fireplace>().GetBool(x => x.m_canTurnOff) && !zdo.Fields<Fireplace>().GetBool(x => x.m_canRefill))
-            return;
+        var recreate = !zdo.Fields<Fireplace>().GetHasFields() || !zdo.Fields<Fireplace>().GetBool(x => x.m_canTurnOff) || zdo.Fields<Fireplace>().GetBool(x => x.m_canRefill);
 
+        // somehow still needed, otherwhise fireplaces don't work correctly after world load
         zdo.Fields<Fireplace>()
             .SetHasFields(true)
             //.Set(x => x.m_infiniteFuel, true) // works, but removes the turn on/off hover text (turning on/off still works)
@@ -22,8 +22,11 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
             .Set(x => x.m_canTurnOff, true)
             .Set(x => x.m_canRefill, false);
 
-        SharedState.DataRevisions.TryRemove(zdo.m_uid, out _);
-        zdo = zdo.Recreate();
+        if (recreate)
+        {
+            SharedState.DataRevisions.TryRemove(zdo.m_uid, out _);
+            zdo = zdo.Recreate();
+        }
 
         SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
     }
