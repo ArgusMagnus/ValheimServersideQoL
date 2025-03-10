@@ -12,12 +12,17 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
         if (SharedState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
             return;
 
+        if (zdo.Fields<Fireplace>().GetHasFields() && zdo.Fields<Fireplace>().GetBool(x => x.m_canTurnOff) && !zdo.Fields<Fireplace>().GetBool(x => x.m_canRefill))
+            return;
+
         zdo.Fields<Fireplace>()
             .SetHasFields(true)
             //.Set(x => x.m_infiniteFuel, true) // works, but removes the turn on/off hover text (turning on/off still works)
             .Set(x => x.m_secPerFuel, 0)
             .Set(x => x.m_canTurnOff, true)
             .Set(x => x.m_canRefill, false);
+
+        zdo.Recreate();
 
         SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
     }

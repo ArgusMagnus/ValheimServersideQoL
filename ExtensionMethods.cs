@@ -16,4 +16,19 @@ static class ExtensionMethods
     public static ZDOComponentFieldAccessor<TComponent> Fields<TComponent>(this ZDO zdo)
         where TComponent : Component
         => new(zdo);
+
+    public static void Recreate(this ZDO zdo)
+    {
+        var prefab = zdo.GetPrefab();
+        var pos = zdo.GetPosition();
+        var owner = zdo.GetOwner();
+        var pkg = new ZPackage();
+        zdo.Serialize(pkg);
+
+        zdo.SetOwnerInternal(ZDOMan.GetSessionID());
+        ZDOMan.instance.DestroyZDO(zdo);
+        zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
+        zdo.Deserialize(new(pkg.GetArray()));
+        zdo.SetOwnerInternal(owner);
+    }
 }
