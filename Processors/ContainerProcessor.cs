@@ -38,7 +38,10 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
         var changed = false;
         var x = 0;
         var y = 0;
-        foreach (var item in inventory.Inventory.GetAllItems()
+
+        ItemDrop.ItemData? lastPartialSlot = null;
+        var items = inventory.Inventory.GetAllItems();
+        foreach (var item in items
             .OrderBy(x => x.IsEquipable() ? 0 : 1)
             .ThenBy(x => x.m_shared.m_name)
             .ThenByDescending(x => x.m_stack))
@@ -48,7 +51,18 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
             if (!Config.Containers.AutoSort.Value)
                 continue;
 
-            // todo: merge stacks
+            if (lastPartialSlot is not null && new ItemKey(item) == lastPartialSlot)
+            {
+                var diff = Math.Min(item.m_stack, lastPartialSlot.m_shared.m_maxStackSize - lastPartialSlot.m_stack);
+                lastPartialSlot.m_stack += diff;
+                item.m_stack -= diff;
+                changed = true;
+            }
+
+            if (item.m_stack is 0)
+                continue;
+            if (item.m_stack < item.m_shared.m_maxStackSize)
+                lastPartialSlot = item;
 
             if (item.m_gridPos.x != x || item.m_gridPos.y != y)
             {
@@ -63,11 +77,17 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
             }
         }
 
-        if (changed)
+        if (!changed)
+            return;
+
+        for (int i = items.Count - 1; i >= 0; i--)
         {
-            inventory.Save(zdo);
-            SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
-            Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
+            if (items[i].m_stack is 0)
+                items.RemoveAt(i);
         }
+
+        inventory.Save(zdo);
+        SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
     }
 }
