@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
 {
-    public override void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
     {
         if (prefabInfo is not { Container: not null, Piece: not null })
             return;

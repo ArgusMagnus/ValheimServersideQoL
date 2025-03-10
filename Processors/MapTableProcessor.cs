@@ -17,6 +17,8 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
 
     public override void Initialize()
     {
+        base.Initialize();
+
         var filter = Config.MapTables.AutoUpdatePortalsInclude.Value.Trim();
         _includePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
         filter = Config.MapTables.AutoUpdatePortalsExclude.Value.Trim();
@@ -32,11 +34,12 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
 
     public override void PreProcess()
     {
+        base.PreProcess();
         _pins.Clear();
         _oldPinsHash = 0;
     }
 
-    public override void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
     {
         if (prefabInfo.MapTable is null || !(Config.MapTables.AutoUpdatePortals.Value || Config.MapTables.AutoUpdateShips.Value))
             return;

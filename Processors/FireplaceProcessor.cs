@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
 {
-    public override void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
     {
         if (prefabInfo.Fireplace is null || !Config.Fireplaces.MakeToggleable.Value)
             return;

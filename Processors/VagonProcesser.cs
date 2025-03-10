@@ -5,7 +5,7 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class VagonProcesser(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
 {
     readonly int CartPrefab = "Cart".GetStableHashCode();
-    public override void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
     {
         // not working prefabInfo.Vagon is always null and setting m_itemWeightMassFactor anyway has no effect
 
