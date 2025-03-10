@@ -5,7 +5,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
 {
-    public override void Process(ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    public override void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
     {
         if (prefabInfo.Tameable is null)
             return;
@@ -35,7 +35,8 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
                 var range = prefabInfo.Tameable.m_tamingSpeedMultiplierRange;
                 if (hasFields)
                     range = zdo.Fields<Tameable>().GetFloat(x => x.m_tamingSpeedMultiplierRange, range);
-                var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo.GetPosition()) < range);
+                var zdo2 = zdo;
+                var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo2.GetPosition()) < range);
                 Main.ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{prefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");
             }
         }

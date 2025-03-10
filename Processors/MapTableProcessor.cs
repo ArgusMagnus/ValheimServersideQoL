@@ -36,7 +36,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
         _oldPinsHash = 0;
     }
 
-    public override void Process(ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    public override void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
     {
         if (prefabInfo.MapTable is null || !(Config.MapTables.AutoUpdatePortals.Value || Config.MapTables.AutoUpdateShips.Value))
             return;

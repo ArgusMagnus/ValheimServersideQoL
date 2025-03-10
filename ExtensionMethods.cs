@@ -17,7 +17,7 @@ static class ExtensionMethods
         where TComponent : Component
         => new(zdo);
 
-    public static void Recreate(this ZDO zdo)
+    public static ZDO Recreate(this ZDO zdo)
     {
         var prefab = zdo.GetPrefab();
         var pos = zdo.GetPosition();
@@ -30,5 +30,6 @@ static class ExtensionMethods
         zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.Deserialize(new(pkg.GetArray()));
         zdo.SetOwnerInternal(owner);
+        return zdo;
     }
 }

@@ -281,7 +281,7 @@ public sealed partial class Main : BaseUnityPlugin
                     continue;
 
                 foreach (var processor in _processors)
-                    processor.Process(zdo, prefabInfo, sectorInfo.Peers);
+                    processor.Process(ref zdo, prefabInfo, sectorInfo.Peers);
             }
         }
 

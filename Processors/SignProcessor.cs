@@ -15,7 +15,7 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg, SharedProcesso
         _timeText = null;
     }
 
-    public override void Process(ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    public override void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
     {
         if (!Config.Signs.TimeSigns.Value || prefabInfo.Sign is null)
             return;

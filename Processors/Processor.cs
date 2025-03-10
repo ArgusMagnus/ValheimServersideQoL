@@ -24,7 +24,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg, SharedProcessorS
 
     public virtual void Initialize() { }
     public virtual void PreProcess() { }
-    public abstract void Process(ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers);
+    public abstract void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers);
 
     protected bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo)
         => CheckMinDistance(peers, zdo, Config.General.MinPlayerDistance.Value);
