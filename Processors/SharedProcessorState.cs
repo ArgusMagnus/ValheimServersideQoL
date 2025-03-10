@@ -5,12 +5,18 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
+record InventoryEx(Inventory Inventory)
+{
+    public uint DataRevision { get; set; }
+}
+
 sealed class SharedProcessorState
 {
     public IReadOnlyDictionary<int, PrefabInfo> PrefabInfo { get; } = new Dictionary<int, PrefabInfo>();
     public ConcurrentHashSet<ZDOID> Ships { get; } = new();
     public ConcurrentDictionary<ZDOID, uint> DataRevisions { get; } = new();
-    public ConcurrentDictionary<SharedItemDataKey, ConcurrentDictionary<ZDOID, Inventory>> ContainersByItemName { get; } = new();
+
+    public ConcurrentDictionary<SharedItemDataKey, ConcurrentDictionary<ZDOID, InventoryEx>> ContainersByItemName { get; } = new();
 
     public void Initialize(ModConfig cfg)
     {

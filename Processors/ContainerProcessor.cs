@@ -33,12 +33,12 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
             width = zdo.Fields<Container>().GetInt(x => x.m_width, width);
             height = zdo.Fields<Container>().GetInt(x => x.m_height, height);
         }
-        Inventory inventory = new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height);
-        inventory.Load(new(data));
+        InventoryEx inventory = new(new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height));
+        inventory.Inventory.Load(new(data));
         var changed = false;
         var x = 0;
         var y = 0;
-        foreach (var item in inventory.GetAllItems()
+        foreach (var item in inventory.Inventory.GetAllItems()
             .OrderBy(x => x.IsEquipable() ? 0 : 1)
             .ThenBy(x => x.m_shared.m_name)
             .ThenByDescending(x => x.m_stack))
@@ -63,14 +63,15 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
             }
         }
 
-        if (!changed)
-            return;
-
-        var pkg = new ZPackage();
-        inventory.Save(pkg);
-        data = pkg.GetBase64();
-        zdo.Set(ZDOVars.s_items, data);
-        SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
-        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
+        if (changed)
+        {
+            var pkg = new ZPackage();
+            inventory.Inventory.Save(pkg);
+            data = pkg.GetBase64();
+            zdo.Set(ZDOVars.s_items, data);
+            SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+            Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
+        }
+        inventory.DataRevision = zdo.DataRevision;
     }
 }

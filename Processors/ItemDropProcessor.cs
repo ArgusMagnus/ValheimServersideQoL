@@ -52,7 +52,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
             usedSlots.Clear();
 
             ItemDrop.ItemData? containerItem = null;
-            foreach (var slot in inventory.GetAllItems())
+            foreach (var slot in inventory.Inventory.GetAllItems())
             {
                 usedSlots.Add(slot.m_gridPos);
                 if (new ItemKey(item) != slot)
@@ -79,19 +79,19 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
                 continue;
             }
 
-            if (!ReferenceEquals(inventory.GetAllItems(), inventory.GetAllItems()))
+            if (!ReferenceEquals(inventory.Inventory.GetAllItems(), inventory.Inventory.GetAllItems()))
                 throw new Exception("Algorithm assumption violated");
 
-            for (var emptySlots = inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
+            for (var emptySlots = inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
             {
                 var amount = Math.Min(stack, item.m_shared.m_maxStackSize);
 
                 var slot = containerItem.Clone();
                 slot.m_stack = amount;
                 slot.m_gridPos.x = -1;
-                for (int x = 0; x < inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
+                for (int x = 0; x < inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
                 {
-                    for (int y = 0; y < inventory.GetHeight(); y++)
+                    for (int y = 0; y < inventory.Inventory.GetHeight(); y++)
                     {
                         if (usedSlots.Add(new(x, y)))
                         {
@@ -100,16 +100,16 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
                         }
                     }
                 }
-                inventory.GetAllItems().Add(slot);
+                inventory.Inventory.GetAllItems().Add(slot);
                 stack -= amount;
             }
 
             if (stack != item.m_stack)
             {
                 var pkg = new ZPackage();
-                inventory.Save(pkg);
+                inventory.Inventory.Save(pkg);
                 containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
-                SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+                SharedState.DataRevisions[containerZdo.m_uid] = inventory.DataRevision = containerZdo.DataRevision;
                 (item.m_stack, stack) = (stack, item.m_stack);
                 zdo.SetOwner(ZDOMan.GetSessionID());
                 ItemDrop.SaveToZDO(item, zdo);

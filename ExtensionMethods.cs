@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
+using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
 static class ExtensionMethods
 {
-    public static void Update(this Inventory inventory, ZDO zdo)
+    public static void Update(this InventoryEx inventory, ZDO zdo)
     {
+        if (inventory.DataRevision == zdo.DataRevision)
+            return;
         var inventoryData = zdo.GetString(ZDOVars.s_items);
         if (string.IsNullOrEmpty(inventoryData))
-            inventory.GetAllItems().Clear();
+            inventory.Inventory.GetAllItems().Clear();
         else
-            inventory.Load(new(inventoryData));
+            inventory.Inventory.Load(new(inventoryData));
+        inventory.DataRevision = zdo.DataRevision;
     }
 
     public static ZDOComponentFieldAccessor<TComponent> Fields<TComponent>(this ZDO zdo)

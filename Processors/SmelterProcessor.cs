@@ -50,7 +50,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                         removeSlots?.Clear();
                         float addFuel = 0;
                         var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
-                        foreach (var slot in inventory.GetAllItems().Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
+                        foreach (var slot in inventory.Inventory.GetAllItems().Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
                         {
                             var take = Math.Min(maxFuelAdd, slot.m_stack);
                             var leaveDiff = Math.Min(take, leave);
@@ -79,12 +79,12 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
 
                         if (removeSlots is { Count: > 0 })
                         {
-                            if (!ReferenceEquals(inventory.GetAllItems(), inventory.GetAllItems()))
+                            if (!ReferenceEquals(inventory.Inventory.GetAllItems(), inventory.Inventory.GetAllItems()))
                                 throw new Exception("Algorithm assumption violated");
                             foreach (var remove in removeSlots)
-                                inventory.GetAllItems().Remove(remove);
+                                inventory.Inventory.GetAllItems().Remove(remove);
 
-                            if (inventory.GetAllItems() is { Count: 0 })
+                            if (inventory.Inventory.GetAllItems() is { Count: 0 })
                             {
                                 containers.TryRemove(containerZdoId, out _);
                                 if (containers is { Count: 0 })
@@ -95,9 +95,9 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                         zdo.Set(ZDOVars.s_fuel, currentFuel + addFuel);
 
                         var pkg = new ZPackage();
-                        inventory.Save(pkg);
+                        inventory.Inventory.Save(pkg);
                         containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
-                        SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+                        SharedState.DataRevisions[containerZdo.m_uid] = inventory.DataRevision = containerZdo.DataRevision;
 
                         addedFuel += (int)addFuel;
 
@@ -149,7 +149,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                             removeSlots?.Clear();
                             int addOre = 0;
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastOre.Value;
-                            foreach (var slot in inventory.GetAllItems().Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
+                            foreach (var slot in inventory.Inventory.GetAllItems().Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
                             {
                                 var take = Math.Min(maxOreAdd, slot.m_stack);
                                 var leaveDiff = Math.Min(take, leave);
@@ -178,12 +178,12 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
 
                             if (removeSlots is { Count: > 0 })
                             {
-                                if (!ReferenceEquals(inventory.GetAllItems(), inventory.GetAllItems()))
+                                if (!ReferenceEquals(inventory.Inventory.GetAllItems(), inventory.Inventory.GetAllItems()))
                                     throw new Exception("Algorithm assumption violated");
                                 foreach (var remove in removeSlots)
-                                    inventory.GetAllItems().Remove(remove);
+                                    inventory.Inventory.GetAllItems().Remove(remove);
 
-                                if (inventory.GetAllItems() is { Count: 0 })
+                                if (inventory.Inventory.GetAllItems() is { Count: 0 })
                                 {
                                     containers.TryRemove(containerZdoId, out _);
                                     if (containers is { Count: 0 })
@@ -197,9 +197,9 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                             zdo.Set(ZDOVars.s_queued, currentOre + addOre);
 
                             var pkg = new ZPackage();
-                            inventory.Save(pkg);
+                            inventory.Inventory.Save(pkg);
                             containerZdo.Set(ZDOVars.s_items, pkg.GetBase64());
-                            SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+                            SharedState.DataRevisions[containerZdo.m_uid] = inventory.DataRevision = containerZdo.DataRevision;
 
                             addedOre += addOre;
 
