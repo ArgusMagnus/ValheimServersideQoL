@@ -17,9 +17,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
 
         if (Config.Tames.MakeCommandable.Value && !prefabInfo.Tameable.m_commandable && (tamed = zdo.GetBool(ZDOVars.s_tamed)).Value)
         {
-            zdo.Fields<Tameable>()
-                .SetHasFields(true)
-                .Set(x => x.m_commandable, true);
+            zdo.Fields<Tameable>().Set(x => x.m_commandable, true);
         }
         if (Config.Tames.SendTamingPogressMessages.Value && !(tamed ??= zdo.GetBool(ZDOVars.s_tamed)))
         {

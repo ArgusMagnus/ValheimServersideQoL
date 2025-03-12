@@ -13,9 +13,7 @@ sealed class WindmillProcesser(ManualLogSource logger, ModConfig cfg, SharedProc
             return;
 
         /// <see cref="Windmill.GetPowerOutput()"/>
-        zdo.Fields<Windmill>()
-            .SetHasFields(true)
-            .Set(x => x.m_minWindSpeed, float.MinValue);
+        zdo.Fields<Windmill>().Set(x => x.m_minWindSpeed, float.MinValue);
         SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
     }
 }

@@ -22,7 +22,7 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
             return;
         }
 
-        fields.SetHasFields(true)
+        fields
             .Set(x => x.m_canTurnOff, Config.Fireplaces.MakeToggleable.Value)
             .Set(x => x.m_secPerFuel, Config.Fireplaces.InfiniteFuel.Value ? 0 : prefabInfo.Fireplace.m_secPerFuel)
             .Set(x => x.m_canRefill, !Config.Fireplaces.InfiniteFuel.Value);
