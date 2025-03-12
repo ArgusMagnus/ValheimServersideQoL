@@ -13,16 +13,14 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
         if (SharedState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
             return;
 
-        bool? tamed = null;
+        if (!zdo.GetBool(ZDOVars.s_tamed))
+            return;
 
-        if (Config.Tames.MakeCommandable.Value && !prefabInfo.Tameable.m_commandable && (tamed = zdo.GetBool(ZDOVars.s_tamed)).Value)
-        {
-            zdo.Fields<Tameable>().Set(x => x.m_commandable, true);
-        }
-        if (Config.Tames.SendTamingPogressMessages.Value && !(tamed ??= zdo.GetBool(ZDOVars.s_tamed)))
+        var fields = zdo.Fields(prefabInfo.Tameable);
+        fields.Set(x => x.m_commandable, Config.Tames.MakeCommandable.Value);
+        if (Config.Tames.SendTamingPogressMessages.Value)
         {
             /// <see cref="Tameable.GetRemainingTime()"/>
-            var fields = zdo.Fields(prefabInfo.Tameable);
             var tameTime = fields.GetFloat(x => x.m_tamingTime);
             var tameTimeLeft = zdo.GetFloat(ZDOVars.s_tameTimeLeft, tameTime);
             if (tameTimeLeft < tameTime)
@@ -34,6 +32,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
                 Main.ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{prefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");
             }
         }
+
         SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
     }
 }

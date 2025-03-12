@@ -75,4 +75,20 @@ sealed class ZDOComponentFieldAccessor<TComponent>(ZDO zdo, TComponent? componen
 
     public ZDOComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, int>> fieldExpression, int value)
         => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
+
+    ZDOComponentFieldAccessor<TComponent> ResetCore<T>(Expression<Func<TComponent, T>> fieldExpression, Action<ZDO, int> remover)
+    {
+        var hash = GetHash(fieldExpression, out _);
+        remover(_zdo, hash);
+        return this;
+    }
+
+    public ZDOComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, bool>> fieldExpression)
+        => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
+
+    public ZDOComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, float>> fieldExpression)
+        => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveFloat(hash));
+
+    public ZDOComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, int>> fieldExpression)
+        => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
 }

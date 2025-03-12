@@ -24,9 +24,12 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
 
         fields
             .Set(x => x.m_canTurnOff, Config.Fireplaces.MakeToggleable.Value)
-            .Set(x => x.m_secPerFuel, Config.Fireplaces.InfiniteFuel.Value ? 0 : prefabInfo.Fireplace.m_secPerFuel)
             .Set(x => x.m_canRefill, !Config.Fireplaces.InfiniteFuel.Value);
-        //.Set(x => x.m_infiniteFuel, true) // works, but removes the turn on/off hover text (turning on/off still works)
+        //.Set(x => x.m_infiniteFuel, Config.Fireplaces.InfiniteFuel.Value) // works, but removes the turn on/off hover text (turning on/off still works)
+        if (Config.Fireplaces.InfiniteFuel.Value)
+            fields.Set(x => x.m_secPerFuel, 0);
+        else
+            fields.Reset(x => x.m_secPerFuel);
 
         SharedState.DataRevisions.TryRemove(zdo.m_uid, out _);
         zdo = zdo.Recreate();
