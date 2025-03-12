@@ -22,7 +22,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg, SharedProces
         foreach (var tameZdoId in tames)
         {
             var tameZdo = ZDOMan.instance.GetZDO(tameZdoId);
-            if (!tameZdo.IsValid())
+            if (!tameZdo.IsValid() || tameZdo.GetString(ZDOVars.s_follow) != playerName)
             {
                 tames.Remove(tameZdoId);
                 continue;
@@ -35,12 +35,11 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg, SharedProces
             var targetPos = zdo.GetPosition();
             targetPos.x += UnityEngine.Random.Range(-4, 4);
             targetPos.z += UnityEngine.Random.Range(-4, 4);
-            targetPos.y += UnityEngine.Random.Range(2, 4);
+            targetPos.y += UnityEngine.Random.Range(0, 3);
             var owner = tameZdo.GetOwner();
             tameZdo.ClaimOwnershipInternal();
             tameZdo.SetPosition(targetPos);
             tameZdo.SetOwnerInternal(owner);
-            SharedState.DataRevisions[tameZdoId] = tameZdo.DataRevision;
         }
 
         if (tames is { Count: 0 })
