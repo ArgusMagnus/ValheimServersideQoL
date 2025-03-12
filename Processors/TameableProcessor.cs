@@ -15,7 +15,13 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
 
         var fields = zdo.Fields(prefabInfo.Tameable);
         if (zdo.GetBool(ZDOVars.s_tamed))
+        {
             fields.Set(x => x.m_commandable, Config.Tames.MakeCommandable.Value);
+            if (Config.Tames.AlwaysFed.Value)
+                fields.Set(x => x.m_fedDuration, float.MaxValue);
+            else
+                fields.Reset(x => x.m_fedDuration);
+        }
         else if (Config.Tames.SendTamingPogressMessages.Value)
         {
             /// <see cref="Tameable.GetRemainingTime()"/>

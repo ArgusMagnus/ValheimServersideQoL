@@ -60,6 +60,7 @@ sealed class ModConfig(ConfigFile cfg)
         //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), true, "True to feed tames from containers");
         [RequiredPrefabs<Character>]
         public ConfigEntry<bool> SendTamingPogressMessages { get; } = cfg.Bind(section, nameof(SendTamingPogressMessages), true, "True to send taming progress messages to nearby players");
+        public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
     }
 
     [RequiredPrefabs<Fireplace>]
