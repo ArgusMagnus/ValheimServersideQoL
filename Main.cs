@@ -13,10 +13,8 @@ public sealed partial class Main : BaseUnityPlugin
     /// <Ideas>
     /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
     ///   Would probably not retain the value when picked up and dropped again. Could probably be solved by abusing same field in <see cref="EggGrow.m_item"/>
-    /// - make ship pickup sunken items
-    /// - Change effect of <see cref="GlobalKeys.NoPortals"/> to prevent building of portal, but not the use of existing portals.
-    ///   Show $msg_nobuildzone <see cref="Player.TryPlacePiece(Piece)"/>
-    /// - Allow tames to follow through portals
+    /// - make ship pickup sunken items. How? Ships are not containers...
+    /// - make serpent drops float
     /// - Allow carts through portals
     /// - Modify container inventory sizes
     /// - Make carts ignore weights <see cref="Vagon"/>

@@ -31,7 +31,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
             }
 
             if (!SharedState.DataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
-                continue;
+                    continue;
 
             if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Containers.AutoPickupRange.Value * Config.Containers.AutoPickupRange.Value)
                 continue;
@@ -109,7 +109,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
                 inventory.Save(containerZdo);
                 SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
                 (item.m_stack, stack) = (stack, item.m_stack);
-                zdo.SetOwner(ZDOMan.GetSessionID());
+                zdo.ClaimOwnershipInternal();
                 ItemDrop.SaveToZDO(item, zdo);
                 Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{SharedState.PrefabInfo[containerZdo.GetPrefab()].Piece!.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
             }
