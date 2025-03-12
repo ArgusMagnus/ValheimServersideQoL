@@ -60,7 +60,8 @@ public sealed partial class Main : BaseUnityPlugin
             new SmelterProcessor(_logger, _cfg, _sharedProcessorState),
             new WindmillProcesser(_logger, _cfg, _sharedProcessorState),
             new VagonProcesser(_logger, _cfg, _sharedProcessorState),
-            new PlayerProcessor(_logger, _cfg, _sharedProcessorState)];
+            new PlayerProcessor(_logger, _cfg, _sharedProcessorState),
+            new PortalProcessor(_logger, _cfg, _sharedProcessorState)];
 
         Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
     }

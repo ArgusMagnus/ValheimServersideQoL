@@ -32,6 +32,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg, SharedProces
             if (Math.Max(Math.Abs(tameZone.x - playerZone.x), Math.Abs(tameZone.y - playerZone.y)) <= ZoneSystem.instance.m_activeArea)
                 continue;
 
+            /// Maybe take inspiration from <see cref="TeleportWorld.Teleport"/> for better placement
             var targetPos = zdo.GetPosition();
             targetPos.x += UnityEngine.Random.Range(-4, 4);
             targetPos.z += UnityEngine.Random.Range(-4, 4);

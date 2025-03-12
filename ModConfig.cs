@@ -8,6 +8,7 @@ namespace Valheim.ServersideQoL;
 sealed class ModConfig(ConfigFile cfg)
 {
     public GeneralConfig General { get; } = new(cfg, "A - General");
+    public GlobalsKeysConfig GlobalsKeys { get; } = new(cfg, "B - Global Keys");
     public SignsConfig Signs { get; } = new(cfg, "B - Signs");
     public MapTableConfig MapTables { get; } = new(cfg, "B - Map Tables");
     public TamesConfig Tames { get; } = new(cfg, "B - Tames");
@@ -103,6 +104,12 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class CartsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), float.NaN, "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight");
+    }
+
+    public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
+    {
+        [RequiredPrefabs<TeleportWorld>]
+        public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true, "True to change the effect of the NoPortals global key, to prevent the construction of new portals but leave existing portals functional");
     }
 
     //public sealed class PrefabsConfig

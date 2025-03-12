@@ -19,5 +19,7 @@ This mod is in early development and the features experimental. Backup your worl
 - Pickup drops: Automatically put dropped items into chests
 - Feed Smelters: Feed/refuel smelters from nearby containers
 - Windmills: Make windmills ignore wind intensity
+- Global Key
+    - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
 
 All of these features can be enabled/disabled separately via config.
