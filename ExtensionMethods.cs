@@ -44,4 +44,7 @@ static class ExtensionMethods
         zdo.SetOwnerInternal(owner);
         return zdo;
     }
+
+    public static void ClaimOwnership(this ZDO zdo) => zdo.SetOwner(ZDOMan.GetSessionID());
+    public static void ClaimOwnershipInternal(this ZDO zdo) => zdo.SetOwnerInternal(ZDOMan.GetSessionID());
 }

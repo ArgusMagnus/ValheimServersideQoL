@@ -17,4 +17,5 @@ record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, Component> Compon
     public Smelter? Smelter { get; } = Get<Smelter>(Components);
     public Windmill? Windmill { get; } = Get<Windmill>(Components);
     public Vagon? Vagon { get; } = Get<Vagon>(Components);
+    public Player? Player { get; } = Get<Player>(Components);
 }

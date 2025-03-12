@@ -21,6 +21,11 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
                 fields.Set(x => x.m_fedDuration, float.MaxValue);
             else
                 fields.Reset(x => x.m_fedDuration);
+
+            if (zdo.GetString(ZDOVars.s_follow) is { Length: > 0 } playerName)
+            {
+                SharedState.FollowingTamesByPlayerName.GetOrAdd(playerName, static _ => new()).Add(zdo.m_uid);
+            }
         }
         else if (Config.Tames.SendTamingPogressMessages.Value)
         {

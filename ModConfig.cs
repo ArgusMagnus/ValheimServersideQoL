@@ -61,6 +61,8 @@ sealed class ModConfig(ConfigFile cfg)
         [RequiredPrefabs<Character>]
         public ConfigEntry<bool> SendTamingPogressMessages { get; } = cfg.Bind(section, nameof(SendTamingPogressMessages), true, "True to send taming progress messages to nearby players");
         public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
+        [RequiredPrefabs<Player>]
+        public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), true, "True to teleport following tames to the players location if the player gets too far away from them");
     }
 
     [RequiredPrefabs<Fireplace>]

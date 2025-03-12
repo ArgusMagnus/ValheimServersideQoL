@@ -13,12 +13,6 @@ public sealed partial class Main : BaseUnityPlugin
     /// <Ideas>
     /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
     ///   Would probably not retain the value when picked up and dropped again. Could probably be solved by abusing same field in <see cref="EggGrow.m_item"/>
-    /// - Option to make fireplaces consume fuel from containers to have an alternative to infinite fuel when making them toggleable
-    /// - Scale eggs by quality by setting <see cref="ItemDrop.ItemData.SharedData.m_scaleByQuality". Not sure if we can modify shared data on clients though.
-    ///   Check <see cref="ZNetView.LoadFields"/>
-    ///   -> Probably not possible
-    /// - Scale mobs by level
-    ///   -> Probably not possible
     /// - make ship pickup sunken items
     /// - Change effect of <see cref="GlobalKeys.NoPortals"/> to prevent building of portal, but not the use of existing portals.
     ///   Show $msg_nobuildzone <see cref="Player.TryPlacePiece(Piece)"/>
@@ -65,7 +59,8 @@ public sealed partial class Main : BaseUnityPlugin
             new ItemDropProcessor(_logger, _cfg, _sharedProcessorState),
             new SmelterProcessor(_logger, _cfg, _sharedProcessorState),
             new WindmillProcesser(_logger, _cfg, _sharedProcessorState),
-            new VagonProcesser(_logger, _cfg, _sharedProcessorState)];
+            new VagonProcesser(_logger, _cfg, _sharedProcessorState),
+            new PlayerProcessor(_logger, _cfg, _sharedProcessorState)];
 
         Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
     }
@@ -146,7 +141,12 @@ public sealed partial class Main : BaseUnityPlugin
             while (true)
             {
                 try { Execute(); }
-                catch (OperationCanceledException) { break; }
+                catch (OperationCanceledException) { yield break; }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex);
+                    yield break;
+                }
                 yield return new WaitForSeconds(1f / _cfg.General.Frequency.Value);
             }
         }
@@ -166,8 +166,6 @@ public sealed partial class Main : BaseUnityPlugin
         if (ZNetScene.instance is null || ZDOMan.instance is null)
             return;
 
-        _watch.Restart();
-
         if (_executeCounter++ is 0 || _resetPrefabInfo)
         {
             _resetPrefabInfo = false;
@@ -177,26 +175,42 @@ public sealed partial class Main : BaseUnityPlugin
             return;
         }
 
+        if (ZNet.instance.GetPeers() is not { Count: > 0 } peers)
+            return;
+
+        _watch.Restart();
+
+        // roughly once per minute
         if (_executeCounter % (ulong)(60 * _cfg.General.Frequency.Value) is 0)
         {
             foreach (var id in _sharedProcessorState.DataRevisions.Keys)
             {
-                if (ZDOMan.instance.GetZDO(id) is null)
+                if (ZDOMan.instance.GetZDO(id) is not { } zdo || !zdo.IsValid())
                     _sharedProcessorState.DataRevisions.TryRemove(id, out _);
             }
 
-            foreach (var dict in _sharedProcessorState.ContainersByItemName.Values)
+            foreach (var (key, dict) in _sharedProcessorState.ContainersByItemName.Select(x => (x.Key, x.Value)))
             {
                 foreach (var id in dict.Keys)
                 {
-                    if (ZDOMan.instance.GetZDO(id) is null)
+                    if (ZDOMan.instance.GetZDO(id) is not { } zdo || !zdo.IsValid())
                         dict.TryRemove(id, out _);
                 }
+                if (dict is { Count: 0 })
+                    _sharedProcessorState.ContainersByItemName.TryRemove(key, out _);
+            }
+
+            foreach (var (key, set) in _sharedProcessorState.FollowingTamesByPlayerName.Select(x => (x.Key, x.Value)))
+            {
+                foreach (var id in set)
+                {
+                    if (ZDOMan.instance.GetZDO(id) is not { } zdo || !zdo.IsValid())
+                        set.Remove(id);
+                }
+                if (set is { Count: 0 })
+                    _sharedProcessorState.FollowingTamesByPlayerName.TryRemove(key, out _);
             }
         }
-
-        if (ZNet.instance.GetPeers() is not { Count: > 0 } peers)
-            return;
 
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
         _playerSectors.Clear();

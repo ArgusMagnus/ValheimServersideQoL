@@ -17,6 +17,7 @@ sealed class SharedProcessorState
     public ConcurrentDictionary<ZDOID, uint> DataRevisions { get; } = new();
 
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentDictionary<ZDOID, InventoryEx>> ContainersByItemName { get; } = new();
+    public ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();
 
     public void Initialize(ModConfig cfg)
     {
