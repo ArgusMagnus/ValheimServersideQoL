@@ -12,13 +12,9 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
         if (!CheckMinDistance(peers, zdo))
             return; // player to close
 
-        var hasFields = zdo.Fields<Smelter>().GetHasFields();
-
         /// <see cref="Smelter.OnAddFuel"/>
         {
-            int maxFuel = prefabInfo.Smelter.m_maxFuel;
-            if (hasFields)
-                maxFuel = zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel, maxFuel);
+            var maxFuel = zdo.Fields(prefabInfo.Smelter).GetInt(x => x.m_maxFuel);
             var currentFuel = zdo.GetFloat(ZDOVars.s_fuel);
             var maxFuelAdd = (int)(maxFuel - currentFuel);
             if (maxFuelAdd > maxFuel / 2)
@@ -111,9 +107,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
 
         /// <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
         {
-            int maxOre = prefabInfo.Smelter.m_maxOre;
-            if (hasFields)
-                maxOre = zdo.Fields<Smelter>().GetInt(x => x.m_maxOre, maxOre);
+            int maxOre = zdo.Fields(prefabInfo.Smelter).GetInt(x => x.m_maxOre);
             var currentOre = zdo.GetInt(ZDOVars.s_queued);
             var maxOreAdd = maxOre - zdo.GetInt(ZDOVars.s_queued);
             if (maxOreAdd > maxOre / 2)

@@ -25,9 +25,9 @@ static class ExtensionMethods
         inventory.DataRevision = zdo.DataRevision;
     }
 
-    public static ZDOComponentFieldAccessor<TComponent> Fields<TComponent>(this ZDO zdo)
-        where TComponent : Component
-        => new(zdo);
+    public static ZDOComponentFieldAccessor<TComponent> Fields<TComponent>(this ZDO zdo, TComponent? component = default)
+        where TComponent : MonoBehaviour
+        => new(zdo, component);
 
     public static ZDO Recreate(this ZDO zdo)
     {

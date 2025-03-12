@@ -4,53 +4,82 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL;
 
-readonly struct ZDOComponentFieldAccessor<TComponent>(ZDO zdo) where TComponent : Component
+sealed class ZDOComponentFieldAccessor<TComponent>(ZDO zdo, TComponent? component) where TComponent : MonoBehaviour
 {
-    static readonly int _hasFields = ZNetView.CustomFieldsStr.GetStableHashCode();
-    static readonly int _hasComponentFields = $"{ZNetView.CustomFieldsStr}{typeof(TComponent).Name}".GetStableHashCode();
+    static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
+    static readonly int __hasComponentFieldsHash = $"{ZNetView.CustomFieldsStr}{typeof(TComponent).Name}".GetStableHashCode();
 
     readonly ZDO _zdo = zdo;
+    readonly TComponent? _component = component;
 
-    public bool GetHasFields() => _zdo.GetBool(_hasFields) && _zdo.GetBool(_hasComponentFields);
+    bool? _hasFields;
+    bool? _hasComponentFields;
+
+    public bool GetHasFields() => (_hasFields ??= _zdo.GetBool(__hasFieldsHash)) && (_hasComponentFields ??= _zdo.GetBool(__hasComponentFieldsHash));
     public ZDOComponentFieldAccessor<TComponent> SetHasFields(bool value)
     {
-        if (value)
-            _zdo.Set(_hasFields, value);
-        _zdo.Set(_hasComponentFields, value);
+        if (value && _hasFields is not true)
+            _zdo.Set(__hasFieldsHash, (_hasFields = true).Value);
+
+        if (_hasComponentFields != value)
+        _zdo.Set(__hasComponentFieldsHash, (_hasComponentFields = value).Value);        
         return this;
     }
 
-    static int GetHash<T>(Expression<Func<TComponent, T>> fieldExpression)
+    static int GetHash<T>(Expression<Func<TComponent, T>> fieldExpression, out FieldInfo field)
     {
         var body = (MemberExpression)fieldExpression.Body;
-        var field = (FieldInfo)body.Member;
+        field = (FieldInfo)body.Member;
         return $"{typeof(TComponent).Name}.{field.Name}".GetStableHashCode();
     }
 
-    public bool GetBool(Expression<Func<TComponent, bool>> fieldExpression, bool defaultValue = default)
-        => _zdo.GetBool(GetHash(fieldExpression), defaultValue);
+    T Get<T>(Expression<Func<TComponent, T>> fieldExpression, Func<ZDO, int, T?, T> getter)
+    {
+        var body = (MemberExpression)fieldExpression.Body;
+        var field = (FieldInfo)body.Member;
+        if (!GetHasFields())
+            return (T)field.GetValue(_component);
 
-    public float GetFloat(Expression<Func<TComponent, float>> fieldExpression, float defaultValue = default)
-        => _zdo.GetFloat(GetHash(fieldExpression), defaultValue);
+        var hash = $"{typeof(TComponent).Name}.{field.Name}".GetStableHashCode();
+        return getter(_zdo, hash, _component is null ? default : (T)field.GetValue(_component));
+    }
 
-    public int GetInt(Expression<Func<TComponent, int>> fieldExpression, int defaultValue = default)
-        => _zdo.GetInt(GetHash(fieldExpression), defaultValue);
+    public bool GetBool(Expression<Func<TComponent, bool>> fieldExpression)
+        => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetBool(hash, defaultValue));
+
+    public float GetFloat(Expression<Func<TComponent, float>> fieldExpression)
+        => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetFloat(hash, defaultValue));
+
+    public int GetInt(Expression<Func<TComponent, int>> fieldExpression)
+        => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
 
     public ZDOComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, bool>> fieldExpression, bool value)
     {
-        _zdo.Set(GetHash(fieldExpression), value);
+        var hash = GetHash(fieldExpression, out var field);
+        if (_component is not null && value == (bool)field.GetValue(_component))
+                _zdo.RemoveInt(hash);
+        else
+            _zdo.Set(hash, value);
         return this;
     }
 
     public ZDOComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, float>> fieldExpression, float value)
     {
-        _zdo.Set(GetHash(fieldExpression), value);
+        var hash = GetHash(fieldExpression, out var field);
+        if (_component is not null && value == (float)field.GetValue(_component))
+            _zdo.RemoveFloat(hash);
+        else
+            _zdo.Set(hash, value);
         return this;
     }
 
     public ZDOComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, int>> fieldExpression, int value)
     {
-        _zdo.Set(GetHash(fieldExpression), value);
+        var hash = GetHash(fieldExpression, out var field);
+        if (_component is not null && value == (int)field.GetValue(_component))
+            _zdo.RemoveInt(hash);
+        else
+            _zdo.Set(hash, value);
         return this;
     }
 }

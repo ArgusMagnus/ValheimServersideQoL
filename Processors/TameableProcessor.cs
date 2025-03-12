@@ -24,17 +24,13 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
         if (Config.Tames.SendTamingPogressMessages.Value && !(tamed ??= zdo.GetBool(ZDOVars.s_tamed)))
         {
             /// <see cref="Tameable.GetRemainingTime()"/>
-            var tameTime = prefabInfo.Tameable.m_tamingTime;
-            var hasFields = zdo.Fields<Tameable>().GetHasFields();
-            if (hasFields)
-                tameTime = zdo.Fields<Tameable>().GetFloat(x => x.m_tamingTime, tameTime);
+            var fields = zdo.Fields(prefabInfo.Tameable);
+            var tameTime = fields.GetFloat(x => x.m_tamingTime);
             var tameTimeLeft = zdo.GetFloat(ZDOVars.s_tameTimeLeft, tameTime);
             if (tameTimeLeft < tameTime)
             {
                 var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
-                var range = prefabInfo.Tameable.m_tamingSpeedMultiplierRange;
-                if (hasFields)
-                    range = zdo.Fields<Tameable>().GetFloat(x => x.m_tamingSpeedMultiplierRange, range);
+                var range = fields.GetFloat(x => x.m_tamingSpeedMultiplierRange);
                 var zdo2 = zdo;
                 var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo2.GetPosition()) < range);
                 Main.ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{prefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");

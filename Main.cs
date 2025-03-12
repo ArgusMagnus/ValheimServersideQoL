@@ -1,11 +1,8 @@
-﻿using BepInEx.Logging;
-using BepInEx;
-using System.Diagnostics;
+﻿using BepInEx;
+using BepInEx.Logging;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using UnityEngine;
-using BepInEx.Configuration;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
@@ -36,7 +33,7 @@ public sealed partial class Main : BaseUnityPlugin
     internal static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
 
     //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);
-    static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
+    readonly ManualLogSource _logger = BepInEx.Logging.Logger.CreateLogSource(PluginName);
 
     readonly ModConfig _cfg;
     readonly Stopwatch _watch = new();
@@ -59,16 +56,16 @@ public sealed partial class Main : BaseUnityPlugin
         _cfg = new(Config);
 
         _processors = [
-            new SignProcessor(Logger, _cfg, _sharedProcessorState),
-            new MapTableProcessor(Logger, _cfg, _sharedProcessorState),
-            new TameableProcessor(Logger, _cfg, _sharedProcessorState),
-            new ShipProcessor(Logger, _cfg, _sharedProcessorState),
-            new FireplaceProcessor(Logger, _cfg, _sharedProcessorState),
-            new ContainerProcessor(Logger, _cfg, _sharedProcessorState),
-            new ItemDropProcessor(Logger, _cfg, _sharedProcessorState),
-            new SmelterProcessor(Logger, _cfg, _sharedProcessorState),
-            new WindmillProcesser(Logger, _cfg, _sharedProcessorState),
-            new VagonProcesser(Logger, _cfg, _sharedProcessorState)];
+            new SignProcessor(_logger, _cfg, _sharedProcessorState),
+            new MapTableProcessor(_logger, _cfg, _sharedProcessorState),
+            new TameableProcessor(_logger, _cfg, _sharedProcessorState),
+            new ShipProcessor(_logger, _cfg, _sharedProcessorState),
+            new FireplaceProcessor(_logger, _cfg, _sharedProcessorState),
+            new ContainerProcessor(_logger, _cfg, _sharedProcessorState),
+            new ItemDropProcessor(_logger, _cfg, _sharedProcessorState),
+            new SmelterProcessor(_logger, _cfg, _sharedProcessorState),
+            new WindmillProcesser(_logger, _cfg, _sharedProcessorState),
+            new VagonProcesser(_logger, _cfg, _sharedProcessorState)];
 
         Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
     }
@@ -101,7 +98,7 @@ public sealed partial class Main : BaseUnityPlugin
             gameVersion = default;
         if (gameVersion != ExpectedGameVersion)
         {
-            Logger.LogWarning($"Unsupported game version: {gameVersion}, expected: {ExpectedGameVersion}");
+            _logger.LogWarning($"Unsupported game version: {gameVersion}, expected: {ExpectedGameVersion}");
             failed = true;
             abort |= !_cfg.General.IgnoreGameVersionCheck.Value;
         }
@@ -109,7 +106,7 @@ public sealed partial class Main : BaseUnityPlugin
             networkVersion = default;
         if (networkVersion != ExpectedNetworkVersion)
         {
-            Logger.LogWarning($"Unsupported network version: {networkVersion}, expected: {ExpectedNetworkVersion}");
+            _logger.LogWarning($"Unsupported network version: {networkVersion}, expected: {ExpectedNetworkVersion}");
             failed = true;
             abort |= !_cfg.General.IgnoreNetworkVersionCheck.Value;
         }
@@ -117,7 +114,7 @@ public sealed partial class Main : BaseUnityPlugin
             itemDataVersion = default;
         if (itemDataVersion != ExpectedItemDataVersion)
         {
-            Logger.LogWarning($"Unsupported item data version: {itemDataVersion}, expected: {ExpectedItemDataVersion}");
+            _logger.LogWarning($"Unsupported item data version: {itemDataVersion}, expected: {ExpectedItemDataVersion}");
             failed = true;
             abort |= !_cfg.General.IgnoreItemDataVersionCheck.Value;
         }
@@ -125,7 +122,7 @@ public sealed partial class Main : BaseUnityPlugin
             worldVersion = default;
         if (worldVersion != ExpectedWorldVersion)
         {
-            Logger.LogWarning($"Unsupported world version: {worldVersion}, expected: {ExpectedWorldVersion}");
+            _logger.LogWarning($"Unsupported world version: {worldVersion}, expected: {ExpectedWorldVersion}");
             failed = true;
             abort |= !_cfg.General.IgnoreWorldVersionCheck.Value;
         }
@@ -133,10 +130,10 @@ public sealed partial class Main : BaseUnityPlugin
         if (failed)
         {
             if (!abort)
-                Logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
+                _logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
             else
             {
-                Logger.LogError("Version checks failed. Mod execution is stopped");
+                _logger.LogError("Version checks failed. Mod execution is stopped");
                 return;
             }
         }
@@ -162,7 +159,7 @@ public sealed partial class Main : BaseUnityPlugin
 
         if (ZNet.instance.IsServer() is false)
         {
-            Logger.LogWarning("Mod should only be installed on the host");
+            _logger.LogWarning("Mod should only be installed on the host");
             throw new OperationCanceledException();
         }
 
@@ -292,14 +289,11 @@ public sealed partial class Main : BaseUnityPlugin
 
         _watch.Stop();
         var logLevel = _watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug;
-        Logger.Log(logLevel,
+        _logger.Log(logLevel,
             $"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
-        Logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
-        Logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
+        _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
+        _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
-
-    static void Log(LogLevel logLevel, string text = "", [CallerLineNumber] int lineNo = default)
-        => Logger.Log(logLevel, string.IsNullOrEmpty(text) ? $"Line: {lineNo}" : $"Line: {lineNo}: {text}");
 
     internal static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
     {

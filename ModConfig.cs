@@ -25,8 +25,8 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
         public ConfigEntry<float> StartDelay { get; } = cfg.Bind(section, nameof(StartDelay), 0f, "Time (in seconds) before the mod starts processing the world");
-        public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 2f, "How many times per second the mod processes the world");
-        public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 50, "Max processing time (in ms) per update");
+        public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f, "How many times per second the mod processes the world");
+        public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 20, "Max processing time (in ms) per update");
         public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.Bind(section, nameof(ZonesAroundPlayers), 1, "Zones to process around each player");
         public ConfigEntry<float> MinPlayerDistance { get; } = cfg.Bind(section, nameof(MinPlayerDistance), 4f, "Min distance all players must have to a ZDO for it to be modified");
         public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreGameVersionCheck), false, "True to ignore the game version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
@@ -66,6 +66,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class FireplacesConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> MakeToggleable { get; } = cfg.Bind(section, nameof(MakeToggleable), true, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
+        public ConfigEntry<bool> InfiniteFuel { get; } = cfg.Bind(section, nameof(InfiniteFuel), true, "True to make all fireplaces have infinite fuel");
     }
 
     [RequiredPrefabs<Container, Piece> /* Require Container and Piece */]

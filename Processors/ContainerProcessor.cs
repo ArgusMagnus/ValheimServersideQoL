@@ -26,13 +26,9 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
 
         /// <see cref="Container.Load"/>
         /// <see cref="Container.Save"/>
-        var width = prefabInfo.Container.m_width;
-        var height = prefabInfo.Container.m_height;
-        if (zdo.Fields<Container>().GetHasFields())
-        {
-            width = zdo.Fields<Container>().GetInt(x => x.m_width, width);
-            height = zdo.Fields<Container>().GetInt(x => x.m_height, height);
-        }
+        var fields = zdo.Fields(prefabInfo.Container);
+        var width = fields.GetInt(x => x.m_width);
+        var height = fields.GetInt(x => x.m_height);
         InventoryEx inventory = new(new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height)) { DataRevision = zdo.DataRevision };
         inventory.Inventory.Load(new(data));
         var changed = false;
