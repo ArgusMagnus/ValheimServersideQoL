@@ -10,6 +10,17 @@ record InventoryEx(Inventory Inventory)
     public uint DataRevision { get; set; }
 }
 
+record struct ItemKey(string Name, int Quality, int Variant)
+{
+    public static implicit operator ItemKey(ItemDrop.ItemData data) => new(data);
+    public ItemKey(ItemDrop.ItemData data) : this(data.m_shared.m_name, data.m_quality, data.m_variant) { }
+}
+
+record struct SharedItemDataKey(string Name)
+{
+    public static implicit operator SharedItemDataKey(ItemDrop.ItemData.SharedData data) => new(data.m_name);
+}
+
 sealed class SharedProcessorState
 {
     public IReadOnlyDictionary<int, PrefabInfo> PrefabInfo { get; } = new Dictionary<int, PrefabInfo>();
@@ -32,18 +43,27 @@ sealed class SharedProcessorState
             IEnumerable<RequiredPrefabsAttribute>? classAttr = null;
             foreach (var keyProperty in sectionProperty.PropertyType.GetProperties())
             {
-                var attrs = keyProperty.GetCustomAttributes<RequiredPrefabsAttribute>();
-                if (keyProperty.PropertyType != typeof(ConfigEntry<bool>))
-                {
-                    if (attrs.Any())
-                        throw new Exception($"{nameof(RequiredPrefabsAttribute)} only supported on classes and properties of type {nameof(ConfigEntry<bool>)}");
-                    continue;
-                }
-
                 section ??= sectionProperty.GetValue(cfg);
 
-                if (!((ConfigEntry<bool>)keyProperty.GetValue(section)).Value)
-                    continue;
+                var attrs = keyProperty.GetCustomAttributes<RequiredPrefabsAttribute>();
+
+                switch (keyProperty.GetValue(section))
+                {
+                    default:
+                        if (attrs.Any())
+                            throw new Exception($"{nameof(RequiredPrefabsAttribute)} only supported on classes and properties of type {nameof(ConfigEntry<bool>)}/{nameof(ConfigEntry<bool>)}");
+                        continue;
+
+                    case ConfigEntry<bool> boolProp:
+                        if (!boolProp.Value)
+                            continue;
+                        break;
+
+                    case ConfigEntry<float> floatProp:
+                        if (float.IsNaN(floatProp.Value))
+                            continue;
+                        break;
+                }
 
                 classAttr ??= sectionProperty.PropertyType.GetCustomAttributes<RequiredPrefabsAttribute>();
 

@@ -16,7 +16,7 @@ sealed class ModConfig(ConfigFile cfg)
     public ContainersConfig Containers { get; } = new(cfg, "B - Containers");
     public SmeltersConfig Smelters { get; } = new(cfg, "B - Smelters");
     public WindmillsConfig Windmills { get; } = new(cfg, "B - Windmills");
-    //public CartsConfig Carts { get; } = new(cfg, "B - Carts");
+    public CartsConfig Carts { get; } = new(cfg, "B - Carts");
 
 
     //PrefabsConfig? _prefabs;
