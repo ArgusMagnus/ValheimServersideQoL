@@ -19,4 +19,5 @@ record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, Component> Compon
     public Vagon? Vagon { get; } = Get<Vagon>(Components);
     public Player? Player { get; } = Get<Player>(Components);
     public TeleportWorld? TeleportWorld { get; } = Get<TeleportWorld>(Components);
+    public Door? Door { get; } = Get<Door>(Components);
 }

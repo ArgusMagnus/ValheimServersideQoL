@@ -19,6 +19,7 @@ This mod is in early development and the features experimental. Backup your worl
 - Item drops: Automatically put dropped items into chests
 - Smelters: Feed/refuel smelters from nearby containers
 - Windmills: Make windmills ignore wind intensity
+- Doors: Automatically close doors
 - Global Keys
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
 

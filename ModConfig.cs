@@ -17,6 +17,7 @@ sealed class ModConfig(ConfigFile cfg)
     public SmeltersConfig Smelters { get; } = new(cfg, "B - Smelters");
     public WindmillsConfig Windmills { get; } = new(cfg, "B - Windmills");
     public CartsConfig Carts { get; } = new(cfg, "B - Carts");
+    public DoorsConfig Doors { get; } = new(cfg, "B - Doors");
 
 
     //PrefabsConfig? _prefabs;
@@ -104,6 +105,13 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class CartsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), float.NaN, "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight");
+    }
+
+    [RequiredPrefabs<Door>]
+    public sealed class DoorsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), 8f,
+            $"Min distance all players must have to the door before it is closed. {float.NaN} to disable this feature");
     }
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
