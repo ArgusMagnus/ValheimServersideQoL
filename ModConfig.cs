@@ -116,6 +116,15 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
     {
+        public ConfigEntry<string> Preset { get; } = cfg.Bind(section, nameof(Preset), "",
+            new ConfigDescription("World preset", new AcceptableValueList<string>(["", ..Enum.GetNames(typeof(WorldPresets))])));
+
+        public IReadOnlyDictionary<string, ConfigEntry<string>> Modifiers { get; } = Enum.GetNames(typeof(WorldModifiers))
+            .Where(x => x != $"{WorldModifiers.Default}")
+            .ToDictionary(modifier => modifier, modifier => cfg.Bind(section, modifier, "",
+                new ConfigDescription($"World modifier '{modifier}'",
+                    new AcceptableValueList<string>(["", ..Enum.GetNames(typeof(WorldModifierOption))]))));
+
         [RequiredPrefabs<TeleportWorld>]
         public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
             $"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional");

@@ -2,6 +2,7 @@
 using BepInEx.Logging;
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.Reflection;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 
@@ -144,6 +145,37 @@ public sealed partial class Main : BaseUnityPlugin
         }
     }
 
+    sealed class MyTerminal : Terminal
+    {
+        protected override Terminal m_terminalInstance => throw new NotImplementedException();
+
+        //public static IReadOnlyDictionary<string, ConsoleCommand> Commands => commands;
+
+        public static void ExecuteCommand(string command, params string[] args)
+        {
+            var cmd = commands[command];
+            var action = typeof(ConsoleCommand).GetField("action", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd)
+                ?? typeof(ConsoleCommand).GetField("actionFailable", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd);
+            if (action is ConsoleEvent consoleEvent)
+                consoleEvent(new MyConsoleEventArgs(command, args));
+            else if (action is ConsoleEventFailable consoleEventFailable)
+            {
+                var result = consoleEventFailable(new MyConsoleEventArgs(command, args));
+                if (result is not bool b || !b)
+                    throw new Exception(result.ToString());
+            }
+            else
+                throw new ArgumentException(nameof(command));
+        }
+
+        sealed class MyConsoleEventArgs : ConsoleEventArgs
+        {
+            public MyConsoleEventArgs(string command, params string[] args)
+                : base("", null)
+                => Args = [command, .. args];
+        }
+    }
+
     void Execute()
     {
         if (ZNet.instance is null)
@@ -161,6 +193,18 @@ public sealed partial class Main : BaseUnityPlugin
         if (_executeCounter++ is 0 || _resetPrefabInfo)
         {
             _resetPrefabInfo = false;
+
+            if (!string.IsNullOrEmpty(_cfg.GlobalsKeys.Preset.Value))
+            {
+                try { MyTerminal.ExecuteCommand("setworldpreset", _cfg.GlobalsKeys.Preset.Value); }
+                catch(Exception ex) { _logger.LogError(ex); }
+            }
+
+            foreach (var (modifier, value) in _cfg.GlobalsKeys.Modifiers.Select(x => (x.Key, x.Value.Value)).Where(x => !string.IsNullOrEmpty(x.Value)))
+            {
+                try { MyTerminal.ExecuteCommand("setworldmodifier", modifier, value); }
+                catch (Exception ex) { _logger.LogError(ex); }
+            }
 
             /// <see cref="FejdStartup.ParseServerArguments"/>
             /// This would not work correctly IF config was actually reloaded, as reset config values would not reset the global key
