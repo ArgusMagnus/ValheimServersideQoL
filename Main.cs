@@ -121,6 +121,8 @@ public sealed partial class Main : BaseUnityPlugin
             }
         }
 
+        _logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.KeyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}")));
+
         _logger.LogInfo($"Registered Processors: {_processors.Count}");
 
         StartCoroutine(CallExecute());
@@ -159,6 +161,31 @@ public sealed partial class Main : BaseUnityPlugin
         if (_executeCounter++ is 0 || _resetPrefabInfo)
         {
             _resetPrefabInfo = false;
+
+            /// <see cref="FejdStartup.ParseServerArguments"/>
+            /// This would not work correctly IF config was actually reloaded, as reset config values would not reset the global key
+            foreach (var (key, entry) in _cfg.GlobalsKeys.KeyConfigs.Where(x => !Equals(x.Value.DefaultValue, x.Value.BoxedValue)).Select(x => (x.Key, x.Value)))
+            {
+                if (entry.BoxedValue is bool boolValue)
+                {
+                    if (boolValue)
+                        ZoneSystem.instance.SetGlobalKey(key);
+                    else
+                        ZoneSystem.instance.RemoveGlobalKey(key);
+                }
+                else
+                {
+                    float value;
+                    try { value = (float)Convert.ChangeType(entry.BoxedValue, typeof(float)); }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex);
+                        continue;
+                    }
+                    ZoneSystem.instance.SetGlobalKey(key, value);
+                }
+            }
+
             _sharedProcessorState.Initialize(_cfg);
             foreach (var processor in _processors)
                 processor.Initialize();

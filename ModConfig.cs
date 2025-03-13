@@ -1,5 +1,5 @@
 ﻿using BepInEx.Configuration;
-using System.Linq.Expressions;
+using System.Reflection;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 
@@ -117,7 +117,104 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
     {
         [RequiredPrefabs<TeleportWorld>]
-        public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true, "True to change the effect of the NoPortals global key, to prevent the construction of new portals but leave existing portals functional");
+        public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
+            $"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional");
+
+        readonly Task<IReadOnlyDictionary<GlobalKeys, ConfigEntryBase>> _keyConfigs = Task.Run(() => InitializeGlobalKeys(cfg, section));
+        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs => _keyConfigs.Result;
+
+        static IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> InitializeGlobalKeys(ConfigFile cfg, string section)
+        {
+            static double TryGetAsDouble(FieldInfo field)
+            {
+                var obj = field.GetValue(null);
+                try { return (double)Convert.ChangeType(obj, typeof(double)); }
+                catch { return double.NaN; }
+            }
+
+            /// <see cref="ZoneSystem.GetGlobalKey(GlobalKeys, out string)"/>
+            /// <see cref="Game.UpdateWorldRates(HashSet{string}, Dictionary{string, string})"/>
+            var fields = typeof(Game).GetFields(BindingFlags.Public | BindingFlags.Static)
+                .Select(x => (Field: x, OrignalValueObject: x.GetValue(null), OriginalValue: TryGetAsDouble(x)))
+                .Where(x => !double.IsNaN(x.OriginalValue))
+                .ToList();
+
+            IEnumerable<double> testValues = [float.MinValue, int.MinValue];
+            testValues = testValues.Concat(Enumerable.Range(-100, 100).Select(x => (double)x));
+            testValues = testValues.Concat([int.MaxValue, float.MaxValue]);
+
+            HashSet<string> keys = [];
+            Dictionary<string, string> keyTestValues = new();
+            List<(double TestValue, double Value)> testResults = new();
+
+            var result = new Dictionary<GlobalKeys, ConfigEntryBase>();
+
+            MethodInfo? bindDefinition = null;
+
+            foreach (GlobalKeys key in Enum.GetValues(typeof(GlobalKeys)))
+            {
+                if (key is GlobalKeys.Preset or >= GlobalKeys.NonServerOption)
+                    continue;
+
+                var name = key.ToString();
+                var nameLower = name.ToLower();
+
+                FieldInfo? field = null;
+                object? orignalValueObject = null;
+                double originalValue = double.NaN;
+                testResults.Clear();
+                foreach (var testValue in testValues)
+                {
+                    keyTestValues.Clear();
+                    keyTestValues.Add(nameLower, FormattableString.Invariant($"{testValue}"));
+                    try { Game.UpdateWorldRates(keys, keyTestValues); }
+                    catch (NullReferenceException) { } /// expect in <see cref="Game.UpdateNoMap"/>
+                    double value = double.NaN;
+                    if (field is null)
+                    {
+                        (field, orignalValueObject, originalValue, value, var idx) = fields.Select((x, i) => (x.Field, x.OrignalValueObject, x.OriginalValue, Value: TryGetAsDouble(x.Field), i)).FirstOrDefault(x => x.OriginalValue != x.Value);
+                        if (field is not null)
+                            fields.RemoveAt(idx);
+                    }
+                    else
+                    {
+                        value = TryGetAsDouble(field);
+                        if (value == originalValue)
+                            value = double.NaN;
+                    }
+
+                    if (!double.IsNaN(value))
+                        testResults.Add((testValue, value));
+                }
+
+                if (testResults is { Count: > 0 } && field is not null)
+                {
+                    var min = testResults.Min(x => x.Value);
+                    var max = testResults.Max(x => x.Value);
+                    var inRange = testResults.Where(x => x.Value is not 0 && x.Value > min && x.Value < max);
+                    var multiplier = inRange.Any() ? inRange.Average(x => x.TestValue / x.Value) : 1;
+                    min *= multiplier;
+                    max *= multiplier;
+                    originalValue *= multiplier;
+
+                    AcceptableValueBase? range = null;
+                    if (min > float.MinValue && max < float.MaxValue)
+                        range = (AcceptableValueBase)Activator.CreateInstance(typeof(AcceptableValueRange<>).MakeGenericType(field.FieldType), Convert.ChangeType(min, field.FieldType), Convert.ChangeType(max, field.FieldType));
+                    var desc = new ConfigDescription($"Sets the value for the '{name}' global key", range);
+                    bindDefinition ??= new Func<string, string, bool, ConfigDescription, ConfigEntry<bool>>(cfg.Bind).Method.GetGenericMethodDefinition();
+                    var entry = (ConfigEntryBase)bindDefinition.MakeGenericMethod(field.FieldType).Invoke(cfg, [section, name, Convert.ChangeType(originalValue, field.FieldType), desc]);
+                    result.Add(key, entry);
+                }
+                else
+                {
+                    result.Add(key, cfg.Bind(section, name, false, $"True to set the '{name}' global key"));
+                }
+
+                field?.SetValue(null, orignalValueObject);
+            }
+
+            return result;
+        }
     }
 
     //public sealed class PrefabsConfig
