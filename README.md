@@ -21,7 +21,7 @@ This mod is in early development and the features experimental. Backup your worl
 - Windmills: Make windmills ignore wind intensity
 - Doors: Automatically close doors
 - Global Keys
-    - Set global keys via config
+    - Set world preset/modifiers and global keys via config
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
 
 All of these features can be enabled/disabled separately via config.

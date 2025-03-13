@@ -116,23 +116,41 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<string> Preset { get; } = cfg.Bind(section, nameof(Preset), "",
-            new ConfigDescription("World preset", new AcceptableValueList<string>(["", ..Enum.GetNames(typeof(WorldPresets))])));
+        ConfigEntry<string>? _preset;
+        public ConfigEntry<string> Preset => _preset ??= GetPreset(cfg, section);
 
-        public IReadOnlyDictionary<string, ConfigEntry<string>> Modifiers { get; } = Enum.GetNames(typeof(WorldModifiers))
-            .Where(x => x != $"{WorldModifiers.Default}")
-            .ToDictionary(modifier => modifier, modifier => cfg.Bind(section, modifier, "",
-                new ConfigDescription($"World modifier '{modifier}'",
-                    new AcceptableValueList<string>(["", ..Enum.GetNames(typeof(WorldModifierOption))]))));
+        IReadOnlyDictionary<string, ConfigEntry<string>>? _modifiers;
+        public IReadOnlyDictionary<string, ConfigEntry<string>> Modifiers => _modifiers ??= GetModifiers(cfg, section);
+
+        IReadOnlyDictionary<GlobalKeys, ConfigEntryBase>? _keyConfigs;
+        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs => _keyConfigs ??= GetGlobalKeyEntries(cfg, section);
 
         [RequiredPrefabs<TeleportWorld>]
         public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
             $"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional");
 
-        readonly Task<IReadOnlyDictionary<GlobalKeys, ConfigEntryBase>> _keyConfigs = Task.Run(() => InitializeGlobalKeys(cfg, section));
-        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs => _keyConfigs.Result;
+        static ConfigEntry<string> GetPreset(ConfigFile cfg, string section)
+        {
+            /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
+            var presets = (KeyButton[])typeof(ServerOptionsGUI).GetField("m_presets", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
+            return cfg.Bind(section, nameof(Preset), "", new ConfigDescription("World preset",
+                new AcceptableValueList<string>(["", .. presets.Select(x => $"{x.m_preset}")])));
+        }
 
-        static IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> InitializeGlobalKeys(ConfigFile cfg, string section)
+        static IReadOnlyDictionary<string, ConfigEntry<string>> GetModifiers(ConfigFile cfg, string section)
+        {
+            /// <see cref="ServerOptionsGUI.SetPreset(World, WorldModifiers, WorldModifierOption)"/>
+            var field = typeof(ServerOptionsGUI).GetField("m_modifiers", BindingFlags.Static | BindingFlags.NonPublic);
+            var modifiers = ((KeyUI[])field.GetValue(null))
+                .OfType<KeySlider>()
+                .Select(keySlider => cfg.Bind(section, $"{keySlider.m_modifier}", "",
+                    new ConfigDescription($"World modifier '{keySlider.m_modifier}'",
+                        new AcceptableValueList<string>(["", .. keySlider.m_settings.Select(x => $"{x.m_modifierValue}")]))))
+                .ToDictionary(x => x.Definition.Key);
+            return modifiers;
+        }
+
+        static IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> GetGlobalKeyEntries(ConfigFile cfg, string section)
         {
             static double TryGetAsDouble(FieldInfo field)
             {
