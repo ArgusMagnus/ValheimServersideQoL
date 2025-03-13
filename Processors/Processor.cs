@@ -1,28 +1,22 @@
-﻿using BepInEx.Configuration;
-using BepInEx.Logging;
-using System.Diagnostics;
-using System.Reflection;
+﻿using BepInEx.Logging;
 
 namespace Valheim.ServersideQoL.Processors;
 
-record struct ItemKey(string Name, int Quality, int Variant)
-{
-    public static implicit operator ItemKey(ItemDrop.ItemData data) => new(data);
-    public ItemKey(ItemDrop.ItemData data) : this(data.m_shared.m_name, data.m_quality, data.m_variant) { }
-}
-
-record struct SharedItemDataKey(string Name)
-{
-    public static implicit operator SharedItemDataKey(ItemDrop.ItemData.SharedData data) => new(data.m_name);
-}
-
 abstract class Processor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState)
 {
+    public static IReadOnlyList<Processor> CreateInstances(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState)
+    {
+        return typeof(Processor).Assembly.GetTypes()
+            .Where(x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
+            .Select(x => (Processor)Activator.CreateInstance(x, args: [logger, cfg, sharedState]))
+            .ToList();
+    }
+
     protected ManualLogSource Logger { get; } = logger;
     protected ModConfig Config { get; } = cfg;
     protected SharedProcessorState SharedState { get; } = sharedState;
 
-    readonly Stopwatch _watch = new();
+    readonly System.Diagnostics.Stopwatch _watch = new();
 
     public TimeSpan ProcessingTime => _watch.Elapsed;
     long _totalProcessingTimeTicks;

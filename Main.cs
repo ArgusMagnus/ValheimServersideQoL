@@ -18,6 +18,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Allow carts through portals
     /// - Modify container inventory sizes
     /// - Make carts ignore weights <see cref="Vagon"/>
+    /// - Expose <see cref="GlobalKeys"/> settings via config. Find a way to automatically detect type and valid range of global keys. <see cref="ZoneSystem.UpdateWorldRates"/>
     /// </summary>
 
     internal const string PluginName = "ServersideQoL";
@@ -47,19 +48,7 @@ public sealed partial class Main : BaseUnityPlugin
     {
         _cfg = new(Config);
 
-        _processors = [
-            new SignProcessor(_logger, _cfg, _sharedProcessorState),
-            new MapTableProcessor(_logger, _cfg, _sharedProcessorState),
-            new TameableProcessor(_logger, _cfg, _sharedProcessorState),
-            new ShipProcessor(_logger, _cfg, _sharedProcessorState),
-            new FireplaceProcessor(_logger, _cfg, _sharedProcessorState),
-            new ContainerProcessor(_logger, _cfg, _sharedProcessorState),
-            new ItemDropProcessor(_logger, _cfg, _sharedProcessorState),
-            new SmelterProcessor(_logger, _cfg, _sharedProcessorState),
-            new WindmillProcesser(_logger, _cfg, _sharedProcessorState),
-            new VagonProcesser(_logger, _cfg, _sharedProcessorState),
-            new PlayerProcessor(_logger, _cfg, _sharedProcessorState),
-            new PortalProcessor(_logger, _cfg, _sharedProcessorState)];
+        _processors = Processor.CreateInstances(_logger, _cfg, _sharedProcessorState);
 
         Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
     }
@@ -131,6 +120,8 @@ public sealed partial class Main : BaseUnityPlugin
                 return;
             }
         }
+
+        _logger.LogInfo($"Registered Processors: {_processors.Count}");
 
         StartCoroutine(CallExecute());
 
