@@ -52,6 +52,9 @@ sealed class ZDOComponentFieldAccessor<TComponent>(ZDO zdo, TComponent? componen
     public int GetInt(Expression<Func<TComponent, int>> fieldExpression)
         => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
 
+    public string GetString(Expression<Func<TComponent, string>> fieldExpression)
+        => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
+
     ZDOComponentFieldAccessor<TComponent> SetCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int> remover, Action<ZDO, int, T> setter)
         where T : notnull
     {
@@ -76,6 +79,9 @@ sealed class ZDOComponentFieldAccessor<TComponent>(ZDO zdo, TComponent? componen
     public ZDOComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, int>> fieldExpression, int value)
         => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
 
+    public ZDOComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, string>> fieldExpression, string value)
+        => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
+
     ZDOComponentFieldAccessor<TComponent> ResetCore<T>(Expression<Func<TComponent, T>> fieldExpression, Action<ZDO, int> remover)
     {
         var hash = GetHash(fieldExpression, out _);
@@ -90,5 +96,8 @@ sealed class ZDOComponentFieldAccessor<TComponent>(ZDO zdo, TComponent? componen
         => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveFloat(hash));
 
     public ZDOComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, int>> fieldExpression)
+        => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
+
+    public ZDOComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, string>> fieldExpression)
         => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
 }
