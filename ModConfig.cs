@@ -12,6 +12,7 @@ sealed class ModConfig(ConfigFile cfg)
     public SignsConfig Signs { get; } = new(cfg, "B - Signs");
     public MapTableConfig MapTables { get; } = new(cfg, "B - Map Tables");
     public TamesConfig Tames { get; } = new(cfg, "B - Tames");
+    public CreaturesConfig Creatures { get; } = new(cfg, "B - Creatures");
     public FireplacesConfig Fireplaces { get; } = new(cfg, "B - Fireplaces");
     public ContainersConfig Containers { get; } = new(cfg, "B - Containers");
     public SmeltersConfig Smelters { get; } = new(cfg, "B - Smelters");
@@ -65,6 +66,13 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
         [RequiredPrefabs<Player>]
         public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), true, "True to teleport following tames to the players location if the player gets too far away from them");
+    }
+
+    [RequiredPrefabs<Character>]
+    public sealed class CreaturesConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> ShowLevelInName { get; } = cfg.Bind(section, nameof(ShowLevelInName), false,
+            "True to change the name of creatures of level 3 or higher to reflect their level. The intended use is with other mods, which spawn higher level creatures (> 2-Star)");
     }
 
     [RequiredPrefabs<Fireplace>]
@@ -311,12 +319,12 @@ abstract class RequiredPrefabsAttribute(params Type[] prefabs) : Attribute
     public Type[] Prefabs { get; } = prefabs;
 }
 
-sealed class RequiredPrefabsAttribute<T> : RequiredPrefabsAttribute where T : Component
+sealed class RequiredPrefabsAttribute<T> : RequiredPrefabsAttribute where T : MonoBehaviour
 {
     public RequiredPrefabsAttribute() : base(typeof(T)) { }
 }
 
-sealed class RequiredPrefabsAttribute<T1, T2> : RequiredPrefabsAttribute where T1 : Component where T2 : Component
+sealed class RequiredPrefabsAttribute<T1, T2> : RequiredPrefabsAttribute where T1 : MonoBehaviour where T2 : MonoBehaviour
 {
     public RequiredPrefabsAttribute() : base(typeof(T1), typeof(T2)) { }
 }
