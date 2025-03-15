@@ -110,9 +110,7 @@ sealed class SharedProcessorState
 
             if (needsShips)
             {
-                foreach (var zdo in ((IReadOnlyDictionary<ZDOID, ZDO>)typeof(ZDOMan)
-                    .GetField("m_objectsByID", BindingFlags.NonPublic | BindingFlags.Instance)
-                    .GetValue(ZDOMan.instance)).Values.Where(x => PrefabInfo.TryGetValue(x.GetPrefab(), out var info) && info.Ship is not null))
+                foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Where(x => PrefabInfo.TryGetValue(x.GetPrefab(), out var info) && info.Ship is not null))
                     Ships.Add(zdo.m_uid);
             }
         }

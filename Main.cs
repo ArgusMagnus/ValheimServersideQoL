@@ -154,11 +154,11 @@ public sealed partial class Main : BaseUnityPlugin
         public static void ExecuteCommand(string command, params string[] args)
         {
             var cmd = commands[command];
-            var action = typeof(ConsoleCommand).GetField("action", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd)
-                ?? typeof(ConsoleCommand).GetField("actionFailable", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd);
-            if (action is ConsoleEvent consoleEvent)
+            // var action = typeof(ConsoleCommand).GetField("action", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd)
+            //     ?? typeof(ConsoleCommand).GetField("actionFailable", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd);
+            if (PrivateAccessor.GetCommandAction(cmd) is { } consoleEvent)
                 consoleEvent(new MyConsoleEventArgs(command, args));
-            else if (action is ConsoleEventFailable consoleEventFailable)
+            else if (PrivateAccessor.GetCommandActionFailable(cmd) is { } consoleEventFailable)
             {
                 var result = consoleEventFailable(new MyConsoleEventArgs(command, args));
                 if (result is not bool b || !b)

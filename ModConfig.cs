@@ -132,7 +132,7 @@ sealed class ModConfig(ConfigFile cfg)
         static ConfigEntry<string> GetPreset(ConfigFile cfg, string section)
         {
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
-            var presets = (KeyButton[])typeof(ServerOptionsGUI).GetField("m_presets", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
+            var presets = PrivateAccessor.GetServerOptionsGUIPresets();
             return cfg.Bind(section, nameof(Preset), "", new ConfigDescription("World preset",
                 new AcceptableValueList<string>(["", .. presets.Select(x => $"{x.m_preset}")])));
         }
@@ -140,8 +140,7 @@ sealed class ModConfig(ConfigFile cfg)
         static IReadOnlyDictionary<string, ConfigEntry<string>> GetModifiers(ConfigFile cfg, string section)
         {
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldModifiers, WorldModifierOption)"/>
-            var field = typeof(ServerOptionsGUI).GetField("m_modifiers", BindingFlags.Static | BindingFlags.NonPublic);
-            var modifiers = ((KeyUI[])field.GetValue(null))
+            var modifiers = PrivateAccessor.GetServerOptionsGUIModifiers()
                 .OfType<KeySlider>()
                 .Select(keySlider => cfg.Bind(section, $"{keySlider.m_modifier}", "",
                     new ConfigDescription($"World modifier '{keySlider.m_modifier}'",
