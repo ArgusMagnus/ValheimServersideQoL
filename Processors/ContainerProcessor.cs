@@ -1,28 +1,27 @@
 ﻿using BepInEx.Logging;
+using System.Drawing;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo is not { Container: not null, Piece: not null })
-            return;
-
-        if (SharedProcessorState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
-            return;
+            return false;
 
         if (zdo.GetLong(ZDOVars.s_creator) is 0)
-            return; // ignore non-player-built chests (such as TreasureChest_*)
+            return false; // ignore non-player-built chests (such as TreasureChest_*)
 
-        if (zdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, zdo))
-            return; // in use or player to close
+        if (!CheckMinDistance(peers, zdo))
+            return false;
 
-        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        if (zdo.GetBool(ZDOVars.s_inUse))
+            return true; // in use or player to close
 
         var data = zdo.GetString(ZDOVars.s_items);
         if (string.IsNullOrEmpty(data))
-            return;
+            return true;
 
         /// <see cref="Container.Load"/>
         /// <see cref="Container.Save"/>
@@ -74,7 +73,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
 
         if (!changed)
-            return;
+            return true;
 
         for (int i = items.Count - 1; i >= 0; i--)
         {
@@ -83,7 +82,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
 
         inventory.Save(zdo);
-        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
         Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece.m_name} sorted");
+        return true;
     }
 }

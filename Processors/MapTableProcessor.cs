@@ -39,10 +39,10 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         _oldPinsHash = 0;
     }
 
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.MapTable is null || !(Config.MapTables.AutoUpdatePortals.Value || Config.MapTables.AutoUpdateShips.Value))
-            return;
+            return false;
 
         if (_pins is { Count: 0 })
         {
@@ -76,8 +76,8 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             (_pinsHash, _oldPinsHash) = (_oldPinsHash, _pinsHash);
         }
 
-        if (_pinsHash == _oldPinsHash && SharedProcessorState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
-            return;
+        if (_pinsHash == _oldPinsHash)
+            return false;
 
         _existingPins.Clear();
         ZPackage pkg;
@@ -90,7 +90,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             if (version is not 3)
             {
                 Logger.LogWarning($"MapTable data version {version} is not supported");
-                return;
+                return false;
             }
             data = pkg.ReadByteArray();
             if (data.Length != Minimap.instance.m_textureSize * Minimap.instance.m_textureSize)
@@ -129,8 +129,9 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         }
 
         zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
-        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
 
         Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_mapsaved");
+
+        return false;
     }
 }

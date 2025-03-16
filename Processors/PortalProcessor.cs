@@ -5,23 +5,23 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     bool _enabled;
-    readonly HashSet<ZDO> _initialPortals = new();
+    readonly HashSet<ExtendedZDO> _initialPortals = new();
 
     public override void Initialize()
     {
         if (Config.GlobalsKeys.NoPortalsPreventsContruction.Value && !_enabled && (_enabled = ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoPortals)))
         {
             ZoneSystem.instance.RemoveGlobalKey(GlobalKeys.NoPortals);
-            foreach (var zdo in ZDOMan.instance.GetPortals())
+            foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
                 _initialPortals.Add(zdo);
         }
         base.Initialize();
     }
 
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+	protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (!_enabled || zdo.PrefabInfo.TeleportWorld is null || _initialPortals.Contains(zdo))
-            return;
+        if (!_enabled || zdo.PrefabInfo.TeleportWorld is null || !_initialPortals.Contains(zdo))
+            return false;
 
         /// <see cref="WearNTear.RPC_Remove"/>
         var owner = zdo.GetOwner();
@@ -31,5 +31,7 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         var peer = peers.FirstOrDefault(x => x.m_uid == owner);
         if (peer is not null)
             Main.ShowMessage([peer], MessageHud.MessageType.Center, "$msg_nobuildzone");
+
+        return false;
     }
 }

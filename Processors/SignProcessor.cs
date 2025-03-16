@@ -16,10 +16,10 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         _timeText = null;
     }
 
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (!Config.Signs.TimeSigns.Value || zdo.PrefabInfo.Sign is null)
-            return;
+        if (zdo.PrefabInfo.Sign is null || !Config.Signs.TimeSigns.Value)
+            return false;
 
         var text = zdo.GetString(ZDOVars.s_text);
         var newText = _clockRegex.Replace(text, match =>
@@ -40,5 +40,7 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
             zdo.Set(ZDOVars.s_text, newText);
             //zdo.Set(ZDOVars.s_author, );
         }
+
+        return false;
     }
 }

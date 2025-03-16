@@ -4,13 +4,10 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+	protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Fireplace is null || !(Config.Fireplaces.MakeToggleable.Value || Config.Fireplaces.InfiniteFuel.Value))
-            return;
-
-        if (SharedProcessorState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
-            return;
+            return false;
 
         var fields = zdo.Fields<Fireplace>();
         if (
@@ -18,8 +15,7 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
             fields.GetFloat(x => x.m_secPerFuel) == (Config.Fireplaces.InfiniteFuel.Value ? 0 : zdo.PrefabInfo.Fireplace.m_secPerFuel) &&
             fields.GetBool(x => x.m_canRefill) == !Config.Fireplaces.InfiniteFuel.Value)
         {
-            SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
-            return;
+            return true;
         }
 
         fields
@@ -31,9 +27,7 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
         else
             fields.Reset(x => x.m_secPerFuel);
 
-        SharedProcessorState.DataRevisions.TryRemove(zdo.m_uid, out _);
         zdo = zdo.Recreate();
-
-        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        return true;
     }
 }

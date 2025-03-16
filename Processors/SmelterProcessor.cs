@@ -1,19 +1,20 @@
 ﻿using BepInEx.Logging;
+using System.Drawing;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
-    {
-        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo.Smelter is null)
-            return;
+    protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+	{
+		if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo.Smelter is null)
+			return false;
 
-        if (!CheckMinDistance(peers, zdo))
-            return; // player to close
+		if (!CheckMinDistance(peers, zdo))
+			return false; // player to close
 
-        /// <see cref="Smelter.OnAddFuel"/>
-        {
+		/// <see cref="Smelter.OnAddFuel"/>
+		{
             var maxFuel = zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel);
             var currentFuel = zdo.GetFloat(ZDOVars.s_fuel);
             var maxFuelAdd = (int)(maxFuel - currentFuel);
@@ -31,9 +32,6 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             containers.TryRemove(containerZdoId, out _);
                             continue;
                         }
-
-                        if (!SharedProcessorState.DataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
-                            continue;
 
                         if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
                             continue;
@@ -91,7 +89,6 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                         zdo.Set(ZDOVars.s_fuel, currentFuel + addFuel);
 
                         inventory.Save(containerZdo);
-                        SharedProcessorState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
 
                         addedFuel += (int)addFuel;
 
@@ -126,9 +123,6 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                                 containers.TryRemove(containerZdoId, out _);
                                 continue;
                             }
-
-                            if (!SharedProcessorState.DataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
-                                continue;
 
                             if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
                                 continue;
@@ -189,7 +183,6 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             zdo.Set(ZDOVars.s_queued, currentOre + addOre);
 
                             inventory.Save(containerZdo);
-                            SharedProcessorState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
 
                             addedOre += addOre;
 
@@ -203,5 +196,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                 }
             }
         }
+
+        return false;
     }
 }

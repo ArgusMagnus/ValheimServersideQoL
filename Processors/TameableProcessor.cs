@@ -5,13 +5,10 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Tameable is null)
-            return;
-
-        if (SharedProcessorState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
-            return;
+            return false;
 
         var fields = zdo.Fields<Tameable>();
         if (zdo.GetBool(ZDOVars.s_tamed))
@@ -42,6 +39,6 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             }
         }
 
-        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        return true;
     }
 }

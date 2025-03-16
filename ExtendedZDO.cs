@@ -11,6 +11,7 @@ sealed class ExtendedZDO : ZDO
     ZDOID _lastId = ZDOID.None;
 
     ConcurrentDictionary<Type, object>? _componentFieldAccessors;
+    Dictionary<Processor, uint>? _processorDataRevisions;
     PrefabInfo _prefabInfo = PrefabInfo.Dummy;
     public PrefabInfo PrefabInfo
     {
@@ -22,9 +23,11 @@ sealed class ExtendedZDO : ZDO
                     _prefabInfo = prefabInfo;
                 else
                     _prefabInfo = PrefabInfo.Dummy;
-                _componentFieldAccessors?.Clear();
-                _hasFields = null;
                 _lastId = m_uid;
+
+                _hasFields = null;
+                _componentFieldAccessors?.Clear();
+                _processorDataRevisions?.Clear();
             }
             return _prefabInfo;
         }
@@ -43,6 +46,16 @@ sealed class ExtendedZDO : ZDO
         }
     }
 
+    public void UpdateProcessorDataRevision(Processor processor)
+        => (_processorDataRevisions ??= new())[processor] = DataRevision;
+
+    public bool CheckProcessorDataRevisionChanged(Processor processor)
+    {
+        if (_processorDataRevisions is null || !_processorDataRevisions.TryGetValue(processor, out var dataRevision) || dataRevision != DataRevision)
+            return true;
+        return false;
+    }
+
     public ExtendedZDO Recreate()
     {
         var prefab = GetPrefab();
@@ -53,9 +66,13 @@ sealed class ExtendedZDO : ZDO
 
         ClaimOwnershipInternal();
         ZDOMan.instance.DestroyZDO(this);
+
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.Deserialize(new(pkg.GetArray()));
         zdo.SetOwnerInternal(owner);
+        zdo._hasFields = _hasFields;
+        zdo._componentFieldAccessors = _componentFieldAccessors;
+        zdo._processorDataRevisions = _processorDataRevisions;
         return zdo;
     }
 

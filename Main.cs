@@ -116,7 +116,9 @@ public sealed partial class Main : BaseUnityPlugin
             }
         }
 
-        _logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.KeyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}")));
+        //_logger.LogInfo($"World Preset: {_cfg.GlobalsKeys.Preset.Value}");
+        //_logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.Modifiers.Select(x => $"{x.Key} = {x.Value.Value}").Prepend("World Modifiers:")));
+        _logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.KeyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}").Prepend("Global Keys:")));
 
         _logger.LogInfo($"Registered Processors: {_processors.Count}");
 
@@ -238,12 +240,6 @@ public sealed partial class Main : BaseUnityPlugin
         // roughly once per minute
         if (_executeCounter % (ulong)(60 * _cfg.General.Frequency.Value) is 0)
         {
-            foreach (var id in SharedProcessorState.DataRevisions.Keys)
-            {
-                if (ZDOMan.instance.GetZDO(id) is not { } zdo || !zdo.IsValid())
-                    SharedProcessorState.DataRevisions.TryRemove(id, out _);
-            }
-
             foreach (var (key, dict) in SharedProcessorState.ContainersByItemName.Select(x => (x.Key, x.Value)))
             {
                 foreach (var id in dict.Keys)

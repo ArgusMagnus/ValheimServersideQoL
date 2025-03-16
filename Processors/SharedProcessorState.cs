@@ -8,6 +8,26 @@ namespace Valheim.ServersideQoL.Processors;
 record InventoryEx(Inventory Inventory)
 {
     public uint DataRevision { get; set; }
+
+    public void Update(ExtendedZDO zdo)
+    {
+        if (DataRevision == zdo.DataRevision)
+            return;
+        var inventoryData = zdo.GetString(ZDOVars.s_items);
+        if (string.IsNullOrEmpty(inventoryData))
+            Inventory.GetAllItems().Clear();
+        else
+            Inventory.Load(new(inventoryData));
+        DataRevision = zdo.DataRevision;
+    }
+
+    public void Save(ExtendedZDO zdo)
+    {
+        var pkg = new ZPackage();
+        Inventory.Save(pkg);
+        zdo.Set(ZDOVars.s_items, pkg.GetBase64());
+        DataRevision = zdo.DataRevision;
+    }
 }
 
 record struct ItemKey(string Name, int Quality, int Variant)
@@ -25,7 +45,6 @@ static class SharedProcessorState
 {
     public static IReadOnlyDictionary<int, PrefabInfo> PrefabInfo { get; } = new Dictionary<int, PrefabInfo>();
     public static ConcurrentHashSet<ZDOID> Ships { get; } = new();
-    public static ConcurrentDictionary<ZDOID, uint> DataRevisions { get; } = new();
 
     public static ConcurrentDictionary<SharedItemDataKey, ConcurrentDictionary<ZDOID, InventoryEx>> ContainersByItemName { get; } = new();
     public static ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();

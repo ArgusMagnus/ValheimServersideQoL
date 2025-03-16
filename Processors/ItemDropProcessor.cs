@@ -4,20 +4,20 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
-    {
-        if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value)
-            return;
+	protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+	{
+		if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value)
+			return false;
 
-        if (zdo.PrefabInfo.Piece is not null && zdo.GetBool(ZDOVars.s_piece))
-            return; // ignore placed items (such as feasts)
+		if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
+			return false; // player to close
 
-        if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
-            return; // player to close
+		if (zdo.PrefabInfo.Piece is not null && zdo.GetBool(ZDOVars.s_piece))
+			return false; // ignore placed items (such as feasts)
 
-        var shared = ZNetScene.instance.GetPrefab(zdo.GetPrefab()).GetComponent<ItemDrop>().m_itemData.m_shared;
+		var shared = zdo.PrefabInfo.ItemDrop.m_itemData.m_shared;
         if (!SharedProcessorState.ContainersByItemName.TryGetValue(shared, out var dict))
-            return;
+            return false;
 
         HashSet<Vector2i>? usedSlots = null;
         ItemDrop.ItemData? item = null;
@@ -29,9 +29,6 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                 dict.TryRemove(containerZdoId, out _);
                 continue;
             }
-
-            if (!SharedProcessorState.DataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
-                    continue;
 
             if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Containers.AutoPickupRange.Value * Config.Containers.AutoPickupRange.Value)
                 continue;
@@ -107,7 +104,6 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             if (stack != item.m_stack)
             {
                 inventory.Save(containerZdo);
-                SharedProcessorState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
                 (item.m_stack, stack) = (stack, item.m_stack);
                 zdo.ClaimOwnershipInternal();
                 ItemDrop.SaveToZDO(item, zdo);
@@ -120,8 +116,10 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
         if (item?.m_stack is 0)
         {
-            zdo.SetOwnerInternal(ZDOMan.GetSessionID());
+            zdo.ClaimOwnershipInternal();
             ZDOMan.instance.DestroyZDO(zdo);
         }
+
+        return false;
     }
 }

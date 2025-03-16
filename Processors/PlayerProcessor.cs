@@ -4,18 +4,18 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+	protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Player is null || !Config.Tames.TeleportFollow.Value)
-            return;
+            return false;
 
         if (zdo.GetPosition() is { y: > 1000 })
-            return; // player in dungeon
+            return false; // player in dungeon
 
         var playerName = zdo.GetString(ZDOVars.s_playerName);
 
         if (!SharedProcessorState.FollowingTamesByPlayerName.TryGetValue(playerName, out var tames))
-            return;
+            return false;
 
         var playerZone = ZoneSystem.GetZone(zdo.GetPosition());
 
@@ -45,5 +45,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
         if (tames is { Count: 0 })
             SharedProcessorState.FollowingTamesByPlayerName.TryRemove(playerName, out _);
+
+        return false;
     }
 }
