@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
     readonly List<Pin> _pins = new();
@@ -39,9 +39,9 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
         _oldPinsHash = 0;
     }
 
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (prefabInfo.MapTable is null || !(Config.MapTables.AutoUpdatePortals.Value || Config.MapTables.AutoUpdateShips.Value))
+        if (zdo.PrefabInfo.MapTable is null || !(Config.MapTables.AutoUpdatePortals.Value || Config.MapTables.AutoUpdateShips.Value))
             return;
 
         if (_pins is { Count: 0 })
@@ -55,16 +55,16 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
             }
             if (Config.MapTables.AutoUpdateShips.Value)
             {
-                pins = pins.Concat(SharedState.Ships
+                pins = pins.Concat(SharedProcessorState.Ships
                     .Select(x =>
                     {
-                        var y = ZDOMan.instance.GetZDO(x);
+                        var y = (ExtendedZDO)ZDOMan.instance.GetZDO(x);
                         if (y is null)
-                            SharedState.Ships.Remove(x);
+                            SharedProcessorState.Ships.Remove(x);
                         return y;
                     })
                     .Where(x => x is not null)
-                    .Select(x => new Pin(Main.PluginGuidHash, SharedState.PrefabInfo.TryGetValue(x!.GetPrefab(), out var info) ? info.Piece?.m_name ?? "" : "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid)));
+                    .Select(x => new Pin(Main.PluginGuidHash, x.PrefabInfo.Piece?.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid)));
             }
 
             foreach (var pin in pins)
@@ -76,7 +76,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
             (_pinsHash, _oldPinsHash) = (_oldPinsHash, _pinsHash);
         }
 
-        if (_pinsHash == _oldPinsHash && SharedState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+        if (_pinsHash == _oldPinsHash && SharedProcessorState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
             return;
 
         _existingPins.Clear();
@@ -129,7 +129,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
         }
 
         zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
-        SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
 
         Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_mapsaved");
     }

@@ -1,8 +1,8 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
+using HarmonyLib;
 using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Reflection;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 
@@ -26,7 +26,7 @@ public sealed partial class Main : BaseUnityPlugin
     internal const string PluginGuid = $"argusmagnus.{PluginName}";
     internal static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
 
-    //static Harmony HarmonyInstance { get; } = new Harmony(pluginGUID);
+    static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
     readonly ManualLogSource _logger = BepInEx.Logging.Logger.CreateLogSource(PluginName);
 
     readonly ModConfig _cfg;
@@ -42,28 +42,22 @@ public sealed partial class Main : BaseUnityPlugin
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
-    readonly SharedProcessorState _sharedProcessorState = new();
     readonly IReadOnlyList<Processor> _processors;
 
     public Main()
     {
         _cfg = new(Config);
 
-        _processors = Processor.CreateInstances(_logger, _cfg, _sharedProcessorState);
+        _processors = Processor.CreateInstances(_logger, _cfg);
 
         Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
     }
 
-    //public void Awake()
-    //{
-    //Logger.LogInfo("Thank you for using my mod!");
-
-    //Assembly assembly = Assembly.GetExecutingAssembly();
-    //HarmonyInstance.PatchAll(assembly);
-
-    //ItemManager.OnItemsRegistered += OnItemsRegistered;
-    //PrefabManager.OnPrefabsRegistered += OnPrefabsRegistered;
-    //}
+    public void Awake()
+    {
+        var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+        HarmonyInstance.PatchAll(assembly);
+    }
 
     readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.220.3");
     const uint ExpectedNetworkVersion = 33;
@@ -230,7 +224,7 @@ public sealed partial class Main : BaseUnityPlugin
                 }
             }
 
-            _sharedProcessorState.Initialize(_cfg);
+            SharedProcessorState.Initialize(_cfg);
             foreach (var processor in _processors)
                 processor.Initialize();
             return;
@@ -244,13 +238,13 @@ public sealed partial class Main : BaseUnityPlugin
         // roughly once per minute
         if (_executeCounter % (ulong)(60 * _cfg.General.Frequency.Value) is 0)
         {
-            foreach (var id in _sharedProcessorState.DataRevisions.Keys)
+            foreach (var id in SharedProcessorState.DataRevisions.Keys)
             {
                 if (ZDOMan.instance.GetZDO(id) is not { } zdo || !zdo.IsValid())
-                    _sharedProcessorState.DataRevisions.TryRemove(id, out _);
+                    SharedProcessorState.DataRevisions.TryRemove(id, out _);
             }
 
-            foreach (var (key, dict) in _sharedProcessorState.ContainersByItemName.Select(x => (x.Key, x.Value)))
+            foreach (var (key, dict) in SharedProcessorState.ContainersByItemName.Select(x => (x.Key, x.Value)))
             {
                 foreach (var id in dict.Keys)
                 {
@@ -258,10 +252,10 @@ public sealed partial class Main : BaseUnityPlugin
                         dict.TryRemove(id, out _);
                 }
                 if (dict is { Count: 0 })
-                    _sharedProcessorState.ContainersByItemName.TryRemove(key, out _);
+                    SharedProcessorState.ContainersByItemName.TryRemove(key, out _);
             }
 
-            foreach (var (key, set) in _sharedProcessorState.FollowingTamesByPlayerName.Select(x => (x.Key, x.Value)))
+            foreach (var (key, set) in SharedProcessorState.FollowingTamesByPlayerName.Select(x => (x.Key, x.Value)))
             {
                 foreach (var id in set)
                 {
@@ -269,7 +263,7 @@ public sealed partial class Main : BaseUnityPlugin
                         set.Remove(id);
                 }
                 if (set is { Count: 0 })
-                    _sharedProcessorState.FollowingTamesByPlayerName.TryRemove(key, out _);
+                    SharedProcessorState.FollowingTamesByPlayerName.TryRemove(key, out _);
             }
         }
 
@@ -347,13 +341,13 @@ public sealed partial class Main : BaseUnityPlugin
             while (sectorInfo is { ZDOs: { Count: > 0 } } && _watch.ElapsedMilliseconds < _cfg.General.MaxProcessingTime.Value)
             {
                 processedZdos++;
-                var zdo = sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
+                var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
                 sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
-                if (!zdo.IsValid() || !_sharedProcessorState.PrefabInfo.TryGetValue(zdo.GetPrefab(), out var prefabInfo))
+                if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
                     continue;
 
                 foreach (var processor in _processors)
-                    processor.Process(ref zdo, prefabInfo, sectorInfo.Peers);
+                    processor.Process(ref zdo, sectorInfo.Peers);
             }
         }
 

@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     bool _enabled;
     readonly HashSet<ZDO> _initialPortals = new();
@@ -18,9 +18,9 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg, SharedProces
         base.Initialize();
     }
 
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (!_enabled || prefabInfo.TeleportWorld is null || _initialPortals.Contains(zdo))
+        if (!_enabled || zdo.PrefabInfo.TeleportWorld is null || _initialPortals.Contains(zdo))
             return;
 
         /// <see cref="WearNTear.RPC_Remove"/>

@@ -2,19 +2,18 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-abstract class Processor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState)
+abstract class Processor(ManualLogSource logger, ModConfig cfg)
 {
-    public static IReadOnlyList<Processor> CreateInstances(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState)
+    public static IReadOnlyList<Processor> CreateInstances(ManualLogSource logger, ModConfig cfg)
     {
         return typeof(Processor).Assembly.GetTypes()
             .Where(x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
-            .Select(x => (Processor)Activator.CreateInstance(x, args: [logger, cfg, sharedState]))
+            .Select(x => (Processor)Activator.CreateInstance(x, args: [logger, cfg]))
             .ToList();
     }
 
     protected ManualLogSource Logger { get; } = logger;
     protected ModConfig Config { get; } = cfg;
-    protected SharedProcessorState SharedState { get; } = sharedState;
 
     readonly System.Diagnostics.Stopwatch _watch = new();
 
@@ -29,11 +28,11 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg, SharedProcessorS
         _watch.Reset();
     }
 
-    protected abstract void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers);
-    public void Process(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected abstract void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
+    public void Process(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         _watch.Start();
-        ProcessCore(ref zdo, prefabInfo, peers);
+        ProcessCore(ref zdo, peers);
         _watch.Stop();
     }
 

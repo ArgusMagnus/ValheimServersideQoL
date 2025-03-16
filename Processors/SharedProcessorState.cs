@@ -21,16 +21,16 @@ record struct SharedItemDataKey(string Name)
     public static implicit operator SharedItemDataKey(ItemDrop.ItemData.SharedData data) => new(data.m_name);
 }
 
-sealed class SharedProcessorState
+static class SharedProcessorState
 {
-    public IReadOnlyDictionary<int, PrefabInfo> PrefabInfo { get; } = new Dictionary<int, PrefabInfo>();
-    public ConcurrentHashSet<ZDOID> Ships { get; } = new();
-    public ConcurrentDictionary<ZDOID, uint> DataRevisions { get; } = new();
+    public static IReadOnlyDictionary<int, PrefabInfo> PrefabInfo { get; } = new Dictionary<int, PrefabInfo>();
+    public static ConcurrentHashSet<ZDOID> Ships { get; } = new();
+    public static ConcurrentDictionary<ZDOID, uint> DataRevisions { get; } = new();
 
-    public ConcurrentDictionary<SharedItemDataKey, ConcurrentDictionary<ZDOID, InventoryEx>> ContainersByItemName { get; } = new();
-    public ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();
+    public static ConcurrentDictionary<SharedItemDataKey, ConcurrentDictionary<ZDOID, InventoryEx>> ContainersByItemName { get; } = new();
+    public static ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();
 
-    public void Initialize(ModConfig cfg)
+    public static void Initialize(ModConfig cfg)
     {
         var dict = (IDictionary<int, PrefabInfo>)PrefabInfo;
         dict.Clear();
@@ -87,10 +87,10 @@ sealed class SharedProcessorState
             var needsShips = false;
             foreach (var prefab in ZNetScene.instance.m_prefabs)
             {
-                Dictionary<Type, Component>? components = null;
+                Dictionary<Type, MonoBehaviour>? components = null;
                 foreach (var requiredTypeList in requiredTypes)
                 {
-                    var prefabs = requiredTypeList.Select(x => (Type: x, Component: prefab.GetComponent(x))).Where(x => x.Component is not null).ToList();
+                    var prefabs = requiredTypeList.Select(x => (Type: x, Component: (prefab.GetComponent(x) as MonoBehaviour)!)).Where(x => x.Component is not null).ToList();
                     if (prefabs.Count != requiredTypeList.Count)
                         continue;
                     foreach (var (type, component) in prefabs)
@@ -102,7 +102,7 @@ sealed class SharedProcessorState
                 }
                 if (components is not null)
                 {
-                    var prefabInfo = new PrefabInfo(prefab, components);
+                    var prefabInfo = new PrefabInfo(components);
                     dict.Add(prefab.name.GetStableHashCode(), prefabInfo);
                     needsShips = needsShips || prefabInfo.Ship is not null;
                 }

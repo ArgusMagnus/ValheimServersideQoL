@@ -41,7 +41,7 @@ static class PrivateAccessor
     public static Func<IReadOnlyList<KeyUI>> GetServerOptionsGUIModifiers => __getServerOptionsGUIModifiers ??= Expression.Lambda<Func<IReadOnlyList<KeyUI>>>(
         Expression.Field(null, typeof(ServerOptionsGUI).GetField("m_modifiers", BindingFlags.Static | BindingFlags.NonPublic))).Compile();
 
-    static Func<ZDOMan, IReadOnlyDictionary<ZDOID, ZDO>> __getZDOManObjectsByID;
+    static Func<ZDOMan, IReadOnlyDictionary<ZDOID, ZDO>>? __getZDOManObjectsByID;
     public static Func<ZDOMan, IReadOnlyDictionary<ZDOID, ZDO>> GetZDOManObjectsByID => __getZDOManObjectsByID ??= Expression.Lambda<Func<ZDOMan, IReadOnlyDictionary<ZDOID, ZDO>>>(
         Expression.Field(
             Expression.Parameter(typeof(ZDOMan)) is var par1 ? par1 : throw new Exception(),

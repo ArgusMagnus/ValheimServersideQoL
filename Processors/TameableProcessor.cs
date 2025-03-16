@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (prefabInfo.Tameable is null)
+        if (zdo.PrefabInfo.Tameable is null)
             return;
 
-        if (SharedState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+        if (SharedProcessorState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
             return;
 
-        var fields = zdo.Fields(prefabInfo.Tameable);
+        var fields = zdo.Fields<Tameable>();
         if (zdo.GetBool(ZDOVars.s_tamed))
         {
             fields.Set(x => x.m_commandable, Config.Tames.MakeCommandable.Value);
@@ -24,7 +24,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
 
             if (zdo.GetString(ZDOVars.s_follow) is { Length: > 0 } playerName)
             {
-                SharedState.FollowingTamesByPlayerName.GetOrAdd(playerName, static _ => new()).Add(zdo.m_uid);
+                SharedProcessorState.FollowingTamesByPlayerName.GetOrAdd(playerName, static _ => new()).Add(zdo.m_uid);
             }
         }
         else if (Config.Tames.SendTamingPogressMessages.Value)
@@ -38,10 +38,10 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg, SharedProc
                 var range = fields.GetFloat(x => x.m_tamingSpeedMultiplierRange);
                 var zdo2 = zdo;
                 var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo2.GetPosition()) < range);
-                Main.ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{prefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");
+                Main.ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");
             }
         }
 
-        SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
     }
 }

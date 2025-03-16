@@ -2,11 +2,11 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (prefabInfo.Player is null || !Config.Tames.TeleportFollow.Value)
+        if (zdo.PrefabInfo.Player is null || !Config.Tames.TeleportFollow.Value)
             return;
 
         if (zdo.GetPosition() is { y: > 1000 })
@@ -14,14 +14,14 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg, SharedProces
 
         var playerName = zdo.GetString(ZDOVars.s_playerName);
 
-        if (!SharedState.FollowingTamesByPlayerName.TryGetValue(playerName, out var tames))
+        if (!SharedProcessorState.FollowingTamesByPlayerName.TryGetValue(playerName, out var tames))
             return;
 
         var playerZone = ZoneSystem.GetZone(zdo.GetPosition());
 
         foreach (var tameZdoId in tames)
         {
-            var tameZdo = ZDOMan.instance.GetZDO(tameZdoId);
+            var tameZdo = (ExtendedZDO)ZDOMan.instance.GetZDO(tameZdoId);
             if (!tameZdo.IsValid() || tameZdo.GetString(ZDOVars.s_follow) != playerName)
             {
                 tames.Remove(tameZdoId);
@@ -44,6 +44,6 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg, SharedProces
         }
 
         if (tames is { Count: 0 })
-            SharedState.FollowingTamesByPlayerName.TryRemove(playerName, out _);
+            SharedProcessorState.FollowingTamesByPlayerName.TryRemove(playerName, out _);
     }
 }

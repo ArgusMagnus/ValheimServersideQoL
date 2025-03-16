@@ -2,14 +2,14 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (prefabInfo is not { Container: not null, Piece: not null })
+        if (zdo.PrefabInfo is not { Container: not null, Piece: not null })
             return;
 
-        if (SharedState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
+        if (SharedProcessorState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && zdo.DataRevision == dataRevision)
             return;
 
         if (zdo.GetLong(ZDOVars.s_creator) is 0)
@@ -18,7 +18,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
         if (zdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, zdo))
             return; // in use or player to close
 
-        SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
 
         var data = zdo.GetString(ZDOVars.s_items);
         if (string.IsNullOrEmpty(data))
@@ -26,10 +26,10 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
 
         /// <see cref="Container.Load"/>
         /// <see cref="Container.Save"/>
-        var fields = zdo.Fields(prefabInfo.Container);
+        var fields = zdo.Fields<Container>();
         var width = fields.GetInt(x => x.m_width);
         var height = fields.GetInt(x => x.m_height);
-        InventoryEx inventory = new(new(prefabInfo.Container.m_name, prefabInfo.Container.m_bkg, width, height)) { DataRevision = zdo.DataRevision };
+        InventoryEx inventory = new(new(zdo.PrefabInfo.Container.m_name, zdo.PrefabInfo.Container.m_bkg, width, height)) { DataRevision = zdo.DataRevision };
         inventory.Inventory.Load(new(data));
         var changed = false;
         var x = 0;
@@ -42,7 +42,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
             .ThenBy(x => x.m_shared.m_name)
             .ThenByDescending(x => x.m_stack))
         {
-            var dict = SharedState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
+            var dict = SharedProcessorState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
             dict[zdo.m_uid] = inventory;
             if (!Config.Containers.AutoSort.Value)
                 continue;
@@ -83,7 +83,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
         }
 
         inventory.Save(zdo);
-        SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
-        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece.m_name} sorted");
+        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece.m_name} sorted");
     }
 }

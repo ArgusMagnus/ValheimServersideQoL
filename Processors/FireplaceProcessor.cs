@@ -2,23 +2,23 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (prefabInfo.Fireplace is null || !(Config.Fireplaces.MakeToggleable.Value || Config.Fireplaces.InfiniteFuel.Value))
+        if (zdo.PrefabInfo.Fireplace is null || !(Config.Fireplaces.MakeToggleable.Value || Config.Fireplaces.InfiniteFuel.Value))
             return;
 
-        if (SharedState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
+        if (SharedProcessorState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
             return;
 
-        var fields = zdo.Fields(prefabInfo.Fireplace);
+        var fields = zdo.Fields<Fireplace>();
         if (
             fields.GetBool(x => x.m_canTurnOff) == Config.Fireplaces.MakeToggleable.Value &&
-            fields.GetFloat(x => x.m_secPerFuel) == (Config.Fireplaces.InfiniteFuel.Value ? 0 : prefabInfo.Fireplace.m_secPerFuel) &&
+            fields.GetFloat(x => x.m_secPerFuel) == (Config.Fireplaces.InfiniteFuel.Value ? 0 : zdo.PrefabInfo.Fireplace.m_secPerFuel) &&
             fields.GetBool(x => x.m_canRefill) == !Config.Fireplaces.InfiniteFuel.Value)
         {
-            SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+            SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
             return;
         }
 
@@ -31,9 +31,9 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg, SharedPro
         else
             fields.Reset(x => x.m_secPerFuel);
 
-        SharedState.DataRevisions.TryRemove(zdo.m_uid, out _);
+        SharedProcessorState.DataRevisions.TryRemove(zdo.m_uid, out _);
         zdo = zdo.Recreate();
 
-        SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        SharedProcessorState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
     }
 }

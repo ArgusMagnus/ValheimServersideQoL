@@ -2,11 +2,11 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (!Config.Smelters.FeedFromContainers.Value || prefabInfo.Smelter is null)
+        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo.Smelter is null)
             return;
 
         if (!CheckMinDistance(peers, zdo))
@@ -14,25 +14,25 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
 
         /// <see cref="Smelter.OnAddFuel"/>
         {
-            var maxFuel = zdo.Fields(prefabInfo.Smelter).GetInt(x => x.m_maxFuel);
+            var maxFuel = zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel);
             var currentFuel = zdo.GetFloat(ZDOVars.s_fuel);
             var maxFuelAdd = (int)(maxFuel - currentFuel);
             if (maxFuelAdd > maxFuel / 2)
             {
-                var fuelItem = prefabInfo.Smelter.m_fuelItem.m_itemData;
+                var fuelItem = zdo.PrefabInfo.Smelter.m_fuelItem.m_itemData;
                 var addedFuel = 0;
-                if (SharedState.ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
+                if (SharedProcessorState.ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
                 {
                     List<ItemDrop.ItemData>? removeSlots = null;
                     foreach (var (containerZdoId, inventory) in containers.Select(x => (x.Key, x.Value)))
                     {
-                        if (ZDOMan.instance.GetZDO(containerZdoId) is not { } containerZdo)
+                        if (ZDOMan.instance.GetZDO(containerZdoId) is not ExtendedZDO containerZdo)
                         {
                             containers.TryRemove(containerZdoId, out _);
                             continue;
                         }
 
-                        if (!SharedState.DataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
+                        if (!SharedProcessorState.DataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
                             continue;
 
                         if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
@@ -69,7 +69,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                         {
                             containers.TryRemove(containerZdoId, out _);
                             if (containers is { Count: 0 })
-                                SharedState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
+                                SharedProcessorState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
                             continue;
                         }
 
@@ -84,14 +84,14 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                             {
                                 containers.TryRemove(containerZdoId, out _);
                                 if (containers is { Count: 0 })
-                                    SharedState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
+                                    SharedProcessorState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
                             }
                         }
 
                         zdo.Set(ZDOVars.s_fuel, currentFuel + addFuel);
 
                         inventory.Save(containerZdo);
-                        SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+                        SharedProcessorState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
 
                         addedFuel += (int)addFuel;
 
@@ -101,33 +101,33 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                 }
 
                 if (addedFuel is not 0)
-                    Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
+                    Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece?.m_name ?? zdo.PrefabInfo.Smelter.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
             }
         }
 
         /// <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
         {
-            int maxOre = zdo.Fields(prefabInfo.Smelter).GetInt(x => x.m_maxOre);
+            int maxOre = zdo.Fields<Smelter>().GetInt(x => x.m_maxOre);
             var currentOre = zdo.GetInt(ZDOVars.s_queued);
             var maxOreAdd = maxOre - zdo.GetInt(ZDOVars.s_queued);
             if (maxOreAdd > maxOre / 2)
             {
-                foreach (var conversion in prefabInfo.Smelter.m_conversion)
+                foreach (var conversion in zdo.PrefabInfo.Smelter.m_conversion)
                 {
                     var oreItem = conversion.m_from.m_itemData;
                     var addedOre = 0;
-                    if (SharedState.ContainersByItemName.TryGetValue(oreItem.m_shared, out var containers))
+                    if (SharedProcessorState.ContainersByItemName.TryGetValue(oreItem.m_shared, out var containers))
                     {
                         List<ItemDrop.ItemData>? removeSlots = null;
                         foreach (var (containerZdoId, inventory) in containers.Select(x => (x.Key, x.Value)))
                         {
-                            if (ZDOMan.instance.GetZDO(containerZdoId) is not { } containerZdo)
+                            if (ZDOMan.instance.GetZDO(containerZdoId) is not ExtendedZDO containerZdo)
                             {
                                 containers.TryRemove(containerZdoId, out _);
                                 continue;
                             }
 
-                            if (!SharedState.DataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
+                            if (!SharedProcessorState.DataRevisions.TryGetValue(containerZdoId, out var containerDataRevision) || containerZdo.DataRevision != containerDataRevision)
                                 continue;
 
                             if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
@@ -164,7 +164,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                             {
                                 containers.TryRemove(containerZdoId, out _);
                                 if (containers is { Count: 0 })
-                                    SharedState.ContainersByItemName.TryRemove(oreItem.m_shared, out _);
+                                    SharedProcessorState.ContainersByItemName.TryRemove(oreItem.m_shared, out _);
                                 continue;
                             }
 
@@ -179,7 +179,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                                 {
                                     containers.TryRemove(containerZdoId, out _);
                                     if (containers is { Count: 0 })
-                                        SharedState.ContainersByItemName.TryRemove(oreItem.m_shared, out _);
+                                        SharedProcessorState.ContainersByItemName.TryRemove(oreItem.m_shared, out _);
                                 }
                             }
 
@@ -189,7 +189,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                             zdo.Set(ZDOVars.s_queued, currentOre + addOre);
 
                             inventory.Save(containerZdo);
-                            SharedState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
+                            SharedProcessorState.DataRevisions[containerZdo.m_uid] = containerZdo.DataRevision;
 
                             addedOre += addOre;
 
@@ -199,7 +199,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg, SharedProce
                     }
 
                     if (addedOre is not 0)
-                        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{prefabInfo.Piece?.m_name ?? prefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x");
+                        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece?.m_name ?? zdo.PrefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x");
                 }
             }
         }

@@ -2,11 +2,11 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class ShipProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class ShipProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (prefabInfo.Ship is not null)
-            SharedState.Ships.Add(zdo.m_uid);
+        if (zdo.PrefabInfo.Ship is not null)
+            SharedProcessorState.Ships.Add(zdo.m_uid);
     }
 }

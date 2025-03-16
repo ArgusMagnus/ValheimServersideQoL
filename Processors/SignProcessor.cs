@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class SignProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
@@ -16,9 +16,9 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg, SharedProcesso
         _timeText = null;
     }
 
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override void ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (!Config.Signs.TimeSigns.Value || prefabInfo.Sign is null)
+        if (!Config.Signs.TimeSigns.Value || zdo.PrefabInfo.Sign is null)
             return;
 
         var text = zdo.GetString(ZDOVars.s_text);
