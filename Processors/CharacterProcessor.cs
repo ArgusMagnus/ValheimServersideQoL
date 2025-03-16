@@ -2,38 +2,29 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class CharacterProcessor(ManualLogSource logger, ModConfig cfg, SharedProcessorState sharedState) : Processor(logger, cfg, sharedState)
+sealed class CharacterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override void ProcessCore(ref ZDO zdo, PrefabInfo prefabInfo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (prefabInfo.Character is null)
-            return;
-
-        if (SharedState.DataRevisions.TryGetValue(zdo.m_uid, out var dataRevision) && dataRevision == zdo.DataRevision)
-            return;
+        if (zdo.PrefabInfo.Character is null)
+            return false;
 
         var level = zdo.GetInt(ZDOVars.s_level, 1);
-        if (level < 3)
-        {
-            SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
-            return;
-        }
+        //if (level < 3)
+        //    return true;
 
-        var name = Config.Creatures.ShowLevelInName.Value ? $"{prefabInfo.Character.m_name} Lvl {zdo.GetInt(ZDOVars.s_level, 1)}" : prefabInfo.Character.m_name;
-        var fields = zdo.Fields(prefabInfo.Character);
+        var name = Config.Creatures.ShowLevelInName.Value ? $"{zdo.PrefabInfo.Character.m_name} Lvl {zdo.GetInt(ZDOVars.s_level, 1)}" : zdo.PrefabInfo.Character.m_name;
+        var fields = zdo.Fields<Character>();
         if (fields.GetString(x => x.m_name) == name)
-        {
-            SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
-            return;
-        }
+            return true;
 
-        if (Config.Creatures.ShowLevelInName.Value)
+        //if (Config.Creatures.ShowLevelInName.Value)
             fields.Set(x => x.m_name, name);
-        else
-            fields.Reset(x => x.m_name);
+        //else
+        //    fields.Reset(x => x.m_name);
 
-        SharedState.DataRevisions.TryRemove(zdo.m_uid, out _);
-        zdo = zdo.Recreate();
-        SharedState.DataRevisions[zdo.m_uid] = zdo.DataRevision;
+        // leads to black screen when connecting to server
+        //zdo = zdo.Recreate();
+        return true;
     }
 }
