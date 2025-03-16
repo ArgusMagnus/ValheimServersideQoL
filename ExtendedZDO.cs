@@ -127,6 +127,9 @@ sealed class ExtendedZDO : ZDO
         public int GetInt(Expression<Func<TComponent, int>> fieldExpression)
             => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
 
+        public string GetString(Expression<Func<TComponent, string>> fieldExpression)
+            => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
+
         ComponentFieldAccessor<TComponent> SetCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int> remover, Action<ZDO, int, T> setter)
             where T : notnull
         {
@@ -151,6 +154,9 @@ sealed class ExtendedZDO : ZDO
         public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, int>> fieldExpression, int value)
             => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
 
+        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, string>> fieldExpression, string value)
+            => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
+
         ComponentFieldAccessor<TComponent> ResetCore<T>(Expression<Func<TComponent, T>> fieldExpression, Action<ZDO, int> remover)
         {
             var hash = GetHash(fieldExpression, out _);
@@ -166,5 +172,8 @@ sealed class ExtendedZDO : ZDO
 
         public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, int>> fieldExpression)
             => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
+
+        //public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, string>> fieldExpression)
+        //    => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveString(hash));
     }
 }
