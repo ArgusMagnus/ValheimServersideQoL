@@ -70,9 +70,9 @@ sealed class ExtendedZDO : ZDO
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.Deserialize(new(pkg.GetArray()));
         zdo.SetOwnerInternal(owner);
-        zdo._hasFields = _hasFields;
-        zdo._componentFieldAccessors = _componentFieldAccessors;
-        zdo._processorDataRevisions = _processorDataRevisions;
+        (zdo._hasFields, _hasFields) = (_hasFields, null);
+        (zdo._componentFieldAccessors, _componentFieldAccessors) = (_componentFieldAccessors, null);
+        (zdo._processorDataRevisions, _processorDataRevisions) = (_processorDataRevisions, null);
         return zdo;
     }
 

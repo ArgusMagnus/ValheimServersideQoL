@@ -24,6 +24,6 @@ public static class ZDOPoolGet
         }
 
         if (!success)
-            throw new Exception($"HarmonyPatch {nameof(ZDOPoolGet)}{nameof(Transpiler)} failed");
+            throw new Exception($"HarmonyPatch {nameof(ZDOPoolGet)}.{nameof(Transpiler)} failed");
     }
 }
