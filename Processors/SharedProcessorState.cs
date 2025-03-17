@@ -5,31 +5,6 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-record InventoryEx(Inventory Inventory)
-{
-    public uint DataRevision { get; set; }
-
-    public void Update(ExtendedZDO zdo)
-    {
-        if (DataRevision == zdo.DataRevision)
-            return;
-        var inventoryData = zdo.GetString(ZDOVars.s_items);
-        if (string.IsNullOrEmpty(inventoryData))
-            Inventory.GetAllItems().Clear();
-        else
-            Inventory.Load(new(inventoryData));
-        DataRevision = zdo.DataRevision;
-    }
-
-    public void Save(ExtendedZDO zdo)
-    {
-        var pkg = new ZPackage();
-        Inventory.Save(pkg);
-        zdo.Set(ZDOVars.s_items, pkg.GetBase64());
-        DataRevision = zdo.DataRevision;
-    }
-}
-
 record struct ItemKey(string Name, int Quality, int Variant)
 {
     public static implicit operator ItemKey(ItemDrop.ItemData data) => new(data);
@@ -109,7 +84,10 @@ static class SharedProcessorState
                 Dictionary<Type, MonoBehaviour>? components = null;
                 foreach (var requiredTypeList in requiredTypes)
                 {
-                    var prefabs = requiredTypeList.Select(x => (Type: x, Component: (prefab.GetComponent(x) as MonoBehaviour)!)).Where(x => x.Component is not null).ToList();
+                    var prefabs = requiredTypeList
+                        .Select(x => (Type: x, Component: ((prefab.GetComponent(x) ?? prefab.GetComponentInChildren(x)) as MonoBehaviour)!))
+                        .Where(x => x.Component is not null)
+                        .ToList();
                     if (prefabs.Count != requiredTypeList.Count)
                         continue;
                     foreach (var (type, component) in prefabs)
@@ -129,7 +107,7 @@ static class SharedProcessorState
 
             if (needsShips)
             {
-                foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Where(x => PrefabInfo.TryGetValue(x.GetPrefab(), out var info) && info.Ship is not null))
+                foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
                     Ships.Add(zdo.m_uid);
             }
         }

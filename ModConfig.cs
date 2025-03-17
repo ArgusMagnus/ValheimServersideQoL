@@ -75,11 +75,12 @@ sealed class ModConfig(ConfigFile cfg)
     }
 
     [RequiredPrefabs<Container, Piece> /* Require Container and Piece */]
+    [RequiredPrefabs<Container, Piece, ZSyncTransform>]
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), true, "True to auto sort container inventories");
         [RequiredPrefabs<ItemDrop>]
-        [RequiredPrefabs<Piece>]
+        [RequiredPrefabs<ItemDrop, Piece>]
         public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), true, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a dropped item to be considered as auto pickup target");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
@@ -311,12 +312,11 @@ abstract class RequiredPrefabsAttribute(params Type[] prefabs) : Attribute
     public Type[] Prefabs { get; } = prefabs;
 }
 
-sealed class RequiredPrefabsAttribute<T> : RequiredPrefabsAttribute where T : Component
-{
-    public RequiredPrefabsAttribute() : base(typeof(T)) { }
-}
+sealed class RequiredPrefabsAttribute<T>() : RequiredPrefabsAttribute(typeof(T))
+    where T : MonoBehaviour;
 
-sealed class RequiredPrefabsAttribute<T1, T2> : RequiredPrefabsAttribute where T1 : Component where T2 : Component
-{
-    public RequiredPrefabsAttribute() : base(typeof(T1), typeof(T2)) { }
-}
+sealed class RequiredPrefabsAttribute<T1, T2>() : RequiredPrefabsAttribute(typeof(T1), typeof(T2))
+    where T1 : MonoBehaviour where T2 : MonoBehaviour;
+
+sealed class RequiredPrefabsAttribute<T1, T2, T3>() : RequiredPrefabsAttribute(typeof(T1), typeof(T2), typeof(T3))
+    where T1 : MonoBehaviour where T2 : MonoBehaviour where T3 : MonoBehaviour;
