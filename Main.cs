@@ -16,9 +16,9 @@ public sealed partial class Main : BaseUnityPlugin
     ///   Would probably not retain the value when picked up and dropped again. Could probably be solved by abusing some field in <see cref="EggGrow.m_item"/>
     /// - make ship pickup sunken items.
     /// - Allow carts through portals
-    /// - Modify container inventory sizes <see cref="Container.m_width"/> <see cref="Container.m_height"/>
     /// - Modify crafting station ranges <see cref="CraftingStation.m_rangeBuild"/>
-    /// </summary>
+    /// - Figure out a way to read <see cref="PieceTable"/> information to differentiate between buildable and non-buildable pieces
+    /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";
     internal const string PluginGuid = $"argusmagnus.{PluginName}";
@@ -238,16 +238,16 @@ public sealed partial class Main : BaseUnityPlugin
         // roughly once per minute
         if (_executeCounter % (ulong)(60 * _cfg.General.Frequency.Value) is 0)
         {
-            foreach (var (key, dict) in SharedProcessorState.ContainersByItemName.Select(x => (x.Key, x.Value)))
-            {
-                foreach (var id in dict.Keys)
-                {
-                    if (ZDOMan.instance.GetZDO(id) is not { } zdo || !zdo.IsValid())
-                        dict.TryRemove(id, out _);
-                }
-                if (dict is { Count: 0 })
-                    SharedProcessorState.ContainersByItemName.TryRemove(key, out _);
-            }
+            //foreach (var (key, dict) in SharedProcessorState.ContainersByItemName.Select(x => (x.Key, x.Value)))
+            //{
+            //    foreach (var id in dict.Keys)
+            //    {
+            //        if (ZDOMan.instance.GetZDO(id) is not { } zdo || !zdo.IsValid())
+            //            dict.TryRemove(id, out _);
+            //    }
+            //    if (dict is { Count: 0 })
+            //        SharedProcessorState.ContainersByItemName.TryRemove(key, out _);
+            //}
 
             foreach (var (key, set) in SharedProcessorState.FollowingTamesByPlayerName.Select(x => (x.Key, x.Value)))
             {

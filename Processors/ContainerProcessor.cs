@@ -13,37 +13,81 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (zdo.GetLong(ZDOVars.s_creator) is 0)
             return false; // ignore non-player-built chests (such as TreasureChest_*)
 
+        var fields = zdo.Fields<Container>();
+        var inventory = zdo.Inventory!;
+        var width = inventory.Inventory.GetWidth();
+        var height = inventory.Inventory.GetHeight();
+        //string? itemsStr = null;
+        if (Config.Containers.ContainerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg)
+            && sizeCfg.Value.Split(['x'], 2) is { Length: 2 } parts
+            && int.TryParse(parts[0], out var desiredWidth)
+            && int.TryParse(parts[1], out var desiredHeight)
+            && (width, height) != (desiredWidth, desiredHeight))
+        {
+            if (zdo.Inventory is { Items: { Count: 0 } })
+            {
+                fields.Set(x => x.m_width, width = desiredWidth);
+                fields.Set(x => x.m_height, height = desiredHeight);
+                zdo = zdo.Recreate();
+                fields = zdo.Fields<Container>();
+            }
+        }
+        else
+        {
+            desiredWidth = width;
+            desiredHeight = height;
+        }
+
         if (!CheckMinDistance(peers, zdo))
             return false;
 
         if (zdo.GetBool(ZDOVars.s_inUse))
             return true; // in use or player to close
 
-        var data = zdo.GetString(ZDOVars.s_items);
-        if (string.IsNullOrEmpty(data))
+        if (inventory is { Items: { Count: 0 } })
             return true;
 
-        /// <see cref="Container.Load"/>
-        /// <see cref="Container.Save"/>
-        var fields = zdo.Fields<Container>();
-        var width = fields.GetInt(x => x.m_width);
-        var height = fields.GetInt(x => x.m_height);
-        InventoryEx inventory = new(new(zdo.PrefabInfo.Container.m_name, zdo.PrefabInfo.Container.m_bkg, width, height)) { DataRevision = zdo.DataRevision };
-        inventory.Inventory.Load(new(data));
+        var recreate = false;
+        if ((width, height) != (desiredWidth, desiredHeight))
+        {
+            recreate = true;
+            if (inventory.Items.Count > desiredWidth * desiredHeight)
+            {
+                var found = false;
+                for (var h = desiredHeight; !found && h <= height; h++)
+                {
+                    for (var w = desiredWidth; !found && w <= width; w++)
+                    {
+                        if (inventory.Items.Count <= w * h)
+                        {
+                            found = true;
+                            (desiredWidth, desiredHeight) = (w, h);
+                        }
+                    }
+                }
+
+                if (!found || (width, height) == (desiredWidth, desiredHeight))
+                    recreate = false;
+            }
+            if (recreate)
+            {
+                fields.Set(x => x.m_width, width = desiredWidth);
+                fields.Set(x => x.m_height, height = desiredHeight);
+            }
+        }
+
         var changed = false;
         var x = 0;
         var y = 0;
-
         ItemDrop.ItemData? lastPartialSlot = null;
-        var items = inventory.Inventory.GetAllItems();
-        foreach (var item in items
+        foreach (var item in inventory.Items
             .OrderBy(x => x.IsEquipable() ? 0 : 1)
             .ThenBy(x => x.m_shared.m_name)
             .ThenByDescending(x => x.m_stack))
         {
-            var dict = SharedProcessorState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
-            dict[zdo.m_uid] = inventory;
-            if (!Config.Containers.AutoSort.Value)
+            var set = SharedProcessorState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
+            set.Add(zdo);
+            if (!Config.Containers.AutoSort.Value && !recreate)
                 continue;
 
             if (lastPartialSlot is not null && new ItemKey(item) == lastPartialSlot)
@@ -75,14 +119,16 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (!changed)
             return true;
 
-        for (int i = items.Count - 1; i >= 0; i--)
+        for (int i = inventory.Items.Count - 1; i >= 0; i--)
         {
-            if (items[i].m_stack is 0)
-                items.RemoveAt(i);
+            if (inventory.Items[i].m_stack is 0)
+                inventory.Items.RemoveAt(i);
         }
 
-        inventory.Save(zdo);
-        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece.m_name} sorted");
+        inventory.Save();
+        if (recreate)
+            zdo = zdo.Recreate();
+        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece!.m_name} sorted");
         return true;
     }
 }

@@ -15,7 +15,9 @@ This mod is in early development and the features experimental. Backup your worl
 - Fireplaces (including torches/sconces/braziers/etc.)
     - Toggleable: Make all fireplaces toggleable (you can turn them on/off)
     - Infinite fuel: Make all fireplaces have infinite fuel
-- Containers: Automatically sort chest inventories
+- Containers
+    - Automatically sort inventories
+    - Configure inventory sizes
 - Item drops: Automatically put dropped items into chests
 - Smelters: Feed/refuel smelters from nearby containers
 - Windmills: Make windmills ignore wind intensity

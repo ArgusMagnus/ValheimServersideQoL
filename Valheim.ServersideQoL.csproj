@@ -20,6 +20,10 @@
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_valheim.dll</HintPath>
       <Private>False</Private>
     </RequiredReference>
+    <RequiredReference Include="assembly_guiutils">
+      <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_guiutils.dll</HintPath>
+      <Private>False</Private>
+    </RequiredReference>
     <RequiredReference Include="BepInEx">
       <HintPath>$(ValheimDir)BepInEx\core\BepInEx.dll</HintPath>
       <Private>False</Private>

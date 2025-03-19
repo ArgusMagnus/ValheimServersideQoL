@@ -6,6 +6,13 @@ using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
+interface IZDOInventory
+{
+    Inventory Inventory { get; }
+    IList<ItemDrop.ItemData> Items { get; }
+    void Save();
+}
+
 sealed class ExtendedZDO : ZDO
 {
     ZDOID _lastId = ZDOID.None;
@@ -13,6 +20,8 @@ sealed class ExtendedZDO : ZDO
     ConcurrentDictionary<Type, object>? _componentFieldAccessors;
     Dictionary<Processor, uint>? _processorDataRevisions;
     PrefabInfo _prefabInfo = PrefabInfo.Dummy;
+    ZDOInventory? _inventory;
+    
     public PrefabInfo PrefabInfo
     {
         get
@@ -28,10 +37,13 @@ sealed class ExtendedZDO : ZDO
                 _hasFields = null;
                 _componentFieldAccessors?.Clear();
                 _processorDataRevisions?.Clear();
+                _inventory = null;
             }
             return _prefabInfo;
         }
     }
+
+    public IZDOInventory? Inventory => (_inventory ??= (PrefabInfo.Container is null ? null : new(this)))?.Update();
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
     bool? _hasFields;
@@ -73,6 +85,8 @@ sealed class ExtendedZDO : ZDO
         (zdo._hasFields, _hasFields) = (_hasFields, null);
         (zdo._componentFieldAccessors, _componentFieldAccessors) = (_componentFieldAccessors, null);
         (zdo._processorDataRevisions, _processorDataRevisions) = (_processorDataRevisions, null);
+        (zdo._inventory, _inventory) = (_inventory, null);
+        zdo._inventory?.UpdateZDO(zdo);
         return zdo;
     }
 
@@ -175,5 +189,79 @@ sealed class ExtendedZDO : ZDO
 
         //public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, string>> fieldExpression)
         //    => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveString(hash));
+    }
+
+    sealed class ZDOInventory(ExtendedZDO zdo) : IZDOInventory
+    {
+        public Inventory Inventory { get; private set; } = default!;
+        public ExtendedZDO ZDO { get; private set; } = zdo;
+        IList<ItemDrop.ItemData>? _items;
+        uint _dataRevision = uint.MaxValue;
+        string? _lastData;
+
+        public IList<ItemDrop.ItemData> Items
+        {
+            get
+            {
+                if (_items is null)
+                    _items = Inventory!.GetAllItems();
+                else if (!ReferenceEquals(_items, Inventory!.GetAllItems()))
+                    throw new Exception("Assumption violated");
+                return _items;
+            }
+        }
+
+        public ZDOInventory Update()
+        {
+            if (_dataRevision == ZDO.DataRevision)
+                return this;
+
+            var data = ZDO.GetString(ZDOVars.s_items);
+            if (_lastData == data)
+                return this;
+
+            var fields = ZDO.Fields<Container>();
+            var w = fields.GetInt(x => x.m_width);
+            var h = fields.GetInt(x => x.m_height);
+            if (Inventory is null || Inventory.GetWidth() != w || Inventory.GetHeight() != h)
+                Inventory = new(ZDO.PrefabInfo.Container!.m_name, ZDO.PrefabInfo.Container!.m_bkg, w, h);
+
+            if (string.IsNullOrEmpty(data))
+                Items.Clear();
+            else
+                Inventory.Load(new(data));
+
+            _dataRevision = ZDO.DataRevision;
+            _lastData = data;
+            return this;
+        }
+
+        public void UpdateZDO(ExtendedZDO zdo)
+        {
+            ZDO = zdo;
+            _items = default;
+            _dataRevision = default;
+            _lastData = default;
+            Update();
+        }
+
+        public void Save()
+        {
+            var pkg = new ZPackage();
+            Inventory.Save(pkg);
+            var dataRevision = ZDO.DataRevision;
+            var data = pkg.GetBase64();
+            ZDO.Set(ZDOVars.s_items, data);
+            if (dataRevision != ZDO.DataRevision) // items changed
+            {
+                // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.
+                // Not sure about the increment value though...
+                if (ZDO.PrefabInfo.ZSyncTransform is not null)
+                    ZDO.DataRevision += 120;
+            }
+
+            _dataRevision = ZDO.DataRevision;
+            _lastData = data;
+        }
     }
 }

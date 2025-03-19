@@ -21,7 +21,7 @@ static class SharedProcessorState
     public static IReadOnlyDictionary<int, PrefabInfo> PrefabInfo { get; } = new Dictionary<int, PrefabInfo>();
     public static ConcurrentHashSet<ZDOID> Ships { get; } = new();
 
-    public static ConcurrentDictionary<SharedItemDataKey, ConcurrentDictionary<ZDOID, InventoryEx>> ContainersByItemName { get; } = new();
+    public static ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
     public static ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();
 
     public static void Initialize(ModConfig cfg)

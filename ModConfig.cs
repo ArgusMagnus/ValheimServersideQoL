@@ -84,6 +84,14 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), true, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a dropped item to be considered as auto pickup target");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
+
+        IReadOnlyDictionary<int, ConfigEntry<string>>? _containerSizes;
+        public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes => _containerSizes ??= ZNetScene.instance.m_prefabs
+            .Where(x => x.name.StartsWith("piece_"))
+            .Select(x => (Name: x.name, Container: x.GetComponent<Container>(), Piece: x.GetComponent<Piece>()))
+            .Where(x => x is { Container: not null, Piece: not null })
+            .ToDictionary(x => x.Name.GetStableHashCode(), x => cfg
+                .Bind(section, $"InventorySize_{x.Name}", $"{x.Container.m_width}x{x.Container.m_height}", $"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'"));
     }
 
     [RequiredPrefabs<Smelter>]
