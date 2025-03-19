@@ -17,6 +17,8 @@ sealed class VagonProcesser(ManualLogSource logger, ModConfig cfg) : Processor(l
                 fields.Reset(x => x.m_itemWeightMassFactor);
             else
                 fields.Set(x => x.m_itemWeightMassFactor, Config.Carts.ContentMassMultiplier.Value);
+
+            zdo = zdo.Recreate();
         }
 
         return true;
