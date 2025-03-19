@@ -14,9 +14,10 @@ public sealed partial class Main : BaseUnityPlugin
     /// <Ideas>
     /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
     ///   Would probably not retain the value when picked up and dropped again. Could probably be solved by abusing some field in <see cref="EggGrow.m_item"/>
-    /// - make ship pickup sunken items. How? Ships are not containers...
+    /// - make ship pickup sunken items.
     /// - Allow carts through portals
-    /// - Modify container inventory sizes
+    /// - Modify container inventory sizes <see cref="Container.m_width"/> <see cref="Container.m_height"/>
+    /// - Modify crafting station ranges <see cref="CraftingStation.m_rangeBuild"/>
     /// </summary>
 
     internal const string PluginName = "ServersideQoL";
