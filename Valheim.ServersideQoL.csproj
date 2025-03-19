@@ -32,10 +32,10 @@
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </RequiredReference>
-    <Reference Include="0Harmony">
+    <RequiredReference Include="0Harmony">
       <HintPath>$(ValheimDir)BepInEx\core\0Harmony.dll</HintPath>
       <Private>False</Private>
-    </Reference>
+    </RequiredReference>
   </ItemGroup>
   
   <ItemGroup Condition="'$(Configuration)' != 'Debug'">
