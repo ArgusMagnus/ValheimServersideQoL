@@ -57,7 +57,7 @@ public sealed partial class Main : BaseUnityPlugin
         HarmonyInstance.PatchAll(assembly);
     }
 
-    readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.220.3");
+    readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.220.4");
     const uint ExpectedNetworkVersion = 33;
     const uint ExpectedItemDataVersion = 106;
     const uint ExpectedWorldVersion = 35;
