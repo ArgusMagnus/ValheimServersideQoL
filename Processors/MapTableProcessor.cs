@@ -59,7 +59,10 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                     .Select(x =>
                     {
                         if (!x.IsValid() || x.PrefabInfo.Ship is null)
+                        {
                             SharedProcessorState.Ships.Remove(x);
+                            return null;
+                        }
                         return x;
                     })
                     .Where(x => x is not null)
