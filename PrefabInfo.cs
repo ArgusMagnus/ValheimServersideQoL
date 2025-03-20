@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL;
 
-sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components)
+sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components, PieceTable? pieceTable)
 {
     public IReadOnlyDictionary<Type, MonoBehaviour> Components { get; } = components;
 
@@ -16,6 +16,7 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components)
     public Ship? Ship { get; } = Get<Ship>(components);
     public ItemDrop? ItemDrop { get; } = Get<ItemDrop>(components);
     public Piece? Piece { get; } = Get<Piece>(components);
+    public PieceTable? PieceTable { get; } = pieceTable;
     public Smelter? Smelter { get; } = Get<Smelter>(components);
     public Windmill? Windmill { get; } = Get<Windmill>(components);
     public Vagon? Vagon { get; } = Get<Vagon>(components);
@@ -24,5 +25,5 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components)
     public Door? Door { get; } = Get<Door>(components);
     public ZSyncTransform? ZSyncTransform { get; } = Get<ZSyncTransform>(components);
 
-    public static PrefabInfo Dummy { get; } = new(new Dictionary<Type, MonoBehaviour>(0));
+    public static PrefabInfo Dummy { get; } = new(new Dictionary<Type, MonoBehaviour>(0), null);
 }

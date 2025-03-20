@@ -24,7 +24,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
         foreach (var containerZdo in containers)
         {
-            if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
+            if (!containerZdo.IsValid() || containerZdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
             {
                 containers.Remove(containerZdo);
                 continue;

@@ -87,8 +87,8 @@ sealed class ModConfig(ConfigFile cfg)
 
         IReadOnlyDictionary<int, ConfigEntry<string>>? _containerSizes;
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes => _containerSizes ??= ZNetScene.instance.m_prefabs
-            .Where(x => x.name.StartsWith("piece_"))
-            .Select(x => (Name: x.name, Container: x.GetComponent<Container>(), Piece: x.GetComponent<Piece>()))
+            .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
+            .Select(x => (Name: x.name, Container: x.GetComponent<Container>() ?? x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
             .Where(x => x is { Container: not null, Piece: not null })
             .ToDictionary(x => x.Name.GetStableHashCode(), x => cfg
                 .Bind(section, $"InventorySize_{x.Name}", $"{x.Container.m_width}x{x.Container.m_height}", $"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'"));

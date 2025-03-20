@@ -1,5 +1,4 @@
 ﻿using BepInEx.Logging;
-using System.Drawing;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -27,7 +26,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                     List<ItemDrop.ItemData>? removeSlots = null;
                     foreach (var containerZdo in containers)
                     {
-                        if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
+                        if (!containerZdo.IsValid() || containerZdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
                         {
                             containers.Remove(containerZdo);
                             continue;
@@ -114,7 +113,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                         List<ItemDrop.ItemData>? removeSlots = null;
                         foreach (var containerZdo in containers)
                         {
-                            if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
+                            if (!containerZdo.IsValid() || containerZdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
                             {
                                 containers.Remove(containerZdo);
                                 continue;

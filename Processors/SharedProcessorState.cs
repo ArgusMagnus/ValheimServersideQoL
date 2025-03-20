@@ -18,6 +18,8 @@ record struct SharedItemDataKey(string Name)
 
 static class SharedProcessorState
 {
+    public static IReadOnlyCollection<PieceTable> PieceTables { get; } = new HashSet<PieceTable>();
+    public static IReadOnlyDictionary<string, PieceTable> PieceTablesByPiece { get; } = new Dictionary<string, PieceTable>();
     public static IReadOnlyDictionary<int, PrefabInfo> PrefabInfo { get; } = new Dictionary<int, PrefabInfo>();
     public static ConcurrentHashSet<ZDOID> Ships { get; } = new();
 
@@ -26,6 +28,21 @@ static class SharedProcessorState
 
     public static void Initialize(ModConfig cfg)
     {
+        if (PieceTables is { Count: 0})
+        {
+            var pieceTables = (HashSet<PieceTable>)PieceTables;
+            var pieceTablesByPiece = (IDictionary<string, PieceTable>)PieceTablesByPiece;
+            foreach (var prefab in ZNetScene.instance.m_prefabs)
+            {
+                var table = prefab.GetComponent<ItemDrop>()?.m_itemData.m_shared.m_buildPieces;
+                if (table is null || !pieceTables.Add(table))
+                    continue;
+
+                foreach (var piece in table.m_pieces)
+                    pieceTablesByPiece.Add(piece.name, table);
+            }
+        }
+
         var dict = (IDictionary<int, PrefabInfo>)PrefabInfo;
         dict.Clear();
         Ships.Clear();
@@ -99,7 +116,8 @@ static class SharedProcessorState
                 }
                 if (components is not null)
                 {
-                    var prefabInfo = new PrefabInfo(components);
+                    PieceTablesByPiece.TryGetValue(prefab.name, out var pieceTable);
+                    var prefabInfo = new PrefabInfo(components, pieceTable);
                     dict.Add(prefab.name.GetStableHashCode(), prefabInfo);
                     needsShips = needsShips || prefabInfo.Ship is not null;
                 }

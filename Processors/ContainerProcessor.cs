@@ -7,11 +7,11 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
 {
     protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (zdo.PrefabInfo is not { Container: not null, Piece: not null })
+        if (zdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
             return false;
 
         if (zdo.GetLong(ZDOVars.s_creator) is 0)
-            return false; // ignore non-player-built chests (such as TreasureChest_*)
+            return false; // Not sure if necessary. Are there non-player built pieces which are part of a PieceTable?
 
         var fields = zdo.Fields<Container>();
         var inventory = zdo.Inventory!;
