@@ -58,10 +58,9 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                 pins = pins.Concat(SharedProcessorState.Ships
                     .Select(x =>
                     {
-                        var y = (ExtendedZDO)ZDOMan.instance.GetZDO(x);
-                        if (y is null)
+                        if (!x.IsValid() || x.PrefabInfo.Ship is null)
                             SharedProcessorState.Ships.Remove(x);
-                        return y;
+                        return x;
                     })
                     .Where(x => x is not null)
                     .Select(x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Piece?.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid)));

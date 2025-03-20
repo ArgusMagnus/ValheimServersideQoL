@@ -21,7 +21,7 @@ static class SharedProcessorState
     public static IReadOnlyCollection<PieceTable> PieceTables { get; } = new HashSet<PieceTable>();
     public static IReadOnlyDictionary<string, PieceTable> PieceTablesByPiece { get; } = new Dictionary<string, PieceTable>();
     public static IReadOnlyDictionary<int, PrefabInfo> PrefabInfo { get; } = new Dictionary<int, PrefabInfo>();
-    public static ConcurrentHashSet<ZDOID> Ships { get; } = new();
+    public static ConcurrentHashSet<ExtendedZDO> Ships { get; } = new();
 
     public static ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
     public static ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();
@@ -126,7 +126,7 @@ static class SharedProcessorState
             if (needsShips)
             {
                 foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
-                    Ships.Add(zdo.m_uid);
+                    Ships.Add(zdo);
             }
         }
     }

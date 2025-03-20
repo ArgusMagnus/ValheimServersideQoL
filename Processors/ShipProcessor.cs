@@ -7,7 +7,7 @@ sealed class ShipProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
     protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Ship is not null)
-            SharedProcessorState.Ships.Add(zdo.m_uid);
+            SharedProcessorState.Ships.Add(zdo);
         return false;
     }
 }
