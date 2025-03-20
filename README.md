@@ -27,3 +27,6 @@ This mod is in early development and the features experimental. Backup your worl
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
 
 All of these features can be enabled/disabled separately via config.
+
+## Known Issues
+- Modifying the inventory size of ships causes the to stay in the air after construction, until touched by a player

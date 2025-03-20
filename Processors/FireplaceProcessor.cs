@@ -23,9 +23,14 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
             .Set(x => x.m_canRefill, !Config.Fireplaces.InfiniteFuel.Value);
         //.Set(x => x.m_infiniteFuel, Config.Fireplaces.InfiniteFuel.Value) // works, but removes the turn on/off hover text (turning on/off still works)
         if (Config.Fireplaces.InfiniteFuel.Value)
+        {
             fields.Set(x => x.m_secPerFuel, 0);
+            zdo.Set(ZDOVars.s_fuel, fields.GetFloat(x => x.m_maxFuel));
+        }
         else
+        {
             fields.Reset(x => x.m_secPerFuel);
+        }
 
         recreate = true;
         return true;
