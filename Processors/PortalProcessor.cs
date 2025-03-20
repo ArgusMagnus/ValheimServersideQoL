@@ -18,7 +18,7 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         base.Initialize();
     }
 
-	protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreateers)
     {
         if (!_enabled || zdo.PrefabInfo.TeleportWorld is null || !_initialPortals.Contains(zdo))
             return false;

@@ -5,7 +5,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
             return false;
@@ -28,8 +28,8 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
             {
                 fields.Set(x => x.m_width, width = desiredWidth);
                 fields.Set(x => x.m_height, height = desiredHeight);
-                zdo = zdo.Recreate();
-                fields = zdo.Fields<Container>();
+                recreate = true;
+                return false;
             }
         }
         else
@@ -47,7 +47,6 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (inventory is { Items: { Count: 0 } })
             return true;
 
-        var recreate = false;
         if ((width, height) != (desiredWidth, desiredHeight))
         {
             recreate = true;
@@ -126,8 +125,6 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
 
         inventory.Save();
-        if (recreate)
-            zdo = zdo.Recreate();
         Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece!.m_name} sorted");
         return true;
     }

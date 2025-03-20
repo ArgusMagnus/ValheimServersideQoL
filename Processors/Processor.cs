@@ -28,14 +28,14 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         _watch.Reset();
     }
 
-    protected abstract bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
-    public void Process(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate);
+    public void Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         _watch.Start();
 
         if (zdo.CheckProcessorDataRevisionChanged(this))
         {
-            if (ProcessCore(ref zdo, peers))
+            if (ProcessCore(zdo, peers, ref destroy, ref recreate))
                 zdo.UpdateProcessorDataRevision(this);
         }
 

@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class VagonProcesser(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo.Vagon is null)
             return false;
@@ -18,7 +18,7 @@ sealed class VagonProcesser(ManualLogSource logger, ModConfig cfg) : Processor(l
             else
                 fields.Set(x => x.m_itemWeightMassFactor, Config.Carts.ContentMassMultiplier.Value);
 
-            zdo = zdo.Recreate();
+            recreate = true;
         }
 
         return true;

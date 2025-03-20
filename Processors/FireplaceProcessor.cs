@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-	protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo.Fireplace is null || !(Config.Fireplaces.MakeToggleable.Value || Config.Fireplaces.InfiniteFuel.Value))
             return false;
@@ -27,7 +27,7 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
         else
             fields.Reset(x => x.m_secPerFuel);
 
-        zdo = zdo.Recreate();
+        recreate = true;
         return true;
     }
 }

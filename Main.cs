@@ -340,8 +340,19 @@ public sealed partial class Main : BaseUnityPlugin
                 if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
                     continue;
 
+                var destroy = false;
+                var recreate = false;
                 foreach (var processor in _processors)
-                    processor.Process(ref zdo, sectorInfo.Peers);
+                {
+                    processor.Process(zdo, sectorInfo.Peers, ref destroy, ref recreate);
+                    if (destroy)
+                    {
+                        zdo.Destroy();
+                        break;
+                    }
+                    if (recreate)
+                        zdo = zdo.Recreate();
+                }
             }
         }
 

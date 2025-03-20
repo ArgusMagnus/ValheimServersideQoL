@@ -68,6 +68,16 @@ sealed class ExtendedZDO : ZDO
         return false;
     }
 
+    public void Destroy()
+    {
+        ClaimOwnershipInternal();
+        ZDOMan.instance.DestroyZDO(this);
+        _hasFields = null;
+        _componentFieldAccessors = null;
+        _processorDataRevisions = null;
+        _inventory = null;
+    }
+
     public ExtendedZDO Recreate()
     {
         var prefab = GetPrefab();

@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-	protected override bool ProcessCore(ref ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
 	{
 		if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value)
 			return false;
@@ -110,10 +110,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         }
 
         if (item?.m_stack is 0)
-        {
-            zdo.ClaimOwnershipInternal();
-            ZDOMan.instance.DestroyZDO(zdo);
-        }
+            destroy = true;
 
         return false;
     }
