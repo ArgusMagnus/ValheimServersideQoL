@@ -17,7 +17,6 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         var inventory = zdo.Inventory!;
         var width = inventory.Inventory.GetWidth();
         var height = inventory.Inventory.GetHeight();
-        //string? itemsStr = null;
         if (Config.Containers.ContainerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg)
             && sizeCfg.Value.Split(['x'], 2) is { Length: 2 } parts
             && int.TryParse(parts[0], out var desiredWidth)

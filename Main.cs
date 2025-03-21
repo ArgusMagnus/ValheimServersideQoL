@@ -17,7 +17,8 @@ public sealed partial class Main : BaseUnityPlugin
     /// - make ship pickup sunken items.
     /// - Allow carts through portals
     /// - Modify crafting station ranges <see cref="CraftingStation.m_rangeBuild"/>
-    /// - Figure out a way to read <see cref="PieceTable"/> information to differentiate between buildable and non-buildable pieces
+    /// - Modify crafting station extension max distances <see cref="StationExtension.m_maxStationDistance"/>
+    /// - Feed tames from containers
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

@@ -18,6 +18,7 @@ sealed class ModConfig(ConfigFile cfg)
     public WindmillsConfig Windmills { get; } = new(cfg, "B - Windmills");
     public CartsConfig Carts { get; } = new(cfg, "B - Carts");
     public DoorsConfig Doors { get; } = new(cfg, "B - Doors");
+    public PlayersConfig Players { get; } = new(cfg, "B - Players");
 
 
     //PrefabsConfig? _prefabs;
@@ -121,6 +122,14 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), 8f,
             $"Min distance all players must have to the door before it is closed. {float.NaN} to disable this feature");
+    }
+
+    [RequiredPrefabs<Player>]
+    public sealed class PlayersConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> InfiniteStamina { get; } = cfg.Bind(section, nameof(InfiniteStamina), false, "True to give players infinite stamina");
+        public ConfigEntry<bool> InfiniteBuildingStamina { get; } = cfg.Bind(section, nameof(InfiniteBuildingStamina), false, "True to give players infinite stamina when building");
+        public ConfigEntry<bool> InfiniteFarmingStamina { get; } = cfg.Bind(section, nameof(InfiniteFarmingStamina), false, "True to give players infinite stamina when farming");
     }
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
@@ -251,67 +260,6 @@ sealed class ModConfig(ConfigFile cfg)
             return result;
         }
     }
-
-    //public sealed class PrefabsConfig
-    //{
-    //    public IReadOnlyList<ConfigEntryBase> Entries { get; }
-
-    //    public PrefabsConfig(ConfigFile cfg, string section, ZNetScene zNetScene)
-    //    {
-    //        static Func<string, object?, ConfigEntryBase> GetBind(ConfigFile cfg, string section, Type type)
-    //        {
-    //            var valueType = type;
-    //            var parName = Expression.Parameter(typeof(string));
-    //            var parValue = Expression.Parameter(type);
-    //            Expression argValue = parValue;
-    //            if (type == typeof(GameObject) || type == typeof(ItemDrop))
-    //            {
-    //                valueType = typeof(string);
-    //                argValue = Expression.Condition(
-    //                    Expression.ReferenceEqual(parValue, Expression.Constant(null, type)),
-    //                    Expression.Constant(""),
-    //                    Expression.Property(parValue, nameof(UnityEngine.Object.name)));
-    //            }
-    //            return Expression.Lambda<Func<string, object?, ConfigEntryBase>>(
-    //                Expression.Call(
-    //                    Expression.Constant(cfg),
-    //                    typeof(ConfigFile).GetMethod(nameof(ConfigFile.Bind)).MakeGenericMethod(valueType),
-    //                    Expression.Constant(section), parName, argValue, Expression.Constant("")),
-    //                parName, parValue).Compile();
-    //        }
-
-    //        /// <see cref="ZNetView.LoadFields()"/>
-    //        var supportedFieldTypes = ((IEnumerable<Type>)[typeof(int), typeof(float), typeof(bool), typeof(Vector3), typeof(string), typeof(GameObject), typeof(ItemDrop)])
-    //            .ToDictionary(x => x, x => GetBind(cfg, section, x));
-
-    //        var componentInfo = typeof(Game).Assembly.ExportedTypes.Where(x => x.IsClass && typeof(MonoBehaviour).IsAssignableFrom(x))
-    //            .Select(x => (Type: x, Fields: x
-    //                .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance)
-    //                .Where(y => supportedFieldTypes.ContainsKey(y.FieldType))
-    //                .ToList()))
-    //            .Where(x => x.Fields.Count > 0)
-    //            .ToList();
-
-    //        List<ConfigEntryBase> entries = [];
-    //        Entries = entries;
-
-    //        foreach (var prefab in zNetScene.m_prefabs)
-    //        {
-    //            foreach (var (componentType, fields) in componentInfo)
-    //            {
-    //                if (prefab.GetComponent(componentType) is not { } component)
-    //                    continue;
-
-    //                foreach (var field in fields)
-    //                {
-    //                    var name = $"{prefab.name}.{componentType.Name}.{field.Name}";
-    //                    var value = field.GetValue(component);
-    //                    entries.Add(supportedFieldTypes[field.FieldType].Invoke(name, value));
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
 }
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = true)]

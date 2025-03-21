@@ -21,6 +21,7 @@ sealed class ExtendedZDO : ZDO
     Dictionary<Processor, uint>? _processorDataRevisions;
     PrefabInfo _prefabInfo = PrefabInfo.Dummy;
     ZDOInventory? _inventory;
+    PlayerData_? _playerData;
     
     public PrefabInfo PrefabInfo
     {
@@ -44,6 +45,7 @@ sealed class ExtendedZDO : ZDO
     }
 
     public IZDOInventory? Inventory => (_inventory ??= (PrefabInfo.Container is null ? null : new(this)))?.Update();
+    public PlayerData_ PlayerData => _playerData ??= (PrefabInfo.Player is not null ? new() : throw new InvalidOperationException());
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
     bool? _hasFields;
@@ -76,6 +78,7 @@ sealed class ExtendedZDO : ZDO
         _componentFieldAccessors = null;
         _processorDataRevisions = null;
         _inventory = null;
+        _playerData = null;
     }
 
     public ExtendedZDO Recreate()
@@ -97,6 +100,7 @@ sealed class ExtendedZDO : ZDO
         (zdo._processorDataRevisions, _processorDataRevisions) = (_processorDataRevisions, null);
         (zdo._inventory, _inventory) = (_inventory, null);
         zdo._inventory?.UpdateZDO(zdo);
+        (zdo._playerData, _playerData) = (_playerData, null);
         return zdo;
     }
 
@@ -273,5 +277,12 @@ sealed class ExtendedZDO : ZDO
             _dataRevision = ZDO.DataRevision;
             _lastData = data;
         }
+    }
+
+    public sealed class PlayerData_
+    {
+        public float MaxStamina { get; set; }
+        public float UpdateStaminaThreshold { get; set; }
+        public float ResetStamina { get; set; } = float.NaN;
     }
 }

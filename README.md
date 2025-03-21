@@ -2,7 +2,7 @@
 This mod adds some QoL features as a serverside-only mod. It's designed and tested for dedicated servers and clients running vanilla (e.g. xbox users).
 
 ## Disclaimer
-This mod is in early development and the features experimental. Backup your world bevor using this mod.
+This mod is in early development and the features experimental. Backup your world before using this mod.
 
 ## Features
 - Time Signs: Signs which show the ingame time
@@ -22,6 +22,7 @@ This mod is in early development and the features experimental. Backup your worl
 - Smelters: Feed/refuel smelters from nearby containers
 - Windmills: Make windmills ignore wind intensity
 - Doors: Automatically close doors
+- Infinite Stamina: Give players infinite stamina when building/farming or always
 - Global Keys
     - Set world preset/modifiers and global keys via config
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
@@ -29,4 +30,4 @@ This mod is in early development and the features experimental. Backup your worl
 All of these features can be enabled/disabled separately via config.
 
 ## Known Issues
-- Modifying the inventory size of ships causes the to stay in the air after construction, until touched by a player
+- Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player

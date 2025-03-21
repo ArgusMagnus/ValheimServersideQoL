@@ -4,9 +4,56 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    static readonly int _hammerPrefab = "Hammer".GetStableHashCode();
+    static readonly int _hoePrefab = "Hoe".GetStableHashCode();
+    static readonly int _cultivatorPrefab = "Cultivator".GetStableHashCode();
+
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
-        if (zdo.PrefabInfo.Player is null || !Config.Tames.TeleportFollow.Value)
+        if (zdo.PrefabInfo.Player is null)
+            return false;
+
+        if (Config.Players.InfiniteStamina.Value || Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value)
+        {
+            var setInfinite = Config.Players.InfiniteStamina.Value;
+            if (!setInfinite)
+            {
+                var rightItem = zdo.GetInt(ZDOVars.s_rightItem);
+                if (Config.Players.InfiniteBuildingStamina.Value && (rightItem == _hammerPrefab || rightItem == _hoePrefab))
+                    setInfinite = true;
+                else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab))
+                    setInfinite = true;
+            }
+
+            if (setInfinite)
+            {
+                var stamina = zdo.GetFloat(ZDOVars.s_stamina);
+                if (!float.IsPositiveInfinity(stamina))
+                {
+                    zdo.PlayerData.MaxStamina = Math.Max(stamina, zdo.PlayerData.MaxStamina);
+                    if (stamina < zdo.PlayerData.MaxStamina * 0.9 && stamina > zdo.PlayerData.UpdateStaminaThreshold)
+                    {
+                        if (!Config.Players.InfiniteStamina.Value && float.IsNaN(zdo.PlayerData.ResetStamina))
+                            zdo.PlayerData.ResetStamina = stamina;
+                        zdo.PlayerData.UpdateStaminaThreshold = stamina;
+                        ZRoutedRpc.instance.InvokeRoutedRPC(zdo.GetOwner(), zdo.m_uid, "UseStamina", float.NegativeInfinity);
+                    }
+                    else if (stamina > zdo.PlayerData.UpdateStaminaThreshold)
+                        zdo.PlayerData.UpdateStaminaThreshold = 0;
+                }
+            }
+            else if (!float.IsNaN(zdo.PlayerData.ResetStamina))
+            {
+                var stamina = zdo.GetFloat(ZDOVars.s_stamina);
+                var diff = stamina - zdo.PlayerData.ResetStamina;
+                zdo.PlayerData.ResetStamina = float.NaN;
+                zdo.PlayerData.UpdateStaminaThreshold = 0;
+                if (diff > 0)
+                    ZRoutedRpc.instance.InvokeRoutedRPC(zdo.GetOwner(), zdo.m_uid, "UseStamina", diff);
+            }
+        }
+
+        if (!Config.Tames.TeleportFollow.Value)
             return false;
 
         if (zdo.GetPosition() is { y: > 1000 })
