@@ -45,6 +45,22 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
     protected bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo)
         => CheckMinDistance(peers, zdo, Config.General.MinPlayerDistance.Value);
 
-    protected bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo, float minDistance)
+    protected static bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo, float minDistance)
         => peers.Min(x => Utils.DistanceSqr(x.m_refPos, zdo.GetPosition())) >= minDistance * minDistance;
+
+    protected static class RPC
+    {
+        public static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
+        {
+            /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
+            foreach (var peer in peers)
+                ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "ShowMessage", (int)type, message);
+        }
+
+        public static void UseStamina(ExtendedZDO playerZdo, float value)
+        {
+            /// <see cref="Player.UseStamina(float)"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(playerZdo.GetOwner(), playerZdo.m_uid, "UseStamina", value);
+        }
+    }
 }

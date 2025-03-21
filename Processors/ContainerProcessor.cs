@@ -124,7 +124,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
 
         inventory.Save();
-        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece!.m_name} sorted");
+        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece!.m_name} sorted");
         return true;
     }
 }

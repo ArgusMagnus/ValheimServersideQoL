@@ -132,7 +132,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
         zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
 
-        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_mapsaved");
+        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_mapsaved");
 
         return false;
     }

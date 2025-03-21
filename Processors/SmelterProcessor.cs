@@ -93,7 +93,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                 }
 
                 if (addedFuel is not 0)
-                    Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece?.m_name ?? zdo.PrefabInfo.Smelter.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
+                    RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece?.m_name ?? zdo.PrefabInfo.Smelter.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
             }
         }
 
@@ -183,7 +183,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                     }
 
                     if (addedOre is not 0)
-                        Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece?.m_name ?? zdo.PrefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x");
+                        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece?.m_name ?? zdo.PrefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x");
                 }
             }
         }

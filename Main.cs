@@ -369,11 +369,4 @@ public sealed partial class Main : BaseUnityPlugin
         _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
         _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
-
-    internal static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
-    {
-        /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
-        foreach (var peer in peers)
-            ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "ShowMessage", (int)type, message);
-    }
 }

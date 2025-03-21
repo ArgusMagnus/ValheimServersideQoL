@@ -102,7 +102,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                 (item.m_stack, stack) = (stack, item.m_stack);
                 zdo.ClaimOwnershipInternal();
                 ItemDrop.SaveToZDO(item, zdo);
-                Main.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{containerZdo.PrefabInfo.Piece!.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
+                RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{containerZdo.PrefabInfo.Piece!.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
             }
 
             if (item.m_stack is 0)

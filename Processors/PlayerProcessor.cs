@@ -36,7 +36,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                         if (!Config.Players.InfiniteStamina.Value && float.IsNaN(zdo.PlayerData.ResetStamina))
                             zdo.PlayerData.ResetStamina = stamina;
                         zdo.PlayerData.UpdateStaminaThreshold = stamina;
-                        ZRoutedRpc.instance.InvokeRoutedRPC(zdo.GetOwner(), zdo.m_uid, "UseStamina", float.NegativeInfinity);
+                        RPC.UseStamina(zdo, float.NegativeInfinity);
                     }
                     else if (stamina > zdo.PlayerData.UpdateStaminaThreshold)
                         zdo.PlayerData.UpdateStaminaThreshold = 0;
@@ -49,7 +49,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 zdo.PlayerData.ResetStamina = float.NaN;
                 zdo.PlayerData.UpdateStaminaThreshold = 0;
                 if (diff > 0)
-                    ZRoutedRpc.instance.InvokeRoutedRPC(zdo.GetOwner(), zdo.m_uid, "UseStamina", diff);
+                    RPC.UseStamina(zdo, diff);
             }
         }
 

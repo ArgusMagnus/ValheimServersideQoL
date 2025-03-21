@@ -35,7 +35,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                 var range = fields.GetFloat(x => x.m_tamingSpeedMultiplierRange);
                 var zdo2 = zdo;
                 var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo2.GetPosition()) < range);
-                Main.ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");
+                RPC.ShowMessage(playersInRange, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Character?.m_name}: $hud_tameness {tameness:P0}");
             }
         }
 
