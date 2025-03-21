@@ -124,9 +124,10 @@ sealed class ModConfig(ConfigFile cfg)
     [RequiredPrefabs<Player>]
     public sealed class PlayersConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> InfiniteStamina { get; } = cfg.Bind(section, nameof(InfiniteStamina), false, "True to give players infinite stamina");
-        public ConfigEntry<bool> InfiniteBuildingStamina { get; } = cfg.Bind(section, nameof(InfiniteBuildingStamina), false, "True to give players infinite stamina when building");
-        public ConfigEntry<bool> InfiniteFarmingStamina { get; } = cfg.Bind(section, nameof(InfiniteFarmingStamina), false, "True to give players infinite stamina when farming");
+        public ConfigEntry<bool> InfiniteBuildingStamina { get; } = cfg.Bind(section, nameof(InfiniteBuildingStamina), false,
+            $"True to give players infinite stamina when building. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0");
+        public ConfigEntry<bool> InfiniteFarmingStamina { get; } = cfg.Bind(section, nameof(InfiniteFarmingStamina), false,
+            $"True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0\"");
     }
 
     [RequiredPrefabs<Turret, Piece>]

@@ -19,7 +19,6 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Modify crafting station ranges <see cref="CraftingStation.m_rangeBuild"/>
     /// - Modify crafting station extension max distances <see cref="StationExtension.m_maxStationDistance"/>
     /// - Feed tames from containers
-    /// - Reload ballistas from containers <see cref="Turret"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

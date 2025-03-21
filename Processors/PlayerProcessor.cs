@@ -13,17 +13,14 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         if (zdo.PrefabInfo.Player is null)
             return false;
 
-        if (Config.Players.InfiniteStamina.Value || Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value)
+        if ((Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value) && Game.m_staminaRate > 0)
         {
-            var setInfinite = Config.Players.InfiniteStamina.Value;
-            if (!setInfinite)
-            {
-                var rightItem = zdo.GetInt(ZDOVars.s_rightItem);
-                if (Config.Players.InfiniteBuildingStamina.Value && (rightItem == _hammerPrefab || rightItem == _hoePrefab))
-                    setInfinite = true;
-                else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab))
-                    setInfinite = true;
-            }
+            var setInfinite = false;
+            var rightItem = zdo.GetInt(ZDOVars.s_rightItem);
+            if (Config.Players.InfiniteBuildingStamina.Value && (rightItem == _hammerPrefab || rightItem == _hoePrefab))
+                setInfinite = true;
+            else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab))
+                setInfinite = true;
 
             if (setInfinite)
             {
@@ -33,8 +30,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                     zdo.PlayerData.MaxStamina = Math.Max(stamina, zdo.PlayerData.MaxStamina);
                     if (stamina < zdo.PlayerData.MaxStamina * 0.9 && stamina > zdo.PlayerData.UpdateStaminaThreshold)
                     {
-                        if (!Config.Players.InfiniteStamina.Value && float.IsNaN(zdo.PlayerData.ResetStamina))
-                            zdo.PlayerData.ResetStamina = stamina;
+                        zdo.PlayerData.ResetStamina = stamina;
                         zdo.PlayerData.UpdateStaminaThreshold = stamina;
                         RPC.UseStamina(zdo, float.NegativeInfinity);
                     }
