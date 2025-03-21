@@ -44,7 +44,7 @@ sealed class ExtendedZDO : ZDO
         }
     }
 
-    public IZDOInventory? Inventory => (_inventory ??= (PrefabInfo.Container is null ? null : new(this)))?.Update();
+    public IZDOInventory Inventory => (_inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
     public PlayerData_ PlayerData => _playerData ??= (PrefabInfo.Player is not null ? new() : throw new InvalidOperationException());
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();

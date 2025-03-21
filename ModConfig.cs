@@ -19,10 +19,7 @@ sealed class ModConfig(ConfigFile cfg)
     public CartsConfig Carts { get; } = new(cfg, "B - Carts");
     public DoorsConfig Doors { get; } = new(cfg, "B - Doors");
     public PlayersConfig Players { get; } = new(cfg, "B - Players");
-
-
-    //PrefabsConfig? _prefabs;
-    //public PrefabsConfig? Prefabs => _prefabs ??= ZNetScene.instance is null ? null : new PrefabsConfig(cfg, "C - Prefabs", ZNetScene.instance);
+    public TurretsConfig Turrets { get; } = new(cfg, "B - Turrets");
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -32,7 +29,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 20, "Max processing time (in ms) per update");
         public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.Bind(section, nameof(ZonesAroundPlayers), 1, "Zones to process around each player");
         public ConfigEntry<float> MinPlayerDistance { get; } = cfg.Bind(section, nameof(MinPlayerDistance), 4f, "Min distance all players must have to a ZDO for it to be modified");
-        public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreGameVersionCheck), false, "True to ignore the game version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
+        public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreGameVersionCheck), true, "True to ignore the game version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
         public ConfigEntry<bool> IgnoreNetworkVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreNetworkVersionCheck), false, "True to ignore the network version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
         public ConfigEntry<bool> IgnoreItemDataVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreItemDataVersionCheck), false, "True to ignore the item data version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
         public ConfigEntry<bool> IgnoreWorldVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreWorldVersionCheck), false, "True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
@@ -130,6 +127,13 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> InfiniteStamina { get; } = cfg.Bind(section, nameof(InfiniteStamina), false, "True to give players infinite stamina");
         public ConfigEntry<bool> InfiniteBuildingStamina { get; } = cfg.Bind(section, nameof(InfiniteBuildingStamina), false, "True to give players infinite stamina when building");
         public ConfigEntry<bool> InfiniteFarmingStamina { get; } = cfg.Bind(section, nameof(InfiniteFarmingStamina), false, "True to give players infinite stamina when farming");
+    }
+
+    [RequiredPrefabs<Turret, Piece>]
+    public sealed class TurretsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> DontTargetPlayers { get; } = cfg.Bind(section, nameof(DontTargetPlayers), false, "True to stop ballistas from targeting players");
+        public ConfigEntry<bool> DontTargetTames { get; } = cfg.Bind(section, nameof(DontTargetTames), false, "True to stop ballistas from targeting tames");
     }
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
