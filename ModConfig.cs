@@ -134,6 +134,8 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> DontTargetPlayers { get; } = cfg.Bind(section, nameof(DontTargetPlayers), false, "True to stop ballistas from targeting players");
         public ConfigEntry<bool> DontTargetTames { get; } = cfg.Bind(section, nameof(DontTargetTames), false, "True to stop ballistas from targeting tames");
+        public ConfigEntry<bool> LoadFromContainers { get; } = cfg.Bind(section, nameof(LoadFromContainers), true, "True to automatically load ballistas from containers");
+        public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.Bind(section, nameof(LoadFromContainersRange), 4f, "Required proxmity of a container to a ballista to be used as ammo source");
     }
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)

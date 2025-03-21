@@ -23,6 +23,10 @@ This mod is in early development and the features experimental. Backup your worl
 - Windmills: Make windmills ignore wind intensity
 - Doors: Automatically close doors
 - Infinite Stamina: Give players infinite stamina when building/farming or always
+- Ballista
+    - Dont target players: stop ballistas from targeting players
+    - Dont target tames: stop ballistas from targeting tames
+    - Load from containers: reload ballistas with ammo from nearby containers
 - Global Keys
     - Set world preset/modifiers and global keys via config
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional

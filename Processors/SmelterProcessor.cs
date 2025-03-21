@@ -32,7 +32,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             continue;
                         }
 
-                        if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
+                        if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
                             continue;
 
                         if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
@@ -81,8 +81,9 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             }
                         }
 
-                        zdo.Set(ZDOVars.s_fuel, currentFuel + addFuel);
-
+                        zdo.ClaimOwnership();
+                        currentFuel += addFuel;
+                        zdo.Set(ZDOVars.s_fuel, currentFuel);
                         containerZdo.Inventory.Save();
 
                         addedFuel += (int)addFuel;
@@ -119,7 +120,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                                 continue;
                             }
 
-                            if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > 4)
+                            if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
                                 continue;
 
                             if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
@@ -168,10 +169,11 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                                 }
                             }
 
-                            zdo.SetOwner(ZDOMan.GetSessionID());
+                            zdo.ClaimOwnership();
                             for (int i = 0; i < addOre; i++)
                                 zdo.Set($"item{currentOre + i}", conversion.m_from.gameObject.name);
-                            zdo.Set(ZDOVars.s_queued, currentOre + addOre);
+                            currentOre += addOre;
+                            zdo.Set(ZDOVars.s_queued, currentOre);
 
                             containerZdo.Inventory.Save();
 
