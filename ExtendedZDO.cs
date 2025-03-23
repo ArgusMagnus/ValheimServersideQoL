@@ -91,6 +91,9 @@ sealed class ExtendedZDO : ZDO
     public ComponentFieldAccessor<TComponent> Fields<TComponent>() where TComponent : MonoBehaviour
         => (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key => new ComponentFieldAccessor<TComponent>(this, (TComponent)PrefabInfo.Components[key]));
 
+    public int GetState(int defaultValue = default) => GetInt(ZDOVars.s_state, defaultValue);
+    public void SetState(int value) => Set(ZDOVars.s_state, value);
+
     sealed class AdditionalData_(PrefabInfo prefabInfo)
     {
         public PrefabInfo PrefabInfo { get; } = prefabInfo;

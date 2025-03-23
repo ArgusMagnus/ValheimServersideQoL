@@ -1,9 +1,22 @@
 ﻿using BepInEx.Logging;
+using System.Collections.Concurrent;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
+    readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _openSince = new();
+
+    public override void PreProcess()
+    {
+        base.PreProcess();
+        foreach (var zdo in _openSince.Keys)
+        {
+            if (!zdo.IsValid() || zdo.PrefabInfo.Door is null)
+                _openSince.TryRemove(zdo, out _);
+        }
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo.Door is null || float.IsNaN(Config.Doors.AutoCloseMinPlayerDistance.Value))
@@ -17,9 +30,18 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
             return false;
 
         const int StateClosed = 0;
+        if (zdo.GetState() is StateClosed)
+        {
+            _openSince.TryRemove(zdo, out _);
+            return true;
+        }
 
-        if (zdo.GetInt(ZDOVars.s_state) is not StateClosed)
-            zdo.Set(ZDOVars.s_state, StateClosed);
+        var openSince = _openSince.GetOrAdd(zdo, DateTimeOffset.UtcNow);
+        if (DateTimeOffset.UtcNow - openSince < TimeSpan.FromSeconds(2))
+            return false;
+
+        zdo.SetState(StateClosed);
+        _openSince.TryRemove(zdo, out _);
 
         return true;
     }

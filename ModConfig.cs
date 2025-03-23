@@ -118,7 +118,7 @@ sealed class ModConfig(ConfigFile cfg)
     [RequiredPrefabs<Door>]
     public sealed class DoorsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), 8f,
+        public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), 4f,
             $"Min distance all players must have to the door before it is closed. {float.NaN} to disable this feature");
     }
 
