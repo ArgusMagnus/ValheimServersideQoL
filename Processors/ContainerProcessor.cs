@@ -1,5 +1,4 @@
 ﻿using BepInEx.Logging;
-using System.Drawing;
 
 namespace Valheim.ServersideQoL.Processors;
 

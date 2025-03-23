@@ -20,7 +20,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Modify crafting station extension max distances <see cref="StationExtension.m_maxStationDistance"/>
     /// - Feed tames from containers
     /// - Prevent <see cref="Catapult"/> from accepting equipment as ammo. Test what <see cref="Catapult.m_onlyUseIncludedProjectiles"/> does
-    /// - <see cref="WearNTear"/> <see cref="WearNTearUpdater"/>
+    /// - Increase wisp light radius <see cref="Demister"/> <see cref="SE_Demister"/> <see cref="MistEmitter"/> <see cref="Mister"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

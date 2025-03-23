@@ -16,56 +16,45 @@ interface IZDOInventory
 sealed class ExtendedZDO : ZDO
 {
     ZDOID _lastId = ZDOID.None;
-
-    ConcurrentDictionary<Type, object>? _componentFieldAccessors;
-    Dictionary<Processor, uint>? _processorDataRevisions;
-    PrefabInfo _prefabInfo = PrefabInfo.Dummy;
-    ZDOInventory? _inventory;
-    PlayerData_? _playerData;
-    
-    public PrefabInfo PrefabInfo
+    AdditionalData_? _addData;
+    AdditionalData_ AddData
     {
         get
         {
-            if (_lastId != m_uid)
+            if (_lastId != m_uid || _addData is null)
             {
-                if (SharedProcessorState.PrefabInfo.TryGetValue(GetPrefab(), out var prefabInfo))
-                    _prefabInfo = prefabInfo;
-                else
-                    _prefabInfo = PrefabInfo.Dummy;
                 _lastId = m_uid;
-
-                _hasFields = null;
-                _componentFieldAccessors?.Clear();
-                _processorDataRevisions?.Clear();
-                _inventory = null;
+                if (SharedProcessorState.PrefabInfo.TryGetValue(GetPrefab(), out var prefabInfo))
+                    _addData = new(prefabInfo);
+                else
+                    _addData = AdditionalData_.Dummy;
             }
-            return _prefabInfo;
+            return _addData;
         }
     }
 
-    public IZDOInventory Inventory => (_inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
-    public PlayerData_ PlayerData => _playerData ??= (PrefabInfo.Player is not null ? new() : throw new InvalidOperationException());
+    public PrefabInfo PrefabInfo => AddData.PrefabInfo;
+    public IZDOInventory Inventory => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
+    public PlayerData_ PlayerData => AddData.PlayerData ??= (PrefabInfo.Player is not null ? new() : throw new InvalidOperationException());
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
-    bool? _hasFields;
-    public bool HasFields => _hasFields ??= GetBool(__hasFieldsHash);
+    public bool HasFields => AddData.HasFields ??= GetBool(__hasFieldsHash);
 
     void SetHasFields()
     {
-        if (_hasFields is not true)
+        if (AddData.HasFields is not true)
         {
             Set(__hasFieldsHash, true);
-            _hasFields = true;
+            AddData.HasFields = true;
         }
     }
 
     public void UpdateProcessorDataRevision(Processor processor)
-        => (_processorDataRevisions ??= new())[processor] = DataRevision;
+        => (AddData.ProcessorDataRevisions ??= new())[processor] = DataRevision;
 
     public bool CheckProcessorDataRevisionChanged(Processor processor)
     {
-        if (_processorDataRevisions is null || !_processorDataRevisions.TryGetValue(processor, out var dataRevision) || dataRevision != DataRevision)
+        if (AddData.ProcessorDataRevisions is null || !AddData.ProcessorDataRevisions.TryGetValue(processor, out var dataRevision) || dataRevision != DataRevision)
             return true;
         return false;
     }
@@ -74,11 +63,7 @@ sealed class ExtendedZDO : ZDO
     {
         ClaimOwnershipInternal();
         ZDOMan.instance.DestroyZDO(this);
-        _hasFields = null;
-        _componentFieldAccessors = null;
-        _processorDataRevisions = null;
-        _inventory = null;
-        _playerData = null;
+        _addData = null;
     }
 
     public ExtendedZDO Recreate()
@@ -95,12 +80,8 @@ sealed class ExtendedZDO : ZDO
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.Deserialize(new(pkg.GetArray()));
         zdo.SetOwnerInternal(owner);
-        (zdo._hasFields, _hasFields) = (_hasFields, null);
-        (zdo._componentFieldAccessors, _componentFieldAccessors) = (_componentFieldAccessors, null);
-        (zdo._processorDataRevisions, _processorDataRevisions) = (_processorDataRevisions, null);
-        (zdo._inventory, _inventory) = (_inventory, null);
-        zdo._inventory?.UpdateZDO(zdo);
-        (zdo._playerData, _playerData) = (_playerData, null);
+        (zdo._addData, _addData) = (_addData, null);
+        zdo._addData?.Inventory?.UpdateZDO(zdo);
         return zdo;
     }
 
@@ -108,8 +89,19 @@ sealed class ExtendedZDO : ZDO
     public void ClaimOwnershipInternal() => SetOwnerInternal(ZDOMan.GetSessionID());
 
     public ComponentFieldAccessor<TComponent> Fields<TComponent>() where TComponent : MonoBehaviour
-        => (ComponentFieldAccessor<TComponent>)(_componentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key => new ComponentFieldAccessor<TComponent>(this, (TComponent)PrefabInfo.Components[key]));
+        => (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key => new ComponentFieldAccessor<TComponent>(this, (TComponent)PrefabInfo.Components[key]));
 
+    sealed class AdditionalData_(PrefabInfo prefabInfo)
+    {
+        public PrefabInfo PrefabInfo { get; } = prefabInfo;
+        public ConcurrentDictionary<Type, object>? ComponentFieldAccessors { get; set; }
+        public Dictionary<Processor, uint>? ProcessorDataRevisions { get; set; }
+        public ZDOInventory? Inventory { get; set; }
+        public PlayerData_? PlayerData { get; set; }
+        public bool? HasFields { get; set; }
+
+        public static AdditionalData_ Dummy { get; } = new(PrefabInfo.Dummy);
+    }
 
     public sealed class ComponentFieldAccessor<TComponent>(ExtendedZDO zdo, TComponent component)
     {
@@ -143,7 +135,7 @@ sealed class ExtendedZDO : ZDO
                 return (T)field.GetValue(_component);
 
             var hash = $"{typeof(TComponent).Name}.{field.Name}".GetStableHashCode();
-            return getter(_zdo, hash, _component is null ? default : (T)field.GetValue(_component));
+            return getter(_zdo, hash, (T)field.GetValue(_component));
         }
 
         public bool GetBool(Expression<Func<TComponent, bool>> fieldExpression)
