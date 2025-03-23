@@ -35,7 +35,6 @@ sealed class ExtendedZDO : ZDO
 
     public PrefabInfo PrefabInfo => AddData.PrefabInfo;
     public IZDOInventory Inventory => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
-    public PlayerData_ PlayerData => AddData.PlayerData ??= (PrefabInfo.Player is not null ? new() : throw new InvalidOperationException());
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
     public bool HasFields => AddData.HasFields ??= GetBool(__hasFieldsHash);
@@ -100,7 +99,6 @@ sealed class ExtendedZDO : ZDO
         public ConcurrentDictionary<Type, object>? ComponentFieldAccessors { get; set; }
         public Dictionary<Processor, uint>? ProcessorDataRevisions { get; set; }
         public ZDOInventory? Inventory { get; set; }
-        public PlayerData_? PlayerData { get; set; }
         public bool? HasFields { get; set; }
 
         public static AdditionalData_ Dummy { get; } = new(PrefabInfo.Dummy);
@@ -303,12 +301,5 @@ sealed class ExtendedZDO : ZDO
             _dataRevision = ZDO.DataRevision;
             _lastData = data;
         }
-    }
-
-    public sealed class PlayerData_
-    {
-        public float MaxStamina { get; set; }
-        public float UpdateStaminaThreshold { get; set; }
-        public float ResetStamina { get; set; } = float.NaN;
     }
 }

@@ -1,13 +1,33 @@
 ﻿using BepInEx.Logging;
+using System.Collections.Concurrent;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    static readonly int _hammerPrefab = "Hammer".GetStableHashCode();
-    static readonly int _hoePrefab = "Hoe".GetStableHashCode();
-    static readonly int _cultivatorPrefab = "Cultivator".GetStableHashCode();
-    static readonly int _scythePrefab = "Scythe".GetStableHashCode();
+    readonly int _hammerPrefab = "Hammer".GetStableHashCode();
+    readonly int _hoePrefab = "Hoe".GetStableHashCode();
+    readonly int _cultivatorPrefab = "Cultivator".GetStableHashCode();
+    readonly int _scythePrefab = "Scythe".GetStableHashCode();
+
+    readonly ConcurrentDictionary<ExtendedZDO, PlayerData> _playerData = new();
+
+    sealed class PlayerData
+    {
+        public float MaxStamina { get; set; }
+        public float UpdateStaminaThreshold { get; set; }
+        public float ResetStamina { get; set; } = float.NaN;
+    }
+
+    public override void PreProcess()
+    {
+        base.PreProcess();
+        foreach (var zdo in _playerData.Keys)
+        {
+            if (!zdo.IsValid() || zdo.PrefabInfo.Player is null)
+                _playerData.TryRemove(zdo, out _);
+        }
+    }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
@@ -23,28 +43,30 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab || rightItem == _scythePrefab))
                 setInfinite = true;
 
+            PlayerData? playerData = null;
             if (setInfinite)
             {
                 var stamina = zdo.GetFloat(ZDOVars.s_stamina);
                 if (!float.IsPositiveInfinity(stamina))
                 {
-                    zdo.PlayerData.MaxStamina = Math.Max(stamina, zdo.PlayerData.MaxStamina);
-                    if (stamina < zdo.PlayerData.MaxStamina * 0.9 && stamina > zdo.PlayerData.UpdateStaminaThreshold)
+                    playerData ??= _playerData.GetOrAdd(zdo, static _ => new());
+                    playerData.MaxStamina = Math.Max(stamina, playerData.MaxStamina);
+                    if (stamina < playerData.MaxStamina * 0.9 && stamina > playerData.UpdateStaminaThreshold)
                     {
-                        zdo.PlayerData.ResetStamina = stamina;
-                        zdo.PlayerData.UpdateStaminaThreshold = stamina;
+                        playerData.ResetStamina = stamina;
+                        playerData.UpdateStaminaThreshold = stamina;
                         RPC.UseStamina(zdo, float.NegativeInfinity);
                     }
-                    else if (stamina > zdo.PlayerData.UpdateStaminaThreshold)
-                        zdo.PlayerData.UpdateStaminaThreshold = 0;
+                    else if (stamina > playerData.UpdateStaminaThreshold)
+                        playerData.UpdateStaminaThreshold = 0;
                 }
             }
-            else if (!float.IsNaN(zdo.PlayerData.ResetStamina))
+            else if (!float.IsNaN((playerData ??= _playerData.GetOrAdd(zdo, static _ => new())).ResetStamina))
             {
                 var stamina = zdo.GetFloat(ZDOVars.s_stamina);
-                var diff = stamina - zdo.PlayerData.ResetStamina;
-                zdo.PlayerData.ResetStamina = float.NaN;
-                zdo.PlayerData.UpdateStaminaThreshold = 0;
+                var diff = stamina - playerData.ResetStamina;
+                playerData.ResetStamina = float.NaN;
+                playerData.UpdateStaminaThreshold = 0;
                 if (diff > 0)
                     RPC.UseStamina(zdo, diff);
             }
