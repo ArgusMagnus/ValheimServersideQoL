@@ -7,6 +7,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     static readonly int _hammerPrefab = "Hammer".GetStableHashCode();
     static readonly int _hoePrefab = "Hoe".GetStableHashCode();
     static readonly int _cultivatorPrefab = "Cultivator".GetStableHashCode();
+    static readonly int _scythePrefab = "Scythe".GetStableHashCode();
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
@@ -19,7 +20,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             var rightItem = zdo.GetInt(ZDOVars.s_rightItem);
             if (Config.Players.InfiniteBuildingStamina.Value && (rightItem == _hammerPrefab || rightItem == _hoePrefab))
                 setInfinite = true;
-            else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab))
+            else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab || rightItem == _scythePrefab))
                 setInfinite = true;
 
             if (setInfinite)
