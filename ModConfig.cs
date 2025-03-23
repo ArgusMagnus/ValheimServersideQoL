@@ -20,6 +20,7 @@ sealed class ModConfig(ConfigFile cfg)
     public DoorsConfig Doors { get; } = new(cfg, "B - Doors");
     public PlayersConfig Players { get; } = new(cfg, "B - Players");
     public TurretsConfig Turrets { get; } = new(cfg, "B - Turrets");
+    public WearNTearConfig WearNTear { get; } = new(cfg, "B - Build Pieces");
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -137,6 +138,25 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> DontTargetTames { get; } = cfg.Bind(section, nameof(DontTargetTames), false, "True to stop ballistas from targeting tames");
         public ConfigEntry<bool> LoadFromContainers { get; } = cfg.Bind(section, nameof(LoadFromContainers), true, "True to automatically load ballistas from containers");
         public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.Bind(section, nameof(LoadFromContainersRange), 4f, "Required proxmity of a container to a ballista to be used as ammo source");
+    }
+
+    [RequiredPrefabs<WearNTear>]
+    public sealed class WearNTearConfig(ConfigFile cfg, string section)
+    {
+        [RequiredPrefabs<WearNTear, Piece>]
+        public ConfigEntry<bool> DisableRainDamage { get; } = cfg.Bind(section, nameof(DisableRainDamage), false, "True to prevent rain from damaging build pieces");
+
+        [RequiredPrefabs<Piece>]
+        public ConfigEntry<DisableSupportRequirementsOptions> DisableSupportRequirements { get; } = cfg.Bind(section, nameof(DisableSupportRequirements), DisableSupportRequirementsOptions.None,
+            "Ignore support requirements on build pieces");
+
+        [Flags]
+        public enum DisableSupportRequirementsOptions
+        {
+            None,
+            PlayerBuilt = (1 << 0),
+            World = (1 << 1)
+        }
     }
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)

@@ -74,6 +74,11 @@ static class SharedProcessorState
                         if (float.IsNaN(floatProp.Value))
                             continue;
                         break;
+
+                    case ConfigEntryBase { SettingType: { IsEnum: true } } enumProp:
+                        if ((int)Convert.ChangeType(enumProp.BoxedValue, typeof(int)) is 0)
+                            continue;
+                        break;
                 }
 
                 classAttr ??= sectionProperty.PropertyType.GetCustomAttributes<RequiredPrefabsAttribute>();

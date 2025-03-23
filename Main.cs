@@ -14,11 +14,13 @@ public sealed partial class Main : BaseUnityPlugin
     /// <Ideas>
     /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
     ///   Would probably not retain the value when picked up and dropped again. Could probably be solved by abusing some field in <see cref="EggGrow.m_item"/>
-    /// - make ship pickup sunken items.
+    /// - make ship pickup sunken items. <see cref="ZoneSystem.c_WaterLevel"/>
     /// - Allow carts through portals
     /// - Modify crafting station ranges <see cref="CraftingStation.m_rangeBuild"/>
     /// - Modify crafting station extension max distances <see cref="StationExtension.m_maxStationDistance"/>
     /// - Feed tames from containers
+    /// - Prevent <see cref="Catapult"/> from accepting equipment as ammo. Test what <see cref="Catapult.m_onlyUseIncludedProjectiles"/> does
+    /// - <see cref="WearNTear"/> <see cref="WearNTearUpdater"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";
@@ -119,7 +121,9 @@ public sealed partial class Main : BaseUnityPlugin
         //_logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.Modifiers.Select(x => $"{x.Key} = {x.Value.Value}").Prepend("World Modifiers:")));
         _logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.KeyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}").Prepend("Global Keys:")));
 
+#if DEBUG
         _logger.LogInfo($"Registered Processors: {_processors.Count}");
+#endif
 
         StartCoroutine(CallExecute());
 
@@ -366,7 +370,10 @@ public sealed partial class Main : BaseUnityPlugin
         var logLevel = _watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug;
         _logger.Log(logLevel,
             $"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
+
+#if DEBUG
         _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
         _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
+#endif
     }
 }

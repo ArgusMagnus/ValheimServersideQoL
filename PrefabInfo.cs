@@ -25,6 +25,7 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components, Pie
     public Door? Door { get; } = Get<Door>(components);
     public ZSyncTransform? ZSyncTransform { get; } = Get<ZSyncTransform>(components);
     public Turret? Turret { get; } = Get<Turret>(components);
+    public WearNTear? WearNTear { get; } = Get<WearNTear>(components);
 
     public static PrefabInfo Dummy { get; } = new(new Dictionary<Type, MonoBehaviour>(0), null);
 }
