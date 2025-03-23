@@ -25,6 +25,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
+        public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.Bind(section, nameof(DiagnosticLogs), false, "Enables/disables diagnostic logs");
         public ConfigEntry<float> StartDelay { get; } = cfg.Bind(section, nameof(StartDelay), 0f, "Time (in seconds) before the mod starts processing the world");
         public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f, "How many times per second the mod processes the world");
         public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 20, "Max processing time (in ms) per update");

@@ -119,7 +119,10 @@ public sealed partial class Main : BaseUnityPlugin
 
         //_logger.LogInfo($"World Preset: {_cfg.GlobalsKeys.Preset.Value}");
         //_logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.Modifiers.Select(x => $"{x.Key} = {x.Value.Value}").Prepend("World Modifiers:")));
-        _logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.KeyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}").Prepend("Global Keys:")));
+        var keyConfigs = _cfg.GlobalsKeys.KeyConfigs;
+
+        if (_cfg.General.DiagnosticLogs.Value)
+            _logger.LogInfo(string.Join($"{Environment.NewLine}    ", keyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}").Prepend("Global Keys:")));
 
 #if DEBUG
         _logger.LogInfo($"Registered Processors: {_processors.Count}");
@@ -367,13 +370,15 @@ public sealed partial class Main : BaseUnityPlugin
             _unfinishedProcessingInRow = 0;
 
         _watch.Stop();
+
+        if (!_cfg.General.DiagnosticLogs.Value)
+            return;
+
         var logLevel = _watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug;
         _logger.Log(logLevel,
             $"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
 
-#if DEBUG
-        _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
-        _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
-#endif
+        _logger.LogDebug(string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
+        _logger.LogDebug(string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
 }
