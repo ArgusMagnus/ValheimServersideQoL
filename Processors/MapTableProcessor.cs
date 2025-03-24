@@ -20,7 +20,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         base.Initialize();
 
         var filter = Config.MapTables.AutoUpdatePortalsInclude.Value.Trim();
-        _includePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
+        _includePortalRegex = string.IsNullOrEmpty(filter.Trim(['*'])) ? null : new(ConvertToRegexPattern(filter));
         filter = Config.MapTables.AutoUpdatePortalsExclude.Value.Trim();
         _excludePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
 

@@ -1,8 +1,12 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 
@@ -237,6 +241,11 @@ public sealed partial class Main : BaseUnityPlugin
             SharedProcessorState.Initialize(_cfg);
             foreach (var processor in _processors)
                 processor.Initialize();
+
+#if DEBUG
+            GenerateDefaultConfigMarkdown(Config);
+#endif
+
             return;
         }
 
@@ -383,4 +392,33 @@ public sealed partial class Main : BaseUnityPlugin
         _logger.LogDebug(string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
         _logger.LogDebug(string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
+
+#if DEBUG
+    static void GenerateDefaultConfigMarkdown(ConfigFile cfg)
+    {
+        using var writer = new StreamWriter(ConfigMarkdownPath, false, new UTF8Encoding(false));
+        writer.WriteLine("|Category|Key|Default Value|Acceptable Values|Description|");
+        writer.WriteLine("|---|---|---|---|---|");
+
+        foreach (var (def, entry) in cfg.OrderBy(x => x.Key.Section).Select(x => (x.Key, x.Value)))
+        {
+            var section = Regex.Replace(def.Section, @"^[A-Z] - ", "");
+
+            var accetableValues = entry.Description.AcceptableValues?.ToDescriptionString();
+            if (accetableValues is not null)
+                accetableValues = Regex.Replace(accetableValues, @"^#.+?\:\s*", "");
+            else if (entry.SettingType == typeof(bool))
+                accetableValues = $"{bool.TrueString}/{bool.FalseString}";
+            else if (entry.SettingType.IsEnum)
+            {
+                if (entry.SettingType.GetCustomAttribute<FlagsAttribute>() is null)
+                    accetableValues = $"One of {string.Join(", ", Enum.GetNames(entry.SettingType))}";
+                else
+                    accetableValues = $"Combination of {string.Join(", ", Enum.GetNames(entry.SettingType))}";
+            }
+
+            writer.WriteLine($"|{section}|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description}|");
+        }
+    }
+#endif
 }

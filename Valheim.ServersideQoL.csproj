@@ -114,6 +114,9 @@ namespace $(RootNamespace)%3B
 partial class Main
 {
     const string PluginVersion = "$(Version)"%3B
+#if DEBUG
+    const string ConfigMarkdownPath = @"$(ProjectDir)\Configuration.md"%3B
+#endif
 }
       </MyTextLines> 
     </PropertyGroup>
@@ -133,7 +136,8 @@ partial class Main
     <Copy SourceFiles="%(RequiredReference.HintPath)" DestinationFolder="Dependencies" />
   </Target>
 
-  <Target Name="CreatePackage" AfterTargets="AfterBuild">
+  <Target Name="CreatePackage" AfterTargets="AfterBuild">	
+	<Exec Command="powershell -ExecutionPolicy ByPass -Command &quot;Add-Content -LiteralPath '$(OutDir)README.md' -Encoding UTF8 -Value (Get-Content Configuration.md -Encoding UTF8)&quot;" />	  
     <Exec Command="powershell -ExecutionPolicy ByPass -File Update-Manifest.ps1 -Path $(OutDir)manifest.json -Version $(Version)" />
     <ZipDirectory SourceDirectory="$(OutDir)" DestinationFile="$(OutDir)..\$(TargetName).zip" Overwrite="true" />
   </Target>
