@@ -2,7 +2,7 @@
   "name": "ServersideQoL",
   "version_number": "{Version}",
   "website_url": "https://github.com/ArgusMagnus/ValheimServersideQoL",
-  "description": "Serverside-only QoL mod (no client-installation needed)",
+  "description": "Serverside-only QoL mod, compatible with vanilla (e.g. XBox) clients. Auto-sort chests, track portals/ships on map tables, auto-close doors, refuel smelters from containers, disable rain damage, infinite building/farming stamina and more.",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2202"
   ]

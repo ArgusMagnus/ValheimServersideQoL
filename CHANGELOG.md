@@ -1,3 +1,6 @@
+### v0.2.1
+- New icon
+
 ### v0.2.0
 - Config for enabling/disabling logs. Disable logs by default
 

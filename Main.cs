@@ -21,6 +21,8 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Feed tames from containers
     /// - Prevent <see cref="Catapult"/> from accepting equipment as ammo. Test what <see cref="Catapult.m_onlyUseIncludedProjectiles"/> does
     /// - Increase wisp light radius <see cref="Demister"/> <see cref="SE_Demister"/> <see cref="MistEmitter"/> <see cref="Mister"/>
+    /// - Log/kick players with illegal equipment. Automatic via <see cref="ZDOVars.s_crafterID"/> == 0 or via configurable list of forbidden items
+    ///   <see cref="VisEquipment"/> <see cref="ZDOVars.s_rightItem"/>, etc.
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";
