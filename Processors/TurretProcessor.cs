@@ -34,12 +34,12 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             return false;
 
         var maxLoaded = fields.GetInt(x => x.m_maxAmmo);
-        var currentAmmo = zdo.GetInt(ZDOVars.s_ammo);
+        var currentAmmo = zdo.Vars.GetAmmo();
         var maxAdd = maxLoaded - currentAmmo;
         if (maxAdd < maxLoaded / 2)
             return false;
 
-        var allowedAmmoDropPrefabName = currentAmmo > 0 ? zdo.GetString(ZDOVars.s_ammoType) : null;
+        var allowedAmmoDropPrefabName = currentAmmo > 0 ? zdo.Vars.GetAmmoType() : null;
         ItemDrop.ItemData? allowedAmmo = null;
 
         var addedAmmo = 0;
@@ -64,7 +64,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Turrets.LoadFromContainersRange.Value)
                     continue;
 
-                if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
+                if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                     continue; // in use or player to close
 
                 removeSlots?.Clear();
@@ -110,8 +110,8 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 }
 
                 currentAmmo += addAmmo;
-                zdo.Set(ZDOVars.s_ammo, currentAmmo);
-                zdo.Set(ZDOVars.s_ammoType, allowedAmmoDropPrefabName);
+                zdo.Vars.SetAmmo(currentAmmo);
+                zdo.Vars.SetAmmoType(allowedAmmoDropPrefabName);
 
                 containerZdo.Inventory.Save();
 

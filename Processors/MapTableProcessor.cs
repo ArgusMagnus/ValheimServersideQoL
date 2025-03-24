@@ -49,7 +49,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             var pins = Enumerable.Empty<Pin>();
             if (Config.MapTables.AutoUpdatePortals.Value)
             {
-                pins = pins.Concat(ZDOMan.instance.GetPortals().Select(x => new Pin(Main.PluginGuidHash, x.GetString(ZDOVars.s_tag), x.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid)));
+                pins = pins.Concat(ZDOMan.instance.GetPortals().Cast<ExtendedZDO>().Select(x => new Pin(Main.PluginGuidHash, x.Vars.GetTag(), x.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid)));
                 if ((_includePortalRegex ?? _excludePortalRegex) is not null)
                     pins = pins.Where(x => _includePortalRegex?.IsMatch(x.Tag) is not false && _excludePortalRegex?.IsMatch(x.Tag) is not true);
             }
@@ -83,7 +83,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
         _existingPins.Clear();
         ZPackage pkg;
-        var data = zdo.GetByteArray(ZDOVars.s_data);
+        var data = zdo.Vars.GetData();
         if (data is not null)
         {
             data = Utils.Decompress(data);
@@ -130,7 +130,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             pkg.Write(pin.Author);
         }
 
-        zdo.Set(ZDOVars.s_data, Utils.Compress(pkg.GetArray()));
+        zdo.Vars.SetData(Utils.Compress(pkg.GetArray()));
 
         RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_mapsaved");
 

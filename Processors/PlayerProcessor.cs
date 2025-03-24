@@ -37,7 +37,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         if ((Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value) && Game.m_staminaRate > 0)
         {
             var setInfinite = false;
-            var rightItem = zdo.GetInt(ZDOVars.s_rightItem);
+            var rightItem = zdo.Vars.GetRightItem();
             if (Config.Players.InfiniteBuildingStamina.Value && (rightItem == _hammerPrefab || rightItem == _hoePrefab))
                 setInfinite = true;
             else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab || rightItem == _scythePrefab))
@@ -46,7 +46,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             PlayerData? playerData = null;
             if (setInfinite)
             {
-                var stamina = zdo.GetFloat(ZDOVars.s_stamina);
+                var stamina = zdo.Vars.GetStamina();
                 if (!float.IsPositiveInfinity(stamina))
                 {
                     playerData ??= _playerData.GetOrAdd(zdo, static _ => new());
@@ -63,7 +63,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             }
             else if (!float.IsNaN((playerData ??= _playerData.GetOrAdd(zdo, static _ => new())).ResetStamina))
             {
-                var stamina = zdo.GetFloat(ZDOVars.s_stamina);
+                var stamina = zdo.Vars.GetStamina();
                 var diff = stamina - playerData.ResetStamina;
                 playerData.ResetStamina = float.NaN;
                 playerData.UpdateStaminaThreshold = 0;
@@ -78,7 +78,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         if (zdo.GetPosition() is { y: > 1000 })
             return false; // player in dungeon
 
-        var playerName = zdo.GetString(ZDOVars.s_playerName);
+        var playerName = zdo.Vars.GetPlayerName();
 
         if (!SharedProcessorState.FollowingTamesByPlayerName.TryGetValue(playerName, out var tames))
             return false;
@@ -88,7 +88,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         foreach (var tameZdoId in tames)
         {
             var tameZdo = (ExtendedZDO)ZDOMan.instance.GetZDO(tameZdoId);
-            if (!tameZdo.IsValid() || tameZdo.GetString(ZDOVars.s_follow) != playerName)
+            if (!tameZdo.IsValid() || tameZdo.Vars.GetFollow() != playerName)
             {
                 tames.Remove(tameZdoId);
                 continue;

@@ -15,7 +15,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 		/// <see cref="Smelter.OnAddFuel"/>
 		{
             var maxFuel = zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel);
-            var currentFuel = zdo.GetFloat(ZDOVars.s_fuel);
+            var currentFuel = zdo.Vars.GetFuel();
             var maxFuelAdd = (int)(maxFuel - currentFuel);
             if (maxFuelAdd > maxFuel / 2)
             {
@@ -35,7 +35,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                         if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
                             continue;
 
-                        if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
+                        if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                             continue; // in use or player to close
 
                         removeSlots?.Clear();
@@ -83,7 +83,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
                         zdo.ClaimOwnership();
                         currentFuel += addFuel;
-                        zdo.Set(ZDOVars.s_fuel, currentFuel);
+                        zdo.Vars.SetFuel(currentFuel);
                         containerZdo.Inventory.Save();
 
                         addedFuel += (int)addFuel;
@@ -101,8 +101,8 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
         /// <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
         {
             int maxOre = zdo.Fields<Smelter>().GetInt(x => x.m_maxOre);
-            var currentOre = zdo.GetInt(ZDOVars.s_queued);
-            var maxOreAdd = maxOre - zdo.GetInt(ZDOVars.s_queued);
+            var currentOre = zdo.Vars.GetQueued();
+            var maxOreAdd = maxOre - currentOre;
             if (maxOreAdd > maxOre / 2)
             {
                 foreach (var conversion in zdo.PrefabInfo.Smelter.m_conversion)
@@ -123,7 +123,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
                                 continue;
 
-                            if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
+                            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
 
                             removeSlots?.Clear();
@@ -171,9 +171,9 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
                             zdo.ClaimOwnership();
                             for (int i = 0; i < addOre; i++)
-                                zdo.Set($"item{currentOre + i}", conversion.m_from.gameObject.name);
+                                zdo.Vars.SetItem(currentOre + i, conversion.m_from.gameObject.name);
                             currentOre += addOre;
-                            zdo.Set(ZDOVars.s_queued, currentOre);
+                            zdo.Vars.SetQueued(currentOre);
 
                             containerZdo.Inventory.Save();
 

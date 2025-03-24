@@ -11,7 +11,7 @@ sealed class WearNTearProcessor(ManualLogSource logger, ModConfig cfg) : Process
             return false;
 
         var fields = zdo.Fields<WearNTear>();
-        var isPlayerBuilt = zdo.PrefabInfo is { Piece: not null, PieceTable: not null } && zdo.GetLong(ZDOVars.s_creator) is not 0;
+        var isPlayerBuilt = zdo.PrefabInfo is { Piece: not null, PieceTable: not null } && zdo.Vars.GetCreator() is not 0;
         if (isPlayerBuilt && fields.SetIfChanged(x => x.m_noRoofWear, !Config.WearNTear.DisableRainDamage.Value))
             recreate = true;
 

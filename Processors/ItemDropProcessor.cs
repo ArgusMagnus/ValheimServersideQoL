@@ -12,7 +12,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 		if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
 			return false; // player to close
 
-		if (zdo.PrefabInfo.Piece is not null && zdo.GetBool(ZDOVars.s_piece))
+		if (zdo.PrefabInfo.Piece is not null && zdo.Vars.GetPiece())
 			return false; // ignore placed items (such as feasts)
 
 		var shared = zdo.PrefabInfo.ItemDrop.m_itemData.m_shared;
@@ -33,7 +33,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Containers.AutoPickupRange.Value * Config.Containers.AutoPickupRange.Value)
                 continue;
 
-            if (containerZdo.GetBool(ZDOVars.s_inUse) || !CheckMinDistance(peers, containerZdo))
+            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                 continue; // in use or player to close
 
             if (item is null)

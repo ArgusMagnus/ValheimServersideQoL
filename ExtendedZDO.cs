@@ -39,6 +39,8 @@ sealed class ExtendedZDO : ZDO
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
     public bool HasFields => AddData.HasFields ??= GetBool(__hasFieldsHash);
 
+    public ZDOVars_ Vars => new(this);
+
     void SetHasFields()
     {
         if (AddData.HasFields is not true)
@@ -90,8 +92,48 @@ sealed class ExtendedZDO : ZDO
     public ComponentFieldAccessor<TComponent> Fields<TComponent>() where TComponent : MonoBehaviour
         => (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key => new ComponentFieldAccessor<TComponent>(this, (TComponent)PrefabInfo.Components[key]));
 
-    public int GetState(int defaultValue = default) => GetInt(ZDOVars.s_state, defaultValue);
-    public void SetState(int value) => Set(ZDOVars.s_state, value);
+    public readonly struct ZDOVars_(ExtendedZDO zdo)
+    {
+        readonly ExtendedZDO _zdo = zdo;
+        public int GetState(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_state, defaultValue);
+        public void SetState(int value) => _zdo.Set(ZDOVars.s_state, value);
+        public long GetCreator(long defaultValue = default) => _zdo.GetLong(ZDOVars.s_creator, defaultValue);
+        public void SetCreator(long value) => _zdo.Set(ZDOVars.s_creator, value);
+        public bool GetInUse(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_inUse, defaultValue);
+        public void SetInUse(bool value) => _zdo.Set(ZDOVars.s_inUse, value);
+        public float GetFuel(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_fuel, defaultValue);
+        public void SetFuel(float value) => _zdo.Set(ZDOVars.s_fuel, value);
+        public bool GetPiece(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_piece, defaultValue);
+        public void SetPiece(bool value) => _zdo.Set(ZDOVars.s_piece, value);
+        public string GetItems(string defaultValue = "") => _zdo.GetString(ZDOVars.s_items, defaultValue);
+        public void SetItems(string value) => _zdo.Set(ZDOVars.s_items, value);
+        public string GetTag(string defaultValue = "") => _zdo.GetString(ZDOVars.s_tag, defaultValue);
+        public void SetTag(string value) => _zdo.Set(ZDOVars.s_tag, value);
+        public byte[]? GetData(byte[]? defaultValue = null) => _zdo.GetByteArray(ZDOVars.s_data, defaultValue);
+        public void SetData(byte[]? value) => _zdo.Set(ZDOVars.s_data, value);
+        public float GetStamina(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_stamina, defaultValue);
+        public void SetStamina(float value) => _zdo.Set(ZDOVars.s_stamina, value);
+        public string GetPlayerName(string defaultValue = "") => _zdo.GetString(ZDOVars.s_playerName, defaultValue);
+        public void SetPlayerName(string value) => _zdo.Set(ZDOVars.s_playerName, value);
+        public string GetFollow(string defaultValue = "") => _zdo.GetString(ZDOVars.s_follow, defaultValue);
+        public void SetFollow(string value) => _zdo.Set(ZDOVars.s_follow, value);
+        public int GetRightItem(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_rightItem, defaultValue);
+        public void SetRightItem(int value) => _zdo.Set(ZDOVars.s_rightItem, value);
+        public string GetText(string defaultValue = "") => _zdo.GetString(ZDOVars.s_text, defaultValue);
+        public void SetText(string value) => _zdo.Set(ZDOVars.s_text, value);
+        public string GetItem(int idx, string defaultValue = "") => _zdo.GetString(FormattableString.Invariant($"item{idx}"), defaultValue);
+        public void SetItem(int idx, string value) => _zdo.Set(FormattableString.Invariant($"item{idx}"), value);
+        public int GetQueued(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_queued, defaultValue);
+        public void SetQueued(int value) => _zdo.Set(ZDOVars.s_queued, value);
+        public bool GetTamed(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_tamed, defaultValue);
+        public void SetTamed(bool value) => _zdo.Set(ZDOVars.s_tamed, value);
+        public float GetTameTimeLeft(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_tameTimeLeft, defaultValue);
+        public void SetTameTimeLeft(float value) => _zdo.Set(ZDOVars.s_tameTimeLeft, value);
+        public int GetAmmo(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_ammo, defaultValue);
+        public void SetAmmo(int value) => _zdo.Set(ZDOVars.s_ammo, value);
+        public string GetAmmoType(string defaultValue = "") => _zdo.GetString(ZDOVars.s_ammoType, defaultValue);
+        public void SetAmmoType(string value) => _zdo.Set(ZDOVars.s_ammoType, value);
+    }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
     {
@@ -254,7 +296,7 @@ sealed class ExtendedZDO : ZDO
             if (_dataRevision == ZDO.DataRevision)
                 return this;
 
-            var data = ZDO.GetString(ZDOVars.s_items);
+            var data = ZDO.Vars.GetItems();
             if (_lastData == data)
                 return this;
 
@@ -289,7 +331,7 @@ sealed class ExtendedZDO : ZDO
             Inventory.Save(pkg);
             var dataRevision = ZDO.DataRevision;
             var data = pkg.GetBase64();
-            ZDO.Set(ZDOVars.s_items, data);
+            ZDO.Vars.SetItems(data);
             if (dataRevision != ZDO.DataRevision) // items changed
             {
                 // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.

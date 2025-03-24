@@ -11,7 +11,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             return false;
 
         var fields = zdo.Fields<Tameable>();
-        if (zdo.GetBool(ZDOVars.s_tamed))
+        if (zdo.Vars.GetTamed())
         {
             fields.Set(x => x.m_commandable, Config.Tames.MakeCommandable.Value);
             if (Config.Tames.AlwaysFed.Value)
@@ -19,7 +19,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             else
                 fields.Reset(x => x.m_fedDuration);
 
-            if (zdo.GetString(ZDOVars.s_follow) is { Length: > 0 } playerName)
+            if (zdo.Vars.GetFollow() is { Length: > 0 } playerName)
             {
                 SharedProcessorState.FollowingTamesByPlayerName.GetOrAdd(playerName, static _ => new()).Add(zdo.m_uid);
             }
@@ -28,7 +28,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         {
             /// <see cref="Tameable.GetRemainingTime()"/>
             var tameTime = fields.GetFloat(x => x.m_tamingTime);
-            var tameTimeLeft = zdo.GetFloat(ZDOVars.s_tameTimeLeft, tameTime);
+            var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
             if (tameTimeLeft < tameTime)
             {
                 var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);

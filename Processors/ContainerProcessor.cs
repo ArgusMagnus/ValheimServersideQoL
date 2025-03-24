@@ -9,7 +9,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (zdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
             return false;
 
-        if (zdo.GetLong(ZDOVars.s_creator) is 0)
+        if (zdo.Vars.GetCreator() is 0)
             return false; // Not sure if necessary. Are there non-player built pieces which are part of a PieceTable?
 
         var fields = zdo.Fields<Container>();
@@ -39,7 +39,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (!CheckMinDistance(peers, zdo))
             return false;
 
-        if (zdo.GetBool(ZDOVars.s_inUse))
+        if (zdo.Vars.GetInUse())
             return true; // in use or player to close
 
         if (inventory is { Items: { Count: 0 } })

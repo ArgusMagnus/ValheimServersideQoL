@@ -30,7 +30,7 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
             return false;
 
         const int StateClosed = 0;
-        if (zdo.GetState() is StateClosed)
+        if (zdo.Vars.GetState() is StateClosed)
         {
             _openSince.TryRemove(zdo, out _);
             return true;
@@ -40,7 +40,7 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         if (DateTimeOffset.UtcNow - openSince < TimeSpan.FromSeconds(2))
             return false;
 
-        zdo.SetState(StateClosed);
+        zdo.Vars.SetState(StateClosed);
         _openSince.TryRemove(zdo, out _);
 
         return true;

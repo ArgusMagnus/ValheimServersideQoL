@@ -25,7 +25,7 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (Config.Fireplaces.InfiniteFuel.Value)
         {
             fields.Set(x => x.m_secPerFuel, 0);
-            zdo.Set(ZDOVars.s_fuel, fields.GetFloat(x => x.m_maxFuel));
+            zdo.Vars.SetFuel(fields.GetFloat(x => x.m_maxFuel));
         }
         else
         {

@@ -21,7 +21,7 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         if (zdo.PrefabInfo.Sign is null || !Config.Signs.TimeSigns.Value)
             return false;
 
-        var text = zdo.GetString(ZDOVars.s_text);
+        var text = zdo.Vars.GetText();
         var newText = _clockRegex.Replace(text, match =>
         {
             if (_timeText is null)
@@ -37,7 +37,7 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         if (text != newText)
         {
             Logger.LogDebug($"Changing sign text from '{text}' to '{newText}'");
-            zdo.Set(ZDOVars.s_text, newText);
+            zdo.Vars.SetText(newText);
             //zdo.Set(ZDOVars.s_author, );
         }
 
