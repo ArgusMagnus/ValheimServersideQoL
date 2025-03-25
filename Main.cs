@@ -27,6 +27,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Increase wisp light radius <see cref="Demister"/> <see cref="SE_Demister"/> <see cref="MistEmitter"/> <see cref="Mister"/>
     /// - Log/kick players with illegal equipment. Automatic via <see cref="ZDOVars.s_crafterID"/> == 0 or via configurable list of forbidden items
     ///   <see cref="VisEquipment"/> <see cref="ZDOVars.s_rightItem"/>, etc.
+    /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

@@ -15,7 +15,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     sealed class PlayerData
     {
         public float MaxStamina { get; set; }
-        public float UpdateStaminaThreshold { get; set; }
+        public float UpdateStaminaThreshold { get; set; } = float.NegativeInfinity;
         public float ResetStamina { get; set; } = float.NaN;
     }
 
@@ -43,32 +43,38 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab || rightItem == _scythePrefab))
                 setInfinite = true;
 
-            PlayerData? playerData = null;
             if (setInfinite)
             {
                 var stamina = zdo.Vars.GetStamina();
-                if (!float.IsPositiveInfinity(stamina))
+                if (stamina < 1e6)
                 {
-                    playerData ??= _playerData.GetOrAdd(zdo, static _ => new());
+                    var playerData = _playerData.GetOrAdd(zdo, static _ => new());
                     playerData.MaxStamina = Math.Max(stamina, playerData.MaxStamina);
-                    if (stamina < playerData.MaxStamina * 0.9 && stamina > playerData.UpdateStaminaThreshold)
+                    if (stamina > playerData.UpdateStaminaThreshold)
                     {
-                        playerData.ResetStamina = stamina;
-                        playerData.UpdateStaminaThreshold = stamina;
-                        RPC.UseStamina(zdo, float.NegativeInfinity);
+                        if (stamina >= playerData.MaxStamina * 0.9f)
+                            playerData.UpdateStaminaThreshold = float.NegativeInfinity;
+                        else
+                        {
+                            playerData.UpdateStaminaThreshold = stamina;
+                            if (float.IsNaN(playerData.ResetStamina))
+                                playerData.ResetStamina = stamina;
+                            RPC.UseStamina(zdo, float.NegativeInfinity);
+                        }
                     }
-                    else if (stamina > playerData.UpdateStaminaThreshold)
-                        playerData.UpdateStaminaThreshold = 0;
                 }
             }
-            else if (!float.IsNaN((playerData ??= _playerData.GetOrAdd(zdo, static _ => new())).ResetStamina))
+            else if (_playerData.TryGetValue(zdo, out var playerData))
             {
-                var stamina = zdo.Vars.GetStamina();
-                var diff = stamina - playerData.ResetStamina;
-                playerData.ResetStamina = float.NaN;
-                playerData.UpdateStaminaThreshold = 0;
-                if (diff > 0)
-                    RPC.UseStamina(zdo, diff);
+                playerData.UpdateStaminaThreshold = float.NegativeInfinity;
+                if (!float.IsNaN(playerData.ResetStamina))
+                {
+                    var stamina = zdo.Vars.GetStamina();
+                    var diff = Math.Min(stamina - playerData.ResetStamina, playerData.MaxStamina);
+                    playerData.ResetStamina = float.NaN;
+                    if (diff > 0)
+                        RPC.UseStamina(zdo, diff);
+                }
             }
         }
 
