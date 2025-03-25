@@ -40,48 +40,48 @@ sealed class ModConfig(ConfigFile cfg)
     [RequiredPrefabs<Sign>]
     public sealed class SignsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), true, $"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time");
+        public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), false, $"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time");
     }
 
     [RequiredPrefabs<MapTable>]
     public sealed class MapTableConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> AutoUpdatePortals { get; } = cfg.Bind(section, nameof(AutoUpdatePortals), true, "True to update map tables with portal pins");
+        public ConfigEntry<bool> AutoUpdatePortals { get; } = cfg.Bind(section, nameof(AutoUpdatePortals), false, "True to update map tables with portal pins");
 
         public ConfigEntry<string> AutoUpdatePortalsExclude { get; } = cfg.Bind(section, nameof(AutoUpdatePortalsExclude), "", "Portals with a tag that matches this filter are not added to map tables");
         public ConfigEntry<string> AutoUpdatePortalsInclude { get; } = cfg.Bind(section, nameof(AutoUpdatePortalsInclude), "*", "Only portals with a tag that matches this filter are added to map tables");
 
         [RequiredPrefabs<Ship>]
-        public ConfigEntry<bool> AutoUpdateShips { get; } = cfg.Bind(section, nameof(AutoUpdateShips), true, "True to update map tables with ship pins");
+        public ConfigEntry<bool> AutoUpdateShips { get; } = cfg.Bind(section, nameof(AutoUpdateShips), false, "True to update map tables with ship pins");
     }
 
     [RequiredPrefabs<Tameable>]
     public sealed class TamesConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> MakeCommandable { get; } = cfg.Bind(section, nameof(MakeCommandable), true, "True to make all tames commandable (like wolves)");
-        //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), true, "True to feed tames from containers");
+        public ConfigEntry<bool> MakeCommandable { get; } = cfg.Bind(section, nameof(MakeCommandable), false, "True to make all tames commandable (like wolves)");
+        //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to feed tames from containers");
         [RequiredPrefabs<Character>]
-        public ConfigEntry<bool> SendTamingPogressMessages { get; } = cfg.Bind(section, nameof(SendTamingPogressMessages), true, "True to send taming progress messages to nearby players");
+        public ConfigEntry<bool> SendTamingPogressMessages { get; } = cfg.Bind(section, nameof(SendTamingPogressMessages), false, "True to send taming progress messages to nearby players");
         public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
         [RequiredPrefabs<Player>]
-        public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), true, "True to teleport following tames to the players location if the player gets too far away from them");
+        public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), false, "True to teleport following tames to the players location if the player gets too far away from them");
     }
 
     [RequiredPrefabs<Fireplace>]
     public sealed class FireplacesConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> MakeToggleable { get; } = cfg.Bind(section, nameof(MakeToggleable), true, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
-        public ConfigEntry<bool> InfiniteFuel { get; } = cfg.Bind(section, nameof(InfiniteFuel), true, "True to make all fireplaces have infinite fuel");
+        public ConfigEntry<bool> MakeToggleable { get; } = cfg.Bind(section, nameof(MakeToggleable), false, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
+        public ConfigEntry<bool> InfiniteFuel { get; } = cfg.Bind(section, nameof(InfiniteFuel), false, "True to make all fireplaces have infinite fuel");
     }
 
     [RequiredPrefabs<Container, Piece> /* Require Container and Piece */]
     [RequiredPrefabs<Container, Piece, ZSyncTransform>]
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), true, "True to auto sort container inventories");
+        public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), false, "True to auto sort container inventories");
         [RequiredPrefabs<ItemDrop>]
         [RequiredPrefabs<ItemDrop, Piece>]
-        public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), true, "True to automatically put dropped items into containers if they already contain said item");
+        public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), false, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a dropped item to be considered as auto pickup target");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
 
@@ -98,7 +98,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class SmeltersConfig(ConfigFile cfg, string section)
     {
         [RequiredPrefabs<Container, Piece>]
-        public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), true, "True to automatically feed smelters from nearby containers");
+        public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to automatically feed smelters from nearby containers");
         public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.Bind(section, nameof(FeedFromContainersRange), 4f, "Required proxmity of a container to a smelter to be used as feeding source");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastFuel), 1, "Minimum amout of fuel to leave in a container");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastOre), 1, "Minimum amout of ore to leave in a container");
@@ -107,7 +107,7 @@ sealed class ModConfig(ConfigFile cfg)
     [RequiredPrefabs<Windmill>]
     public sealed class WindmillsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> IgnoreWind { get; } = cfg.Bind(section, nameof(IgnoreWind), true, "True to make windmills ignore wind (Cover still decreases operating efficiency though)");
+        public ConfigEntry<bool> IgnoreWind { get; } = cfg.Bind(section, nameof(IgnoreWind), false, "True to make windmills ignore wind (Cover still decreases operating efficiency though)");
     }
 
     [RequiredPrefabs<Vagon>]
@@ -119,7 +119,7 @@ sealed class ModConfig(ConfigFile cfg)
     [RequiredPrefabs<Door>]
     public sealed class DoorsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), 4f,
+        public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), float.NaN,
             $"Min distance all players must have to the door before it is closed. {float.NaN} to disable this feature");
     }
 
@@ -137,7 +137,7 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> DontTargetPlayers { get; } = cfg.Bind(section, nameof(DontTargetPlayers), false, "True to stop ballistas from targeting players");
         public ConfigEntry<bool> DontTargetTames { get; } = cfg.Bind(section, nameof(DontTargetTames), false, "True to stop ballistas from targeting tames");
-        public ConfigEntry<bool> LoadFromContainers { get; } = cfg.Bind(section, nameof(LoadFromContainers), true, "True to automatically load ballistas from containers");
+        public ConfigEntry<bool> LoadFromContainers { get; } = cfg.Bind(section, nameof(LoadFromContainers), false, "True to automatically load ballistas from containers");
         public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.Bind(section, nameof(LoadFromContainersRange), 4f, "Required proxmity of a container to a ballista to be used as ammo source");
     }
 
