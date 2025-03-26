@@ -376,9 +376,9 @@ public sealed partial class Main : BaseUnityPlugin
                         zdo.Destroy();
                         break;
                     }
-                    if (recreate)
-                        _recreateNext.TryAdd(zdo.m_uid, zdo.GetDataAndDestroy());
                 }
+                if (!destroy && recreate)
+                    _recreateNext.TryAdd(zdo.m_uid, zdo.GetDataAndDestroy());
             }
         }
 

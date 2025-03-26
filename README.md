@@ -38,6 +38,8 @@ This mod is in early development and the features experimental. Backup your worl
 ## Known Issues
 - Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player
 
+If you experience an issue, please file a report at the [github repo](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
+
 ## Configuration
 The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/argusmagnus.ServersideQoL.cfg`.
 

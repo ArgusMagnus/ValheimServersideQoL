@@ -12,12 +12,13 @@ sealed class WearNTearProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
         var fields = zdo.Fields<WearNTear>();
         var isPlayerBuilt = zdo.PrefabInfo is { Piece: not null, PieceTable: not null } && zdo.Vars.GetCreator() is not 0;
-        if (isPlayerBuilt && fields.SetIfChanged(x => x.m_noRoofWear, !Config.WearNTear.DisableRainDamage.Value))
+        if (isPlayerBuilt && fields.SetIfChanged(x => x.m_noRoofWear, Config.WearNTear.DisableRainDamage.Value ? false : zdo.PrefabInfo.WearNTear.m_noRoofWear))
             recreate = true;
 
-        var disableSupport =
-            (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.PlayerBuilt) && isPlayerBuilt) ||
-            (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.World) && !isPlayerBuilt);
+        var disableSupport = Config.WearNTear.DisableSupportRequirements.Value is DisableSupportRequirementsOptions.None ?
+            !zdo.PrefabInfo.WearNTear.m_noSupportWear : (
+                (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.PlayerBuilt) && isPlayerBuilt) ||
+                (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.World) && !isPlayerBuilt));
 
         if (fields.SetIfChanged(x => x.m_noSupportWear, !disableSupport))
             recreate = true;

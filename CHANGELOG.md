@@ -1,3 +1,6 @@
+### v0.2.3
+- Fix boats getting destroyed [[8]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/8)
+
 ### v0.2.2
 - Change default config: disable all features by default [[7]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/7)
 - Potential fix for infinite stamina related issues [[4]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/4)
