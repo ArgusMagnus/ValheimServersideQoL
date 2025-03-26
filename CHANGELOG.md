@@ -1,3 +1,7 @@
+### v0.2.2
+- Change default config: disable all features by default
+- Potential fix for infinite stamina related issues
+
 ### v0.2.1
 - New icon
 

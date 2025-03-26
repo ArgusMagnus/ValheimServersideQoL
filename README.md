@@ -5,6 +5,7 @@ This mod adds some QoL features as a serverside-only mod. It's designed and test
 This mod is in early development and the features experimental. Backup your world before using this mod.
 
 ## Features
+**All of these features are disabled by default and must be enabled in the configuration first**
 - Time Signs: Signs which show the ingame time
 - Map Tables: Automatically add pins for portals and ships to map tables
 - Tames
@@ -33,8 +34,6 @@ This mod is in early development and the features experimental. Backup your worl
 - Global Keys
     - Set world preset/modifiers and global keys via config
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
-
-All of these features can be enabled/disabled separately via config.
 
 ## Known Issues
 - Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player
