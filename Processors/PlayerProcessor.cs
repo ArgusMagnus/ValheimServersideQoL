@@ -14,8 +14,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
     sealed class PlayerData
     {
-        public float MaxStamina { get; set; }
-        public float UpdateStaminaThreshold { get; set; } = float.NegativeInfinity;
+        public DateTimeOffset LastUpdated { get; set; }
         public float ResetStamina { get; set; } = float.NaN;
     }
 
@@ -45,36 +44,22 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
             if (setInfinite)
             {
-                var stamina = zdo.Vars.GetStamina();
-                if (stamina < 1e6)
+                var playerData = _playerData.GetOrAdd(zdo, static _ => new());
+                if (DateTimeOffset.UtcNow - playerData.LastUpdated > TimeSpan.FromSeconds(2))
                 {
-                    var playerData = _playerData.GetOrAdd(zdo, static _ => new());
-                    playerData.MaxStamina = Math.Max(stamina, playerData.MaxStamina);
-                    if (stamina > playerData.UpdateStaminaThreshold)
-                    {
-                        if (stamina >= playerData.MaxStamina * 0.9f)
-                            playerData.UpdateStaminaThreshold = float.NegativeInfinity;
-                        else
-                        {
-                            playerData.UpdateStaminaThreshold = stamina;
-                            if (float.IsNaN(playerData.ResetStamina))
-                                playerData.ResetStamina = stamina;
-                            RPC.UseStamina(zdo, float.NegativeInfinity);
-                        }
-                    }
+                    if (float.IsNaN(playerData.ResetStamina))
+                        playerData.ResetStamina = zdo.Vars.GetStamina();
+                    RPC.UseStamina(zdo, -99000f);
+                    playerData.LastUpdated = DateTimeOffset.UtcNow;
                 }
             }
-            else if (_playerData.TryGetValue(zdo, out var playerData))
+            else if (_playerData.TryGetValue(zdo, out var playerData) && !float.IsNaN(playerData.ResetStamina))
             {
-                playerData.UpdateStaminaThreshold = float.NegativeInfinity;
-                if (!float.IsNaN(playerData.ResetStamina))
-                {
-                    var stamina = zdo.Vars.GetStamina();
-                    var diff = Math.Min(stamina - playerData.ResetStamina, playerData.MaxStamina);
-                    playerData.ResetStamina = float.NaN;
-                    if (diff > 0)
-                        RPC.UseStamina(zdo, diff);
-                }
+                var stamina = zdo.Vars.GetStamina();
+                var diff = stamina - playerData.ResetStamina;
+                playerData.ResetStamina = float.NaN;
+                if (diff > 0)
+                    RPC.UseStamina(zdo, diff);
             }
         }
 
