@@ -111,7 +111,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
                 currentAmmo += addAmmo;
                 zdo.Vars.SetAmmo(currentAmmo);
-                zdo.Vars.SetAmmoType(allowedAmmoDropPrefabName);
+                zdo.Vars.SetAmmoType(allowedAmmoDropPrefabName!);
 
                 containerZdo.Inventory.Save();
 

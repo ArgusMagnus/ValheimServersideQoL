@@ -67,24 +67,43 @@ sealed class ExtendedZDO : ZDO
         _addData = null;
     }
 
-    public ExtendedZDO Recreate()
+    public record ZDOData(int Prefab, Vector3 Position, long Owner, byte[] Data);
+
+    public ZDOData GetDataAndDestroy()
     {
-        var prefab = GetPrefab();
-        var pos = GetPosition();
-        var owner = GetOwner();
         var pkg = new ZPackage();
         Serialize(pkg);
+        var data = new ZDOData(GetPrefab(), GetPosition(), GetOwner(), pkg.GetArray());
+        Destroy();
+        return data;
+    }
 
-        ClaimOwnershipInternal();
-        ZDOMan.instance.DestroyZDO(this);
-
-        var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
-        zdo.Deserialize(new(pkg.GetArray()));
-        zdo.SetOwnerInternal(owner);
-        (zdo._addData, _addData) = (_addData, null);
-        zdo._addData?.Inventory?.UpdateZDO(zdo);
+    public static ExtendedZDO Create(ZDOData data)
+    {
+        var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(data.Position, data.Prefab);
+        zdo.Deserialize(new(data.Data));
+        zdo.SetOwnerInternal(data.Owner);
         return zdo;
     }
+
+    //public ExtendedZDO Recreate()
+    //{
+    //    var prefab = GetPrefab();
+    //    var pos = GetPosition();
+    //    var owner = GetOwner();
+    //    var pkg = new ZPackage();
+    //    Serialize(pkg);
+
+    //    ClaimOwnershipInternal();
+    //    ZDOMan.instance.DestroyZDO(this);
+
+    //    var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
+    //    zdo.Deserialize(new(pkg.GetArray()));
+    //    zdo.SetOwnerInternal(owner);
+    //    (zdo._addData, _addData) = (_addData, null);
+    //    zdo._addData?.Inventory?.UpdateZDO(zdo);
+    //    return zdo;
+    //}
 
     public void ClaimOwnership() => SetOwner(ZDOMan.GetSessionID());
     public void ClaimOwnershipInternal() => SetOwnerInternal(ZDOMan.GetSessionID());

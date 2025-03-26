@@ -1,6 +1,7 @@
 ### v0.2.2
-- Change default config: disable all features by default
-- Potential fix for infinite stamina related issues
+- Change default config: disable all features by default [[7]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/7)
+- Potential fix for infinite stamina related issues [[4]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/4)
+- Fix certain build pieces getting duplicated [[9]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/9)
 
 ### v0.2.1
 - New icon

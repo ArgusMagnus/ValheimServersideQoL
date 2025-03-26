@@ -28,6 +28,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Log/kick players with illegal equipment. Automatic via <see cref="ZDOVars.s_crafterID"/> == 0 or via configurable list of forbidden items
     ///   <see cref="VisEquipment"/> <see cref="ZDOVars.s_rightItem"/>, etc.
     /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/>
+    ///   <see cref="SE_Spawn"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";
@@ -51,6 +52,8 @@ public sealed partial class Main : BaseUnityPlugin
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
     readonly IReadOnlyList<Processor> _processors;
+    ConcurrentDictionary<ZDOID, ExtendedZDO.ZDOData> _recreate = new();
+    ConcurrentDictionary<ZDOID, ExtendedZDO.ZDOData> _recreateNext = new();
 
     public Main()
     {
@@ -360,6 +363,9 @@ public sealed partial class Main : BaseUnityPlugin
                 if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
                     continue;
 
+                if (_recreate.TryRemove(zdo.m_uid, out var recreateZdo))
+                    _recreateNext.TryAdd(zdo.m_uid, recreateZdo);
+
                 var destroy = false;
                 var recreate = false;
                 foreach (var processor in _processors)
@@ -371,10 +377,15 @@ public sealed partial class Main : BaseUnityPlugin
                         break;
                     }
                     if (recreate)
-                        zdo = zdo.Recreate();
+                        _recreateNext.TryAdd(zdo.m_uid, zdo.GetDataAndDestroy());
                 }
             }
         }
+
+        foreach (var zdoData in _recreate.Values)
+            ExtendedZDO.Create(zdoData);
+        _recreate.Clear();
+        (_recreate, _recreateNext) = (_recreateNext, _recreate);
 
         if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
             _unfinishedProcessingInRow++;
@@ -383,14 +394,16 @@ public sealed partial class Main : BaseUnityPlugin
 
         _watch.Stop();
 
+#if !DEBUG
         if (!_cfg.General.DiagnosticLogs.Value)
             return;
+#endif
 
         var logLevel = _watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug;
         _logger.Log(logLevel,
             $"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
 
-        _logger.LogDebug(string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
+        _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
         _logger.LogDebug(string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
 
