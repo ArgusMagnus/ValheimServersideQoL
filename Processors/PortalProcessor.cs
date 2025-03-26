@@ -21,7 +21,10 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreateers)
     {
         if (!_enabled || zdo.PrefabInfo.TeleportWorld is null || !_initialPortals.Contains(zdo))
+        {
+            zdo.Unregister(this);
             return false;
+        }
 
         /// <see cref="WearNTear.RPC_Remove"/>
         var owner = zdo.GetOwner();

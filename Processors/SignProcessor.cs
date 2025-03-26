@@ -19,7 +19,10 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo.Sign is null || !Config.Signs.TimeSigns.Value)
+        {
+            zdo.Unregister(this);
             return false;
+        }
 
         var text = zdo.Vars.GetText();
         var newText = _clockRegex.Replace(text, match =>

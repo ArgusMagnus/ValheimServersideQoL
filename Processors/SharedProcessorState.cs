@@ -47,92 +47,31 @@ static class SharedProcessorState
         dict.Clear();
         Ships.Clear();
 
-        List<HashSet<Type>> requiredTypes = new();
-        foreach (var sectionProperty in cfg.GetType().GetProperties().Where(x => x.PropertyType.IsClass))
+        var componentTypes = typeof(PrefabInfo).GetProperties().Select(x => x.PropertyType).Where(x => typeof(MonoBehaviour).IsAssignableFrom(x)).ToList();
+
+        var needsShips = false;
+        foreach (var prefab in ZNetScene.instance.m_prefabs)
         {
-            object? section = null;
-            IEnumerable<RequiredPrefabsAttribute>? classAttr = null;
-            foreach (var keyProperty in sectionProperty.PropertyType.GetProperties())
+            Dictionary<Type, MonoBehaviour>? components = null;
+            foreach (var componentType in componentTypes)
             {
-                section ??= sectionProperty.GetValue(cfg);
-
-                var attrs = keyProperty.GetCustomAttributes<RequiredPrefabsAttribute>();
-
-                switch (keyProperty.GetValue(section))
-                {
-                    default:
-                        if (attrs.Any())
-                            throw new Exception($"{nameof(RequiredPrefabsAttribute)} only supported on classes and properties of type {nameof(ConfigEntry<bool>)}/{nameof(ConfigEntry<bool>)}");
-                        continue;
-
-                    case ConfigEntry<bool> boolProp:
-                        if (!boolProp.Value)
-                            continue;
-                        break;
-
-                    case ConfigEntry<float> floatProp:
-                        if (float.IsNaN(floatProp.Value))
-                            continue;
-                        break;
-
-                    case ConfigEntryBase { SettingType: { IsEnum: true } } enumProp:
-                        if ((int)Convert.ChangeType(enumProp.BoxedValue, typeof(int)) is 0)
-                            continue;
-                        break;
-                }
-
-                classAttr ??= sectionProperty.PropertyType.GetCustomAttributes<RequiredPrefabsAttribute>();
-
-                foreach (var attr in attrs)
-                {
-                    var types = attr.Prefabs.ToHashSet();
-                    if (!requiredTypes.Any(x => x.SequenceEqual(types)))
-                        requiredTypes.Add(types);
-                }
+                var component = (prefab.GetComponent(componentType) ?? prefab.GetComponentInChildren(componentType)) as MonoBehaviour;
+                if (component is not null)
+                    (components ??= new()).Add(componentType, component);
             }
-
-            foreach (var attr in classAttr ?? [])
+            if (components is not null)
             {
-                if (attr.Prefabs.ToHashSet() is { } classTypes && !requiredTypes.Any(x => x.SequenceEqual(classTypes)))
-                    requiredTypes.Add(classTypes);
+                PieceTablesByPiece.TryGetValue(prefab.name, out var pieceTable);
+                var prefabInfo = new PrefabInfo(components, pieceTable);
+                dict.Add(prefab.name.GetStableHashCode(), prefabInfo);
+                needsShips = needsShips || prefabInfo.Ship is not null;
             }
         }
 
-        if (requiredTypes is { Count: > 0 })
+        if (needsShips)
         {
-            var needsShips = false;
-            foreach (var prefab in ZNetScene.instance.m_prefabs)
-            {
-                Dictionary<Type, MonoBehaviour>? components = null;
-                foreach (var requiredTypeList in requiredTypes)
-                {
-                    var prefabs = requiredTypeList
-                        .Select(x => (Type: x, Component: ((prefab.GetComponent(x) ?? prefab.GetComponentInChildren(x)) as MonoBehaviour)!))
-                        .Where(x => x.Component is not null)
-                        .ToList();
-                    if (prefabs.Count != requiredTypeList.Count)
-                        continue;
-                    foreach (var (type, component) in prefabs)
-                    {
-                        components ??= new();
-                        if (!components.ContainsKey(type))
-                            components.Add(type, component);
-                    }
-                }
-                if (components is not null)
-                {
-                    PieceTablesByPiece.TryGetValue(prefab.name, out var pieceTable);
-                    var prefabInfo = new PrefabInfo(components, pieceTable);
-                    dict.Add(prefab.name.GetStableHashCode(), prefabInfo);
-                    needsShips = needsShips || prefabInfo.Ship is not null;
-                }
-            }
-
-            if (needsShips)
-            {
-                foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
-                    Ships.Add(zdo);
-            }
+            foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
+                Ships.Add(zdo);
         }
     }
 }

@@ -20,11 +20,17 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo.Door is null || float.IsNaN(Config.Doors.AutoCloseMinPlayerDistance.Value))
+        {
+            zdo.Unregister(this);
             return false;
+        }
 
         /// <see cref="Door.CanInteract"/>
         if (zdo.PrefabInfo.Door.m_keyItem is not null || zdo.PrefabInfo.Door.m_canNotBeClosed)
+        {
+            zdo.Unregister(this);
             return false;
+        }
 
         if (!CheckMinDistance(peers, zdo, Config.Doors.AutoCloseMinPlayerDistance.Value))
             return false;

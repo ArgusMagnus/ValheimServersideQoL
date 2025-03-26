@@ -42,7 +42,10 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo.MapTable is null || !(Config.MapTables.AutoUpdatePortals.Value || Config.MapTables.AutoUpdateShips.Value))
+        {
+            zdo.Unregister(this);
             return false;
+        }
 
         if (_pins is { Count: 0 })
         {

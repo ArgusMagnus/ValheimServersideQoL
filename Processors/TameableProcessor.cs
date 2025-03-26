@@ -8,7 +8,10 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo.Tameable is null)
+        {
+            zdo.Unregister(this);
             return false;
+        }
 
         var fields = zdo.Fields<Tameable>();
         if (zdo.Vars.GetTamed())

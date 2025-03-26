@@ -6,8 +6,11 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 {
 	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
 	{
-		if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value)
-			return false;
+        if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value)
+        {
+            zdo.Unregister(this);
+            return false;
+        }
 
 		if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
 			return false; // player to close

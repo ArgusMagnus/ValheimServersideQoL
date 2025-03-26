@@ -6,8 +6,11 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
 	{
-		if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo.Smelter is null)
-			return false;
+        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo.Smelter is null)
+        {
+            zdo.Unregister(this);
+            return false;
+        }
 
 		if (!CheckMinDistance(peers, zdo))
 			return false; // player to close

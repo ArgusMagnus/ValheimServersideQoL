@@ -36,9 +36,9 @@ public sealed partial class Main : BaseUnityPlugin
     internal static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
 
     static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
-    readonly ManualLogSource _logger = BepInEx.Logging.Logger.CreateLogSource(PluginName);
+    internal static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
+    internal static new ModConfig Config { get; private set; }
 
-    readonly ModConfig _cfg;
     readonly Stopwatch _watch = new();
 
     ulong _executeCounter;
@@ -51,17 +51,15 @@ public sealed partial class Main : BaseUnityPlugin
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
-    readonly IReadOnlyList<Processor> _processors;
+    //readonly IReadOnlyList<Processor> _processors;
     ConcurrentDictionary<ZDOID, ExtendedZDO.ZDOData> _recreate = new();
     ConcurrentDictionary<ZDOID, ExtendedZDO.ZDOData> _recreateNext = new();
 
     public Main()
     {
-        _cfg = new(Config);
+        Config ??= new(base.Config);
 
-        _processors = Processor.CreateInstances(_logger, _cfg);
-
-        Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
+        base.Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
     }
 
     public void Awake()
@@ -77,7 +75,7 @@ public sealed partial class Main : BaseUnityPlugin
 
     public void Start()
     {
-        if (!_cfg.General.Enabled.Value)
+        if (!Config.General.Enabled.Value)
             return;
 
         var failed = false;
@@ -87,72 +85,72 @@ public sealed partial class Main : BaseUnityPlugin
             gameVersion = default;
         if (gameVersion != ExpectedGameVersion)
         {
-            _logger.LogWarning($"Unsupported game version: {gameVersion}, expected: {ExpectedGameVersion}");
+            Logger.LogWarning($"Unsupported game version: {gameVersion}, expected: {ExpectedGameVersion}");
             failed = true;
-            abort |= !_cfg.General.IgnoreGameVersionCheck.Value;
+            abort |= !Config.General.IgnoreGameVersionCheck.Value;
         }
         if (versionType.GetField("m_networkVersion")?.GetValue(null) is not uint networkVersion)
             networkVersion = default;
         if (networkVersion != ExpectedNetworkVersion)
         {
-            _logger.LogWarning($"Unsupported network version: {networkVersion}, expected: {ExpectedNetworkVersion}");
+            Logger.LogWarning($"Unsupported network version: {networkVersion}, expected: {ExpectedNetworkVersion}");
             failed = true;
-            abort |= !_cfg.General.IgnoreNetworkVersionCheck.Value;
+            abort |= !Config.General.IgnoreNetworkVersionCheck.Value;
         }
         if (versionType.GetField("m_itemDataVersion")?.GetValue(null) is not int itemDataVersion)
             itemDataVersion = default;
         if (itemDataVersion != ExpectedItemDataVersion)
         {
-            _logger.LogWarning($"Unsupported item data version: {itemDataVersion}, expected: {ExpectedItemDataVersion}");
+            Logger.LogWarning($"Unsupported item data version: {itemDataVersion}, expected: {ExpectedItemDataVersion}");
             failed = true;
-            abort |= !_cfg.General.IgnoreItemDataVersionCheck.Value;
+            abort |= !Config.General.IgnoreItemDataVersionCheck.Value;
         }
         if (versionType.GetField("m_worldVersion")?.GetValue(null) is not int worldVersion)
             worldVersion = default;
         if (worldVersion != ExpectedWorldVersion)
         {
-            _logger.LogWarning($"Unsupported world version: {worldVersion}, expected: {ExpectedWorldVersion}");
+            Logger.LogWarning($"Unsupported world version: {worldVersion}, expected: {ExpectedWorldVersion}");
             failed = true;
-            abort |= !_cfg.General.IgnoreWorldVersionCheck.Value;
+            abort |= !Config.General.IgnoreWorldVersionCheck.Value;
         }
 
         if (failed)
         {
             if (!abort)
-                _logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
+                Logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
             else
             {
-                _logger.LogError("Version checks failed. Mod execution is stopped");
+                Logger.LogError("Version checks failed. Mod execution is stopped");
                 return;
             }
         }
 
-        //_logger.LogInfo($"World Preset: {_cfg.GlobalsKeys.Preset.Value}");
-        //_logger.LogInfo(string.Join($"{Environment.NewLine}    ", _cfg.GlobalsKeys.Modifiers.Select(x => $"{x.Key} = {x.Value.Value}").Prepend("World Modifiers:")));
-        var keyConfigs = _cfg.GlobalsKeys.KeyConfigs;
+        //_logger.LogInfo($"World Preset: {Config.GlobalsKeys.Preset.Value}");
+        //_logger.LogInfo(string.Join($"{Environment.NewLine}    ", Config.GlobalsKeys.Modifiers.Select(x => $"{x.Key} = {x.Value.Value}").Prepend("World Modifiers:")));
+        var keyConfigs = Config.GlobalsKeys.KeyConfigs;
 
-        if (_cfg.General.DiagnosticLogs.Value)
-            _logger.LogInfo(string.Join($"{Environment.NewLine}    ", keyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}").Prepend("Global Keys:")));
+        if (Config.General.DiagnosticLogs.Value)
+            Logger.LogInfo(string.Join($"{Environment.NewLine}    ", keyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}").Prepend("Global Keys:")));
 
 #if DEBUG
-        _logger.LogInfo($"Registered Processors: {_processors.Count}");
+        Logger.LogInfo($"Registered Processors: {Processor.DefaultProcessors.Count}");
 #endif
 
         StartCoroutine(CallExecute());
 
         IEnumerator<YieldInstruction> CallExecute()
         {
-            yield return new WaitForSeconds(_cfg.General.StartDelay.Value);
+            yield return new WaitForSeconds(Config.General.StartDelay.Value);
             while (true)
             {
                 try { Execute(); }
                 catch (OperationCanceledException) { yield break; }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex);
+                    Logger.LogError(ex);
                     yield break;
                 }
-                yield return new WaitForSeconds(1f / _cfg.General.Frequency.Value);
+                yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
             }
         }
     }
@@ -195,7 +193,7 @@ public sealed partial class Main : BaseUnityPlugin
 
         if (ZNet.instance.IsServer() is false)
         {
-            _logger.LogWarning("Mod should only be installed on the host");
+            Logger.LogWarning("Mod should only be installed on the host");
             throw new OperationCanceledException();
         }
 
@@ -206,21 +204,21 @@ public sealed partial class Main : BaseUnityPlugin
         {
             _resetPrefabInfo = false;
 
-            if (!string.IsNullOrEmpty(_cfg.GlobalsKeys.Preset.Value))
+            if (!string.IsNullOrEmpty(Config.GlobalsKeys.Preset.Value))
             {
-                try { MyTerminal.ExecuteCommand("setworldpreset", _cfg.GlobalsKeys.Preset.Value); }
-                catch(Exception ex) { _logger.LogError(ex); }
+                try { MyTerminal.ExecuteCommand("setworldpreset", Config.GlobalsKeys.Preset.Value); }
+                catch(Exception ex) { Logger.LogError(ex); }
             }
 
-            foreach (var (modifier, value) in _cfg.GlobalsKeys.Modifiers.Select(x => (x.Key, x.Value.Value)).Where(x => !string.IsNullOrEmpty(x.Value)))
+            foreach (var (modifier, value) in Config.GlobalsKeys.Modifiers.Select(x => (x.Key, x.Value.Value)).Where(x => !string.IsNullOrEmpty(x.Value)))
             {
                 try { MyTerminal.ExecuteCommand("setworldmodifier", modifier, value); }
-                catch (Exception ex) { _logger.LogError(ex); }
+                catch (Exception ex) { Logger.LogError(ex); }
             }
 
             /// <see cref="FejdStartup.ParseServerArguments"/>
             /// This would not work correctly IF config was actually reloaded, as reset config values would not reset the global key
-            foreach (var (key, entry) in _cfg.GlobalsKeys.KeyConfigs.Where(x => !Equals(x.Value.DefaultValue, x.Value.BoxedValue)).Select(x => (x.Key, x.Value)))
+            foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Where(x => !Equals(x.Value.DefaultValue, x.Value.BoxedValue)).Select(x => (x.Key, x.Value)))
             {
                 if (entry.BoxedValue is bool boolValue)
                 {
@@ -235,19 +233,19 @@ public sealed partial class Main : BaseUnityPlugin
                     try { value = (float)Convert.ChangeType(entry.BoxedValue, typeof(float)); }
                     catch (Exception ex)
                     {
-                        _logger.LogError(ex);
+                        Logger.LogError(ex);
                         continue;
                     }
                     ZoneSystem.instance.SetGlobalKey(key, value);
                 }
             }
 
-            SharedProcessorState.Initialize(_cfg);
-            foreach (var processor in _processors)
+            SharedProcessorState.Initialize(Config);
+            foreach (var processor in Processor.DefaultProcessors)
                 processor.Initialize();
 
 #if DEBUG
-            GenerateDefaultConfigMarkdown(Config);
+            GenerateDefaultConfigMarkdown(base.Config);
 #endif
 
             return;
@@ -259,7 +257,7 @@ public sealed partial class Main : BaseUnityPlugin
         _watch.Restart();
 
         // roughly once per minute
-        if (_executeCounter % (ulong)(60 * _cfg.General.Frequency.Value) is 0)
+        if (_executeCounter % (ulong)(60 * Config.General.Frequency.Value) is 0)
         {
             //foreach (var (key, dict) in SharedProcessorState.ContainersByItemName.Select(x => (x.Key, x.Value)))
             //{
@@ -290,9 +288,9 @@ public sealed partial class Main : BaseUnityPlugin
         foreach (var peer in peers)
         {
             var playerSector = ZoneSystem.GetZone(peer.m_refPos);
-            for (int x = playerSector.x - _cfg.General.ZonesAroundPlayers.Value; x <= playerSector.x + _cfg.General.ZonesAroundPlayers.Value; x++)
+            for (int x = playerSector.x - Config.General.ZonesAroundPlayers.Value; x <= playerSector.x + Config.General.ZonesAroundPlayers.Value; x++)
             {
-                for (int y = playerSector.y - _cfg.General.ZonesAroundPlayers.Value; y <= playerSector.y + _cfg.General.ZonesAroundPlayers.Value; y++)
+                for (int y = playerSector.y - Config.General.ZonesAroundPlayers.Value; y <= playerSector.y + Config.General.ZonesAroundPlayers.Value; y++)
                 {
                     var sector = new Vector2i(x, y);
                     if (_playerSectorsOld.TryRemove(sector, out var sectorInfo))
@@ -340,12 +338,12 @@ public sealed partial class Main : BaseUnityPlugin
         if (_unfinishedProcessingInRow > SortPlayerSectorsThreshold)
             playerSectors = playerSectors.OrderBy(x => x.Value.InverseWeight);
 
-        foreach (var processor in _processors)
+        foreach (var processor in Processor.DefaultProcessors)
             processor.PreProcess();
 
         foreach (var (sector, sectorInfo) in playerSectors.Select(x => (x.Key, x.Value)))
         {
-            if (_watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value)
+            if (_watch.ElapsedMilliseconds > Config.General.MaxProcessingTime.Value)
                 break;
 
             processedSectors++;
@@ -355,7 +353,7 @@ public sealed partial class Main : BaseUnityPlugin
 
             totalZdos += sectorInfo.ZDOs.Count;
 
-            while (sectorInfo is { ZDOs: { Count: > 0 } } && _watch.ElapsedMilliseconds < _cfg.General.MaxProcessingTime.Value)
+            while (sectorInfo is { ZDOs: { Count: > 0 } } && _watch.ElapsedMilliseconds < Config.General.MaxProcessingTime.Value)
             {
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
@@ -368,7 +366,7 @@ public sealed partial class Main : BaseUnityPlugin
 
                 var destroy = false;
                 var recreate = false;
-                foreach (var processor in _processors)
+                foreach (var processor in zdo.Processors)
                 {
                     processor.Process(zdo, sectorInfo.Peers, ref destroy, ref recreate);
                     if (destroy)
@@ -395,16 +393,16 @@ public sealed partial class Main : BaseUnityPlugin
         _watch.Stop();
 
 #if !DEBUG
-        if (!_cfg.General.DiagnosticLogs.Value)
+        if (!Config.General.DiagnosticLogs.Value)
             return;
 #endif
 
-        var logLevel = _watch.ElapsedMilliseconds > _cfg.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug;
-        _logger.Log(logLevel,
+        var logLevel = _watch.ElapsedMilliseconds > Config.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug;
+        Logger.Log(logLevel,
             $"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
 
-        _logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
-        _logger.LogDebug(string.Join($"{Environment.NewLine}  ", _processors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
+        Logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
+        Logger.LogDebug(string.Join($"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
 
 #if DEBUG

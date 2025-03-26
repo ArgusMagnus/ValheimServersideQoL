@@ -50,6 +50,9 @@ sealed class ExtendedZDO : ZDO
         }
     }
 
+    public IReadOnlyList<Processor> Processors => AddData.Processors;
+    public void Unregister(Processor processor) => AddData.Ungregister(processor);
+
     public void UpdateProcessorDataRevision(Processor processor)
         => (AddData.ProcessorDataRevisions ??= new())[processor] = DataRevision;
 
@@ -156,11 +159,30 @@ sealed class ExtendedZDO : ZDO
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
     {
+        public IReadOnlyList<Processor> Processors { get; private set; } = Processor.DefaultProcessors;
         public PrefabInfo PrefabInfo { get; } = prefabInfo;
         public ConcurrentDictionary<Type, object>? ComponentFieldAccessors { get; set; }
         public Dictionary<Processor, uint>? ProcessorDataRevisions { get; set; }
         public ZDOInventory? Inventory { get; set; }
         public bool? HasFields { get; set; }
+
+        static ConcurrentDictionary<int, IReadOnlyList<Processor>> _processors = new();
+
+        public void Ungregister(Processor processor)
+        {
+            if (!Processors.Contains(processor))
+                return;
+
+            var hash = 0;
+            foreach (var x in Processors)
+            {
+                if (!ReferenceEquals(x, processor))
+                    hash = (hash, processor.GetType()).GetHashCode();
+            }
+
+            Processors = _processors.GetOrAdd(hash, _ => Processors.Where(x => !ReferenceEquals(x, processor)).ToList());
+            ProcessorDataRevisions?.Remove(processor);
+        }
 
         public static AdditionalData_ Dummy { get; } = new(PrefabInfo.Dummy);
     }

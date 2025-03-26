@@ -6,20 +6,17 @@ sealed class WindmillProcesser(ManualLogSource logger, ModConfig cfg) : Processo
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
+        zdo.Unregister(this);
         if (zdo.PrefabInfo.Windmill is null)
             return false;
 
         /// <see cref="Windmill.GetPowerOutput()"/>
         var fields = zdo.Fields<Windmill>();
-        if (fields.GetFloat(x => x.m_minWindSpeed) == (Config.Windmills.IgnoreWind.Value ? float.MinValue : zdo.PrefabInfo.Windmill.m_minWindSpeed))
-            return true;
-
-        if (Config.Windmills.IgnoreWind.Value)
-            fields.Set(x => x.m_minWindSpeed, float.MinValue);
-        else
+        if (!Config.Windmills.IgnoreWind.Value)
             fields.Reset(x => x.m_minWindSpeed);
+        else if (fields.SetIfChanged(x => x.m_minWindSpeed, float.MinValue))
+            recreate = true;
 
-        recreate = true;
         return true;
     }
 }

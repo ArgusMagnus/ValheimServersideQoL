@@ -6,11 +6,11 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
-        if (zdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
+        if (zdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null } || zdo.Vars.GetCreator() is 0)
+        {
+            zdo.Unregister(this);
             return false;
-
-        if (zdo.Vars.GetCreator() is 0)
-            return false; // Not sure if necessary. Are there non-player built pieces which are part of a PieceTable?
+        }
 
         var fields = zdo.Fields<Container>();
         var inventory = zdo.Inventory!;

@@ -7,28 +7,33 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
     {
         if (zdo.PrefabInfo is not { Turret: not null, Piece: not null, PieceTable: not null })
+        {
+            zdo.Unregister(this);
             return false;
+        }
 
         var fields = zdo.Fields<Turret>();
-        if (fields.GetBool(x => x.m_targetPlayers) != !Config.Turrets.DontTargetPlayers.Value)
-        {
-            fields.Set(x => x.m_targetPlayers, !Config.Turrets.DontTargetPlayers.Value);
+        if (!Config.Turrets.DontTargetPlayers.Value)
+            fields.Reset(x => x.m_targetPlayers);
+        else if (fields.SetIfChanged(x => x.m_targetPlayers, false))
             recreate = true;
-        }
-        if (fields.GetBool(x => x.m_targetTamed) != !Config.Turrets.DontTargetTames.Value)
-        {
-            fields.Set(x => x.m_targetTamed, !Config.Turrets.DontTargetTames.Value);
+
+        if (!Config.Turrets.DontTargetTames.Value)
+            fields.Reset(x => x.m_targetTamed);
+        else if (fields.SetIfChanged(x => x.m_targetTamed, false))
             recreate = true;
-        }
-        if (fields.GetBool(x => x.m_targetTamedConfig) != !Config.Turrets.DontTargetTames.Value)
-        {
-            fields.Set(x => x.m_targetTamedConfig, !Config.Turrets.DontTargetTames.Value);
+
+        if (!Config.Turrets.DontTargetTames.Value)
+            fields.Reset(x => x.m_targetTamedConfig);
+        else if (fields.SetIfChanged(x => x.m_targetTamedConfig, false))
             recreate = true;
-        }
 
         /// <see cref="Turret.RPC_AddAmmo"/>
         if (!Config.Turrets.LoadFromContainers.Value)
-            return true;
+        {
+            zdo.Unregister(this);
+            return false;
+        }
 
         if (!CheckMinDistance(peers, zdo))
             return false;
@@ -37,7 +42,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         var currentAmmo = zdo.Vars.GetAmmo();
         var maxAdd = maxLoaded - currentAmmo;
         if (maxAdd < maxLoaded / 2)
-            return false;
+            return currentAmmo > 0;
 
         var allowedAmmoDropPrefabName = currentAmmo > 0 ? zdo.Vars.GetAmmoType() : null;
         ItemDrop.ItemData? allowedAmmo = null;
@@ -127,6 +132,6 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         //else
         //    RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_noturretammo");
 
-        return false;
+        return currentAmmo > 0;
     }
 }

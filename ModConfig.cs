@@ -37,50 +37,41 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> IgnoreWorldVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreWorldVersionCheck), false, "True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
     }
 
-    [RequiredPrefabs<Sign>]
     public sealed class SignsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), false, $"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time");
     }
 
-    [RequiredPrefabs<MapTable>]
     public sealed class MapTableConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> AutoUpdatePortals { get; } = cfg.Bind(section, nameof(AutoUpdatePortals), false, "True to update map tables with portal pins");
-
         public ConfigEntry<string> AutoUpdatePortalsExclude { get; } = cfg.Bind(section, nameof(AutoUpdatePortalsExclude), "", "Portals with a tag that matches this filter are not added to map tables");
         public ConfigEntry<string> AutoUpdatePortalsInclude { get; } = cfg.Bind(section, nameof(AutoUpdatePortalsInclude), "*", "Only portals with a tag that matches this filter are added to map tables");
 
-        [RequiredPrefabs<Ship>]
         public ConfigEntry<bool> AutoUpdateShips { get; } = cfg.Bind(section, nameof(AutoUpdateShips), false, "True to update map tables with ship pins");
     }
 
-    [RequiredPrefabs<Tameable>]
     public sealed class TamesConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> MakeCommandable { get; } = cfg.Bind(section, nameof(MakeCommandable), false, "True to make all tames commandable (like wolves)");
         //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to feed tames from containers");
-        [RequiredPrefabs<Character>]
+
         public ConfigEntry<bool> SendTamingPogressMessages { get; } = cfg.Bind(section, nameof(SendTamingPogressMessages), false, "True to send taming progress messages to nearby players");
         public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
-        [RequiredPrefabs<Player>]
+
         public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), false, "True to teleport following tames to the players location if the player gets too far away from them");
     }
 
-    [RequiredPrefabs<Fireplace>]
     public sealed class FireplacesConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> MakeToggleable { get; } = cfg.Bind(section, nameof(MakeToggleable), false, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
         public ConfigEntry<bool> InfiniteFuel { get; } = cfg.Bind(section, nameof(InfiniteFuel), false, "True to make all fireplaces have infinite fuel");
     }
 
-    [RequiredPrefabs<Container, Piece> /* Require Container and Piece */]
-    [RequiredPrefabs<Container, Piece, ZSyncTransform>]
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), false, "True to auto sort container inventories");
-        [RequiredPrefabs<ItemDrop>]
-        [RequiredPrefabs<ItemDrop, Piece>]
+
         public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), false, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a dropped item to be considered as auto pickup target");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
@@ -94,36 +85,30 @@ sealed class ModConfig(ConfigFile cfg)
                 .Bind(section, $"InventorySize_{x.Name}", $"{x.Container.m_width}x{x.Container.m_height}", $"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'"));
     }
 
-    [RequiredPrefabs<Smelter>]
     public sealed class SmeltersConfig(ConfigFile cfg, string section)
     {
-        [RequiredPrefabs<Container, Piece>]
         public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to automatically feed smelters from nearby containers");
         public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.Bind(section, nameof(FeedFromContainersRange), 4f, "Required proxmity of a container to a smelter to be used as feeding source");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastFuel), 1, "Minimum amout of fuel to leave in a container");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastOre), 1, "Minimum amout of ore to leave in a container");
     }
 
-    [RequiredPrefabs<Windmill>]
     public sealed class WindmillsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> IgnoreWind { get; } = cfg.Bind(section, nameof(IgnoreWind), false, "True to make windmills ignore wind (Cover still decreases operating efficiency though)");
     }
 
-    [RequiredPrefabs<Vagon>]
     public sealed class CartsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), float.NaN, "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight");
     }
 
-    [RequiredPrefabs<Door>]
     public sealed class DoorsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), float.NaN,
             $"Min distance all players must have to the door before it is closed. {float.NaN} to disable this feature");
     }
 
-    [RequiredPrefabs<Player>]
     public sealed class PlayersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> InfiniteBuildingStamina { get; } = cfg.Bind(section, nameof(InfiniteBuildingStamina), false,
@@ -132,7 +117,6 @@ sealed class ModConfig(ConfigFile cfg)
             $"True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0");
     }
 
-    [RequiredPrefabs<Turret, Piece>]
     public sealed class TurretsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> DontTargetPlayers { get; } = cfg.Bind(section, nameof(DontTargetPlayers), false, "True to stop ballistas from targeting players");
@@ -141,13 +125,10 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.Bind(section, nameof(LoadFromContainersRange), 4f, "Required proxmity of a container to a ballista to be used as ammo source");
     }
 
-    [RequiredPrefabs<WearNTear>]
     public sealed class WearNTearConfig(ConfigFile cfg, string section)
     {
-        [RequiredPrefabs<WearNTear, Piece>]
         public ConfigEntry<bool> DisableRainDamage { get; } = cfg.Bind(section, nameof(DisableRainDamage), false, "True to prevent rain from damaging build pieces");
 
-        [RequiredPrefabs<Piece>]
         public ConfigEntry<DisableSupportRequirementsOptions> DisableSupportRequirements { get; } = cfg.Bind(section, nameof(DisableSupportRequirements), DisableSupportRequirementsOptions.None,
             "Ignore support requirements on build pieces");
 
@@ -171,7 +152,6 @@ sealed class ModConfig(ConfigFile cfg)
         IReadOnlyDictionary<GlobalKeys, ConfigEntryBase>? _keyConfigs;
         public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs => _keyConfigs ??= GetGlobalKeyEntries(cfg, section);
 
-        [RequiredPrefabs<TeleportWorld>]
         public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
             $"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional");
 
@@ -289,18 +269,3 @@ sealed class ModConfig(ConfigFile cfg)
         }
     }
 }
-
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = true)]
-abstract class RequiredPrefabsAttribute(params Type[] prefabs) : Attribute
-{
-    public Type[] Prefabs { get; } = prefabs;
-}
-
-sealed class RequiredPrefabsAttribute<T>() : RequiredPrefabsAttribute(typeof(T))
-    where T : MonoBehaviour;
-
-sealed class RequiredPrefabsAttribute<T1, T2>() : RequiredPrefabsAttribute(typeof(T1), typeof(T2))
-    where T1 : MonoBehaviour where T2 : MonoBehaviour;
-
-sealed class RequiredPrefabsAttribute<T1, T2, T3>() : RequiredPrefabsAttribute(typeof(T1), typeof(T2), typeof(T3))
-    where T1 : MonoBehaviour where T2 : MonoBehaviour where T3 : MonoBehaviour;
