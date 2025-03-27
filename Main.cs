@@ -80,36 +80,27 @@ public sealed partial class Main : BaseUnityPlugin
 
         var failed = false;
         var abort = false;
-        var versionType = typeof(Game).Assembly.GetType("Version", true);
-        if (versionType.GetProperty("CurrentVersion")?.GetValue(null) is not GameVersion gameVersion)
-            gameVersion = default;
-        if (gameVersion != ExpectedGameVersion)
+        if (RuntimeInformation.Instance.GameVersion != ExpectedGameVersion)
         {
-            Logger.LogWarning($"Unsupported game version: {gameVersion}, expected: {ExpectedGameVersion}");
+            Logger.LogWarning($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}");
             failed = true;
             abort |= !Config.General.IgnoreGameVersionCheck.Value;
         }
-        if (versionType.GetField("m_networkVersion")?.GetValue(null) is not uint networkVersion)
-            networkVersion = default;
-        if (networkVersion != ExpectedNetworkVersion)
+        if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
         {
-            Logger.LogWarning($"Unsupported network version: {networkVersion}, expected: {ExpectedNetworkVersion}");
+            Logger.LogWarning($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}");
             failed = true;
             abort |= !Config.General.IgnoreNetworkVersionCheck.Value;
         }
-        if (versionType.GetField("m_itemDataVersion")?.GetValue(null) is not int itemDataVersion)
-            itemDataVersion = default;
-        if (itemDataVersion != ExpectedItemDataVersion)
+        if (RuntimeInformation.Instance.ItemDataVersion != ExpectedItemDataVersion)
         {
-            Logger.LogWarning($"Unsupported item data version: {itemDataVersion}, expected: {ExpectedItemDataVersion}");
+            Logger.LogWarning($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}");
             failed = true;
             abort |= !Config.General.IgnoreItemDataVersionCheck.Value;
         }
-        if (versionType.GetField("m_worldVersion")?.GetValue(null) is not int worldVersion)
-            worldVersion = default;
-        if (worldVersion != ExpectedWorldVersion)
+        if (RuntimeInformation.Instance.WorldVersion != ExpectedWorldVersion)
         {
-            Logger.LogWarning($"Unsupported world version: {worldVersion}, expected: {ExpectedWorldVersion}");
+            Logger.LogWarning($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}");
             failed = true;
             abort |= !Config.General.IgnoreWorldVersionCheck.Value;
         }
@@ -248,6 +239,7 @@ public sealed partial class Main : BaseUnityPlugin
             GenerateDefaultConfigMarkdown(base.Config);
 #endif
 
+            base.Config.Bind("Dummy", "Dummy", "", $"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}");
             return;
         }
 
