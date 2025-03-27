@@ -72,6 +72,7 @@ public sealed partial class Main : BaseUnityPlugin
     const uint ExpectedNetworkVersion = 33;
     const uint ExpectedItemDataVersion = 106;
     const uint ExpectedWorldVersion = 35;
+    const string DummyConfigSection = "Dummy";
 
     public void Start()
     {
@@ -239,7 +240,7 @@ public sealed partial class Main : BaseUnityPlugin
             GenerateDefaultConfigMarkdown(base.Config);
 #endif
 
-            base.Config.Bind("Dummy", "Dummy", "", $"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}");
+            base.Config.Bind(DummyConfigSection, "Dummy", "", $"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}");
             return;
         }
 
@@ -412,6 +413,9 @@ public sealed partial class Main : BaseUnityPlugin
 
         foreach (var (def, entry) in cfg.OrderBy(x => x.Key.Section).Select(x => (x.Key, x.Value)))
         {
+            if (def.Section == DummyConfigSection)
+                continue;
+
             var section = Regex.Replace(def.Section, @"^[A-Z] - ", "");
 
             var accetableValues = entry.Description.AcceptableValues?.ToDescriptionString();

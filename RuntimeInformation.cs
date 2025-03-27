@@ -1,6 +1,5 @@
 ﻿using BepInEx;
 using System.Reflection;
-using static Valheim.ServersideQoL.RuntimeInformation;
 
 namespace Valheim.ServersideQoL;
 
@@ -23,8 +22,9 @@ sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, i
             worldVersion = default;
 
         var loadedMods = AppDomain.CurrentDomain.GetAssemblies()
-            .SelectMany(x => x.ExportedTypes.Where(y => y != typeof(Main)).Select(y => y.GetCustomAttribute<BepInPlugin>()).Where(y => y is not null))
-            .Select(x => new Mod(x.GUID, x.Name, x.Version?.ToString()))
+            .Where(x => x != typeof(Main).Assembly)
+            .SelectMany(x => x.ExportedTypes.Select(y => y.GetCustomAttribute<BepInPlugin>()).Where(y => y is not null))
+            .Select(x => new Mod(x.GUID, x.Name, $"{x.Version}"))
             .ToList();
 
         var loadedModsStr = $"{{ {string.Join(", ", loadedMods)} }}";
