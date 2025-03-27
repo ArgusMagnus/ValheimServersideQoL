@@ -38,7 +38,7 @@ public sealed partial class Main : BaseUnityPlugin
 
     static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
     internal static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
-    internal static new ModConfig Config { get; private set; }
+    internal static new ModConfig Config { get; private set; } = default!;
 
     readonly Stopwatch _watch = new();
 

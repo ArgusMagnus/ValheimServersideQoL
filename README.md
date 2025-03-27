@@ -36,12 +36,18 @@ This mod is in early development and the features experimental. Backup your worl
     - Set world preset/modifiers and global keys via config
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
 
+### Feature Requests
+I'm developing this mod mainly for myself, so the main deciding factor if a feature gets implemented or not (besides if it is technically possible) is
+if I think it's something I may want to use myself.
+
+However, if you have an idea you think might fit this mod, I invite you to create a feature request issue in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
+
 ## Known Issues
 - Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player
 - Removing trader item progression requirements may cause Hunin/Munin to appear with hints to undiscovered biomes, etc.
   Going to the trader at night may result in night-time spawns of undefeated bosses.
 
-If you experience an issue, please file a report at the [github repo](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
+If you experience an issue, please file a report in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
 
 ## Configuration
 The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/argusmagnus.ServersideQoL.cfg`.
