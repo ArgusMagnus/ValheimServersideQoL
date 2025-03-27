@@ -1,3 +1,6 @@
+### v0.2.4
+- New feature: always unlock trader items (remove progression requirements for buying from trader items). Only supported on dedicated servers.
+
 ### v0.2.3
 - Fix boats getting destroyed [[8]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/8)
 - Fix for infinite stamina related issues [[4]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/4)

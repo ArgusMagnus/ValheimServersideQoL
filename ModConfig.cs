@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
@@ -21,6 +22,7 @@ sealed class ModConfig(ConfigFile cfg)
     public PlayersConfig Players { get; } = new(cfg, "B - Players");
     public TurretsConfig Turrets { get; } = new(cfg, "B - Turrets");
     public WearNTearConfig WearNTear { get; } = new(cfg, "B - Build Pieces");
+    public TradersConfig Traders { get; } = new(cfg, "B - Traders");
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -266,6 +268,27 @@ sealed class ModConfig(ConfigFile cfg)
             }
 
             return result;
+        }
+    }
+
+    public sealed class TradersConfig(ConfigFile cfg, string section)
+    {
+        IReadOnlyDictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>>? _alwaysUnlock;
+        public IReadOnlyDictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>> AlwaysUnlock => _alwaysUnlock ??= GetAlwaysUnlock(cfg, section);
+
+        static IReadOnlyDictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>> GetAlwaysUnlock(ConfigFile cfg, string section)
+        {
+            if (!ZNet.instance.IsServer() || !ZNet.instance.IsDedicated())
+                return new Dictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>>();
+
+            return ZNetScene.instance.m_prefabs.Select(x => x.GetComponent<Trader>()).Where(x => x is not null)
+                .Select(trader => (Trader: trader, Entries: (IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>)trader.m_items
+                    .Where(x => !string.IsNullOrEmpty(x.m_requiredGlobalKey))
+                    .Select(item => (item.m_requiredGlobalKey, cfg.Bind(section, $"{nameof(AlwaysUnlock)}{trader.name}{item.m_prefab.name}", false,
+                        $"Remove the progression requirements for buying {Localization.instance.Localize(item.m_prefab.m_itemData.m_shared.m_name)} from {Localization.instance.Localize(trader.m_name)}")))
+                    .ToList()))
+                .Where(x => x.Entries.Any())
+                .ToDictionary(x => x.Trader, x => x.Entries);
         }
     }
 }

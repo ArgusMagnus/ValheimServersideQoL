@@ -1,4 +1,5 @@
 ﻿using BepInEx.Logging;
+using System.Collections.Generic;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -67,6 +68,12 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         {
             /// <see cref="Player.UseStamina(float)"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(playerZdo.GetOwner(), playerZdo.m_uid, "UseStamina", value);
+        }
+
+        public static void SendGlobalKeys(ZNetPeer peer, List<string> keys)
+        {
+            /// <see cref="ZoneSystem.SendGlobalKeys"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "GlobalKeys", keys);
         }
     }
 }

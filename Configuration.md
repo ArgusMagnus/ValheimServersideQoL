@@ -89,6 +89,48 @@
 |Tames|SendTamingPogressMessages|False|True/False|True to send taming progress messages to nearby players|
 |Tames|AlwaysFed|False|True/False|True to make tames always fed (not hungry)|
 |Tames|TeleportFollow|False|True/False|True to teleport following tames to the players location if the player gets too far away from them|
+|Traders|AlwaysUnlockBogWitchScytheHandle|False|True/False|Remove the progression requirements for buying Scythe Handle from |
+|Traders|AlwaysUnlockBogWitchMushroomBzerker|False|True/False|Remove the progression requirements for buying Toadstool from |
+|Traders|AlwaysUnlockBogWitchFragrantBundle|False|True/False|Remove the progression requirements for buying Fragrant Bundle from |
+|Traders|AlwaysUnlockBogWitchSpiceForests|False|True/False|Remove the progression requirements for buying Woodland Herb Blend from |
+|Traders|AlwaysUnlockBogWitchSpiceOceans|False|True/False|Remove the progression requirements for buying Seafarer's Herbs from |
+|Traders|AlwaysUnlockBogWitchSpiceMountains|False|True/False|Remove the progression requirements for buying Mountain Peak Pepper Powder from |
+|Traders|AlwaysUnlockBogWitchSpicePlains|False|True/False|Remove the progression requirements for buying Grasslands Herbalist Harvest from |
+|Traders|AlwaysUnlockBogWitchSpiceMistlands|False|True/False|Remove the progression requirements for buying Herbs of the Hidden Hills from |
+|Traders|AlwaysUnlockBogWitchSpiceAshlands|False|True/False|Remove the progression requirements for buying Fiery Spice Powder from |
+|Traders|AlwaysUnlockHaldorYmirRemains|False|True/False|Remove the progression requirements for buying Ymir Flesh from Haldor|
+|Traders|AlwaysUnlockHaldorThunderstone|False|True/False|Remove the progression requirements for buying Thunder Stone from Haldor|
+|Traders|AlwaysUnlockHaldorChickenEgg|False|True/False|Remove the progression requirements for buying Egg from Haldor|
+|Traders|AlwaysUnlockHildirArmorDress2|False|True/False|Remove the progression requirements for buying Brown Dress with Shawl from Hildir|
+|Traders|AlwaysUnlockHildirArmorDress3|False|True/False|Remove the progression requirements for buying Brown Dress with Beads from Hildir|
+|Traders|AlwaysUnlockHildirArmorDress5|False|True/False|Remove the progression requirements for buying Blue Dress with Shawl from Hildir|
+|Traders|AlwaysUnlockHildirArmorDress6|False|True/False|Remove the progression requirements for buying Blue Dress with Beads from Hildir|
+|Traders|AlwaysUnlockHildirArmorDress8|False|True/False|Remove the progression requirements for buying Yellow Dress with Shawl from Hildir|
+|Traders|AlwaysUnlockHildirArmorDress9|False|True/False|Remove the progression requirements for buying Yellow Dress with Beads from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic2|False|True/False|Remove the progression requirements for buying Blue Tunic with Cape from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic3|False|True/False|Remove the progression requirements for buying Blue Tunic with Beads from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic5|False|True/False|Remove the progression requirements for buying Red Tunic with Cape from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic6|False|True/False|Remove the progression requirements for buying Red Tunic with Beads from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic8|False|True/False|Remove the progression requirements for buying Yellow Tunic with Cape from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic9|False|True/False|Remove the progression requirements for buying Yellow Tunic with Beads from Hildir|
+|Traders|AlwaysUnlockHildirArmorDress1|False|True/False|Remove the progression requirements for buying Plain Brown Dress from Hildir|
+|Traders|AlwaysUnlockHildirArmorDress4|False|True/False|Remove the progression requirements for buying Plain Blue Dress from Hildir|
+|Traders|AlwaysUnlockHildirArmorDress7|False|True/False|Remove the progression requirements for buying Plain Yellow Dress from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic1|False|True/False|Remove the progression requirements for buying Plain Blue Tunic from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic4|False|True/False|Remove the progression requirements for buying Plain Red Tunic from Hildir|
+|Traders|AlwaysUnlockHildirArmorTunic7|False|True/False|Remove the progression requirements for buying Plain Yellow Tunic from Hildir|
+|Traders|AlwaysUnlockHildirArmorHarvester1|False|True/False|Remove the progression requirements for buying Harvest Tunic from Hildir|
+|Traders|AlwaysUnlockHildirArmorHarvester2|False|True/False|Remove the progression requirements for buying Harvest Dress from Hildir|
+|Traders|AlwaysUnlockHildirHelmetHat1|False|True/False|Remove the progression requirements for buying Blue Tied Headscarf from Hildir|
+|Traders|AlwaysUnlockHildirHelmetHat2|False|True/False|Remove the progression requirements for buying Green Twisted Headscarf from Hildir|
+|Traders|AlwaysUnlockHildirHelmetHat3|False|True/False|Remove the progression requirements for buying Brown Fur Cap from Hildir|
+|Traders|AlwaysUnlockHildirHelmetHat4|False|True/False|Remove the progression requirements for buying Extravagant Green Cap from Hildir|
+|Traders|AlwaysUnlockHildirHelmetHat6|False|True/False|Remove the progression requirements for buying Yellow Tied Headscarf from Hildir|
+|Traders|AlwaysUnlockHildirHelmetHat7|False|True/False|Remove the progression requirements for buying Red Twisted Headscarf from Hildir|
+|Traders|AlwaysUnlockHildirHelmetHat8|False|True/False|Remove the progression requirements for buying Grey Fur Cap from Hildir|
+|Traders|AlwaysUnlockHildirHelmetHat9|False|True/False|Remove the progression requirements for buying Extravagant Orange Cap from Hildir|
+|Traders|AlwaysUnlockHildirHelmetStrawHat|False|True/False|Remove the progression requirements for buying Straw Hat from Hildir|
+|Traders|AlwaysUnlockHildirFireworksRocket_White|False|True/False|Remove the progression requirements for buying Basic Fireworks from Hildir|
 |Turrets|DontTargetPlayers|False|True/False|True to stop ballistas from targeting players|
 |Turrets|DontTargetTames|False|True/False|True to stop ballistas from targeting tames|
 |Turrets|LoadFromContainers|False|True/False|True to automatically load ballistas from containers|

@@ -400,8 +400,8 @@ public sealed partial class Main : BaseUnityPlugin
         Logger.Log(logLevel,
             $"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
 
-        Logger.Log(logLevel, string.Join($"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms").Prepend("ProcessingTime:")));
-        Logger.LogDebug(string.Join($"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
+        Logger.Log(logLevel, $"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(x => x.ProcessingTime.Ticks > 0).OrderByDescending(x => x.ProcessingTime.Ticks).Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms"))}");
+        //Logger.LogDebug(string.Join($"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
 
 #if DEBUG
