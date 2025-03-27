@@ -51,7 +51,7 @@ sealed class ExtendedZDO : ZDO
     }
 
     public IReadOnlyList<Processor> Processors => AddData.Processors;
-    public void Unregister(Processor processor) => AddData.Ungregister(processor);
+    public void Unregister(IEnumerable<Processor> processors) => AddData.Ungregister(processors);
 
     public void UpdateProcessorDataRevision(Processor processor)
         => (AddData.ProcessorDataRevisions ??= new())[processor] = DataRevision;
@@ -168,20 +168,18 @@ sealed class ExtendedZDO : ZDO
 
         static ConcurrentDictionary<int, IReadOnlyList<Processor>> _processors = new();
 
-        public void Ungregister(Processor processor)
-        {
-            if (!Processors.Contains(processor))
-                return;
-
+        public void Ungregister(IEnumerable<Processor> processors)
+        {            
             var hash = 0;
-            foreach (var x in Processors)
+            foreach (var processor in Processors)
             {
-                if (!ReferenceEquals(x, processor))
+                if (!processors.Any(x => ReferenceEquals(x, processor)))
                     hash = (hash, processor.GetType()).GetHashCode();
             }
 
-            Processors = _processors.GetOrAdd(hash, _ => Processors.Where(x => !ReferenceEquals(x, processor)).ToList());
-            ProcessorDataRevisions?.Remove(processor);
+            Processors = _processors.GetOrAdd(hash, _ => Processors.Where(x => !processors.Any(y => ReferenceEquals(x, y))).ToList());
+            foreach (var processor in processors)
+                ProcessorDataRevisions?.Remove(processor);
         }
 
         public static AdditionalData_ Dummy { get; } = new(PrefabInfo.Dummy);

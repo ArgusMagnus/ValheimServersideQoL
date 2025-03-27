@@ -4,11 +4,11 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null } || zdo.Vars.GetCreator() is 0)
         {
-            zdo.Unregister(this);
+            UnregisterZdoProcessor = true;
             return false;
         }
 
@@ -26,7 +26,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
             {
                 fields.Set(x => x.m_width, width = desiredWidth);
                 fields.Set(x => x.m_height, height = desiredHeight);
-                recreate = true;
+                RecreateZdo = true;
                 return false;
             }
         }
@@ -47,7 +47,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
         if ((width, height) != (desiredWidth, desiredHeight))
         {
-            recreate = true;
+            RecreateZdo = true;
             if (inventory.Items.Count > desiredWidth * desiredHeight)
             {
                 var found = false;
@@ -64,9 +64,9 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
                 }
 
                 if (!found || (width, height) == (desiredWidth, desiredHeight))
-                    recreate = false;
+                    RecreateZdo = false;
             }
-            if (recreate)
+            if (RecreateZdo)
             {
                 fields.Set(x => x.m_width, width = desiredWidth);
                 fields.Set(x => x.m_height, height = desiredHeight);
@@ -84,7 +84,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         {
             var set = SharedProcessorState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
             set.Add(zdo);
-            if (!Config.Containers.AutoSort.Value && !recreate)
+            if (!Config.Containers.AutoSort.Value && !RecreateZdo)
                 continue;
 
             if (lastPartialSlot is not null && new ItemKey(item) == lastPartialSlot)

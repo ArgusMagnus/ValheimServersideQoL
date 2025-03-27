@@ -26,8 +26,8 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Prevent <see cref="Catapult"/> from accepting equipment as ammo. Test what <see cref="Catapult.m_onlyUseIncludedProjectiles"/> does
     /// - Increase wisp light radius <see cref="Demister"/> <see cref="SE_Demister"/> <see cref="MistEmitter"/> <see cref="Mister"/>
     /// - Log/kick players with illegal equipment. Automatic via <see cref="ZDOVars.s_crafterID"/> == 0 or via configurable list of forbidden items
-    ///   <see cref="VisEquipment"/> <see cref="ZDOVars.s_rightItem"/>, etc.
-    /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/>
+    ///   <see cref="VisEquipment"/> <see cref="ZDOVars.s_rightItem"/>, etc. <see cref="ZNet.Ban(string)"/> <see cref="ZNet.Kick(string)"/>
+    /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/> <see cref="StatusEffect.StatusAttribute"/>
     ///   <see cref="SE_Spawn"/>
     /// </Ideas>
 
@@ -51,7 +51,7 @@ public sealed partial class Main : BaseUnityPlugin
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
-    //readonly IReadOnlyList<Processor> _processors;
+    readonly List<Processor> _unregister = new();
     ConcurrentDictionary<ZDOID, ExtendedZDO.ZDOData> _recreate = new();
     ConcurrentDictionary<ZDOID, ExtendedZDO.ZDOData> _recreateNext = new();
 
@@ -366,17 +366,23 @@ public sealed partial class Main : BaseUnityPlugin
 
                 var destroy = false;
                 var recreate = false;
+                _unregister.Clear();
                 foreach (var processor in zdo.Processors)
                 {
-                    processor.Process(zdo, sectorInfo.Peers, ref destroy, ref recreate);
-                    if (destroy)
+                    processor.Process(zdo, sectorInfo.Peers);
+                    if (processor.UnregisterZdoProcessor)
+                        _unregister.Add(processor);
+                    if (destroy = processor.DestroyZdo)
                     {
                         zdo.Destroy();
                         break;
                     }
+                    recreate = recreate || processor.RecreateZdo;
                 }
                 if (!destroy && recreate)
                     _recreateNext.TryAdd(zdo.m_uid, zdo.GetDataAndDestroy());
+                if (_unregister.Count > 0)
+                    zdo.Unregister(_unregister);
             }
         }
 

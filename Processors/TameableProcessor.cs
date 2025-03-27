@@ -5,11 +5,11 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Tameable is null)
         {
-            zdo.Unregister(this);
+            UnregisterZdoProcessor = true;
             return false;
         }
 

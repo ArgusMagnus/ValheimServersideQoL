@@ -4,11 +4,11 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
 	{
         if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo.Smelter is null)
         {
-            zdo.Unregister(this);
+            UnregisterZdoProcessor = true;
             return false;
         }
 

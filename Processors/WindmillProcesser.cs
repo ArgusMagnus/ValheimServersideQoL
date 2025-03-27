@@ -4,9 +4,9 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class WindmillProcesser(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        zdo.Unregister(this);
+        UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Windmill is null)
             return false;
 
@@ -15,7 +15,7 @@ sealed class WindmillProcesser(ManualLogSource logger, ModConfig cfg) : Processo
         if (!Config.Windmills.IgnoreWind.Value)
             fields.Reset(x => x.m_minWindSpeed);
         else if (fields.SetIfChanged(x => x.m_minWindSpeed, float.MinValue))
-            recreate = true;
+            RecreateZdo = true;
 
         return true;
     }

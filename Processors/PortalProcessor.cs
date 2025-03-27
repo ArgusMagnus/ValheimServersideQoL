@@ -18,11 +18,11 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         base.Initialize();
     }
 
-	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreateers)
+	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (!_enabled || zdo.PrefabInfo.TeleportWorld is null || !_initialPortals.Contains(zdo))
         {
-            zdo.Unregister(this);
+            UnregisterZdoProcessor = true;
             return false;
         }
 

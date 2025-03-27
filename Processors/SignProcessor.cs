@@ -16,11 +16,11 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         _timeText = null;
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Sign is null || !Config.Signs.TimeSigns.Value)
         {
-            zdo.Unregister(this);
+            UnregisterZdoProcessor = true;
             return false;
         }
 

@@ -13,6 +13,10 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
     protected ManualLogSource Logger { get; } = logger;
     protected ModConfig Config { get; } = cfg;
 
+    public bool DestroyZdo { get; protected set; }
+    public bool RecreateZdo { get; protected set; }
+    public bool UnregisterZdoProcessor { get; protected set; }
+
     readonly System.Diagnostics.Stopwatch _watch = new();
 
     public TimeSpan ProcessingTime => _watch.Elapsed;
@@ -26,14 +30,18 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         _watch.Reset();
     }
 
-    protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate);
-    public void Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
+    public void Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         _watch.Start();
 
+        DestroyZdo = false;
+        RecreateZdo = false;
+        UnregisterZdoProcessor = false;
+
         if (zdo.CheckProcessorDataRevisionChanged(this))
         {
-            if (ProcessCore(zdo, peers, ref destroy, ref recreate))
+            if (ProcessCore(zdo, peers))
                 zdo.UpdateProcessorDataRevision(this);
         }
 

@@ -4,11 +4,11 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo is not { Turret: not null, Piece: not null, PieceTable: not null })
         {
-            zdo.Unregister(this);
+            UnregisterZdoProcessor = true;
             return false;
         }
 
@@ -16,22 +16,22 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         if (!Config.Turrets.DontTargetPlayers.Value)
             fields.Reset(x => x.m_targetPlayers);
         else if (fields.SetIfChanged(x => x.m_targetPlayers, false))
-            recreate = true;
+            RecreateZdo = true;
 
         if (!Config.Turrets.DontTargetTames.Value)
             fields.Reset(x => x.m_targetTamed);
         else if (fields.SetIfChanged(x => x.m_targetTamed, false))
-            recreate = true;
+            RecreateZdo = true;
 
         if (!Config.Turrets.DontTargetTames.Value)
             fields.Reset(x => x.m_targetTamedConfig);
         else if (fields.SetIfChanged(x => x.m_targetTamedConfig, false))
-            recreate = true;
+            RecreateZdo = true;
 
         /// <see cref="Turret.RPC_AddAmmo"/>
         if (!Config.Turrets.LoadFromContainers.Value)
         {
-            zdo.Unregister(this);
+            UnregisterZdoProcessor = true;
             return false;
         }
 

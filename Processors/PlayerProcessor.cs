@@ -28,7 +28,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Player is null)
             return false;

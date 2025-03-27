@@ -5,9 +5,9 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class WearNTearProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers, ref bool destroy, ref bool recreate)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        zdo.Unregister(this);
+        UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.WearNTear is null)
             return false;
 
@@ -18,7 +18,7 @@ sealed class WearNTearProcessor(ManualLogSource logger, ModConfig cfg) : Process
             if (!Config.WearNTear.DisableRainDamage.Value)
                 fields.Reset(x => x.m_noRoofWear);
             else if (fields.SetIfChanged(x => x.m_noRoofWear, false))
-                recreate = true;
+                RecreateZdo = true;
         }
 
         var disableSupport = Config.WearNTear.DisableSupportRequirements.Value is DisableSupportRequirementsOptions.None ? false : (
@@ -28,7 +28,7 @@ sealed class WearNTearProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (!disableSupport)
             fields.Reset(x => x.m_noSupportWear);
         else if (fields.SetIfChanged(x => x.m_noSupportWear, false))
-            recreate = true;
+            RecreateZdo = true;
 
         return true;
     }
