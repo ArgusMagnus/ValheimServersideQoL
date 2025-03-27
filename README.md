@@ -32,6 +32,7 @@ This mod is in early development and the features experimental. Backup your worl
     - Disable rain damage
     - Disable support requirements for player-built pieces and world pieces (e.g. Ashland structures) seperately
 - Traders: always unlock trader items (remove progression requirements for buying from trader items). Only supported on dedicated servers.
+- Plants: modify plant grow time and space requirement
 - Global Keys
     - Set world preset/modifiers and global keys via config
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional

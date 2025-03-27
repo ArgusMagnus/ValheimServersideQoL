@@ -27,6 +27,7 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components, Pie
     public Turret? Turret { get; } = Get<Turret>(components);
     public WearNTear? WearNTear { get; } = Get<WearNTear>(components);
     public Trader? Trader { get; } = Get<Trader>(components);
+    public Plant? Plant { get; } = Get<Plant>(components);
 
     public static PrefabInfo Dummy { get; } = new(new Dictionary<Type, MonoBehaviour>(0), null);
 }

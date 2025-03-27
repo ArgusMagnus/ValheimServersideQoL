@@ -16,19 +16,8 @@ namespace Valheim.ServersideQoL;
 public sealed partial class Main : BaseUnityPlugin
 {
     /// <Ideas>
-    /// - Make tames lay eggs (by replacing spawned offspring with eggs and setting <see cref="EggGrow.m_grownPrefab"/>
-    ///   Would probably not retain the value when picked up and dropped again. Could probably be solved by abusing some field in <see cref="EggGrow.m_item"/>
-    /// - make ship pickup sunken items. <see cref="ZoneSystem.c_WaterLevel"/>
-    /// - Allow carts through portals
-    /// - Modify crafting station ranges <see cref="CraftingStation.m_rangeBuild"/>
-    /// - Modify crafting station extension max distances <see cref="StationExtension.m_maxStationDistance"/>
-    /// - Feed tames from containers
     /// - Prevent <see cref="Catapult"/> from accepting equipment as ammo. Test what <see cref="Catapult.m_onlyUseIncludedProjectiles"/> does
-    /// - Increase wisp light radius <see cref="Demister"/> <see cref="SE_Demister"/> <see cref="MistEmitter"/> <see cref="Mister"/>
-    /// - Log/kick players with illegal equipment. Automatic via <see cref="ZDOVars.s_crafterID"/> == 0 or via configurable list of forbidden items
-    ///   <see cref="VisEquipment"/> <see cref="ZDOVars.s_rightItem"/>, etc. <see cref="ZNet.Ban(string)"/> <see cref="ZNet.Kick(string)"/>
     /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/> <see cref="StatusEffect.StatusAttribute"/>
-    ///   <see cref="SE_Spawn"/>
     /// - <see cref="Pathfinding"/> <see cref="Plant"/>
     /// </Ideas>
 

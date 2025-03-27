@@ -23,6 +23,7 @@ sealed class ModConfig(ConfigFile cfg)
     public TurretsConfig Turrets { get; } = new(cfg, "B - Turrets");
     public WearNTearConfig WearNTear { get; } = new(cfg, "B - Build Pieces");
     public TradersConfig Traders { get; } = new(cfg, "B - Traders");
+    public PlantsConfig Plants { get; } = new(cfg, "B - Plants");
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -290,5 +291,11 @@ sealed class ModConfig(ConfigFile cfg)
                 .Where(x => x.Entries.Any())
                 .ToDictionary(x => x.Trader, x => x.Entries);
         }
+    }
+
+    public sealed class PlantsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<float> GrowTimeMultiplier { get; } = cfg.Bind(section, nameof(GrowTimeMultiplier), 1f, "Multiply plant grow time by this factor");
+        public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.Bind(section, nameof(SpaceRequirementMultiplier), 1f, "Multiply plant grow time by this factor");
     }
 }
