@@ -53,8 +53,6 @@ public sealed partial class Main : BaseUnityPlugin
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
     readonly List<Processor> _unregister = new();
-    ConcurrentDictionary<ZDOID, ExtendedZDO.ZDOData> _recreate = new();
-    ConcurrentDictionary<ZDOID, ExtendedZDO.ZDOData> _recreateNext = new();
 
     public Main()
     {
@@ -355,9 +353,6 @@ public sealed partial class Main : BaseUnityPlugin
                 if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
                     continue;
 
-                if (_recreate.TryRemove(zdo.m_uid, out var recreateZdo))
-                    _recreateNext.TryAdd(zdo.m_uid, recreateZdo);
-
                 var destroy = false;
                 var recreate = false;
                 _unregister.Clear();
@@ -374,16 +369,11 @@ public sealed partial class Main : BaseUnityPlugin
                     recreate = recreate || processor.RecreateZdo;
                 }
                 if (!destroy && recreate)
-                    _recreateNext.TryAdd(zdo.m_uid, zdo.GetDataAndDestroy());
-                if (_unregister.Count > 0)
+                    zdo.Recreate();
+                else if (_unregister.Count > 0)
                     zdo.Unregister(_unregister);
             }
         }
-
-        foreach (var zdoData in _recreate.Values)
-            ExtendedZDO.Create(zdoData);
-        _recreate.Clear();
-        (_recreate, _recreateNext) = (_recreateNext, _recreate);
 
         if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
             _unfinishedProcessingInRow++;
