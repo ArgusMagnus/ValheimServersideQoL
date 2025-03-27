@@ -38,6 +38,8 @@ This mod is in early development and the features experimental. Backup your worl
 
 ## Known Issues
 - Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player
+- Removing trader item progression requirements may cause Hunin/Munin to appear with hints to undiscovered biomes, etc.
+  Going to the trader at night may result in night-time spawns of undefeated bosses.
 
 If you experience an issue, please file a report at the [github repo](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
 

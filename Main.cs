@@ -29,6 +29,7 @@ public sealed partial class Main : BaseUnityPlugin
     ///   <see cref="VisEquipment"/> <see cref="ZDOVars.s_rightItem"/>, etc. <see cref="ZNet.Ban(string)"/> <see cref="ZNet.Kick(string)"/>
     /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/> <see cref="StatusEffect.StatusAttribute"/>
     ///   <see cref="SE_Spawn"/>
+    /// - <see cref="Pathfinding"/> <see cref="Plant"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

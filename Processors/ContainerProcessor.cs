@@ -4,6 +4,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
+    readonly Dictionary<ItemKey, int> _stackPerItem = new();
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null } || zdo.Vars.GetCreator() is 0)
@@ -74,9 +76,8 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
 
         var changed = false;
-        var x = 0;
-        var y = 0;
         ItemDrop.ItemData? lastPartialSlot = null;
+        _stackPerItem.Clear();
         foreach (var item in inventory.Items
             .OrderBy(x => x.IsEquipable() ? 0 : 1)
             .ThenBy(x => x.m_shared.m_name)
@@ -97,33 +98,104 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
             if (item.m_stack is 0)
                 continue;
+
+            if (!_stackPerItem.TryGetValue(item, out var stackCount))
+                stackCount = 0;
+            _stackPerItem[item] = stackCount + 1;
+
             if (item.m_stack < item.m_shared.m_maxStackSize)
                 lastPartialSlot = item;
-
-            if (item.m_gridPos.x != x || item.m_gridPos.y != y)
-            {
-                item.m_gridPos.x = x;
-                item.m_gridPos.y = y;
-                changed = true;
-            }
-            if (++x >= width)
-            {
-                x = 0;
-                y++;
-            }
         }
 
-        if (!changed)
-            return true;
-
-        for (int i = inventory.Items.Count - 1; i >= 0; i--)
+        if (changed)
         {
-            if (inventory.Items[i].m_stack is 0)
-                inventory.Items.RemoveAt(i);
+            for (int i = inventory.Items.Count - 1; i >= 0; i--)
+            {
+                if (inventory.Items[i].m_stack is 0)
+                    inventory.Items.RemoveAt(i);
+            }
         }
 
-        inventory.Save();
-        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece!.m_name} sorted");
+        if (_stackPerItem.Count > 0)
+        {
+            if (_stackPerItem.Values.Sum(x => (int)Math.Ceiling((double)x / width)) <= height)
+            {
+                var x = -1;
+                var y = 0;
+                ItemKey? lastKey = null;
+                foreach (var item in inventory.Items
+                    .OrderBy(x => x.IsEquipable() ? 0 : 1)
+                    .ThenBy(x => x.m_shared.m_name)
+                    .ThenByDescending(x => x.m_stack))
+                {
+                    if (++x >= width || (lastKey.HasValue && lastKey != item))
+                    {
+                        x = 0;
+                        y++;
+                    }
+                    if (item.m_gridPos.x != x || item.m_gridPos.y != y)
+                    {
+                        item.m_gridPos.x = x;
+                        item.m_gridPos.y = y;
+                        changed = true;
+                    }
+                    lastKey = item;
+                }
+            }
+            else if (_stackPerItem.Values.Sum(x => (int)Math.Ceiling((double)x / height)) <= width)
+            {
+                var x = 0;
+                var y = height;
+                ItemKey? lastKey = null;
+                foreach (var item in inventory.Items
+                    .OrderBy(x => x.IsEquipable() ? 0 : 1)
+                    .ThenBy(x => x.m_shared.m_name)
+                    .ThenByDescending(x => x.m_stack))
+                {
+                    if (--y < 0 || (lastKey.HasValue && lastKey != item))
+                    {
+                        y = height - 1;
+                        x++;
+                    }
+                    if (item.m_gridPos.x != x || item.m_gridPos.y != y)
+                    {
+                        item.m_gridPos.x = x;
+                        item.m_gridPos.y = y;
+                        changed = true;
+                    }
+                    lastKey = item;
+                }
+            }
+            else
+            {
+                var x = 0;
+                var y = 0;
+                foreach (var item in inventory.Items
+                    .OrderBy(x => x.IsEquipable() ? 0 : 1)
+                    .ThenBy(x => x.m_shared.m_name)
+                    .ThenByDescending(x => x.m_stack))
+                {
+                    if (item.m_gridPos.x != x || item.m_gridPos.y != y)
+                    {
+                        item.m_gridPos.x = x;
+                        item.m_gridPos.y = y;
+                        changed = true;
+                    }
+                    if (++x >= width)
+                    {
+                        x = 0;
+                        y++;
+                    }
+                }
+            }
+        }
+
+        if (changed)
+        {
+            inventory.Save();
+            RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece.m_name} sorted");
+        }
+
         return true;
     }
 }
