@@ -67,19 +67,19 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_name|System.String|$piece_itemstand|
-|m_canBeRemoved|System.Boolean|True|
-|m_autoAttach|System.Boolean|False|
-|m_powerActivationDelay|System.Single|2|
+|m_name|System.String|$guardianstone_hook_name|
+|m_canBeRemoved|System.Boolean|False|
+|m_autoAttach|System.Boolean|True|
+|m_powerActivationDelay|System.Single|3|
 
 ## itemstand
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_name|System.String|$guardianstone_hook_name|
-|m_canBeRemoved|System.Boolean|False|
-|m_autoAttach|System.Boolean|True|
-|m_powerActivationDelay|System.Single|3|
+|m_name|System.String|$piece_itemstand|
+|m_canBeRemoved|System.Boolean|True|
+|m_autoAttach|System.Boolean|False|
+|m_powerActivationDelay|System.Single|2|
 
 ## itemstand
 

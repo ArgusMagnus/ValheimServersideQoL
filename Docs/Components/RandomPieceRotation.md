@@ -136,8 +136,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_rotateX|System.Boolean|False|
-|m_rotateY|System.Boolean|True|
+|m_rotateX|System.Boolean|True|
+|m_rotateY|System.Boolean|False|
 |m_rotateZ|System.Boolean|False|
 |m_stepsX|System.Int32|4|
 |m_stepsY|System.Int32|4|
@@ -147,88 +147,11 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_rotateX|System.Boolean|True|
-|m_rotateY|System.Boolean|False|
-|m_rotateZ|System.Boolean|False|
-|m_stepsX|System.Int32|4|
-|m_stepsY|System.Int32|4|
-|m_stepsZ|System.Int32|4|
-
-## new
-
-|Field|Type|Default Value|
-|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
-|m_rotateY|System.Boolean|False|
-|m_rotateZ|System.Boolean|True|
-|m_stepsX|System.Int32|4|
-|m_stepsY|System.Int32|4|
-|m_stepsZ|System.Int32|4|
-
-## new
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_rotateX|System.Boolean|True|
-|m_rotateY|System.Boolean|True|
-|m_rotateZ|System.Boolean|True|
-|m_stepsX|System.Int32|4|
-|m_stepsY|System.Int32|4|
-|m_stepsZ|System.Int32|4|
-
-## new
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_rotateX|System.Boolean|True|
-|m_rotateY|System.Boolean|True|
-|m_rotateZ|System.Boolean|True|
-|m_stepsX|System.Int32|4|
-|m_stepsY|System.Int32|4|
-|m_stepsZ|System.Int32|4|
-
-## new
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_rotateX|System.Boolean|False|
-|m_rotateY|System.Boolean|False|
-|m_rotateZ|System.Boolean|True|
-|m_stepsX|System.Int32|4|
-|m_stepsY|System.Int32|4|
-|m_stepsZ|System.Int32|4|
-
-## new
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_rotateX|System.Boolean|True|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
-|m_stepsX|System.Int32|2|
-|m_stepsY|System.Int32|8|
-|m_stepsZ|System.Int32|4|
-
-## new
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_rotateX|System.Boolean|True|
-|m_rotateY|System.Boolean|True|
-|m_rotateZ|System.Boolean|False|
-|m_stepsX|System.Int32|2|
+|m_stepsX|System.Int32|4|
 |m_stepsY|System.Int32|4|
-|m_stepsZ|System.Int32|4|
-
-## new
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_rotateX|System.Boolean|True|
-|m_rotateY|System.Boolean|True|
-|m_rotateZ|System.Boolean|False|
-|m_stepsX|System.Int32|2|
-|m_stepsY|System.Int32|8|
 |m_stepsZ|System.Int32|4|
 
 ## new
@@ -246,11 +169,88 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_rotateX|System.Boolean|True|
+|m_rotateY|System.Boolean|True|
+|m_rotateZ|System.Boolean|False|
+|m_stepsX|System.Int32|2|
+|m_stepsY|System.Int32|4|
+|m_stepsZ|System.Int32|4|
+
+## new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_rotateX|System.Boolean|True|
+|m_rotateY|System.Boolean|True|
+|m_rotateZ|System.Boolean|True|
+|m_stepsX|System.Int32|4|
+|m_stepsY|System.Int32|4|
+|m_stepsZ|System.Int32|4|
+
+## new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_rotateX|System.Boolean|True|
+|m_rotateY|System.Boolean|True|
+|m_rotateZ|System.Boolean|False|
+|m_stepsX|System.Int32|2|
+|m_stepsY|System.Int32|8|
+|m_stepsZ|System.Int32|4|
+
+## new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|False|
 |m_rotateZ|System.Boolean|True|
 |m_stepsX|System.Int32|4|
 |m_stepsY|System.Int32|4|
+|m_stepsZ|System.Int32|4|
+
+## new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_rotateX|System.Boolean|True|
+|m_rotateY|System.Boolean|True|
+|m_rotateZ|System.Boolean|True|
+|m_stepsX|System.Int32|4|
+|m_stepsY|System.Int32|4|
+|m_stepsZ|System.Int32|4|
+
+## new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_rotateX|System.Boolean|False|
+|m_rotateY|System.Boolean|False|
+|m_rotateZ|System.Boolean|True|
+|m_stepsX|System.Int32|4|
+|m_stepsY|System.Int32|4|
+|m_stepsZ|System.Int32|4|
+
+## new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_rotateX|System.Boolean|False|
+|m_rotateY|System.Boolean|False|
+|m_rotateZ|System.Boolean|True|
+|m_stepsX|System.Int32|4|
+|m_stepsY|System.Int32|4|
+|m_stepsZ|System.Int32|4|
+
+## new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_rotateX|System.Boolean|True|
+|m_rotateY|System.Boolean|True|
+|m_rotateZ|System.Boolean|False|
+|m_stepsX|System.Int32|2|
+|m_stepsY|System.Int32|8|
 |m_stepsZ|System.Int32|4|
 
 ## New

@@ -15,9 +15,9 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|1|
+|m_strength|System.Single|1.5|
 |m_range|System.Single|50|
-|m_delay|System.Single|0|
+|m_delay|System.Single|1.8|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|True|
@@ -26,12 +26,12 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|3|
+|m_strength|System.Single|1|
 |m_range|System.Single|50|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
-|m_localOnly|System.Boolean|False|
+|m_localOnly|System.Boolean|True|
 
 ## CamShake
 
@@ -48,12 +48,12 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|1.5|
+|m_strength|System.Single|3|
 |m_range|System.Single|50|
-|m_delay|System.Single|1.8|
+|m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
-|m_localOnly|System.Boolean|True|
+|m_localOnly|System.Boolean|False|
 
 ## CamShake
 
@@ -697,8 +697,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|1|
-|m_range|System.Single|50|
+|m_strength|System.Single|0.5|
+|m_range|System.Single|20|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
@@ -752,8 +752,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|0.5|
-|m_range|System.Single|20|
+|m_strength|System.Single|1|
+|m_range|System.Single|50|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
@@ -1060,8 +1060,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|1.3|
-|m_range|System.Single|30|
+|m_strength|System.Single|1|
+|m_range|System.Single|20|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
@@ -1071,8 +1071,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|1|
-|m_range|System.Single|20|
+|m_strength|System.Single|1.3|
+|m_range|System.Single|30|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|

@@ -434,7 +434,7 @@ public sealed partial class Main : BaseUnityPlugin
         //Directory.CreateDirectory(docsPrefabsPath);
         Directory.CreateDirectory(docsComponentsPath);
 
-        var prefabs = new ConcurrentBag<(string Prefab, string Components)>();
+        var prefabs = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
         var componentsBag = new ConcurrentHashSet<MonoBehaviour>();
         Parallel.ForEach(ZNetScene.instance.m_prefabs, prefab =>
         {
@@ -445,13 +445,22 @@ public sealed partial class Main : BaseUnityPlugin
             if (components is not { Count: > 0})
                 return;
 
-            prefabs.Add((prefab.name, string.Join(", ", components 
-                .Select(x => (Type: x.GetType().Name, Name: x.name))
-                .OrderBy(x => x.Type).ThenBy(x=> x.Name)
-                .Select(x => $"[{x.Type} ({x.Name})](Components/{x.Type}.md#{x.Name.Replace(' ', '-')})"))));
+            string? name = null;
 
             foreach (var component in components)
+            {
                 componentsBag.Add(component);
+                name ??= component switch
+                {
+                    ItemDrop itemDrop => itemDrop.m_itemData.m_shared.m_name,
+                    _ => component.GetType().GetField("m_name")?.GetValue(component) as string
+                };
+            }
+
+            prefabs.Add((prefab.name, name, string.Join(", ", components
+                .Select(x => (Type: x.GetType().Name, Name: x.name))
+                .OrderBy(x => x.Type).ThenBy(x => x.Name)
+                .Select(x => $"[{x.Type} ({x.Name})](Components/{x.Type}.md#{x.Name.Replace(' ', '-')})"))));
         });
 
         HashSet<Type> validFieldTypes = [typeof(int), typeof(float), typeof(bool), typeof(Vector3), typeof(string), typeof(GameObject), typeof(ItemDrop)];
@@ -487,10 +496,10 @@ public sealed partial class Main : BaseUnityPlugin
             using var writer = new StreamWriter($"{docsPrefabsPath}.md", false, new UTF8Encoding(false));
             writer.WriteLine("# Prefabs");
             writer.WriteLine();
-            writer.WriteLine("|Prefab|Components|");
-            writer.WriteLine("|------|----------|");
-            foreach (var (prefab, components) in prefabs.OrderBy(x => x.Prefab))
-                writer.WriteLine($"|{prefab}|{components}|");
+            writer.WriteLine("|Prefab|Name|English Name|Components|");
+            writer.WriteLine("|------|----|------------|------|");
+            foreach (var (prefab, name, components) in prefabs.OrderBy(x => x.Prefab))
+                writer.WriteLine($"|{prefab}|{name ?? "*null*"}|{Localization.instance.Localize(name) ?? "*null*"}|{components}|");
         }
     }
 #endif

@@ -82,14 +82,14 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_name|System.String|$piece_chest|
-|m_width|System.Int32|6|
-|m_height|System.Int32|4|
-|m_checkGuardStone|System.Boolean|True|
+|m_name|System.String|Storage|
+|m_width|System.Int32|2|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject|ironchesttop_open|
-|m_closed|UnityEngine.GameObject|ironchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_open|UnityEngine.GameObject|open|
+|m_closed|UnityEngine.GameObject|closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
 
 ## piece_chest
 
@@ -134,14 +134,14 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_name|System.String|Storage|
-|m_width|System.Int32|2|
-|m_height|System.Int32|2|
-|m_checkGuardStone|System.Boolean|False|
+|m_name|System.String|$piece_chest|
+|m_width|System.Int32|6|
+|m_height|System.Int32|4|
+|m_checkGuardStone|System.Boolean|True|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject|open|
-|m_closed|UnityEngine.GameObject|closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+|m_open|UnityEngine.GameObject|ironchesttop_open|
+|m_closed|UnityEngine.GameObject|ironchesttop_closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_chest_barrel
 

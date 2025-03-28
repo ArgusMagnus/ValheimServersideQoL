@@ -48,6 +48,26 @@
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_mast|
+|m_inShip|System.Boolean|False|
+
+## mast
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$ship_holdfast|
+|m_useDistance|System.Single|2|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_attachAnimation|System.String|attach_mast|
+|m_inShip|System.Boolean|True|
+
+## mast
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$ship_holdfast|
+|m_useDistance|System.Single|2|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_attachAnimation|System.String|attach_mast|
 |m_inShip|System.Boolean|True|
 
 ## mast
@@ -59,26 +79,6 @@
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_mast|
 |m_inShip|System.Boolean|False|
-
-## mast
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|$ship_holdfast|
-|m_useDistance|System.Single|2|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_attachAnimation|System.String|attach_mast|
-|m_inShip|System.Boolean|False|
-
-## mast
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|$ship_holdfast|
-|m_useDistance|System.Single|2|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_attachAnimation|System.String|attach_mast|
-|m_inShip|System.Boolean|True|
 
 ## piece_asksvinskeleton
 
@@ -177,8 +177,8 @@
 |m_name|System.String|$piece_stool|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_chair|
-|m_inShip|System.Boolean|False|
+|m_attachAnimation|System.String|attach_sitship|
+|m_inShip|System.Boolean|True|
 
 ## sit_box
 
@@ -187,8 +187,8 @@
 |m_name|System.String|$piece_stool|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_sitship|
-|m_inShip|System.Boolean|True|
+|m_attachAnimation|System.String|attach_chair|
+|m_inShip|System.Boolean|False|
 
 ## sit_box (1)
 
@@ -237,8 +237,8 @@
 |m_name|System.String|$piece_stool|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_chair|
-|m_inShip|System.Boolean|False|
+|m_attachAnimation|System.String|attach_sitship|
+|m_inShip|System.Boolean|True|
 
 ## sit_box (2)
 
@@ -247,28 +247,8 @@
 |m_name|System.String|$piece_stool|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_sitship|
-|m_inShip|System.Boolean|True|
-
-## sit_box (3)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|$piece_stool|
-|m_useDistance|System.Single|1.5|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_sitship|
-|m_inShip|System.Boolean|True|
-
-## sit_box (3)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|$piece_stool|
-|m_useDistance|System.Single|1.5|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_sitship|
-|m_inShip|System.Boolean|True|
+|m_attachAnimation|System.String|attach_chair|
+|m_inShip|System.Boolean|False|
 
 ## sit_box (3)
 
@@ -280,7 +260,17 @@
 |m_attachAnimation|System.String|attach_chair|
 |m_inShip|System.Boolean|False|
 
-## sit_box (4)
+## sit_box (3)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_inShip|System.Boolean|True|
+
+## sit_box (3)
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -299,6 +289,16 @@
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
 |m_inShip|System.Boolean|False|
+
+## sit_box (4)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_inShip|System.Boolean|True|
 
 ## sit_box (5)
 
@@ -374,6 +374,46 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_name|System.String|$piece_benchlog|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_inShip|System.Boolean|False|
+
+## SitPoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench01|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_inShip|System.Boolean|False|
+
+## SitPoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench01|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_inShip|System.Boolean|False|
+
+## SitPoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench01|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_inShip|System.Boolean|False|
+
+## SitPoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
 |m_name|System.String|$piece_bench01|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -385,46 +425,6 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_name|System.String|$piece_blackmarble_bench|
-|m_useDistance|System.Single|1.5|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_chair|
-|m_inShip|System.Boolean|False|
-
-## SitPoint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|$piece_bench01|
-|m_useDistance|System.Single|1.5|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_chair|
-|m_inShip|System.Boolean|False|
-
-## SitPoint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|$piece_bench01|
-|m_useDistance|System.Single|1.5|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_chair|
-|m_inShip|System.Boolean|False|
-
-## SitPoint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|$piece_bench01|
-|m_useDistance|System.Single|1.5|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_chair|
-|m_inShip|System.Boolean|False|
-
-## SitPoint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|$piece_benchlog|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|

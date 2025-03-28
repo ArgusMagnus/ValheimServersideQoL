@@ -196,6 +196,42 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_chance|System.Single|100|
+
+## Chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## Chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## Chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## Chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## Chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## Chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
 |m_chance|System.Single|50|
 
 ## Chunks
@@ -204,42 +240,6 @@
 |-----|----|-------------|
 |m_chance|System.Single|100|
 
-## Chunks
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|100|
-
-## Chunks
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|100|
-
-## Chunks
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|100|
-
-## Chunks
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|100|
-
-## Chunks
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|100|
-
-## Chunks
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|100|
-
 ## cunks
 
 |Field|Type|Default Value|
@@ -263,6 +263,66 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_chance|System.Single|100|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|40|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|40|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|40|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|40|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|40|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|40|
 
 ## drops-withdecals
 
@@ -287,66 +347,6 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_chance|System.Single|40|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|100|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|40|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|40|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|40|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|40|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|40|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|40|
-
-## drops-withdecals
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|100|
 
 ## flow
 
@@ -436,7 +436,49 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_chance|System.Single|10|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
 |m_chance|System.Single|15|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|22|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
 
 ## vfx_BloodHit 1
 
@@ -454,7 +496,25 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_chance|System.Single|15|
+|m_chance|System.Single|10|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
 
 ## vfx_BloodHit 1
 
@@ -472,79 +532,19 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_chance|System.Single|22|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
-
-## vfx_BloodHit 1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_chance|System.Single|10|
+|m_chance|System.Single|15|
 
 ## vfx_BloodHit 1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_chance|System.Single|22|
+
+## vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
 
 ## vfx_BloodHit 1
 

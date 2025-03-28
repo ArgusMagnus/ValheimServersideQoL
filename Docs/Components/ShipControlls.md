@@ -33,8 +33,8 @@
 |-----|----|-------------|
 |m_hoverText|System.String|$piece_ship_rudder|
 |m_maxUseRange|System.Single|10|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
-|m_attachAnimation|System.String|attach_chair|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
 
 ## rudder_button
 
@@ -42,6 +42,6 @@
 |-----|----|-------------|
 |m_hoverText|System.String|$piece_ship_rudder|
 |m_maxUseRange|System.Single|10|
-|m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_attachAnimation|System.String|attach_sitship|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
 
