@@ -3,9 +3,7 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections.Concurrent;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -22,9 +20,6 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/> <see cref="StatusEffect.StatusAttribute"/>
     /// - <see cref="Pathfinding"/> <see cref="SapCollector"/> <see cref="ResourceRoot"/>
     /// - <see cref="ShieldGenerator"/> <see cref="Trap"/> <see cref="WearNTear"/> <see cref="DamageText"/>
-    /// - Summons: (<see cref="Tameable"/>
-    ///   - Modify max instances <see cref="ZDOVars.s_maxInstances"/>
-    ///   - Disable unsummon based on distance/logout <see cref="Tameable.m_unsummonDistance"/> <see cref="Tameable.m_unsummonOnOwnerLogoutSeconds"/>
     /// - Prevent traps from damaging themselves or friendlies <see cref="Aoe.m_damageSelf"/> <see cref="Aoe.m_hitFriendly"/>
     /// </Ideas>
 

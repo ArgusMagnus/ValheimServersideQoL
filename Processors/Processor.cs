@@ -103,10 +103,10 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         public static void ShowInWorldText(IEnumerable<ZNetPeer> peers, DamageText.TextType type, Vector3 pos, string text)
             => ShowInWorldText(peers.Select(x => x.m_uid), type, pos, text);
 
-        public static void DamageText(DamageText.TextType type, Vector3 pos, string text)
+        public static void ShowInWorldText(DamageText.TextType type, Vector3 pos, string text)
             => ShowInWorldText([ZRoutedRpc.Everybody], type, pos, text);
 
-        public static void DamageText(ZNetPeer peer, DamageText.TextType type, Vector3 pos, string text)
+        public static void ShowInWorldText(ZNetPeer peer, DamageText.TextType type, Vector3 pos, string text)
             => ShowInWorldText([peer.m_uid], type, pos, text);
     }
 }
