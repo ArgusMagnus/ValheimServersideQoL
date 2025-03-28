@@ -1,0 +1,10 @@
+## vfx_SawDust_abomination
+
+### Component: TimedDestruction (vfx_SawDust_abomination)
+
+|Field|Type|Default Value|
+|---|---|---|
+|m_timeout|System.Single|3|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+

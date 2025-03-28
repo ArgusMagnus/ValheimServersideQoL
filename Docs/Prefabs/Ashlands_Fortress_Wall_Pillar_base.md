@@ -1,0 +1,16 @@
+## Ashlands_Fortress_Wall_Pillar_base
+
+### Component: Destructible (Ashlands_Fortress_Wall_Pillar_base)
+
+|Field|Type|Default Value|
+|---|---|---|
+|m_health|System.Single|1|
+|m_minDamageTreshold|System.Single|0|
+|m_minToolTier|System.Int32|5|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_ttl|System.Single|0|
+|m_spawnWhenDestroyed|UnityEngine.GameObject|Ashlands_Fortress_Wall_Pillar_frac|
+|m_autoCreateFragments|System.Boolean|False|
+

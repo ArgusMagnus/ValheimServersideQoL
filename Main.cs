@@ -230,6 +230,7 @@ public sealed partial class Main : BaseUnityPlugin
 
 #if DEBUG
             GenerateDefaultConfigMarkdown(base.Config);
+            GeneratePrefabSheet();
 #endif
 
             base.Config.Bind(DummyConfigSection, "Dummy", "", $"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}");
@@ -417,6 +418,93 @@ public sealed partial class Main : BaseUnityPlugin
 
             writer.WriteLine($"|{section}|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description}|");
         }
+    }
+
+    static void GeneratePrefabSheet()
+    {
+        var path = Path.Combine(Path.GetDirectoryName(ConfigMarkdownPath), "Docs", "Prefabs");
+        Directory.CreateDirectory(path);
+
+        Parallel.ForEach(ZNetScene.instance.m_prefabs, prefab =>
+        {
+            if (prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is not { Length: > 0 } components)
+                return;
+
+            using var writer = new StreamWriter(Path.Combine(path, $"{prefab.name}.md"), false, new UTF8Encoding(false));
+
+            writer.WriteLine($"## {prefab.name}");
+            writer.WriteLine();
+
+            foreach (var component in components)
+            {
+                if (component is ZNetView)
+                    continue;
+
+                writer.WriteLine($"### Component: {component.GetType().Name} ({component.name})");
+                writer.WriteLine();
+
+                /// <see cref="ZNetView.LoadFields"/>
+                if (component.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance) is not { Length: > 0 } fields)
+                    continue;
+
+                writer.WriteLine("|Field|Type|Default Value|");
+                writer.WriteLine("|---|---|---|");
+
+                foreach (var field in fields)
+                {
+                    var value = field.GetValue(component);
+                    switch (value)
+                    {
+                        case int:
+                        case float:
+                        case bool:
+                        case Vector3:
+                        case string:
+                            break;
+                        case GameObject:
+                        case ItemDrop:
+                            value = ((UnityEngine.Object)value).name;
+                            break;
+                        default:
+                            continue;
+                    }
+                    writer.WriteLine($"|{field.Name}|{field.FieldType}|{value}|");
+                }
+
+                writer.WriteLine();
+            }
+        });
+
+        {
+            using var writer = new StreamWriter($"{path}.md", false, new UTF8Encoding(false));
+            writer.WriteLine("## Prefabs");
+            foreach (var prefab in ZNetScene.instance.m_prefabs.OrderBy(x => x.name))
+            {
+                if (File.Exists(Path.Combine(path, $"{prefab.name}.md")))
+                    writer.WriteLine($"- [{prefab.name}](Prefabs/{prefab.name}.md)");
+                else
+                    writer.WriteLine($"- {prefab.name}");
+            }
+        }
+
+        //using var writer = new StreamWriter(Path.Combine(Path.GetDirectoryName(ConfigMarkdownPath), "PrefabInfo.md"), false, new UTF8Encoding(false));
+
+        //List<MonoBehaviour> components = [];
+        //foreach (var prefab in ZNetScene.instance.m_prefabs)
+        //{
+        //    components.Clear();
+
+        //    prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren(components);
+        //    if (components.Count is 0)
+        //        continue;
+
+        //    writer.WriteLine($"## {prefab.name}");
+        //    writer.WriteLine();
+
+        //    WriteComponentFields(writer, components, "Component: ");
+        //}
+
+        
     }
 #endif
 }

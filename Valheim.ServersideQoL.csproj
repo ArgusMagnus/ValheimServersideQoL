@@ -115,7 +115,7 @@ partial class Main
 {
     const string PluginVersion = "$(Version)"%3B
 #if DEBUG
-    const string ConfigMarkdownPath = @"$(ProjectDir)\Configuration.md"%3B
+    const string ConfigMarkdownPath = @"$(ProjectDir)Configuration.md"%3B
 #endif
 }
       </MyTextLines> 
