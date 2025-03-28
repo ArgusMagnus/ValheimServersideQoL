@@ -1,4 +1,0 @@
-## LocationProxy
-
-### Component: LocationProxy (LocationProxy)
-

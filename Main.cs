@@ -4,6 +4,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -423,72 +424,74 @@ public sealed partial class Main : BaseUnityPlugin
 
     static void GeneratePrefabSheet()
     {
-        var path = Path.Combine(Path.GetDirectoryName(ConfigMarkdownPath), "Docs", "Prefabs");
-        Directory.CreateDirectory(path);
+        var docsPath = Path.Combine(Path.GetDirectoryName(ConfigMarkdownPath), "Docs");
+        var docsPrefabsPath = Path.Combine(docsPath, "Prefabs");
+        var docsComponentsPath = Path.Combine(docsPath, "Components");
+
+        //try { Directory.Delete(docsPrefabsPath, true); } catch (DirectoryNotFoundException) { }
+        try { Directory.Delete(docsComponentsPath, true); } catch (DirectoryNotFoundException) { }
+
+        //Directory.CreateDirectory(docsPrefabsPath);
+        Directory.CreateDirectory(docsComponentsPath);
 
         var prefabs = new ConcurrentBag<(string Prefab, string Components)>();
-
+        var componentsBag = new ConcurrentHashSet<MonoBehaviour>();
         Parallel.ForEach(ZNetScene.instance.m_prefabs, prefab =>
         {
-            if (prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is not { Length: > 0 } components)
+            var components = prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>()
+                .Where(x => x is not ZNetView)
+                .ToList();
+
+            if (components is not { Count: > 0})
                 return;
 
-            prefabs.Add((prefab.name, string.Join(", ", components.Select(x => x.GetType().Name).Distinct().OrderBy(x => x))));
-
-            using var writer = new StreamWriter(Path.Combine(path, $"{prefab.name.Replace(" ", "")}.md"), false, new UTF8Encoding(false));
-
-            writer.WriteLine($"## {prefab.name}");
-            writer.WriteLine();
+            prefabs.Add((prefab.name, string.Join(", ", components 
+                .Select(x => (Type: x.GetType().Name, Name: x.name))
+                .OrderBy(x => x.Type).ThenBy(x=> x.Name)
+                .Select(x => $"[{x.Type} ({x.Name})](Components/{x.Type}.md#{x.Name.Replace(' ', '-')})"))));
 
             foreach (var component in components)
+                componentsBag.Add(component);
+        });
+
+        HashSet<Type> validFieldTypes = [typeof(int), typeof(float), typeof(bool), typeof(Vector3), typeof(string), typeof(GameObject), typeof(ItemDrop)];
+        Parallel.ForEach(componentsBag.GroupBy(x => x.GetType()), group =>
+        {
+            var componentType = group.Key;
+
+            var fields = componentType.GetFields(BindingFlags.Public | BindingFlags.Instance)
+                .Where(x => validFieldTypes.Contains(x.FieldType))
+                .ToList();
+
+            using var writer = new StreamWriter(Path.Combine(docsComponentsPath, $"{componentType.Name}.md"), false, new UTF8Encoding(false));
+            writer.WriteLine($"# {componentType.Name}");
+            writer.WriteLine();
+            foreach (var component in group.OrderBy(x => x.name))
             {
-                if (component is ZNetView)
-                    continue;
-
-                writer.WriteLine($"### Component: {component.GetType().Name} ({component.name})");
+                writer.WriteLine($"## {component.name}");
                 writer.WriteLine();
-
-                /// <see cref="ZNetView.LoadFields"/>
-                if (component.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance) is not { Length: > 0 } fields)
-                    continue;
-
                 writer.WriteLine("|Field|Type|Default Value|");
                 writer.WriteLine("|-----|----|-------------|");
-
                 foreach (var field in fields)
                 {
                     var value = field.GetValue(component);
-                    switch (value)
-                    {
-                        case int:
-                        case float:
-                        case bool:
-                        case Vector3:
-                        case string:
-                            break;
-                        case GameObject:
-                        case ItemDrop:
-                            value = ((UnityEngine.Object)value).name;
-                            break;
-                        default:
-                            continue;
-                    }
+                    if (value is UnityEngine.Object obj)
+                        value = obj.name;
                     writer.WriteLine($"|{field.Name}|{field.FieldType}|{value}|");
                 }
-
                 writer.WriteLine();
             }
         });
 
         {
-            using var writer = new StreamWriter($"{path}.md", false, new UTF8Encoding(false));
-            writer.WriteLine("## Prefabs");
+            using var writer = new StreamWriter($"{docsPrefabsPath}.md", false, new UTF8Encoding(false));
+            writer.WriteLine("# Prefabs");
             writer.WriteLine();
             writer.WriteLine("|Prefab|Components|");
             writer.WriteLine("|------|----------|");
             foreach (var (prefab, components) in prefabs.OrderBy(x => x.Prefab))
-                writer.WriteLine($"|[{prefab}](Prefabs/{prefab.Replace(" ", "")}.md)|{components}|");
-        }        
+                writer.WriteLine($"|{prefab}|{components}|");
+        }
     }
 #endif
 }
