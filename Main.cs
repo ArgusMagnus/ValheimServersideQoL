@@ -496,10 +496,17 @@ public sealed partial class Main : BaseUnityPlugin
             using var writer = new StreamWriter($"{docsPrefabsPath}.md", false, new UTF8Encoding(false));
             writer.WriteLine("# Prefabs");
             writer.WriteLine();
-            writer.WriteLine("|Prefab|Name|English Name|Components|");
-            writer.WriteLine("|------|----|------------|------|");
+            writer.WriteLine("|Prefab|Components|");
+            writer.WriteLine("|------|------|");
             foreach (var (prefab, name, components) in prefabs.OrderBy(x => x.Prefab))
-                writer.WriteLine($"|{prefab}|{name ?? "*null*"}|{Localization.instance.Localize(name) ?? "*null*"}|{components}|");
+            {
+                if (name is null)
+                    writer.WriteLine($"|{prefab}|{components}|");
+                else if (Localization.instance.Localize(name) is { } localized && localized != name)
+                    writer.WriteLine($"|{prefab}<small><br>- Name: *{name}*<br>- English Name: *{localized}*</small>|{components}|");
+                else
+                    writer.WriteLine($"|{prefab}<small><br>- Name: *{name}*</small>|{components}|");
+            }
         }
     }
 #endif
