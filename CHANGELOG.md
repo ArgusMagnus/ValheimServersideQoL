@@ -1,5 +1,7 @@
 ### v0.2.5
-- New feature: modify plant grow time and space requirement, option to keep plants which can't grow alive
+- New features:
+    - Modify plant grow time and space requirement, option to keep plants which can't grow alive
+    - Modify unsummon distance/time of summons (Skeletons)
 - Changed taming progress message to be displayed in world
 
 ### v0.2.4

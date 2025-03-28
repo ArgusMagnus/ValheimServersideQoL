@@ -13,6 +13,7 @@ sealed class ModConfig(ConfigFile cfg)
     public SignsConfig Signs { get; } = new(cfg, "B - Signs");
     public MapTableConfig MapTables { get; } = new(cfg, "B - Map Tables");
     public TamesConfig Tames { get; } = new(cfg, "B - Tames");
+    public SummonsConfig Summons { get; } = new(cfg, "B - Summons");
     public FireplacesConfig Fireplaces { get; } = new(cfg, "B - Fireplaces");
     public ContainersConfig Containers { get; } = new(cfg, "B - Containers");
     public SmeltersConfig Smelters { get; } = new(cfg, "B - Smelters");
@@ -298,5 +299,11 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<float> GrowTimeMultiplier { get; } = cfg.Bind(section, nameof(GrowTimeMultiplier), 1f, "Multiply plant grow time by this factor");
         public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.Bind(section, nameof(SpaceRequirementMultiplier), 1f, "Multiply plant grow time by this factor");
         public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.Bind(section, nameof(DontDestroyIfCantGrow), false, "True to keep plants which can't grow alive");
+    }
+
+    public sealed class SummonsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<float> UnsummonDistanceMultiplier { get; } = cfg.Bind(section, nameof(UnsummonDistanceMultiplier), 1f, "Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning");
+        public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f, "Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning");
     }
 }

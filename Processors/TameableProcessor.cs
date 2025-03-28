@@ -37,6 +37,16 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             else if (fields.SetIfChanged(x => x.m_fedDuration, float.MaxValue))
                 RecreateZdo = true;
 
+            if (Config.Summons.UnsummonDistanceMultiplier.Value is 1f)
+                fields.Reset(x => x.m_unsummonDistance);
+            else if (fields.SetIfChanged(x => x.m_unsummonDistance, zdo.PrefabInfo.Tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
+                RecreateZdo = true;
+
+            if (Config.Summons.UnsummonLogoutTimeMultiplier.Value is 1f)
+                fields.Reset(x => x.m_unsummonOnOwnerLogoutSeconds);
+            else if (fields.SetIfChanged(x => x.m_unsummonOnOwnerLogoutSeconds, zdo.PrefabInfo.Tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
+                RecreateZdo = true;
+
             if (zdo.Vars.GetFollow() is { Length: > 0 } playerName)
             {
                 SharedProcessorState.FollowingTamesByPlayerName.GetOrAdd(playerName, static _ => new()).Add(zdo.m_uid);
