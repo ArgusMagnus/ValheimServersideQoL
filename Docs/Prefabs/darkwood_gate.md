@@ -3,7 +3,7 @@
 ### Component: Piece (darkwood_gate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_darkwoodgate|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (darkwood_gate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
@@ -72,7 +72,7 @@
 ### Component: Door (darkwood_gate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_darkwoodgate|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|

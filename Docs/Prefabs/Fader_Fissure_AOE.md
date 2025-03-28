@@ -3,7 +3,7 @@
 ### Component: Aoe (Fader_Fissure_AOE)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|False|
 |m_scaleDamageByDistance|System.Boolean|False|
@@ -62,7 +62,7 @@
 ### Component: CamShaker (Fader_Fissure_AOE)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|1|
 |m_range|System.Single|25|
 |m_delay|System.Single|3|
@@ -73,7 +73,7 @@
 ### Component: TimedDestruction (sfx_fader_fissure_pillar)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|8|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -81,7 +81,7 @@
 ### Component: ZSFX (sfx_fader_fissure_pillar)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$enemy_fader|
 |m_secondaryCaptionToken|System.String|$caption_summoning|
@@ -109,7 +109,7 @@
 ### Component: TimedDestruction (sfx_fader_fissure_fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|8|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -117,7 +117,7 @@
 ### Component: ZSFX (sfx_fader_fissure_fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -145,7 +145,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -157,7 +157,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|50|
 |m_shadowLod|System.Boolean|False|

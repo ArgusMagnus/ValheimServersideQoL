@@ -3,7 +3,7 @@
 ### Component: Destructible (caverock_ice_stalagmite_broken)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|10|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,5 +16,5 @@
 ### Component: MaterialVariationWorld (caverock_ice_stalagmite_broken)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

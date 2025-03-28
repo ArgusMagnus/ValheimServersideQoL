@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (vfx_corpse_destruction_large)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|8|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: CamShaker (vfx_corpse_destruction_large)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|2|
 |m_range|System.Single|60|
 |m_delay|System.Single|0|
@@ -22,7 +22,7 @@
 ### Component: ZSFX (sfx)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -50,7 +50,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

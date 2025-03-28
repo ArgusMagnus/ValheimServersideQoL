@@ -3,7 +3,7 @@
 ### Component: DungeonGenerator (DG_Hildir_PlainsFortress)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxRooms|System.Int32|512|
 |m_minRooms|System.Int32|256|
 |m_minRequiredRooms|System.Int32|5|

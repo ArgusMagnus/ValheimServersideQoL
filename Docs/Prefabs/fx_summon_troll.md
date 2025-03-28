@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_summon_troll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|8|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: CamShaker (fx_summon_troll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|1.5|
 |m_range|System.Single|50|
 |m_delay|System.Single|1.6|
@@ -24,7 +24,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0|
 |m_flickerSpeed|System.Single|0|
 |m_movement|System.Single|0|
@@ -36,7 +36,7 @@
 ### Component: TimedDestruction (sfx_staff_trollstav_cast)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -44,7 +44,7 @@
 ### Component: ZSFX (sfx_staff_trollstav_cast)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$item_staffredtroll|
 |m_secondaryCaptionToken|System.String|$caption_castingmagic|

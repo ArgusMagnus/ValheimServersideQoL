@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_DragonEgg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|visual|
 |m_itemPrefab|UnityEngine.GameObject|DragonEgg|
 |m_amount|System.Int32|1|
@@ -27,7 +27,7 @@
 ### Component: StaticPhysics (Pickable_DragonEgg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|True|
@@ -36,7 +36,7 @@
 ### Component: LightFlicker (Point light (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

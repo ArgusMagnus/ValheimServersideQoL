@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (ChickenEgg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: EggGrow (ChickenEgg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_growTime|System.Single|1800|
 |m_grownPrefab|UnityEngine.GameObject|Chicken|
 |m_tamed|System.Boolean|True|
@@ -26,7 +26,7 @@
 ### Component: ItemDrop (ChickenEgg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
 

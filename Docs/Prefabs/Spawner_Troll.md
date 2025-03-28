@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Troll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Troll|
 |m_maxLevel|System.Int32|3|
 |m_minLevel|System.Int32|1|

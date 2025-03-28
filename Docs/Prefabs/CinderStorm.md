@@ -3,7 +3,7 @@
 ### Component: Cinder (CinderStorm)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 |m_houseFirePrefab|UnityEngine.GameObject|HouseFire|
 |m_gravity|System.Single|7|
@@ -15,7 +15,7 @@
 ### Component: TimedDestruction (CinderStorm)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|20|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -23,7 +23,7 @@
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

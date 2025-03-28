@@ -3,7 +3,7 @@
 ### Component: Aoe (siegebomb_explosion)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|False|
 |m_scaleDamageByDistance|System.Boolean|False|
@@ -63,7 +63,7 @@
 ### Component: TimedDestruction (fx_siegebomb_explosion)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|3|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -71,7 +71,7 @@
 ### Component: ZSFX (sfx_bombsiege_explosion)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$item_catapult_ammo|
 |m_secondaryCaptionToken|System.String|$caption_exploding|

@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (LuredWisp)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|False|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: LuredWisp (LuredWisp)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_despawnInDaylight|System.Boolean|True|
 |m_maxLureDistance|System.Single|25|
 |m_acceleration|System.Single|6|
@@ -26,7 +26,7 @@
 ### Component: Pickable (LuredWisp)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|Wisp|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -49,7 +49,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|False|

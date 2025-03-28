@@ -3,7 +3,7 @@
 ### Component: Projectile (gjall_spit_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_aoe|System.Single|4|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
@@ -64,7 +64,7 @@
 ### Component: ZSyncTransform (gjall_spit_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -74,6 +74,6 @@
 ### Component: Demister (Particle System Force Field)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_disableForcefieldDelay|System.Single|0|
 

@@ -3,7 +3,7 @@
 ### Component: WearNTear (asksvin_carrion2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -26,14 +26,14 @@
 ### Component: DropOnDestroyed (asksvin_carrion2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|1|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: StaticPhysics (asksvin_carrion2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|True|

@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_Tar)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|Tar|
 |m_amount|System.Int32|4|
 |m_minAmountScaled|System.Int32|1|
@@ -26,7 +26,7 @@
 ### Component: Floating (Pickable_Tar)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.1|
 |m_forceDistance|System.Single|0.5|
 |m_force|System.Single|0.5|
@@ -36,7 +36,7 @@
 ### Component: ZSyncTransform (Pickable_Tar)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|

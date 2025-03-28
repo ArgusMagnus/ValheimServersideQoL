@@ -5,7 +5,7 @@
 ### Component: ResourceRoot (YggdrasilRoot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$item_ancientroot|
 |m_statusHigh|System.String|$item_ancientroot_full|
 |m_statusLow|System.String|$item_ancientroot_half|
@@ -18,6 +18,6 @@
 ### Component: GuidePoint (GuidePoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 

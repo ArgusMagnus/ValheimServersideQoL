@@ -3,7 +3,7 @@
 ### Component: Gibber (vfx_dvergr_pole_destroyed)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|

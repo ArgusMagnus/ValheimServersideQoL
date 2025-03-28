@@ -3,7 +3,7 @@
 ### Component: Piece (piece_groundtorch_mist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_groundtorchdemister|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_groundtorch_mist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|TorchModel|
 |m_worn|UnityEngine.GameObject|TorchModel|
 |m_broken|UnityEngine.GameObject|TorchModel|
@@ -72,13 +72,13 @@
 ### Component: HoverText (piece_groundtorch_mist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$piece_groundtorchdemister|
 
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -90,7 +90,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|30|
 |m_shadowLod|System.Boolean|False|
@@ -99,7 +99,7 @@
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -127,6 +127,6 @@
 ### Component: Demister (Particle System Force Field)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_disableForcefieldDelay|System.Single|4|
 

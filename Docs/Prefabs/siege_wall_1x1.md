@@ -3,7 +3,7 @@
 ### Component: Piece (siege_wall_1x1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|Temp Siege Wall|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (siege_wall_1x1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|

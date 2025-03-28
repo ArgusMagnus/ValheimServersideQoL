@@ -3,7 +3,7 @@
 ### Component: Humanoid (Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_fader|
@@ -61,7 +61,7 @@
 ### Component: ZSyncTransform (Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -71,13 +71,13 @@
 ### Component: ZSyncAnimation (Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|100|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|True|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -152,13 +152,13 @@
 ### Component: CharacterDrop (Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: FootStep (Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|50|
@@ -166,14 +166,14 @@
 ### Component: MovementDamage (Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_runDamageObject|UnityEngine.GameObject|RunHitDamager|
 |m_speedTreshold|System.Single|1|
 
 ### Component: DropProjectileOverDistance (Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_projectilePrefab|UnityEngine.GameObject|Fader_DroppedFire_AOE|
 |m_distancePerProjectile|System.Single|5|
 |m_spawnHeight|System.Single|1|
@@ -185,7 +185,7 @@
 ### Component: Aoe (RunHitDamager)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|False|
 |m_scaleDamageByDistance|System.Boolean|False|
@@ -244,12 +244,12 @@
 ### Component: AnimationEffect (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: CharacterAnimEvent (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|

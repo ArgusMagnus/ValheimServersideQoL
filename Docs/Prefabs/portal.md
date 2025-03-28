@@ -3,7 +3,7 @@
 ### Component: Piece (portal)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_portal|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (portal)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -72,7 +72,7 @@
 ### Component: TeleportWorld (portal)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_activationRange|System.Single|5|
 |m_exitDistance|System.Single|1|
 |m_allowAllItems|System.Boolean|False|
@@ -80,7 +80,7 @@
 ### Component: EffectFade (_target_found)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_fadeDuration|System.Single|1|
 
 ### Component: TeleportWorldTrigger (TELEPORT)
@@ -88,14 +88,14 @@
 ### Component: Billboard (portcal_center)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_vertical|System.Boolean|True|
 |m_invert|System.Boolean|False|
 
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -107,7 +107,7 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

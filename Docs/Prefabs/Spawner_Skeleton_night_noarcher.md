@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Skeleton_night_noarcher)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Skeleton_NoArcher|
 |m_maxLevel|System.Int32|3|
 |m_minLevel|System.Int32|1|

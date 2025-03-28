@@ -3,7 +3,7 @@
 ### Component: Piece (jute_carpet)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_jute_carpet|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (jute_carpet)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|rug|
 |m_worn|UnityEngine.GameObject|rug|
 |m_broken|UnityEngine.GameObject|rug|

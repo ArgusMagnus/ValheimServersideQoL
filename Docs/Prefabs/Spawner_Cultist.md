@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Cultist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Fenring_Cultist|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|

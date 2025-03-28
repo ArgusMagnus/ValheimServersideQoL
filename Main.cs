@@ -23,6 +23,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Summons: (<see cref="Tameable"/>
     ///   - Modify max instances <see cref="ZDOVars.s_maxInstances"/>
     ///   - Disable unsummon based on distance/logout <see cref="Tameable.m_unsummonDistance"/> <see cref="Tameable.m_unsummonOnOwnerLogoutSeconds"/>
+    /// - Prevent traps from damaging themselves or friendlies <see cref="Aoe.m_damageSelf"/> <see cref="Aoe.m_hitFriendly"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";
@@ -425,12 +426,16 @@ public sealed partial class Main : BaseUnityPlugin
         var path = Path.Combine(Path.GetDirectoryName(ConfigMarkdownPath), "Docs", "Prefabs");
         Directory.CreateDirectory(path);
 
+        var prefabs = new ConcurrentBag<(string Prefab, string Components)>();
+
         Parallel.ForEach(ZNetScene.instance.m_prefabs, prefab =>
         {
             if (prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is not { Length: > 0 } components)
                 return;
 
-            using var writer = new StreamWriter(Path.Combine(path, $"{prefab.name}.md"), false, new UTF8Encoding(false));
+            prefabs.Add((prefab.name, string.Join(", ", components.Select(x => x.GetType().Name).Distinct().OrderBy(x => x))));
+
+            using var writer = new StreamWriter(Path.Combine(path, $"{prefab.name.Replace(" ", "")}.md"), false, new UTF8Encoding(false));
 
             writer.WriteLine($"## {prefab.name}");
             writer.WriteLine();
@@ -448,7 +453,7 @@ public sealed partial class Main : BaseUnityPlugin
                     continue;
 
                 writer.WriteLine("|Field|Type|Default Value|");
-                writer.WriteLine("|---|---|---|");
+                writer.WriteLine("|-----|----|-------------|");
 
                 foreach (var field in fields)
                 {
@@ -478,33 +483,12 @@ public sealed partial class Main : BaseUnityPlugin
         {
             using var writer = new StreamWriter($"{path}.md", false, new UTF8Encoding(false));
             writer.WriteLine("## Prefabs");
-            foreach (var prefab in ZNetScene.instance.m_prefabs.OrderBy(x => x.name))
-            {
-                if (File.Exists(Path.Combine(path, $"{prefab.name}.md")))
-                    writer.WriteLine($"- [{prefab.name}](Prefabs/{prefab.name}.md)");
-                else
-                    writer.WriteLine($"- {prefab.name}");
-            }
-        }
-
-        //using var writer = new StreamWriter(Path.Combine(Path.GetDirectoryName(ConfigMarkdownPath), "PrefabInfo.md"), false, new UTF8Encoding(false));
-
-        //List<MonoBehaviour> components = [];
-        //foreach (var prefab in ZNetScene.instance.m_prefabs)
-        //{
-        //    components.Clear();
-
-        //    prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren(components);
-        //    if (components.Count is 0)
-        //        continue;
-
-        //    writer.WriteLine($"## {prefab.name}");
-        //    writer.WriteLine();
-
-        //    WriteComponentFields(writer, components, "Component: ");
-        //}
-
-        
+            writer.WriteLine();
+            writer.WriteLine("|Prefab|Components|");
+            writer.WriteLine("|------|----------|");
+            foreach (var (prefab, components) in prefabs.OrderBy(x => x.Prefab))
+                writer.WriteLine($"|[{prefab}](Prefabs/{prefab.Replace(" ", "")}.md)|{components}|");
+        }        
     }
 #endif
 }

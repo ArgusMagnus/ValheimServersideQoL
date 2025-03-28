@@ -3,7 +3,7 @@
 ### Component: Door (sunken_crypt_gate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_irongate|
 |m_keyItem|ItemDrop|CryptKey|
 |m_canNotBeClosed|System.Boolean|False|

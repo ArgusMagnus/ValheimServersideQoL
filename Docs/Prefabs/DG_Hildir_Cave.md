@@ -3,7 +3,7 @@
 ### Component: DungeonGenerator (DG_Hildir_Cave)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxRooms|System.Int32|64|
 |m_minRooms|System.Int32|10|
 |m_minRequiredRooms|System.Int32|1|

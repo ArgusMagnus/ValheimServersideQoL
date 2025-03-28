@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_tombstone_destroyed)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx_rock_destroyed)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -39,7 +39,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0|
 |m_flickerSpeed|System.Single|0|
 |m_movement|System.Single|0|

@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_icefloor_destruction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|3|
 |m_triggerOnAwake|System.Boolean|False|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: Gibber (fx_icefloor_destruction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -24,7 +24,7 @@
 ### Component: ZSFX (sfx)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

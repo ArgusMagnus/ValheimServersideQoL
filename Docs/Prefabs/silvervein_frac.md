@@ -5,7 +5,7 @@
 ### Component: MineRock5 (silvervein_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_deposit_silvervein|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|2|

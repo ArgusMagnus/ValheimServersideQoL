@@ -3,7 +3,7 @@
 ### Component: Piece (piece_walltorch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_sconce|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_walltorch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -72,7 +72,7 @@
 ### Component: Fireplace (piece_walltorch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_sconce|
 |m_startFuel|System.Single|2|
 |m_maxFuel|System.Single|6|
@@ -100,7 +100,7 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

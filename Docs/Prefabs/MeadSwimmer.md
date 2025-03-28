@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (MeadSwimmer)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: ItemDrop (MeadSwimmer)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
@@ -21,7 +21,7 @@
 ### Component: Piece (MeadSwimmer)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$item_mead_swimmer|
 |m_description|System.String|$item_mead_swimmer_description|
@@ -67,7 +67,7 @@
 ### Component: WearNTear (MeadSwimmer)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|default|
 |m_worn|UnityEngine.GameObject|default|
 |m_broken|UnityEngine.GameObject|default|
@@ -91,7 +91,7 @@
 ### Component: Floating (MeadSwimmer)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.75|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|

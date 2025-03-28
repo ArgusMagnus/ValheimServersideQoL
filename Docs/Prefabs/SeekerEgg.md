@@ -3,7 +3,7 @@
 ### Component: Destructible (SeekerEgg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,14 +16,14 @@
 ### Component: DropOnDestroyed (SeekerEgg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: EggHatch (SeekerEgg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_triggerDistance|System.Single|3|
 |m_chanceToHatch|System.Single|0.5|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -32,7 +32,7 @@
 ### Component: LightLod (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|True|

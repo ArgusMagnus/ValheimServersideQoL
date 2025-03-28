@@ -3,7 +3,7 @@
 ### Component: Fireplace (piece_brazierfloor01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_fire|
 |m_startFuel|System.Single|1|
 |m_maxFuel|System.Single|5|
@@ -34,7 +34,7 @@
 ### Component: Piece (piece_brazierfloor01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_brazierfloor01|
 |m_description|System.String||
@@ -81,7 +81,7 @@
 ### Component: WearNTear (piece_brazierfloor01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -104,7 +104,7 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

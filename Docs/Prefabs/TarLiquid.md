@@ -3,7 +3,7 @@
 ### Component: LiquidVolume (TarLiquid)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_width|System.Int32|64|
 |m_scale|System.Single|1|
 |m_maxDepth|System.Single|20|
@@ -23,7 +23,7 @@
 ### Component: Aoe (Collider_solid)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|True|
 |m_scaleDamageByDistance|System.Boolean|False|

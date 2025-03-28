@@ -3,7 +3,7 @@
 ### Component: Piece (Piece_flametal_beam)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_flametal_beam|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (Piece_flametal_beam)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|

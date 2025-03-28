@@ -3,7 +3,7 @@
 ### Component: Destructible (MountainKit_brazier_blue)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|50|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,14 +16,14 @@
 ### Component: DropOnDestroyed (MountainKit_brazier_blue)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: ZSFX (sfx_fire_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -51,7 +51,7 @@
 ### Component: TimedDestruction (sfx_fire_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|False|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -59,7 +59,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -71,7 +71,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|50|
 |m_shadowLod|System.Boolean|True|
@@ -80,21 +80,21 @@
 ### Component: EffectArea (FireWarmth)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: EffectArea (FireBurn)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: Aoe (FireBurn)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|True|
 |m_scaleDamageByDistance|System.Boolean|False|

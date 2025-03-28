@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Charred_Dyrnwyn)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Charred_Melee_Dyrnwyn|
 |m_maxLevel|System.Int32|3|
 |m_minLevel|System.Int32|3|

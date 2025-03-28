@@ -3,7 +3,7 @@
 ### Component: Destructible (Spawner_GreydwarfNest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|100|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: SpawnArea (Spawner_GreydwarfNest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_levelupChance|System.Single|15|
 |m_spawnIntervalSec|System.Single|10|
 |m_triggerDistance|System.Single|60|
@@ -31,20 +31,20 @@
 ### Component: HoverText (Spawner_GreydwarfNest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$enemy_greydwarfspawner|
 
 ### Component: DropOnDestroyed (Spawner_GreydwarfNest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -56,7 +56,7 @@
 ### Component: ZSFX (sfx)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

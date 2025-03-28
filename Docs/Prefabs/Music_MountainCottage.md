@@ -3,7 +3,7 @@
 ### Component: MusicLocation (Music_MountainCottage)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_addRadiusFromLocation|System.Boolean|False|
 |m_radius|System.Single|15|
 |m_oneTime|System.Boolean|True|

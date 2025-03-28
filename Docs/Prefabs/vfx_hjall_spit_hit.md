@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (vfx_hjall_spit_hit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|8|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -39,7 +39,7 @@
 ### Component: LightFlicker (Point light (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0|
@@ -51,6 +51,6 @@
 ### Component: ParticleDecal (splash decals)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chance|System.Single|100|
 

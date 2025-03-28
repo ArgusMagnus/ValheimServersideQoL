@@ -3,7 +3,7 @@
 ### Component: Piece (ArmorStand)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_armorstand|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (ArmorStand)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|Destroyed|
@@ -72,7 +72,7 @@
 ### Component: ArmorStand (ArmorStand)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_armorstand|
 |m_poseCount|System.Int32|15|
 |m_startPose|System.Int32|0|
@@ -81,7 +81,7 @@
 ### Component: Switch (block body)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|$piece_armorstand|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -89,7 +89,7 @@
 ### Component: VisEquipment (Player Pose)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_isPlayer|System.Boolean|True|
 |m_useAllTrails|System.Boolean|False|
 

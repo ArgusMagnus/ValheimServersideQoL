@@ -3,14 +3,14 @@
 ### Component: DropOnDestroyed (dvergrtown_wood_crane)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: WearNTear (dvergrtown_wood_crane)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -33,7 +33,7 @@
 ### Component: RandomPieceRotation (wood_high)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -44,7 +44,7 @@
 ### Component: RandomSpawn (deco_high)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chanceToSpawn|System.Single|50|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
@@ -53,7 +53,7 @@
 ### Component: RandomPieceRotation (wood_high)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -64,7 +64,7 @@
 ### Component: RandomSpawn (deco_high)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chanceToSpawn|System.Single|50|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
@@ -73,7 +73,7 @@
 ### Component: RandomPieceRotation (wood_high)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -84,7 +84,7 @@
 ### Component: RandomSpawn (deco_high)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chanceToSpawn|System.Single|50|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
@@ -93,7 +93,7 @@
 ### Component: RandomPieceRotation (High)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|True|
 |m_rotateY|System.Boolean|False|
 |m_rotateZ|System.Boolean|False|
@@ -104,7 +104,7 @@
 ### Component: RandomPieceRotation (wood_low)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -115,7 +115,7 @@
 ### Component: RandomSpawn (deco_low)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chanceToSpawn|System.Single|50|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
@@ -124,7 +124,7 @@
 ### Component: RandomPieceRotation (wood_low)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -135,7 +135,7 @@
 ### Component: RandomSpawn (deco_low)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chanceToSpawn|System.Single|50|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
@@ -144,7 +144,7 @@
 ### Component: RandomPieceRotation (wood_low)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -155,7 +155,7 @@
 ### Component: RandomSpawn (deco_low)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chanceToSpawn|System.Single|50|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
@@ -164,7 +164,7 @@
 ### Component: RandomPieceRotation (Low)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|True|
 |m_rotateY|System.Boolean|False|
 |m_rotateZ|System.Boolean|False|

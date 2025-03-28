@@ -3,7 +3,7 @@
 ### Component: Piece (piece_stakewall_blackwood)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_BlackwoodStakewall|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_stakewall_blackwood)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -72,7 +72,7 @@
 ### Component: Aoe (HIT AREA)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|True|
 |m_scaleDamageByDistance|System.Boolean|False|

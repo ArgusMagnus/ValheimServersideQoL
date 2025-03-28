@@ -3,7 +3,7 @@
 ### Component: WearNTear (Ashlands_Ruins_Wall_Broken4_4x6)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|

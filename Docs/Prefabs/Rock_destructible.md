@@ -3,7 +3,7 @@
 ### Component: Destructible (Rock_destructible)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|10|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|

@@ -3,7 +3,7 @@
 ### Component: MineRock5 (Rock_3_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|Rock|
 |m_health|System.Single|30|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: StaticPhysics (Rock_3_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|False|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|

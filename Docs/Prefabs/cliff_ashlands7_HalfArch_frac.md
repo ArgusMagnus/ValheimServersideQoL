@@ -5,7 +5,7 @@
 ### Component: MineRock5 (cliff_ashlands7_HalfArch_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_health|System.Single|70|
 |m_minToolTier|System.Int32|0|

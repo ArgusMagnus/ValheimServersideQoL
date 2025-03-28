@@ -3,7 +3,7 @@
 ### Component: Piece (fermenter)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_fermenter|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (fermenter)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -72,7 +72,7 @@
 ### Component: Fermenter (fermenter)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_fermenter|
 |m_fermentationDuration|System.Single|2400|
 |m_fermentingObject|UnityEngine.GameObject|_fermenting|
@@ -83,14 +83,14 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -118,7 +118,7 @@
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

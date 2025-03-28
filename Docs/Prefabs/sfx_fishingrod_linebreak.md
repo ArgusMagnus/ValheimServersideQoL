@@ -3,7 +3,7 @@
 ### Component: ZSFX (sfx_fishingrod_linebreak)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$item_fishingrod|
 |m_secondaryCaptionToken|System.String|$caption_linebreak|
@@ -31,7 +31,7 @@
 ### Component: TimedDestruction (sfx_fishingrod_linebreak)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|3|
 |m_triggerOnAwake|System.Boolean|False|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|

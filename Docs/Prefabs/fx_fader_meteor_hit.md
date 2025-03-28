@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_fader_meteor_hit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|10|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: CamShaker (fx_fader_meteor_hit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|1.34|
 |m_range|System.Single|50|
 |m_delay|System.Single|0|
@@ -22,7 +22,7 @@
 ### Component: TimedDestruction (sfx_fader_meteor_impact)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|4|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -30,7 +30,7 @@
 ### Component: ZSFX (sfx_fader_meteor_impact)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$caption_meteor_exploding|
 |m_secondaryCaptionToken|System.String||
@@ -58,7 +58,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

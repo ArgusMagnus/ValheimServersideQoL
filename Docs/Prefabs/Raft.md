@@ -3,7 +3,7 @@
 ### Component: Ship (Raft)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ashDamageMsgTime|System.Single|10|
 |m_sailObject|UnityEngine.GameObject|Sail|
 |m_mastObject|UnityEngine.GameObject|mast|
@@ -35,7 +35,7 @@
 ### Component: ZSyncTransform (Raft)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -45,7 +45,7 @@
 ### Component: Piece (Raft)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$ship_raft|
 |m_description|System.String||
@@ -91,7 +91,7 @@
 ### Component: WearNTear (Raft)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|hull_new|
 |m_worn|UnityEngine.GameObject|hull_worn|
 |m_broken|UnityEngine.GameObject|hull_broken|
@@ -114,7 +114,7 @@
 ### Component: ImpactEffect (Raft)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hitDestroyChance|System.Single|0|
 |m_minVelocity|System.Single|1.5|
 |m_maxVelocity|System.Single|7|
@@ -127,7 +127,7 @@
 ### Component: GlobalWind (sail_full)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_multiplier|System.Single|100|
 |m_smoothUpdate|System.Boolean|False|
 |m_alignToWindDirection|System.Boolean|False|
@@ -142,17 +142,17 @@
 ### Component: LineAttach (left_bottom)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: LineAttach (right_bottom)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: ShipEffects (WaterEffects)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_offset|System.Single|0|
 |m_minimumWakeVel|System.Single|1|
 |m_speedWakeRoot|UnityEngine.GameObject|SpeedWake|
@@ -164,7 +164,7 @@
 ### Component: Chair (mast)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$ship_holdfast|
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
@@ -174,14 +174,14 @@
 ### Component: Ladder (ladder)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_ship_ladder|
 |m_useDistance|System.Single|2|
 
 ### Component: ShipControlls (controls)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|$piece_ship_rudder|
 |m_maxUseRange|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|

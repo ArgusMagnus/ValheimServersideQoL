@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (fx_DvergerMage_Nova_ring)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -25,7 +25,7 @@
 ### Component: ZSFX (sfx_shockwave)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

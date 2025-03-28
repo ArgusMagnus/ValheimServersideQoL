@@ -3,7 +3,7 @@
 ### Component: WearNTear (CastleKit_groundtorch_unlit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -26,7 +26,7 @@
 ### Component: Fireplace (CastleKit_groundtorch_unlit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_groundtorchwood|
 |m_startFuel|System.Single|0|
 |m_maxFuel|System.Single|1|

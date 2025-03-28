@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (SeekerQueen_spithit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|10.5|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -39,7 +39,7 @@
 ### Component: CamShaker (sfx)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|0.5|
 |m_range|System.Single|20|
 |m_delay|System.Single|0|
@@ -50,13 +50,13 @@
 ### Component: ParticleDecal (Chunks)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chance|System.Single|50|
 
 ### Component: EffectArea (EffectArea)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String|Slimed|
 |m_playerOnly|System.Boolean|True|
 

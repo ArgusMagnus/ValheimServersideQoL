@@ -3,7 +3,7 @@
 ### Component: Valkyrie (Valkyrie)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_speed|System.Single|20|
 |m_turnRate|System.Single|20|
 |m_dropHeight|System.Single|10|
@@ -17,7 +17,7 @@
 ### Component: ZSyncTransform (Valkyrie)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -27,5 +27,5 @@
 ### Component: AnimationEffect (valkyrie2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

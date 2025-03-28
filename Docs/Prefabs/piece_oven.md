@@ -3,7 +3,7 @@
 ### Component: Piece (piece_oven)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_oven|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_oven)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -72,7 +72,7 @@
 ### Component: CookingStation (piece_oven)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_addItemTooltip|System.String|$piece_oven_additem|
 |m_spawnForce|System.Single|5|
 |m_overCookedItem|ItemDrop|Coal|
@@ -89,7 +89,7 @@
 ### Component: Switch (add_food)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_oven|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -97,7 +97,7 @@
 ### Component: Switch (add_fuel)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_oven|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -105,13 +105,13 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: ProximityState (HatchProxy)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playerOnly|System.Boolean|True|
 

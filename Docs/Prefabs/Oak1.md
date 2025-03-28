@@ -3,7 +3,7 @@
 ### Component: TreeBase (Oak1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|2|
 |m_trunk|UnityEngine.GameObject|Lod0|
@@ -17,7 +17,7 @@
 ### Component: StaticPhysics (Oak1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -26,6 +26,6 @@
 ### Component: HoverText (Oak1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_oak|
 

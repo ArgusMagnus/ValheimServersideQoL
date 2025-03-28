@@ -3,7 +3,7 @@
 ### Component: DungeonGenerator (DG_Cave)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxRooms|System.Int32|64|
 |m_minRooms|System.Int32|3|
 |m_minRequiredRooms|System.Int32|3|

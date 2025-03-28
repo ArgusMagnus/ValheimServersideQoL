@@ -3,7 +3,7 @@
 ### Component: Aoe (Fader_MeteorSmash_AOE)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|False|
 |m_scaleDamageByDistance|System.Boolean|True|

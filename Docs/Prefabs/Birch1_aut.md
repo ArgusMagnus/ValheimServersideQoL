@@ -3,7 +3,7 @@
 ### Component: TreeBase (Birch1_aut)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|80|
 |m_minToolTier|System.Int32|2|
 |m_trunk|UnityEngine.GameObject|Lod0|
@@ -17,7 +17,7 @@
 ### Component: StaticPhysics (Birch1_aut)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -26,13 +26,13 @@
 ### Component: HoverText (Birch1_aut)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_birch|
 
 ### Component: GlobalWind (leaf_particles)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_multiplier|System.Single|3|
 |m_smoothUpdate|System.Boolean|False|
 |m_alignToWindDirection|System.Boolean|False|

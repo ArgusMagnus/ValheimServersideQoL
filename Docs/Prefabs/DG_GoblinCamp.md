@@ -3,7 +3,7 @@
 ### Component: DungeonGenerator (DG_GoblinCamp)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxRooms|System.Int32|25|
 |m_minRooms|System.Int32|15|
 |m_minRequiredRooms|System.Int32|1|

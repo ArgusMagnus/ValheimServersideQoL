@@ -3,7 +3,7 @@
 ### Component: Piece (treasure_stack)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_treasure_stack|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (treasure_stack)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|stack|
 |m_worn|UnityEngine.GameObject|stack|
 |m_broken|UnityEngine.GameObject|stack|

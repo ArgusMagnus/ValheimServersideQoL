@@ -3,14 +3,14 @@
 ### Component: DropOnDestroyed (morgenhole_pile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|1|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: Destructible (morgenhole_pile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|100|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|

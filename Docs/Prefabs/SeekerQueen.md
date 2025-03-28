@@ -3,7 +3,7 @@
 ### Component: Humanoid (SeekerQueen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_seekerqueen|
@@ -61,7 +61,7 @@
 ### Component: ZSyncTransform (SeekerQueen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -71,13 +71,13 @@
 ### Component: ZSyncAnimation (SeekerQueen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (SeekerQueen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|30|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|True|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -152,13 +152,13 @@
 ### Component: CharacterDrop (SeekerQueen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: FootStep (SeekerQueen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|50|
@@ -166,19 +166,19 @@
 ### Component: MovementDamage (SeekerQueen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_runDamageObject|UnityEngine.GameObject|RunHitDamager|
 |m_speedTreshold|System.Single|1|
 
 ### Component: AnimationEffect (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: CharacterAnimEvent (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -198,17 +198,17 @@
 ### Component: ParticleDecal (flow)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chance|System.Single|25|
 
 ### Component: ParticleDecal (drops-withdecals)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chance|System.Single|40|
 
 ### Component: WeakSpot (WeakSpot_head)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

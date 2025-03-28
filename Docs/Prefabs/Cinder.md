@@ -3,7 +3,7 @@
 ### Component: Cinder (Cinder)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 |m_houseFirePrefab|UnityEngine.GameObject|HouseFire|
 |m_gravity|System.Single|10|
@@ -15,7 +15,7 @@
 ### Component: TimedDestruction (Cinder)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|3|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|

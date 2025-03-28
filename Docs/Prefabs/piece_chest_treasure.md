@@ -3,7 +3,7 @@
 ### Component: Piece (piece_chest_treasure)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_chesttreasure|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_chest_treasure)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|

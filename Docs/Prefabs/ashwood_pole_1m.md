@@ -3,7 +3,7 @@
 ### Component: Piece (ashwood_pole_1m)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_ashwood_pole_1m|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (ashwood_pole_1m)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|Broken|

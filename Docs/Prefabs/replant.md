@@ -3,7 +3,7 @@
 ### Component: Piece (replant)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_replant|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: TerrainModifier (replant)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|True|

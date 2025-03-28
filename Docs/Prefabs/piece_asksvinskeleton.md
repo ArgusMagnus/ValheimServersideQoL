@@ -3,7 +3,7 @@
 ### Component: Piece (piece_asksvinskeleton)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_asksvinskeleton|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_asksvinskeleton)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -72,7 +72,7 @@
 ### Component: Chair (piece_asksvinskeleton)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_asksvinskeleton|
 |m_useDistance|System.Single|3|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.60, 0.00)|

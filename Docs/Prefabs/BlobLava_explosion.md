@@ -3,7 +3,7 @@
 ### Component: Aoe (BlobLava_explosion)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|False|
 |m_scaleDamageByDistance|System.Boolean|False|
@@ -63,7 +63,7 @@
 ### Component: ZSyncTransform (BlobLava_explosion)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|

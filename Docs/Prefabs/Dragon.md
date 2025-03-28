@@ -3,7 +3,7 @@
 ### Component: Humanoid (Dragon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_dragon|
@@ -61,7 +61,7 @@
 ### Component: ZSyncTransform (Dragon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -71,13 +71,13 @@
 ### Component: ZSyncAnimation (Dragon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (Dragon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|30|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|False|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -152,13 +152,13 @@
 ### Component: CharacterDrop (Dragon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: FootStep (Dragon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|50|
@@ -166,7 +166,7 @@
 ### Component: CharacterAnimEvent (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -186,5 +186,5 @@
 ### Component: AnimationEffect (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

@@ -3,7 +3,7 @@
 ### Component: Ragdoll (Hatchling_ragdoll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_velMultiplier|System.Single|4|
 |m_ttl|System.Single|3|
 |m_float|System.Boolean|True|

@@ -3,7 +3,7 @@
 ### Component: Gibber (vfx_Ashruin_window6_destroyed)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|

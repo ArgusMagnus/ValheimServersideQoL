@@ -3,7 +3,7 @@
 ### Component: Piece (BogWitch_Fire_Pit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_firepit|
 |m_description|System.String||
@@ -50,7 +50,7 @@
 ### Component: Fireplace (BogWitch_Fire_Pit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_fire|
 |m_startFuel|System.Single|10|
 |m_maxFuel|System.Single|10|
@@ -80,7 +80,7 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (NeckTailGrilled)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: ItemDrop (NeckTailGrilled)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
@@ -22,7 +22,7 @@
 ### Component: Piece (NeckTailGrilled)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$item_necktailgrilled|
 |m_description|System.String|$item_necktailgrilled_description|
@@ -68,7 +68,7 @@
 ### Component: WearNTear (NeckTailGrilled)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|meat|
 |m_worn|UnityEngine.GameObject|meat|
 |m_broken|UnityEngine.GameObject|meat|

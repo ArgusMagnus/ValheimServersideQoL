@@ -3,7 +3,7 @@
 ### Component: RandomPieceRotation (default)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|

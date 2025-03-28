@@ -3,7 +3,7 @@
 ### Component: MineRock5 (Ice_floor_fractured)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|

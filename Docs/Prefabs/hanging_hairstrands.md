@@ -3,14 +3,14 @@
 ### Component: DropOnDestroyed (hanging_hairstrands)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: Destructible (hanging_hairstrands)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|10|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -23,7 +23,7 @@
 ### Component: Pickable (hanging_hairstrands)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|new|
 |m_itemPrefab|UnityEngine.GameObject|WolfHairBundle|
 |m_amount|System.Int32|1|

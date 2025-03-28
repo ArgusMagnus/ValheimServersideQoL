@@ -3,7 +3,7 @@
 ### Component: Projectile (projectile_meteor_fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_aoe|System.Single|5|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
@@ -65,7 +65,7 @@
 ### Component: ZSyncTransform (projectile_meteor_fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|

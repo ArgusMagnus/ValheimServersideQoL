@@ -3,7 +3,7 @@
 ### Component: WearNTear (piece_dvergr_lantern)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -26,7 +26,7 @@
 ### Component: Piece (piece_dvergr_lantern)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_dvergr_lantern|
 |m_description|System.String||
@@ -72,7 +72,7 @@
 ### Component: LightFlicker (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -84,7 +84,7 @@
 ### Component: LightLod (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|30|
 |m_shadowLod|System.Boolean|True|

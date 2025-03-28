@@ -3,7 +3,7 @@
 ### Component: Piece (piece_beehive)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_beehive|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_beehive)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
@@ -72,7 +72,7 @@
 ### Component: Beehive (piece_beehive)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_beehive|
 |m_beeEffect|UnityEngine.GameObject|BeeEffect|
 |m_effectOnlyInDaylight|System.Boolean|True|
@@ -92,13 +92,13 @@
 ### Component: SpawnOnDamaged (piece_beehive)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOnDamage|UnityEngine.GameObject|bee_aoe|
 
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

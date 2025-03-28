@@ -3,7 +3,7 @@
 ### Component: Piece (piece_cookingstation)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_cookingstation|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_cookingstation)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -72,7 +72,7 @@
 ### Component: CookingStation (piece_cookingstation)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_addItemTooltip|System.String|$piece_cstand_cook|
 |m_spawnForce|System.Single|5|
 |m_overCookedItem|ItemDrop|Coal|

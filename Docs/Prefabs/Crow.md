@@ -3,7 +3,7 @@
 ### Component: RandomFlyingBird (Crow)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flyRange|System.Single|20|
 |m_minAlt|System.Single|15|
 |m_maxAlt|System.Single|20|
@@ -29,7 +29,7 @@
 ### Component: ZSyncTransform (Crow)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -39,13 +39,13 @@
 ### Component: ZSyncAnimation (Crow)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|False|
 
 ### Component: Destructible (Crow)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -58,7 +58,7 @@
 ### Component: DropOnDestroyed (Crow)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 

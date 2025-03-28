@@ -3,7 +3,7 @@
 ### Component: Aoe (FallenValkyrie_projectile_explosion)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|True|
 |m_scaleDamageByDistance|System.Boolean|False|

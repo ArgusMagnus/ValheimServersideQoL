@@ -3,7 +3,7 @@
 ### Component: Gibber (vfx_ashland_ruin_wall_windows_broken_4x6_destruction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|

@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_SeekerBrute_respawn_240)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|SeekerBrute|
 |m_maxLevel|System.Int32|3|
 |m_minLevel|System.Int32|1|

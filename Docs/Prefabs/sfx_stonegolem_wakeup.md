@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (sfx_stonegolem_wakeup)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx_stonegolem_wakeup)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$enemy_stonegolem|
 |m_secondaryCaptionToken|System.String|$caption_awakening|
@@ -39,7 +39,7 @@
 ### Component: CamShaker (sfx_stonegolem_wakeup)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|1.2|
 |m_range|System.Single|40|
 |m_delay|System.Single|0|

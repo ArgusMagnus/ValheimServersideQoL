@@ -3,7 +3,7 @@
 ### Component: WearNTear (goblin_stepladder)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -26,7 +26,7 @@
 ### Component: AutoJumpLedge (jump_trigger)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_forwardOnly|System.Boolean|True|
 |m_upVel|System.Single|6|
 |m_forwardVel|System.Single|3|
@@ -34,7 +34,7 @@
 ### Component: AutoJumpLedge (jump_trigger (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_forwardOnly|System.Boolean|True|
 |m_upVel|System.Single|6|
 |m_forwardVel|System.Single|3|
@@ -42,7 +42,7 @@
 ### Component: AutoJumpLedge (jump_trigger (2))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_forwardOnly|System.Boolean|True|
 |m_upVel|System.Single|6|
 |m_forwardVel|System.Single|3|

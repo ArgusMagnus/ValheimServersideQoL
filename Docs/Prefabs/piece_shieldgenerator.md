@@ -3,7 +3,7 @@
 ### Component: ShieldGenerator (piece_shieldgenerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_shieldgenerator|
 |m_add|System.String|$piece_shieldgenerator_add|
 |m_enabledObject|UnityEngine.GameObject|enabled|
@@ -26,7 +26,7 @@
 ### Component: Piece (piece_shieldgenerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_shieldgenerator|
 |m_description|System.String|$piece_shieldgenerator_description|
@@ -72,7 +72,7 @@
 ### Component: WearNTear (piece_shieldgenerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -95,27 +95,27 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: GuidePoint (GuidePoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: Switch (add_ore)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|0.2|
@@ -123,7 +123,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|True|
@@ -132,7 +132,7 @@
 ### Component: LightLod (Point light (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|True|
@@ -141,7 +141,7 @@
 ### Component: ZSFX (sfx_shieldgenerator_powered_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -169,7 +169,7 @@
 ### Component: TimedDestruction (sfx_shieldgenerator_powered_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|1.5|
 |m_triggerOnAwake|System.Boolean|False|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|

@@ -3,7 +3,7 @@
 ### Component: Ragdoll (GoblinShaman_Hildir_ragdoll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_velMultiplier|System.Single|4|
 |m_ttl|System.Single|2|
 |m_float|System.Boolean|True|
@@ -13,7 +13,7 @@
 ### Component: VisEquipment (GoblinShaman_Hildir_ragdoll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
 

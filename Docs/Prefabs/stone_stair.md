@@ -3,7 +3,7 @@
 ### Component: Piece (stone_stair)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_stonestair|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (stone_stair)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|

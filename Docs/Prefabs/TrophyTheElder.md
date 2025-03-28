@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (TrophyTheElder)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,14 +13,14 @@
 ### Component: ItemDrop (TrophyTheElder)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 
 ### Component: Floating (TrophyTheElder)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.52|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|
@@ -30,7 +30,7 @@
 ### Component: RandomSpeak (DeadSpeak_Base)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_interval|System.Single|60|
 |m_chance|System.Single|0.05|
 |m_triggerDistance|System.Single|10|

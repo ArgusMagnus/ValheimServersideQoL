@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (sfx_goblinbrute_clubswing)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|4|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx_goblinbrute_clubswing)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$enemy_goblinbrute|
 |m_secondaryCaptionToken|System.String|$caption_attacking|

@@ -3,7 +3,7 @@
 ### Component: Destructible (CreepProp_hanging01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|

@@ -3,7 +3,7 @@
 ### Component: Humanoid (Hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_drake|
@@ -61,7 +61,7 @@
 ### Component: ZSyncTransform (Hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -71,13 +71,13 @@
 ### Component: ZSyncAnimation (Hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (Hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|30|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|True|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -152,18 +152,18 @@
 ### Component: CharacterDrop (Hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: AnimationEffect (Hatchling_mountain)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: CharacterAnimEvent (Hatchling_mountain)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|

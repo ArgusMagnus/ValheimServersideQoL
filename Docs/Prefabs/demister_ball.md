@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (demister_ball)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -25,7 +25,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|30|
 |m_shadowLod|System.Boolean|True|
@@ -34,6 +34,6 @@
 ### Component: Demister (Particle System Force Field)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_disableForcefieldDelay|System.Single|0|
 

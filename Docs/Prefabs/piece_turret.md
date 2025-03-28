@@ -3,7 +3,7 @@
 ### Component: Turret (piece_turret)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_turret|
 |m_turretBody|UnityEngine.GameObject|BodyRotation|
 |m_turretBodyArmed|UnityEngine.GameObject|Body|
@@ -39,7 +39,7 @@
 ### Component: Piece (piece_turret)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_turret|
 |m_description|System.String|$piece_turret_description|
@@ -85,7 +85,7 @@
 ### Component: WearNTear (piece_turret)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|

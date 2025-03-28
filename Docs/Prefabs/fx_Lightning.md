@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (fx_Lightning)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|False|
 |m_syncScale|System.Boolean|True|
@@ -13,7 +13,7 @@
 ### Component: LightFlicker (Point light (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.4|
 |m_flickerSpeed|System.Single|100|
 |m_movement|System.Single|0.3|
@@ -25,7 +25,7 @@
 ### Component: ZSFX (sfx)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

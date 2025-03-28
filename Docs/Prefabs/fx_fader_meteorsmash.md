@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_fader_meteorsmash)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|30|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: MeteorSmash (fx_fader_meteorsmash)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_meteorObject|UnityEngine.GameObject|Meteor|
 |m_landingEffect|UnityEngine.GameObject|Explosion|
 |m_timeToLand|System.Single|25.014|
@@ -21,7 +21,7 @@
 ### Component: CamShaker (fx_fader_meteorsmash)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|2|
 |m_range|System.Single|50|
 |m_delay|System.Single|25.014|
@@ -32,7 +32,7 @@
 ### Component: TimedDestruction (sfx_fader_spawn_meteor_arrival)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|30|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -40,7 +40,7 @@
 ### Component: ZSFX (sfx_fader_spawn_meteor_arrival)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

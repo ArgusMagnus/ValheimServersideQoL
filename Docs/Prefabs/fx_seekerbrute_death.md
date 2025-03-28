@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_seekerbrute_death)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|15|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: CamShaker (fx_seekerbrute_death)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|1.5|
 |m_range|System.Single|30|
 |m_delay|System.Single|0|
@@ -22,13 +22,13 @@
 ### Component: ParticleDecal (drops-withdecals)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chance|System.Single|40|
 
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -56,13 +56,13 @@
 ### Component: ParticleDecal (lumps-ass-with decals)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chance|System.Single|40|
 
 ### Component: LightFlicker (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

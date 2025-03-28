@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_Mushroom_yellow)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|visual|
 |m_itemPrefab|UnityEngine.GameObject|MushroomYellow|
 |m_amount|System.Int32|1|

@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (sfx_fist_metal_blocked)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|2|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx_fist_metal_blocked)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$item_fistweapon_fenris|
 |m_secondaryCaptionToken|System.String|$caption_blocking|
@@ -39,7 +39,7 @@
 ### Component: ZSFX (sfx_metal_blocked_overlay)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

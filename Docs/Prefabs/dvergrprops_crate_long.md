@@ -3,14 +3,14 @@
 ### Component: DropOnDestroyed (dvergrprops_crate_long)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: WearNTear (dvergrprops_crate_long)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -33,13 +33,13 @@
 ### Component: HoverText (dvergrprops_crate_long)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$piece_crate_long|
 
 ### Component: StaticPhysics (dvergrprops_crate_long)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|True|

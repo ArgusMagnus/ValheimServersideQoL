@@ -3,7 +3,7 @@
 ### Component: LiquidVolume (WaterLiquid)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_width|System.Int32|64|
 |m_scale|System.Single|1|
 |m_maxDepth|System.Single|20|

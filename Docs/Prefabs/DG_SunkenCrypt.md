@@ -3,7 +3,7 @@
 ### Component: DungeonGenerator (DG_SunkenCrypt)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxRooms|System.Int32|30|
 |m_minRooms|System.Int32|20|
 |m_minRequiredRooms|System.Int32|0|

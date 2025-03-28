@@ -3,7 +3,7 @@
 ### Component: Projectile (gdking_root_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
@@ -62,7 +62,7 @@
 ### Component: ZSyncTransform (gdking_root_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -72,14 +72,14 @@
 ### Component: RandomMovement (Particle System)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_frequency|System.Single|15|
 |m_movement|System.Single|0.5|
 
 ### Component: RandomMovement (spores)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_frequency|System.Single|15|
 |m_movement|System.Single|0.5|
 

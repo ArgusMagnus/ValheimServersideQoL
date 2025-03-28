@@ -3,7 +3,7 @@
 ### Component: Destructible (AshlandsTreeStump1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|80|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: StaticPhysics (AshlandsTreeStump1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -25,13 +25,13 @@
 ### Component: HoverText (AshlandsTreeStump1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_treestump|
 
 ### Component: DropOnDestroyed (AshlandsTreeStump1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 

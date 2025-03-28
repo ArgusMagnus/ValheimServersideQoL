@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_RoyalJelly)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|Hide|
 |m_itemPrefab|UnityEngine.GameObject|RoyalJelly|
 |m_amount|System.Int32|5|

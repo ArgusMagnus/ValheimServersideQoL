@@ -3,7 +3,7 @@
 ### Component: Piece (blackmarble_head01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_blackmarble_bronze_head1|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (blackmarble_head01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|

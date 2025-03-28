@@ -3,7 +3,7 @@
 ### Component: Humanoid (Blob)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_blob|
@@ -61,13 +61,13 @@
 ### Component: CharacterDrop (Blob)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: ZSyncTransform (Blob)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -77,13 +77,13 @@
 ### Component: ZSyncAnimation (Blob)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (Blob)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|9999|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|False|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -158,7 +158,7 @@
 ### Component: FootStep (Blob)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
@@ -166,7 +166,7 @@
 ### Component: CharacterAnimEvent (blob)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -186,7 +186,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|

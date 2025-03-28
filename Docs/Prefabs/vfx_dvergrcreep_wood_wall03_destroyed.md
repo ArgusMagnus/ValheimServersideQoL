@@ -3,7 +3,7 @@
 ### Component: Gibber (vfx_dvergrcreep_wood_wall03_destroyed)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|8|
@@ -16,7 +16,7 @@
 ### Component: RandomPieceRotation (wood_high (11))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -27,7 +27,7 @@
 ### Component: RandomPieceRotation (wood_high (10))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -38,7 +38,7 @@
 ### Component: RandomPieceRotation (wood_high (7))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -49,7 +49,7 @@
 ### Component: RandomPieceRotation (wood_high (2))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -60,7 +60,7 @@
 ### Component: RandomPieceRotation (wood_high (6))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -71,7 +71,7 @@
 ### Component: RandomPieceRotation (wood_high (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -82,7 +82,7 @@
 ### Component: RandomPieceRotation (wood_high (5))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -93,7 +93,7 @@
 ### Component: RandomPieceRotation (wood_high)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|

@@ -3,7 +3,7 @@
 ### Component: Destructible (dvergrtown_arch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|200|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|

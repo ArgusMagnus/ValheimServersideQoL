@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (MeadHealthMajor)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: ItemDrop (MeadHealthMajor)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
@@ -21,7 +21,7 @@
 ### Component: Piece (MeadHealthMajor)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$item_mead_hp_major|
 |m_description|System.String|$item_mead_hp_major_description|
@@ -67,7 +67,7 @@
 ### Component: WearNTear (MeadHealthMajor)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|

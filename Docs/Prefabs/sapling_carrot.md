@@ -3,7 +3,7 @@
 ### Component: Plant (sapling_carrot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_sapling_carrot|
 |m_growTime|System.Single|4000|
 |m_growTimeMax|System.Single|5000|
@@ -20,7 +20,7 @@
 ### Component: Destructible (sapling_carrot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -33,7 +33,7 @@
 ### Component: Piece (sapling_carrot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_sapling_carrot|
 |m_description|System.String|$piece_sapling_carrot_description|

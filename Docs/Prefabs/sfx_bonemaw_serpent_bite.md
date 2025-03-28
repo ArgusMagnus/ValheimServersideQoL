@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (sfx_bonemaw_serpent_bite)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx_bonemaw_serpent_bite)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$enemy_bonemawserpent|
 |m_secondaryCaptionToken|System.String|$caption_attacking|

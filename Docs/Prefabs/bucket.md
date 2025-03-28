@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (bucket)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: Destructible (bucket)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|10|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|

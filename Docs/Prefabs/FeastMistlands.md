@@ -3,14 +3,14 @@
 ### Component: Feast (FeastMistlands)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 
 ### Component: Piece (FeastMistlands)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$item_feastmistlands|
 |m_description|System.String|$item_feastmistlands_description|
@@ -56,14 +56,14 @@
 ### Component: ItemDrop (FeastMistlands)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 
 ### Component: WearNTear (FeastMistlands)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|

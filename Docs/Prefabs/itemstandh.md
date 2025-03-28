@@ -3,7 +3,7 @@
 ### Component: Piece (itemstandh)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_itemstand|
 |m_description|System.String|$piece_horizontal|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (itemstandh)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -72,7 +72,7 @@
 ### Component: ItemStand (itemstandh)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_itemstand|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|False|

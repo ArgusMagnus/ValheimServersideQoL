@@ -3,7 +3,7 @@
 ### Component: Piece (flametal_gate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_flametalgate|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (flametal_gate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|door|
 |m_worn|UnityEngine.GameObject|door|
 |m_broken|UnityEngine.GameObject|door|
@@ -72,7 +72,7 @@
 ### Component: Door (flametal_gate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_flametalgate|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|

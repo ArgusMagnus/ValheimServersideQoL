@@ -5,7 +5,7 @@
 ### Component: Destructible (giant_brain)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|3|
@@ -19,6 +19,6 @@
 ### Component: HoverText (giant_brain)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$piece_giant_brain|
 

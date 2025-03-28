@@ -3,7 +3,7 @@
 ### Component: Projectile (hatchling_cold_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
@@ -62,7 +62,7 @@
 ### Component: ZSyncTransform (hatchling_cold_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|

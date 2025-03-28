@@ -3,7 +3,7 @@
 ### Component: Humanoid (Skeleton_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_skeletonfire|
@@ -61,7 +61,7 @@
 ### Component: ZSyncTransform (Skeleton_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -71,13 +71,13 @@
 ### Component: ZSyncAnimation (Skeleton_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (Skeleton_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|20|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|True|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -152,20 +152,20 @@
 ### Component: CharacterDrop (Skeleton_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: VisEquipment (Skeleton_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
 
 ### Component: FootStep (Skeleton_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
@@ -173,12 +173,12 @@
 ### Component: LevelEffects (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: CharacterAnimEvent (_skeleton_base)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -198,7 +198,7 @@
 ### Component: LightLod (Headlamp)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|True|

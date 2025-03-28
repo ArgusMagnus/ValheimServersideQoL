@@ -3,7 +3,7 @@
 ### Component: Destructible (mudpile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -17,6 +17,6 @@
 ### Component: HoverText (mudpile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$piece_mudpile|
 

@@ -3,7 +3,7 @@
 ### Component: Destructible (MineRock_Tin)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|30|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: StaticPhysics (MineRock_Tin)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|False|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -25,14 +25,14 @@
 ### Component: DropOnDestroyed (MineRock_Tin)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: HoverText (MineRock_Tin)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$piece_deposit_tin|
 
 ### Component: LodFadeInOut (Rock_4 (1))

@@ -3,7 +3,7 @@
 ### Component: Piece (ashwood_door)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_ashwood_door|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (ashwood_door)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|Frame|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
@@ -72,7 +72,7 @@
 ### Component: Door (ashwood_door)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_ashwood_door|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|

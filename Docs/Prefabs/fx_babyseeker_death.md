@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_babyseeker_death)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|15|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,13 +11,13 @@
 ### Component: ParticleDecal (drops-withdecals)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chance|System.Single|40|
 
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -45,7 +45,7 @@
 ### Component: LightFlicker (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

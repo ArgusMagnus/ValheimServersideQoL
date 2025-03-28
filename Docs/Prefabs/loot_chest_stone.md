@@ -3,7 +3,7 @@
 ### Component: Container (loot_chest_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|Chest|
 |m_width|System.Int32|4|
 |m_height|System.Int32|2|
@@ -15,7 +15,7 @@
 ### Component: Piece (loot_chest_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|Chest|
 |m_description|System.String||
@@ -61,7 +61,7 @@
 ### Component: WearNTear (loot_chest_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|

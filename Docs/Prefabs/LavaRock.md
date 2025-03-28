@@ -3,7 +3,7 @@
 ### Component: SpawnAbility (LavaRock)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxSummonReached|System.String|$hud_maxsummonsreached|
 |m_spawnOnAwake|System.Boolean|True|
 |m_alertSpawnedCreature|System.Boolean|True|
@@ -36,7 +36,7 @@
 ### Component: ZSyncTransform (LavaRock)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -46,7 +46,7 @@
 ### Component: TimedDestruction (LavaRock)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|4|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|

@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_SurtlingCoreStand)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|core|
 |m_itemPrefab|UnityEngine.GameObject|SurtlingCore|
 |m_amount|System.Int32|1|
@@ -27,7 +27,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

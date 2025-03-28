@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Cultist_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Fenring_Cultist_Hildir|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|
@@ -28,7 +28,7 @@
 ### Component: RandomSpawn (Spawner_Cultist_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chanceToSpawn|System.Single|100|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|

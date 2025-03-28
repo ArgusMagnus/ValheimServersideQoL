@@ -3,7 +3,7 @@
 ### Component: Ship (Karve)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ashDamageMsgTime|System.Single|10|
 |m_sailObject|UnityEngine.GameObject|Sail|
 |m_mastObject|UnityEngine.GameObject|mast|
@@ -35,7 +35,7 @@
 ### Component: ZSyncTransform (Karve)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -45,7 +45,7 @@
 ### Component: Piece (Karve)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$ship_karve|
 |m_description|System.String||
@@ -91,7 +91,7 @@
 ### Component: WearNTear (Karve)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|visual_new|
 |m_worn|UnityEngine.GameObject|visual_worn|
 |m_broken|UnityEngine.GameObject|visual_broken|
@@ -114,7 +114,7 @@
 ### Component: ImpactEffect (Karve)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hitDestroyChance|System.Single|0|
 |m_minVelocity|System.Single|1.5|
 |m_maxVelocity|System.Single|7|
@@ -127,7 +127,7 @@
 ### Component: GlobalWind (sail_full)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_multiplier|System.Single|100|
 |m_smoothUpdate|System.Boolean|False|
 |m_alignToWindDirection|System.Boolean|False|
@@ -142,27 +142,27 @@
 ### Component: LineAttach (left_bottom)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: LineAttach (right_bottom)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: LineAttach (left)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: LineAttach (right)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: Container (piece_chest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|Storage|
 |m_width|System.Int32|2|
 |m_height|System.Int32|2|
@@ -175,7 +175,7 @@
 ### Component: ShipEffects (SurfaceEffects)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_offset|System.Single|0|
 |m_minimumWakeVel|System.Single|2.5|
 |m_speedWakeRoot|UnityEngine.GameObject|SpeedWake|
@@ -188,44 +188,44 @@
 ### Component: WaterTrigger (WaterTrigger (6))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cooldownDelay|System.Single|2|
 
 ### Component: WaterTrigger (WaterTrigger)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cooldownDelay|System.Single|2|
 
 ### Component: WaterTrigger (WaterTrigger (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cooldownDelay|System.Single|2|
 
 ### Component: WaterTrigger (WaterTrigger (2))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cooldownDelay|System.Single|2|
 
 ### Component: WaterTrigger (WaterTrigger (3))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cooldownDelay|System.Single|2|
 
 ### Component: Ladder (ladder)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_ship_ladder|
 |m_useDistance|System.Single|2.5|
 
 ### Component: Chair (sit_box_fr)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_stool|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -235,7 +235,7 @@
 ### Component: Chair (sit_box_fl)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_stool|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -245,7 +245,7 @@
 ### Component: Chair (mast)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$ship_holdfast|
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
@@ -255,7 +255,7 @@
 ### Component: ShipControlls (controlls)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|$piece_ship_rudder|
 |m_maxUseRange|System.Single|10|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|

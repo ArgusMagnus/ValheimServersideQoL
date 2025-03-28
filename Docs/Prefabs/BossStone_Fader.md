@@ -3,7 +3,7 @@
 ### Component: BossStone (BossStone_Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_activeEffect|UnityEngine.GameObject|active_effects|
 |m_completedMessage|System.String|$guardianstone_trophyplaced|
 |m_emissiveMaterialIndex|System.Int32|0|
@@ -11,7 +11,7 @@
 ### Component: RuneStone (BossStone_Fader)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$guardianstone_name|
 |m_topic|System.String||
 |m_label|System.String||
@@ -23,7 +23,7 @@
 ### Component: ItemStand (itemstand)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|

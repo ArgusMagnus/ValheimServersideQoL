@@ -3,7 +3,7 @@
 ### Component: Gibber (caverock_ice_stalagtite_destruction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|1|
 |m_maxVel|System.Single|10|
@@ -16,5 +16,5 @@
 ### Component: MaterialVariationWorld (caverock_ice_stalagtite_destruction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

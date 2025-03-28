@@ -3,7 +3,7 @@
 ### Component: Container (piece_pot2_red)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_pot_large_red|
 |m_width|System.Int32|1|
 |m_height|System.Int32|3|
@@ -13,7 +13,7 @@
 ### Component: Piece (piece_pot2_red)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_pot_large_red|
 |m_description|System.String||
@@ -59,7 +59,7 @@
 ### Component: WearNTear (piece_pot2_red)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|

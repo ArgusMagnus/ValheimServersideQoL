@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_lightningweapon_hit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|3|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: CamShaker (fx_lightningweapon_hit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|0.1|
 |m_range|System.Single|5|
 |m_delay|System.Single|0|
@@ -22,7 +22,7 @@
 ### Component: ZSFX (sfx_shockwave (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -50,7 +50,7 @@
 ### Component: LightFlicker (Point light (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.5|
 |m_flickerSpeed|System.Single|100|
 |m_movement|System.Single|0.2|

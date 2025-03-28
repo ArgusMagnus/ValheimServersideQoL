@@ -5,7 +5,7 @@
 ### Component: MineRock5 (Ashlands_Fortress_Wall_PillarTopStone_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|5|

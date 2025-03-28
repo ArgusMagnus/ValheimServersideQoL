@@ -3,7 +3,7 @@
 ### Component: WearNTear (dungeon_sunkencrypt_irongate_rusty)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -23,13 +23,13 @@
 ### Component: HoverText (dungeon_sunkencrypt_irongate_rusty)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$piece_irongate|
 
 ### Component: DropOnDestroyed (dungeon_sunkencrypt_irongate_rusty)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 

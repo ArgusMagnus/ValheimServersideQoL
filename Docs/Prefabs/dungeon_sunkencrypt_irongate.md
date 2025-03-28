@@ -3,7 +3,7 @@
 ### Component: WearNTear (dungeon_sunkencrypt_irongate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -26,7 +26,7 @@
 ### Component: Door (dungeon_sunkencrypt_irongate)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_irongate|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|

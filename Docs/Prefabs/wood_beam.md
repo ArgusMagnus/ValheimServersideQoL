@@ -3,7 +3,7 @@
 ### Component: Piece (wood_beam)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_woodbeam2|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (wood_beam)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|

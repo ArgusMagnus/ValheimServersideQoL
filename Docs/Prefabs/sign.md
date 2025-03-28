@@ -3,7 +3,7 @@
 ### Component: Piece (sign)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_sign|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (sign)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -72,7 +72,7 @@
 ### Component: Sign (sign)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_sign|
 |m_defaultText|System.String|...|
 |m_writtenBy|System.String|Written by|

@@ -3,7 +3,7 @@
 ### Component: LightLod (Fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
@@ -12,7 +12,7 @@
 ### Component: Fire (Fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_dotInterval|System.Single|1|
 |m_dotRadius|System.Single|1|
 |m_fireDamage|System.Single|15|
@@ -39,7 +39,7 @@
 ### Component: CinderSpawner (Fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cinderPrefab|UnityEngine.GameObject|Cinder|
 |m_cinderInterval|System.Single|5|
 |m_cinderChance|System.Single|0.3|
@@ -54,7 +54,7 @@
 ### Component: TimedDestruction (Fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|30|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|True|
@@ -62,7 +62,7 @@
 ### Component: ZSFX (sfx_fire_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -90,7 +90,7 @@
 ### Component: TimedDestruction (sfx_fire_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|False|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -98,7 +98,7 @@
 ### Component: SmokeSpawner (SmokeSpawner)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smokePrefab|UnityEngine.GameObject|SmokeBallTurbulent|
 |m_interval|System.Single|0.4|
 |m_testRadius|System.Single|0.75|

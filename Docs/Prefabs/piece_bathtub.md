@@ -3,7 +3,7 @@
 ### Component: Piece (piece_bathtub)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_bathtub|
 |m_description|System.String||
@@ -50,7 +50,7 @@
 ### Component: WearNTear (piece_bathtub)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -73,7 +73,7 @@
 ### Component: Smelter (piece_bathtub)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_bathtub|
 |m_addOreTooltip|System.String|$piece_smelter_additem|
 |m_emptyOreTooltip|System.String|$piece_smelter_empty|
@@ -90,7 +90,7 @@
 ### Component: WaterVolume (WaterVolume)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_forceDepth|System.Single|0.5|
 |m_surfaceOffset|System.Single|-0.56|
 |m_useGlobalWind|System.Boolean|False|
@@ -98,7 +98,7 @@
 ### Component: Switch (add_fuel)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_bathtub|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -106,7 +106,7 @@
 ### Component: Chair (SitPoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_bench01|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -116,7 +116,7 @@
 ### Component: Chair (SitPoint (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_bench01|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -126,7 +126,7 @@
 ### Component: Chair (SitPoint (2))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_bench01|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -136,7 +136,7 @@
 ### Component: Chair (SitPoint (3))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_bench01|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -146,7 +146,7 @@
 ### Component: Chair (SitPoint (4))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_bench01|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -156,7 +156,7 @@
 ### Component: Chair (SitPoint (5))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_bench01|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -166,7 +166,7 @@
 ### Component: Chair (SitPoint (6))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_bench01|
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
@@ -176,6 +176,6 @@
 ### Component: GuidePoint (GuidePoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 

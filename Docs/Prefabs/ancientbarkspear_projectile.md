@@ -3,7 +3,7 @@
 ### Component: Projectile (ancientbarkspear_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
@@ -62,7 +62,7 @@
 ### Component: ZSyncTransform (ancientbarkspear_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|

@@ -3,7 +3,7 @@
 ### Component: MusicLocation (BlackForestLocationMusic)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_addRadiusFromLocation|System.Boolean|False|
 |m_radius|System.Single|20|
 |m_oneTime|System.Boolean|True|

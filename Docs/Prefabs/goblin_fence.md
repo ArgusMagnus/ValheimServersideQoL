@@ -3,7 +3,7 @@
 ### Component: WearNTear (goblin_fence)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -26,7 +26,7 @@
 ### Component: DropOnDestroyed (goblin_fence)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|1|
 |m_spawnYStep|System.Single|0.3|
 

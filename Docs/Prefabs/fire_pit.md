@@ -3,7 +3,7 @@
 ### Component: Piece (fire_pit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_firepit|
 |m_description|System.String||
@@ -50,7 +50,7 @@
 ### Component: Fireplace (fire_pit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_fire|
 |m_startFuel|System.Single|1|
 |m_maxFuel|System.Single|10|
@@ -81,7 +81,7 @@
 ### Component: CinderSpawner (fire_pit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cinderPrefab|UnityEngine.GameObject|Cinder|
 |m_cinderInterval|System.Single|5|
 |m_cinderChance|System.Single|0.5|
@@ -96,7 +96,7 @@
 ### Component: WearNTear (fire_pit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -119,7 +119,7 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

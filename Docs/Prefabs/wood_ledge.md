@@ -3,7 +3,7 @@
 ### Component: Piece (wood_ledge)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_woodledge|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (wood_ledge)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|
@@ -72,10 +72,10 @@
 ### Component: Ledge (wood_ledge)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: TriggerTracker (Trigger)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

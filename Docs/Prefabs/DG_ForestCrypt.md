@@ -3,7 +3,7 @@
 ### Component: DungeonGenerator (DG_ForestCrypt)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxRooms|System.Int32|40|
 |m_minRooms|System.Int32|20|
 |m_minRequiredRooms|System.Int32|1|

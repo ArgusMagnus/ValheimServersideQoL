@@ -3,7 +3,7 @@
 ### Component: Piece (incinerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_incinerator|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (incinerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -72,7 +72,7 @@
 ### Component: Incinerator (incinerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightingAOEs|UnityEngine.GameObject|lightningAOE|
 |m_effectDelayMin|System.Single|4.5|
 |m_effectDelayMax|System.Single|4.5|
@@ -82,7 +82,7 @@
 ### Component: Container (container)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_incinerator|
 |m_width|System.Int32|7|
 |m_height|System.Int32|3|
@@ -94,7 +94,7 @@
 ### Component: Switch (incinerate_switch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|Incinerate|
 |m_name|System.String|Incinerate!|
 |m_holdRepeatInterval|System.Single|5|

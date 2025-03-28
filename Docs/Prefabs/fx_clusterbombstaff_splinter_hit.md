@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_clusterbombstaff_splinter_hit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|8|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: TimedDestruction (sfx_staff_grenade_impact_small)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|2|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -19,7 +19,7 @@
 ### Component: ZSFX (sfx_staff_grenade_impact_small)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$item_staffclusterbomb|
 |m_secondaryCaptionToken|System.String|$caption_projexploding|
@@ -47,7 +47,7 @@
 ### Component: CamShaker (sfx_staff_grenade_impact_small)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|0.25|
 |m_range|System.Single|50|
 |m_delay|System.Single|0|
@@ -58,7 +58,7 @@
 ### Component: GlobalWind (smoke)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_multiplier|System.Single|1|
 |m_smoothUpdate|System.Boolean|False|
 |m_alignToWindDirection|System.Boolean|False|
@@ -73,7 +73,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0|
 |m_flickerSpeed|System.Single|0|
 |m_movement|System.Single|0|

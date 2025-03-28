@@ -3,7 +3,7 @@
 ### Component: Destructible (BonePileSpawner)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|50|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: SpawnArea (BonePileSpawner)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_levelupChance|System.Single|15|
 |m_spawnIntervalSec|System.Single|5|
 |m_triggerDistance|System.Single|20|
@@ -31,6 +31,6 @@
 ### Component: HoverText (BonePileSpawner)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$enemy_skeletonspawner|
 

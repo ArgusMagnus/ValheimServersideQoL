@@ -3,7 +3,7 @@
 ### Component: ShieldGenerator (charred_shieldgenerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_shieldgenerator|
 |m_add|System.String|$piece_shieldgenerator_add|
 |m_enabledObject|UnityEngine.GameObject|enabled|
@@ -26,7 +26,7 @@
 ### Component: Piece (charred_shieldgenerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_shieldgenerator|
 |m_description|System.String||
@@ -72,7 +72,7 @@
 ### Component: WearNTear (charred_shieldgenerator)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -95,14 +95,14 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: Switch (add_ore)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|0.2|
@@ -110,7 +110,7 @@
 ### Component: SmokeSpawner (SmokeSpawner)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smokePrefab|UnityEngine.GameObject|SmokeBall|
 |m_interval|System.Single|0.5|
 |m_testRadius|System.Single|0.75|
@@ -120,7 +120,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.05|
@@ -132,7 +132,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|True|
@@ -141,7 +141,7 @@
 ### Component: EffectArea (FireWarmth)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

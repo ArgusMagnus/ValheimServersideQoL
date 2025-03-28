@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_DvergrLantern)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|Lantern|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -26,7 +26,7 @@
 ### Component: StaticPhysics (Pickable_DvergrLantern)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|True|
@@ -35,7 +35,7 @@
 ### Component: LightFlicker (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -47,7 +47,7 @@
 ### Component: LightLod (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|30|
 |m_shadowLod|System.Boolean|True|

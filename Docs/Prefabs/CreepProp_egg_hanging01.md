@@ -3,7 +3,7 @@
 ### Component: Destructible (CreepProp_egg_hanging01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -17,14 +17,14 @@
 ### Component: DropOnDestroyed (CreepProp_egg_hanging01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|-2.5|
 |m_spawnYStep|System.Single|0|
 
 ### Component: RandomPieceRotation (default)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|
@@ -35,7 +35,7 @@
 ### Component: LightLod (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|True|

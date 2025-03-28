@@ -3,7 +3,7 @@
 ### Component: Humanoid (Asksvin_hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_asksvin_hatchling|
@@ -61,7 +61,7 @@
 ### Component: MonsterAI (Asksvin_hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|10|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|True|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -136,13 +136,13 @@
 ### Component: CharacterDrop (Asksvin_hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: ZSyncTransform (Asksvin_hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -152,13 +152,13 @@
 ### Component: ZSyncAnimation (Asksvin_hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: FootStep (Asksvin_hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
@@ -166,7 +166,7 @@
 ### Component: Growup (Asksvin_hatchling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_growTime|System.Single|3000|
 |m_inheritTame|System.Boolean|True|
 |m_grownPrefab|UnityEngine.GameObject|Asksvin|
@@ -174,7 +174,7 @@
 ### Component: CharacterAnimEvent (Asksvin)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -194,10 +194,10 @@
 ### Component: AnimationEffect (Asksvin)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: LevelEffects (Asksvin)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

@@ -3,7 +3,7 @@
 ### Component: Piece (windmill)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_windmill|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: Smelter (windmill)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_windmill|
 |m_addOreTooltip|System.String|$piece_smelter_add|
 |m_emptyOreTooltip|System.String|$piece_smelter_empty|
@@ -65,7 +65,7 @@
 ### Component: WearNTear (windmill)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -88,7 +88,7 @@
 ### Component: Windmill (windmill)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_propellerAOE|UnityEngine.GameObject|BladeAOE|
 |m_minAOEPropellerSpeed|System.Single|180|
 |m_bomRotationSpeed|System.Single|100|
@@ -107,14 +107,14 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: Switch (add_switch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_windmill|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -122,7 +122,7 @@
 ### Component: Switch (empty_switch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_windmill|
 |m_holdRepeatInterval|System.Single|-1|
@@ -130,7 +130,7 @@
 ### Component: Aoe (BladeAOE)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|True|
 |m_scaleDamageByDistance|System.Boolean|False|

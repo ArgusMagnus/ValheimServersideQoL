@@ -3,7 +3,7 @@
 ### Component: Plant (VineGreen_sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_sapling_vinegreen|
 |m_growTime|System.Single|200|
 |m_growTimeMax|System.Single|300|
@@ -20,7 +20,7 @@
 ### Component: Destructible (VineGreen_sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -33,7 +33,7 @@
 ### Component: Piece (VineGreen_sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_sapling_vinegreen|
 |m_description|System.String|$piece_sapling_vinegreen_description|

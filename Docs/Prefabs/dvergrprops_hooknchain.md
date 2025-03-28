@@ -3,14 +3,14 @@
 ### Component: DropOnDestroyed (dvergrprops_hooknchain)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: WearNTear (dvergrprops_hooknchain)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|hook|
 |m_worn|UnityEngine.GameObject|hook|
 |m_broken|UnityEngine.GameObject|hook|

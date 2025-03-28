@@ -5,7 +5,7 @@
 ### Component: Destructible (rock3_silver)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|2|
@@ -19,6 +19,6 @@
 ### Component: HoverText (rock3_silver)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$piece_deposit_silver|
 

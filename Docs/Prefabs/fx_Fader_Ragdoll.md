@@ -3,7 +3,7 @@
 ### Component: Ragdoll (fx_Fader_Ragdoll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_velMultiplier|System.Single|1|
 |m_ttl|System.Single|10|
 |m_float|System.Boolean|True|
@@ -14,6 +14,6 @@
 ### Component: MaterialFader (fx_Fader_Ragdoll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_triggerOnAwake|System.Boolean|True|
 

@@ -3,7 +3,7 @@
 ### Component: Piece (charcoal_kiln)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_charcoalkiln|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: Smelter (charcoal_kiln)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_charcoalkiln|
 |m_addOreTooltip|System.String|$piece_smelter_add $item_wood|
 |m_emptyOreTooltip|System.String|$piece_smelter_empty|
@@ -65,7 +65,7 @@
 ### Component: WearNTear (charcoal_kiln)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -88,14 +88,14 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: Switch (add_ore)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_charcoalkiln|
 |m_holdRepeatInterval|System.Single|0.2|

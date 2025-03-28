@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Blob)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Blob|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|

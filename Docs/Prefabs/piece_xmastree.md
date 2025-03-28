@@ -3,7 +3,7 @@
 ### Component: Piece (piece_xmastree)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_yuletree|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_xmastree)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|FirTree_small|
 |m_worn|UnityEngine.GameObject|FirTree_small|
 |m_broken|UnityEngine.GameObject|FirTree_small|
@@ -72,7 +72,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

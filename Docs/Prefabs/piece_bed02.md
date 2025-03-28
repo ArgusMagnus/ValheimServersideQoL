@@ -3,7 +3,7 @@
 ### Component: Piece (piece_bed02)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_bed02|
 |m_description|System.String||
@@ -49,13 +49,13 @@
 ### Component: Bed (piece_bed02)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_monsterCheckRadius|System.Single|20|
 
 ### Component: WearNTear (piece_bed02)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -78,7 +78,7 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

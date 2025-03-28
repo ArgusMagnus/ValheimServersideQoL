@@ -3,7 +3,7 @@
 ### Component: Vine (VineGreen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_growCheckChance|System.Single|0.7|
 |m_growCheckChancePerBranch|System.Single|-0.495|
 |m_growChance|System.Single|1|
@@ -42,7 +42,7 @@
 ### Component: WearNTear (VineGreen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|VineGreen|
 |m_worn|UnityEngine.GameObject|VineGreen|
 |m_broken|UnityEngine.GameObject|VineGreen|
@@ -65,7 +65,7 @@
 ### Component: Pickable (VineGreen)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|Berries|
 |m_itemPrefab|UnityEngine.GameObject|Vineberry|
 |m_amount|System.Int32|3|

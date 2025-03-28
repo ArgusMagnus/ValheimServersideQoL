@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (Honey)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: ItemDrop (Honey)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
@@ -21,7 +21,7 @@
 ### Component: Piece (Honey)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$item_honey|
 |m_description|System.String|$item_honey_description|
@@ -67,7 +67,7 @@
 ### Component: WearNTear (Honey)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|

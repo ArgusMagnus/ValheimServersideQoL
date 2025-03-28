@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Bat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Bat|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|

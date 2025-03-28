@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (ShieldIronSquare)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,14 +13,14 @@
 ### Component: ItemDrop (ShieldIronSquare)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 
 ### Component: Floating (ShieldIronSquare)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.7|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|

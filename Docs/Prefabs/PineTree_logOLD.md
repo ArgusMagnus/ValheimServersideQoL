@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (PineTree_logOLD)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: TreeLog (PineTree_logOLD)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|60|
 |m_minToolTier|System.Int32|0|
 |m_subLogPrefab|UnityEngine.GameObject|PineTree_log_halfOLD|
@@ -24,7 +24,7 @@
 ### Component: ImpactEffect (PineTree_logOLD)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hitDestroyChance|System.Single|0|
 |m_minVelocity|System.Single|0.95|
 |m_maxVelocity|System.Single|0|
@@ -37,7 +37,7 @@
 ### Component: Floating (PineTree_logOLD)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.3|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|

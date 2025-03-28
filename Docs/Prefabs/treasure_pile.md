@@ -3,7 +3,7 @@
 ### Component: Piece (treasure_pile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_treasure_pile|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (treasure_pile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|pile|
 |m_worn|UnityEngine.GameObject|pile|
 |m_broken|UnityEngine.GameObject|pile|

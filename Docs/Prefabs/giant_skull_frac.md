@@ -5,7 +5,7 @@
 ### Component: MineRock5 (giant_skull_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_giant_bone|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|3|

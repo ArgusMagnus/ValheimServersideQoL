@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (CastleKit_braided_box01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: Destructible (CastleKit_braided_box01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|10|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -26,7 +26,7 @@
 ### Component: Floating (CastleKit_braided_box01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|-0.48|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|

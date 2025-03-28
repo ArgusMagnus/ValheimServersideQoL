@@ -3,7 +3,7 @@
 ### Component: WearNTear (dungeon_forestcrypt_door)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -26,7 +26,7 @@
 ### Component: Door (dungeon_forestcrypt_door)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_wooddoor|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
@@ -35,7 +35,7 @@
 ### Component: StaticTarget (dungeon_forestcrypt_door)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 

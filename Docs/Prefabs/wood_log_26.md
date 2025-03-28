@@ -3,7 +3,7 @@
 ### Component: Piece (wood_log_26)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_woodlog26|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (wood_log_26)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|

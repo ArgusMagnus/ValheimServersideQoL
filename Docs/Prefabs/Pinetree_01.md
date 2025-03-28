@@ -3,7 +3,7 @@
 ### Component: TreeBase (Pinetree_01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|120|
 |m_minToolTier|System.Int32|0|
 |m_trunk|UnityEngine.GameObject|trunk|
@@ -17,7 +17,7 @@
 ### Component: StaticPhysics (Pinetree_01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -26,6 +26,6 @@
 ### Component: HoverText (Pinetree_01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_pine|
 

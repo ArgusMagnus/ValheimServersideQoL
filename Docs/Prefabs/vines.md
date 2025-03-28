@@ -3,7 +3,7 @@
 ### Component: WearNTear (vines)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -26,7 +26,7 @@
 ### Component: RandomPieceRotation (New)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|False|
 |m_rotateZ|System.Boolean|True|

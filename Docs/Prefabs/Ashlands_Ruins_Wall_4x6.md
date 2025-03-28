@@ -3,7 +3,7 @@
 ### Component: Destructible (Ashlands_Ruins_Wall_4x6)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1000|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|

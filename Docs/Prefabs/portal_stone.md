@@ -3,7 +3,7 @@
 ### Component: Piece (portal_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_portal_stone|
 |m_description|System.String|$piece_portal_stone_description|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (portal_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -72,7 +72,7 @@
 ### Component: TeleportWorld (portal_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_activationRange|System.Single|4|
 |m_exitDistance|System.Single|1|
 |m_allowAllItems|System.Boolean|True|
@@ -82,13 +82,13 @@
 ### Component: EffectFade (_target_found_red)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_fadeDuration|System.Single|1|
 
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|True|
@@ -99,13 +99,13 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: GuidePoint (GuidePoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 

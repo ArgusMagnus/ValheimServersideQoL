@@ -3,7 +3,7 @@
 ### Component: Container (piece_chest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_chest|
 |m_width|System.Int32|6|
 |m_height|System.Int32|4|
@@ -15,7 +15,7 @@
 ### Component: Piece (piece_chest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_chest|
 |m_description|System.String||
@@ -61,7 +61,7 @@
 ### Component: WearNTear (piece_chest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|

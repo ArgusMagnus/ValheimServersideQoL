@@ -5,7 +5,7 @@
 ### Component: StaticPhysics (Rock_3)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|False|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -14,7 +14,7 @@
 ### Component: Destructible (Rock_3)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|

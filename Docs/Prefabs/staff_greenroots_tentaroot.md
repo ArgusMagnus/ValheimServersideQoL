@@ -3,7 +3,7 @@
 ### Component: Humanoid (staff_greenroots_tentaroot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_summonedroot|
@@ -61,7 +61,7 @@
 ### Component: ZSyncTransform (staff_greenroots_tentaroot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -71,13 +71,13 @@
 ### Component: ZSyncAnimation (staff_greenroots_tentaroot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (staff_greenroots_tentaroot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|20|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|False|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -152,7 +152,7 @@
 ### Component: CharacterTimedDestruction (staff_greenroots_tentaroot)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeoutMin|System.Single|23|
 |m_timeoutMax|System.Single|25|
 |m_triggerOnAwake|System.Boolean|True|
@@ -160,7 +160,7 @@
 ### Component: CharacterAnimEvent (ThornRoots)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|

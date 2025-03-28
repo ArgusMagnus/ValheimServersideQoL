@@ -3,7 +3,7 @@
 ### Component: Piece (Candle_resin_bogwitch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_candle|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: LightLod (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|True|

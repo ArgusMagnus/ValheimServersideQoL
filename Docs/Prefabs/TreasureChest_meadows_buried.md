@@ -3,7 +3,7 @@
 ### Component: Container (TreasureChest_meadows_buried)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_chestwood|
 |m_width|System.Int32|4|
 |m_height|System.Int32|2|
@@ -15,7 +15,7 @@
 ### Component: Piece (TreasureChest_meadows_buried)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|Chest|
 |m_description|System.String||
@@ -61,7 +61,7 @@
 ### Component: WearNTear (TreasureChest_meadows_buried)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -84,7 +84,7 @@
 ### Component: RandomSpawn (TreasureChest_meadows_buried)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_chanceToSpawn|System.Single|80|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
@@ -93,6 +93,6 @@
 ### Component: Beacon (TreasureChest_meadows_buried)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_range|System.Single|40|
 

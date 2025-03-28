@@ -3,7 +3,7 @@
 ### Component: Piece (piece_magetable_ext2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_magetable_ext2|
 |m_description|System.String|$piece_magetable $piece_upgrade|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_magetable_ext2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -72,7 +72,7 @@
 ### Component: StationExtension (piece_magetable_ext2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxStationDistance|System.Single|5|
 |m_stack|System.Boolean|False|
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection_mage|
@@ -82,7 +82,7 @@
 ### Component: LightFlicker (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|5|
 |m_movement|System.Single|0.1|
@@ -94,7 +94,7 @@
 ### Component: LightLod (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|True|

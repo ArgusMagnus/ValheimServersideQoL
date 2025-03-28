@@ -5,7 +5,7 @@
 ### Component: MineRock5 (giant_helmet2_destruction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_giant_helmet|
 |m_health|System.Single|150|
 |m_minToolTier|System.Int32|3|

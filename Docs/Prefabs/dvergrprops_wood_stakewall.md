@@ -3,14 +3,14 @@
 ### Component: DropOnDestroyed (dvergrprops_wood_stakewall)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: WearNTear (dvergrprops_wood_stakewall)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
@@ -33,13 +33,13 @@
 ### Component: SnapToGround (dvergrprops_wood_stakewall)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_offset|System.Single|0|
 
 ### Component: Aoe (HIT AREA)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|True|
 |m_scaleDamageByDistance|System.Boolean|False|

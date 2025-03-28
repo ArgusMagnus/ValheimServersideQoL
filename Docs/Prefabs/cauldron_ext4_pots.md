@@ -3,7 +3,7 @@
 ### Component: Piece (cauldron_ext4_pots)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_cauldron_ext4_pans|
 |m_description|System.String|$piece_cauldron $piece_upgrade|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (cauldron_ext4_pots)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -72,7 +72,7 @@
 ### Component: StationExtension (cauldron_ext4_pots)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxStationDistance|System.Single|5|
 |m_stack|System.Boolean|False|
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|

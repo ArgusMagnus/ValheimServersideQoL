@@ -3,7 +3,7 @@
 ### Component: Piece (piece_banner10)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_banner10|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_banner10)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|

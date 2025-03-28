@@ -3,7 +3,7 @@
 ### Component: Projectile (bow_projectile_fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
@@ -62,7 +62,7 @@
 ### Component: CinderSpawner (bow_projectile_fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cinderPrefab|UnityEngine.GameObject|Cinder|
 |m_cinderInterval|System.Single|0|
 |m_cinderChance|System.Single|1|
@@ -77,7 +77,7 @@
 ### Component: ZSyncTransform (bow_projectile_fire)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -87,7 +87,7 @@
 ### Component: LightFlicker (light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

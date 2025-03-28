@@ -3,7 +3,7 @@
 ### Component: Destructible (OakStub)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|160|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|2|
@@ -16,7 +16,7 @@
 ### Component: StaticPhysics (OakStub)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -25,13 +25,13 @@
 ### Component: HoverText (OakStub)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_treestump|
 
 ### Component: DropOnDestroyed (OakStub)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 

@@ -3,7 +3,7 @@
 ### Component: Destructible (Spawner_CharredStone_Elite)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|400|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: SpawnArea (Spawner_CharredStone_Elite)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_levelupChance|System.Single|5|
 |m_spawnIntervalSec|System.Single|10|
 |m_triggerDistance|System.Single|60|
@@ -31,20 +31,20 @@
 ### Component: HoverText (Spawner_CharredStone_Elite)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$enemy_charredtwitcherspawner|
 
 ### Component: DropOnDestroyed (Spawner_CharredStone_Elite)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: ZSFX (sfx_charred_spawner_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -72,7 +72,7 @@
 ### Component: LightLod (Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|

@@ -5,7 +5,7 @@
 ### Component: Destructible (cliff_ashlands2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|10000|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -19,7 +19,7 @@
 ### Component: StaticPhysics (cliff_ashlands2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|False|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|

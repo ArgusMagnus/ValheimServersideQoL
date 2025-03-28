@@ -3,7 +3,7 @@
 ### Component: DungeonGenerator (DG_DvergrTown)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxRooms|System.Int32|96|
 |m_minRooms|System.Int32|16|
 |m_minRequiredRooms|System.Int32|1|

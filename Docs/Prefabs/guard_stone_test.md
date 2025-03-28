@@ -3,7 +3,7 @@
 ### Component: Piece (guard_stone_test)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|Guard stone|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (guard_stone_test)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -72,7 +72,7 @@
 ### Component: PrivateArea (guard_stone_test)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|Guard stone|
 |m_radius|System.Single|32|
 |m_updateConnectionsInterval|System.Single|5|
@@ -82,7 +82,7 @@
 ### Component: CircleProjector (AreaMarker)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_radius|System.Single|32|
 |m_nrOfSegments|System.Int32|80|
 |m_speed|System.Single|0.1|

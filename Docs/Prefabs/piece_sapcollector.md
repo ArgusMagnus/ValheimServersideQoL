@@ -3,7 +3,7 @@
 ### Component: Piece (piece_sapcollector)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_sapcollector|
 |m_description|System.String|$piece_sapcollector_description|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_sapcollector)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|default|
 |m_worn|UnityEngine.GameObject|default|
 |m_broken|UnityEngine.GameObject|default|
@@ -72,7 +72,7 @@
 ### Component: SapCollector (piece_sapcollector)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_sapcollector|
 |m_workingEffect|UnityEngine.GameObject|CollectingEffect|
 |m_notEmptyEffect|UnityEngine.GameObject|NotEmptyEffect|
@@ -89,7 +89,7 @@
 ### Component: LightLod (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|10|
 |m_shadowLod|System.Boolean|False|

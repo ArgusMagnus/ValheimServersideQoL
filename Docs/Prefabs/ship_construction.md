@@ -3,7 +3,7 @@
 ### Component: Piece (ship_construction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|Ship construction|
 |m_description|System.String||
@@ -49,14 +49,14 @@
 ### Component: ShipConstructor (ship_construction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_shipPrefab|UnityEngine.GameObject|VikingShip|
 |m_hideWhenConstructed|UnityEngine.GameObject|ToHide|
 
 ### Component: TerrainModifier (LevelTerrain)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|False|
@@ -77,7 +77,7 @@
 ### Component: TerrainModifier (LevelTerrain (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|False|
@@ -98,7 +98,7 @@
 ### Component: TerrainModifier (LevelTerrain (2))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|False|
@@ -119,7 +119,7 @@
 ### Component: TerrainModifier (LevelTerrain (3))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|False|

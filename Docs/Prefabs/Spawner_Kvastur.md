@@ -3,7 +3,7 @@
 ### Component: SpawnArea (Spawner_Kvastur)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_levelupChance|System.Single|10|
 |m_spawnIntervalSec|System.Single|60|
 |m_triggerDistance|System.Single|60|

@@ -5,7 +5,7 @@
 ### Component: MineRock5 (tarlump1_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_health|System.Single|1|
 |m_minToolTier|System.Int32|0|

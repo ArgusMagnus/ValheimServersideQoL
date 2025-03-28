@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_GoblinBrute_Hildir)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|GoblinBruteBros|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|

@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_DvergrMineTreasure)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|Coins|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|

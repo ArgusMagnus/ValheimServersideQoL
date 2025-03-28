@@ -5,7 +5,7 @@
 ### Component: MineRock5 (rock4_copper_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_deposit_copper|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: TerrainModifier (PaintTerrain)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|False|
@@ -37,7 +37,7 @@
 ### Component: TerrainModifier (PaintTerrain (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|False|

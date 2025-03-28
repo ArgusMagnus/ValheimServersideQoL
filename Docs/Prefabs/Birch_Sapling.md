@@ -3,7 +3,7 @@
 ### Component: Plant (Birch_Sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$prop_birch_sapling|
 |m_growTime|System.Single|5000|
 |m_growTimeMax|System.Single|7000|
@@ -20,7 +20,7 @@
 ### Component: Destructible (Birch_Sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -33,7 +33,7 @@
 ### Component: Piece (Birch_Sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$prop_birch_sapling|
 |m_description|System.String||
@@ -79,7 +79,7 @@
 ### Component: StaticPhysics (Birch_Sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|

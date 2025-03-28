@@ -3,7 +3,7 @@
 ### Component: ZSFX (sfx_fishingrod_swing)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$item_fishingrod|
 |m_secondaryCaptionToken|System.String|$caption_casting|
@@ -31,7 +31,7 @@
 ### Component: TimedDestruction (sfx_fishingrod_swing)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|10|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -39,7 +39,7 @@
 ### Component: ZSFX (sfx_line)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

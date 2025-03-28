@@ -3,7 +3,7 @@
 ### Component: Plant (Oak_Sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$prop_oak_sapling|
 |m_growTime|System.Single|6000|
 |m_growTimeMax|System.Single|8000|
@@ -20,7 +20,7 @@
 ### Component: Destructible (Oak_Sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -33,7 +33,7 @@
 ### Component: Piece (Oak_Sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$prop_oak_sapling|
 |m_description|System.String||
@@ -79,7 +79,7 @@
 ### Component: StaticPhysics (Oak_Sapling)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|

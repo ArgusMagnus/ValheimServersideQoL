@@ -3,7 +3,7 @@
 ### Component: Humanoid (Fenring_Cultist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_fenringcultist|
@@ -61,7 +61,7 @@
 ### Component: ZSyncTransform (Fenring_Cultist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -71,13 +71,13 @@
 ### Component: ZSyncAnimation (Fenring_Cultist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (Fenring_Cultist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|20|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|True|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -152,13 +152,13 @@
 ### Component: CharacterDrop (Fenring_Cultist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: FootStep (Fenring_Cultist)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
@@ -166,7 +166,7 @@
 ### Component: CharacterAnimEvent (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.2|
 |m_footOffset|System.Single|0.15|
@@ -186,5 +186,5 @@
 ### Component: AnimationEffect (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

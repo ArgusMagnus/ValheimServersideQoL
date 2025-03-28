@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_DvergerArbalest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Dverger|
 |m_maxLevel|System.Int32|3|
 |m_minLevel|System.Int32|1|

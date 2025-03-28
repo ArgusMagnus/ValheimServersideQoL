@@ -3,7 +3,7 @@
 ### Component: Destructible (IceBlocker)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|10|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: StaticPhysics (IceBlocker)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|False|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -25,7 +25,7 @@
 ### Component: LightFlicker (Point light (4))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

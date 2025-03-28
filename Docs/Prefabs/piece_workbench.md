@@ -3,7 +3,7 @@
 ### Component: Piece (piece_workbench)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_workbench|
 |m_description|System.String|$piece_craftingstation|
@@ -49,7 +49,7 @@
 ### Component: CraftingStation (piece_workbench)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_workbench|
 |m_discoverRange|System.Single|4|
 |m_rangeBuild|System.Single|20|
@@ -64,7 +64,7 @@
 ### Component: WearNTear (piece_workbench)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -87,20 +87,20 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: GuidePoint (GuidePoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
 ### Component: CircleProjector (AreaMarker)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_radius|System.Single|20|
 |m_nrOfSegments|System.Int32|80|
 |m_speed|System.Single|0.1|

@@ -3,7 +3,7 @@
 ### Component: Ragdoll (Greydwarf_ragdoll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_velMultiplier|System.Single|1.5|
 |m_ttl|System.Single|2|
 |m_float|System.Boolean|True|

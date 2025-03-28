@@ -3,7 +3,7 @@
 ### Component: Piece (eitrrefinery)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_eitrrefinery|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: Smelter (eitrrefinery)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_eitrrefinery|
 |m_addOreTooltip|System.String|$piece_smelter_additem|
 |m_emptyOreTooltip|System.String|$piece_smelter_empty|
@@ -66,7 +66,7 @@
 ### Component: WearNTear (eitrrefinery)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -89,13 +89,13 @@
 ### Component: GuidePoint (GuidePoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
 ### Component: Switch (add_ore)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_eitrrefinery|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -103,7 +103,7 @@
 ### Component: Switch (add_fuel)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_eitrrefinery|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -111,14 +111,14 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|1|
 |m_movement|System.Single|0|
@@ -130,7 +130,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|30|
 |m_shadowLod|System.Boolean|True|

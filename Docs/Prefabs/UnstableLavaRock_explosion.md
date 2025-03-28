@@ -3,7 +3,7 @@
 ### Component: Aoe (UnstableLavaRock_explosion)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|False|
 |m_scaleDamageByDistance|System.Boolean|False|

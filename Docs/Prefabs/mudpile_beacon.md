@@ -3,7 +3,7 @@
 ### Component: Destructible (mudpile_beacon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -17,12 +17,12 @@
 ### Component: Beacon (mudpile_beacon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_range|System.Single|25|
 
 ### Component: HoverText (mudpile_beacon)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$piece_mudpile|
 

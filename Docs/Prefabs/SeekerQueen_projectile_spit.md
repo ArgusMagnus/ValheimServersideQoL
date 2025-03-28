@@ -3,7 +3,7 @@
 ### Component: Projectile (SeekerQueen_projectile_spit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_aoe|System.Single|1.5|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
@@ -63,7 +63,7 @@
 ### Component: ZSyncTransform (SeekerQueen_projectile_spit)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|

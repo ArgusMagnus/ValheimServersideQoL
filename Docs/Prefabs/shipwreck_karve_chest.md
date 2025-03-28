@@ -3,7 +3,7 @@
 ### Component: Container (shipwreck_karve_chest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_chestwood|
 |m_width|System.Int32|5|
 |m_height|System.Int32|2|
@@ -15,7 +15,7 @@
 ### Component: WearNTear (shipwreck_karve_chest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|

@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_GoblinShaman)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|GoblinShaman|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|

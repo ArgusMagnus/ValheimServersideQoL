@@ -3,7 +3,7 @@
 ### Component: WearNTear (Ashlands_Ruins_twist_PillarBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -26,14 +26,14 @@
 ### Component: DropOnDestroyed (Ashlands_Ruins_twist_PillarBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: RandomPieceRotation (default_high)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|True|
 |m_rotateZ|System.Boolean|False|

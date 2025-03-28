@@ -5,7 +5,7 @@
 ### Component: Destructible (lavabomb_rock1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1000|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -18,7 +18,7 @@
 ### Component: ConditionalObject (lavabomb_rock1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_dropTimer|System.Single|0|
 |m_enableObject|UnityEngine.GameObject|AppearObject|
 |m_hoverName|System.String||

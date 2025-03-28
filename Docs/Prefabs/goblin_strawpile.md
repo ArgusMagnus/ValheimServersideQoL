@@ -3,7 +3,7 @@
 ### Component: Destructible (goblin_strawpile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: SimpleMeshCombine (New)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |meshName|System.String|Combined_Meshes|
 |_canGenerateLightmapUV|System.Boolean|True|
 |vCount|System.Int32|0|

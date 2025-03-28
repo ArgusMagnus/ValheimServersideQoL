@@ -3,7 +3,7 @@
 ### Component: Piece (guard_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_guardstone|
 |m_description|System.String|$piece_guardstone_description|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (guard_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -72,7 +72,7 @@
 ### Component: PrivateArea (guard_stone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_guardstone|
 |m_radius|System.Single|32|
 |m_updateConnectionsInterval|System.Single|5|
@@ -84,13 +84,13 @@
 ### Component: GuidePoint (GuidePoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
@@ -99,7 +99,7 @@
 ### Component: CircleProjector (AreaMarker)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_radius|System.Single|32|
 |m_nrOfSegments|System.Int32|80|
 |m_speed|System.Single|0.1|
@@ -111,7 +111,7 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

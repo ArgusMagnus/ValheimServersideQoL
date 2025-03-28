@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (Fish6)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: Destructible (Fish6)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -26,7 +26,7 @@
 ### Component: Fish (Fish6)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$animal_fish6|
 |m_swimRange|System.Single|10|
 |m_minDepth|System.Single|1.5|
@@ -69,14 +69,14 @@
 ### Component: ItemDrop (Fish6)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
 
 ### Component: RandomSpeak (DeadSpeak_Base)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_interval|System.Single|60|
 |m_chance|System.Single|0.02|
 |m_triggerDistance|System.Single|10|

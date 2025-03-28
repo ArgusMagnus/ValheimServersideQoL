@@ -3,7 +3,7 @@
 ### Component: Trader (BogWitch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_standRange|System.Single|16|
 |m_greetRange|System.Single|5|
@@ -15,13 +15,13 @@
 ### Component: SnapToGround (BogWitch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_offset|System.Single|0|
 
 ### Component: LookAt (BogWitch)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_bodyWeight|System.Single|0.1|
 |m_headWeight|System.Single|0.3|
 |m_eyesWeight|System.Single|0.5|

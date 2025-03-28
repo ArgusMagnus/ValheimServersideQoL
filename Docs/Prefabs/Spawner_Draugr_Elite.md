@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Draugr_Elite)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Draugr_Elite|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|3|

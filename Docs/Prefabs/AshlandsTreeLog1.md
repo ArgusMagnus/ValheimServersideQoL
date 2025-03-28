@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (AshlandsTreeLog1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: TreeLog (AshlandsTreeLog1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|90|
 |m_minToolTier|System.Int32|0|
 |m_subLogPrefab|UnityEngine.GameObject|AshlandsTreeLogHalf1|
@@ -24,7 +24,7 @@
 ### Component: ImpactEffect (AshlandsTreeLog1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hitDestroyChance|System.Single|0|
 |m_minVelocity|System.Single|1|
 |m_maxVelocity|System.Single|7|
@@ -37,7 +37,7 @@
 ### Component: Floating (AshlandsTreeLog1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.3|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|
@@ -47,6 +47,6 @@
 ### Component: HoverText (AshlandsTreeLog1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_treelog|
 

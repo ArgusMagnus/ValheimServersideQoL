@@ -3,7 +3,7 @@
 ### Component: WearNTear (shipwreck_karve_stern)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -26,7 +26,7 @@
 ### Component: DropOnDestroyed (shipwreck_karve_stern)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|1|
 |m_spawnYStep|System.Single|0.3|
 

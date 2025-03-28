@@ -3,7 +3,7 @@
 ### Component: TerrainModifier (digg)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|True|

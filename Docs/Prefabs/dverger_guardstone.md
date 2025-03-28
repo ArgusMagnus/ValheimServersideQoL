@@ -3,7 +3,7 @@
 ### Component: Piece (dverger_guardstone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_guardstone|
 |m_description|System.String|$piece_guardstone_description|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (dverger_guardstone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -72,7 +72,7 @@
 ### Component: PrivateArea (dverger_guardstone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_guardstone|
 |m_radius|System.Single|32|
 |m_updateConnectionsInterval|System.Single|5|
@@ -84,7 +84,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
@@ -93,7 +93,7 @@
 ### Component: CircleProjector (AreaMarker)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_radius|System.Single|32|
 |m_nrOfSegments|System.Int32|80|
 |m_speed|System.Single|0.1|

@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (vfx_Slimed)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|False|
 |m_syncScale|System.Boolean|True|

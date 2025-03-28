@@ -3,7 +3,7 @@
 ### Component: WearNTear (Beehive)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -23,20 +23,20 @@
 ### Component: SpawnOnDamaged (Beehive)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOnDamage|UnityEngine.GameObject|bee_aoe|
 
 ### Component: DropOnDestroyed (Beehive)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: Aoe (Beehive)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|True|
 |m_scaleDamageByDistance|System.Boolean|False|
@@ -95,7 +95,7 @@
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

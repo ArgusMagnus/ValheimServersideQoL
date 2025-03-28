@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_Mushroom_blue)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|visual|
 |m_itemPrefab|UnityEngine.GameObject|MushroomBlue|
 |m_amount|System.Int32|1|

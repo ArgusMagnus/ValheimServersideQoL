@@ -3,7 +3,7 @@
 ### Component: WearNTear (goblin_totempole)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -26,14 +26,14 @@
 ### Component: DropOnDestroyed (goblin_totempole)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|1|
 |m_spawnYStep|System.Single|0.3|
 
 ### Component: Pickable (goblin_totempole)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|Totem|
 |m_itemPrefab|UnityEngine.GameObject|GoblinTotem|
 |m_amount|System.Int32|1|

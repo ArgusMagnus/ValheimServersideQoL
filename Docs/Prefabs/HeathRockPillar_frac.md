@@ -5,7 +5,7 @@
 ### Component: MineRock5 (HeathRockPillar_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_health|System.Single|60|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: TerrainModifier (HeathRockPillar_frac)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_sortOrder|System.Int32|0|
 |m_useTerrainCompiler|System.Boolean|False|
 |m_playerModifiction|System.Boolean|False|

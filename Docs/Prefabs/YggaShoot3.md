@@ -3,7 +3,7 @@
 ### Component: TreeBase (YggaShoot3)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|4|
 |m_trunk|UnityEngine.GameObject|Lod0|
@@ -17,7 +17,7 @@
 ### Component: StaticPhysics (YggaShoot3)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|True|
@@ -26,13 +26,13 @@
 ### Component: HoverText (YggaShoot3)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_yggashoot|
 
 ### Component: GlobalWind (leaf_particles)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_multiplier|System.Single|2|
 |m_smoothUpdate|System.Boolean|False|
 |m_alignToWindDirection|System.Boolean|False|

@@ -3,7 +3,7 @@
 ### Component: Aoe (aoe_nova)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|False|
 |m_scaleDamageByDistance|System.Boolean|False|
@@ -62,7 +62,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.2|
 |m_flickerSpeed|System.Single|0|
 |m_movement|System.Single|1|

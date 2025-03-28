@@ -3,7 +3,7 @@
 ### Component: Destructible (Spawner_CharredCross)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|500|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: SpawnArea (Spawner_CharredCross)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_levelupChance|System.Single|5|
 |m_spawnIntervalSec|System.Single|25|
 |m_triggerDistance|System.Single|60|
@@ -31,6 +31,6 @@
 ### Component: HoverText (Spawner_CharredCross)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$enemy_charredspawnercross|
 

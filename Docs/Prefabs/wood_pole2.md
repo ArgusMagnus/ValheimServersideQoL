@@ -3,7 +3,7 @@
 ### Component: Piece (wood_pole2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_woodpole2|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (wood_pole2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|

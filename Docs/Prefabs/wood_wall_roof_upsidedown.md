@@ -3,7 +3,7 @@
 ### Component: Piece (wood_wall_roof_upsidedown)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_woodwallroof_upsidedown|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (wood_wall_roof_upsidedown)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|

@@ -3,7 +3,7 @@
 ### Component: WearNTear (Ashlands_Wall_2x2_cornerR_top)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|

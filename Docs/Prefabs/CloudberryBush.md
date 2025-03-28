@@ -3,7 +3,7 @@
 ### Component: Destructible (CloudberryBush)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|30|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,7 +16,7 @@
 ### Component: Pickable (CloudberryBush)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|Berrys|
 |m_itemPrefab|UnityEngine.GameObject|Cloudberry|
 |m_amount|System.Int32|1|
@@ -40,7 +40,7 @@
 ### Component: StaticPhysics (CloudberryBush)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|

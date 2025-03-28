@@ -3,7 +3,7 @@
 ### Component: Humanoid (Troll_Summoned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_summonedtroll|
@@ -61,7 +61,7 @@
 ### Component: ZSyncTransform (Troll_Summoned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -71,13 +71,13 @@
 ### Component: ZSyncAnimation (Troll_Summoned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (Troll_Summoned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|20|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|True|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -152,20 +152,20 @@
 ### Component: CharacterDrop (Troll_Summoned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: VisEquipment (Troll_Summoned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
 
 ### Component: FootStep (Troll_Summoned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|50|
@@ -173,7 +173,7 @@
 ### Component: CinderSpawner (Troll_Summoned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_cinderPrefab|UnityEngine.GameObject|Cinder|
 |m_cinderInterval|System.Single|5|
 |m_cinderChance|System.Single|0.5|
@@ -188,7 +188,7 @@
 ### Component: ZSFX (sfx_trollfire_fire_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -216,7 +216,7 @@
 ### Component: CharacterAnimEvent (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.3|
 |m_footOffset|System.Single|0.1|
@@ -236,10 +236,10 @@
 ### Component: LevelEffects (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: WeakSpot (WEAKSPOT_HEAD)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

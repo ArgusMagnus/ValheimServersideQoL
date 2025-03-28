@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (sfx_gdking_death)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|10|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx_gdking_death)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$enemy_gdking|
 |m_secondaryCaptionToken|System.String|$caption_dying|
@@ -39,7 +39,7 @@
 ### Component: CamShaker (sfx_gdking_death)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|2|
 |m_range|System.Single|80|
 |m_delay|System.Single|0|
@@ -50,7 +50,7 @@
 ### Component: ZSFX (GameObject)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

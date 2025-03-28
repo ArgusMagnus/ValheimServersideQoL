@@ -3,7 +3,7 @@
 ### Component: TreeBase (SwampTree1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|80|
 |m_minToolTier|System.Int32|2|
 |m_trunk|UnityEngine.GameObject|swamptree1|
@@ -17,6 +17,6 @@
 ### Component: HoverText (SwampTree1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_ancienttree|
 

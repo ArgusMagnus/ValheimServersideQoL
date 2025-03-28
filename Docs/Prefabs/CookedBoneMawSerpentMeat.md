@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (CookedBoneMawSerpentMeat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: ItemDrop (CookedBoneMawSerpentMeat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam|
@@ -22,7 +22,7 @@
 ### Component: Floating (CookedBoneMawSerpentMeat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.45|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|
@@ -32,7 +32,7 @@
 ### Component: Piece (CookedBoneMawSerpentMeat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$item_bonemawmeat_cooked|
 |m_description|System.String|$item_bonemawmeat_cooked_description|
@@ -78,7 +78,7 @@
 ### Component: WearNTear (CookedBoneMawSerpentMeat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|

@@ -3,7 +3,7 @@
 ### Component: Piece (blackmarble_stair_corner_left)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_blackmarble_stair_corner_left|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (blackmarble_stair_corner_left)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|

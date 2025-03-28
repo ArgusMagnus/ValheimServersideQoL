@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (LeviathanLava)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: Leviathan (LeviathanLava)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waveScale|System.Single|0|
 |m_floatOffset|System.Single|-3|
 |m_movementSpeed|System.Single|5|
@@ -25,7 +25,7 @@
 ### Component: MineRock (LeviathanLava)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$item_flametalore|
 |m_health|System.Single|100|
 |m_removeWhenDestroyed|System.Boolean|False|
@@ -35,13 +35,13 @@
 ### Component: ZSyncAnimation (LeviathanLava)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|False|
 
 ### Component: StaticPhysics (LeviathanLava)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|False|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|

@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (vfx_Harpooned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|False|
 |m_syncScale|System.Boolean|True|
@@ -13,7 +13,7 @@
 ### Component: LineConnect (vfx_Harpooned)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_centerOfCharacter|System.Boolean|True|
 |m_childObject|System.String||
 |m_hideIfNoConnection|System.Boolean|True|

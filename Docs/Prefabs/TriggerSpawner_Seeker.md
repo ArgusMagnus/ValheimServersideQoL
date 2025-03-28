@@ -3,7 +3,7 @@
 ### Component: TriggerSpawner (TriggerSpawner_Seeker)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|
 |m_levelupChance|System.Single|10|

@@ -3,7 +3,7 @@
 ### Component: Destructible (Ashlands_Fortress_Wall_Pillar_base)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|5|

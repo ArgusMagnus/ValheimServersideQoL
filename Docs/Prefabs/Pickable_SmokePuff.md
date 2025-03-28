@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_SmokePuff)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|visual|
 |m_itemPrefab|UnityEngine.GameObject|MushroomSmokePuff|
 |m_amount|System.Int32|1|
@@ -27,7 +27,7 @@
 ### Component: StaticPhysics (Pickable_SmokePuff)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|True|

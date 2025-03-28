@@ -3,7 +3,7 @@
 ### Component: Piece (turf_roof_top)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|Wood roof ridge|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (turf_roof_top)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|

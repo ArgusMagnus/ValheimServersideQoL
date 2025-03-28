@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_Fiddlehead)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|visual|
 |m_itemPrefab|UnityEngine.GameObject|Fiddleheadfern|
 |m_amount|System.Int32|1|
@@ -27,7 +27,7 @@
 ### Component: StaticPhysics (Pickable_Fiddlehead)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|True|

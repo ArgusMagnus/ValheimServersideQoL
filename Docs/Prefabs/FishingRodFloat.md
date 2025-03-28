@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (FishingRodFloat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: Floating (FishingRodFloat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.3|
 |m_forceDistance|System.Single|0.5|
 |m_force|System.Single|0.5|
@@ -24,7 +24,7 @@
 ### Component: FishingFloat (FishingRodFloat)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxDistance|System.Single|30|
 |m_moveForce|System.Single|5|
 |m_pullLineSpeed|System.Single|2|
@@ -41,7 +41,7 @@
 ### Component: LineConnect (RodLine)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_centerOfCharacter|System.Boolean|False|
 |m_childObject|System.String|_RodTop|
 |m_hideIfNoConnection|System.Boolean|True|
@@ -59,7 +59,7 @@
 ### Component: LineConnect (HookLine)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_centerOfCharacter|System.Boolean|False|
 |m_childObject|System.String||
 |m_hideIfNoConnection|System.Boolean|False|

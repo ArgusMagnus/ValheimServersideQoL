@@ -3,7 +3,7 @@
 ### Component: ZSFX (sfx_MeadBurp)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$caption_burp|
 |m_secondaryCaptionToken|System.String||
@@ -31,7 +31,7 @@
 ### Component: TimedDestruction (sfx_MeadBurp)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|10|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -39,7 +39,7 @@
 ### Component: ZSFX (slurp)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

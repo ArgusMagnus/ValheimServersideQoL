@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (fx_Abomination_arise)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|15|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: CamShaker (fx_Abomination_arise)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|1.2|
 |m_range|System.Single|40|
 |m_delay|System.Single|3.5|
@@ -22,7 +22,7 @@
 ### Component: TimedDestruction (sfx_abom_arise_init)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|15|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -30,7 +30,7 @@
 ### Component: ZSFX (sfx_abom_arise_init)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$enemy_abomination|
 |m_secondaryCaptionToken|System.String|$caption_awakening|

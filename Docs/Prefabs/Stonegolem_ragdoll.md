@@ -3,7 +3,7 @@
 ### Component: Ragdoll (Stonegolem_ragdoll)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_velMultiplier|System.Single|0.31|
 |m_ttl|System.Single|5|
 |m_float|System.Boolean|False|

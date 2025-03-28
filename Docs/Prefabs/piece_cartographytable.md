@@ -3,7 +3,7 @@
 ### Component: Piece (piece_cartographytable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_cartographytable|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_cartographytable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
@@ -72,19 +72,19 @@
 ### Component: MapTable (piece_cartographytable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_cartographytable|
 
 ### Component: GuidePoint (GuidePoint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
 ### Component: Switch (ReadMap)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_cartographytable|
 |m_holdRepeatInterval|System.Single|-1|
@@ -92,7 +92,7 @@
 ### Component: Switch (WriteMap)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_cartographytable|
 |m_holdRepeatInterval|System.Single|-1|

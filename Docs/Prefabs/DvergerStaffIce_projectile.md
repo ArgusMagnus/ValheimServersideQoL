@@ -3,7 +3,7 @@
 ### Component: Projectile (DvergerStaffIce_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
@@ -62,7 +62,7 @@
 ### Component: ZSyncTransform (DvergerStaffIce_projectile)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -72,7 +72,7 @@
 ### Component: ZSFX (sfx)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

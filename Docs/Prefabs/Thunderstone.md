@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (Thunderstone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,14 +13,14 @@
 ### Component: ItemDrop (Thunderstone)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 
 ### Component: LightFlicker (Point light (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.5|
 |m_flickerSpeed|System.Single|100|
 |m_movement|System.Single|0.2|
@@ -32,7 +32,7 @@
 ### Component: LightLod (Point light (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|20|
 |m_shadowLod|System.Boolean|False|

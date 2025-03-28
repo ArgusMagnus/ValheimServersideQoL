@@ -3,7 +3,7 @@
 ### Component: Vagon (Cart)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$tool_cart|
 |m_detachDistance|System.Single|1|
 |m_attachOffset|UnityEngine.Vector3|(0.00, 0.80, 0.00)|
@@ -24,7 +24,7 @@
 ### Component: Floating (Cart)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.5|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|1.3|
@@ -34,7 +34,7 @@
 ### Component: ZSyncTransform (Cart)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -44,7 +44,7 @@
 ### Component: Piece (Cart)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$tool_cart|
 |m_description|System.String||
@@ -90,7 +90,7 @@
 ### Component: WearNTear (Cart)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
@@ -113,7 +113,7 @@
 ### Component: ImpactEffect (Cart)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hitDestroyChance|System.Single|0|
 |m_minVelocity|System.Single|3|
 |m_maxVelocity|System.Single|5|
@@ -126,12 +126,12 @@
 ### Component: DisableInPlacementGhost (Cart)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: Container (Container)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$msg_cart_storage|
 |m_width|System.Int32|6|
 |m_height|System.Int32|3|
@@ -142,7 +142,7 @@
 ### Component: ZSFX (Audio Source)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -170,7 +170,7 @@
 ### Component: ZSFX (Audio Source (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

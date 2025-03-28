@@ -3,7 +3,7 @@
 ### Component: Piece (blackforge_ext4_gemcutter)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_blackforge_ext4|
 |m_description|System.String|$piece_blackforge $piece_upgrade|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (blackforge_ext4_gemcutter)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -72,7 +72,7 @@
 ### Component: StationExtension (blackforge_ext4_gemcutter)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxStationDistance|System.Single|4|
 |m_stack|System.Boolean|False|
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|

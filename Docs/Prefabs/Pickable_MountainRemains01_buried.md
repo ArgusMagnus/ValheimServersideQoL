@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_MountainRemains01_buried)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|BoneFragments|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -26,6 +26,6 @@
 ### Component: Beacon (crypt_skeleton_laying)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_range|System.Single|40|
 

@@ -3,7 +3,7 @@
 ### Component: Piece (blackmarble_2x2x1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_blackmarble2x2x1|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (blackmarble_2x2x1)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
@@ -72,7 +72,7 @@
 ### Component: RandomPieceRotation (new)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_rotateX|System.Boolean|False|
 |m_rotateY|System.Boolean|False|
 |m_rotateZ|System.Boolean|True|

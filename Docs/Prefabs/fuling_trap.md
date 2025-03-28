@@ -3,7 +3,7 @@
 ### Component: Trap (fuling_trap)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_trap|
 |m_AOE|UnityEngine.GameObject|Damage Area|
 |m_rearmCooldown|System.Int32|5|
@@ -17,7 +17,7 @@
 ### Component: Piece (fuling_trap)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_trap|
 |m_description|System.String||
@@ -63,7 +63,7 @@
 ### Component: WearNTear (fuling_trap)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -83,7 +83,7 @@
 ### Component: Aoe (Damage Area)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|True|
 |m_scaleDamageByDistance|System.Boolean|False|

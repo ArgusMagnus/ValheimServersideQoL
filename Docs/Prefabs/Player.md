@@ -3,13 +3,13 @@
 ### Component: PlayerController (Player)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_minDodgeTime|System.Single|0.2|
 
 ### Component: Player (Player)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxPlaceDistance|System.Single|8|
 |m_maxInteractDistance|System.Single|3.5|
 |m_scrollSens|System.Single|4|
@@ -96,7 +96,7 @@
 ### Component: ZSyncTransform (Player)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -106,13 +106,13 @@
 ### Component: ZSyncAnimation (Player)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|False|
 
 ### Component: Talker (Player)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_visperDistance|System.Single|5|
 |m_normalDistance|System.Single|25|
 |m_shoutDistance|System.Single|200|
@@ -120,14 +120,14 @@
 ### Component: VisEquipment (Player)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_isPlayer|System.Boolean|True|
 |m_useAllTrails|System.Boolean|False|
 
 ### Component: Skills (Player)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_DeathLowerFactor|System.Single|0.05|
 |m_useSkillCap|System.Boolean|False|
 |m_totalSkillCap|System.Single|500|
@@ -135,7 +135,7 @@
 ### Component: FootStep (Player)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
@@ -143,7 +143,7 @@
 ### Component: CharacterAnimEvent (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.2|
 |m_footOffset|System.Single|0.12|
@@ -163,5 +163,5 @@
 ### Component: AnimationEffect (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

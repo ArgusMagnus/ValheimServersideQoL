@@ -3,7 +3,7 @@
 ### Component: Humanoid (Wolf)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
 |m_name|System.String|$enemy_wolf|
@@ -61,13 +61,13 @@
 ### Component: CharacterDrop (Wolf)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ### Component: ZSyncTransform (Wolf)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -77,13 +77,13 @@
 ### Component: ZSyncAnimation (Wolf)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ### Component: MonsterAI (Wolf)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_alertRange|System.Single|20|
 |m_fleeIfHurtWhenTargetCantBeReached|System.Boolean|True|
 |m_fleeUnreachableSinceAttacking|System.Single|30|
@@ -158,7 +158,7 @@
 ### Component: FootStep (Wolf)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
@@ -166,7 +166,7 @@
 ### Component: Tameable (Wolf)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_fedDuration|System.Single|600|
 |m_tamingTime|System.Single|1800|
 |m_startsTamed|System.Boolean|False|
@@ -183,7 +183,7 @@
 ### Component: Procreation (Wolf)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_updateInterval|System.Single|30|
 |m_totalCheckRange|System.Single|10|
 |m_maxCreatures|System.Int32|4|
@@ -198,12 +198,12 @@
 ### Component: LevelEffects (Visual)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: CharacterAnimEvent (WolfSmooth)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -223,5 +223,5 @@
 ### Component: AnimationEffect (WolfSmooth)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

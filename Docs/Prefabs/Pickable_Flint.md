@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_Flint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|model|
 |m_itemPrefab|UnityEngine.GameObject|Flint|
 |m_amount|System.Int32|1|
@@ -27,7 +27,7 @@
 ### Component: StaticPhysics (Pickable_Flint)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|

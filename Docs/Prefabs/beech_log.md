@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (beech_log)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: TreeLog (beech_log)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|60|
 |m_minToolTier|System.Int32|0|
 |m_subLogPrefab|UnityEngine.GameObject|beech_log_half|
@@ -24,7 +24,7 @@
 ### Component: ImpactEffect (beech_log)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hitDestroyChance|System.Single|0|
 |m_minVelocity|System.Single|1|
 |m_maxVelocity|System.Single|5|
@@ -37,7 +37,7 @@
 ### Component: Floating (beech_log)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.3|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|
@@ -49,6 +49,6 @@
 ### Component: HoverText (beech_log)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_treelog|
 

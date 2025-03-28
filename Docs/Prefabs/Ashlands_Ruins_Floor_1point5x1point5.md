@@ -3,7 +3,7 @@
 ### Component: WearNTear (Ashlands_Ruins_Floor_1point5x1point5)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -26,7 +26,7 @@
 ### Component: DropOnDestroyed (Ashlands_Ruins_Floor_1point5x1point5)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 

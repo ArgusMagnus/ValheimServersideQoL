@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_MoltenCoreStand)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|MoltenCore|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -26,7 +26,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

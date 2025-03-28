@@ -3,7 +3,7 @@
 ### Component: Container (stonechest)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|Stone box|
 |m_width|System.Int32|6|
 |m_height|System.Int32|3|

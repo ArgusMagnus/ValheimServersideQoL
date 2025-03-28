@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_StoneGolem)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|StoneGolem|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|

@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_Fish4)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Fish4_cave|
 |m_maxLevel|System.Int32|5|
 |m_minLevel|System.Int32|1|

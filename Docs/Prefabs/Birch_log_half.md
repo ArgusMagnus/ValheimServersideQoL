@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (Birch_log_half)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: ImpactEffect (Birch_log_half)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hitDestroyChance|System.Single|0|
 |m_minVelocity|System.Single|1|
 |m_maxVelocity|System.Single|5|
@@ -26,7 +26,7 @@
 ### Component: Floating (Birch_log_half)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.3|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|
@@ -36,7 +36,7 @@
 ### Component: TreeLog (Birch_log_half)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|60|
 |m_minToolTier|System.Int32|2|
 |m_useSubLogPointRotation|System.Boolean|False|
@@ -48,6 +48,6 @@
 ### Component: HoverText (Birch_log_half)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_text|System.String|$prop_treelog|
 

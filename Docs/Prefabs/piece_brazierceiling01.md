@@ -3,7 +3,7 @@
 ### Component: Piece (piece_brazierceiling01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_brazierceiling01|
 |m_description|System.String||
@@ -50,7 +50,7 @@
 ### Component: Fireplace (piece_brazierceiling01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_fire|
 |m_startFuel|System.Single|1|
 |m_maxFuel|System.Single|5|
@@ -81,7 +81,7 @@
 ### Component: WearNTear (piece_brazierceiling01)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -104,7 +104,7 @@
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 

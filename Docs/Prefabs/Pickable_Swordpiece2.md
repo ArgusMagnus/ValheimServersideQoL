@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_Swordpiece2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|DyrnwynBladeFragment|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -26,7 +26,7 @@
 ### Component: StaticPhysics (Pickable_Swordpiece2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|True|
@@ -35,7 +35,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|

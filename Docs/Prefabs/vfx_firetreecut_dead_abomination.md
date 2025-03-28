@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (vfx_firetreecut_dead_abomination)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: CamShaker (vfx_firetreecut_dead_abomination)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|2.5|
 |m_range|System.Single|70|
 |m_delay|System.Single|0.5|
@@ -22,7 +22,7 @@
 ### Component: ZSFX (sfx_troll_rock_destroyed)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

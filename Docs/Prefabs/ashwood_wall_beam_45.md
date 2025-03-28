@@ -3,7 +3,7 @@
 ### Component: Piece (ashwood_wall_beam_45)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_ashwoodbeam45|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (ashwood_wall_beam_45)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|

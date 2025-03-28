@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (sfx_Puke_female)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|False|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: ZSFX (sfx_Puke_female)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$caption_puking|
 |m_secondaryCaptionToken|System.String||

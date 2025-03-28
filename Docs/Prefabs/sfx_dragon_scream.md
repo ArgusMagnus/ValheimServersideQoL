@@ -3,7 +3,7 @@
 ### Component: TimedDestruction (sfx_dragon_scream)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|8|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -11,7 +11,7 @@
 ### Component: ZSFX (sfx_dragon_scream)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$enemy_dragon|
 |m_secondaryCaptionToken|System.String|$caption_roaring|
@@ -39,7 +39,7 @@
 ### Component: CamShaker (sfx_dragon_scream)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_strength|System.Single|1.5|
 |m_range|System.Single|100|
 |m_delay|System.Single|0|

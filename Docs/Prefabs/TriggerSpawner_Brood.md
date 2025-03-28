@@ -3,7 +3,7 @@
 ### Component: TriggerSpawner (TriggerSpawner_Brood)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxLevel|System.Int32|3|
 |m_minLevel|System.Int32|1|
 |m_levelupChance|System.Single|15|

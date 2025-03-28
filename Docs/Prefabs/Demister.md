@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (Demister)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,14 +13,14 @@
 ### Component: ItemDrop (Demister)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 
 ### Component: Floating (Demister)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_waterLevelOffset|System.Single|0|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|
@@ -30,7 +30,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -42,7 +42,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|20|
 |m_shadowLod|System.Boolean|False|
@@ -51,6 +51,6 @@
 ### Component: Demister (Particle System Force Field)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_disableForcefieldDelay|System.Single|0|
 

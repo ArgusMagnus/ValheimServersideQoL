@@ -3,7 +3,7 @@
 ### Component: ZSyncTransform (DvergerStaffFire_clusterbomb_aoe)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
@@ -13,7 +13,7 @@
 ### Component: Aoe (DvergerStaffFire_clusterbomb_aoe)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String||
 |m_useAttackSettings|System.Boolean|False|
 |m_scaleDamageByDistance|System.Boolean|False|
@@ -72,7 +72,7 @@
 ### Component: ZSFX (sfx_fire_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
@@ -100,7 +100,7 @@
 ### Component: TimedDestruction (sfx_fire_loop)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|False|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
@@ -108,7 +108,7 @@
 ### Component: SmokeSpawner (SmokeSpawner)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_smokePrefab|UnityEngine.GameObject|SmokeBall|
 |m_interval|System.Single|0.5|
 |m_testRadius|System.Single|0.75|
@@ -118,7 +118,7 @@
 ### Component: LightFlicker (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
@@ -130,7 +130,7 @@
 ### Component: LightLod (Point light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|100|
 |m_shadowLod|System.Boolean|True|

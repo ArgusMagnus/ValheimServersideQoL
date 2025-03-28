@@ -3,7 +3,7 @@
 ### Component: Piece (piece_magetable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_magetable|
 |m_description|System.String|$piece_craftingstation|
@@ -49,7 +49,7 @@
 ### Component: CraftingStation (piece_magetable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_magetable|
 |m_discoverRange|System.Single|4|
 |m_rangeBuild|System.Single|20|
@@ -64,7 +64,7 @@
 ### Component: WearNTear (piece_magetable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
@@ -87,20 +87,20 @@
 ### Component: GuidePoint (GuidePoint (1))
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
 ### Component: EffectArea (PlayerBase)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
 ### Component: CircleProjector (AreaMarker)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_radius|System.Single|20|
 |m_nrOfSegments|System.Int32|80|
 |m_speed|System.Single|0.1|
@@ -112,7 +112,7 @@
 ### Component: LightFlicker (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|5|
 |m_movement|System.Single|0.1|
@@ -124,7 +124,7 @@
 ### Component: LightLod (Point Light)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|True|
@@ -133,7 +133,7 @@
 ### Component: ZSFX (SFX)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

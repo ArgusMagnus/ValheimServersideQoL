@@ -3,7 +3,7 @@
 ### Component: CreatureSpawner (Spawner_GoblinBrute)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|GoblinBrute|
 |m_maxLevel|System.Int32|3|
 |m_minLevel|System.Int32|1|

@@ -3,7 +3,7 @@
 ### Component: Destructible (Pickable_Barley)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_health|System.Single|1|
 |m_minDamageTreshold|System.Single|0|
 |m_minToolTier|System.Int32|0|
@@ -16,14 +16,14 @@
 ### Component: StaticTarget (Pickable_Barley)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
 ### Component: StaticPhysics (Pickable_Barley)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|
@@ -32,7 +32,7 @@
 ### Component: Pickable (Pickable_Barley)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|Barley|
 |m_amount|System.Int32|2|
 |m_minAmountScaled|System.Int32|2|
@@ -55,7 +55,7 @@
 ### Component: DropOnDestroyed (Pickable_Barley)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 

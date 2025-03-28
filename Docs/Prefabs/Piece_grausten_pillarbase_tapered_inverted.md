@@ -3,7 +3,7 @@
 ### Component: Piece (Piece_grausten_pillarbase_tapered_inverted)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_grausten_pillartaperedinverted|
 |m_description|System.String||
@@ -49,7 +49,7 @@
 ### Component: WearNTear (Piece_grausten_pillarbase_tapered_inverted)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
@@ -72,5 +72,5 @@
 ### Component: RandomMaterialValues (Piece_grausten_pillarbase_tapered_inverted)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 

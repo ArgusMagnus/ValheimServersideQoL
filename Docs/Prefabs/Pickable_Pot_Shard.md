@@ -3,7 +3,7 @@
 ### Component: Pickable (Pickable_Pot_Shard)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_itemPrefab|UnityEngine.GameObject|Pot_Shard_Green|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -26,7 +26,7 @@
 ### Component: StaticPhysics (Pickable_Pot_Shard)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_pushUp|System.Boolean|True|
 |m_fall|System.Boolean|True|
 |m_checkSolids|System.Boolean|False|

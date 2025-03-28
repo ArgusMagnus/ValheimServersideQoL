@@ -3,7 +3,7 @@
 ### Component: Piece (ArmorStand_Female)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_armorstand|
 |m_description|System.String|Horizontal|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (ArmorStand_Female)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|Blocks & Switches|
 |m_worn|UnityEngine.GameObject|Blocks & Switches|
 |m_broken|UnityEngine.GameObject|Blocks & Switches|
@@ -72,7 +72,7 @@
 ### Component: ArmorStand (ArmorStand_Female)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_armorstand|
 |m_poseCount|System.Int32|15|
 |m_startPose|System.Int32|0|
@@ -81,7 +81,7 @@
 ### Component: Switch (block body)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|Armor stand body|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -89,7 +89,7 @@
 ### Component: Switch (block hand R)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|Armor stand right arm|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -97,7 +97,7 @@
 ### Component: Switch (block hand L)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|Armor stand left arm|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -105,7 +105,7 @@
 ### Component: Switch (block back R)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|Armor stand back shield|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -113,7 +113,7 @@
 ### Component: Switch (block back L)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String|Armor stand back weapon|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -121,7 +121,7 @@
 ### Component: Switch (block pose)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -129,7 +129,7 @@
 ### Component: VisEquipment (Player Pose)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_isPlayer|System.Boolean|True|
 |m_useAllTrails|System.Boolean|False|
 

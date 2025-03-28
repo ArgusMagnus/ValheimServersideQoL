@@ -3,7 +3,7 @@
 ### Component: Gibber (caverock_ice_wall_destruction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|20|
@@ -16,12 +16,12 @@
 ### Component: MaterialVariationWorld (caverock_ice_wall_destruction)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 
 ### Component: ZSFX (sfx)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||

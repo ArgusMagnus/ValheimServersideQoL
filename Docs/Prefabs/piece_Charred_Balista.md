@@ -3,7 +3,7 @@
 ### Component: Turret (piece_Charred_Balista)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_charredballista|
 |m_turretBody|UnityEngine.GameObject|BodyRotation|
 |m_turretBodyArmed|UnityEngine.GameObject|Body|
@@ -40,7 +40,7 @@
 ### Component: WearNTear (piece_Charred_Balista)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
@@ -63,7 +63,7 @@
 ### Component: DropOnDestroyed (piece_Charred_Balista)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 

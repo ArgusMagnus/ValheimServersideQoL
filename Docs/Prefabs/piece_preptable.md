@@ -3,7 +3,7 @@
 ### Component: Piece (piece_preptable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_preptable|
 |m_description|System.String|$piece_craftingstation|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_preptable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|PrepTable_Broken|
@@ -72,7 +72,7 @@
 ### Component: CraftingStation (piece_preptable)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_name|System.String|$piece_preptable|
 |m_discoverRange|System.Single|4|
 |m_rangeBuild|System.Single|20|

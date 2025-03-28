@@ -3,7 +3,7 @@
 ### Component: Piece (piece_workbench_ext2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|False|
 |m_name|System.String|$piece_workbench_ext2|
 |m_description|System.String|$piece_workbench $piece_upgrade|
@@ -49,7 +49,7 @@
 ### Component: WearNTear (piece_workbench_ext2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
@@ -72,7 +72,7 @@
 ### Component: StationExtension (piece_workbench_ext2)
 
 |Field|Type|Default Value|
-|---|---|---|
+|-----|----|-------------|
 |m_maxStationDistance|System.Single|5|
 |m_stack|System.Boolean|False|
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
