@@ -103,7 +103,7 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class CartsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), float.NaN, "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight");
+        public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), 1f, "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight");
     }
 
     public sealed class DoorsConfig(ConfigFile cfg, string section)
