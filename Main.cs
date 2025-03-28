@@ -526,9 +526,9 @@ public sealed partial class Main : BaseUnityPlugin
                 if (name is null)
                     writer.WriteLine($"|{prefab}|{components}|");
                 else if (Localization.instance.Localize(name) is { } localized && localized != name)
-                    writer.WriteLine($"|{prefab}<small><br>- Name: *{name}*<br>- English Name: *{localized}*</small>|{components}|");
+                    writer.WriteLine($"|{prefab}<small><br>- Name: {name}<br>- English Name: {localized}</small>|{components}|");
                 else
-                    writer.WriteLine($"|{prefab}<small><br>- Name: *{name}*</small>|{components}|");
+                    writer.WriteLine($"|{prefab}<small><br>- Name: {name}</small>|{components}|");
             }
         }
     }
