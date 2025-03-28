@@ -297,5 +297,6 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<float> GrowTimeMultiplier { get; } = cfg.Bind(section, nameof(GrowTimeMultiplier), 1f, "Multiply plant grow time by this factor");
         public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.Bind(section, nameof(SpaceRequirementMultiplier), 1f, "Multiply plant grow time by this factor");
+        public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.Bind(section, nameof(DontDestroyIfCantGrow), false, "True to keep plants which can't grow alive");
     }
 }

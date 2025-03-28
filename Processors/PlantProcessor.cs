@@ -26,6 +26,11 @@ sealed class PlantProcessor(ManualLogSource logger, ModConfig cfg) : Processor(l
             //    RecreateZdo = true;
         }
 
+        if (!Config.Plants.DontDestroyIfCantGrow.Value)
+            fields.Reset(x => x.m_destroyIfCantGrow);
+        else if (fields.SetIfChanged(x => x.m_destroyIfCantGrow, false))
+            RecreateZdo = true;
+
         return false;
     }
 }
