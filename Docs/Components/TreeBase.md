@@ -1,6 +1,8 @@
 # TreeBase
 
-## AshlandsTree1
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## AshlandsTree1: AshlandsTree1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -12,7 +14,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## AshlandsTree3
+## AshlandsTree3: AshlandsTree3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -24,7 +26,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## AshlandsTree4
+## AshlandsTree4: AshlandsTree4
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -36,7 +38,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## AshlandsTree5
+## AshlandsTree5: AshlandsTree5
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -48,7 +50,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## AshlandsTree6
+## AshlandsTree6: AshlandsTree6
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -60,7 +62,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## AshlandsTree6_big
+## AshlandsTree6_big: AshlandsTree6_big
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -72,7 +74,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## Beech1
+## Beech1: Beech1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -84,7 +86,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## Birch1
+## Birch1: Birch1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -96,7 +98,7 @@
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## Birch1_aut
+## Birch1_aut: Birch1_aut
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -108,7 +110,7 @@
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## Birch2
+## Birch2: Birch2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -120,7 +122,7 @@
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## Birch2_aut
+## Birch2_aut: Birch2_aut
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -132,7 +134,7 @@
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## FirTree
+## FirTree: FirTree
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -144,7 +146,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## Oak1
+## Oak1: Oak1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -156,7 +158,7 @@
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## PineTree
+## PineTree: PineTree
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -168,7 +170,7 @@
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## Pinetree_01
+## Pinetree_01: Pinetree_01
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -180,7 +182,7 @@
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## SwampTree1
+## SwampTree1: SwampTree1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -192,7 +194,7 @@
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
-## YggaShoot1
+## YggaShoot1: YggaShoot1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -204,7 +206,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## YggaShoot2
+## YggaShoot2: YggaShoot2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -216,7 +218,7 @@
 |m_spawnYOffset|System.Single|4|
 |m_spawnYStep|System.Single|0.3|
 
-## YggaShoot3
+## YggaShoot3: YggaShoot3
 
 |Field|Type|Default Value|
 |-----|----|-------------|

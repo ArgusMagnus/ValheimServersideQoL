@@ -1,6 +1,8 @@
 # Trader
 
-## BogWitch
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## BogWitch: BogWitch
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -12,7 +14,7 @@
 |m_randomTalkInterval|System.Single|30|
 |m_dialogHeight|System.Single|2.5|
 
-## Haldor
+## Haldor: Haldor
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -24,7 +26,7 @@
 |m_randomTalkInterval|System.Single|30|
 |m_dialogHeight|System.Single|1.5|
 
-## Hildir
+## Hildir: Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|

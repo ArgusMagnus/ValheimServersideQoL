@@ -1,6 +1,8 @@
 # DungeonGenerator
 
-## DG_AshlandRuins
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## DG_AshlandRuins: DG_AshlandRuins
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -24,7 +26,7 @@
 |m_generatedSeed|System.Int32|44327|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_Cave
+## DG_Cave: DG_Cave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -48,7 +50,7 @@
 |m_generatedSeed|System.Int32|73019|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_DvergrBoss
+## DG_DvergrBoss: DG_DvergrBoss
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -72,7 +74,7 @@
 |m_generatedSeed|System.Int32|28140|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_DvergrTown
+## DG_DvergrTown: DG_DvergrTown
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -96,7 +98,7 @@
 |m_generatedSeed|System.Int32|14550|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_ForestCrypt
+## DG_ForestCrypt: DG_ForestCrypt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -120,7 +122,7 @@
 |m_generatedSeed|System.Int32|0|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_FortressRuins
+## DG_FortressRuins: DG_FortressRuins
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -144,7 +146,7 @@
 |m_generatedSeed|System.Int32|10771|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_GoblinCamp
+## DG_GoblinCamp: DG_GoblinCamp
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -168,7 +170,7 @@
 |m_generatedSeed|System.Int32|0|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_Hildir_Cave
+## DG_Hildir_Cave: DG_Hildir_Cave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -192,7 +194,7 @@
 |m_generatedSeed|System.Int32|17145|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_Hildir_ForestCrypt
+## DG_Hildir_ForestCrypt: DG_Hildir_ForestCrypt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -216,7 +218,7 @@
 |m_generatedSeed|System.Int32|13406|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_Hildir_PlainsFortress
+## DG_Hildir_PlainsFortress: DG_Hildir_PlainsFortress
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -240,7 +242,7 @@
 |m_generatedSeed|System.Int32|40254|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_MeadowsFarm
+## DG_MeadowsFarm: DG_MeadowsFarm
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -264,7 +266,7 @@
 |m_generatedSeed|System.Int32|0|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_MeadowsVillage
+## DG_MeadowsVillage: DG_MeadowsVillage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -288,7 +290,7 @@
 |m_generatedSeed|System.Int32|0|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DG_SunkenCrypt
+## DG_SunkenCrypt: DG_SunkenCrypt
 
 |Field|Type|Default Value|
 |-----|----|-------------|

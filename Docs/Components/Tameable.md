@@ -1,6 +1,8 @@
 # Tameable
 
-## Asksvin
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Asksvin: Asksvin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -18,7 +20,7 @@
 |m_tamingSpeedMultiplierRange|System.Single|60|
 |m_tamingBoostMultiplier|System.Single|2|
 
-## Boar
+## Boar: Boar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -36,7 +38,7 @@
 |m_tamingSpeedMultiplierRange|System.Single|60|
 |m_tamingBoostMultiplier|System.Single|2|
 
-## Hen
+## Hen: Hen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -54,7 +56,7 @@
 |m_tamingSpeedMultiplierRange|System.Single|60|
 |m_tamingBoostMultiplier|System.Single|2|
 
-## Lox
+## Lox: Lox
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -72,7 +74,7 @@
 |m_tamingSpeedMultiplierRange|System.Single|60|
 |m_tamingBoostMultiplier|System.Single|2|
 
-## Skeleton_Friendly
+## Skeleton_Friendly: Skeleton_Friendly
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -90,7 +92,7 @@
 |m_tamingSpeedMultiplierRange|System.Single|60|
 |m_tamingBoostMultiplier|System.Single|2|
 
-## Wolf
+## Wolf: Wolf
 
 |Field|Type|Default Value|
 |-----|----|-------------|

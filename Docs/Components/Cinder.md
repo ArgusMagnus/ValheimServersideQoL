@@ -1,6 +1,8 @@
 # Cinder
 
-## Cinder
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Cinder: Cinder
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -12,7 +14,7 @@
 |m_spread|System.Int32|4|
 |m_chanceToIgniteGrass|System.Single|0.321|
 
-## Cinder_campfire
+## Cinder_campfire: Cinder_campfire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -24,7 +26,7 @@
 |m_spread|System.Int32|4|
 |m_chanceToIgniteGrass|System.Single|0.05|
 
-## CinderSky
+## CinderSky: CinderSky
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -36,7 +38,7 @@
 |m_spread|System.Int32|6|
 |m_chanceToIgniteGrass|System.Single|0.321|
 
-## CinderStorm
+## CinderStorm: CinderStorm
 
 |Field|Type|Default Value|
 |-----|----|-------------|

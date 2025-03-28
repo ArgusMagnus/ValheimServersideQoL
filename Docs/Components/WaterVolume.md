@@ -1,6 +1,8 @@
 # WaterVolume
 
-## WaterVolume
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## piece_bathtub: WaterVolume
 
 |Field|Type|Default Value|
 |-----|----|-------------|

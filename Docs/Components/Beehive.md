@@ -1,6 +1,8 @@
 # Beehive
 
-## piece_beehive
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## piece_beehive: piece_beehive
 
 |Field|Type|Default Value|
 |-----|----|-------------|

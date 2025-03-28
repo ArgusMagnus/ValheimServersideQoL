@@ -1,6 +1,8 @@
 # Floating
 
-## AshlandsTreeLog1
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## AshlandsTreeLog1: AshlandsTreeLog1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -11,7 +13,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## AshlandsTreeLog2
+## AshlandsTreeLog2: AshlandsTreeLog2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -22,7 +24,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## AshlandsTreeLogHalf1
+## AshlandsTreeLogHalf1: AshlandsTreeLogHalf1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -33,7 +35,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## AshlandsTreeLogHalf2
+## AshlandsTreeLogHalf2: AshlandsTreeLogHalf2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -44,7 +46,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## barrell
+## barrell: barrell
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -55,7 +57,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BatteringRam
+## BatteringRam: BatteringRam
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -66,7 +68,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## beech_log
+## beech_log: beech_log
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -77,7 +79,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## beech_log_half
+## beech_log_half: beech_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -88,7 +90,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Birch_log
+## Birch_log: Birch_log
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -99,7 +101,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Birch_log_half
+## Birch_log_half: Birch_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -110,7 +112,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Blackwood
+## Blackwood: Blackwood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -121,7 +123,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BoneMawSerpentMeat
+## BoneMawSerpentMeat: BoneMawSerpentMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -132,7 +134,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BonemawSerpentTooth
+## BonemawSerpentTooth: BonemawSerpentTooth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -143,7 +145,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Bow
+## Bow: Bow
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -154,7 +156,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BowAshlands
+## BowAshlands: BowAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -165,7 +167,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BowAshlandsBlood
+## BowAshlandsBlood: BowAshlandsBlood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -176,7 +178,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BowAshlandsRoot
+## BowAshlandsRoot: BowAshlandsRoot
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -187,7 +189,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BowAshlandsStorm
+## BowAshlandsStorm: BowAshlandsStorm
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -198,7 +200,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BowDraugrFang
+## BowDraugrFang: BowDraugrFang
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -209,7 +211,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BowFineWood
+## BowFineWood: BowFineWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -220,7 +222,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BowHuntsman
+## BowHuntsman: BowHuntsman
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -231,7 +233,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## BowSpineSnap
+## BowSpineSnap: BowSpineSnap
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -242,7 +244,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CargoCrate
+## CargoCrate: CargoCrate
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -253,7 +255,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Cart
+## Cart: Cart
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -264,7 +266,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CastleKit_braided_box01
+## CastleKit_braided_box01: CastleKit_braided_box01
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -275,7 +277,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Catapult
+## Catapult: Catapult
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -286,7 +288,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## caverock_ice_stalagtite_falling
+## caverock_ice_stalagtite_falling: caverock_ice_stalagtite_falling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -297,7 +299,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## chest_hildir1
+## chest_hildir1: chest_hildir1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -308,7 +310,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## chest_hildir2
+## chest_hildir2: chest_hildir2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -319,7 +321,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## chest_hildir3
+## chest_hildir3: chest_hildir3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -330,7 +332,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Club
+## Club: Club
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -341,7 +343,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CookedBoneMawSerpentMeat
+## CookedBoneMawSerpentMeat: CookedBoneMawSerpentMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -352,7 +354,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CrossbowArbalest
+## CrossbowArbalest: CrossbowArbalest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -363,7 +365,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CrossbowRipper
+## CrossbowRipper: CrossbowRipper
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -374,7 +376,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CrossbowRipperBlood
+## CrossbowRipperBlood: CrossbowRipperBlood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -385,7 +387,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CrossbowRipperLightning
+## CrossbowRipperLightning: CrossbowRipperLightning
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -396,7 +398,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CrossbowRipperNature
+## CrossbowRipperNature: CrossbowRipperNature
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -407,7 +409,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## CryptKey
+## CryptKey: CryptKey
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -418,7 +420,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Demister
+## Demister: Demister
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -429,7 +431,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DragonEgg
+## DragonEgg: DragonEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -440,7 +442,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DragonTear
+## DragonTear: DragonTear
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -451,7 +453,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DragonTear
+## DragonTear: DragonTear
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -462,7 +464,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DvergerArbalest
+## DvergerArbalest: DvergerArbalest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -473,7 +475,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DvergerArbalest_shoot
+## DvergerArbalest_shoot: DvergerArbalest_shoot
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -484,7 +486,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DvergerArbalest_shootAshlands
+## DvergerArbalest_shootAshlands: DvergerArbalest_shootAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -495,7 +497,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DvergerStaffFire
+## DvergerStaffFire: DvergerStaffFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -506,7 +508,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DvergerStaffHeal
+## DvergerStaffHeal: DvergerStaffHeal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -517,7 +519,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DvergerStaffIce
+## DvergerStaffIce: DvergerStaffIce
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -528,7 +530,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## DvergerStaffSupport
+## DvergerStaffSupport: DvergerStaffSupport
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -539,7 +541,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ElderBark
+## ElderBark: ElderBark
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -550,7 +552,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FaderDrop
+## FaderDrop: FaderDrop
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -561,7 +563,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FineWood
+## FineWood: FineWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -572,7 +574,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FirCone
+## FirCone: FirCone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -583,7 +585,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FirTree_log
+## FirTree_log: FirTree_log
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -594,7 +596,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FirTree_log_half
+## FirTree_log_half: FirTree_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -605,7 +607,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBait
+## FishingBait: FishingBait
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -616,7 +618,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBaitAshlands
+## FishingBaitAshlands: FishingBaitAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -627,7 +629,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBaitCave
+## FishingBaitCave: FishingBaitCave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -638,7 +640,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBaitDeepNorth
+## FishingBaitDeepNorth: FishingBaitDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -649,7 +651,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBaitForest
+## FishingBaitForest: FishingBaitForest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -660,7 +662,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBaitMistlands
+## FishingBaitMistlands: FishingBaitMistlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -671,7 +673,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBaitOcean
+## FishingBaitOcean: FishingBaitOcean
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -682,7 +684,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBaitPlains
+## FishingBaitPlains: FishingBaitPlains
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -693,7 +695,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingBaitSwamp
+## FishingBaitSwamp: FishingBaitSwamp
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -704,7 +706,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingRod
+## FishingRod: FishingRod
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -715,7 +717,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## FishingRodFloat
+## FishingRodFloat: FishingRodFloat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -726,7 +728,7 @@
 |m_damping|System.Single|0.1|
 |m_surfaceEffects|UnityEngine.GameObject|SurfaceEffect|
 
-## GoblinClub
+## GoblinClub: GoblinClub
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -737,7 +739,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## GoblinShaman_attack_poke
+## GoblinShaman_attack_poke: GoblinShaman_attack_poke
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -748,7 +750,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## GoblinShaman_Headdress_antlers
+## GoblinShaman_Headdress_antlers: GoblinShaman_Headdress_antlers
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -759,7 +761,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## GoblinShaman_Headdress_feathers
+## GoblinShaman_Headdress_feathers: GoblinShaman_Headdress_feathers
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -770,7 +772,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## GoblinShaman_Staff_Bones
+## GoblinShaman_Staff_Bones: GoblinShaman_Staff_Bones
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -781,7 +783,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## GoblinShaman_Staff_Feathers
+## GoblinShaman_Staff_Feathers: GoblinShaman_Staff_Feathers
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -792,7 +794,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## GoblinShaman_Staff_Hildir
+## GoblinShaman_Staff_Hildir: GoblinShaman_Staff_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -803,7 +805,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## HardAntler
+## HardAntler: HardAntler
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -814,7 +816,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## HealthUpgrade_Bonemass
+## HealthUpgrade_Bonemass: HealthUpgrade_Bonemass
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -825,7 +827,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## HealthUpgrade_GDKing
+## HealthUpgrade_GDKing: HealthUpgrade_GDKing
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -836,7 +838,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## HildirKey_forestcrypt
+## HildirKey_forestcrypt: HildirKey_forestcrypt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -847,7 +849,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## HildirKey_mountaincave
+## HildirKey_mountaincave: HildirKey_mountaincave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -858,7 +860,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## HildirKey_plainsfortress
+## HildirKey_plainsfortress: HildirKey_plainsfortress
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -869,7 +871,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ice1
+## ice1: ice1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -880,7 +882,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## MaceBronze
+## MaceBronze: MaceBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -891,7 +893,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## MaceEldner
+## MaceEldner: MaceEldner
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -902,7 +904,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## MaceEldnerBlood
+## MaceEldnerBlood: MaceEldnerBlood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -913,7 +915,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## MaceEldnerLightning
+## MaceEldnerLightning: MaceEldnerLightning
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -924,7 +926,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## MaceEldnerNature
+## MaceEldnerNature: MaceEldnerNature
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -935,7 +937,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## MaceIron
+## MaceIron: MaceIron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -946,7 +948,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## MaceNeedle
+## MaceNeedle: MaceNeedle
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -957,7 +959,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## MeadSwimmer
+## MeadSwimmer: MeadSwimmer
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -968,7 +970,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Oak_log
+## Oak_log: Oak_log
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -979,7 +981,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Oak_log_half
+## Oak_log_half: Oak_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -990,7 +992,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Pickable_Tar
+## Pickable_Tar: Pickable_Tar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1001,7 +1003,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## PineCone
+## PineCone: PineCone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1012,7 +1014,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## PineTree_log
+## PineTree_log: PineTree_log
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1023,7 +1025,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## PineTree_log_half
+## PineTree_log_half: PineTree_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1034,7 +1036,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## PineTree_log_halfOLD
+## PineTree_log_halfOLD: PineTree_log_halfOLD
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1045,7 +1047,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## PineTree_logOLD
+## PineTree_logOLD: PineTree_logOLD
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1056,7 +1058,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Player_tombstone
+## Player_tombstone: Player_tombstone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1067,7 +1069,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## PlayerUnarmed
+## PlayerUnarmed: PlayerUnarmed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1078,7 +1080,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## QueenDrop
+## QueenDrop: QueenDrop
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1089,7 +1091,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Root
+## Root: Root
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1100,7 +1102,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## RoundLog
+## RoundLog: RoundLog
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1111,7 +1113,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SaddleAsksvin
+## SaddleAsksvin: SaddleAsksvin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1122,7 +1124,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SaddleLox
+## SaddleLox: SaddleLox
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1133,7 +1135,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SerpentMeat
+## SerpentMeat: SerpentMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1144,7 +1146,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldBanded
+## ShieldBanded: ShieldBanded
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1155,7 +1157,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldBlackmetal
+## ShieldBlackmetal: ShieldBlackmetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1166,7 +1168,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldBlackmetalTower
+## ShieldBlackmetalTower: ShieldBlackmetalTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1177,7 +1179,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldBoneTower
+## ShieldBoneTower: ShieldBoneTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1188,7 +1190,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldCarapace
+## ShieldCarapace: ShieldCarapace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1199,7 +1201,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldCarapaceBuckler
+## ShieldCarapaceBuckler: ShieldCarapaceBuckler
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1210,7 +1212,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldFlametal
+## ShieldFlametal: ShieldFlametal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1221,7 +1223,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldFlametalTower
+## ShieldFlametalTower: ShieldFlametalTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1232,7 +1234,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldIronSquare
+## ShieldIronSquare: ShieldIronSquare
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1243,7 +1245,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldIronTower
+## ShieldIronTower: ShieldIronTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1254,7 +1256,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldKnight
+## ShieldKnight: ShieldKnight
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1265,7 +1267,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldSerpentscale
+## ShieldSerpentscale: ShieldSerpentscale
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1276,7 +1278,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldSilver
+## ShieldSilver: ShieldSilver
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1287,7 +1289,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldWood
+## ShieldWood: ShieldWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1298,7 +1300,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## ShieldWoodTower
+## ShieldWoodTower: ShieldWoodTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1309,7 +1311,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SledgeStagbreaker
+## SledgeStagbreaker: SledgeStagbreaker
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1320,7 +1322,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearBronze
+## SpearBronze: SpearBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1331,7 +1333,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearCarapace
+## SpearCarapace: SpearCarapace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1342,7 +1344,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearChitin
+## SpearChitin: SpearChitin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1353,7 +1355,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearElderbark
+## SpearElderbark: SpearElderbark
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1364,7 +1366,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearFlint
+## SpearFlint: SpearFlint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1375,7 +1377,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearSplitner
+## SpearSplitner: SpearSplitner
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1386,7 +1388,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearSplitner_Blood
+## SpearSplitner_Blood: SpearSplitner_Blood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1397,7 +1399,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearSplitner_Lightning
+## SpearSplitner_Lightning: SpearSplitner_Lightning
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1408,7 +1410,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearSplitner_Nature
+## SpearSplitner_Nature: SpearSplitner_Nature
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1419,7 +1421,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SpearWolfFang
+## SpearWolfFang: SpearWolfFang
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1430,7 +1432,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## StaffLightning
+## StaffLightning: StaffLightning
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1441,7 +1443,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## StaminaUpgrade_Greydwarf
+## StaminaUpgrade_Greydwarf: StaminaUpgrade_Greydwarf
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1452,7 +1454,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## StaminaUpgrade_Troll
+## StaminaUpgrade_Troll: StaminaUpgrade_Troll
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1463,7 +1465,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## StaminaUpgrade_Wraith
+## StaminaUpgrade_Wraith: StaminaUpgrade_Wraith
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1474,7 +1476,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## SwampTree1_log
+## SwampTree1_log: SwampTree1_log
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1485,7 +1487,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Tar
+## Tar: Tar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1496,7 +1498,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## TrophyAbomination
+## TrophyAbomination: TrophyAbomination
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1507,7 +1509,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## TrophyBonemass
+## TrophyBonemass: TrophyBonemass
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1518,7 +1520,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## TrophyDragonQueen
+## TrophyDragonQueen: TrophyDragonQueen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1529,7 +1531,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## TrophyEikthyr
+## TrophyEikthyr: TrophyEikthyr
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1540,7 +1542,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## TrophyFader
+## TrophyFader: TrophyFader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1551,7 +1553,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## TrophyGoblinKing
+## TrophyGoblinKing: TrophyGoblinKing
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1562,7 +1564,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## TrophySeekerQueen
+## TrophySeekerQueen: TrophySeekerQueen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1573,7 +1575,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## TrophyTheElder
+## TrophyTheElder: TrophyTheElder
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1584,7 +1586,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## VoltureMeat
+## VoltureMeat: VoltureMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1595,7 +1597,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Wishbone
+## Wishbone: Wishbone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1606,7 +1608,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## WitheredBone
+## WitheredBone: WitheredBone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1617,7 +1619,7 @@
 |m_damping|System.Single|0.02|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## Wood
+## Wood: Wood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1628,7 +1630,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## YagluthDrop
+## YagluthDrop: YagluthDrop
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1639,7 +1641,7 @@
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## yggashoot_log
+## yggashoot_log: yggashoot_log
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1650,7 +1652,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## yggashoot_log_half
+## yggashoot_log_half: yggashoot_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1661,7 +1663,7 @@
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
-## YggdrasilWood
+## YggdrasilWood: YggdrasilWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|

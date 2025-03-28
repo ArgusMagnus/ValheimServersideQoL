@@ -1,13 +1,15 @@
 # Billboard
 
-## Canvas
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Player_tombstone: Canvas
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_vertical|System.Boolean|False|
 |m_invert|System.Boolean|True|
 
-## portcal_center
+## portal: portcal_center
 
 |Field|Type|Default Value|
 |-----|----|-------------|

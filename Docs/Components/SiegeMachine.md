@@ -1,6 +1,8 @@
 # SiegeMachine
 
-## BatteringRam
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## BatteringRam: BatteringRam
 
 |Field|Type|Default Value|
 |-----|----|-------------|

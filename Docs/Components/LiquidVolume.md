@@ -1,6 +1,8 @@
 # LiquidVolume
 
-## TarLiquid
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## TarLiquid: TarLiquid
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -18,7 +20,7 @@
 |m_saveInterval|System.Single|4|
 |m_randomEffectInterval|System.Single|0.1|
 
-## WaterLiquid
+## WaterLiquid: WaterLiquid
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -1,6 +1,8 @@
 # MineRock
 
-## Leviathan
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Leviathan: Leviathan
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -11,7 +13,7 @@
 |m_areaRoot|UnityEngine.GameObject|minestuff|
 |m_baseModel|UnityEngine.GameObject|*null*|
 
-## LeviathanLava
+## LeviathanLava: LeviathanLava
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -22,7 +24,7 @@
 |m_areaRoot|UnityEngine.GameObject|minestuff|
 |m_baseModel|UnityEngine.GameObject|*null*|
 
-## MineRock_Copper
+## MineRock_Copper: MineRock_Copper
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -33,7 +35,7 @@
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
 
-## MineRock_Iron
+## MineRock_Iron: MineRock_Iron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -44,7 +46,7 @@
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
 
-## MineRock_Meteorite
+## MineRock_Meteorite: MineRock_Meteorite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -55,7 +57,7 @@
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
 
-## MineRock_Stone
+## MineRock_Stone: MineRock_Stone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -66,7 +68,7 @@
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
 
-## mudpile_old
+## mudpile_old: mudpile_old
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -77,7 +79,7 @@
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|base_model|
 
-## Rock_destructible_test
+## Rock_destructible_test: Rock_destructible_test
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -88,7 +90,7 @@
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
 
-## stoneblock_fracture
+## stoneblock_fracture: stoneblock_fracture
 
 |Field|Type|Default Value|
 |-----|----|-------------|

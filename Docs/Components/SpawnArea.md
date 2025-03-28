@@ -1,6 +1,8 @@
 # SpawnArea
 
-## BonePileSpawner
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## BonePileSpawner: BonePileSpawner
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -15,7 +17,7 @@
 |m_maxTotal|System.Int32|100|
 |m_onGroundOnly|System.Boolean|False|
 
-## EvilHeart_Forest
+## EvilHeart_Forest: EvilHeart_Forest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -30,7 +32,7 @@
 |m_maxTotal|System.Int32|30|
 |m_onGroundOnly|System.Boolean|True|
 
-## EvilHeart_Swamp
+## EvilHeart_Swamp: EvilHeart_Swamp
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -45,7 +47,7 @@
 |m_maxTotal|System.Int32|30|
 |m_onGroundOnly|System.Boolean|False|
 
-## Spawner_CharredCross
+## Spawner_CharredCross: Spawner_CharredCross
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -60,7 +62,7 @@
 |m_maxTotal|System.Int32|100|
 |m_onGroundOnly|System.Boolean|False|
 
-## Spawner_CharredStone
+## Spawner_CharredStone: Spawner_CharredStone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -75,7 +77,7 @@
 |m_maxTotal|System.Int32|100|
 |m_onGroundOnly|System.Boolean|True|
 
-## Spawner_CharredStone_Elite
+## Spawner_CharredStone_Elite: Spawner_CharredStone_Elite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -90,7 +92,7 @@
 |m_maxTotal|System.Int32|100|
 |m_onGroundOnly|System.Boolean|True|
 
-## Spawner_CharredStone_event
+## Spawner_CharredStone_event: Spawner_CharredStone_event
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -105,7 +107,7 @@
 |m_maxTotal|System.Int32|100|
 |m_onGroundOnly|System.Boolean|True|
 
-## Spawner_DraugrPile
+## Spawner_DraugrPile: Spawner_DraugrPile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -120,7 +122,7 @@
 |m_maxTotal|System.Int32|100|
 |m_onGroundOnly|System.Boolean|False|
 
-## Spawner_GreydwarfNest
+## Spawner_GreydwarfNest: Spawner_GreydwarfNest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -135,7 +137,7 @@
 |m_maxTotal|System.Int32|100|
 |m_onGroundOnly|System.Boolean|True|
 
-## Spawner_Kvastur
+## Spawner_Kvastur: Spawner_Kvastur
 
 |Field|Type|Default Value|
 |-----|----|-------------|

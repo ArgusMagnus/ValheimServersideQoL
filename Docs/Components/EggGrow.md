@@ -1,6 +1,8 @@
 # EggGrow
 
-## AsksvinEgg
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## AsksvinEgg: AsksvinEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -14,7 +16,7 @@
 |m_growingObject|UnityEngine.GameObject|*null*|
 |m_notGrowingObject|UnityEngine.GameObject|Not Growing|
 
-## ChickenEgg
+## ChickenEgg: ChickenEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|

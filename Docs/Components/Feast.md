@@ -1,6 +1,8 @@
 # Feast
 
-## FeastAshlands
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## FeastAshlands: FeastAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8,7 +10,7 @@
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
 
-## FeastBlackforest
+## FeastBlackforest: FeastBlackforest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -16,7 +18,7 @@
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
 
-## FeastMeadows
+## FeastMeadows: FeastMeadows
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -24,7 +26,7 @@
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
 
-## FeastMistlands
+## FeastMistlands: FeastMistlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -32,7 +34,7 @@
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
 
-## FeastMountains
+## FeastMountains: FeastMountains
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -40,7 +42,7 @@
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
 
-## FeastOceans
+## FeastOceans: FeastOceans
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -48,7 +50,7 @@
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
 
-## FeastPlains
+## FeastPlains: FeastPlains
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -56,7 +58,7 @@
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
 
-## FeastSwamps
+## FeastSwamps: FeastSwamps
 
 |Field|Type|Default Value|
 |-----|----|-------------|

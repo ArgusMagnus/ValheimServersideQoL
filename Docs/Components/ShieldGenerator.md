@@ -1,6 +1,8 @@
 # ShieldGenerator
 
-## charred_shieldgenerator
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## charred_shieldgenerator: charred_shieldgenerator
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -23,7 +25,7 @@
 |m_attackObject|UnityEngine.GameObject|shieldgenerator_attack|
 |m_shieldLowLoopFuelStart|System.Single|0|
 
-## piece_shieldgenerator
+## piece_shieldgenerator: piece_shieldgenerator
 
 |Field|Type|Default Value|
 |-----|----|-------------|

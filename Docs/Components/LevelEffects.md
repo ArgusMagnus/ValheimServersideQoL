@@ -1,300 +1,302 @@
 # LevelEffects
 
-## Asksvin
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Asksvin: Asksvin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Asksvin
+## Asksvin_hatchling: Asksvin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Boar: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Charred_Archer: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Charred_Archer_Fader: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Charred_Mage: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Charred_Melee: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Charred_Melee_Dyrnwyn: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Charred_Melee_Fader: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Charred_Twitcher: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Charred_Twitcher_Summoned: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Deer: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Draugr: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Draugr_Elite: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Draugr_Ranged: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Dverger: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## DvergerAshlands: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## DvergerMage: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## DvergerMageFire: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## DvergerMageIce: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## DvergerMageSupport: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Gjall: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Goblin: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Goblin_Gem: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## GoblinArcher: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## GoblinBrute: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## GoblinBrute_Hildir: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Greydwarf: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Greydwarf_Elite: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Greydwarf_Shaman: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Greyling: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Hare: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Hen: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Leech: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Leech_cave: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Neck: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Seeker: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## SeekerBrute: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Skeleton: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Skeleton_Friendly: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Skeleton_Hildir: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Skeleton_Hildir_nochest: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Skeleton_NoArcher: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Skeleton_Poison: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Surtling: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Tick: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Troll: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Troll_Summoned: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Ulv: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
-## Visual
+## Wolf: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|

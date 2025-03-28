@@ -1,6 +1,8 @@
 # NpcTalk
 
-## Dverger
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Dverger: Dverger
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -14,7 +16,7 @@
 |m_randomTalkInterval|System.Single|30|
 |m_randomTalkChance|System.Single|0.2|
 
-## DvergerAshlands
+## DvergerAshlands: DvergerAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -28,7 +30,7 @@
 |m_randomTalkInterval|System.Single|30|
 |m_randomTalkChance|System.Single|0.2|
 
-## DvergerMage
+## DvergerMage: DvergerMage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -42,7 +44,7 @@
 |m_randomTalkInterval|System.Single|30|
 |m_randomTalkChance|System.Single|0.2|
 
-## DvergerMageFire
+## DvergerMageFire: DvergerMageFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -56,7 +58,7 @@
 |m_randomTalkInterval|System.Single|30|
 |m_randomTalkChance|System.Single|0.2|
 
-## DvergerMageIce
+## DvergerMageIce: DvergerMageIce
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -70,7 +72,7 @@
 |m_randomTalkInterval|System.Single|30|
 |m_randomTalkChance|System.Single|0.2|
 
-## DvergerMageSupport
+## DvergerMageSupport: DvergerMageSupport
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -84,7 +86,7 @@
 |m_randomTalkInterval|System.Single|30|
 |m_randomTalkChance|System.Single|0.2|
 
-## DvergerTest
+## DvergerTest: DvergerTest
 
 |Field|Type|Default Value|
 |-----|----|-------------|

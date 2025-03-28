@@ -1,6 +1,8 @@
 # Projectile
 
-## ancientbarkspear_projectile
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## ancientbarkspear_projectile: ancientbarkspear_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -62,7 +64,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## arbalest_projectile_blackmetal
+## arbalest_projectile_blackmetal: arbalest_projectile_blackmetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -124,7 +126,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## arbalest_projectile_bone
+## arbalest_projectile_bone: arbalest_projectile_bone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -186,7 +188,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## arbalest_projectile_carapace
+## arbalest_projectile_carapace: arbalest_projectile_carapace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -248,7 +250,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## arbalest_projectile_charred
+## arbalest_projectile_charred: arbalest_projectile_charred
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -310,7 +312,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bilebomb_projectile
+## bilebomb_projectile: bilebomb_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -372,7 +374,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## blobtar_projectile_tarball
+## blobtar_projectile_tarball: blobtar_projectile_tarball
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -434,7 +436,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bonemass_throw_projectile
+## bonemass_throw_projectile: bonemass_throw_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -496,7 +498,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## BonemawSerpent_projectile
+## BonemawSerpent_projectile: BonemawSerpent_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -558,7 +560,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bow_projectile
+## bow_projectile: bow_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -620,7 +622,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bow_projectile_carapace
+## bow_projectile_carapace: bow_projectile_carapace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -682,7 +684,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bow_projectile_fire
+## bow_projectile_fire: bow_projectile_fire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -744,7 +746,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bow_projectile_frost
+## bow_projectile_frost: bow_projectile_frost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -806,7 +808,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bow_projectile_needle
+## bow_projectile_needle: bow_projectile_needle
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -868,7 +870,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bow_projectile_poison
+## bow_projectile_poison: bow_projectile_poison
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -930,7 +932,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## bronzespear_projectile
+## bronzespear_projectile: bronzespear_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -992,7 +994,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Catapult_Ammo_Projectile
+## Catapult_Ammo_Projectile: Catapult_Ammo_Projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1054,7 +1056,7 @@
 |m_canChangeVisuals|System.Boolean|True|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Catapult_projectile
+## Catapult_projectile: Catapult_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1116,7 +1118,7 @@
 |m_canChangeVisuals|System.Boolean|True|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## charred_bow_Fader_projectile
+## charred_bow_Fader_projectile: charred_bow_Fader_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1178,7 +1180,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## charred_bow_projectile
+## charred_bow_projectile: charred_bow_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1240,7 +1242,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## charred_bow_volley_Fader_projectile
+## charred_bow_volley_Fader_projectile: charred_bow_volley_Fader_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1302,7 +1304,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## charred_bow_volley_projectile
+## charred_bow_volley_projectile: charred_bow_volley_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1364,7 +1366,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## charred_fireball_projectile
+## charred_fireball_projectile: charred_fireball_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1426,7 +1428,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## charred_twitcher_projectile
+## charred_twitcher_projectile: charred_twitcher_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1488,7 +1490,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## dragon_ice_projectile
+## dragon_ice_projectile: dragon_ice_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1550,7 +1552,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## draugr_bow_projectile
+## draugr_bow_projectile: draugr_bow_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1612,7 +1614,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerArbalest_projectile
+## DvergerArbalest_projectile: DvergerArbalest_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1674,7 +1676,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerStaffBlocker_projectile
+## DvergerStaffBlocker_projectile: DvergerStaffBlocker_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1736,7 +1738,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerStaffFire_clusterbomb_projectile
+## DvergerStaffFire_clusterbomb_projectile: DvergerStaffFire_clusterbomb_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1798,7 +1800,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerStaffFire_fireball_projectile
+## DvergerStaffFire_fireball_projectile: DvergerStaffFire_fireball_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1860,7 +1862,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerStaffIce_projectile
+## DvergerStaffIce_projectile: DvergerStaffIce_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1922,7 +1924,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Fader_Roar_Projectile
+## Fader_Roar_Projectile: Fader_Roar_Projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1984,7 +1986,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## fallenvalkyrie_feather_projectile
+## fallenvalkyrie_feather_projectile: fallenvalkyrie_feather_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2046,7 +2048,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## fallenvalkyrie_spit_projectile
+## fallenvalkyrie_spit_projectile: fallenvalkyrie_spit_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2108,7 +2110,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## FishingRodFloatProjectile
+## FishingRodFloatProjectile: FishingRodFloatProjectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2170,7 +2172,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## flintspear_projectile
+## flintspear_projectile: flintspear_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2232,7 +2234,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## gdking_root_projectile
+## gdking_root_projectile: gdking_root_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2294,7 +2296,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## gjall_egg_projectile
+## gjall_egg_projectile: gjall_egg_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2356,7 +2358,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## gjall_spit_projectile
+## gjall_spit_projectile: gjall_spit_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2418,7 +2420,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinShaman_projectile_fireball
+## GoblinShaman_projectile_fireball: GoblinShaman_projectile_fireball
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2480,7 +2482,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinSpear_projectile
+## GoblinSpear_projectile: GoblinSpear_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2542,7 +2544,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Greydwarf_throw_projectile
+## Greydwarf_throw_projectile: Greydwarf_throw_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2604,7 +2606,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## hatchling_cold_projectile
+## hatchling_cold_projectile: hatchling_cold_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2666,7 +2668,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## hive_throw_projectile
+## hive_throw_projectile: hive_throw_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2728,7 +2730,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Imp_fireball_projectile
+## Imp_fireball_projectile: Imp_fireball_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2790,7 +2792,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## lavabomb_projectile
+## lavabomb_projectile: lavabomb_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2852,7 +2854,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## oozebomb_projectile
+## oozebomb_projectile: oozebomb_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2914,7 +2916,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_ashlandmeteor
+## projectile_ashlandmeteor: projectile_ashlandmeteor
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2976,7 +2978,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_ashlandmeteor2
+## projectile_ashlandmeteor2: projectile_ashlandmeteor2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3038,7 +3040,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_beam
+## projectile_beam: projectile_beam
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3100,7 +3102,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_chitinharpoon
+## projectile_chitinharpoon: projectile_chitinharpoon
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3162,7 +3164,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_lavaRock
+## projectile_lavaRock: projectile_lavaRock
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3224,7 +3226,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_meteor
+## projectile_meteor: projectile_meteor
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3286,7 +3288,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_meteor_fader
+## projectile_meteor_fader: projectile_meteor_fader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3348,7 +3350,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_splitner
+## projectile_splitner: projectile_splitner
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3410,7 +3412,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_splitner_blood
+## projectile_splitner_blood: projectile_splitner_blood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3472,7 +3474,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_splitner_lightning
+## projectile_splitner_lightning: projectile_splitner_lightning
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3534,7 +3536,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_splitner_nature
+## projectile_splitner_nature: projectile_splitner_nature
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3596,7 +3598,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## projectile_wolffang
+## projectile_wolffang: projectile_wolffang
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3658,7 +3660,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## radiation
+## radiation: radiation
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3720,7 +3722,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## SeekerQueen_projectile_spit
+## SeekerQueen_projectile_spit: SeekerQueen_projectile_spit
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3782,7 +3784,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## siegebomb_projectile
+## siegebomb_projectile: siegebomb_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3844,7 +3846,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## smokebomb_projectile
+## smokebomb_projectile: smokebomb_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3906,7 +3908,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## staff_clusterbombstaff_projectile
+## staff_clusterbombstaff_projectile: staff_clusterbombstaff_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3968,7 +3970,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## staff_clusterbombstaff_splinter_projectile
+## staff_clusterbombstaff_splinter_projectile: staff_clusterbombstaff_splinter_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4030,7 +4032,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## staff_fireball_projectile
+## staff_fireball_projectile: staff_fireball_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4092,7 +4094,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## staff_greenroots_projectile
+## staff_greenroots_projectile: staff_greenroots_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4154,7 +4156,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## staff_iceshard_projectile
+## staff_iceshard_projectile: staff_iceshard_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4216,7 +4218,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## staff_lightning_projectile
+## staff_lightning_projectile: staff_lightning_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4278,7 +4280,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## staff_skeleton_projectile
+## staff_skeleton_projectile: staff_skeleton_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4340,7 +4342,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## troll_summoned_throw_projectile
+## troll_summoned_throw_projectile: troll_summoned_throw_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4402,7 +4404,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## troll_throw_projectile
+## troll_throw_projectile: troll_throw_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4464,7 +4466,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Turret_projectile
+## Turret_projectile: Turret_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4526,7 +4528,7 @@
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Turret_projectilebone
+## Turret_projectilebone: Turret_projectilebone
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -1,6 +1,8 @@
 # Valkyrie
 
-## Valkyrie
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Valkyrie: Valkyrie
 
 |Field|Type|Default Value|
 |-----|----|-------------|

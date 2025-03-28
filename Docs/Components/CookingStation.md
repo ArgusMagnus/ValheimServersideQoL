@@ -1,6 +1,8 @@
 # CookingStation
 
-## piece_cookingstation
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## piece_cookingstation: piece_cookingstation
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -17,7 +19,7 @@
 |m_haveFuelObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|*null*|
 
-## piece_cookingstation_iron
+## piece_cookingstation_iron: piece_cookingstation_iron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -34,7 +36,7 @@
 |m_haveFuelObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|*null*|
 
-## piece_oven
+## piece_oven: piece_oven
 
 |Field|Type|Default Value|
 |-----|----|-------------|

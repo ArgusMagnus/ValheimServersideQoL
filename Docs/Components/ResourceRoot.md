@@ -1,6 +1,8 @@
 # ResourceRoot
 
-## YggdrasilRoot
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## YggdrasilRoot: YggdrasilRoot
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -1,6 +1,8 @@
 # Pickable
 
-## BlueberryBush
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## BlueberryBush: BlueberryBush
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -24,7 +26,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## CloudberryBush
+## CloudberryBush: CloudberryBush
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -48,7 +50,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## goblin_totempole
+## goblin_totempole: goblin_totempole
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -72,7 +74,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## hanging_hairstrands
+## hanging_hairstrands: hanging_hairstrands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -96,7 +98,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## LuredWisp
+## LuredWisp: LuredWisp
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -120,7 +122,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Ashstone
+## Pickable_Ashstone: Pickable_Ashstone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -144,7 +146,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Barley
+## Pickable_Barley: Pickable_Barley
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -168,7 +170,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Barley_Wild
+## Pickable_Barley_Wild: Pickable_Barley_Wild
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -192,7 +194,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_BlackCoreStand
+## Pickable_BlackCoreStand: Pickable_BlackCoreStand
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -216,7 +218,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_BogIronOre
+## Pickable_BogIronOre: Pickable_BogIronOre
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -240,7 +242,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Branch
+## Pickable_Branch: Pickable_Branch
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -264,7 +266,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Carrot
+## Pickable_Carrot: Pickable_Carrot
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -288,7 +290,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Charredskull
+## Pickable_Charredskull: Pickable_Charredskull
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -312,7 +314,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Dandelion
+## Pickable_Dandelion: Pickable_Dandelion
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -336,7 +338,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_DragonEgg
+## Pickable_DragonEgg: Pickable_DragonEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -360,7 +362,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_DvergerThing
+## Pickable_DvergerThing: Pickable_DvergerThing
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -384,7 +386,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_DvergrLantern
+## Pickable_DvergrLantern: Pickable_DvergrLantern
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -408,7 +410,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_DvergrMineTreasure
+## Pickable_DvergrMineTreasure: Pickable_DvergrMineTreasure
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -432,7 +434,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_DvergrStein
+## Pickable_DvergrStein: Pickable_DvergrStein
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -456,7 +458,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Fiddlehead
+## Pickable_Fiddlehead: Pickable_Fiddlehead
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -480,7 +482,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Fishingrod
+## Pickable_Fishingrod: Pickable_Fishingrod
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -504,7 +506,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Flax
+## Pickable_Flax: Pickable_Flax
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -528,7 +530,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Flax_Wild
+## Pickable_Flax_Wild: Pickable_Flax_Wild
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -552,7 +554,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Flint
+## Pickable_Flint: Pickable_Flint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -576,7 +578,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_ForestCryptRemains01
+## Pickable_ForestCryptRemains01: Pickable_ForestCryptRemains01
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -600,7 +602,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_ForestCryptRemains02
+## Pickable_ForestCryptRemains02: Pickable_ForestCryptRemains02
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -624,7 +626,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_ForestCryptRemains03
+## Pickable_ForestCryptRemains03: Pickable_ForestCryptRemains03
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -648,7 +650,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_ForestCryptRemains04
+## Pickable_ForestCryptRemains04: Pickable_ForestCryptRemains04
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -672,7 +674,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Hairstrands01
+## Pickable_Hairstrands01: Pickable_Hairstrands01
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -696,7 +698,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Hairstrands02
+## Pickable_Hairstrands02: Pickable_Hairstrands02
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -720,7 +722,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_MeatPile
+## Pickable_MeatPile: Pickable_MeatPile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -744,7 +746,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Meteorite
+## Pickable_Meteorite: Pickable_Meteorite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -768,7 +770,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_MoltenCoreStand
+## Pickable_MoltenCoreStand: Pickable_MoltenCoreStand
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -792,7 +794,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_MountainCaveCrystal
+## Pickable_MountainCaveCrystal: Pickable_MountainCaveCrystal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -816,7 +818,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_MountainCaveObsidian
+## Pickable_MountainCaveObsidian: Pickable_MountainCaveObsidian
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -840,7 +842,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_MountainRemains01_buried
+## Pickable_MountainRemains01_buried: Pickable_MountainRemains01_buried
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -864,7 +866,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Mushroom
+## Pickable_Mushroom: Pickable_Mushroom
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -888,7 +890,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Mushroom_blue
+## Pickable_Mushroom_blue: Pickable_Mushroom_blue
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -912,7 +914,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Mushroom_JotunPuffs
+## Pickable_Mushroom_JotunPuffs: Pickable_Mushroom_JotunPuffs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -936,7 +938,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Mushroom_Magecap
+## Pickable_Mushroom_Magecap: Pickable_Mushroom_Magecap
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -960,7 +962,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Mushroom_yellow
+## Pickable_Mushroom_yellow: Pickable_Mushroom_yellow
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -984,7 +986,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Obsidian
+## Pickable_Obsidian: Pickable_Obsidian
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1008,7 +1010,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Onion
+## Pickable_Onion: Pickable_Onion
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1032,7 +1034,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Pot_Shard
+## Pickable_Pot_Shard: Pickable_Pot_Shard
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1056,7 +1058,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_RoyalJelly
+## Pickable_RoyalJelly: Pickable_RoyalJelly
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1080,7 +1082,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_SeedCarrot
+## Pickable_SeedCarrot: Pickable_SeedCarrot
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1104,7 +1106,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_SeedOnion
+## Pickable_SeedOnion: Pickable_SeedOnion
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1128,7 +1130,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_SeedTurnip
+## Pickable_SeedTurnip: Pickable_SeedTurnip
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1152,7 +1154,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_SmokePuff
+## Pickable_SmokePuff: Pickable_SmokePuff
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1176,7 +1178,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Stone
+## Pickable_Stone: Pickable_Stone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1200,7 +1202,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_SulfurRock
+## Pickable_SulfurRock: Pickable_SulfurRock
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1224,7 +1226,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_SurtlingCoreStand
+## Pickable_SurtlingCoreStand: Pickable_SurtlingCoreStand
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1248,7 +1250,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Swordpiece1
+## Pickable_Swordpiece1: Pickable_Swordpiece1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1272,7 +1274,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Swordpiece2
+## Pickable_Swordpiece2: Pickable_Swordpiece2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1296,7 +1298,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Swordpiece3
+## Pickable_Swordpiece3: Pickable_Swordpiece3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1320,7 +1322,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Tar
+## Pickable_Tar: Pickable_Tar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1344,7 +1346,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_TarBig
+## Pickable_TarBig: Pickable_TarBig
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1368,7 +1370,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Thistle
+## Pickable_Thistle: Pickable_Thistle
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1392,7 +1394,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Tin
+## Pickable_Tin: Pickable_Tin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1416,7 +1418,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_Turnip
+## Pickable_Turnip: Pickable_Turnip
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1440,7 +1442,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## Pickable_VoltureEgg
+## Pickable_VoltureEgg: Pickable_VoltureEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1464,7 +1466,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## RaspberryBush
+## RaspberryBush: RaspberryBush
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1488,7 +1490,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## VineAsh
+## VineAsh: VineAsh
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1512,7 +1514,7 @@
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
-## VineGreen
+## VineGreen: VineGreen
 
 |Field|Type|Default Value|
 |-----|----|-------------|

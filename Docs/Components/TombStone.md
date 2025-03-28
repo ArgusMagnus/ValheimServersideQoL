@@ -1,6 +1,8 @@
 # TombStone
 
-## Player_tombstone
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Player_tombstone: Player_tombstone
 
 |Field|Type|Default Value|
 |-----|----|-------------|

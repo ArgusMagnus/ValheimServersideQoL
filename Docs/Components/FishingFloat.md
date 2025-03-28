@@ -1,6 +1,8 @@
 # FishingFloat
 
-## FishingRodFloat
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## FishingRodFloat: FishingRodFloat
 
 |Field|Type|Default Value|
 |-----|----|-------------|

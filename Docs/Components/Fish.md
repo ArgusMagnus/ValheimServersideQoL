@@ -1,6 +1,8 @@
 # Fish
 
-## Fish1
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Fish1: Fish1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -44,7 +46,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish10
+## Fish10: Fish10
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -88,7 +90,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish11
+## Fish11: Fish11
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -132,7 +134,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish12
+## Fish12: Fish12
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -176,7 +178,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish2
+## Fish2: Fish2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -220,7 +222,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish3
+## Fish3: Fish3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -264,7 +266,7 @@
 |m_jumpMaxLevel|System.Single|4|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish4_cave
+## Fish4_cave: Fish4_cave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -308,7 +310,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish5
+## Fish5: Fish5
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -352,7 +354,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish6
+## Fish6: Fish6
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -396,7 +398,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish7
+## Fish7: Fish7
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -440,7 +442,7 @@
 |m_jumpMaxLevel|System.Single|2|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish8
+## Fish8: Fish8
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -484,7 +486,7 @@
 |m_jumpMaxLevel|System.Single|4|
 |m_waveFollowDirection|System.Single|7|
 
-## Fish9
+## Fish9: Fish9
 
 |Field|Type|Default Value|
 |-----|----|-------------|

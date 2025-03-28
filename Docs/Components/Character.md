@@ -1,6 +1,8 @@
 # Character
 
-## Deer
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Deer: Deer
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -56,7 +58,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Goblin_Gem
+## Goblin_Gem: Goblin_Gem
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -112,7 +114,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Hare
+## Hare: Hare
 
 |Field|Type|Default Value|
 |-----|----|-------------|

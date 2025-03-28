@@ -1,6 +1,8 @@
 # WispSpawner
 
-## piece_wisplure
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## piece_wisplure: piece_wisplure
 
 |Field|Type|Default Value|
 |-----|----|-------------|

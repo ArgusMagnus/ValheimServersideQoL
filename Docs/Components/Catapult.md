@@ -1,6 +1,8 @@
 # Catapult
 
-## Catapult
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Catapult: Catapult
 
 |Field|Type|Default Value|
 |-----|----|-------------|

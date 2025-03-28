@@ -1,546 +1,548 @@
 # CharacterDrop
 
-## Abomination
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Abomination: Abomination
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Asksvin
+## Asksvin: Asksvin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Asksvin_hatchling
+## Asksvin_hatchling: Asksvin_hatchling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Bat
+## Bat: Bat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Blob
+## Blob: Blob
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## BlobElite
+## BlobElite: BlobElite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## BlobLava
+## BlobLava: BlobLava
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## BlobTar
+## BlobTar: BlobTar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Boar
+## Boar: Boar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## BogWitchKvastur
+## BogWitchKvastur: BogWitchKvastur
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Bonemass
+## Bonemass: Bonemass
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## BonemawSerpent
+## BonemawSerpent: BonemawSerpent
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Charred_Archer
+## Charred_Archer: Charred_Archer
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Charred_Archer_Fader
+## Charred_Archer_Fader: Charred_Archer_Fader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Charred_Mage
+## Charred_Mage: Charred_Mage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Charred_Melee
+## Charred_Melee: Charred_Melee
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Charred_Melee_Dyrnwyn
+## Charred_Melee_Dyrnwyn: Charred_Melee_Dyrnwyn
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Charred_Melee_Fader
+## Charred_Melee_Fader: Charred_Melee_Fader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Charred_Twitcher
+## Charred_Twitcher: Charred_Twitcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Charred_Twitcher_Summoned
+## Charred_Twitcher_Summoned: Charred_Twitcher_Summoned
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Chicken
+## Chicken: Chicken
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Deathsquito
+## Deathsquito: Deathsquito
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Deer
+## Deer: Deer
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Dragon
+## Dragon: Dragon
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Draugr
+## Draugr: Draugr
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Draugr_Elite
+## Draugr_Elite: Draugr_Elite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Draugr_Ranged
+## Draugr_Ranged: Draugr_Ranged
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Dverger
+## Dverger: Dverger
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerAshlands
+## DvergerAshlands: DvergerAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerMage
+## DvergerMage: DvergerMage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerMageFire
+## DvergerMageFire: DvergerMageFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerMageIce
+## DvergerMageIce: DvergerMageIce
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerMageSupport
+## DvergerMageSupport: DvergerMageSupport
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## DvergerTest
+## DvergerTest: DvergerTest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Eikthyr
+## Eikthyr: Eikthyr
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Fader
+## Fader: Fader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## FallenValkyrie
+## FallenValkyrie: FallenValkyrie
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Fenring
+## Fenring: Fenring
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Fenring_Cultist
+## Fenring_Cultist: Fenring_Cultist
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Fenring_Cultist_Hildir
+## Fenring_Cultist_Hildir: Fenring_Cultist_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Fenring_Cultist_Hildir_nochest
+## Fenring_Cultist_Hildir_nochest: Fenring_Cultist_Hildir_nochest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## gd_king
+## gd_king: gd_king
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Ghost
+## Ghost: Ghost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Gjall
+## Gjall: Gjall
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Goblin
+## Goblin: Goblin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Goblin_Gem
+## Goblin_Gem: Goblin_Gem
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinArcher
+## GoblinArcher: GoblinArcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinBrute
+## GoblinBrute: GoblinBrute
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinBrute_Hildir
+## GoblinBrute_Hildir: GoblinBrute_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinBruteBros
+## GoblinBruteBros: GoblinBruteBros
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinBruteBros_nochest
+## GoblinBruteBros_nochest: GoblinBruteBros_nochest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinKing
+## GoblinKing: GoblinKing
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 3.00)|
 
-## GoblinShaman
+## GoblinShaman: GoblinShaman
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinShaman_Hildir
+## GoblinShaman_Hildir: GoblinShaman_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## GoblinShaman_Hildir_nochest
+## GoblinShaman_Hildir_nochest: GoblinShaman_Hildir_nochest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Greydwarf
+## Greydwarf: Greydwarf
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Greydwarf_Elite
+## Greydwarf_Elite: Greydwarf_Elite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Greydwarf_Shaman
+## Greydwarf_Shaman: Greydwarf_Shaman
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Greyling
+## Greyling: Greyling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Hare
+## Hare: Hare
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Hatchling
+## Hatchling: Hatchling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Hen
+## Hen: Hen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Hive
+## Hive: Hive
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Leech
+## Leech: Leech
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Leech_cave
+## Leech_cave: Leech_cave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Lox
+## Lox: Lox
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Lox_Calf
+## Lox_Calf: Lox_Calf
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Morgen
+## Morgen: Morgen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Morgen_NonSleeping
+## Morgen_NonSleeping: Morgen_NonSleeping
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Neck
+## Neck: Neck
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Seeker
+## Seeker: Seeker
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## SeekerBrood
+## SeekerBrood: SeekerBrood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## SeekerBrute
+## SeekerBrute: SeekerBrute
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## SeekerQueen
+## SeekerQueen: SeekerQueen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Serpent
+## Serpent: Serpent
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Skeleton
+## Skeleton: Skeleton
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Skeleton_Hildir
+## Skeleton_Hildir: Skeleton_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Skeleton_Hildir_nochest
+## Skeleton_Hildir_nochest: Skeleton_Hildir_nochest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Skeleton_NoArcher
+## Skeleton_NoArcher: Skeleton_NoArcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Skeleton_Poison
+## Skeleton_Poison: Skeleton_Poison
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## StoneGolem
+## StoneGolem: StoneGolem
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Surtling
+## Surtling: Surtling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## TheHive
+## TheHive: TheHive
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Tick
+## Tick: Tick
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## TrainingDummy
+## TrainingDummy: TrainingDummy
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Troll
+## Troll: Troll
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Troll_Summoned
+## Troll_Summoned: Troll_Summoned
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Ulv
+## Ulv: Ulv
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Volture
+## Volture: Volture
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Wolf
+## Wolf: Wolf
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
-## Wraith
+## Wraith: Wraith
 
 |Field|Type|Default Value|
 |-----|----|-------------|

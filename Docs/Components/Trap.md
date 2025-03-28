@@ -1,6 +1,8 @@
 # Trap
 
-## fuling_trap
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## fuling_trap: fuling_trap
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -14,7 +16,7 @@
 |m_forceStagger|System.Boolean|True|
 |m_startsArmed|System.Boolean|True|
 
-## piece_trap_troll
+## piece_trap_troll: piece_trap_troll
 
 |Field|Type|Default Value|
 |-----|----|-------------|

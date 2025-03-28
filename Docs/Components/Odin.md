@@ -1,6 +1,8 @@
 # Odin
 
-## odin
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## odin: odin
 
 |Field|Type|Default Value|
 |-----|----|-------------|

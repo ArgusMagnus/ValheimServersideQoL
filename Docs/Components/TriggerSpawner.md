@@ -1,6 +1,8 @@
 # TriggerSpawner
 
-## TriggerSpawner_Brood
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## TriggerSpawner_Brood: TriggerSpawner_Brood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -16,7 +18,7 @@
 |m_setPatrolSpawnPoint|System.Boolean|False|
 |m_useSpawnerRotation|System.Boolean|True|
 
-## TriggerSpawner_Seeker
+## TriggerSpawner_Seeker: TriggerSpawner_Seeker
 
 |Field|Type|Default Value|
 |-----|----|-------------|

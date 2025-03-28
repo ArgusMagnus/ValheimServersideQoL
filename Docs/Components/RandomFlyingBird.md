@@ -1,6 +1,8 @@
 # RandomFlyingBird
 
-## AshCrow
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## AshCrow: AshCrow
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -26,7 +28,7 @@
 |m_flyingModel|UnityEngine.GameObject|crow_anim|
 |m_landedModel|UnityEngine.GameObject|crow_sitting|
 
-## Crow
+## Crow: Crow
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -52,7 +54,7 @@
 |m_flyingModel|UnityEngine.GameObject|crow_anim|
 |m_landedModel|UnityEngine.GameObject|crow_sitting|
 
-## Seagal
+## Seagal: Seagal
 
 |Field|Type|Default Value|
 |-----|----|-------------|

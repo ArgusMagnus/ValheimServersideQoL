@@ -1,6 +1,8 @@
 # ArmorStand
 
-## ArmorStand
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## ArmorStand: ArmorStand
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9,7 +11,7 @@
 |m_startPose|System.Int32|0|
 |m_clothSimLodDistance|System.Single|10|
 
-## ArmorStand_Female
+## ArmorStand_Female: ArmorStand_Female
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -18,7 +20,7 @@
 |m_startPose|System.Int32|0|
 |m_clothSimLodDistance|System.Single|10|
 
-## ArmorStand_Male
+## ArmorStand_Male: ArmorStand_Male
 
 |Field|Type|Default Value|
 |-----|----|-------------|

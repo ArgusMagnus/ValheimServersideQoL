@@ -1,6 +1,8 @@
 # SimpleMeshCombine
 
-## New
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## goblin_strawpile: New
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -15,7 +17,7 @@
 |keepStructure|System.Boolean|True|
 |setStatic|System.Boolean|True|
 
-## New
+## volture_strawpile: New
 
 |Field|Type|Default Value|
 |-----|----|-------------|

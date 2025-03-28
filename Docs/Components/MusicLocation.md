@@ -1,6 +1,8 @@
 # MusicLocation
 
-## BlackForestLocationMusic
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## BlackForestLocationMusic: BlackForestLocationMusic
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -10,7 +12,7 @@
 |m_notIfEnemies|System.Boolean|True|
 |m_forceFade|System.Boolean|False|
 
-## FrostCavesShrineReveal
+## FrostCavesShrineReveal: FrostCavesShrineReveal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -20,7 +22,7 @@
 |m_notIfEnemies|System.Boolean|True|
 |m_forceFade|System.Boolean|False|
 
-## Music_FulingCamp
+## Music_FulingCamp: Music_FulingCamp
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -30,7 +32,7 @@
 |m_notIfEnemies|System.Boolean|False|
 |m_forceFade|System.Boolean|False|
 
-## Music_GreydwarfCamp
+## Music_GreydwarfCamp: Music_GreydwarfCamp
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -40,7 +42,7 @@
 |m_notIfEnemies|System.Boolean|False|
 |m_forceFade|System.Boolean|False|
 
-## Music_MeadowsVillageFarm
+## Music_MeadowsVillageFarm: Music_MeadowsVillageFarm
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -50,7 +52,7 @@
 |m_notIfEnemies|System.Boolean|True|
 |m_forceFade|System.Boolean|True|
 
-## Music_MountainCottage
+## Music_MountainCottage: Music_MountainCottage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -60,7 +62,7 @@
 |m_notIfEnemies|System.Boolean|True|
 |m_forceFade|System.Boolean|True|
 
-## Music_SealedTower
+## Music_SealedTower: Music_SealedTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -70,7 +72,7 @@
 |m_notIfEnemies|System.Boolean|False|
 |m_forceFade|System.Boolean|False|
 
-## Music_StoneHenge
+## Music_StoneHenge: Music_StoneHenge
 
 |Field|Type|Default Value|
 |-----|----|-------------|

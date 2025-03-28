@@ -1,6 +1,8 @@
 # Procreation
 
-## Asksvin
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Asksvin: Asksvin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -17,7 +19,7 @@
 |m_seperatePartner|UnityEngine.GameObject|*null*|
 |m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 
-## Boar
+## Boar: Boar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -34,7 +36,7 @@
 |m_seperatePartner|UnityEngine.GameObject|*null*|
 |m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 
-## Hen
+## Hen: Hen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -51,7 +53,7 @@
 |m_seperatePartner|UnityEngine.GameObject|*null*|
 |m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 
-## Lox
+## Lox: Lox
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -68,7 +70,7 @@
 |m_seperatePartner|UnityEngine.GameObject|*null*|
 |m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 
-## Wolf
+## Wolf: Wolf
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -1,6 +1,8 @@
 # LookAt
 
-## BogWitch
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## BogWitch: BogWitch
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9,7 +11,7 @@
 |m_eyesWeight|System.Single|0.5|
 |m_smoothTime|System.Single|0.5|
 
-## HaldorTheTrader
+## Haldor: HaldorTheTrader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -18,7 +20,7 @@
 |m_eyesWeight|System.Single|0|
 |m_smoothTime|System.Single|1|
 
-## Hildir
+## Hildir: Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -1,6 +1,8 @@
 # Turret
 
-## fuling_turret
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## fuling_turret: fuling_turret
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -37,7 +39,7 @@
 |m_maxConfigTargets|System.Int32|1|
 |m_markerHideTime|System.Single|0.5|
 
-## piece_Charred_Balista
+## piece_Charred_Balista: piece_Charred_Balista
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -74,7 +76,7 @@
 |m_maxConfigTargets|System.Int32|1|
 |m_markerHideTime|System.Single|0.5|
 
-## piece_turret
+## piece_turret: piece_turret
 
 |Field|Type|Default Value|
 |-----|----|-------------|

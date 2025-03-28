@@ -1,6 +1,8 @@
 # SpawnAbility
 
-## LavaRock
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## LavaRock: LavaRock
 
 |Field|Type|Default Value|
 |-----|----|-------------|

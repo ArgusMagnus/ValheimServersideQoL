@@ -1,6 +1,8 @@
 # PlayerController
 
-## Player
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Player: Player
 
 |Field|Type|Default Value|
 |-----|----|-------------|

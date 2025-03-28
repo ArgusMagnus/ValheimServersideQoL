@@ -1,6 +1,8 @@
 # ConditionalObject
 
-## lavabomb_rock1
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## lavabomb_rock1: lavabomb_rock1
 
 |Field|Type|Default Value|
 |-----|----|-------------|

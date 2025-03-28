@@ -1,6 +1,8 @@
 # CinderSpawner
 
-## bonfire
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## bonfire: bonfire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -15,7 +17,7 @@
 |m_spawnOnAwake|System.Boolean|False|
 |m_spawnOnProjectileHit|System.Boolean|False|
 
-## bow_projectile_fire
+## bow_projectile_fire: bow_projectile_fire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -30,7 +32,7 @@
 |m_spawnOnAwake|System.Boolean|False|
 |m_spawnOnProjectileHit|System.Boolean|True|
 
-## Fire
+## Fire: Fire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -45,7 +47,7 @@
 |m_spawnOnAwake|System.Boolean|False|
 |m_spawnOnProjectileHit|System.Boolean|False|
 
-## fire_pit
+## fire_pit: fire_pit
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -60,7 +62,7 @@
 |m_spawnOnAwake|System.Boolean|False|
 |m_spawnOnProjectileHit|System.Boolean|False|
 
-## HouseFire
+## HouseFire: HouseFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -75,7 +77,7 @@
 |m_spawnOnAwake|System.Boolean|False|
 |m_spawnOnProjectileHit|System.Boolean|False|
 
-## projectile_meteor
+## projectile_meteor: projectile_meteor
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -90,7 +92,7 @@
 |m_spawnOnAwake|System.Boolean|False|
 |m_spawnOnProjectileHit|System.Boolean|True|
 
-## staff_fireball_projectile
+## staff_fireball_projectile: staff_fireball_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -105,7 +107,7 @@
 |m_spawnOnAwake|System.Boolean|False|
 |m_spawnOnProjectileHit|System.Boolean|True|
 
-## Troll_Summoned
+## Troll_Summoned: Troll_Summoned
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -1,6 +1,8 @@
 # Ship
 
-## Karve
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Karve: Karve
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -32,7 +34,7 @@
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|False|
 
-## Raft
+## Raft: Raft
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -64,7 +66,7 @@
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|False|
 
-## Trailership
+## Trailership: Trailership
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -96,7 +98,7 @@
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|False|
 
-## VikingShip
+## VikingShip: VikingShip
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -128,7 +130,7 @@
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|False|
 
-## VikingShip_Ashlands
+## VikingShip_Ashlands: VikingShip_Ashlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|

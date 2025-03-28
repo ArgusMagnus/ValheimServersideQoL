@@ -1,6 +1,8 @@
 # TeleportAbility
 
-## SeekerQueen_projectile_teleport
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## SeekerQueen_projectile_teleport: SeekerQueen_projectile_teleport
 
 |Field|Type|Default Value|
 |-----|----|-------------|

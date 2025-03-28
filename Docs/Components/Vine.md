@@ -1,6 +1,8 @@
 # Vine
 
-## VineAsh
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## VineAsh: VineAsh
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -39,7 +41,7 @@
 |m_sensorBlock|UnityEngine.GameObject|BlockSensor|
 |m_testItterations|System.Int32|100|
 
-## VineGreen
+## VineGreen: VineGreen
 
 |Field|Type|Default Value|
 |-----|----|-------------|

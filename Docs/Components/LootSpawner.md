@@ -1,6 +1,8 @@
 # LootSpawner
 
-## LootSpawner_pineforest
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## LootSpawner_pineforest: LootSpawner_pineforest
 
 |Field|Type|Default Value|
 |-----|----|-------------|

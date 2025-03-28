@@ -1,6 +1,8 @@
 # ShipConstructor
 
-## ship_construction
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## ship_construction: ship_construction
 
 |Field|Type|Default Value|
 |-----|----|-------------|

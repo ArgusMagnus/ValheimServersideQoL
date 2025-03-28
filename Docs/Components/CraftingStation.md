@@ -1,6 +1,8 @@
 # CraftingStation
 
-## blackforge
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## blackforge: blackforge
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -17,7 +19,7 @@
 |m_inUseObject|UnityEngine.GameObject|_enabled|
 |m_haveFireObject|UnityEngine.GameObject|*null*|
 
-## forge
+## forge: forge
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -34,7 +36,7 @@
 |m_inUseObject|UnityEngine.GameObject|_enabled|
 |m_haveFireObject|UnityEngine.GameObject|*null*|
 
-## piece_artisanstation
+## piece_artisanstation: piece_artisanstation
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -51,7 +53,7 @@
 |m_inUseObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|*null*|
 
-## piece_cauldron
+## piece_cauldron: piece_cauldron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -68,7 +70,7 @@
 |m_inUseObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|HaveFire|
 
-## piece_magetable
+## piece_magetable: piece_magetable
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -85,7 +87,7 @@
 |m_inUseObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|*null*|
 
-## piece_MeadCauldron
+## piece_MeadCauldron: piece_MeadCauldron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -102,7 +104,7 @@
 |m_inUseObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|HaveFire|
 
-## piece_preptable
+## piece_preptable: piece_preptable
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -119,7 +121,7 @@
 |m_inUseObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|*null*|
 
-## piece_stonecutter
+## piece_stonecutter: piece_stonecutter
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -136,7 +138,7 @@
 |m_inUseObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|*null*|
 
-## piece_workbench
+## piece_workbench: piece_workbench
 
 |Field|Type|Default Value|
 |-----|----|-------------|

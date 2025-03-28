@@ -1,41 +1,43 @@
 # WeaponLoadState
 
-## attach
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## CrossbowArbalest: attach
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_unloaded|UnityEngine.GameObject|Unloaded|
 |m_loaded|UnityEngine.GameObject|Loaded|
 
-## attach
+## CrossbowRipper: attach
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_unloaded|UnityEngine.GameObject|Unloaded|
 |m_loaded|UnityEngine.GameObject|Loaded|
 
-## attach
+## CrossbowRipperBlood: attach
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_unloaded|UnityEngine.GameObject|Unloaded|
 |m_loaded|UnityEngine.GameObject|Loaded|
 
-## attach
+## CrossbowRipperLightning: attach
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_unloaded|UnityEngine.GameObject|Unloaded|
 |m_loaded|UnityEngine.GameObject|Loaded|
 
-## attach
+## CrossbowRipperNature: attach
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_unloaded|UnityEngine.GameObject|Unloaded|
 |m_loaded|UnityEngine.GameObject|Loaded|
 
-## attach
+## StaffLightning: attach
 
 |Field|Type|Default Value|
 |-----|----|-------------|

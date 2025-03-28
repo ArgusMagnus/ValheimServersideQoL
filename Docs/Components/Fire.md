@@ -1,6 +1,8 @@
 # Fire
 
-## Fire
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Fire: Fire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -27,7 +29,7 @@
 |m_smokeDieChance|System.Single|1|
 |m_maxSmoke|System.Single|4|
 
-## HouseFire
+## HouseFire: HouseFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|

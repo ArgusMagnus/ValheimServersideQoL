@@ -1,6 +1,8 @@
 # SapCollector
 
-## piece_sapcollector
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## piece_sapcollector: piece_sapcollector
 
 |Field|Type|Default Value|
 |-----|----|-------------|

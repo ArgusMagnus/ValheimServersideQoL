@@ -1,6 +1,8 @@
 # Vagon
 
-## BatteringRam
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## BatteringRam: BatteringRam
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -21,7 +23,7 @@
 |m_maxVolVel|System.Single|7|
 |m_audioChangeSpeed|System.Single|2|
 
-## Cart
+## Cart: Cart
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -42,7 +44,7 @@
 |m_maxVolVel|System.Single|7|
 |m_audioChangeSpeed|System.Single|2|
 
-## Catapult
+## Catapult: Catapult
 
 |Field|Type|Default Value|
 |-----|----|-------------|

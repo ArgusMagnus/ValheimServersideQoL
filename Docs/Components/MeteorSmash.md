@@ -1,6 +1,8 @@
 # MeteorSmash
 
-## fx_fader_meteorsmash
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## fx_fader_meteorsmash: fx_fader_meteorsmash
 
 |Field|Type|Default Value|
 |-----|----|-------------|

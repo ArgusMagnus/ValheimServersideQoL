@@ -1,6 +1,8 @@
 # Radiator
 
-## Radiator
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Eitr: Radiator
 
 |Field|Type|Default Value|
 |-----|----|-------------|

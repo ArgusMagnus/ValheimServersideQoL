@@ -1,6 +1,8 @@
 # Humanoid
 
-## Abomination
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Abomination: Abomination
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -59,7 +61,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Asksvin
+## Asksvin: Asksvin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -118,7 +120,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Asksvin_hatchling
+## Asksvin_hatchling: Asksvin_hatchling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -177,7 +179,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Bat
+## Bat: Bat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -236,7 +238,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Blob
+## Blob: Blob
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -295,7 +297,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## BlobElite
+## BlobElite: BlobElite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -354,7 +356,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## BlobLava
+## BlobLava: BlobLava
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -413,7 +415,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## BlobTar
+## BlobTar: BlobTar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -472,7 +474,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Boar
+## Boar: Boar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -531,7 +533,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Boar_piggy
+## Boar_piggy: Boar_piggy
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -590,7 +592,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## BogWitchKvastur
+## BogWitchKvastur: BogWitchKvastur
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -649,7 +651,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Bonemass
+## Bonemass: Bonemass
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -708,7 +710,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## BonemawSerpent
+## BonemawSerpent: BonemawSerpent
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -767,7 +769,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Charred_Archer
+## Charred_Archer: Charred_Archer
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -826,7 +828,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Charred_Archer_Fader
+## Charred_Archer_Fader: Charred_Archer_Fader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -885,7 +887,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Charred_Mage
+## Charred_Mage: Charred_Mage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -944,7 +946,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Charred_Melee
+## Charred_Melee: Charred_Melee
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1003,7 +1005,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Charred_Melee_Dyrnwyn
+## Charred_Melee_Dyrnwyn: Charred_Melee_Dyrnwyn
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1062,7 +1064,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Charred_Melee_Fader
+## Charred_Melee_Fader: Charred_Melee_Fader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1121,7 +1123,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Charred_Twitcher
+## Charred_Twitcher: Charred_Twitcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1180,7 +1182,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Charred_Twitcher_Summoned
+## Charred_Twitcher_Summoned: Charred_Twitcher_Summoned
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1239,7 +1241,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Chicken
+## Chicken: Chicken
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1298,7 +1300,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Deathsquito
+## Deathsquito: Deathsquito
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1357,7 +1359,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Dragon
+## Dragon: Dragon
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1416,7 +1418,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Draugr
+## Draugr: Draugr
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1475,7 +1477,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Draugr_Elite
+## Draugr_Elite: Draugr_Elite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1534,7 +1536,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Draugr_Ranged
+## Draugr_Ranged: Draugr_Ranged
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1593,7 +1595,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Dverger
+## Dverger: Dverger
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1652,7 +1654,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## DvergerAshlands
+## DvergerAshlands: DvergerAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1711,7 +1713,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## DvergerMage
+## DvergerMage: DvergerMage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1770,7 +1772,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## DvergerMageFire
+## DvergerMageFire: DvergerMageFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1829,7 +1831,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## DvergerMageIce
+## DvergerMageIce: DvergerMageIce
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1888,7 +1890,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## DvergerMageSupport
+## DvergerMageSupport: DvergerMageSupport
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1947,7 +1949,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## DvergerTest
+## DvergerTest: DvergerTest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2006,7 +2008,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Eikthyr
+## Eikthyr: Eikthyr
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2065,7 +2067,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Fader
+## Fader: Fader
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2124,7 +2126,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## FallenValkyrie
+## FallenValkyrie: FallenValkyrie
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2183,7 +2185,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Fenring
+## Fenring: Fenring
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2242,7 +2244,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Fenring_Cultist
+## Fenring_Cultist: Fenring_Cultist
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2301,7 +2303,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Fenring_Cultist_Hildir
+## Fenring_Cultist_Hildir: Fenring_Cultist_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2360,7 +2362,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Fenring_Cultist_Hildir_nochest
+## Fenring_Cultist_Hildir_nochest: Fenring_Cultist_Hildir_nochest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2419,7 +2421,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## gd_king
+## gd_king: gd_king
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2478,7 +2480,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Ghost
+## Ghost: Ghost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2537,7 +2539,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Gjall
+## Gjall: Gjall
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2596,7 +2598,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Goblin
+## Goblin: Goblin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2655,7 +2657,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinArcher
+## GoblinArcher: GoblinArcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2714,7 +2716,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinBrute
+## GoblinBrute: GoblinBrute
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2773,7 +2775,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinBrute_Hildir
+## GoblinBrute_Hildir: GoblinBrute_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2832,7 +2834,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinBruteBros
+## GoblinBruteBros: GoblinBruteBros
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2891,7 +2893,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinBruteBros_nochest
+## GoblinBruteBros_nochest: GoblinBruteBros_nochest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2950,7 +2952,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinKing
+## GoblinKing: GoblinKing
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3009,7 +3011,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinShaman
+## GoblinShaman: GoblinShaman
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3068,7 +3070,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinShaman_Hildir
+## GoblinShaman_Hildir: GoblinShaman_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3127,7 +3129,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## GoblinShaman_Hildir_nochest
+## GoblinShaman_Hildir_nochest: GoblinShaman_Hildir_nochest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3186,7 +3188,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Greydwarf
+## Greydwarf: Greydwarf
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3245,7 +3247,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Greydwarf_Elite
+## Greydwarf_Elite: Greydwarf_Elite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3304,7 +3306,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Greydwarf_Shaman
+## Greydwarf_Shaman: Greydwarf_Shaman
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3363,7 +3365,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Greyling
+## Greyling: Greyling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3422,7 +3424,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Hatchling
+## Hatchling: Hatchling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3481,7 +3483,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Hen
+## Hen: Hen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3540,7 +3542,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Hive
+## Hive: Hive
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3599,7 +3601,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Leech
+## Leech: Leech
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3658,7 +3660,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Leech_cave
+## Leech_cave: Leech_cave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3717,7 +3719,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Lox
+## Lox: Lox
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3776,7 +3778,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Lox_Calf
+## Lox_Calf: Lox_Calf
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3835,7 +3837,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Mistile
+## Mistile: Mistile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3894,7 +3896,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Morgen
+## Morgen: Morgen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3953,7 +3955,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Morgen_NonSleeping
+## Morgen_NonSleeping: Morgen_NonSleeping
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4012,7 +4014,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Neck
+## Neck: Neck
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4071,7 +4073,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Seeker
+## Seeker: Seeker
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4130,7 +4132,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## SeekerBrood
+## SeekerBrood: SeekerBrood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4189,7 +4191,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## SeekerBrute
+## SeekerBrute: SeekerBrute
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4248,7 +4250,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## SeekerQueen
+## SeekerQueen: SeekerQueen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4307,7 +4309,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Serpent
+## Serpent: Serpent
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4366,7 +4368,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Skeleton
+## Skeleton: Skeleton
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4425,7 +4427,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Skeleton_Friendly
+## Skeleton_Friendly: Skeleton_Friendly
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4484,7 +4486,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Skeleton_Hildir
+## Skeleton_Hildir: Skeleton_Hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4543,7 +4545,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Skeleton_Hildir_nochest
+## Skeleton_Hildir_nochest: Skeleton_Hildir_nochest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4602,7 +4604,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Skeleton_NoArcher
+## Skeleton_NoArcher: Skeleton_NoArcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4661,7 +4663,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Skeleton_Poison
+## Skeleton_Poison: Skeleton_Poison
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4720,7 +4722,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## staff_greenroots_tentaroot
+## staff_greenroots_tentaroot: staff_greenroots_tentaroot
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4779,7 +4781,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## StoneGolem
+## StoneGolem: StoneGolem
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4838,7 +4840,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Surtling
+## Surtling: Surtling
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4897,7 +4899,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## TentaRoot
+## TentaRoot: TentaRoot
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4956,7 +4958,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## TheHive
+## TheHive: TheHive
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5015,7 +5017,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Tick
+## Tick: Tick
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5074,7 +5076,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## TrainingDummy
+## TrainingDummy: TrainingDummy
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5133,7 +5135,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Troll
+## Troll: Troll
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5192,7 +5194,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Troll_Summoned
+## Troll_Summoned: Troll_Summoned
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5251,7 +5253,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Ulv
+## Ulv: Ulv
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5310,7 +5312,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Volture
+## Volture: Volture
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5369,7 +5371,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Wolf
+## Wolf: Wolf
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5428,7 +5430,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Wolf_cub
+## Wolf_cub: Wolf_cub
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5487,7 +5489,7 @@
 |m_lavaSlowMax|System.Single|0.5|
 |m_lavaSlowHeight|System.Single|0.8|
 
-## Wraith
+## Wraith: Wraith
 
 |Field|Type|Default Value|
 |-----|----|-------------|

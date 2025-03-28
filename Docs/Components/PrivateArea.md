@@ -1,6 +1,8 @@
 # PrivateArea
 
-## dverger_guardstone
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## dverger_guardstone: dverger_guardstone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -12,7 +14,7 @@
 |m_connectEffect|UnityEngine.GameObject|vfx_guardstone_connection|
 |m_inRangeEffect|UnityEngine.GameObject|InRangeIndicator|
 
-## guard_stone
+## guard_stone: guard_stone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -24,7 +26,7 @@
 |m_connectEffect|UnityEngine.GameObject|vfx_guardstone_connection|
 |m_inRangeEffect|UnityEngine.GameObject|InRangeIndicator|
 
-## guard_stone_test
+## guard_stone_test: guard_stone_test
 
 |Field|Type|Default Value|
 |-----|----|-------------|

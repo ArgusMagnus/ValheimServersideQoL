@@ -1,6 +1,8 @@
 # Windmill
 
-## windmill
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## windmill: windmill
 
 |Field|Type|Default Value|
 |-----|----|-------------|

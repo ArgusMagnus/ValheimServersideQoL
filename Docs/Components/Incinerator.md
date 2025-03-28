@@ -1,6 +1,8 @@
 # Incinerator
 
-## incinerator
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## incinerator: incinerator
 
 |Field|Type|Default Value|
 |-----|----|-------------|

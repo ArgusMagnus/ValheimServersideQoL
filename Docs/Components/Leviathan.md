@@ -1,6 +1,8 @@
 # Leviathan
 
-## Leviathan
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Leviathan: Leviathan
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -12,7 +14,7 @@
 |m_leaveDelay|System.Int32|20|
 |m_alignToWaterLevel|System.Boolean|True|
 
-## LeviathanLava
+## LeviathanLava: LeviathanLava
 
 |Field|Type|Default Value|
 |-----|----|-------------|

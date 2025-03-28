@@ -1,6 +1,8 @@
 # Fireplace
 
-## BogWitch_Fire_Pit
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## BogWitch_Fire_Pit: BogWitch_Fire_Pit
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -34,7 +36,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|*null*|
 
-## bonfire
+## bonfire: bonfire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -68,7 +70,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 4.49, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## Candle_resin
+## Candle_resin: Candle_resin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -102,7 +104,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## CastleKit_groundtorch_unlit
+## CastleKit_groundtorch_unlit: CastleKit_groundtorch_unlit
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -136,7 +138,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|*null*|
 
-## fire_pit
+## fire_pit: fire_pit
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -170,7 +172,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 1.12, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## fire_pit_haldor
+## fire_pit_haldor: fire_pit_haldor
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -204,7 +206,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|*null*|
 
-## fire_pit_hildir
+## fire_pit_hildir: fire_pit_hildir
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -238,7 +240,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|*null*|
 
-## fire_pit_iron
+## fire_pit_iron: fire_pit_iron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -272,7 +274,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 1.16, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## hearth
+## hearth: hearth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -306,7 +308,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(-0.63, 0.88, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## piece_brazierceiling01
+## piece_brazierceiling01: piece_brazierceiling01
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -340,7 +342,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.76, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## piece_brazierfloor01
+## piece_brazierfloor01: piece_brazierfloor01
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -374,7 +376,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## piece_brazierfloor02
+## piece_brazierfloor02: piece_brazierfloor02
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -408,7 +410,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## piece_groundtorch
+## piece_groundtorch: piece_groundtorch
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -442,7 +444,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## piece_groundtorch_blue
+## piece_groundtorch_blue: piece_groundtorch_blue
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -476,7 +478,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## piece_groundtorch_green
+## piece_groundtorch_green: piece_groundtorch_green
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -510,7 +512,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## piece_groundtorch_wood
+## piece_groundtorch_wood: piece_groundtorch_wood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -544,7 +546,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
 
-## piece_jackoturnip
+## piece_jackoturnip: piece_jackoturnip
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -578,7 +580,7 @@
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|*null*|
 
-## piece_walltorch
+## piece_walltorch: piece_walltorch
 
 |Field|Type|Default Value|
 |-----|----|-------------|

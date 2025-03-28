@@ -1,7 +1,9 @@
 # ItemDrop
 
-## Abomination_attack1
+The following section headers are in the format `Prefab.name: Component.name`.
 
+## Abomination_attack1: Abomination_attack1
+
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
@@ -9,7 +11,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Abomination_attack2
+## Abomination_attack2: Abomination_attack2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -18,7 +20,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Abomination_attack3
+## Abomination_attack3: Abomination_attack3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -27,7 +29,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Acorn
+## Acorn: Acorn
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -36,7 +38,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Amber
+## Amber: Amber
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -45,7 +47,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AmberPearl
+## AmberPearl: AmberPearl
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -54,7 +56,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AncientSeed
+## AncientSeed: AncientSeed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -63,7 +65,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorAshlandsMediumChest
+## ArmorAshlandsMediumChest: ArmorAshlandsMediumChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -72,7 +74,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorAshlandsMediumlegs
+## ArmorAshlandsMediumlegs: ArmorAshlandsMediumlegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -81,7 +83,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorBronzeChest
+## ArmorBronzeChest: ArmorBronzeChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -90,7 +92,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorBronzeLegs
+## ArmorBronzeLegs: ArmorBronzeLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -99,7 +101,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorCarapaceChest
+## ArmorCarapaceChest: ArmorCarapaceChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -108,7 +110,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorCarapaceLegs
+## ArmorCarapaceLegs: ArmorCarapaceLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -117,7 +119,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress1
+## ArmorDress1: ArmorDress1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -126,7 +128,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress10
+## ArmorDress10: ArmorDress10
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -135,7 +137,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress2
+## ArmorDress2: ArmorDress2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -144,7 +146,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress3
+## ArmorDress3: ArmorDress3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -153,7 +155,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress4
+## ArmorDress4: ArmorDress4
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -162,7 +164,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress5
+## ArmorDress5: ArmorDress5
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -171,7 +173,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress6
+## ArmorDress6: ArmorDress6
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -180,7 +182,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress7
+## ArmorDress7: ArmorDress7
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -189,7 +191,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress8
+## ArmorDress8: ArmorDress8
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -198,7 +200,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorDress9
+## ArmorDress9: ArmorDress9
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -207,7 +209,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorFenringChest
+## ArmorFenringChest: ArmorFenringChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -216,7 +218,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorFenringLegs
+## ArmorFenringLegs: ArmorFenringLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -225,7 +227,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorFlametalChest
+## ArmorFlametalChest: ArmorFlametalChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -234,7 +236,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorFlametalLegs
+## ArmorFlametalLegs: ArmorFlametalLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -243,7 +245,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorHarvester1
+## ArmorHarvester1: ArmorHarvester1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -252,7 +254,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorHarvester2
+## ArmorHarvester2: ArmorHarvester2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -261,7 +263,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorIronChest
+## ArmorIronChest: ArmorIronChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -270,7 +272,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorIronLegs
+## ArmorIronLegs: ArmorIronLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -279,7 +281,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorLeatherChest
+## ArmorLeatherChest: ArmorLeatherChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -288,7 +290,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorLeatherLegs
+## ArmorLeatherLegs: ArmorLeatherLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -297,7 +299,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorMageChest
+## ArmorMageChest: ArmorMageChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -306,7 +308,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorMageChest_Ashlands
+## ArmorMageChest_Ashlands: ArmorMageChest_Ashlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -315,7 +317,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorMageLegs
+## ArmorMageLegs: ArmorMageLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -324,7 +326,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorMageLegs_Ashlands
+## ArmorMageLegs_Ashlands: ArmorMageLegs_Ashlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -333,7 +335,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorPaddedCuirass
+## ArmorPaddedCuirass: ArmorPaddedCuirass
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -342,7 +344,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorPaddedGreaves
+## ArmorPaddedGreaves: ArmorPaddedGreaves
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -351,7 +353,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorRagsChest
+## ArmorRagsChest: ArmorRagsChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -360,7 +362,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorRagsLegs
+## ArmorRagsLegs: ArmorRagsLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -369,7 +371,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorRootChest
+## ArmorRootChest: ArmorRootChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -378,7 +380,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorRootLegs
+## ArmorRootLegs: ArmorRootLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -387,7 +389,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTrollLeatherChest
+## ArmorTrollLeatherChest: ArmorTrollLeatherChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -396,7 +398,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTrollLeatherLegs
+## ArmorTrollLeatherLegs: ArmorTrollLeatherLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -405,7 +407,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic1
+## ArmorTunic1: ArmorTunic1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -414,7 +416,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic10
+## ArmorTunic10: ArmorTunic10
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -423,7 +425,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic2
+## ArmorTunic2: ArmorTunic2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -432,7 +434,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic3
+## ArmorTunic3: ArmorTunic3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -441,7 +443,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic4
+## ArmorTunic4: ArmorTunic4
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -450,7 +452,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic5
+## ArmorTunic5: ArmorTunic5
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -459,7 +461,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic6
+## ArmorTunic6: ArmorTunic6
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -468,7 +470,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic7
+## ArmorTunic7: ArmorTunic7
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -477,7 +479,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic8
+## ArmorTunic8: ArmorTunic8
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -486,7 +488,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorTunic9
+## ArmorTunic9: ArmorTunic9
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -495,7 +497,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorWolfChest
+## ArmorWolfChest: ArmorWolfChest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -504,7 +506,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArmorWolfLegs
+## ArmorWolfLegs: ArmorWolfLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -513,7 +515,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowBronze
+## ArrowBronze: ArrowBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -522,7 +524,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowCarapace
+## ArrowCarapace: ArrowCarapace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -531,7 +533,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowCharred
+## ArrowCharred: ArrowCharred
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -540,7 +542,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowFire
+## ArrowFire: ArrowFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -549,7 +551,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowFlint
+## ArrowFlint: ArrowFlint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -558,7 +560,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowFrost
+## ArrowFrost: ArrowFrost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -567,7 +569,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowIron
+## ArrowIron: ArrowIron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -576,7 +578,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowNeedle
+## ArrowNeedle: ArrowNeedle
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -585,7 +587,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowObsidian
+## ArrowObsidian: ArrowObsidian
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -594,7 +596,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowPoison
+## ArrowPoison: ArrowPoison
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -603,7 +605,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowSilver
+## ArrowSilver: ArrowSilver
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -612,7 +614,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ArrowWood
+## ArrowWood: ArrowWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -621,7 +623,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AskBladder
+## AskBladder: AskBladder
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -630,7 +632,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AskHide
+## AskHide: AskHide
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -639,7 +641,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AsksvinCarrionNeck
+## AsksvinCarrionNeck: AsksvinCarrionNeck
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -648,7 +650,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AsksvinCarrionPelvic
+## AsksvinCarrionPelvic: AsksvinCarrionPelvic
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -657,7 +659,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AsksvinCarrionRibcage
+## AsksvinCarrionRibcage: AsksvinCarrionRibcage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -666,7 +668,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AsksvinCarrionSkull
+## AsksvinCarrionSkull: AsksvinCarrionSkull
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -675,7 +677,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AsksvinEgg
+## AsksvinEgg: AsksvinEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -684,7 +686,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AsksvinMeat
+## AsksvinMeat: AsksvinMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -693,7 +695,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AtgeirBlackmetal
+## AtgeirBlackmetal: AtgeirBlackmetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -702,7 +704,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AtgeirBronze
+## AtgeirBronze: AtgeirBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -711,7 +713,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AtgeirHimminAfl
+## AtgeirHimminAfl: AtgeirHimminAfl
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -720,7 +722,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AtgeirIron
+## AtgeirIron: AtgeirIron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -729,7 +731,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeBerzerkr
+## AxeBerzerkr: AxeBerzerkr
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -738,7 +740,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeBerzerkrBlood
+## AxeBerzerkrBlood: AxeBerzerkrBlood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -747,7 +749,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeBerzerkrLightning
+## AxeBerzerkrLightning: AxeBerzerkrLightning
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -756,7 +758,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeBerzerkrNature
+## AxeBerzerkrNature: AxeBerzerkrNature
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -765,7 +767,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeBlackMetal
+## AxeBlackMetal: AxeBlackMetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -774,7 +776,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeBronze
+## AxeBronze: AxeBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -783,7 +785,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeFlint
+## AxeFlint: AxeFlint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -792,7 +794,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeIron
+## AxeIron: AxeIron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -801,7 +803,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeJotunBane
+## AxeJotunBane: AxeJotunBane
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -810,7 +812,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## AxeStone
+## AxeStone: AxeStone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -819,7 +821,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BarberKit
+## BarberKit: BarberKit
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -828,7 +830,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Barley
+## Barley: Barley
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -837,7 +839,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BarleyFlour
+## BarleyFlour: BarleyFlour
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -846,7 +848,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BarleyWine
+## BarleyWine: BarleyWine
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -855,7 +857,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## BarleyWineBase
+## BarleyWineBase: BarleyWineBase
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -864,7 +866,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BarrelRings
+## BarrelRings: BarrelRings
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -873,7 +875,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## bat_melee
+## bat_melee: bat_melee
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -882,7 +884,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Battleaxe
+## Battleaxe: Battleaxe
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -891,7 +893,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BattleaxeCrystal
+## BattleaxeCrystal: BattleaxeCrystal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -900,7 +902,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BeechSeeds
+## BeechSeeds: BeechSeeds
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -909,7 +911,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Bell
+## Bell: Bell
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -918,7 +920,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BellFragment
+## BellFragment: BellFragment
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -927,7 +929,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BeltStrength
+## BeltStrength: BeltStrength
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -936,7 +938,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Bilebag
+## Bilebag: Bilebag
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -945,7 +947,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BirchSeeds
+## BirchSeeds: BirchSeeds
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -954,7 +956,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BlackCore
+## BlackCore: BlackCore
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -963,7 +965,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BlackMarble
+## BlackMarble: BlackMarble
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -972,7 +974,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BlackMetal
+## BlackMetal: BlackMetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -981,7 +983,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BlackMetalScrap
+## BlackMetalScrap: BlackMetalScrap
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -990,7 +992,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BlackSoup
+## BlackSoup: BlackSoup
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -999,7 +1001,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Blackwood
+## Blackwood: Blackwood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1008,7 +1010,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Bloodbag
+## Bloodbag: Bloodbag
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1017,241 +1019,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## BloodPudding
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## Blueberries
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## BoarJerky
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## BoltBlackmetal
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BoltBone
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BoltCarapace
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BoltCharred
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BoltIron
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BombBile
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BombLava
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BombOoze
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BombSiege
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BombSmoke
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BoneFragments
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BoneMawSerpentMeat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BonemawSerpentScale
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BonemawSerpentTooth
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Bow
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BowAshlands
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BowAshlandsBlood
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BowAshlandsRoot
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BowAshlandsStorm
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BowDraugrFang
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BowFineWood
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BowHuntsman
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BowSpineSnap
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Bread
+## BloodPudding: BloodPudding
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1260,160 +1028,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## BreadDough
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Bronze
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BronzeNails
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BronzeScrap
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## BugMeat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CandleWick
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeAsh
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeAsksvin
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeDeerHide
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeFeather
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeLinen
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeLox
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeOdin
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeTest
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeTrollHide
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CapeWolf
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Carapace
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Carrot
+## Blueberries: Blueberries
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1422,7 +1037,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CarrotSeeds
+## BoarJerky: BoarJerky
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## BoltBlackmetal: BoltBlackmetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1431,7 +1055,205 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CarrotSoup
+## BoltBone: BoltBone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BoltCarapace: BoltCarapace
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BoltCharred: BoltCharred
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BoltIron: BoltIron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombBile: BombBile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombLava: BombLava
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombOoze: BombOoze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombSiege: BombSiege
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombSmoke: BombSmoke
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BoneFragments: BoneFragments
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BoneMawSerpentMeat: BoneMawSerpentMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BonemawSerpentScale: BonemawSerpentScale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BonemawSerpentTooth: BonemawSerpentTooth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Bow: Bow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowAshlands: BowAshlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowAshlandsBlood: BowAshlandsBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowAshlandsRoot: BowAshlandsRoot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowAshlandsStorm: BowAshlandsStorm
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowDraugrFang: BowDraugrFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowFineWood: BowFineWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowHuntsman: BowHuntsman
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowSpineSnap: BowSpineSnap
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Bread: Bread
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1440,7 +1262,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Catapult_ammo
+## BreadDough: BreadDough
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1449,7 +1271,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CelestialFeather
+## Bronze: Bronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1458,7 +1280,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CeramicPlate
+## BronzeNails: BronzeNails
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1467,7 +1289,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Chain
+## BronzeScrap: BronzeScrap
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1476,7 +1298,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CharcoalResin
+## BugMeat: BugMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1485,43 +1307,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## charred_bow
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_bow_Fader
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_bow_volley
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_bow_volley_Fader
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Charred_Breastplate
+## CandleWick: CandleWick
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1530,115 +1316,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## charred_dyrnwyn_greatsword_feint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_dyrnwyn_greatsword_swing
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_dyrnwyn_greatsword_thrust
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_dyrnwyn_greatsword_thrustfeint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_fader_greatsword_feint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_fader_greatsword_swing
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_fader_greatsword_thrust
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_fader_greatsword_thrustfeint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_greatsword_feint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_greatsword_swing
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_greatsword_thrust
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_greatsword_thrustfeint
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Charred_Helmet
+## CapeAsh: CapeAsh
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1647,7 +1325,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Charred_HipCloth
+## CapeAsksvin: CapeAsksvin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1656,7 +1334,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Charred_MageCloths
+## CapeDeerHide: CapeDeerHide
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1665,52 +1343,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## charred_magestaff_fire
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_magestaff_summon
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_twitcher_scratch_l
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_twitcher_scratch_r
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## charred_twitcher_throw
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## CharredBone
+## CapeFeather: CapeFeather
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1719,7 +1352,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CharredCogwheel
+## CapeLinen: CapeLinen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1728,7 +1361,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Charredskull
+## CapeLox: CapeLox
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1737,7 +1370,376 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## chest_hildir1
+## CapeOdin: CapeOdin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CapeTest: CapeTest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CapeTrollHide: CapeTrollHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CapeWolf: CapeWolf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Carapace: Carapace
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Carrot: Carrot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## CarrotSeeds: CarrotSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CarrotSoup: CarrotSoup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## Catapult_ammo: Catapult_ammo
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CelestialFeather: CelestialFeather
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CeramicPlate: CeramicPlate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Chain: Chain
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CharcoalResin: CharcoalResin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_bow: charred_bow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_bow_Fader: charred_bow_Fader
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_bow_volley: charred_bow_volley
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_bow_volley_Fader: charred_bow_volley_Fader
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Charred_Breastplate: Charred_Breastplate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_dyrnwyn_greatsword_feint: charred_dyrnwyn_greatsword_feint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_dyrnwyn_greatsword_swing: charred_dyrnwyn_greatsword_swing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_dyrnwyn_greatsword_thrust: charred_dyrnwyn_greatsword_thrust
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_dyrnwyn_greatsword_thrustfeint: charred_dyrnwyn_greatsword_thrustfeint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_fader_greatsword_feint: charred_fader_greatsword_feint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_fader_greatsword_swing: charred_fader_greatsword_swing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_fader_greatsword_thrust: charred_fader_greatsword_thrust
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_fader_greatsword_thrustfeint: charred_fader_greatsword_thrustfeint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_greatsword_feint: charred_greatsword_feint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_greatsword_swing: charred_greatsword_swing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_greatsword_thrust: charred_greatsword_thrust
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_greatsword_thrustfeint: charred_greatsword_thrustfeint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Charred_Helmet: Charred_Helmet
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Charred_HipCloth: Charred_HipCloth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Charred_MageCloths: Charred_MageCloths
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_magestaff_fire: charred_magestaff_fire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_magestaff_summon: charred_magestaff_summon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_twitcher_scratch_l: charred_twitcher_scratch_l
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_twitcher_scratch_r: charred_twitcher_scratch_r
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## charred_twitcher_throw: charred_twitcher_throw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CharredBone: CharredBone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CharredCogwheel: CharredCogwheel
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Charredskull: Charredskull
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## chest_hildir1: chest_hildir1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1746,7 +1748,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## chest_hildir2
+## chest_hildir2: chest_hildir2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1755,7 +1757,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## chest_hildir3
+## chest_hildir3: chest_hildir3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1764,7 +1766,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ChickenEgg
+## ChickenEgg: ChickenEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1773,7 +1775,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ChickenMeat
+## ChickenMeat: ChickenMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1782,7 +1784,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Chitin
+## Chitin: Chitin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1791,7 +1793,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Cloudberry
+## Cloudberry: Cloudberry
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1800,7 +1802,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Club
+## Club: Club
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1809,7 +1811,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Coal
+## Coal: Coal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1818,7 +1820,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Coins
+## Coins: Coins
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1827,7 +1829,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CookedAsksvinMeat
+## CookedAsksvinMeat: CookedAsksvinMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1836,7 +1838,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedBoneMawSerpentMeat
+## CookedBoneMawSerpentMeat: CookedBoneMawSerpentMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1845,7 +1847,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedBugMeat
+## CookedBugMeat: CookedBugMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1854,7 +1856,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedChickenMeat
+## CookedChickenMeat: CookedChickenMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1863,7 +1865,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedDeerMeat
+## CookedDeerMeat: CookedDeerMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1872,7 +1874,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedEgg
+## CookedEgg: CookedEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1881,7 +1883,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedHareMeat
+## CookedHareMeat: CookedHareMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1890,7 +1892,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedLoxMeat
+## CookedLoxMeat: CookedLoxMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1899,7 +1901,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedMeat
+## CookedMeat: CookedMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1908,7 +1910,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedVoltureMeat
+## CookedVoltureMeat: CookedVoltureMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1917,7 +1919,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## CookedWolfMeat
+## CookedWolfMeat: CookedWolfMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1926,7 +1928,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Copper
+## Copper: Copper
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1935,7 +1937,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CopperOre
+## CopperOre: CopperOre
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1944,7 +1946,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CopperScrap
+## CopperScrap: CopperScrap
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1953,7 +1955,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CrossbowArbalest
+## CrossbowArbalest: CrossbowArbalest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1962,7 +1964,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CrossbowRipper
+## CrossbowRipper: CrossbowRipper
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1971,7 +1973,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CrossbowRipperBlood
+## CrossbowRipperBlood: CrossbowRipperBlood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1980,7 +1982,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CrossbowRipperLightning
+## CrossbowRipperLightning: CrossbowRipperLightning
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1989,7 +1991,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CrossbowRipperNature
+## CrossbowRipperNature: CrossbowRipperNature
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1998,7 +2000,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CryptKey
+## CryptKey: CryptKey
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2007,7 +2009,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Crystal
+## Crystal: Crystal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2016,7 +2018,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Cultivator
+## Cultivator: Cultivator
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2025,7 +2027,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## CuredSquirrelHamstring
+## CuredSquirrelHamstring: CuredSquirrelHamstring
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2034,7 +2036,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Dandelion
+## Dandelion: Dandelion
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2043,7 +2045,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Deathsquito_sting
+## Deathsquito_sting: Deathsquito_sting
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2052,7 +2054,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DeerHide
+## DeerHide: DeerHide
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2061,7 +2063,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DeerMeat
+## DeerMeat: DeerMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2070,7 +2072,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DeerStew
+## DeerStew: DeerStew
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2079,7 +2081,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Demister
+## Demister: Demister
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2088,7 +2090,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DragonEgg
+## DragonEgg: DragonEgg
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2097,7 +2099,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DragonTear
+## DragonTear: DragonTear
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2106,7 +2108,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## draugr_arrow
+## draugr_arrow: draugr_arrow
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2115,7 +2117,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## draugr_axe
+## draugr_axe: draugr_axe
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2124,7 +2126,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## draugr_bow
+## draugr_bow: draugr_bow
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2133,7 +2135,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## draugr_sword
+## draugr_sword: draugr_sword
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2142,7 +2144,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerArbalest
+## DvergerArbalest: DvergerArbalest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2151,7 +2153,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerArbalest_shoot
+## DvergerArbalest_shoot: DvergerArbalest_shoot
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2160,7 +2162,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerArbalest_shootAshlands
+## DvergerArbalest_shootAshlands: DvergerArbalest_shootAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2169,7 +2171,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerHairFemale
+## DvergerHairFemale: DvergerHairFemale
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2178,7 +2180,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerHairFemale_Redhair
+## DvergerHairFemale_Redhair: DvergerHairFemale_Redhair
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2187,7 +2189,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerHairMale
+## DvergerHairMale: DvergerHairMale
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2196,7 +2198,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerHairMale_Redbeard
+## DvergerHairMale_Redbeard: DvergerHairMale_Redbeard
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2205,7 +2207,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerStaffFire
+## DvergerStaffFire: DvergerStaffFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2214,7 +2216,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerStaffHeal
+## DvergerStaffHeal: DvergerStaffHeal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2223,7 +2225,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerStaffIce
+## DvergerStaffIce: DvergerStaffIce
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2232,7 +2234,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerStaffSupport
+## DvergerStaffSupport: DvergerStaffSupport
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2241,7 +2243,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerSuitArbalest
+## DvergerSuitArbalest: DvergerSuitArbalest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2250,7 +2252,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerSuitArbalest_Ashlands
+## DvergerSuitArbalest_Ashlands: DvergerSuitArbalest_Ashlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2259,7 +2261,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerSuitFire
+## DvergerSuitFire: DvergerSuitFire
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2268,7 +2270,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerSuitIce
+## DvergerSuitIce: DvergerSuitIce
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2277,7 +2279,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergerSuitSupport
+## DvergerSuitSupport: DvergerSuitSupport
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2286,7 +2288,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergrKey
+## DvergrKey: DvergrKey
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2295,7 +2297,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergrKeyFragment
+## DvergrKeyFragment: DvergrKeyFragment
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2304,7 +2306,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DvergrNeedle
+## DvergrNeedle: DvergrNeedle
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2313,7 +2315,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DyrnwynBladeFragment
+## DyrnwynBladeFragment: DyrnwynBladeFragment
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2322,7 +2324,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DyrnwynHiltFragment
+## DyrnwynHiltFragment: DyrnwynHiltFragment
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2331,7 +2333,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## DyrnwynTipFragment
+## DyrnwynTipFragment: DyrnwynTipFragment
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2340,7 +2342,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Eitr
+## Eitr: Eitr
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2349,7 +2351,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ElderBark
+## ElderBark: ElderBark
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2358,7 +2360,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Entrails
+## Entrails: Entrails
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2367,7 +2369,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Eyescream
+## Eyescream: Eyescream
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2376,7 +2378,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## FaderDrop
+## FaderDrop: FaderDrop
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2385,7 +2387,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## fallenvalkyrie_claws
+## fallenvalkyrie_claws: fallenvalkyrie_claws
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2394,7 +2396,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## fallenvalkyrie_screech
+## fallenvalkyrie_screech: fallenvalkyrie_screech
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2403,7 +2405,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## fallenvalkyrie_spin
+## fallenvalkyrie_spin: fallenvalkyrie_spin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2412,7 +2414,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## fallenvalkyrie_swoopattack
+## fallenvalkyrie_swoopattack: fallenvalkyrie_swoopattack
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2421,7 +2423,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## fallenvalkyrie_taunt
+## fallenvalkyrie_taunt: fallenvalkyrie_taunt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2430,7 +2432,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## fallenvalkyrie_wingspin
+## fallenvalkyrie_wingspin: fallenvalkyrie_wingspin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2439,7 +2441,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastAshlands
+## FeastAshlands: FeastAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2448,7 +2450,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastAshlands_Material
+## FeastAshlands_Material: FeastAshlands_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2457,7 +2459,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastBlackforest
+## FeastBlackforest: FeastBlackforest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2466,7 +2468,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastBlackforest_Material
+## FeastBlackforest_Material: FeastBlackforest_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2475,7 +2477,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Feaster
+## Feaster: Feaster
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2484,7 +2486,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastMeadows
+## FeastMeadows: FeastMeadows
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2493,7 +2495,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastMeadows_Material
+## FeastMeadows_Material: FeastMeadows_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2502,7 +2504,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastMistlands
+## FeastMistlands: FeastMistlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2511,7 +2513,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastMistlands_Material
+## FeastMistlands_Material: FeastMistlands_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2520,7 +2522,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastMountains
+## FeastMountains: FeastMountains
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2529,7 +2531,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastMountains_Material
+## FeastMountains_Material: FeastMountains_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2538,7 +2540,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastOceans
+## FeastOceans: FeastOceans
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2547,7 +2549,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastOceans_Material
+## FeastOceans_Material: FeastOceans_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2556,7 +2558,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastPlains
+## FeastPlains: FeastPlains
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2565,7 +2567,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastPlains_Material
+## FeastPlains_Material: FeastPlains_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2574,7 +2576,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastSwamps
+## FeastSwamps: FeastSwamps
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2583,7 +2585,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FeastSwamps_Material
+## FeastSwamps_Material: FeastSwamps_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2592,7 +2594,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Feathers
+## Feathers: Feathers
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2601,7 +2603,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fiddleheadfern
+## Fiddleheadfern: Fiddleheadfern
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2610,7 +2612,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## FierySvinstew
+## FierySvinstew: FierySvinstew
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2619,7 +2621,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## FineWood
+## FineWood: FineWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2628,7 +2630,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FirCone
+## FirCone: FirCone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2637,7 +2639,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FireworksRocket_Blue
+## FireworksRocket_Blue: FireworksRocket_Blue
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2646,7 +2648,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FireworksRocket_Cyan
+## FireworksRocket_Cyan: FireworksRocket_Cyan
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2655,7 +2657,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FireworksRocket_Green
+## FireworksRocket_Green: FireworksRocket_Green
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2664,7 +2666,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FireworksRocket_Purple
+## FireworksRocket_Purple: FireworksRocket_Purple
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2673,7 +2675,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FireworksRocket_Red
+## FireworksRocket_Red: FireworksRocket_Red
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2682,7 +2684,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FireworksRocket_White
+## FireworksRocket_White: FireworksRocket_White
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2691,7 +2693,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FireworksRocket_Yellow
+## FireworksRocket_Yellow: FireworksRocket_Yellow
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2700,7 +2702,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish1
+## Fish1: Fish1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2709,7 +2711,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish10
+## Fish10: Fish10
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2718,7 +2720,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish11
+## Fish11: Fish11
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2727,7 +2729,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish12
+## Fish12: Fish12
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2736,7 +2738,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish2
+## Fish2: Fish2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2745,7 +2747,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish3
+## Fish3: Fish3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2754,7 +2756,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish4_cave
+## Fish4_cave: Fish4_cave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2763,7 +2765,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish5
+## Fish5: Fish5
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2772,7 +2774,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish6
+## Fish6: Fish6
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2781,7 +2783,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish7
+## Fish7: Fish7
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2790,7 +2792,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish8
+## Fish8: Fish8
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2799,7 +2801,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Fish9
+## Fish9: Fish9
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2808,7 +2810,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishAndBread
+## FishAndBread: FishAndBread
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2817,7 +2819,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## FishAndBreadUncooked
+## FishAndBreadUncooked: FishAndBreadUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2826,7 +2828,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishAnglerRaw
+## FishAnglerRaw: FishAnglerRaw
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2835,7 +2837,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishCooked
+## FishCooked: FishCooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2844,7 +2846,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## FishingBait
+## FishingBait: FishingBait
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2853,7 +2855,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingBaitAshlands
+## FishingBaitAshlands: FishingBaitAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2862,7 +2864,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingBaitCave
+## FishingBaitCave: FishingBaitCave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2871,7 +2873,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingBaitDeepNorth
+## FishingBaitDeepNorth: FishingBaitDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2880,7 +2882,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingBaitForest
+## FishingBaitForest: FishingBaitForest
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2889,7 +2891,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingBaitMistlands
+## FishingBaitMistlands: FishingBaitMistlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2898,7 +2900,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingBaitOcean
+## FishingBaitOcean: FishingBaitOcean
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2907,7 +2909,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingBaitPlains
+## FishingBaitPlains: FishingBaitPlains
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2916,7 +2918,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingBaitSwamp
+## FishingBaitSwamp: FishingBaitSwamp
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2925,7 +2927,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishingRod
+## FishingRod: FishingRod
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2934,7 +2936,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishRaw
+## FishRaw: FishRaw
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2943,7 +2945,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FishWraps
+## FishWraps: FishWraps
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2952,7 +2954,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## FistFenrirClaw
+## FistFenrirClaw: FistFenrirClaw
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2961,7 +2963,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Flametal
+## Flametal: Flametal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2970,7 +2972,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FlametalNew
+## FlametalNew: FlametalNew
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2979,7 +2981,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FlametalOre
+## FlametalOre: FlametalOre
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2988,7 +2990,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FlametalOreNew
+## FlametalOreNew: FlametalOreNew
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2997,7 +2999,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Flax
+## Flax: Flax
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3006,7 +3008,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Flint
+## Flint: Flint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3015,7 +3017,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FragrantBundle
+## FragrantBundle: FragrantBundle
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3024,7 +3026,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FreezeGland
+## FreezeGland: FreezeGland
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3033,7 +3035,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## FreshSeaweed
+## FreshSeaweed: FreshSeaweed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3042,7 +3044,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GemstoneBlue
+## GemstoneBlue: GemstoneBlue
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3051,7 +3053,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GemstoneGreen
+## GemstoneGreen: GemstoneGreen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3060,7 +3062,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GemstoneRed
+## GemstoneRed: GemstoneRed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3069,7 +3071,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GiantBloodSack
+## GiantBloodSack: GiantBloodSack
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3078,7 +3080,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinArmband
+## GoblinArmband: GoblinArmband
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3087,7 +3089,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_ArmGuard
+## GoblinBrute_ArmGuard: GoblinBrute_ArmGuard
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3096,7 +3098,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_Attack
+## GoblinBrute_Attack: GoblinBrute_Attack
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3105,7 +3107,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_Backbones
+## GoblinBrute_Backbones: GoblinBrute_Backbones
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3114,7 +3116,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_ExecutionerCap
+## GoblinBrute_ExecutionerCap: GoblinBrute_ExecutionerCap
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3123,7 +3125,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_HipCloth
+## GoblinBrute_HipCloth: GoblinBrute_HipCloth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3132,7 +3134,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_LegBones
+## GoblinBrute_LegBones: GoblinBrute_LegBones
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3141,7 +3143,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_RageAttack
+## GoblinBrute_RageAttack: GoblinBrute_RageAttack
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3150,7 +3152,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_ShoulderGuard
+## GoblinBrute_ShoulderGuard: GoblinBrute_ShoulderGuard
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3159,7 +3161,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBrute_Taunt
+## GoblinBrute_Taunt: GoblinBrute_Taunt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3168,7 +3170,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBruteBros_Attack
+## GoblinBruteBros_Attack: GoblinBruteBros_Attack
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3177,7 +3179,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinBruteBros_RageAttack
+## GoblinBruteBros_RageAttack: GoblinBruteBros_RageAttack
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3186,16 +3188,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinClub
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## GoblinHelmet
+## GoblinClub: GoblinClub
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3204,7 +3197,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinLegband
+## GoblinHelmet: GoblinHelmet
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3213,7 +3206,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinLoin
+## GoblinLegband: GoblinLegband
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3222,61 +3215,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinShaman_attack_poke
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## GoblinShaman_Headdress_antlers
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## GoblinShaman_Headdress_feathers
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## GoblinShaman_Staff_Bones
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## GoblinShaman_Staff_Feathers
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## GoblinShaman_Staff_Hildir
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## GoblinShoulders
+## GoblinLoin: GoblinLoin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3285,7 +3224,61 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinSpear
+## GoblinShaman_attack_poke: GoblinShaman_attack_poke
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoblinShaman_Headdress_antlers: GoblinShaman_Headdress_antlers
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoblinShaman_Headdress_feathers: GoblinShaman_Headdress_feathers
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoblinShaman_Staff_Bones: GoblinShaman_Staff_Bones
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoblinShaman_Staff_Feathers: GoblinShaman_Staff_Feathers
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoblinShaman_Staff_Hildir: GoblinShaman_Staff_Hildir
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoblinShoulders: GoblinShoulders
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3294,7 +3287,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinSword
+## GoblinSpear: GoblinSpear
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3303,7 +3296,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinTorch
+## GoblinSword: GoblinSword
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3312,7 +3305,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GoblinTotem
+## GoblinTorch: GoblinTorch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoblinTotem: GoblinTotem
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3321,7 +3323,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Grausten
+## Grausten: Grausten
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3330,7 +3332,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## GreydwarfEye
+## GreydwarfEye: GreydwarfEye
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3339,7 +3341,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Guck
+## Guck: Guck
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3348,7 +3350,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Hammer
+## Hammer: Hammer
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3357,7 +3359,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HardAntler
+## HardAntler: HardAntler
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3366,7 +3368,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HareMeat
+## HareMeat: HareMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3375,7 +3377,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HealthUpgrade_Bonemass
+## HealthUpgrade_Bonemass: HealthUpgrade_Bonemass
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3384,7 +3386,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HealthUpgrade_GDKing
+## HealthUpgrade_GDKing: HealthUpgrade_GDKing
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3393,7 +3395,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetAshlandsMediumHood
+## HelmetAshlandsMediumHood: HelmetAshlandsMediumHood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3402,7 +3404,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetBronze
+## HelmetBronze: HelmetBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3411,7 +3413,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetCarapace
+## HelmetCarapace: HelmetCarapace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3420,7 +3422,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetDrake
+## HelmetDrake: HelmetDrake
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3429,7 +3431,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetDverger
+## HelmetDverger: HelmetDverger
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3438,7 +3440,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetFenring
+## HelmetFenring: HelmetFenring
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3447,7 +3449,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetFishingHat
+## HelmetFishingHat: HelmetFishingHat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3456,7 +3458,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetFlametal
+## HelmetFlametal: HelmetFlametal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3465,7 +3467,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat1
+## HelmetHat1: HelmetHat1
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3474,7 +3476,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat10
+## HelmetHat10: HelmetHat10
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3483,7 +3485,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat2
+## HelmetHat2: HelmetHat2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3492,7 +3494,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat3
+## HelmetHat3: HelmetHat3
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3501,7 +3503,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat4
+## HelmetHat4: HelmetHat4
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3510,7 +3512,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat5
+## HelmetHat5: HelmetHat5
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3519,7 +3521,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat6
+## HelmetHat6: HelmetHat6
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3528,7 +3530,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat7
+## HelmetHat7: HelmetHat7
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3537,7 +3539,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat8
+## HelmetHat8: HelmetHat8
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3546,7 +3548,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetHat9
+## HelmetHat9: HelmetHat9
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3555,7 +3557,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetIron
+## HelmetIron: HelmetIron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3564,7 +3566,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetLeather
+## HelmetLeather: HelmetLeather
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3573,7 +3575,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetMage
+## HelmetMage: HelmetMage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3582,7 +3584,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetMage_Ashlands
+## HelmetMage_Ashlands: HelmetMage_Ashlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3591,7 +3593,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetMidsummerCrown
+## HelmetMidsummerCrown: HelmetMidsummerCrown
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3600,7 +3602,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetOdin
+## HelmetOdin: HelmetOdin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3609,7 +3611,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetPadded
+## HelmetPadded: HelmetPadded
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3618,7 +3620,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetPointyHat
+## HelmetPointyHat: HelmetPointyHat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3627,7 +3629,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetRoot
+## HelmetRoot: HelmetRoot
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3636,7 +3638,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetStrawHat
+## HelmetStrawHat: HelmetStrawHat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3645,7 +3647,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetTrollLeather
+## HelmetTrollLeather: HelmetTrollLeather
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3654,7 +3656,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HelmetYule
+## HelmetYule: HelmetYule
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3663,7 +3665,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HildirKey_forestcrypt
+## HildirKey_forestcrypt: HildirKey_forestcrypt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3672,7 +3674,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HildirKey_mountaincave
+## HildirKey_mountaincave: HildirKey_mountaincave
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3681,7 +3683,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## HildirKey_plainsfortress
+## HildirKey_plainsfortress: HildirKey_plainsfortress
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3690,7 +3692,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Hoe
+## Hoe: Hoe
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3699,7 +3701,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Honey
+## Honey: Honey
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3708,7 +3710,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## HoneyGlazedChicken
+## HoneyGlazedChicken: HoneyGlazedChicken
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3717,7 +3719,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## HoneyGlazedChickenUncooked
+## HoneyGlazedChickenUncooked: HoneyGlazedChickenUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3726,7 +3728,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Iron
+## Iron: Iron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3735,7 +3737,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## IronNails
+## IronNails: IronNails
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3744,7 +3746,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## IronOre
+## IronOre: IronOre
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3753,7 +3755,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Ironpit
+## Ironpit: Ironpit
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3762,7 +3764,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## IronScrap
+## IronScrap: IronScrap
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3771,7 +3773,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## JuteBlue
+## JuteBlue: JuteBlue
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3780,7 +3782,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## JuteRed
+## JuteRed: JuteRed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3789,7 +3791,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## KnifeBlackMetal
+## KnifeBlackMetal: KnifeBlackMetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3798,7 +3800,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## KnifeButcher
+## KnifeButcher: KnifeButcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3807,7 +3809,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## KnifeChitin
+## KnifeChitin: KnifeChitin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3816,7 +3818,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## KnifeCopper
+## KnifeCopper: KnifeCopper
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3825,7 +3827,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## KnifeFlint
+## KnifeFlint: KnifeFlint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3834,7 +3836,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## KnifeSilver
+## KnifeSilver: KnifeSilver
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3843,7 +3845,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## KnifeSkollAndHati
+## KnifeSkollAndHati: KnifeSkollAndHati
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3852,7 +3854,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Lantern
+## Lantern: Lantern
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3861,7 +3863,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Larva
+## Larva: Larva
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3870,7 +3872,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## LeatherScraps
+## LeatherScraps: LeatherScraps
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3879,7 +3881,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## LinenThread
+## LinenThread: LinenThread
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3888,7 +3890,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## LoxMeat
+## LoxMeat: LoxMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3897,7 +3899,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## LoxPelt
+## LoxPelt: LoxPelt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3906,97 +3908,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## LoxPie
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## LoxPieUncooked
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MaceBronze
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MaceEldner
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MaceEldnerBlood
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MaceEldnerLightning
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MaceEldnerNature
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MaceIron
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MaceNeedle
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MaceSilver
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MagicallyStuffedShroom
+## LoxPie: LoxPie
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4005,7 +3917,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## MagicallyStuffedShroomUncooked
+## LoxPieUncooked: LoxPieUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4014,7 +3926,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Mandible
+## MaceBronze: MaceBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4023,7 +3935,70 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## MarinatedGreens
+## MaceEldner: MaceEldner
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceEldnerBlood: MaceEldnerBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceEldnerLightning: MaceEldnerLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceEldnerNature: MaceEldnerNature
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceIron: MaceIron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceNeedle: MaceNeedle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceSilver: MaceSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MagicallyStuffedShroom: MagicallyStuffedShroom
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4032,16 +4007,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## MashedMeat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadBaseBugRepellent
+## MagicallyStuffedShroomUncooked: MagicallyStuffedShroomUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4050,7 +4016,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## MeadBaseBzerker
+## Mandible: Mandible
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4059,340 +4025,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## MeadBaseEitrLingering
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseEitrMinor
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseFrostResist
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseHasty
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseHealthLingering
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseHealthMajor
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseHealthMedium
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseHealthMinor
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseLightFoot
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBasePoisonResist
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseStaminaLingering
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseStaminaMedium
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseStaminaMinor
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseStrength
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseSwimmer
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseTamer
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBaseTasty
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MeadBugRepellent
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadBzerker
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadEitrLingering
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadEitrMinor
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadFrostResist
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadHasty
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadHealthLingering
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadHealthMajor
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadHealthMedium
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadHealthMinor
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadLightfoot
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadPoisonResist
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadStaminaLingering
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadStaminaMedium
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadStaminaMinor
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadStrength
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadSwimmer
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadTamer
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadTasty
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeadTrollPheromones
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MeatPlatter
+## MarinatedGreens: MarinatedGreens
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4401,7 +4034,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## MeatPlatterUncooked
+## MashedMeat: MashedMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadBaseBugRepellent: MeadBaseBugRepellent
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4410,7 +4052,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## MechanicalSpring
+## MeadBaseBzerker: MeadBaseBzerker
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4419,7 +4061,340 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## MinceMeatSauce
+## MeadBaseEitrLingering: MeadBaseEitrLingering
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseEitrMinor: MeadBaseEitrMinor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseFrostResist: MeadBaseFrostResist
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseHasty: MeadBaseHasty
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseHealthLingering: MeadBaseHealthLingering
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseHealthMajor: MeadBaseHealthMajor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseHealthMedium: MeadBaseHealthMedium
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseHealthMinor: MeadBaseHealthMinor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseLightFoot: MeadBaseLightFoot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBasePoisonResist: MeadBasePoisonResist
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseStaminaLingering: MeadBaseStaminaLingering
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseStaminaMedium: MeadBaseStaminaMedium
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseStaminaMinor: MeadBaseStaminaMinor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseStrength: MeadBaseStrength
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseSwimmer: MeadBaseSwimmer
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseTamer: MeadBaseTamer
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBaseTasty: MeadBaseTasty
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MeadBugRepellent: MeadBugRepellent
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadBzerker: MeadBzerker
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadEitrLingering: MeadEitrLingering
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadEitrMinor: MeadEitrMinor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadFrostResist: MeadFrostResist
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadHasty: MeadHasty
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadHealthLingering: MeadHealthLingering
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadHealthMajor: MeadHealthMajor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadHealthMedium: MeadHealthMedium
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadHealthMinor: MeadHealthMinor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadLightfoot: MeadLightfoot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadPoisonResist: MeadPoisonResist
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadStaminaLingering: MeadStaminaLingering
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadStaminaMedium: MeadStaminaMedium
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadStaminaMinor: MeadStaminaMinor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadStrength: MeadStrength
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadSwimmer: MeadSwimmer
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadTamer: MeadTamer
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadTasty: MeadTasty
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeadTrollPheromones: MeadTrollPheromones
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MeatPlatter: MeatPlatter
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4428,7 +4403,25 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## MisthareSupreme
+## MeatPlatterUncooked: MeatPlatterUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MechanicalSpring: MechanicalSpring
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MinceMeatSauce: MinceMeatSauce
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4437,97 +4430,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## MisthareSupremeUncooked
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Mistile_kamikaze
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MoltenCore
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MorgenHeart
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MorgenSinew
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Mushroom
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MushroomBlue
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## MushroomBzerker
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MushroomJotunPuffs
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MushroomMagecap
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MushroomOmelette
+## MisthareSupreme: MisthareSupreme
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4536,25 +4439,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## MushroomSmokePuff
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## MushroomYellow
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## NeckTail
+## MisthareSupremeUncooked: MisthareSupremeUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4563,7 +4448,88 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## NeckTailGrilled
+## Mistile_kamikaze: Mistile_kamikaze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoltenCore: MoltenCore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MorgenHeart: MorgenHeart
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MorgenSinew: MorgenSinew
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Mushroom: Mushroom
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MushroomBlue: MushroomBlue
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MushroomBzerker: MushroomBzerker
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MushroomJotunPuffs: MushroomJotunPuffs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MushroomMagecap: MushroomMagecap
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MushroomOmelette: MushroomOmelette
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4572,25 +4538,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Needle
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Obsidian
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Onion
+## MushroomSmokePuff: MushroomSmokePuff
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4599,7 +4547,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## OnionSeeds
+## MushroomYellow: MushroomYellow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## NeckTail: NeckTail
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4608,7 +4565,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## OnionSoup
+## NeckTailGrilled: NeckTailGrilled
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4617,7 +4574,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Ooze
+## Needle: Needle
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4626,7 +4583,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## PickaxeAntler
+## Obsidian: Obsidian
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4635,7 +4592,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## PickaxeBlackMetal
+## Onion: Onion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## OnionSeeds: OnionSeeds
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4644,43 +4610,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## PickaxeBronze
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## PickaxeIron
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## PickaxeStone
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## PineCone
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## PiquantPie
+## OnionSoup: OnionSoup
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4689,7 +4619,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## PiquantPieUncooked
+## Ooze: Ooze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4698,7 +4628,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## PlayerUnarmed
+## PickaxeAntler: PickaxeAntler
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4707,7 +4637,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Pot_Shard_Green
+## PickaxeBlackMetal: PickaxeBlackMetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4716,7 +4646,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Pot_Shard_Red
+## PickaxeBronze: PickaxeBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4725,7 +4655,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## PowderedDragonEgg
+## PickaxeIron: PickaxeIron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4734,7 +4664,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ProustitePowder
+## PickaxeStone: PickaxeStone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4743,16 +4673,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Pukeberries
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## PungentPebbles
+## PineCone: PineCone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4761,61 +4682,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## QueenBee
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## QueenDrop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## QueensJam
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## Raspberry
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## RawMeat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Resin
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## RoastedCrustPie
+## PiquantPie: PiquantPie
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4824,7 +4691,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## RoastedCrustPieUncooked
+## PiquantPieUncooked: PiquantPieUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4833,7 +4700,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Root
+## PlayerUnarmed: PlayerUnarmed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4842,7 +4709,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## RottenMeat
+## Pot_Shard_Green: Pot_Shard_Green
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4851,7 +4718,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## RoundLog
+## Pot_Shard_Red: Pot_Shard_Red
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4860,7 +4727,25 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## RoyalJelly
+## PowderedDragonEgg: PowderedDragonEgg
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ProustitePowder: ProustitePowder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Pukeberries: Pukeberries
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4869,7 +4754,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Ruby
+## PungentPebbles: PungentPebbles
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4878,7 +4763,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SaddleAsksvin
+## QueenBee: QueenBee
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4887,7 +4772,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SaddleLox
+## QueenDrop: QueenDrop
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4896,7 +4781,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Salad
+## QueensJam: QueensJam
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4905,7 +4790,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Sap
+## Raspberry: Raspberry
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## RawMeat: RawMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4914,7 +4808,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Sausages
+## Resin: Resin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## RoastedCrustPie: RoastedCrustPie
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4923,7 +4826,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## ScaleHide
+## RoastedCrustPieUncooked: RoastedCrustPieUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4932,7 +4835,88 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ScorchingMedley
+## Root: Root
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## RottenMeat: RottenMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## RoundLog: RoundLog
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## RoyalJelly: RoyalJelly
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## Ruby: Ruby
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SaddleAsksvin: SaddleAsksvin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SaddleLox: SaddleLox
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Salad: Salad
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## Sap: Sap
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Sausages: Sausages
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4941,7 +4925,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## Scythe
+## ScaleHide: ScaleHide
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4950,7 +4934,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## ScytheHandle
+## ScorchingMedley: ScorchingMedley
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## Scythe: Scythe
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4959,7 +4952,16 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SeekerAspic
+## ScytheHandle: ScytheHandle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SeekerAspic: SeekerAspic
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4968,7 +4970,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## SeekerBrute_Taunt
+## SeekerBrute_Taunt: SeekerBrute_Taunt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4977,7 +4979,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SeekerQueen_Call
+## SeekerQueen_Call: SeekerQueen_Call
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4986,7 +4988,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SeekerQueen_Teleport
+## SeekerQueen_Teleport: SeekerQueen_Teleport
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4995,7 +4997,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SerpentMeat
+## SerpentMeat: SerpentMeat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5004,7 +5006,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SerpentMeatCooked
+## SerpentMeatCooked: SerpentMeatCooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5013,7 +5015,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## SerpentScale
+## SerpentScale: SerpentScale
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5022,223 +5024,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SerpentStew
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## SharpeningStone
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldBanded
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldBlackmetal
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldBlackmetalTower
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldBoneTower
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldBronzeBuckler
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldCarapace
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldCarapaceBuckler
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldCore
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldFlametal
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldFlametalTower
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldIronBuckler
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldIronSquare
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldIronTower
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldKnight
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldSerpentscale
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldSilver
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldWood
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShieldWoodTower
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## ShocklateSmoothie
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## Silver
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SilverNecklace
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SilverOre
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SizzlingBerryBroth
+## SerpentStew: SerpentStew
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5247,70 +5033,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## skeleton_bow
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## skeleton_bow2
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## skeleton_hildir_firenova
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## skeleton_mace
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## skeleton_sword
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## skeleton_sword_hildir
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## skeleton_sword2
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|False|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SledgeCheat
+## SharpeningStone: SharpeningStone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5319,7 +5042,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SledgeDemolisher
+## ShieldBanded: ShieldBanded
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5328,7 +5051,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SledgeIron
+## ShieldBlackmetal: ShieldBlackmetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5337,7 +5060,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SledgeStagbreaker
+## ShieldBlackmetalTower: ShieldBlackmetalTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5346,7 +5069,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Softtissue
+## ShieldBoneTower: ShieldBoneTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5355,7 +5078,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Sparkler
+## ShieldBronzeBuckler: ShieldBronzeBuckler
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5364,16 +5087,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SparklingShroomshake
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
-
-## SpearBronze
+## ShieldCarapace: ShieldCarapace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5382,7 +5096,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearCarapace
+## ShieldCarapaceBuckler: ShieldCarapaceBuckler
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5391,7 +5105,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearChitin
+## ShieldCore: ShieldCore
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5400,7 +5114,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearElderbark
+## ShieldFlametal: ShieldFlametal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5409,7 +5123,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearFlint
+## ShieldFlametalTower: ShieldFlametalTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5418,7 +5132,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearSplitner
+## ShieldIronBuckler: ShieldIronBuckler
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5427,7 +5141,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearSplitner_Blood
+## ShieldIronSquare: ShieldIronSquare
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5436,7 +5150,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearSplitner_Lightning
+## ShieldIronTower: ShieldIronTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5445,7 +5159,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearSplitner_Nature
+## ShieldKnight: ShieldKnight
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5454,7 +5168,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpearWolfFang
+## ShieldSerpentscale: ShieldSerpentscale
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5463,7 +5177,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpiceAshlands
+## ShieldSilver: ShieldSilver
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5472,7 +5186,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpiceForests
+## ShieldWood: ShieldWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5481,7 +5195,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpiceMistlands
+## ShieldWoodTower: ShieldWoodTower
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5490,34 +5204,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## SpiceMountains
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SpiceOceans
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SpicePlains
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SpicyMarmalade
+## ShocklateSmoothie: ShocklateSmoothie
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5526,7 +5213,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## staff_greenroots_tentaroot_attack
+## Silver: Silver
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5535,7 +5222,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## StaffClusterbomb
+## SilverNecklace: SilverNecklace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5544,7 +5231,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## StaffFireball
+## SilverOre: SilverOre
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5553,988 +5240,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## StaffGreenRoots
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StaffIceShards
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StaffLightning
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StaffRedTroll
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StaffShield
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StaffSkeleton
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StaminaUpgrade_Greydwarf
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StaminaUpgrade_Troll
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StaminaUpgrade_Wraith
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Stone
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## stonegolem_attack1_spike
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StoneGolem_clubs
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StoneGolem_hat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## StoneGolem_spikes
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SulfurStone
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SurtlingCore
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordBlackmetal
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordBronze
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordCheat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordDyrnwyn
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordIron
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordIronFire
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordMistwalker
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordNiedhogg
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordNiedhoggBlood
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordNiedhoggLightning
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordNiedhoggNature
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## SwordSilver
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Tankard
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Tankard_dvergr
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TankardAnniversary
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TankardOdin
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Tar
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## tentaroot_attack
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Thistle
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## THSwordKrom
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## THSwordSlayer
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## THSwordSlayerBlood
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## THSwordSlayerLightning
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## THSwordSlayerNature
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Thunderstone
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Tin
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TinOre
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Torch
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TorchMist
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## troll_log_swing_h
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## troll_log_swing_v
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## troll_summoned_log_swing_h
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## troll_summoned_log_swing_v
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrollHide
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyAbomination
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyAsksvin
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyBlob
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyBoar
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyBonemass
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyBonemawSerpent
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyCharredArcher
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyCharredMage
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyCharredMelee
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyCultist
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyCultist_Hildir
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyDeathsquito
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyDeer
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyDragonQueen
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyDraugr
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyDraugrElite
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyDraugrFem
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyDvergr
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyEikthyr
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyFader
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyFallenValkyrie
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyFenring
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyForestTroll
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyFrostTroll
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGjall
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGoblin
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGoblinBrute
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGoblinBruteBrosBrute
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGoblinBruteBrosShaman
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGoblinKing
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGoblinShaman
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGreydwarf
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGreydwarfBrute
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGreydwarfShaman
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyGrowth
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyHare
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyHatchling
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyKvastur
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyLeech
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyLox
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyMorgen
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyNeck
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySeeker
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySeekerBrute
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySeekerQueen
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySerpent
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySGolem
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySkeleton
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySkeletonHildir
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySkeletonPoison
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophySurtling
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyTheElder
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyTick
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyUlv
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyVolture
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyWolf
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TrophyWraith
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Turnip
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TurnipSeeds
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## TurnipStew
+## SizzlingBerryBroth: SizzlingBerryBroth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6543,7 +5249,70 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## TurretBolt
+## skeleton_bow: skeleton_bow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_bow2: skeleton_bow2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_hildir_firenova: skeleton_hildir_firenova
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_mace: skeleton_mace
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_sword: skeleton_sword
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_sword_hildir: skeleton_sword_hildir
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_sword2: skeleton_sword2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SledgeCheat: SledgeCheat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6552,7 +5321,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## TurretBoltBone
+## SledgeDemolisher: SledgeDemolisher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6561,7 +5330,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## TurretBoltFlametal
+## SledgeIron: SledgeIron
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6570,7 +5339,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## TurretBoltWood
+## SledgeStagbreaker: SledgeStagbreaker
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6579,7 +5348,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Ulv_attack1_bite
+## Softtissue: Softtissue
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6588,7 +5357,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Ulv_attack2_slash
+## Sparkler: Sparkler
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6597,16 +5366,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## VegvisirShard_Bonemass
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_autoPickup|System.Boolean|True|
-|m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
-
-## Vineberry
+## SparklingShroomshake: SparklingShroomshake
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6615,7 +5375,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## VineberrySeeds
+## SpearBronze: SpearBronze
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6624,7 +5384,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## VineGreenSeeds
+## SpearCarapace: SpearCarapace
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6633,7 +5393,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## volture_talons
+## SpearChitin: SpearChitin
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6642,7 +5402,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## VoltureEgg
+## SpearElderbark: SpearElderbark
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6651,7 +5411,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## VoltureMeat
+## SpearFlint: SpearFlint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6660,7 +5420,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Wishbone
+## SpearSplitner: SpearSplitner
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6669,7 +5429,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Wisp
+## SpearSplitner_Blood: SpearSplitner_Blood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6678,7 +5438,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## WitheredBone
+## SpearSplitner_Lightning: SpearSplitner_Lightning
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6687,7 +5447,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## WolfClaw
+## SpearSplitner_Nature: SpearSplitner_Nature
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6696,7 +5456,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## WolfFang
+## SpearWolfFang: SpearWolfFang
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6705,7 +5465,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## WolfHairBundle
+## SpiceAshlands: SpiceAshlands
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6714,7 +5474,52 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## WolfJerky
+## SpiceForests: SpiceForests
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpiceMistlands: SpiceMistlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpiceMountains: SpiceMountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpiceOceans: SpiceOceans
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpicePlains: SpicePlains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpicyMarmalade: SpicyMarmalade
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6723,7 +5528,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## WolfMeat
+## staff_greenroots_tentaroot_attack: staff_greenroots_tentaroot_attack
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6732,7 +5537,1006 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## WolfMeatSkewer
+## StaffClusterbomb: StaffClusterbomb
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffFireball: StaffFireball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffGreenRoots: StaffGreenRoots
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffIceShards: StaffIceShards
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffLightning: StaffLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffRedTroll: StaffRedTroll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffShield: StaffShield
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffSkeleton: StaffSkeleton
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaminaUpgrade_Greydwarf: StaminaUpgrade_Greydwarf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaminaUpgrade_Troll: StaminaUpgrade_Troll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaminaUpgrade_Wraith: StaminaUpgrade_Wraith
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Stone: Stone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## stonegolem_attack1_spike: stonegolem_attack1_spike
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StoneGolem_clubs: StoneGolem_clubs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StoneGolem_hat: StoneGolem_hat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StoneGolem_spikes: StoneGolem_spikes
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SulfurStone: SulfurStone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SurtlingCore: SurtlingCore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordBlackmetal: SwordBlackmetal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordBronze: SwordBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordCheat: SwordCheat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordDyrnwyn: SwordDyrnwyn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordIron: SwordIron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordIronFire: SwordIronFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordMistwalker: SwordMistwalker
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordNiedhogg: SwordNiedhogg
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordNiedhoggBlood: SwordNiedhoggBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordNiedhoggLightning: SwordNiedhoggLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordNiedhoggNature: SwordNiedhoggNature
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordSilver: SwordSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Tankard: Tankard
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Tankard_dvergr: Tankard_dvergr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TankardAnniversary: TankardAnniversary
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TankardOdin: TankardOdin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Tar: Tar
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## tentaroot_attack: tentaroot_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Thistle: Thistle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordKrom: THSwordKrom
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordSlayer: THSwordSlayer
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordSlayerBlood: THSwordSlayerBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordSlayerLightning: THSwordSlayerLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordSlayerNature: THSwordSlayerNature
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Thunderstone: Thunderstone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Tin: Tin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TinOre: TinOre
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Torch: Torch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TorchMist: TorchMist
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## troll_log_swing_h: troll_log_swing_h
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## troll_log_swing_v: troll_log_swing_v
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## troll_summoned_log_swing_h: troll_summoned_log_swing_h
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## troll_summoned_log_swing_v: troll_summoned_log_swing_v
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrollHide: TrollHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyAbomination: TrophyAbomination
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyAsksvin: TrophyAsksvin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBlob: TrophyBlob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBoar: TrophyBoar
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBonemass: TrophyBonemass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBonemawSerpent: TrophyBonemawSerpent
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyCharredArcher: TrophyCharredArcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyCharredMage: TrophyCharredMage
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyCharredMelee: TrophyCharredMelee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyCultist: TrophyCultist
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyCultist_Hildir: TrophyCultist_Hildir
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyDeathsquito: TrophyDeathsquito
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyDeer: TrophyDeer
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyDragonQueen: TrophyDragonQueen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyDraugr: TrophyDraugr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyDraugrElite: TrophyDraugrElite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyDraugrFem: TrophyDraugrFem
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyDvergr: TrophyDvergr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyEikthyr: TrophyEikthyr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyFader: TrophyFader
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyFallenValkyrie: TrophyFallenValkyrie
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyFenring: TrophyFenring
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyForestTroll: TrophyForestTroll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyFrostTroll: TrophyFrostTroll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGjall: TrophyGjall
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGoblin: TrophyGoblin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGoblinBrute: TrophyGoblinBrute
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGoblinBruteBrosBrute: TrophyGoblinBruteBrosBrute
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGoblinBruteBrosShaman: TrophyGoblinBruteBrosShaman
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGoblinKing: TrophyGoblinKing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGoblinShaman: TrophyGoblinShaman
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGreydwarf: TrophyGreydwarf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGreydwarfBrute: TrophyGreydwarfBrute
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGreydwarfShaman: TrophyGreydwarfShaman
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGrowth: TrophyGrowth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyHare: TrophyHare
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyHatchling: TrophyHatchling
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyKvastur: TrophyKvastur
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyLeech: TrophyLeech
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyLox: TrophyLox
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyMorgen: TrophyMorgen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyNeck: TrophyNeck
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySeeker: TrophySeeker
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySeekerBrute: TrophySeekerBrute
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySeekerQueen: TrophySeekerQueen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySerpent: TrophySerpent
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySGolem: TrophySGolem
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySkeleton: TrophySkeleton
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySkeletonHildir: TrophySkeletonHildir
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySkeletonPoison: TrophySkeletonPoison
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySurtling: TrophySurtling
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyTheElder: TrophyTheElder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyTick: TrophyTick
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyUlv: TrophyUlv
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyVolture: TrophyVolture
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyWolf: TrophyWolf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyWraith: TrophyWraith
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Turnip: Turnip
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TurnipSeeds: TurnipSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TurnipStew: TurnipStew
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6741,7 +6545,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## WolfPelt
+## TurretBolt: TurretBolt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6750,7 +6554,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## Wood
+## TurretBoltBone: TurretBoltBone
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6759,7 +6563,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## wraith_melee
+## TurretBoltFlametal: TurretBoltFlametal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6768,7 +6572,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## YagluthDrop
+## TurretBoltWood: TurretBoltWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6777,7 +6581,160 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## YggdrasilPorridge
+## Ulv_attack1_bite: Ulv_attack1_bite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Ulv_attack2_slash: Ulv_attack2_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## VegvisirShard_Bonemass: VegvisirShard_Bonemass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Vineberry: Vineberry
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## VineberrySeeds: VineberrySeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## VineGreenSeeds: VineGreenSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## volture_talons: volture_talons
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## VoltureEgg: VoltureEgg
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## VoltureMeat: VoltureMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Wishbone: Wishbone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Wisp: Wisp
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## WitheredBone: WitheredBone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## WolfClaw: WolfClaw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## WolfFang: WolfFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## WolfHairBundle: WolfHairBundle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## WolfJerky: WolfJerky
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## WolfMeat: WolfMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## WolfMeatSkewer: WolfMeatSkewer
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6786,7 +6743,7 @@
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
-## YggdrasilWood
+## WolfPelt: WolfPelt
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6795,7 +6752,52 @@
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
-## YmirRemains
+## Wood: Wood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## wraith_melee: wraith_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## YagluthDrop: YagluthDrop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## YggdrasilPorridge: YggdrasilPorridge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## YggdrasilWood: YggdrasilWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## YmirRemains: YmirRemains
 
 |Field|Type|Default Value|
 |-----|----|-------------|

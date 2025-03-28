@@ -1,6 +1,8 @@
 # AnimalAI
 
-## Boar_piggy
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## Boar_piggy: Boar_piggy
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -44,7 +46,7 @@
 |m_fleeAngle|System.Single|45|
 |m_fleeInterval|System.Single|2|
 
-## Chicken
+## Chicken: Chicken
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -88,7 +90,7 @@
 |m_fleeAngle|System.Single|45|
 |m_fleeInterval|System.Single|2|
 
-## Deer
+## Deer: Deer
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -132,7 +134,7 @@
 |m_fleeAngle|System.Single|45|
 |m_fleeInterval|System.Single|2|
 
-## Goblin_Gem
+## Goblin_Gem: Goblin_Gem
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -176,7 +178,7 @@
 |m_fleeAngle|System.Single|45|
 |m_fleeInterval|System.Single|2|
 
-## Hare
+## Hare: Hare
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -220,7 +222,7 @@
 |m_fleeAngle|System.Single|45|
 |m_fleeInterval|System.Single|2|
 
-## Lox_Calf
+## Lox_Calf: Lox_Calf
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -264,7 +266,7 @@
 |m_fleeAngle|System.Single|45|
 |m_fleeInterval|System.Single|2|
 
-## Wolf_cub
+## Wolf_cub: Wolf_cub
 
 |Field|Type|Default Value|
 |-----|----|-------------|

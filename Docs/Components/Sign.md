@@ -1,6 +1,8 @@
 # Sign
 
-## sign
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## sign: sign
 
 |Field|Type|Default Value|
 |-----|----|-------------|

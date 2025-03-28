@@ -1,6 +1,8 @@
 # Fermenter
 
-## fermenter
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## fermenter: fermenter
 
 |Field|Type|Default Value|
 |-----|----|-------------|

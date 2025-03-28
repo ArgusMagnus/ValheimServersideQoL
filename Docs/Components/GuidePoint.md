@@ -1,96 +1,98 @@
 # GuidePoint
 
-## GuidePoint
+The following section headers are in the format `Prefab.name: Component.name`.
+
+## artisan_ext1: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## ashwood_bed: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## BatteringRam: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## bed: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## eitrrefinery: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## guard_stone: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## piece_bathtub: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## piece_cartographytable: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## piece_magetable: GuidePoint (1)
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## piece_shieldgenerator: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## piece_wisplure: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## piece_workbench: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## portal_stone: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## portal_wood: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint
+## smelter: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
-## GuidePoint (1)
+## YggdrasilRoot: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
