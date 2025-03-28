@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections.Concurrent;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -425,17 +426,19 @@ public sealed partial class Main : BaseUnityPlugin
     static void GeneratePrefabSheet()
     {
         var docsPath = Path.Combine(Path.GetDirectoryName(ConfigMarkdownPath), "Docs");
-        var docsPrefabsPath = Path.Combine(docsPath, "Prefabs");
         var docsComponentsPath = Path.Combine(docsPath, "Components");
 
-        //try { Directory.Delete(docsPrefabsPath, true); } catch (DirectoryNotFoundException) { }
         try { Directory.Delete(docsComponentsPath, true); } catch (DirectoryNotFoundException) { }
 
-        //Directory.CreateDirectory(docsPrefabsPath);
         Directory.CreateDirectory(docsComponentsPath);
 
+        HashSet<Type> validFieldTypes = [typeof(int), typeof(float), typeof(bool), typeof(Vector3), typeof(string), typeof(GameObject), typeof(ItemDrop)];
+        var componentFields = new ConcurrentDictionary<Type, IReadOnlyList<FieldInfo>>();
         var prefabs = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
-        var componentsBag = new ConcurrentHashSet<MonoBehaviour>();
+        var prefabsFx = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
+        var prefabsSfx = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
+        var prefabsVfx = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
+        var componentsBag = new ConcurrentDictionary<MonoBehaviour, string>();
         Parallel.ForEach(ZNetScene.instance.m_prefabs, prefab =>
         {
             var components = prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>()
@@ -449,7 +452,14 @@ public sealed partial class Main : BaseUnityPlugin
 
             foreach (var component in components)
             {
-                componentsBag.Add(component);
+                var fields = componentFields.GetOrAdd(component.GetType(), type => type.GetFields(BindingFlags.Public | BindingFlags.Instance)
+                    .Where(x => validFieldTypes.Contains(x.FieldType))
+                    .ToList());
+
+                if (fields.Count is 0)
+                    continue;
+
+                componentsBag.TryAdd(component, prefab.name);
                 name ??= component switch
                 {
                     ItemDrop itemDrop => itemDrop.m_itemData.m_shared.m_name,
@@ -457,27 +467,34 @@ public sealed partial class Main : BaseUnityPlugin
                 };
             }
 
-            prefabs.Add((prefab.name, name, string.Join(", ", components
-                .Select(x => (Type: x.GetType().Name, Name: x.name))
-                .OrderBy(x => x.Type).ThenBy(x => x.Name)
-                .Select(x => $"[{x.Type} ({x.Name})](Components/{x.Type}.md#{x.Name.Replace(' ', '-')})"))));
+            var bag = prefabs;
+            if (prefab.name.StartsWith("fx_"))
+                bag = prefabsFx;
+            else if (prefab.name.StartsWith("sfx_"))
+                bag = prefabsSfx;
+            else if (prefab.name.StartsWith("vfx_"))
+                bag = prefabsVfx;
+
+            // markdown link: ' ' -> '-', remove non-alphanumeric characters
+            bag.Add((prefab.name, name, string.Join(", ", components
+                    .Select(x => (Type: x.GetType().Name, Name: x.name))
+                    .OrderBy(x => x.Type).ThenBy(x => x.Name)
+                    .Select(x => $"[{x.Type} ({x.Name})](Components/{x.Type}.md#{prefab.name.ToLowerInvariant().Replace(' ', '-')}-{x.Name.ToLowerInvariant().Replace(' ', '-')})"))));
         });
 
-        HashSet<Type> validFieldTypes = [typeof(int), typeof(float), typeof(bool), typeof(Vector3), typeof(string), typeof(GameObject), typeof(ItemDrop)];
-        Parallel.ForEach(componentsBag.GroupBy(x => x.GetType()), group =>
+        Parallel.ForEach(componentsBag.GroupBy(x => x.Key.GetType()), group =>
         {
             var componentType = group.Key;
-
-            var fields = componentType.GetFields(BindingFlags.Public | BindingFlags.Instance)
-                .Where(x => validFieldTypes.Contains(x.FieldType))
-                .ToList();
+            var fields = componentFields[componentType];
 
             using var writer = new StreamWriter(Path.Combine(docsComponentsPath, $"{componentType.Name}.md"), false, new UTF8Encoding(false));
             writer.WriteLine($"# {componentType.Name}");
             writer.WriteLine();
-            foreach (var component in group.OrderBy(x => x.name))
+            writer.WriteLine("The following section headers are in the format `Prefab.name: Component.name`.");
+            writer.WriteLine();
+            foreach (var (component, header) in group.Select(x => (x.Key, $"## {x.Value}: {x.Key.name}")).OrderBy(x => x.Item2))
             {
-                writer.WriteLine($"## {component.name}");
+                writer.WriteLine(header);
                 writer.WriteLine();
                 writer.WriteLine("|Field|Type|Default Value|");
                 writer.WriteLine("|-----|----|-------------|");
@@ -492,8 +509,14 @@ public sealed partial class Main : BaseUnityPlugin
             }
         });
 
+        WritePrefabsFile(docsPath, "Prefabs.md", prefabs);
+        WritePrefabsFile(docsPath, "PrefabsFX.md", prefabsFx);
+        WritePrefabsFile(docsPath, "PrefabsSFX.md", prefabsSfx);
+        WritePrefabsFile(docsPath, "PrefabsVFX.md", prefabsVfx);
+
+        static void WritePrefabsFile(string path, string filename, IEnumerable<(string Prefab, string? Name, string Components)> prefabs)
         {
-            using var writer = new StreamWriter($"{docsPrefabsPath}.md", false, new UTF8Encoding(false));
+            using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
             writer.WriteLine("# Prefabs");
             writer.WriteLine();
             writer.WriteLine("|Prefab|Components|");
