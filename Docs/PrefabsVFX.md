@@ -107,7 +107,7 @@
 |vfx_crossbow_lightning_fire|[TimedDestruction (vfx_crossbow_lightning_fire)](Components/TimedDestruction.md#vfx_crossbow_lightning_fire-vfx_crossbow_lightning_fire)|
 |vfx_crossbow_nature_fire|[TimedDestruction (vfx_crossbow_nature_fire)](Components/TimedDestruction.md#vfx_crossbow_nature_fire-vfx_crossbow_nature_fire)|
 |vfx_crow_death|[TimedDestruction (vfx_crow_death)](Components/TimedDestruction.md#vfx_crow_death-vfx_crow_death)|
-|vfx_crypt_skeleton_chest_destroyed|[Gibber (vfx_crypt_skeleton_chest_destroyed)](Components/Gibber.md#vfx_crypt_skeleton_chest_destroyed-vfx_crypt_skeleton_chest_destroyed), [MaterialVariationWorld (vfx_crypt_skeleton_chest_destroyed)](Components/MaterialVariationWorld.md#vfx_crypt_skeleton_chest_destroyed-vfx_crypt_skeleton_chest_destroyed)|
+|vfx_crypt_skeleton_chest_destroyed|[Gibber (vfx_crypt_skeleton_chest_destroyed)](Components/Gibber.md#vfx_crypt_skeleton_chest_destroyed-vfx_crypt_skeleton_chest_destroyed)|
 |vfx_damaged_cart|[TimedDestruction (vfx_damaged_cart)](Components/TimedDestruction.md#vfx_damaged_cart-vfx_damaged_cart)|
 |vfx_Damaged_Karve|[TimedDestruction (vfx_Damaged_Karve)](Components/TimedDestruction.md#vfx_damaged_karve-vfx_damaged_karve)|
 |vfx_Damaged_Raft|[TimedDestruction (vfx_Damaged_Raft)](Components/TimedDestruction.md#vfx_damaged_raft-vfx_damaged_raft)|
@@ -329,8 +329,8 @@
 |vfx_serpent_attack_trigger|[TimedDestruction (vfx_serpent_attack_trigger)](Components/TimedDestruction.md#vfx_serpent_attack_trigger-vfx_serpent_attack_trigger)|
 |vfx_serpent_death|[ParticleDecal (vfx_BloodHit 1)](Components/ParticleDecal.md#vfx_serpent_death-vfx_bloodhit-1), [TimedDestruction (vfx_serpent_death)](Components/TimedDestruction.md#vfx_serpent_death-vfx_serpent_death)|
 |vfx_serpent_hurt|[ParticleDecal (bloodchunks)](Components/ParticleDecal.md#vfx_serpent_hurt-bloodchunks), [TimedDestruction (vfx_serpent_hurt)](Components/TimedDestruction.md#vfx_serpent_hurt-vfx_serpent_hurt)|
-|vfx_shieldgenerator_refuel|[ShieldDomeParticleColor (vfx_shieldgenerator_refuel)](Components/ShieldDomeParticleColor.md#vfx_shieldgenerator_refuel-vfx_shieldgenerator_refuel), [TimedDestruction (vfx_shieldgenerator_refuel)](Components/TimedDestruction.md#vfx_shieldgenerator_refuel-vfx_shieldgenerator_refuel)|
-|vfx_shieldgenerator_startup|[ShieldDomeParticleColor (vfx_shieldgenerator_startup)](Components/ShieldDomeParticleColor.md#vfx_shieldgenerator_startup-vfx_shieldgenerator_startup), [TimedDestruction (vfx_shieldgenerator_startup)](Components/TimedDestruction.md#vfx_shieldgenerator_startup-vfx_shieldgenerator_startup)|
+|vfx_shieldgenerator_refuel|[TimedDestruction (vfx_shieldgenerator_refuel)](Components/TimedDestruction.md#vfx_shieldgenerator_refuel-vfx_shieldgenerator_refuel)|
+|vfx_shieldgenerator_startup|[TimedDestruction (vfx_shieldgenerator_startup)](Components/TimedDestruction.md#vfx_shieldgenerator_startup-vfx_shieldgenerator_startup)|
 |vfx_shrub_2_destroyed|[TimedDestruction (vfx_shrub_2_destroyed)](Components/TimedDestruction.md#vfx_shrub_2_destroyed-vfx_shrub_2_destroyed)|
 |vfx_shrub_2_heath_destroyed|[TimedDestruction (vfx_shrub_2_heath_destroyed)](Components/TimedDestruction.md#vfx_shrub_2_heath_destroyed-vfx_shrub_2_heath_destroyed)|
 |vfx_shrub_2_hit|[TimedDestruction (vfx_shrub_2_hit)](Components/TimedDestruction.md#vfx_shrub_2_hit-vfx_shrub_2_hit)|

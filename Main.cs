@@ -450,14 +450,18 @@ public sealed partial class Main : BaseUnityPlugin
 
             string? name = null;
 
-            foreach (var component in components)
+            for (int i = components.Count - 1; i >= 0; i--)
             {
+                var component = components[i];
                 var fields = componentFields.GetOrAdd(component.GetType(), type => type.GetFields(BindingFlags.Public | BindingFlags.Instance)
                     .Where(x => validFieldTypes.Contains(x.FieldType))
                     .ToList());
 
                 if (fields.Count is 0)
+                {
+                    components.RemoveAt(i);
                     continue;
+                }
 
                 componentsBag.TryAdd(component, prefab.name);
                 name ??= component switch
