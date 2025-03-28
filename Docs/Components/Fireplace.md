@@ -20,9 +20,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
 |m_fireworksMaxRandomAngle|System.Single|15|
@@ -32,7 +32,7 @@
 |m_igniteCapsuleRadius|System.Single|0|
 |m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_firePrefab|UnityEngine.GameObject||
+|m_firePrefab|UnityEngine.GameObject|*null*|
 
 ## bonfire
 
@@ -54,9 +54,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
 |m_fireworksMaxRandomAngle|System.Single|15|
@@ -85,7 +85,7 @@
 |m_canTurnOff|System.Boolean|True|
 |m_canRefill|System.Boolean|False|
 |m_lowWetOverHalf|System.Boolean|False|
-|m_enabledObject|UnityEngine.GameObject||
+|m_enabledObject|UnityEngine.GameObject|*null*|
 |m_enabledObjectLow|UnityEngine.GameObject|low|
 |m_enabledObjectHigh|UnityEngine.GameObject|high|
 |m_fullObject|UnityEngine.GameObject|full|
@@ -120,12 +120,12 @@
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
-|m_enabledObjectLow|UnityEngine.GameObject||
-|m_enabledObjectHigh|UnityEngine.GameObject||
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
-|m_playerBaseObject|UnityEngine.GameObject||
+|m_enabledObjectLow|UnityEngine.GameObject|*null*|
+|m_enabledObjectHigh|UnityEngine.GameObject|*null*|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
+|m_playerBaseObject|UnityEngine.GameObject|*null*|
 |m_fuelItem|ItemDrop|Resin|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|0|
@@ -134,7 +134,7 @@
 |m_igniteCapsuleRadius|System.Single|0|
 |m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_firePrefab|UnityEngine.GameObject||
+|m_firePrefab|UnityEngine.GameObject|*null*|
 
 ## fire_pit
 
@@ -156,9 +156,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
 |m_fireworksMaxRandomAngle|System.Single|15|
@@ -190,9 +190,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
 |m_fireworksMaxRandomAngle|System.Single|15|
@@ -202,7 +202,7 @@
 |m_igniteCapsuleRadius|System.Single|0|
 |m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_firePrefab|UnityEngine.GameObject||
+|m_firePrefab|UnityEngine.GameObject|*null*|
 
 ## fire_pit_hildir
 
@@ -224,9 +224,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
 |m_fireworksMaxRandomAngle|System.Single|15|
@@ -236,7 +236,7 @@
 |m_igniteCapsuleRadius|System.Single|0|
 |m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_firePrefab|UnityEngine.GameObject||
+|m_firePrefab|UnityEngine.GameObject|*null*|
 
 ## fire_pit_iron
 
@@ -258,9 +258,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
 |m_fireworksMaxRandomAngle|System.Single|15|
@@ -292,9 +292,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -326,9 +326,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Coal|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -360,9 +360,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Coal|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -394,9 +394,9 @@
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|GreydwarfEye|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -426,11 +426,11 @@
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
-|m_enabledObjectLow|UnityEngine.GameObject||
-|m_enabledObjectHigh|UnityEngine.GameObject||
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_enabledObjectLow|UnityEngine.GameObject|*null*|
+|m_enabledObjectHigh|UnityEngine.GameObject|*null*|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Resin|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -460,11 +460,11 @@
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
-|m_enabledObjectLow|UnityEngine.GameObject||
-|m_enabledObjectHigh|UnityEngine.GameObject||
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_enabledObjectLow|UnityEngine.GameObject|*null*|
+|m_enabledObjectHigh|UnityEngine.GameObject|*null*|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|GreydwarfEye|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -494,11 +494,11 @@
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
-|m_enabledObjectLow|UnityEngine.GameObject||
-|m_enabledObjectHigh|UnityEngine.GameObject||
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_enabledObjectLow|UnityEngine.GameObject|*null*|
+|m_enabledObjectHigh|UnityEngine.GameObject|*null*|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Guck|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -528,11 +528,11 @@
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
-|m_enabledObjectLow|UnityEngine.GameObject||
-|m_enabledObjectHigh|UnityEngine.GameObject||
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_enabledObjectLow|UnityEngine.GameObject|*null*|
+|m_enabledObjectHigh|UnityEngine.GameObject|*null*|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Resin|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -562,12 +562,12 @@
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
-|m_enabledObjectLow|UnityEngine.GameObject||
-|m_enabledObjectHigh|UnityEngine.GameObject||
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
-|m_playerBaseObject|UnityEngine.GameObject||
+|m_enabledObjectLow|UnityEngine.GameObject|*null*|
+|m_enabledObjectHigh|UnityEngine.GameObject|*null*|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
+|m_playerBaseObject|UnityEngine.GameObject|*null*|
 |m_fuelItem|ItemDrop|Resin|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|0|
@@ -576,7 +576,7 @@
 |m_igniteCapsuleRadius|System.Single|0|
 |m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_firePrefab|UnityEngine.GameObject||
+|m_firePrefab|UnityEngine.GameObject|*null*|
 
 ## piece_walltorch
 
@@ -596,11 +596,11 @@
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
-|m_enabledObjectLow|UnityEngine.GameObject||
-|m_enabledObjectHigh|UnityEngine.GameObject||
-|m_fullObject|UnityEngine.GameObject||
-|m_halfObject|UnityEngine.GameObject||
-|m_emptyObject|UnityEngine.GameObject||
+|m_enabledObjectLow|UnityEngine.GameObject|*null*|
+|m_enabledObjectHigh|UnityEngine.GameObject|*null*|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Resin|
 |m_fireworksMaxRandomAngle|System.Single|5|
@@ -610,5 +610,5 @@
 |m_igniteCapsuleRadius|System.Single|0|
 |m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
-|m_firePrefab|UnityEngine.GameObject||
+|m_firePrefab|UnityEngine.GameObject|*null*|
 

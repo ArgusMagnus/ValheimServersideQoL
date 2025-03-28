@@ -6,7 +6,7 @@
 |-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
-|m_foodItem|ItemDrop||
+|m_foodItem|ItemDrop|*null*|
 
 ## FeastBlackforest
 
@@ -14,7 +14,7 @@
 |-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
-|m_foodItem|ItemDrop||
+|m_foodItem|ItemDrop|*null*|
 
 ## FeastMeadows
 
@@ -22,7 +22,7 @@
 |-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
-|m_foodItem|ItemDrop||
+|m_foodItem|ItemDrop|*null*|
 
 ## FeastMistlands
 
@@ -30,7 +30,7 @@
 |-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
-|m_foodItem|ItemDrop||
+|m_foodItem|ItemDrop|*null*|
 
 ## FeastMountains
 
@@ -38,7 +38,7 @@
 |-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
-|m_foodItem|ItemDrop||
+|m_foodItem|ItemDrop|*null*|
 
 ## FeastOceans
 
@@ -46,7 +46,7 @@
 |-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
-|m_foodItem|ItemDrop||
+|m_foodItem|ItemDrop|*null*|
 
 ## FeastPlains
 
@@ -54,7 +54,7 @@
 |-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
-|m_foodItem|ItemDrop||
+|m_foodItem|ItemDrop|*null*|
 
 ## FeastSwamps
 
@@ -62,5 +62,5 @@
 |-----|----|-------------|
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
-|m_foodItem|ItemDrop||
+|m_foodItem|ItemDrop|*null*|
 

@@ -18,7 +18,7 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_offset|System.Single|0|
-|m_minimumWakeVel|System.Single|2.5|
+|m_minimumWakeVel|System.Single|3|
 |m_speedWakeRoot|UnityEngine.GameObject|SpeedWake|
 |m_wakeSoundRoot|UnityEngine.GameObject|WakeSounds|
 |m_inWaterSoundRoot|UnityEngine.GameObject|InWaterSounds|
@@ -31,7 +31,7 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_offset|System.Single|0|
-|m_minimumWakeVel|System.Single|3|
+|m_minimumWakeVel|System.Single|2.5|
 |m_speedWakeRoot|UnityEngine.GameObject|SpeedWake|
 |m_wakeSoundRoot|UnityEngine.GameObject|WakeSounds|
 |m_inWaterSoundRoot|UnityEngine.GameObject|InWaterSounds|
@@ -63,5 +63,5 @@
 |m_inWaterSoundRoot|UnityEngine.GameObject|InWaterSounds|
 |m_audioFadeDuration|System.Single|2|
 |m_sailFadeDuration|System.Single|1|
-|m_splashEffects|UnityEngine.GameObject||
+|m_splashEffects|UnityEngine.GameObject|*null*|
 

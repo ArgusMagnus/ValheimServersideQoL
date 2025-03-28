@@ -21,7 +21,7 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_hoverText|System.String||
-|m_name|System.String|$piece_eitrrefinery|
+|m_name|System.String|$piece_bathtub|
 |m_holdRepeatInterval|System.Single|0.2|
 
 ## add_fuel
@@ -29,23 +29,7 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_hoverText|System.String||
-|m_name|System.String|$piece_bathtub|
-|m_holdRepeatInterval|System.Single|0.2|
-
-## add_ore
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_hoverText|System.String||
-|m_name|System.String||
-|m_holdRepeatInterval|System.Single|0.2|
-
-## add_ore
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_hoverText|System.String||
-|m_name|System.String|$piece_smelter|
+|m_name|System.String|$piece_eitrrefinery|
 |m_holdRepeatInterval|System.Single|0.2|
 
 ## add_ore
@@ -54,14 +38,6 @@
 |-----|----|-------------|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_charcoalkiln|
-|m_holdRepeatInterval|System.Single|0.2|
-
-## add_ore
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_hoverText|System.String||
-|m_name|System.String||
 |m_holdRepeatInterval|System.Single|0.2|
 
 ## add_ore
@@ -93,7 +69,31 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_hoverText|System.String||
+|m_name|System.String||
+|m_holdRepeatInterval|System.Single|0.2|
+
+## add_ore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hoverText|System.String||
 |m_name|System.String|$piece_blastfurnace|
+|m_holdRepeatInterval|System.Single|0.2|
+
+## add_ore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hoverText|System.String||
+|m_name|System.String|$piece_smelter|
+|m_holdRepeatInterval|System.Single|0.2|
+
+## add_ore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hoverText|System.String||
+|m_name|System.String||
 |m_holdRepeatInterval|System.Single|0.2|
 
 ## add_switch
@@ -109,7 +109,7 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_hoverText|System.String||
-|m_name|System.String|$piece_blastfurnace|
+|m_name|System.String|$piece_smelter|
 |m_holdRepeatInterval|System.Single|0.2|
 
 ## add_wood
@@ -117,7 +117,7 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_hoverText|System.String||
-|m_name|System.String|$piece_smelter|
+|m_name|System.String|$piece_blastfurnace|
 |m_holdRepeatInterval|System.Single|0.2|
 
 ## block back L
@@ -149,6 +149,22 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_hoverText|System.String|Armor stand back shield|
+|m_name|System.String||
+|m_holdRepeatInterval|System.Single|-1|
+
+## block body
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hoverText|System.String|Armor stand body|
+|m_name|System.String||
+|m_holdRepeatInterval|System.Single|-1|
+
+## block body
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hoverText|System.String|Armor stand body|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
 
@@ -157,22 +173,6 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_hoverText|System.String|$piece_armorstand|
-|m_name|System.String||
-|m_holdRepeatInterval|System.Single|-1|
-
-## block body
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_hoverText|System.String|Armor stand body|
-|m_name|System.String||
-|m_holdRepeatInterval|System.Single|-1|
-
-## block body
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_hoverText|System.String|Armor stand body|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
 

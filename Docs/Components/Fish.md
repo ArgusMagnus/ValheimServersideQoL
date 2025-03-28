@@ -25,7 +25,7 @@
 |m_escapeWaitMax|System.Single|5|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -69,7 +69,7 @@
 |m_escapeWaitMax|System.Single|4|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -113,7 +113,7 @@
 |m_escapeWaitMax|System.Single|4|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -157,7 +157,7 @@
 |m_escapeWaitMax|System.Single|4|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -201,7 +201,7 @@
 |m_escapeWaitMax|System.Single|5|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|2|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -245,7 +245,7 @@
 |m_escapeWaitMax|System.Single|5|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|4|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -289,7 +289,7 @@
 |m_escapeWaitMax|System.Single|5|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|4|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -333,7 +333,7 @@
 |m_escapeWaitMax|System.Single|5|
 |m_escapeMaxPerLevel|System.Single|1|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -377,7 +377,7 @@
 |m_escapeWaitMax|System.Single|5|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -421,7 +421,7 @@
 |m_escapeWaitMax|System.Single|5|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -465,7 +465,7 @@
 |m_escapeWaitMax|System.Single|4|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
@@ -509,7 +509,7 @@
 |m_escapeWaitMax|System.Single|4|
 |m_escapeMaxPerLevel|System.Single|1.5|
 |m_baseHookChance|System.Single|0.1|
-|m_pickupItem|UnityEngine.GameObject||
+|m_pickupItem|UnityEngine.GameObject|*null*|
 |m_pickupItemStackSize|System.Int32|1|
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|

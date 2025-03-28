@@ -25,7 +25,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -35,7 +35,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|True|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -58,7 +58,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -87,7 +87,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -97,7 +97,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -120,7 +120,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -149,7 +149,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -159,7 +159,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -182,7 +182,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -211,7 +211,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -221,7 +221,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -244,7 +244,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -273,7 +273,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -283,7 +283,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -306,7 +306,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -335,7 +335,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -397,7 +397,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -407,7 +407,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -459,7 +459,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -521,7 +521,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -531,7 +531,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -554,7 +554,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -583,7 +583,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -593,7 +593,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -616,7 +616,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -645,7 +645,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -655,7 +655,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -678,7 +678,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -707,7 +707,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -717,7 +717,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -740,7 +740,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -769,7 +769,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -779,7 +779,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -802,7 +802,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -831,7 +831,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -841,7 +841,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -864,7 +864,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -893,7 +893,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -903,7 +903,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -926,7 +926,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -955,7 +955,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -965,7 +965,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|True|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -988,7 +988,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1017,7 +1017,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1050,7 +1050,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|True|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1079,7 +1079,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1089,7 +1089,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1141,7 +1141,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1151,7 +1151,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1174,7 +1174,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1203,7 +1203,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1213,7 +1213,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1236,7 +1236,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1265,7 +1265,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1275,7 +1275,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1298,7 +1298,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1327,7 +1327,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1337,7 +1337,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1360,7 +1360,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1389,7 +1389,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1422,7 +1422,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1451,7 +1451,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1461,7 +1461,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1484,7 +1484,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1513,7 +1513,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1546,7 +1546,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1575,7 +1575,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1585,7 +1585,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1608,7 +1608,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1637,7 +1637,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1647,7 +1647,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1670,7 +1670,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1699,7 +1699,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1732,7 +1732,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1761,7 +1761,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1794,7 +1794,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1823,7 +1823,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1856,7 +1856,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1885,7 +1885,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1895,7 +1895,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -1918,7 +1918,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -1947,7 +1947,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -1980,7 +1980,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2009,7 +2009,7 @@
 |m_attachToClosestBone|System.Boolean|True|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|False|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2019,7 +2019,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2042,7 +2042,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2071,7 +2071,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2104,7 +2104,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2133,7 +2133,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2195,7 +2195,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2205,7 +2205,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|True|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2228,7 +2228,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2257,7 +2257,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2267,7 +2267,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2290,7 +2290,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2391,7 +2391,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2443,7 +2443,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2453,7 +2453,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2476,7 +2476,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2505,7 +2505,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2515,7 +2515,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2538,7 +2538,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2567,7 +2567,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2577,7 +2577,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2629,7 +2629,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2639,7 +2639,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2662,7 +2662,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2691,7 +2691,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2753,7 +2753,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2763,7 +2763,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -2786,7 +2786,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -2815,7 +2815,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2877,7 +2877,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -2949,7 +2949,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3011,7 +3011,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3063,7 +3063,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|False|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3073,7 +3073,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3096,7 +3096,7 @@
 |m_rotateVisual|System.Single|200|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3125,7 +3125,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3135,7 +3135,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3158,7 +3158,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3197,7 +3197,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|0.01|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|4|
@@ -3259,7 +3259,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3373,7 +3373,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3383,7 +3383,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|True|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3406,7 +3406,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3435,7 +3435,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3445,7 +3445,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|True|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3468,7 +3468,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3497,7 +3497,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3507,7 +3507,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|True|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3530,7 +3530,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3559,7 +3559,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3569,7 +3569,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|True|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3592,7 +3592,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3621,7 +3621,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3631,7 +3631,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|True|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3654,7 +3654,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3683,7 +3683,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3693,7 +3693,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -3716,7 +3716,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3745,7 +3745,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3778,7 +3778,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3840,7 +3840,7 @@
 |m_rotateVisual|System.Single|500|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3869,7 +3869,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3931,7 +3931,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -3964,7 +3964,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -3993,7 +3993,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|True|
 |m_bounceOnWater|System.Boolean|False|
@@ -4003,7 +4003,7 @@
 |m_minBounceVel|System.Single|1|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|24|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -4055,7 +4055,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4065,7 +4065,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -4088,7 +4088,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -4117,7 +4117,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4150,7 +4150,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -4179,7 +4179,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4189,7 +4189,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -4212,7 +4212,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -4241,7 +4241,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4251,7 +4251,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -4274,7 +4274,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -4303,7 +4303,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4365,7 +4365,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4375,7 +4375,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -4427,7 +4427,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4437,7 +4437,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -4489,7 +4489,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0.3|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4499,7 +4499,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -4522,7 +4522,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -4551,7 +4551,7 @@
 |m_attachToClosestBone|System.Boolean|False|
 |m_attachPenetration|System.Single|0.3|
 |m_attachBoneNearify|System.Single|0.25|
-|m_hideOnHit|UnityEngine.GameObject||
+|m_hideOnHit|UnityEngine.GameObject|*null*|
 |m_stopEmittersOnHit|System.Boolean|True|
 |m_bounce|System.Boolean|False|
 |m_bounceOnWater|System.Boolean|False|
@@ -4561,7 +4561,7 @@
 |m_minBounceVel|System.Single|0.25|
 |m_respawnItemOnHit|System.Boolean|False|
 |m_spawnOnTtl|System.Boolean|False|
-|m_spawnOnHit|UnityEngine.GameObject||
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
 |m_spawnOnHitChance|System.Single|1|
 |m_spawnCount|System.Int32|1|
 |m_randomSpawnOnHitCount|System.Int32|1|
@@ -4584,7 +4584,7 @@
 |m_rotateVisual|System.Single|0|
 |m_rotateVisualY|System.Single|0|
 |m_rotateVisualZ|System.Single|0|
-|m_visual|UnityEngine.GameObject||
+|m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 

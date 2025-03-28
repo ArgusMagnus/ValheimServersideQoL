@@ -100,7 +100,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Wisp|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -124,7 +124,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Grausten|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -148,7 +148,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Barley|
 |m_amount|System.Int32|2|
 |m_minAmountScaled|System.Int32|2|
@@ -172,7 +172,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Barley|
 |m_amount|System.Int32|2|
 |m_minAmountScaled|System.Int32|1|
@@ -220,7 +220,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|IronOre|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -268,7 +268,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Carrot|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -292,7 +292,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Charredskull|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -364,7 +364,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Turnip|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -388,7 +388,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Lantern|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -412,7 +412,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Coins|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -436,7 +436,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Tankard_dvergr|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -484,7 +484,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|FishingRod|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -508,7 +508,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Flax|
 |m_amount|System.Int32|2|
 |m_minAmountScaled|System.Int32|2|
@@ -532,7 +532,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Flax|
 |m_amount|System.Int32|2|
 |m_minAmountScaled|System.Int32|1|
@@ -580,7 +580,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|BoneFragments|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -604,7 +604,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|BoneFragments|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -628,7 +628,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|BoneFragments|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -652,7 +652,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|BoneFragments|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -676,7 +676,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|WolfHairBundle|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -700,7 +700,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|WolfHairBundle|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -724,7 +724,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Entrails|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -748,7 +748,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|IronOre|
 |m_amount|System.Int32|6|
 |m_minAmountScaled|System.Int32|1|
@@ -772,7 +772,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|MoltenCore|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -796,7 +796,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Crystal|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -820,7 +820,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Obsidian|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -844,7 +844,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|BoneFragments|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -916,7 +916,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|MushroomJotunPuffs|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -940,7 +940,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|MushroomMagecap|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -988,7 +988,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Obsidian|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1012,7 +1012,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Onion|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1036,7 +1036,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Pot_Shard_Green|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1084,7 +1084,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|CarrotSeeds|
 |m_amount|System.Int32|3|
 |m_minAmountScaled|System.Int32|1|
@@ -1108,7 +1108,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|OnionSeeds|
 |m_amount|System.Int32|3|
 |m_minAmountScaled|System.Int32|1|
@@ -1132,7 +1132,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|TurnipSeeds|
 |m_amount|System.Int32|3|
 |m_minAmountScaled|System.Int32|1|
@@ -1180,7 +1180,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Stone|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1204,7 +1204,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|SulfurStone|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1252,7 +1252,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|DyrnwynHiltFragment|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1276,7 +1276,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|DyrnwynBladeFragment|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1300,7 +1300,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|DyrnwynTipFragment|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1324,7 +1324,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Tar|
 |m_amount|System.Int32|4|
 |m_minAmountScaled|System.Int32|1|
@@ -1348,7 +1348,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Tar|
 |m_amount|System.Int32|15|
 |m_minAmountScaled|System.Int32|1|
@@ -1396,7 +1396,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|TinOre|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1420,7 +1420,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|Turnip|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
@@ -1444,7 +1444,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_hideWhenPicked|UnityEngine.GameObject||
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|VoltureEgg|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|

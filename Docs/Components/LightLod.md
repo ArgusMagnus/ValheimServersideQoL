@@ -59,6 +59,15 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|20|
 |m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
@@ -81,7 +90,16 @@
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
-## Light
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -96,6 +114,15 @@
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|50|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -105,44 +132,8 @@
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|80|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|15|
 
 ## Point light
 
@@ -167,8 +158,17 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|100|
+|m_lightDistance|System.Single|30|
 |m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
 ## Point light
@@ -186,277 +186,7 @@
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|100|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|100|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|80|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|80|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|80|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|80|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
 ## Point light
@@ -473,98 +203,8 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|5|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|15|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|80|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
 ## Point light
@@ -582,15 +222,6 @@
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|100|
 |m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
@@ -600,78 +231,6 @@
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
 |m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
@@ -681,24 +240,6 @@
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|50|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -707,7 +248,7 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
+|m_lightDistance|System.Single|50|
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
@@ -727,6 +268,393 @@
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|50|
 |m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|15|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|80|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|50|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|80|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|50|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|50|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|50|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|80|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|80|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|50|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|15|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|100|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|5|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|50|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|100|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|100|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|80|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|20|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|100|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
 ## Point light
@@ -752,88 +680,250 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|80|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|10|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|10|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|10|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|10|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|10|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|30|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|15|
+|m_shadowLod|System.Boolean|True|
+|m_shadowDistance|System.Single|20|
+
+## Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|10|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|10|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
 |m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
@@ -851,98 +941,17 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
+|m_lightDistance|System.Single|30|
 |m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
+|m_shadowDistance|System.Single|10|
 
-## Point Light
+## Point light (1)
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|10|
 |m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|False|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|10|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|15|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|10|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|30|
-|m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|10|
-
-## Point Light
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|40|
-|m_shadowLod|System.Boolean|True|
 |m_shadowDistance|System.Single|20|
 
 ## Point light (1)
@@ -970,15 +979,6 @@
 |m_lightLod|System.Boolean|True|
 |m_lightDistance|System.Single|40|
 |m_shadowLod|System.Boolean|True|
-|m_shadowDistance|System.Single|20|
-
-## Point light (1)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_lightLod|System.Boolean|True|
-|m_lightDistance|System.Single|20|
-|m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
 ## Point Light (1)

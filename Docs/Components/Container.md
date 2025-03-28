@@ -9,9 +9,9 @@
 |m_height|System.Int32|2|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|True|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## Chest
 
@@ -22,9 +22,9 @@
 |m_height|System.Int32|3|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## container
 
@@ -37,7 +37,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|open|
 |m_closed|UnityEngine.GameObject|closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## Container
 
@@ -48,8 +48,8 @@
 |m_height|System.Int32|3|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
 
 ## loot_chest_stone
@@ -63,7 +63,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## loot_chest_wood
 
@@ -76,59 +76,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
-
-## piece_chest
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|Storage|
-|m_width|System.Int32|6|
-|m_height|System.Int32|3|
-|m_checkGuardStone|System.Boolean|False|
-|m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject|open|
-|m_closed|UnityEngine.GameObject|closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
-
-## piece_chest
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|Storage|
-|m_width|System.Int32|8|
-|m_height|System.Int32|4|
-|m_checkGuardStone|System.Boolean|False|
-|m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject|open|
-|m_closed|UnityEngine.GameObject|closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
-
-## piece_chest
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|Storage|
-|m_width|System.Int32|2|
-|m_height|System.Int32|2|
-|m_checkGuardStone|System.Boolean|False|
-|m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject|open|
-|m_closed|UnityEngine.GameObject|closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
-
-## piece_chest
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_name|System.String|Storage|
-|m_width|System.Int32|6|
-|m_height|System.Int32|3|
-|m_checkGuardStone|System.Boolean|False|
-|m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject|open|
-|m_closed|UnityEngine.GameObject|closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_chest
 
@@ -141,7 +89,59 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|ironchesttop_open|
 |m_closed|UnityEngine.GameObject|ironchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+
+## piece_chest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|Storage|
+|m_width|System.Int32|6|
+|m_height|System.Int32|3|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|open|
+|m_closed|UnityEngine.GameObject|closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+
+## piece_chest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|Storage|
+|m_width|System.Int32|8|
+|m_height|System.Int32|4|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|open|
+|m_closed|UnityEngine.GameObject|closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+
+## piece_chest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|Storage|
+|m_width|System.Int32|6|
+|m_height|System.Int32|3|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|open|
+|m_closed|UnityEngine.GameObject|closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+
+## piece_chest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|Storage|
+|m_width|System.Int32|2|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|open|
+|m_closed|UnityEngine.GameObject|closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
 
 ## piece_chest_barrel
 
@@ -154,7 +154,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|Open|
 |m_closed|UnityEngine.GameObject|Closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_chest_blackmetal
 
@@ -167,7 +167,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|Open|
 |m_closed|UnityEngine.GameObject|Closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_chest_private
 
@@ -180,7 +180,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|privatechesttop_open|
 |m_closed|UnityEngine.GameObject|privatechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_chest_wood
 
@@ -193,7 +193,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_gift1
 
@@ -204,9 +204,9 @@
 |m_height|System.Int32|1|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_gift2
 
@@ -217,9 +217,9 @@
 |m_height|System.Int32|1|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_gift3
 
@@ -230,9 +230,9 @@
 |m_height|System.Int32|1|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot1
 
@@ -243,9 +243,9 @@
 |m_height|System.Int32|2|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot1_cracked
 
@@ -256,9 +256,9 @@
 |m_height|System.Int32|2|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot1_red
 
@@ -269,9 +269,9 @@
 |m_height|System.Int32|2|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot2
 
@@ -282,9 +282,9 @@
 |m_height|System.Int32|3|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot2_cracked
 
@@ -295,9 +295,9 @@
 |m_height|System.Int32|3|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot2_red
 
@@ -308,9 +308,9 @@
 |m_height|System.Int32|3|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot3
 
@@ -321,9 +321,9 @@
 |m_height|System.Int32|1|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot3_cracked
 
@@ -334,9 +334,9 @@
 |m_height|System.Int32|1|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## piece_pot3_red
 
@@ -347,9 +347,9 @@
 |m_height|System.Int32|1|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## Player_tombstone
 
@@ -360,9 +360,9 @@
 |m_height|System.Int32|4|
 |m_checkGuardStone|System.Boolean|False|
 |m_autoDestroyEmpty|System.Boolean|False|
-|m_open|UnityEngine.GameObject||
-|m_closed|UnityEngine.GameObject||
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## shipwreck_karve_chest
 
@@ -375,7 +375,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## stonechest
 
@@ -388,7 +388,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_ashland_stone
 
@@ -401,7 +401,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_blackforest
 
@@ -414,7 +414,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_charredfortress
 
@@ -427,7 +427,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_dvergr_loose_stone
 
@@ -440,7 +440,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_dvergrtower
 
@@ -453,7 +453,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_dvergrtown
 
@@ -466,7 +466,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_fCrypt
 
@@ -479,7 +479,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_forestcrypt
 
@@ -492,7 +492,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_forestcrypt_hildir
 
@@ -505,7 +505,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_heath
 
@@ -518,7 +518,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_heath_hildir
 
@@ -531,7 +531,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_meadows
 
@@ -544,7 +544,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_meadows_buried
 
@@ -557,7 +557,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_mountaincave
 
@@ -570,7 +570,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_mountaincave_hildir
 
@@ -583,7 +583,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_mountains
 
@@ -596,7 +596,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_plains_stone
 
@@ -609,7 +609,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_plainsfortress_hildir
 
@@ -622,7 +622,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_sunkencrypt
 
@@ -635,7 +635,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_swamp
 
@@ -648,7 +648,7 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_trollcave
 
@@ -661,5 +661,5 @@
 |m_autoDestroyEmpty|System.Boolean|False|
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 

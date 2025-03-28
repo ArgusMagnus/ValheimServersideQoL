@@ -6,7 +6,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_abomination|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -65,7 +65,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_asksvin|
 |m_group|System.String|asksvin|
 |m_boss|System.Boolean|False|
@@ -124,7 +124,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_asksvin_hatchling|
 |m_group|System.String|asksvin|
 |m_boss|System.Boolean|False|
@@ -183,7 +183,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_bat|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -242,7 +242,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_blob|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -301,7 +301,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_blobelite|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -360,7 +360,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_bloblava|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -419,7 +419,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_blobtar|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -478,7 +478,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_boar|
 |m_group|System.String|boar|
 |m_boss|System.Boolean|False|
@@ -537,7 +537,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_boarpiggy|
 |m_group|System.String|boar|
 |m_boss|System.Boolean|False|
@@ -596,7 +596,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_kvastur|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -655,7 +655,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_bonemass|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -714,7 +714,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_bonemawserpent|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -773,7 +773,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_archer|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -832,7 +832,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_melee_Fader|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -891,7 +891,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_mage|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -950,7 +950,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_melee|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1009,7 +1009,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_melee_Dyrnwyn|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1068,7 +1068,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_melee_Fader|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1127,7 +1127,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_twitcher|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1186,7 +1186,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_twitcher_summoned|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1245,7 +1245,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_chicken|
 |m_group|System.String|chicken|
 |m_boss|System.Boolean|False|
@@ -1304,7 +1304,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_deathsquito|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1363,7 +1363,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dragon|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -1422,7 +1422,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_draugr|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1481,7 +1481,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_draugrelite|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1540,7 +1540,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_draugr|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1599,7 +1599,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1658,7 +1658,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1717,7 +1717,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr_mage|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1776,7 +1776,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr_mage|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1835,7 +1835,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr_mage|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1894,7 +1894,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr_mage|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -1953,7 +1953,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dverger|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2012,7 +2012,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_eikthyr|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -2071,7 +2071,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fader|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -2130,7 +2130,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fallenvalkyrie|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2189,7 +2189,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fenring|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2248,7 +2248,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fenringcultist|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2307,7 +2307,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fenringcultist_hildir|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2366,7 +2366,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fenringcultist_hildir|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2425,7 +2425,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_gdking|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -2484,7 +2484,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_ghost|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2543,7 +2543,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_gjall|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2602,7 +2602,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblin|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2661,7 +2661,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblin|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2720,7 +2720,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinbrute|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2779,7 +2779,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinbrute_hildir|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2838,7 +2838,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinbrute_hildircombined|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2897,7 +2897,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinbrute_hildircombined|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -2956,7 +2956,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinking|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -3015,7 +3015,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinshaman|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3074,7 +3074,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblin_hildir|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3133,7 +3133,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblin_hildir|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3192,7 +3192,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_greydwarf|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3251,7 +3251,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_greydwarfbrute|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3310,7 +3310,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_greydwarfshaman|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3369,7 +3369,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_greyling|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3428,7 +3428,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_drake|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3487,7 +3487,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_hen|
 |m_group|System.String|chicken|
 |m_boss|System.Boolean|False|
@@ -3546,7 +3546,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_hive|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -3605,7 +3605,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_leech|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3664,7 +3664,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_leech|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3723,7 +3723,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_lox|
 |m_group|System.String|lox|
 |m_boss|System.Boolean|False|
@@ -3782,7 +3782,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_loxcalf|
 |m_group|System.String|lox|
 |m_boss|System.Boolean|False|
@@ -3841,7 +3841,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_mistile|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3900,7 +3900,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_morgen|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -3959,7 +3959,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_morgen|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4018,7 +4018,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_neck|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4077,7 +4077,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_seeker|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4136,7 +4136,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_babyseeker|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4195,7 +4195,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_seekerbrute|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4254,7 +4254,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_seekerqueen|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -4313,7 +4313,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_serpent|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4372,7 +4372,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeleton|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4431,7 +4431,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeleton_summoned|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4490,7 +4490,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeletonfire|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4549,7 +4549,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeletonfire|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4608,7 +4608,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeleton|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4667,7 +4667,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeletonpoison|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4726,7 +4726,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_summonedroot|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4785,7 +4785,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_stonegolem|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4844,7 +4844,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_surtling|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4903,7 +4903,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|Root|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -4962,7 +4962,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_thehive|
 |m_group|System.String||
 |m_boss|System.Boolean|True|
@@ -5021,7 +5021,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_tick|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -5080,7 +5080,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|TrainingDummy|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -5139,7 +5139,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_troll|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -5198,7 +5198,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_summonedtroll|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -5257,7 +5257,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_ulv|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -5316,7 +5316,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_volture|
 |m_group|System.String||
 |m_boss|System.Boolean|False|
@@ -5375,7 +5375,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_wolf|
 |m_group|System.String|wolf|
 |m_boss|System.Boolean|False|
@@ -5434,7 +5434,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_wolfcub|
 |m_group|System.String|wolf|
 |m_boss|System.Boolean|False|
@@ -5493,7 +5493,7 @@
 |-----|----|-------------|
 |m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
-|m_unarmedWeapon|ItemDrop||
+|m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_wraith|
 |m_group|System.String||
 |m_boss|System.Boolean|False|

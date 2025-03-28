@@ -72,7 +72,7 @@
 |m_sailObject|UnityEngine.GameObject|Sail|
 |m_mastObject|UnityEngine.GameObject|Mast|
 |m_rudderObject|UnityEngine.GameObject|rudder (1)|
-|m_ashdamageEffects|UnityEngine.GameObject||
+|m_ashdamageEffects|UnityEngine.GameObject|*null*|
 |m_waterLevelOffset|System.Single|1.7|
 |m_forceDistance|System.Single|2|
 |m_force|System.Single|0.5|
@@ -136,7 +136,7 @@
 |m_sailObject|UnityEngine.GameObject|Sail|
 |m_mastObject|UnityEngine.GameObject|Mast|
 |m_rudderObject|UnityEngine.GameObject|rudder|
-|m_ashdamageEffects|UnityEngine.GameObject||
+|m_ashdamageEffects|UnityEngine.GameObject|*null*|
 |m_waterLevelOffset|System.Single|2.1|
 |m_forceDistance|System.Single|3|
 |m_force|System.Single|1|

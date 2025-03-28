@@ -138,7 +138,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|366047287|
+|m_hash|System.Int32|-1709386197|
 
 ## Audio Source (1)
 
@@ -166,7 +166,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1709386197|
+|m_hash|System.Int32|366047287|
 
 ## Creak
 
@@ -530,7 +530,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|446519181|
+|m_hash|System.Int32|-1141932926|
 
 ## fx_gjall_taunt
 
@@ -558,7 +558,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1141932926|
+|m_hash|System.Int32|446519181|
 
 ## fx_goblinking_hit
 
@@ -642,7 +642,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1175726774|
+|m_hash|System.Int32|515190100|
 
 ## GameObject
 
@@ -670,7 +670,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|515190100|
+|m_hash|System.Int32|-1175726774|
 
 ## iceball
 
@@ -767,6 +767,34 @@
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0.2|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-372254122|
+
+## scifisound
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.85|
 |m_maxVol|System.Single|1.4|
 |m_minVol|System.Single|1.2|
@@ -784,7 +812,63 @@
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-593752732|
 
-## scifisound
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.3|
+|m_minPitch|System.Single|1.2|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1581436673|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.9|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1242271322|
+
+## sfx
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -796,8 +880,8 @@
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.7|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -806,11 +890,11 @@
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
 |m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0.2|
+|m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-372254122|
+|m_hash|System.Int32|-1865864975|
 
 ## sfx
 
@@ -866,35 +950,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|139412511|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|879621895|
+|m_hash|System.Int32|736958345|
 
 ## sfx
 
@@ -907,7 +963,7 @@
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.95|
+|m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
@@ -922,91 +978,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2056305861|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1482856841|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.9|
-|m_minVol|System.Single|0.9|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|209726272|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String|$piece_candle|
-|m_secondaryCaptionToken|System.String|$caption_extinguish|
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.12|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1669142365|
+|m_hash|System.Int32|-1852866935|
 
 ## sfx
 
@@ -1022,34 +994,6 @@
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.8|
 |m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|1|
-|m_fadeOutDuration|System.Single|0.5|
-|m_fadeOutDelay|System.Single|2.9|
-|m_fadeOutOnAwake|System.Boolean|True|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|697563483|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -1062,91 +1006,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1136537376|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.9|
-|m_minVol|System.Single|0.9|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0.5|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|True|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1413736147|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1732087398|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.85|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-231629478|
+|m_hash|System.Int32|-864562839|
 
 ## sfx
 
@@ -1187,62 +1047,6 @@
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-2102286842|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.9|
-|m_minVol|System.Single|0.9|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-684035187|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
@@ -1258,7 +1062,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|933372644|
+|m_hash|System.Int32|1353403238|
 
 ## sfx
 
@@ -1270,10 +1074,10 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.9|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -1286,7 +1090,63 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1672035775|
+|m_hash|System.Int32|-189455566|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1090572286|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1482856841|
 
 ## sfx
 
@@ -1313,36 +1173,8 @@
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|40|
-|m_hash|System.Int32|1349223446|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.9|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1629254355|
+|m_hash|System.Int32|1008964837|
 
 ## sfx
 
@@ -1398,7 +1230,147 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-2059401350|
+|m_hash|System.Int32|-1482506592|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-111093931|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|879621895|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-963627344|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-780565009|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$piece_candle|
+|m_secondaryCaptionToken|System.String|$caption_refueled|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.5|
+|m_minPitch|System.Single|1.6|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1878711425|
 
 ## sfx
 
@@ -1411,7 +1383,147 @@
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.85|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|95934580|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|1|
+|m_minDelay|System.Single|1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1210960787|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1040380291|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.9|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-684035187|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.8|
+|m_minVol|System.Single|1.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1819115372|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.8|
+|m_minPitch|System.Single|0.6|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|0.8|
 |m_fadeInDuration|System.Single|0|
@@ -1426,7 +1538,175 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-959542431|
+|m_hash|System.Int32|493505808|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1125874010|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|139412511|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$piece_candle|
+|m_secondaryCaptionToken|System.String|$caption_extinguish|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.12|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1669142365|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1136537376|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|1|
+|m_fadeOutDuration|System.Single|0.5|
+|m_fadeOutDelay|System.Single|2.9|
+|m_fadeOutOnAwake|System.Boolean|True|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|697563483|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-958919317|
 
 ## sfx
 
@@ -1467,6 +1747,482 @@
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-231629478|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.9|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0.5|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|True|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1413736147|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-2008102564|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$piece_candle|
+|m_secondaryCaptionToken|System.String|$caption_lit|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.12|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1878711425|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1050842227|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1679959319|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|40|
+|m_hash|System.Int32|1129299213|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-380323485|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1732087398|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-2102286842|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|933372644|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1288909907|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-2039209986|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1008964837|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|40|
+|m_hash|System.Int32|1349223446|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.9|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|209726272|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.9|
+|m_minPitch|System.Single|1.1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1221803355|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
@@ -1494,10 +2250,10 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
+|m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -1510,7 +2266,91 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-58954867|
+|m_hash|System.Int32|-969444697|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|271325787|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-958812875|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1095623265|
 
 ## sfx
 
@@ -1566,7 +2406,287 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-958812875|
+|m_hash|System.Int32|-99430148|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.9|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1629254355|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.8|
+|m_minPitch|System.Single|0.6|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-2059401350|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.9|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1672035775|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|2056305861|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1966136996|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-58954867|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.3|
+|m_minPitch|System.Single|1.2|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|694215168|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-959542431|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.3|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1662744049|
+
+## sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.4|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1786854220|
 
 ## sfx
 
@@ -1634,371 +2754,7 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1966136996|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String|$piece_candle|
-|m_secondaryCaptionToken|System.String|$caption_refueled|
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.5|
-|m_minPitch|System.Single|1.6|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1878711425|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String|$piece_candle|
-|m_secondaryCaptionToken|System.String|$caption_lit|
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.12|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1878711425|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|1|
-|m_minDelay|System.Single|1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1210960787|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.3|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.4|
-|m_minVol|System.Single|0.2|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1552169052|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-958919317|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1852866935|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-2039209986|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1095623265|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.7|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|95934580|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1040380291|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1090572286|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.95|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-780565009|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.9|
+|m_maxPitch|System.Single|1.2|
 |m_minPitch|System.Single|1.1|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
@@ -2014,63 +2770,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1221803355|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|1|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1.8|
-|m_minVol|System.Single|1.6|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1819115372|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|271325787|
+|m_hash|System.Int32|-1072881022|
 
 ## sfx
 
@@ -2110,262 +2810,10 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-864562839|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.95|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-111093931|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-189455566|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-2008102564|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-963627344|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-969444697|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-380323485|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.9|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1242271322|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-99430148|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.3|
 |m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.2|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -2378,623 +2826,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1662744049|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1125874010|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1679959319|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1008964837|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.3|
-|m_minPitch|System.Single|1.2|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1581436673|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.85|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1288909907|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1353403238|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|40|
-|m_hash|System.Int32|1129299213|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.8|
-|m_minPitch|System.Single|0.6|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|493505808|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.8|
-|m_minPitch|System.Single|0.6|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1482506592|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|736958345|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.3|
-|m_minPitch|System.Single|1.2|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|694215168|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.85|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1050842227|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1008964837|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.4|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1786854220|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1865864975|
-
-## sfx
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.2|
-|m_minPitch|System.Single|1.1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1072881022|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|1|
-|m_fadeOutDelay|System.Single|0.5|
-|m_fadeOutOnAwake|System.Boolean|True|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1008000083|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1345614794|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0.9|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|43422213|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.7|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1615524309|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|1|
-|m_fadeOutDelay|System.Single|0.5|
-|m_fadeOutOnAwake|System.Boolean|True|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-426287674|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1401817141|
+|m_hash|System.Int32|1552169052|
 
 ## SFX
 
@@ -3034,400 +2866,8 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-646712673|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-898097404|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.9|
-|m_minPitch|System.Single|1.1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-2074207832|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.2|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2046566964|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.7|
-|m_minPitch|System.Single|0.6|
-|m_maxVol|System.Single|0.15|
-|m_minVol|System.Single|0.1|
-|m_fadeInDuration|System.Single|0.1|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2124986190|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|109997858|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.9|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1768793506|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.7|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1418173715|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.4|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|1|
-|m_fadeOutDuration|System.Single|2|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1629322358|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.7|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|681198179|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.7|
-|m_minPitch|System.Single|0.6|
-|m_maxVol|System.Single|0.15|
-|m_minVol|System.Single|0.1|
-|m_fadeInDuration|System.Single|0.1|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-350020457|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.3|
-|m_minPitch|System.Single|1.2|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|722731779|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1974212346|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0.15|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1696846279|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.2|
-|m_minPitch|System.Single|1.1|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
@@ -3442,91 +2882,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1795851206|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.3|
-|m_minDelay|System.Single|0.3|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|152554827|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1017210284|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.7|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|566740269|
+|m_hash|System.Int32|-1401817141|
 
 ## SFX
 
@@ -3566,23 +2922,23 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
+|m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0.5|
-|m_fadeOutDelay|System.Single|1.8|
-|m_fadeOutOnAwake|System.Boolean|True|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
+|m_maxDelay|System.Single|0.3|
+|m_minDelay|System.Single|0.3|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|300944766|
+|m_hash|System.Int32|795098505|
 
 ## SFX
 
@@ -3594,10 +2950,10 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.2|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
+|m_maxPitch|System.Single|1.3|
+|m_minPitch|System.Single|1.2|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -3610,7 +2966,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1582487236|
+|m_hash|System.Int32|-1211009476|
 
 ## SFX
 
@@ -3639,34 +2995,6 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|566740269|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-73716780|
 
 ## SFX
 
@@ -3734,6 +3062,174 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1345614794|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-646712673|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.9|
+|m_minPitch|System.Single|1.1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-2074207832|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-9746747|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1418173715|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.9|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1768793506|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|0.8|
 |m_minPitch|System.Single|0.8|
 |m_maxVol|System.Single|1|
@@ -3762,94 +3258,10 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.3|
-|m_minDelay|System.Single|0.3|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1724586323|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.15|
-|m_minDelay|System.Single|0.1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2126856165|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.7|
-|m_minPitch|System.Single|0.6|
-|m_maxVol|System.Single|0.15|
-|m_minVol|System.Single|0.1|
-|m_fadeInDuration|System.Single|0.1|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-894077021|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
+|m_maxPitch|System.Single|1.3|
+|m_minPitch|System.Single|1.2|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -3862,7 +3274,35 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|78269307|
+|m_hash|System.Int32|722731779|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0.15|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1696846279|
 
 ## SFX
 
@@ -3875,9 +3315,9 @@
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.6|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -3890,35 +3330,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1487952048|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.3|
-|m_minDelay|System.Single|0.3|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1320810244|
+|m_hash|System.Int32|-1974212346|
 
 ## SFX
 
@@ -3960,36 +3372,8 @@
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.3|
-|m_minDelay|System.Single|0.3|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1453264935|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.2|
-|m_minPitch|System.Single|1.1|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.7|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -4002,7 +3386,35 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-56528395|
+|m_hash|System.Int32|-898097404|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0.9|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|43422213|
 
 ## SFX
 
@@ -4015,9 +3427,9 @@
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.7|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -4030,7 +3442,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1586468556|
+|m_hash|System.Int32|1441564474|
 
 ## SFX
 
@@ -4059,90 +3471,6 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|487475079|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.3|
-|m_minPitch|System.Single|1.2|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.5|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1211009476|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1524663924|
-
-## SFX
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1532844329|
 
 ## SFX
 
@@ -4210,6 +3538,258 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.7|
+|m_minPitch|System.Single|0.6|
+|m_maxVol|System.Single|0.15|
+|m_minVol|System.Single|0.1|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|2124986190|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.3|
+|m_minDelay|System.Single|0.3|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1724586323|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|109997858|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.7|
+|m_minPitch|System.Single|0.6|
+|m_maxVol|System.Single|0.15|
+|m_minVol|System.Single|0.1|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-894077021|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.15|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|2126856165|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|1.1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-56528395|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.3|
+|m_minDelay|System.Single|0.3|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1320810244|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-64744723|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.3|
+|m_minDelay|System.Single|0.3|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1453264935|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -4226,7 +3806,63 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-9746747|
+|m_hash|System.Int32|-1532844329|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.3|
+|m_minDelay|System.Single|0.3|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|152554827|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|681198179|
 
 ## SFX
 
@@ -4254,7 +3890,119 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1416617399|
+|m_hash|System.Int32|1017210284|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|1.1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1795851206|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-73716780|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-705164796|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1582487236|
 
 ## SFX
 
@@ -4299,6 +4047,62 @@
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|1|
+|m_fadeOutDelay|System.Single|0.5|
+|m_fadeOutOnAwake|System.Boolean|True|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-426287674|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|1|
+|m_fadeOutDelay|System.Single|0.5|
+|m_fadeOutOnAwake|System.Boolean|True|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1008000083|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
 |m_fadeOutOnAwake|System.Boolean|False|
@@ -4310,7 +4114,63 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-705164796|
+|m_hash|System.Int32|-1586468556|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0.5|
+|m_fadeOutDelay|System.Single|1.8|
+|m_fadeOutOnAwake|System.Boolean|True|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|300944766|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1487952048|
 
 ## SFX
 
@@ -4324,8 +4184,8 @@
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|1|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.7|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -4338,7 +4198,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1441564474|
+|m_hash|System.Int32|566740269|
 
 ## SFX
 
@@ -4350,8 +4210,8 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.8|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
@@ -4361,12 +4221,12 @@
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.3|
-|m_minDelay|System.Single|0.3|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|795098505|
+|m_hash|System.Int32|2046566964|
 
 ## SFX
 
@@ -4406,6 +4266,34 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|1|
+|m_fadeOutDuration|System.Single|2|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1629322358|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|0.4|
@@ -4434,8 +4322,64 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|78269307|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.7|
+|m_minPitch|System.Single|0.6|
+|m_maxVol|System.Single|0.15|
+|m_minVol|System.Single|0.1|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-350020457|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
+|m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
 |m_minVol|System.Single|0.7|
 |m_fadeInDuration|System.Single|0|
@@ -4450,37 +4394,9 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-64744723|
+|m_hash|System.Int32|1615524309|
 
-## sfx (1)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1464339505|
-
-## sfx (1)
+## SFX
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4506,7 +4422,35 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1673726838|
+|m_hash|System.Int32|-1416617399|
+
+## SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1524663924|
 
 ## sfx (1)
 
@@ -4574,6 +4518,62 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1673726838|
+
+## sfx (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1464339505|
+
+## sfx (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -4613,12 +4613,12 @@
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
+|m_maxDelay|System.Single|0.15|
+|m_minDelay|System.Single|0.15|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1438827396|
+|m_hash|System.Int32|-1731706305|
 
 ## SFX (1)
 
@@ -4641,12 +4641,12 @@
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.15|
-|m_minDelay|System.Single|0.15|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1731706305|
+|m_hash|System.Int32|-1438827396|
 
 ## SFX (2)
 
@@ -4730,7 +4730,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-596521778|
+|m_hash|System.Int32|-1298481359|
 
 ## sfx explosion
 
@@ -4765,6 +4765,34 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|6|
+|m_minDelay|System.Single|6|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-596521778|
+
+## sfx explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$caption_firework_explode|
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
@@ -4787,62 +4815,6 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-162637050|
-
-## sfx explosion
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|6|
-|m_minDelay|System.Single|6|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1298481359|
-
-## sfx launch
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-414966787|
 
 ## sfx launch
 
@@ -4871,6 +4843,34 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-1732281302|
+
+## sfx launch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-414966787|
 
 ## sfx launch
 
@@ -5005,12 +5005,12 @@
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|1.5|
-|m_minDelay|System.Single|1.5|
+|m_maxDelay|System.Single|1.2|
+|m_minDelay|System.Single|1.2|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|718593356|
+|m_hash|System.Int32|-904874209|
 
 ## sfx_1
 
@@ -5033,12 +5033,12 @@
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|1.2|
-|m_minDelay|System.Single|1.2|
+|m_maxDelay|System.Single|1.5|
+|m_minDelay|System.Single|1.5|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-904874209|
+|m_hash|System.Int32|718593356|
 
 ## sfx_2
 
@@ -7425,34 +7425,6 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String|$item_hammer|
-|m_secondaryCaptionToken|System.String|$caption_building|
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.9|
-|m_minVol|System.Single|0.9|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-761714396|
-
-## sfx_build_hammer_metal
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
@@ -7503,6 +7475,34 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-215848851|
+
+## sfx_build_hammer_metal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$item_hammer|
+|m_secondaryCaptionToken|System.String|$caption_building|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.9|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-761714396|
 
 ## sfx_build_hammer_stone
 
@@ -8398,7 +8398,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1743477326|
+|m_hash|System.Int32|2106158912|
 
 ## sfx_charred_spawner_loop
 
@@ -8426,7 +8426,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2106158912|
+|m_hash|System.Int32|1743477326|
 
 ## sfx_charred_twitcher_alert
 
@@ -10701,6 +10701,202 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1393165961|
+
+## sfx_eat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1393165961|
+
+## sfx_eat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1393165961|
+
+## sfx_eat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1393165961|
+
+## sfx_eat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1393165961|
+
+## sfx_eat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1393165961|
+
+## sfx_eat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1393165961|
+
+## sfx_eat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$caption_player|
 |m_secondaryCaptionToken|System.String|$caption_eating|
 |m_minimumCaptionVolume|System.Single|0.3|
@@ -10710,202 +10906,6 @@
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|0.7|
 |m_minVol|System.Single|0.7|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0.1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1393165961|
-
-## sfx_eat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0.1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1393165961|
-
-## sfx_eat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0.1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1393165961|
-
-## sfx_eat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0.1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1393165961|
-
-## sfx_eat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0.1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1393165961|
-
-## sfx_eat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0.1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1393165961|
-
-## sfx_eat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.1|
-|m_minDelay|System.Single|0.1|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1393165961|
-
-## sfx_eat
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -11350,8 +11350,8 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
@@ -11361,12 +11361,12 @@
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|1.8|
-|m_minDelay|System.Single|1.8|
+|m_maxDelay|System.Single|3|
+|m_minDelay|System.Single|3|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|954942842|
+|m_hash|System.Int32|-828974312|
 
 ## sfx_expl
 
@@ -11395,6 +11395,34 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|2004057870|
+
+## sfx_expl
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|1.8|
+|m_minDelay|System.Single|1.8|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|954942842|
 
 ## sfx_expl
 
@@ -11451,34 +11479,6 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-104800624|
-
-## sfx_expl
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|3|
-|m_minDelay|System.Single|3|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-828974312|
 
 ## sfx_expl (1)
 
@@ -13056,6 +13056,34 @@
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-851502317|
+
+## sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|4|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
@@ -13112,7 +13140,119 @@
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-851502317|
+
+## sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-851502317|
+
+## sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-851502317|
+
+## sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-851502317|
+
+## sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
@@ -13173,35 +13313,7 @@
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
-
-## sfx_fire_loop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
+|m_minVol|System.Single|0.8|
 |m_fadeInDuration|System.Single|0.4|
 |m_fadeOutDuration|System.Single|0.4|
 |m_fadeOutDelay|System.Single|0|
@@ -13280,6 +13392,62 @@
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-851502317|
+
+## sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-851502317|
+
+## sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|2|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
@@ -13309,6 +13477,34 @@
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-851502317|
+
+## sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
@@ -13364,203 +13560,7 @@
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
-
-## sfx_fire_loop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
-
-## sfx_fire_loop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
-
-## sfx_fire_loop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
-
-## sfx_fire_loop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
-
-## sfx_fire_loop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
-
-## sfx_fire_loop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0.4|
-|m_fadeOutDuration|System.Single|0.4|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
-
-## sfx_fire_loop
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|4|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
@@ -17678,34 +17678,6 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|2|
-|m_minPitch|System.Single|1.5|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2131904671|
-
-## sfx_lox_death
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -17723,6 +17695,34 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|566331989|
+
+## sfx_lox_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|2|
+|m_minPitch|System.Single|1.5|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|2131904671|
 
 ## sfx_lox_shout
 
@@ -17846,6 +17846,34 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1267688556|
+
+## sfx_metal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -17891,34 +17919,6 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|2070890852|
-
-## sfx_metal
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1267688556|
 
 ## sfx_metal_blocked
 
@@ -18002,7 +18002,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1228376008|
+|m_hash|System.Int32|1565213496|
 
 ## sfx_metal_blocked_overlay
 
@@ -18030,7 +18030,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1565213496|
+|m_hash|System.Int32|1228376008|
 
 ## sfx_metal_shield_blocked
 
@@ -18072,34 +18072,6 @@
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.7|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.05|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1304449223|
-
-## sfx_metal_shield_blocked_overlay
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.8|
 |m_maxVol|System.Single|0.8|
 |m_minVol|System.Single|0.6|
 |m_fadeInDuration|System.Single|0|
@@ -18115,6 +18087,34 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-1334972413|
+
+## sfx_metal_shield_blocked_overlay
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.05|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1304449223|
 
 ## sfx_mill_add
 
@@ -19577,34 +19577,6 @@
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String|$caption_rockdestroyed|
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.9|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-407047565|
-
-## sfx_rock_destroyed
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
@@ -19627,6 +19599,34 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-1869233457|
+
+## sfx_rock_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$caption_rockdestroyed|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-407047565|
 
 ## sfx_rock_hit
 
@@ -20325,6 +20325,34 @@
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|30|
+|m_hash|System.Int32|-622114542|
+
+## sfx_shockwave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-307133978|
 
@@ -20384,7 +20412,7 @@
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-786114696|
 
-## sfx_shockwave
+## sfx_shockwave (1)
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -20410,7 +20438,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|30|
-|m_hash|System.Int32|-622114542|
+|m_hash|System.Int32|827472584|
 
 ## sfx_shockwave (1)
 
@@ -20438,7 +20466,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2068195192|
+|m_hash|System.Int32|891638325|
 
 ## sfx_shockwave (1)
 
@@ -20476,7 +20504,7 @@
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
+|m_maxConcurrentSources|System.Int32|1|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
@@ -20494,7 +20522,35 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|891638325|
+|m_hash|System.Int32|1247007084|
+
+## sfx_shockwave (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1509150052|
 
 ## sfx_shockwave (1)
 
@@ -20550,62 +20606,6 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1871595387|
-
-## sfx_shockwave (1)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.75|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1509150052|
-
-## sfx_shockwave (1)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-122229813|
 
 ## sfx_shockwave (1)
@@ -20633,8 +20633,8 @@
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|30|
-|m_hash|System.Int32|827472584|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|2068195192|
 
 ## sfx_shockwave (1)
 
@@ -20644,7 +20644,7 @@
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|1|
+|m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
@@ -20662,7 +20662,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1247007084|
+|m_hash|System.Int32|1871595387|
 
 ## sfx_silvermace_hit
 
@@ -21110,7 +21110,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|367901035|
+|m_hash|System.Int32|1358454673|
 
 ## sfx_sledge_iron_hit
 
@@ -21138,7 +21138,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1358454673|
+|m_hash|System.Int32|367901035|
 
 ## sfx_sledge_swing
 
@@ -21796,34 +21796,6 @@
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.7|
-|m_maxVol|System.Single|0.2|
-|m_minVol|System.Single|0.3|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2142695449|
-
-## sfx_StaffLightning_fire
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.7|
 |m_maxVol|System.Single|0.4|
 |m_minVol|System.Single|0.4|
 |m_fadeInDuration|System.Single|0|
@@ -21839,6 +21811,34 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|280375988|
+
+## sfx_StaffLightning_fire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.7|
+|m_maxVol|System.Single|0.2|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|2142695449|
 
 ## sfx_stonegolem_alerted
 
@@ -22230,35 +22230,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1423250053|
-
-## sfx_sword_swing_overlay
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.8|
-|m_minPitch|System.Single|0.7|
-|m_maxVol|System.Single|2|
-|m_minVol|System.Single|2|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1468846208|
+|m_hash|System.Int32|-485253317|
 
 ## sfx_sword_swing_overlay
 
@@ -22314,7 +22286,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-485253317|
+|m_hash|System.Int32|-17331042|
 
 ## sfx_sword_swing_overlay
 
@@ -22342,7 +22314,35 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-17331042|
+|m_hash|System.Int32|-1468846208|
+
+## sfx_sword_swing_overlay
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.8|
+|m_minPitch|System.Single|0.7|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1423250053|
 
 ## sfx_tar_bubbles
 
@@ -23042,7 +23042,35 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1012638855|
+|m_hash|System.Int32|-393720232|
+
+## sfx_troll_rock_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.9|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|980228123|
 
 ## sfx_troll_rock_destroyed
 
@@ -23098,35 +23126,7 @@
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|980228123|
-
-## sfx_troll_rock_destroyed
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.9|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.8|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-393720232|
+|m_hash|System.Int32|-1012638855|
 
 ## sfx_trollfire_attack_club_impact
 
@@ -24510,34 +24510,6 @@
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.75|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.9|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.05|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|282207705|
-
-## sfx_wood_blocked_overlay
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|0.9|
 |m_minPitch|System.Single|0.75|
 |m_maxVol|System.Single|1.4|
@@ -24555,6 +24527,34 @@
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-711425909|
+
+## sfx_wood_blocked_overlay
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.75|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.9|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.05|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|282207705|
 
 ## sfx_wood_break
 

@@ -4,13 +4,13 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|combined|UnityEngine.GameObject||
+|combined|UnityEngine.GameObject|*null*|
 |meshName|System.String|Combined_Meshes|
 |_canGenerateLightmapUV|System.Boolean|True|
 |vCount|System.Int32|0|
 |generateLightmapUV|System.Boolean|False|
 |lightmapScale|System.Single|1|
-|copyTarget|UnityEngine.GameObject||
+|copyTarget|UnityEngine.GameObject|*null*|
 |destroyOldColliders|System.Boolean|False|
 |keepStructure|System.Boolean|True|
 |setStatic|System.Boolean|True|
@@ -19,13 +19,13 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|combined|UnityEngine.GameObject||
+|combined|UnityEngine.GameObject|*null*|
 |meshName|System.String|Combined_Meshes|
 |_canGenerateLightmapUV|System.Boolean|True|
 |vCount|System.Int32|0|
 |generateLightmapUV|System.Boolean|False|
 |lightmapScale|System.Single|1|
-|copyTarget|UnityEngine.GameObject||
+|copyTarget|UnityEngine.GameObject|*null*|
 |destroyOldColliders|System.Boolean|False|
 |keepStructure|System.Boolean|True|
 |setStatic|System.Boolean|True|

@@ -28,7 +28,7 @@
 |-----|----|-------------|
 |m_health|System.Single|90|
 |m_minToolTier|System.Int32|0|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|50|
@@ -39,7 +39,7 @@
 |-----|----|-------------|
 |m_health|System.Single|90|
 |m_minToolTier|System.Int32|0|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|50|
@@ -61,7 +61,7 @@
 |-----|----|-------------|
 |m_health|System.Single|60|
 |m_minToolTier|System.Int32|0|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|
@@ -83,7 +83,7 @@
 |-----|----|-------------|
 |m_health|System.Single|60|
 |m_minToolTier|System.Int32|2|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|
@@ -94,7 +94,7 @@
 |-----|----|-------------|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|
@@ -116,7 +116,7 @@
 |-----|----|-------------|
 |m_health|System.Single|40|
 |m_minToolTier|System.Int32|0|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|
@@ -138,7 +138,7 @@
 |-----|----|-------------|
 |m_health|System.Single|140|
 |m_minToolTier|System.Int32|2|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|
@@ -160,7 +160,7 @@
 |-----|----|-------------|
 |m_health|System.Single|40|
 |m_minToolTier|System.Int32|0|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|
@@ -171,7 +171,7 @@
 |-----|----|-------------|
 |m_health|System.Single|60|
 |m_minToolTier|System.Int32|0|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|
@@ -193,7 +193,7 @@
 |-----|----|-------------|
 |m_health|System.Single|60|
 |m_minToolTier|System.Int32|0|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|
@@ -215,7 +215,7 @@
 |-----|----|-------------|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|4|
-|m_subLogPrefab|UnityEngine.GameObject||
+|m_subLogPrefab|UnityEngine.GameObject|*null*|
 |m_useSubLogPointRotation|System.Boolean|False|
 |m_spawnDistance|System.Single|2|
 |m_hitNoise|System.Single|100|

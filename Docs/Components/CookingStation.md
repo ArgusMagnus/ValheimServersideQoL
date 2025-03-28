@@ -11,11 +11,11 @@
 |m_requireFire|System.Boolean|True|
 |m_fireCheckRadius|System.Single|0.25|
 |m_useFuel|System.Boolean|False|
-|m_fuelItem|ItemDrop||
+|m_fuelItem|ItemDrop|*null*|
 |m_maxFuel|System.Int32|10|
 |m_secPerFuel|System.Int32|5000|
-|m_haveFuelObject|UnityEngine.GameObject||
-|m_haveFireObject|UnityEngine.GameObject||
+|m_haveFuelObject|UnityEngine.GameObject|*null*|
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 
 ## piece_cookingstation_iron
 
@@ -28,11 +28,11 @@
 |m_requireFire|System.Boolean|True|
 |m_fireCheckRadius|System.Single|0.25|
 |m_useFuel|System.Boolean|False|
-|m_fuelItem|ItemDrop||
+|m_fuelItem|ItemDrop|*null*|
 |m_maxFuel|System.Int32|10|
 |m_secPerFuel|System.Int32|5000|
-|m_haveFuelObject|UnityEngine.GameObject||
-|m_haveFireObject|UnityEngine.GameObject||
+|m_haveFuelObject|UnityEngine.GameObject|*null*|
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 
 ## piece_oven
 

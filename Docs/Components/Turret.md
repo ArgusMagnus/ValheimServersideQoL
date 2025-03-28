@@ -18,7 +18,7 @@
 |m_lookAcceleration|System.Single|1.2|
 |m_lookDeacceleration|System.Single|0.05|
 |m_lookMinDegreesDelta|System.Single|0.005|
-|m_defaultAmmo|ItemDrop||
+|m_defaultAmmo|ItemDrop|*null*|
 |m_attackCooldown|System.Single|2|
 |m_attackWarmup|System.Single|1|
 |m_hitNoise|System.Single|10|
@@ -92,7 +92,7 @@
 |m_lookAcceleration|System.Single|1.2|
 |m_lookDeacceleration|System.Single|0.05|
 |m_lookMinDegreesDelta|System.Single|0.005|
-|m_defaultAmmo|ItemDrop||
+|m_defaultAmmo|ItemDrop|*null*|
 |m_attackCooldown|System.Single|2|
 |m_attackWarmup|System.Single|1|
 |m_hitNoise|System.Single|10|

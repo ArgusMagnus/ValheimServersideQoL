@@ -9,7 +9,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## boar_ragdoll
 
@@ -20,7 +20,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Charred_Melee_Ragdoll
 
@@ -31,7 +31,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## deer_ragdoll
 
@@ -42,7 +42,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Draugr_elite_ragdoll
 
@@ -53,7 +53,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Draugr_ragdoll
 
@@ -64,7 +64,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Draugr_ranged_ragdoll
 
@@ -75,7 +75,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Dverger_ragdoll
 
@@ -86,7 +86,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## eikthyr_ragdoll
 
@@ -97,7 +97,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Fenring_cultist_ragdoll
 
@@ -108,7 +108,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Fenring_cultist_ragdoll_hildir
 
@@ -119,7 +119,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Fenring_ragdoll
 
@@ -130,7 +130,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## fx_Fader_Ragdoll
 
@@ -152,7 +152,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|0|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Goblin_Dragdoll
 
@@ -163,7 +163,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_Hildir_ragdoll
 
@@ -174,7 +174,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.3|
 |m_dropItems|System.Boolean|False|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_ragdoll
 
@@ -185,7 +185,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.3|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## GoblinKing_ragdoll
 
@@ -196,7 +196,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|0|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Hildir_ragdoll
 
@@ -207,7 +207,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_ragdoll
 
@@ -218,7 +218,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Greydwarf_elite_ragdoll
 
@@ -229,7 +229,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Greydwarf_ragdoll
 
@@ -240,7 +240,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Greydwarf_Shaman_ragdoll
 
@@ -251,7 +251,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Greyling_ragdoll
 
@@ -262,7 +262,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Hare_ragdoll
 
@@ -273,7 +273,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Hatchling_ragdoll
 
@@ -284,7 +284,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## lox_ragdoll
 
@@ -295,7 +295,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## loxcalf_ragdoll
 
@@ -306,7 +306,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Neck_Ragdoll
 
@@ -317,7 +317,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Player_ragdoll
 
@@ -328,7 +328,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.3|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Player_ragdoll_old
 
@@ -339,7 +339,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Ragdoll_Asksvin
 
@@ -350,7 +350,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Ragdoll_Asksvin_Hatchling
 
@@ -361,7 +361,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Stonegolem_ragdoll
 
@@ -372,7 +372,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Troll_ragdoll
 
@@ -383,7 +383,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Troll_summoned_ragdoll
 
@@ -394,7 +394,7 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Ulv_Ragdoll
 
@@ -405,7 +405,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Volture_ragdoll
 
@@ -416,7 +416,7 @@
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Wolf_Ragdoll
 
@@ -427,5 +427,5 @@
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
-|m_lootSpawnJoint|UnityEngine.GameObject||
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 

@@ -7,7 +7,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|Destroyed|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -31,7 +31,7 @@
 |m_new|UnityEngine.GameObject|Blocks & Switches|
 |m_worn|UnityEngine.GameObject|Blocks & Switches|
 |m_broken|UnityEngine.GameObject|Blocks & Switches|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -55,7 +55,7 @@
 |m_new|UnityEngine.GameObject|Blocks & Switches|
 |m_worn|UnityEngine.GameObject|Blocks & Switches|
 |m_broken|UnityEngine.GameObject|Blocks & Switches|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -79,7 +79,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -103,7 +103,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -127,7 +127,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -151,7 +151,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -175,7 +175,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -199,7 +199,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -223,7 +223,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -247,7 +247,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -271,7 +271,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -295,7 +295,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -319,7 +319,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -343,7 +343,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -367,7 +367,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -391,7 +391,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -415,7 +415,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -439,7 +439,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -463,7 +463,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -487,7 +487,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -511,7 +511,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -535,7 +535,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -559,7 +559,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -583,7 +583,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -607,7 +607,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -631,7 +631,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -655,7 +655,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
@@ -679,7 +679,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -703,7 +703,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -727,7 +727,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -751,7 +751,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -775,7 +775,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -799,7 +799,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -823,7 +823,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -847,7 +847,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -871,7 +871,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -895,7 +895,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -919,7 +919,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -943,7 +943,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -967,7 +967,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -991,7 +991,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1015,7 +1015,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1039,7 +1039,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1063,7 +1063,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1087,7 +1087,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1111,7 +1111,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1135,7 +1135,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1159,7 +1159,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1183,7 +1183,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1207,7 +1207,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1231,7 +1231,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1255,7 +1255,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1279,7 +1279,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1303,7 +1303,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1327,7 +1327,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1351,7 +1351,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1375,7 +1375,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1399,7 +1399,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1423,7 +1423,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1447,7 +1447,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1471,7 +1471,7 @@
 |m_new|UnityEngine.GameObject|default|
 |m_worn|UnityEngine.GameObject|default|
 |m_broken|UnityEngine.GameObject|default|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1495,7 +1495,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1519,7 +1519,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1543,7 +1543,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1567,7 +1567,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1591,7 +1591,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1615,7 +1615,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1639,7 +1639,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1663,7 +1663,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1687,7 +1687,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1711,7 +1711,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1735,7 +1735,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1759,7 +1759,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1783,7 +1783,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1807,7 +1807,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1831,7 +1831,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1855,7 +1855,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1879,7 +1879,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1903,7 +1903,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -1927,7 +1927,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -1951,7 +1951,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -1975,7 +1975,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -1999,7 +1999,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2023,7 +2023,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2047,7 +2047,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2071,7 +2071,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2095,7 +2095,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2119,7 +2119,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2143,7 +2143,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2167,7 +2167,7 @@
 |m_new|UnityEngine.GameObject|Frame|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2191,7 +2191,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2215,7 +2215,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2239,7 +2239,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2263,7 +2263,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2287,7 +2287,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2311,7 +2311,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2335,7 +2335,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2359,7 +2359,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2383,7 +2383,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2407,7 +2407,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2431,7 +2431,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2455,7 +2455,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2479,7 +2479,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2503,7 +2503,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2527,7 +2527,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2551,7 +2551,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2575,7 +2575,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2599,7 +2599,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2623,7 +2623,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2647,7 +2647,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2671,7 +2671,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2695,7 +2695,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -2719,7 +2719,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -2743,7 +2743,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2767,7 +2767,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2791,7 +2791,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2812,10 +2812,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2839,7 +2839,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2863,7 +2863,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2887,7 +2887,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2911,7 +2911,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2935,7 +2935,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2959,7 +2959,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -2983,7 +2983,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3007,7 +3007,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3031,7 +3031,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3055,7 +3055,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3079,7 +3079,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3103,7 +3103,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3127,7 +3127,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3151,7 +3151,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3175,7 +3175,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3199,7 +3199,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3223,7 +3223,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3247,7 +3247,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3271,7 +3271,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3295,7 +3295,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3319,7 +3319,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3343,7 +3343,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3367,7 +3367,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3391,7 +3391,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3415,7 +3415,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3439,7 +3439,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3463,7 +3463,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3487,7 +3487,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3511,7 +3511,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3535,7 +3535,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3559,7 +3559,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3583,7 +3583,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3607,7 +3607,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3631,7 +3631,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3655,7 +3655,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3679,7 +3679,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3703,7 +3703,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3727,7 +3727,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3751,7 +3751,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3775,7 +3775,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3799,7 +3799,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3823,7 +3823,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3847,7 +3847,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3871,7 +3871,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3895,7 +3895,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3919,7 +3919,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3943,7 +3943,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3967,7 +3967,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -3991,7 +3991,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4015,7 +4015,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4039,7 +4039,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4063,7 +4063,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4087,7 +4087,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4108,10 +4108,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4135,7 +4135,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4159,7 +4159,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4183,7 +4183,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4204,10 +4204,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4228,10 +4228,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4252,10 +4252,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4279,7 +4279,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4303,7 +4303,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4327,7 +4327,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4351,7 +4351,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4375,7 +4375,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4399,7 +4399,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4423,7 +4423,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4447,7 +4447,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4471,7 +4471,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -4495,7 +4495,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -4519,7 +4519,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -4543,7 +4543,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -4567,7 +4567,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4591,7 +4591,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4615,7 +4615,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4639,7 +4639,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4663,7 +4663,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4687,7 +4687,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4711,7 +4711,7 @@
 |m_new|UnityEngine.GameObject|default|
 |m_worn|UnityEngine.GameObject|default|
 |m_broken|UnityEngine.GameObject|default|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4735,7 +4735,7 @@
 |m_new|UnityEngine.GameObject|default|
 |m_worn|UnityEngine.GameObject|default|
 |m_broken|UnityEngine.GameObject|default|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4759,7 +4759,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4783,7 +4783,7 @@
 |m_new|UnityEngine.GameObject|meat|
 |m_worn|UnityEngine.GameObject|meat|
 |m_broken|UnityEngine.GameObject|meat|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4807,7 +4807,7 @@
 |m_new|UnityEngine.GameObject|meat|
 |m_worn|UnityEngine.GameObject|meat|
 |m_broken|UnityEngine.GameObject|meat|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4831,7 +4831,7 @@
 |m_new|UnityEngine.GameObject|default|
 |m_worn|UnityEngine.GameObject|default|
 |m_broken|UnityEngine.GameObject|default|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4855,7 +4855,7 @@
 |m_new|UnityEngine.GameObject|meat|
 |m_worn|UnityEngine.GameObject|meat|
 |m_broken|UnityEngine.GameObject|meat|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4879,7 +4879,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4903,7 +4903,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4927,7 +4927,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4951,7 +4951,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4975,7 +4975,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -4999,7 +4999,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5023,7 +5023,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5047,7 +5047,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5071,7 +5071,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5095,7 +5095,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5119,7 +5119,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5143,7 +5143,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5167,7 +5167,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5191,7 +5191,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5215,7 +5215,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5239,7 +5239,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5263,7 +5263,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5287,7 +5287,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5311,7 +5311,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5335,7 +5335,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5359,7 +5359,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5383,7 +5383,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5407,7 +5407,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5428,10 +5428,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5455,7 +5455,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5479,7 +5479,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5503,7 +5503,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5527,7 +5527,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5551,7 +5551,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
@@ -5575,7 +5575,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5599,7 +5599,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5623,7 +5623,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5647,7 +5647,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5671,7 +5671,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5695,7 +5695,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5719,7 +5719,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5743,7 +5743,7 @@
 |m_new|UnityEngine.GameObject|hook|
 |m_worn|UnityEngine.GameObject|hook|
 |m_broken|UnityEngine.GameObject|hook|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5767,7 +5767,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5791,7 +5791,7 @@
 |m_new|UnityEngine.GameObject|lantern|
 |m_worn|UnityEngine.GameObject|lantern|
 |m_broken|UnityEngine.GameObject|lantern|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5815,7 +5815,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5839,7 +5839,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5863,7 +5863,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5887,7 +5887,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5935,7 +5935,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5959,7 +5959,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -5983,7 +5983,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6007,7 +6007,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6031,7 +6031,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6055,7 +6055,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6079,7 +6079,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6103,7 +6103,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6127,7 +6127,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6151,7 +6151,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6175,7 +6175,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6199,7 +6199,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6223,7 +6223,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6247,7 +6247,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6271,7 +6271,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6295,7 +6295,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6319,7 +6319,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6343,7 +6343,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6367,7 +6367,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6391,7 +6391,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6415,7 +6415,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6439,7 +6439,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6463,7 +6463,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6487,7 +6487,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6511,7 +6511,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6535,7 +6535,7 @@
 |m_new|UnityEngine.GameObject|door|
 |m_worn|UnityEngine.GameObject|door|
 |m_broken|UnityEngine.GameObject|door|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6559,7 +6559,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6583,7 +6583,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6607,7 +6607,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6631,7 +6631,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6655,7 +6655,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6679,7 +6679,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6703,7 +6703,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6724,10 +6724,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6751,7 +6751,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6775,7 +6775,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6799,7 +6799,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6823,7 +6823,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6847,7 +6847,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6871,7 +6871,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6895,7 +6895,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6919,7 +6919,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6943,7 +6943,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6967,7 +6967,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -6991,7 +6991,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7015,7 +7015,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7039,7 +7039,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7063,7 +7063,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7087,7 +7087,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7111,7 +7111,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7135,7 +7135,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7159,7 +7159,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7183,7 +7183,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7204,10 +7204,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7231,7 +7231,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7255,7 +7255,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7279,7 +7279,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7303,7 +7303,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7351,7 +7351,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7375,7 +7375,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7399,7 +7399,7 @@
 |m_new|UnityEngine.GameObject|Worn|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7423,7 +7423,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7447,7 +7447,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7471,7 +7471,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7495,7 +7495,7 @@
 |m_new|UnityEngine.GameObject|rug|
 |m_worn|UnityEngine.GameObject|rug|
 |m_broken|UnityEngine.GameObject|rug|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7519,7 +7519,7 @@
 |m_new|UnityEngine.GameObject|rug|
 |m_worn|UnityEngine.GameObject|rug|
 |m_broken|UnityEngine.GameObject|rug|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7543,7 +7543,7 @@
 |m_new|UnityEngine.GameObject|visual_new|
 |m_worn|UnityEngine.GameObject|visual_worn|
 |m_broken|UnityEngine.GameObject|visual_broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7564,10 +7564,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7591,7 +7591,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7615,7 +7615,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7639,7 +7639,7 @@
 |m_new|UnityEngine.GameObject|pie|
 |m_worn|UnityEngine.GameObject|pie|
 |m_broken|UnityEngine.GameObject|pie|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7663,7 +7663,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7687,7 +7687,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7711,7 +7711,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7780,10 +7780,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7807,7 +7807,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7831,7 +7831,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7879,7 +7879,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7903,7 +7903,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7927,7 +7927,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7951,7 +7951,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -7999,7 +7999,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8215,7 +8215,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8239,7 +8239,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8263,7 +8263,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8287,7 +8287,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8311,7 +8311,7 @@
 |m_new|UnityEngine.GameObject|MountainKit_brazier_purple|
 |m_worn|UnityEngine.GameObject|MountainKit_brazier_purple|
 |m_broken|UnityEngine.GameObject|MountainKit_brazier_purple|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -8335,7 +8335,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8359,7 +8359,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8383,7 +8383,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8407,7 +8407,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8431,7 +8431,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8455,7 +8455,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8479,7 +8479,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8503,7 +8503,7 @@
 |m_new|UnityEngine.GameObject|meat|
 |m_worn|UnityEngine.GameObject|meat|
 |m_broken|UnityEngine.GameObject|meat|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8527,7 +8527,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8551,7 +8551,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8575,7 +8575,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8599,7 +8599,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8623,7 +8623,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8647,7 +8647,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8671,7 +8671,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8695,7 +8695,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8719,7 +8719,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8740,10 +8740,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8764,10 +8764,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8788,10 +8788,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8812,10 +8812,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8836,10 +8836,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8860,10 +8860,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8884,10 +8884,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8908,10 +8908,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8932,10 +8932,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8956,10 +8956,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -8980,10 +8980,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9007,7 +9007,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9031,7 +9031,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9055,7 +9055,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9079,7 +9079,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9103,7 +9103,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9127,7 +9127,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9151,7 +9151,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|Broken|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9175,7 +9175,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Broken|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9199,7 +9199,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9223,7 +9223,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9247,7 +9247,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Broken|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9271,7 +9271,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9295,7 +9295,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9319,7 +9319,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9343,7 +9343,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9367,7 +9367,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9391,7 +9391,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9415,7 +9415,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9439,7 +9439,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9463,7 +9463,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9487,7 +9487,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9511,7 +9511,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9535,7 +9535,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9559,7 +9559,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9583,7 +9583,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9607,7 +9607,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9631,7 +9631,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9655,7 +9655,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9679,7 +9679,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9703,7 +9703,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9727,7 +9727,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9751,7 +9751,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9775,7 +9775,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9799,7 +9799,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9823,7 +9823,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9847,7 +9847,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9871,7 +9871,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9895,7 +9895,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9919,7 +9919,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9943,7 +9943,7 @@
 |m_new|UnityEngine.GameObject|door|
 |m_worn|UnityEngine.GameObject|door|
 |m_broken|UnityEngine.GameObject|door|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9967,7 +9967,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -9991,7 +9991,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -10015,7 +10015,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|True|
@@ -10039,7 +10039,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10063,7 +10063,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10087,7 +10087,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10111,7 +10111,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10135,7 +10135,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10159,7 +10159,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10183,7 +10183,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10207,7 +10207,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10231,7 +10231,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10255,7 +10255,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10279,7 +10279,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10303,7 +10303,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10327,7 +10327,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10351,7 +10351,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10375,7 +10375,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10399,7 +10399,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10423,7 +10423,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10447,7 +10447,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10471,7 +10471,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10495,7 +10495,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10519,7 +10519,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10543,7 +10543,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10567,7 +10567,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10591,7 +10591,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10615,7 +10615,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10639,7 +10639,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10663,7 +10663,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10687,7 +10687,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10711,7 +10711,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10735,7 +10735,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10759,7 +10759,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10783,7 +10783,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10807,7 +10807,7 @@
 |m_new|UnityEngine.GameObject|TorchModel|
 |m_worn|UnityEngine.GameObject|TorchModel|
 |m_broken|UnityEngine.GameObject|TorchModel|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10831,7 +10831,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10855,7 +10855,7 @@
 |m_new|UnityEngine.GameObject|door|
 |m_worn|UnityEngine.GameObject|door|
 |m_broken|UnityEngine.GameObject|door|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10879,7 +10879,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10903,7 +10903,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|Broken|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10927,7 +10927,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10951,7 +10951,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10975,7 +10975,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -10999,7 +10999,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11023,7 +11023,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11047,7 +11047,7 @@
 |m_new|UnityEngine.GameObject|default|
 |m_worn|UnityEngine.GameObject|default|
 |m_broken|UnityEngine.GameObject|default|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11071,7 +11071,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11095,7 +11095,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11119,7 +11119,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11143,7 +11143,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11167,7 +11167,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11191,7 +11191,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11215,7 +11215,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11239,7 +11239,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11263,7 +11263,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11287,7 +11287,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11311,7 +11311,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11335,7 +11335,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11359,7 +11359,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|PrepTable_Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11383,7 +11383,7 @@
 |m_new|UnityEngine.GameObject|default|
 |m_worn|UnityEngine.GameObject|default|
 |m_broken|UnityEngine.GameObject|default|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11407,7 +11407,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11431,7 +11431,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11455,7 +11455,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11479,7 +11479,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11503,7 +11503,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11527,7 +11527,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11551,7 +11551,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11575,7 +11575,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11599,7 +11599,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11623,7 +11623,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11644,10 +11644,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11671,7 +11671,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11695,7 +11695,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11719,7 +11719,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11743,7 +11743,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11767,7 +11767,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11791,7 +11791,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11815,7 +11815,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|new|
 |m_broken|UnityEngine.GameObject|new|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11839,7 +11839,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11863,7 +11863,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11887,7 +11887,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11911,7 +11911,7 @@
 |m_new|UnityEngine.GameObject|FirTree_small|
 |m_worn|UnityEngine.GameObject|FirTree_small|
 |m_broken|UnityEngine.GameObject|FirTree_small|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11935,7 +11935,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11959,7 +11959,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -11983,7 +11983,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12007,7 +12007,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12028,10 +12028,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12055,7 +12055,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12079,7 +12079,7 @@
 |m_new|UnityEngine.GameObject|hull_new|
 |m_worn|UnityEngine.GameObject|hull_worn|
 |m_broken|UnityEngine.GameObject|hull_broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12103,7 +12103,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12127,7 +12127,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12148,10 +12148,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12175,7 +12175,7 @@
 |m_new|UnityEngine.GameObject|rug|
 |m_worn|UnityEngine.GameObject|rug|
 |m_broken|UnityEngine.GameObject|rug|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12199,7 +12199,7 @@
 |m_new|UnityEngine.GameObject|rug|
 |m_worn|UnityEngine.GameObject|rug|
 |m_broken|UnityEngine.GameObject|rug|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12223,7 +12223,7 @@
 |m_new|UnityEngine.GameObject|rug|
 |m_worn|UnityEngine.GameObject|rug|
 |m_broken|UnityEngine.GameObject|rug|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12244,10 +12244,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12268,10 +12268,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12295,7 +12295,7 @@
 |m_new|UnityEngine.GameObject|rug|
 |m_worn|UnityEngine.GameObject|rug|
 |m_broken|UnityEngine.GameObject|rug|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12319,7 +12319,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12343,7 +12343,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12367,7 +12367,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12391,7 +12391,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12415,7 +12415,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12439,7 +12439,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12463,7 +12463,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12487,7 +12487,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12511,7 +12511,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12535,7 +12535,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12559,7 +12559,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12583,7 +12583,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12607,7 +12607,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12631,7 +12631,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12655,7 +12655,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12679,7 +12679,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12703,7 +12703,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12727,7 +12727,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12751,7 +12751,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12775,7 +12775,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12799,7 +12799,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12823,7 +12823,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12847,7 +12847,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12871,7 +12871,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12895,7 +12895,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12919,7 +12919,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12943,7 +12943,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12967,7 +12967,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -12991,7 +12991,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13015,7 +13015,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13039,7 +13039,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13063,7 +13063,7 @@
 |m_new|UnityEngine.GameObject|hull_new|
 |m_worn|UnityEngine.GameObject|hull_worn|
 |m_broken|UnityEngine.GameObject|hull_broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13087,7 +13087,7 @@
 |m_new|UnityEngine.GameObject|pile|
 |m_worn|UnityEngine.GameObject|pile|
 |m_broken|UnityEngine.GameObject|pile|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13111,7 +13111,7 @@
 |m_new|UnityEngine.GameObject|stack|
 |m_worn|UnityEngine.GameObject|stack|
 |m_broken|UnityEngine.GameObject|stack|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13132,10 +13132,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13159,7 +13159,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13180,10 +13180,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13204,10 +13204,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13231,7 +13231,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13255,7 +13255,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13276,10 +13276,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13300,10 +13300,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13327,7 +13327,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13351,7 +13351,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13375,7 +13375,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13399,7 +13399,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13423,7 +13423,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13444,10 +13444,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13471,7 +13471,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13495,7 +13495,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13516,10 +13516,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13543,7 +13543,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13564,10 +13564,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13591,7 +13591,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13612,10 +13612,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13639,7 +13639,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13663,7 +13663,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13687,7 +13687,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13711,7 +13711,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13735,7 +13735,7 @@
 |m_new|UnityEngine.GameObject|hull_new|
 |m_worn|UnityEngine.GameObject|hull_worn|
 |m_broken|UnityEngine.GameObject|hull_broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13759,7 +13759,7 @@
 |m_new|UnityEngine.GameObject|hull_new|
 |m_worn|UnityEngine.GameObject|hull_worn|
 |m_broken|UnityEngine.GameObject|hull_broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
@@ -13783,7 +13783,7 @@
 |m_new|UnityEngine.GameObject|VineAsh|
 |m_worn|UnityEngine.GameObject|VineAsh|
 |m_broken|UnityEngine.GameObject|VineAsh|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13807,7 +13807,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13831,7 +13831,7 @@
 |m_new|UnityEngine.GameObject|VineGreen|
 |m_worn|UnityEngine.GameObject|VineGreen|
 |m_broken|UnityEngine.GameObject|VineGreen|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13855,7 +13855,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13879,7 +13879,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13903,7 +13903,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13927,7 +13927,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13951,7 +13951,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13975,7 +13975,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -13999,7 +13999,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14023,7 +14023,7 @@
 |m_new|UnityEngine.GameObject|new|
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14047,7 +14047,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14071,7 +14071,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14095,7 +14095,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14119,7 +14119,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14143,7 +14143,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14215,7 +14215,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14239,7 +14239,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14260,10 +14260,10 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject||
-|m_worn|UnityEngine.GameObject||
-|m_broken|UnityEngine.GameObject||
-|m_wet|UnityEngine.GameObject||
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14287,7 +14287,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14311,7 +14311,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14335,7 +14335,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14359,7 +14359,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14383,7 +14383,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|WornBroken|
 |m_broken|UnityEngine.GameObject|WornBroken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14407,7 +14407,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14431,7 +14431,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14455,7 +14455,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14479,7 +14479,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14503,7 +14503,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14527,7 +14527,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14551,7 +14551,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14575,7 +14575,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14599,7 +14599,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14623,7 +14623,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14647,7 +14647,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14671,7 +14671,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14695,7 +14695,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14719,7 +14719,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14743,7 +14743,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14767,7 +14767,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14791,7 +14791,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14815,7 +14815,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14839,7 +14839,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14863,7 +14863,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14887,7 +14887,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14911,7 +14911,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14935,7 +14935,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14959,7 +14959,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -14983,7 +14983,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -15007,7 +15007,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -15031,7 +15031,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -15055,7 +15055,7 @@
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
@@ -15079,7 +15079,7 @@
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
-|m_wet|UnityEngine.GameObject||
+|m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|

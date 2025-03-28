@@ -10,7 +10,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -44,7 +44,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -58,7 +58,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -92,7 +92,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -106,7 +106,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -140,7 +140,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -154,7 +154,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -188,7 +188,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -202,7 +202,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -236,7 +236,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -250,7 +250,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -284,7 +284,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -298,7 +298,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -332,7 +332,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -346,7 +346,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -380,7 +380,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -394,7 +394,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -428,7 +428,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -442,7 +442,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -476,7 +476,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -490,7 +490,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -524,7 +524,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -538,7 +538,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -572,7 +572,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -586,7 +586,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -620,7 +620,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -634,7 +634,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -668,7 +668,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -682,7 +682,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -716,7 +716,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -730,7 +730,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -764,7 +764,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -778,7 +778,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -812,7 +812,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -826,7 +826,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -860,7 +860,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -874,7 +874,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -908,7 +908,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -922,7 +922,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -956,7 +956,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -970,7 +970,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1004,7 +1004,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1018,7 +1018,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1052,7 +1052,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1066,7 +1066,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1100,7 +1100,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1114,7 +1114,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1148,7 +1148,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1162,7 +1162,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1196,7 +1196,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1210,7 +1210,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1244,7 +1244,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -1258,7 +1258,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1292,7 +1292,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1306,7 +1306,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1340,7 +1340,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1354,7 +1354,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1388,7 +1388,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1402,7 +1402,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1436,7 +1436,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1450,7 +1450,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1484,7 +1484,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1498,7 +1498,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1532,7 +1532,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1546,7 +1546,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1580,7 +1580,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1594,7 +1594,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1628,7 +1628,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1642,7 +1642,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1676,7 +1676,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1690,7 +1690,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1724,7 +1724,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1738,7 +1738,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1772,7 +1772,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1786,7 +1786,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1820,7 +1820,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1834,7 +1834,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1868,7 +1868,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1882,7 +1882,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1916,7 +1916,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1930,7 +1930,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -1964,7 +1964,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -1978,7 +1978,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2012,7 +2012,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|False|
 
@@ -2026,7 +2026,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2060,7 +2060,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -2074,7 +2074,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|True|
@@ -2108,7 +2108,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -2122,7 +2122,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|True|
@@ -2156,7 +2156,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -2170,7 +2170,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2204,7 +2204,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -2218,7 +2218,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2252,7 +2252,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -2266,7 +2266,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2300,7 +2300,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -2314,7 +2314,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2348,7 +2348,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -2362,7 +2362,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2396,7 +2396,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -2410,7 +2410,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2444,7 +2444,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2458,7 +2458,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2492,7 +2492,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2506,7 +2506,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2540,7 +2540,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2554,7 +2554,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2588,7 +2588,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2602,7 +2602,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2636,7 +2636,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2650,7 +2650,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2684,7 +2684,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2698,7 +2698,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2732,7 +2732,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2746,7 +2746,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2780,7 +2780,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2794,7 +2794,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2828,7 +2828,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2842,7 +2842,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2876,7 +2876,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2890,7 +2890,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2924,7 +2924,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2938,7 +2938,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -2972,7 +2972,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -2986,7 +2986,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3020,7 +3020,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3034,7 +3034,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3068,7 +3068,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3082,7 +3082,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3116,7 +3116,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3130,7 +3130,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3164,7 +3164,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3178,7 +3178,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3212,7 +3212,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -3226,7 +3226,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3260,7 +3260,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3274,7 +3274,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3308,7 +3308,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -3322,7 +3322,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3356,7 +3356,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3370,7 +3370,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3404,7 +3404,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3418,7 +3418,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3452,7 +3452,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3466,7 +3466,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3500,7 +3500,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3514,7 +3514,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3548,7 +3548,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3562,7 +3562,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3596,7 +3596,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3610,7 +3610,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3644,7 +3644,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3658,7 +3658,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3692,7 +3692,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3706,7 +3706,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3740,7 +3740,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3754,7 +3754,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3788,7 +3788,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3802,7 +3802,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3836,7 +3836,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -3850,7 +3850,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3884,7 +3884,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -3898,7 +3898,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3932,7 +3932,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -3946,7 +3946,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -3980,7 +3980,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -3994,7 +3994,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4028,7 +4028,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4042,7 +4042,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4076,7 +4076,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4090,7 +4090,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4124,7 +4124,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4138,7 +4138,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4172,7 +4172,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4186,7 +4186,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4220,7 +4220,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4234,7 +4234,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4268,7 +4268,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4282,7 +4282,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4316,7 +4316,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4330,7 +4330,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4364,7 +4364,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4378,7 +4378,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4412,7 +4412,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -4426,7 +4426,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4460,7 +4460,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4474,7 +4474,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4508,7 +4508,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4522,7 +4522,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4556,7 +4556,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4604,7 +4604,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4618,7 +4618,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4652,7 +4652,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4666,7 +4666,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4700,7 +4700,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4714,7 +4714,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4748,7 +4748,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4762,7 +4762,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4796,7 +4796,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4810,7 +4810,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4844,7 +4844,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4858,7 +4858,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4892,7 +4892,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4906,7 +4906,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4940,7 +4940,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -4954,7 +4954,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -4988,7 +4988,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|False|
 
@@ -5002,7 +5002,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5036,7 +5036,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|False|
 
@@ -5050,7 +5050,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5084,7 +5084,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -5098,7 +5098,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5132,7 +5132,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -5146,7 +5146,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5180,7 +5180,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -5194,7 +5194,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5228,7 +5228,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -5242,7 +5242,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5276,7 +5276,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -5290,7 +5290,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5324,7 +5324,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -5338,7 +5338,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5372,7 +5372,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -5386,7 +5386,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5420,7 +5420,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5434,7 +5434,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5468,7 +5468,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5482,7 +5482,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5516,7 +5516,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5530,7 +5530,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5564,7 +5564,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5578,7 +5578,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5612,7 +5612,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5626,7 +5626,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5660,7 +5660,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5674,7 +5674,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5708,7 +5708,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5722,7 +5722,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5756,7 +5756,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5770,7 +5770,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5804,7 +5804,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5818,7 +5818,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5852,7 +5852,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5866,7 +5866,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5900,7 +5900,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5914,7 +5914,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5948,7 +5948,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -5962,7 +5962,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -5996,7 +5996,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6010,7 +6010,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6044,7 +6044,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6058,7 +6058,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|True|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6092,7 +6092,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -6106,7 +6106,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6140,7 +6140,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6154,7 +6154,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6188,7 +6188,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6202,7 +6202,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6236,7 +6236,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6250,7 +6250,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6284,7 +6284,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6298,7 +6298,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6332,7 +6332,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6346,7 +6346,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6380,7 +6380,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6394,7 +6394,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6428,7 +6428,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6442,7 +6442,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6476,7 +6476,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6490,7 +6490,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6524,7 +6524,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6538,7 +6538,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6572,7 +6572,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6586,7 +6586,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6620,7 +6620,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6634,7 +6634,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6668,7 +6668,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6682,7 +6682,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6716,7 +6716,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6730,7 +6730,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6764,7 +6764,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6778,7 +6778,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6812,7 +6812,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6826,7 +6826,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6860,7 +6860,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6874,7 +6874,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6908,7 +6908,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6922,7 +6922,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -6956,7 +6956,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -6970,7 +6970,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7004,7 +7004,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7018,7 +7018,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7052,7 +7052,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7066,7 +7066,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7100,7 +7100,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -7114,7 +7114,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7148,7 +7148,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -7162,7 +7162,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7196,7 +7196,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -7210,7 +7210,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7244,7 +7244,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -7258,7 +7258,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7292,7 +7292,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7306,7 +7306,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7340,7 +7340,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7354,7 +7354,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7388,7 +7388,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7402,7 +7402,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7436,7 +7436,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7450,7 +7450,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7484,7 +7484,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7498,7 +7498,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7532,7 +7532,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7546,7 +7546,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7580,7 +7580,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7594,7 +7594,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7628,7 +7628,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7642,7 +7642,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7676,7 +7676,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7690,7 +7690,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7724,7 +7724,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -7738,7 +7738,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7772,7 +7772,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7786,7 +7786,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -7820,7 +7820,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7868,7 +7868,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7916,7 +7916,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -7964,7 +7964,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -8012,7 +8012,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -8026,7 +8026,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|True|
@@ -8060,7 +8060,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -8074,7 +8074,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8108,7 +8108,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -8122,7 +8122,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8156,7 +8156,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -8170,7 +8170,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8204,7 +8204,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -8218,7 +8218,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8252,7 +8252,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -8266,7 +8266,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8300,7 +8300,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8314,7 +8314,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8348,7 +8348,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8362,7 +8362,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8396,7 +8396,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8410,7 +8410,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8444,7 +8444,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8458,7 +8458,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8492,7 +8492,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8506,7 +8506,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8540,7 +8540,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8554,7 +8554,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8588,7 +8588,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8602,7 +8602,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8636,7 +8636,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -8650,7 +8650,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8684,7 +8684,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8698,7 +8698,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8732,7 +8732,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -8746,7 +8746,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8780,7 +8780,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -8794,7 +8794,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8828,7 +8828,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8842,7 +8842,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|True|
@@ -8876,7 +8876,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8924,7 +8924,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -8938,7 +8938,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -8972,7 +8972,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -8986,7 +8986,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9020,7 +9020,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9034,7 +9034,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9068,7 +9068,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -9082,7 +9082,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9116,7 +9116,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -9130,7 +9130,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9164,7 +9164,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -9178,7 +9178,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9212,7 +9212,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9226,7 +9226,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9260,7 +9260,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9274,7 +9274,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9308,7 +9308,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9322,7 +9322,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9356,7 +9356,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9370,7 +9370,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9404,7 +9404,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9418,7 +9418,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9452,7 +9452,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -9466,7 +9466,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9500,7 +9500,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -9514,7 +9514,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9548,7 +9548,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -9562,7 +9562,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9596,7 +9596,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -9610,7 +9610,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9644,7 +9644,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -9658,7 +9658,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9692,7 +9692,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -9706,7 +9706,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9740,7 +9740,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -9754,7 +9754,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9788,7 +9788,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9802,7 +9802,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9836,7 +9836,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9850,7 +9850,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9884,7 +9884,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9898,7 +9898,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9932,7 +9932,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9946,7 +9946,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -9980,7 +9980,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -9994,7 +9994,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10028,7 +10028,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10042,7 +10042,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10076,7 +10076,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10090,7 +10090,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10124,7 +10124,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10138,7 +10138,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10172,7 +10172,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10186,7 +10186,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10220,7 +10220,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10234,7 +10234,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10268,7 +10268,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10282,7 +10282,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10316,7 +10316,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10330,7 +10330,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10364,7 +10364,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10378,7 +10378,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10412,7 +10412,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10426,7 +10426,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10460,7 +10460,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10474,7 +10474,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10508,7 +10508,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10522,7 +10522,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10556,7 +10556,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10570,7 +10570,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10604,7 +10604,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10618,7 +10618,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10652,7 +10652,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10666,7 +10666,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10700,7 +10700,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10714,7 +10714,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10748,7 +10748,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10762,7 +10762,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10796,7 +10796,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10810,7 +10810,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10844,7 +10844,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10858,7 +10858,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10892,7 +10892,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10906,7 +10906,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10940,7 +10940,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -10954,7 +10954,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -10988,7 +10988,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11002,7 +11002,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11036,7 +11036,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11050,7 +11050,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11084,7 +11084,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11098,7 +11098,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|True|
 |m_allowAltGroundPlacement|System.Boolean|True|
 |m_groundOnly|System.Boolean|False|
@@ -11132,7 +11132,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -11146,7 +11146,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11180,7 +11180,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11194,7 +11194,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11228,7 +11228,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11242,7 +11242,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11276,7 +11276,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11290,7 +11290,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11324,7 +11324,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11338,7 +11338,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11372,7 +11372,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11386,7 +11386,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11420,7 +11420,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11434,7 +11434,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11468,7 +11468,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11482,7 +11482,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11516,7 +11516,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11530,7 +11530,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|True|
@@ -11564,7 +11564,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -11578,7 +11578,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11612,7 +11612,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11626,7 +11626,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11660,7 +11660,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11674,7 +11674,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11708,7 +11708,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11722,7 +11722,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11756,7 +11756,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11770,7 +11770,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11804,7 +11804,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11818,7 +11818,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11852,7 +11852,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11866,7 +11866,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11900,7 +11900,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -11914,7 +11914,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|True|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -11948,7 +11948,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -11962,7 +11962,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|True|
 |m_allowAltGroundPlacement|System.Boolean|True|
 |m_groundOnly|System.Boolean|False|
@@ -11996,7 +11996,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12010,7 +12010,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12044,7 +12044,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -12058,7 +12058,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12092,7 +12092,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -12106,7 +12106,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12140,7 +12140,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12154,7 +12154,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12188,7 +12188,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12202,7 +12202,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12236,7 +12236,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12250,7 +12250,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12284,7 +12284,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12298,7 +12298,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12332,7 +12332,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12346,7 +12346,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12380,7 +12380,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12394,7 +12394,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12428,7 +12428,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12442,7 +12442,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12476,7 +12476,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12490,7 +12490,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12524,7 +12524,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12538,7 +12538,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12572,7 +12572,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12586,7 +12586,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12620,7 +12620,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -12634,7 +12634,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|2|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12668,7 +12668,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -12716,7 +12716,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -12730,7 +12730,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|2|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12764,7 +12764,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -12778,7 +12778,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12812,7 +12812,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -12826,7 +12826,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12860,7 +12860,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -12874,7 +12874,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12908,7 +12908,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -12922,7 +12922,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -12956,7 +12956,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -12970,7 +12970,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|3|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13004,7 +13004,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13018,7 +13018,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13052,7 +13052,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13066,7 +13066,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13100,7 +13100,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13114,7 +13114,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|3|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13148,7 +13148,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13196,7 +13196,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13244,7 +13244,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13258,7 +13258,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13292,7 +13292,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13306,7 +13306,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13340,7 +13340,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -13354,7 +13354,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13388,7 +13388,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -13402,7 +13402,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13436,7 +13436,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13450,7 +13450,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|2|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13484,7 +13484,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13498,7 +13498,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|2|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13532,7 +13532,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13546,7 +13546,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13580,7 +13580,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -13594,7 +13594,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13628,7 +13628,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -13642,7 +13642,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13676,7 +13676,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -13690,7 +13690,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13724,7 +13724,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -13738,7 +13738,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13772,7 +13772,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13786,7 +13786,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13820,7 +13820,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -13834,7 +13834,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13868,7 +13868,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13882,7 +13882,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13916,7 +13916,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13930,7 +13930,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -13964,7 +13964,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -13978,7 +13978,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14012,7 +14012,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -14026,7 +14026,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14060,7 +14060,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -14074,7 +14074,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14108,7 +14108,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -14122,7 +14122,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14156,7 +14156,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -14170,7 +14170,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14204,7 +14204,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14218,7 +14218,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14252,7 +14252,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14266,7 +14266,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|True|
@@ -14300,7 +14300,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14314,7 +14314,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14348,7 +14348,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -14362,7 +14362,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14396,7 +14396,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -14410,7 +14410,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14444,7 +14444,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14458,7 +14458,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14492,7 +14492,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14506,7 +14506,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14540,7 +14540,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14554,7 +14554,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14588,7 +14588,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14602,7 +14602,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14636,7 +14636,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14650,7 +14650,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14684,7 +14684,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -14698,7 +14698,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14732,7 +14732,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -14746,7 +14746,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14780,7 +14780,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -14794,7 +14794,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14828,7 +14828,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14842,7 +14842,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14876,7 +14876,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14890,7 +14890,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14924,7 +14924,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14938,7 +14938,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -14972,7 +14972,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -14986,7 +14986,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15020,7 +15020,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15034,7 +15034,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15068,7 +15068,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15082,7 +15082,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15116,7 +15116,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15130,7 +15130,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15164,7 +15164,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15178,7 +15178,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15212,7 +15212,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15226,7 +15226,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15260,7 +15260,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15274,7 +15274,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15308,7 +15308,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15322,7 +15322,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15356,7 +15356,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15370,7 +15370,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15404,7 +15404,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15418,7 +15418,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15452,7 +15452,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15466,7 +15466,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15500,7 +15500,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15514,7 +15514,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15548,7 +15548,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15562,7 +15562,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15596,7 +15596,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15610,7 +15610,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15644,7 +15644,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15658,7 +15658,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15692,7 +15692,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -15706,7 +15706,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15740,7 +15740,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15754,7 +15754,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15788,7 +15788,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15802,7 +15802,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15836,7 +15836,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15850,7 +15850,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15884,7 +15884,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15898,7 +15898,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15932,7 +15932,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15946,7 +15946,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -15980,7 +15980,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -15994,7 +15994,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16028,7 +16028,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16042,7 +16042,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16076,7 +16076,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16090,7 +16090,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16124,7 +16124,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16138,7 +16138,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16172,7 +16172,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16186,7 +16186,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16220,7 +16220,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16234,7 +16234,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16268,7 +16268,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16282,7 +16282,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16316,7 +16316,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16330,7 +16330,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16364,7 +16364,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16378,7 +16378,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16412,7 +16412,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16426,7 +16426,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16460,7 +16460,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16474,7 +16474,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16508,7 +16508,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16522,7 +16522,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16556,7 +16556,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16570,7 +16570,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16604,7 +16604,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16618,7 +16618,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16652,7 +16652,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16666,7 +16666,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16700,7 +16700,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16714,7 +16714,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16748,7 +16748,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16762,7 +16762,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16796,7 +16796,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16810,7 +16810,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16844,7 +16844,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -16858,7 +16858,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16892,7 +16892,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16906,7 +16906,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16940,7 +16940,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -16954,7 +16954,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -16988,7 +16988,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17002,7 +17002,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17036,7 +17036,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17050,7 +17050,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17084,7 +17084,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17098,7 +17098,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17132,7 +17132,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17146,7 +17146,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17180,7 +17180,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17194,7 +17194,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17228,7 +17228,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17242,7 +17242,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17276,7 +17276,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17290,7 +17290,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17324,7 +17324,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -17338,7 +17338,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17372,7 +17372,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17386,7 +17386,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|True|
@@ -17420,7 +17420,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17434,7 +17434,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17468,7 +17468,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -17482,7 +17482,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17516,7 +17516,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -17530,7 +17530,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17564,7 +17564,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17578,7 +17578,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17612,7 +17612,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -17626,7 +17626,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17660,7 +17660,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17674,7 +17674,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|2|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17708,7 +17708,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17722,7 +17722,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|2|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17756,7 +17756,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17770,7 +17770,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|3|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17804,7 +17804,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17818,7 +17818,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|3|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17852,7 +17852,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17866,7 +17866,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17900,7 +17900,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -17914,7 +17914,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17948,7 +17948,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -17962,7 +17962,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -17996,7 +17996,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18010,7 +18010,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18044,7 +18044,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18058,7 +18058,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18092,7 +18092,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18106,7 +18106,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18140,7 +18140,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18154,7 +18154,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18188,7 +18188,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18202,7 +18202,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18236,7 +18236,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18250,7 +18250,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|True|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18284,7 +18284,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18298,7 +18298,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18332,7 +18332,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -18346,7 +18346,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18380,7 +18380,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -18394,7 +18394,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18428,7 +18428,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -18442,7 +18442,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|True|
@@ -18476,7 +18476,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -18490,7 +18490,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18524,7 +18524,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -18538,7 +18538,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18572,7 +18572,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18586,7 +18586,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18620,7 +18620,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18634,7 +18634,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18668,7 +18668,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18682,7 +18682,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18716,7 +18716,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -18730,7 +18730,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18764,7 +18764,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -18778,7 +18778,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18812,7 +18812,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -18826,7 +18826,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|True|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18860,7 +18860,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -18874,7 +18874,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18908,7 +18908,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -18922,7 +18922,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|True|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -18956,7 +18956,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -18970,7 +18970,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19004,7 +19004,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -19018,7 +19018,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19052,7 +19052,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -19066,7 +19066,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19100,7 +19100,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -19114,7 +19114,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19148,7 +19148,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -19162,7 +19162,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19196,7 +19196,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -19210,7 +19210,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19244,7 +19244,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -19258,7 +19258,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19292,7 +19292,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -19306,7 +19306,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|1|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19340,7 +19340,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -19354,7 +19354,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19388,7 +19388,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -19402,7 +19402,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19436,7 +19436,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19450,7 +19450,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19484,7 +19484,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19498,7 +19498,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19532,7 +19532,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19546,7 +19546,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19580,7 +19580,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19594,7 +19594,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19628,7 +19628,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19642,7 +19642,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19676,7 +19676,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19690,7 +19690,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19724,7 +19724,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19738,7 +19738,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19772,7 +19772,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19786,7 +19786,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19820,7 +19820,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19834,7 +19834,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19868,7 +19868,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -19882,7 +19882,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19916,7 +19916,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -19930,7 +19930,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -19964,7 +19964,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -19978,7 +19978,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20012,7 +20012,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20026,7 +20026,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20060,7 +20060,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20074,7 +20074,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20108,7 +20108,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20122,7 +20122,7 @@
 |m_enabled|System.Boolean|False|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20156,7 +20156,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -20170,7 +20170,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20204,7 +20204,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20218,7 +20218,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20252,7 +20252,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20266,7 +20266,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20300,7 +20300,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -20314,7 +20314,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20348,7 +20348,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -20362,7 +20362,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20396,7 +20396,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20410,7 +20410,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20444,7 +20444,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20458,7 +20458,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20492,7 +20492,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -20506,7 +20506,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20540,7 +20540,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20554,7 +20554,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20588,7 +20588,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20602,7 +20602,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20636,7 +20636,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20650,7 +20650,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20684,7 +20684,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20698,7 +20698,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20732,7 +20732,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -20746,7 +20746,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20780,7 +20780,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -20794,7 +20794,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20828,7 +20828,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20842,7 +20842,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20876,7 +20876,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20890,7 +20890,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20924,7 +20924,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -20938,7 +20938,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -20972,7 +20972,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -20986,7 +20986,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21020,7 +21020,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -21034,7 +21034,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21068,7 +21068,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -21082,7 +21082,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21116,7 +21116,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -21130,7 +21130,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21164,7 +21164,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -21178,7 +21178,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21212,7 +21212,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -21226,7 +21226,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21260,7 +21260,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21274,7 +21274,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21308,7 +21308,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21322,7 +21322,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21356,7 +21356,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21370,7 +21370,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21404,7 +21404,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21418,7 +21418,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21452,7 +21452,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21466,7 +21466,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21500,7 +21500,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21514,7 +21514,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21548,7 +21548,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21562,7 +21562,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21596,7 +21596,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21610,7 +21610,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21644,7 +21644,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21658,7 +21658,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21692,7 +21692,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21706,7 +21706,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21740,7 +21740,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21754,7 +21754,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21788,7 +21788,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21802,7 +21802,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21836,7 +21836,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21850,7 +21850,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21884,7 +21884,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21898,7 +21898,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21932,7 +21932,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21946,7 +21946,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -21980,7 +21980,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -21994,7 +21994,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22028,7 +22028,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -22042,7 +22042,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22076,7 +22076,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -22090,7 +22090,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22124,7 +22124,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -22138,7 +22138,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22172,7 +22172,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -22186,7 +22186,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22220,7 +22220,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -22234,7 +22234,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22268,7 +22268,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22282,7 +22282,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22316,7 +22316,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22330,7 +22330,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22364,7 +22364,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22378,7 +22378,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22412,7 +22412,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22426,7 +22426,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22460,7 +22460,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -22474,7 +22474,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22508,7 +22508,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -22522,7 +22522,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22556,7 +22556,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -22570,7 +22570,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22604,7 +22604,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22618,7 +22618,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22652,7 +22652,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -22666,7 +22666,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22700,7 +22700,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
@@ -22714,7 +22714,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22748,7 +22748,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22762,7 +22762,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22796,7 +22796,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22810,7 +22810,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22844,7 +22844,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22858,7 +22858,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22892,7 +22892,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22906,7 +22906,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22940,7 +22940,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -22954,7 +22954,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -22988,7 +22988,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23002,7 +23002,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23036,7 +23036,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23050,7 +23050,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23084,7 +23084,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23098,7 +23098,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23132,7 +23132,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23146,7 +23146,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23180,7 +23180,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23194,7 +23194,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23228,7 +23228,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23242,7 +23242,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23276,7 +23276,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -23290,7 +23290,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23324,7 +23324,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -23338,7 +23338,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23372,7 +23372,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23386,7 +23386,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23420,7 +23420,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23434,7 +23434,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23468,7 +23468,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23482,7 +23482,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23516,7 +23516,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23530,7 +23530,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23564,7 +23564,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23578,7 +23578,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23612,7 +23612,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23626,7 +23626,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23660,7 +23660,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23674,7 +23674,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23708,7 +23708,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23722,7 +23722,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23756,7 +23756,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23770,7 +23770,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23804,7 +23804,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23818,7 +23818,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23852,7 +23852,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23866,7 +23866,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23900,7 +23900,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23914,7 +23914,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23948,7 +23948,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -23962,7 +23962,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -23996,7 +23996,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24010,7 +24010,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24044,7 +24044,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24058,7 +24058,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24092,7 +24092,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24106,7 +24106,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24140,7 +24140,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24154,7 +24154,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24188,7 +24188,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
@@ -24202,7 +24202,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24236,7 +24236,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24250,7 +24250,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24284,7 +24284,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24298,7 +24298,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24332,7 +24332,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24346,7 +24346,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24380,7 +24380,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24394,7 +24394,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24428,7 +24428,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24442,7 +24442,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24476,7 +24476,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24490,7 +24490,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24524,7 +24524,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24538,7 +24538,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24572,7 +24572,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24586,7 +24586,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24620,7 +24620,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24634,7 +24634,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24668,7 +24668,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24682,7 +24682,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24716,7 +24716,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24730,7 +24730,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24764,7 +24764,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24778,7 +24778,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24812,7 +24812,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24826,7 +24826,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24860,7 +24860,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24874,7 +24874,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24908,7 +24908,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24922,7 +24922,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -24956,7 +24956,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -24970,7 +24970,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -25004,7 +25004,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -25018,7 +25018,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -25052,7 +25052,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
@@ -25066,7 +25066,7 @@
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
 |m_comfort|System.Int32|0|
-|m_comfortObject|UnityEngine.GameObject||
+|m_comfortObject|UnityEngine.GameObject|*null*|
 |m_groundPiece|System.Boolean|False|
 |m_allowAltGroundPlacement|System.Boolean|False|
 |m_groundOnly|System.Boolean|False|
@@ -25100,7 +25100,7 @@
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
-|m_destroyedLootPrefab|UnityEngine.GameObject||
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 

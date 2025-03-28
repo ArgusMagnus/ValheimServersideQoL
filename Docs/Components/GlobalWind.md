@@ -94,7 +94,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_multiplier|System.Single|3|
+|m_multiplier|System.Single|2|
 |m_smoothUpdate|System.Boolean|False|
 |m_alignToWindDirection|System.Boolean|False|
 |m_particleVelocity|System.Boolean|False|
@@ -109,7 +109,7 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_multiplier|System.Single|2|
+|m_multiplier|System.Single|3|
 |m_smoothUpdate|System.Boolean|False|
 |m_alignToWindDirection|System.Boolean|False|
 |m_particleVelocity|System.Boolean|False|

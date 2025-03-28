@@ -9,7 +9,7 @@
 |m_removeWhenDestroyed|System.Boolean|False|
 |m_minToolTier|System.Int32|0|
 |m_areaRoot|UnityEngine.GameObject|minestuff|
-|m_baseModel|UnityEngine.GameObject||
+|m_baseModel|UnityEngine.GameObject|*null*|
 
 ## LeviathanLava
 
@@ -20,7 +20,7 @@
 |m_removeWhenDestroyed|System.Boolean|False|
 |m_minToolTier|System.Int32|3|
 |m_areaRoot|UnityEngine.GameObject|minestuff|
-|m_baseModel|UnityEngine.GameObject||
+|m_baseModel|UnityEngine.GameObject|*null*|
 
 ## MineRock_Copper
 
@@ -30,8 +30,8 @@
 |m_health|System.Single|20|
 |m_removeWhenDestroyed|System.Boolean|True|
 |m_minToolTier|System.Int32|0|
-|m_areaRoot|UnityEngine.GameObject||
-|m_baseModel|UnityEngine.GameObject||
+|m_areaRoot|UnityEngine.GameObject|*null*|
+|m_baseModel|UnityEngine.GameObject|*null*|
 
 ## MineRock_Iron
 
@@ -41,8 +41,8 @@
 |m_health|System.Single|40|
 |m_removeWhenDestroyed|System.Boolean|True|
 |m_minToolTier|System.Int32|1|
-|m_areaRoot|UnityEngine.GameObject||
-|m_baseModel|UnityEngine.GameObject||
+|m_areaRoot|UnityEngine.GameObject|*null*|
+|m_baseModel|UnityEngine.GameObject|*null*|
 
 ## MineRock_Meteorite
 
@@ -52,8 +52,8 @@
 |m_health|System.Single|100|
 |m_removeWhenDestroyed|System.Boolean|True|
 |m_minToolTier|System.Int32|3|
-|m_areaRoot|UnityEngine.GameObject||
-|m_baseModel|UnityEngine.GameObject||
+|m_areaRoot|UnityEngine.GameObject|*null*|
+|m_baseModel|UnityEngine.GameObject|*null*|
 
 ## MineRock_Stone
 
@@ -63,8 +63,8 @@
 |m_health|System.Single|20|
 |m_removeWhenDestroyed|System.Boolean|True|
 |m_minToolTier|System.Int32|0|
-|m_areaRoot|UnityEngine.GameObject||
-|m_baseModel|UnityEngine.GameObject||
+|m_areaRoot|UnityEngine.GameObject|*null*|
+|m_baseModel|UnityEngine.GameObject|*null*|
 
 ## mudpile_old
 
@@ -74,7 +74,7 @@
 |m_health|System.Single|5|
 |m_removeWhenDestroyed|System.Boolean|True|
 |m_minToolTier|System.Int32|0|
-|m_areaRoot|UnityEngine.GameObject||
+|m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|base_model|
 
 ## Rock_destructible_test
@@ -85,8 +85,8 @@
 |m_health|System.Single|20|
 |m_removeWhenDestroyed|System.Boolean|True|
 |m_minToolTier|System.Int32|0|
-|m_areaRoot|UnityEngine.GameObject||
-|m_baseModel|UnityEngine.GameObject||
+|m_areaRoot|UnityEngine.GameObject|*null*|
+|m_baseModel|UnityEngine.GameObject|*null*|
 
 ## stoneblock_fracture
 
@@ -96,6 +96,6 @@
 |m_health|System.Single|2|
 |m_removeWhenDestroyed|System.Boolean|True|
 |m_minToolTier|System.Int32|0|
-|m_areaRoot|UnityEngine.GameObject||
+|m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|Stoneblock|
 

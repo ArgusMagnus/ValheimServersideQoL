@@ -25,7 +25,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Ashlands_ArchRoof
@@ -39,7 +39,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Ashlands_floor_large
@@ -151,7 +151,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Ashlands_Ruins_Wall_Windows_Broken_4x6
@@ -165,7 +165,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Ashlands_WallBlock
@@ -179,7 +179,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## AshlandsBranch1
@@ -193,7 +193,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## AshlandsBranch2
@@ -207,7 +207,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## AshlandsBranch3
@@ -221,7 +221,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## AshlandsBush1
@@ -235,7 +235,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## AshlandsBush2
@@ -249,7 +249,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## AshlandsTreeStump1
@@ -263,7 +263,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## AshlandsTreeStump2
@@ -277,7 +277,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## AshlandsTreeStump3
@@ -291,7 +291,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## barrell
@@ -305,7 +305,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Beech_Sapling
@@ -319,7 +319,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Beech_small1
@@ -333,7 +333,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Beech_small2
@@ -347,7 +347,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Beech_Stub
@@ -361,7 +361,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Birch_Sapling
@@ -375,7 +375,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## BirchStub
@@ -389,7 +389,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## blackmarble_altar_crystal
@@ -417,7 +417,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## blackmarble_post01
@@ -445,7 +445,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## BonePileSpawner
@@ -459,7 +459,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## bucket
@@ -473,7 +473,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Bush01
@@ -487,7 +487,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Bush01_heath
@@ -501,7 +501,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Bush02_en
@@ -515,7 +515,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## CargoCrate
@@ -529,7 +529,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## CastleKit_braided_box01
@@ -543,7 +543,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## CastleKit_brazier
@@ -557,7 +557,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## CastleKit_metal_groundtorch_unlit
@@ -571,7 +571,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## caverock_ice_pillar_wall
@@ -613,7 +613,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## caverock_ice_stalagtite
@@ -641,7 +641,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## cliff_ashlands1
@@ -851,7 +851,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## CreepProp_egg_hanging01
@@ -879,7 +879,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Crow
@@ -893,7 +893,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## crypt_skeleton_chest
@@ -921,7 +921,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## dvergrprops_pickaxe
@@ -935,7 +935,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## dvergrtown_arch
@@ -949,7 +949,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## dvergrtown_creep_door
@@ -963,7 +963,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## dvergrtown_wood_beam
@@ -1061,7 +1061,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## EvilHeart_Swamp
@@ -1075,7 +1075,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## fenrirhide_hanging
@@ -1089,7 +1089,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## fenrirhide_hanging_door
@@ -1117,7 +1117,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## FernFiddleHeadAshlands
@@ -1131,7 +1131,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## FirTree_oldLog
@@ -1145,7 +1145,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## FirTree_Sapling
@@ -1159,7 +1159,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## FirTree_small
@@ -1173,7 +1173,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## FirTree_small_dead
@@ -1187,7 +1187,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## FirTree_Stub
@@ -1201,7 +1201,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Fish1
@@ -1215,7 +1215,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish10
@@ -1229,7 +1229,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish11
@@ -1243,7 +1243,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish12
@@ -1257,7 +1257,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish2
@@ -1271,7 +1271,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish3
@@ -1285,7 +1285,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish4_cave
@@ -1299,7 +1299,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish5
@@ -1313,7 +1313,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish6
@@ -1327,7 +1327,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish7
@@ -1341,7 +1341,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish8
@@ -1355,7 +1355,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Fish9
@@ -1369,7 +1369,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## FlametalRockstand
@@ -1523,7 +1523,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## goblin_trashpile
@@ -1537,7 +1537,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## GraveStone_Broken_CharredTwitcherNest
@@ -1551,7 +1551,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## GraveStone_Broken_World
@@ -1565,7 +1565,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## GraveStone_CharredFaderLocation
@@ -1579,7 +1579,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## GraveStone_CharredTwitcherNest
@@ -1593,7 +1593,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## GraveStone_Elite_Broken_CharredTwitcherNest
@@ -1607,7 +1607,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## GraveStone_Elite_CharredTwitcherNest
@@ -1621,7 +1621,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Greydwarf_Root
@@ -1635,7 +1635,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## GuckSack
@@ -1649,7 +1649,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## GuckSack_small
@@ -1663,7 +1663,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## hanging_hairstrands
@@ -1677,7 +1677,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## HeathRockPillar
@@ -1719,7 +1719,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## ice_rock1
@@ -1747,7 +1747,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## IceBlocker
@@ -1761,7 +1761,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|30|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## lavabomb_rock1
@@ -1775,7 +1775,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|55|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## lavarock_ashlands1
@@ -1803,7 +1803,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## marker02
@@ -1817,7 +1817,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## MineRock_Obsidian
@@ -1831,7 +1831,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## MineRock_Tin
@@ -1845,7 +1845,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## morgenhole_pile
@@ -1859,7 +1859,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## MountainGraveStone01
@@ -1873,7 +1873,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## MountainKit_brazier
@@ -1887,7 +1887,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## MountainKit_brazier_blue
@@ -1901,7 +1901,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## mountainkit_chair
@@ -1943,7 +1943,7 @@
 |m_destroyNoise|System.Single|100|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## mudpile
@@ -1999,7 +1999,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## OakStub
@@ -2013,7 +2013,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_Barley
@@ -2027,7 +2027,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_Barley_Wild
@@ -2041,7 +2041,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_Carrot
@@ -2055,7 +2055,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_Flax
@@ -2069,7 +2069,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_Flax_Wild
@@ -2083,7 +2083,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_MountainCaveCrystal
@@ -2097,7 +2097,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_MountainCaveObsidian
@@ -2111,7 +2111,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_Onion
@@ -2125,7 +2125,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_SeedCarrot
@@ -2139,7 +2139,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_SeedOnion
@@ -2153,7 +2153,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_SeedTurnip
@@ -2167,7 +2167,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pickable_SulfurRock
@@ -2195,7 +2195,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Pinetree_01_Stub
@@ -2209,7 +2209,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## PineTree_Sapling
@@ -2223,7 +2223,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## RaspberryBush
@@ -2237,7 +2237,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Rock_3
@@ -2265,7 +2265,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Rock_4_plains
@@ -2279,7 +2279,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Rock_7
@@ -2293,7 +2293,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Rock_destructible
@@ -2307,7 +2307,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## rock_mistlands1
@@ -2503,7 +2503,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## RockDolmen_2
@@ -2517,7 +2517,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## RockDolmen_3
@@ -2531,7 +2531,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## RockFinger
@@ -2587,7 +2587,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## root08
@@ -2601,7 +2601,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## root11
@@ -2615,7 +2615,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## root12
@@ -2629,7 +2629,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## sapling_barley
@@ -2643,7 +2643,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_carrot
@@ -2657,7 +2657,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_flax
@@ -2671,7 +2671,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_jotunpuffs
@@ -2685,7 +2685,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_magecap
@@ -2699,7 +2699,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_onion
@@ -2713,7 +2713,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_seedcarrot
@@ -2727,7 +2727,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_seedonion
@@ -2741,7 +2741,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_seedturnip
@@ -2755,7 +2755,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## sapling_turnip
@@ -2769,7 +2769,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## Seagal
@@ -2783,7 +2783,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## SeekerEgg
@@ -2797,7 +2797,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## SeekerEgg_alwayshatch
@@ -2811,7 +2811,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## ShootStump
@@ -2825,7 +2825,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## shrub_2
@@ -2839,7 +2839,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## shrub_2_heath
@@ -2853,7 +2853,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## silvervein
@@ -2881,7 +2881,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Spawner_CharredStone
@@ -2895,7 +2895,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Spawner_CharredStone_Elite
@@ -2909,7 +2909,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Spawner_CharredStone_event
@@ -2923,7 +2923,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Spawner_DraugrPile
@@ -2937,7 +2937,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## Spawner_GreydwarfNest
@@ -2951,7 +2951,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## stubbe
@@ -2965,7 +2965,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## stubbe_spawner
@@ -2979,7 +2979,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## SwampTree1_Stub
@@ -2993,7 +2993,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## tarlump1
@@ -3021,7 +3021,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## trader_wagon_destructable
@@ -3049,7 +3049,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## veg_skull_Ashlands
@@ -3063,7 +3063,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## VineAsh_sapling
@@ -3077,7 +3077,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## VineGreen_sapling
@@ -3091,7 +3091,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## volture_strawpile
@@ -3105,7 +3105,7 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## widestone
@@ -3133,6 +3133,6 @@
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
 |m_ttl|System.Single|0|
-|m_spawnWhenDestroyed|UnityEngine.GameObject||
+|m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|False|
 

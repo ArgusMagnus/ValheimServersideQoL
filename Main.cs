@@ -477,7 +477,7 @@ public sealed partial class Main : BaseUnityPlugin
                     var value = field.GetValue(component);
                     if (value is UnityEngine.Object obj)
                         value = obj.name;
-                    writer.WriteLine($"|{field.Name}|{field.FieldType}|{value}|");
+                    writer.WriteLine($"|{field.Name}|{field.FieldType}|{value ?? "*null*"}|");
                 }
                 writer.WriteLine();
             }

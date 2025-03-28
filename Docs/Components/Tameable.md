@@ -29,7 +29,7 @@
 |m_unsummonDistance|System.Single|0|
 |m_unsummonOnOwnerLogoutSeconds|System.Single|0|
 |m_levelUpFactor|System.Single|1|
-|m_saddleItem|ItemDrop||
+|m_saddleItem|ItemDrop|*null*|
 |m_dropSaddleOnDeath|System.Boolean|True|
 |m_dropSaddleOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_dropItemVel|System.Single|5|
@@ -47,7 +47,7 @@
 |m_unsummonDistance|System.Single|0|
 |m_unsummonOnOwnerLogoutSeconds|System.Single|0|
 |m_levelUpFactor|System.Single|1|
-|m_saddleItem|ItemDrop||
+|m_saddleItem|ItemDrop|*null*|
 |m_dropSaddleOnDeath|System.Boolean|True|
 |m_dropSaddleOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_dropItemVel|System.Single|5|
@@ -83,7 +83,7 @@
 |m_unsummonDistance|System.Single|150|
 |m_unsummonOnOwnerLogoutSeconds|System.Single|120|
 |m_levelUpFactor|System.Single|0.5|
-|m_saddleItem|ItemDrop||
+|m_saddleItem|ItemDrop|*null*|
 |m_dropSaddleOnDeath|System.Boolean|True|
 |m_dropSaddleOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_dropItemVel|System.Single|5|
@@ -101,7 +101,7 @@
 |m_unsummonDistance|System.Single|0|
 |m_unsummonOnOwnerLogoutSeconds|System.Single|0|
 |m_levelUpFactor|System.Single|1|
-|m_saddleItem|ItemDrop||
+|m_saddleItem|ItemDrop|*null*|
 |m_dropSaddleOnDeath|System.Boolean|True|
 |m_dropSaddleOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_dropItemVel|System.Single|5|

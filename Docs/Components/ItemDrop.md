@@ -6,8 +6,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Abomination_attack2
 
@@ -15,8 +15,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Abomination_attack3
 
@@ -24,8 +24,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Acorn
 
@@ -33,8 +33,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Amber
 
@@ -42,8 +42,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AmberPearl
 
@@ -51,8 +51,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AncientSeed
 
@@ -60,8 +60,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorAshlandsMediumChest
 
@@ -69,8 +69,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorAshlandsMediumlegs
 
@@ -78,8 +78,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorBronzeChest
 
@@ -87,8 +87,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorBronzeLegs
 
@@ -96,8 +96,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorCarapaceChest
 
@@ -105,8 +105,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorCarapaceLegs
 
@@ -114,8 +114,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress1
 
@@ -123,8 +123,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress10
 
@@ -132,8 +132,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress2
 
@@ -141,8 +141,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress3
 
@@ -150,8 +150,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress4
 
@@ -159,8 +159,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress5
 
@@ -168,8 +168,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress6
 
@@ -177,8 +177,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress7
 
@@ -186,8 +186,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress8
 
@@ -195,8 +195,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorDress9
 
@@ -204,8 +204,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorFenringChest
 
@@ -213,8 +213,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorFenringLegs
 
@@ -222,8 +222,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorFlametalChest
 
@@ -231,8 +231,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorFlametalLegs
 
@@ -240,8 +240,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorHarvester1
 
@@ -249,8 +249,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorHarvester2
 
@@ -258,8 +258,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorIronChest
 
@@ -267,8 +267,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorIronLegs
 
@@ -276,8 +276,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorLeatherChest
 
@@ -285,8 +285,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorLeatherLegs
 
@@ -294,8 +294,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorMageChest
 
@@ -303,8 +303,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorMageChest_Ashlands
 
@@ -312,8 +312,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorMageLegs
 
@@ -321,8 +321,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorMageLegs_Ashlands
 
@@ -330,8 +330,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorPaddedCuirass
 
@@ -339,8 +339,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorPaddedGreaves
 
@@ -348,8 +348,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorRagsChest
 
@@ -357,8 +357,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorRagsLegs
 
@@ -366,8 +366,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorRootChest
 
@@ -375,8 +375,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorRootLegs
 
@@ -384,8 +384,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTrollLeatherChest
 
@@ -393,8 +393,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTrollLeatherLegs
 
@@ -402,8 +402,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic1
 
@@ -411,8 +411,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic10
 
@@ -420,8 +420,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic2
 
@@ -429,8 +429,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic3
 
@@ -438,8 +438,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic4
 
@@ -447,8 +447,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic5
 
@@ -456,8 +456,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic6
 
@@ -465,8 +465,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic7
 
@@ -474,8 +474,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic8
 
@@ -483,8 +483,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorTunic9
 
@@ -492,8 +492,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorWolfChest
 
@@ -501,8 +501,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorWolfLegs
 
@@ -510,8 +510,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowBronze
 
@@ -519,8 +519,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowCarapace
 
@@ -528,8 +528,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowCharred
 
@@ -537,8 +537,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowFire
 
@@ -546,8 +546,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowFlint
 
@@ -555,8 +555,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowFrost
 
@@ -564,8 +564,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowIron
 
@@ -573,8 +573,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowNeedle
 
@@ -582,8 +582,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowObsidian
 
@@ -591,8 +591,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowPoison
 
@@ -600,8 +600,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowSilver
 
@@ -609,8 +609,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArrowWood
 
@@ -618,8 +618,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AskBladder
 
@@ -627,8 +627,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AskHide
 
@@ -636,8 +636,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AsksvinCarrionNeck
 
@@ -645,8 +645,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AsksvinCarrionPelvic
 
@@ -654,8 +654,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AsksvinCarrionRibcage
 
@@ -663,8 +663,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AsksvinCarrionSkull
 
@@ -672,8 +672,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AsksvinEgg
 
@@ -681,8 +681,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AsksvinMeat
 
@@ -690,8 +690,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AtgeirBlackmetal
 
@@ -699,8 +699,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AtgeirBronze
 
@@ -708,8 +708,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AtgeirHimminAfl
 
@@ -717,8 +717,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AtgeirIron
 
@@ -726,8 +726,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeBerzerkr
 
@@ -735,8 +735,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeBerzerkrBlood
 
@@ -744,8 +744,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeBerzerkrLightning
 
@@ -753,8 +753,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeBerzerkrNature
 
@@ -762,8 +762,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeBlackMetal
 
@@ -771,8 +771,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeBronze
 
@@ -780,8 +780,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeFlint
 
@@ -789,8 +789,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeIron
 
@@ -798,8 +798,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeJotunBane
 
@@ -807,8 +807,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## AxeStone
 
@@ -816,8 +816,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BarberKit
 
@@ -825,8 +825,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Barley
 
@@ -834,8 +834,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BarleyFlour
 
@@ -843,8 +843,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BarleyWine
 
@@ -852,7 +852,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## BarleyWineBase
@@ -861,8 +861,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BarrelRings
 
@@ -870,8 +870,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## bat_melee
 
@@ -879,8 +879,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Battleaxe
 
@@ -888,8 +888,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BattleaxeCrystal
 
@@ -897,8 +897,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BeechSeeds
 
@@ -906,8 +906,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Bell
 
@@ -915,8 +915,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BellFragment
 
@@ -924,8 +924,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BeltStrength
 
@@ -933,8 +933,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Bilebag
 
@@ -942,8 +942,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BirchSeeds
 
@@ -951,8 +951,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BlackCore
 
@@ -960,8 +960,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BlackMarble
 
@@ -969,8 +969,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BlackMetal
 
@@ -978,8 +978,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BlackMetalScrap
 
@@ -987,8 +987,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BlackSoup
 
@@ -1005,8 +1005,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Bloodbag
 
@@ -1014,8 +1014,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BloodPudding
 
@@ -1032,7 +1032,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## BoarJerky
@@ -1041,7 +1041,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## BoltBlackmetal
@@ -1050,8 +1050,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BoltBone
 
@@ -1059,8 +1059,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BoltCarapace
 
@@ -1068,8 +1068,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BoltCharred
 
@@ -1077,8 +1077,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BoltIron
 
@@ -1086,8 +1086,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BombBile
 
@@ -1095,8 +1095,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BombLava
 
@@ -1104,8 +1104,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BombOoze
 
@@ -1113,8 +1113,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BombSiege
 
@@ -1122,8 +1122,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BombSmoke
 
@@ -1131,8 +1131,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BoneFragments
 
@@ -1140,8 +1140,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BoneMawSerpentMeat
 
@@ -1149,8 +1149,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BonemawSerpentScale
 
@@ -1158,8 +1158,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BonemawSerpentTooth
 
@@ -1167,8 +1167,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Bow
 
@@ -1176,8 +1176,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BowAshlands
 
@@ -1185,8 +1185,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BowAshlandsBlood
 
@@ -1194,8 +1194,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BowAshlandsRoot
 
@@ -1203,8 +1203,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BowAshlandsStorm
 
@@ -1212,8 +1212,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BowDraugrFang
 
@@ -1221,8 +1221,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BowFineWood
 
@@ -1230,8 +1230,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BowHuntsman
 
@@ -1239,8 +1239,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BowSpineSnap
 
@@ -1248,8 +1248,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Bread
 
@@ -1266,8 +1266,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Bronze
 
@@ -1275,8 +1275,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BronzeNails
 
@@ -1284,8 +1284,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BronzeScrap
 
@@ -1293,8 +1293,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BugMeat
 
@@ -1302,8 +1302,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CandleWick
 
@@ -1311,8 +1311,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeAsh
 
@@ -1320,8 +1320,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeAsksvin
 
@@ -1329,8 +1329,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeDeerHide
 
@@ -1338,8 +1338,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeFeather
 
@@ -1347,8 +1347,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeLinen
 
@@ -1356,8 +1356,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeLox
 
@@ -1365,8 +1365,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeOdin
 
@@ -1374,8 +1374,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeTest
 
@@ -1383,8 +1383,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeTrollHide
 
@@ -1392,8 +1392,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeWolf
 
@@ -1401,8 +1401,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Carapace
 
@@ -1410,8 +1410,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Carrot
 
@@ -1419,7 +1419,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## CarrotSeeds
@@ -1428,8 +1428,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CarrotSoup
 
@@ -1446,8 +1446,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CelestialFeather
 
@@ -1455,8 +1455,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CeramicPlate
 
@@ -1464,8 +1464,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Chain
 
@@ -1473,8 +1473,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CharcoalResin
 
@@ -1482,8 +1482,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_bow
 
@@ -1491,8 +1491,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_bow_Fader
 
@@ -1500,8 +1500,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_bow_volley
 
@@ -1509,8 +1509,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_bow_volley_Fader
 
@@ -1518,8 +1518,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Charred_Breastplate
 
@@ -1527,8 +1527,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_dyrnwyn_greatsword_feint
 
@@ -1536,8 +1536,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_dyrnwyn_greatsword_swing
 
@@ -1545,8 +1545,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_dyrnwyn_greatsword_thrust
 
@@ -1554,8 +1554,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_dyrnwyn_greatsword_thrustfeint
 
@@ -1563,8 +1563,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_fader_greatsword_feint
 
@@ -1572,8 +1572,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_fader_greatsword_swing
 
@@ -1581,8 +1581,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_fader_greatsword_thrust
 
@@ -1590,8 +1590,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_fader_greatsword_thrustfeint
 
@@ -1599,8 +1599,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_greatsword_feint
 
@@ -1608,8 +1608,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_greatsword_swing
 
@@ -1617,8 +1617,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_greatsword_thrust
 
@@ -1626,8 +1626,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_greatsword_thrustfeint
 
@@ -1635,8 +1635,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Charred_Helmet
 
@@ -1644,8 +1644,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Charred_HipCloth
 
@@ -1653,8 +1653,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Charred_MageCloths
 
@@ -1662,8 +1662,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_magestaff_fire
 
@@ -1671,8 +1671,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_magestaff_summon
 
@@ -1680,8 +1680,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_twitcher_scratch_l
 
@@ -1689,8 +1689,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_twitcher_scratch_r
 
@@ -1698,8 +1698,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## charred_twitcher_throw
 
@@ -1707,8 +1707,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CharredBone
 
@@ -1716,8 +1716,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CharredCogwheel
 
@@ -1725,8 +1725,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Charredskull
 
@@ -1734,8 +1734,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## chest_hildir1
 
@@ -1743,8 +1743,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## chest_hildir2
 
@@ -1752,8 +1752,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## chest_hildir3
 
@@ -1761,8 +1761,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ChickenEgg
 
@@ -1770,8 +1770,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ChickenMeat
 
@@ -1779,8 +1779,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Chitin
 
@@ -1788,8 +1788,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Cloudberry
 
@@ -1797,7 +1797,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## Club
@@ -1806,8 +1806,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Coal
 
@@ -1815,8 +1815,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Coins
 
@@ -1824,8 +1824,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CookedAsksvinMeat
 
@@ -1932,8 +1932,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CopperOre
 
@@ -1941,8 +1941,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CopperScrap
 
@@ -1950,8 +1950,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CrossbowArbalest
 
@@ -1959,8 +1959,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipper
 
@@ -1968,8 +1968,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipperBlood
 
@@ -1977,8 +1977,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipperLightning
 
@@ -1986,8 +1986,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipperNature
 
@@ -1995,8 +1995,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CryptKey
 
@@ -2004,8 +2004,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Crystal
 
@@ -2013,8 +2013,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Cultivator
 
@@ -2022,8 +2022,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CuredSquirrelHamstring
 
@@ -2031,8 +2031,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Dandelion
 
@@ -2040,8 +2040,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Deathsquito_sting
 
@@ -2049,8 +2049,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DeerHide
 
@@ -2058,8 +2058,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DeerMeat
 
@@ -2067,8 +2067,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DeerStew
 
@@ -2085,8 +2085,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DragonEgg
 
@@ -2094,8 +2094,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DragonTear
 
@@ -2103,8 +2103,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## draugr_arrow
 
@@ -2112,8 +2112,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## draugr_axe
 
@@ -2121,8 +2121,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## draugr_bow
 
@@ -2130,8 +2130,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## draugr_sword
 
@@ -2139,8 +2139,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerArbalest
 
@@ -2148,8 +2148,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerArbalest_shoot
 
@@ -2157,8 +2157,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerArbalest_shootAshlands
 
@@ -2166,8 +2166,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerHairFemale
 
@@ -2175,8 +2175,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerHairFemale_Redhair
 
@@ -2184,8 +2184,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerHairMale
 
@@ -2193,8 +2193,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerHairMale_Redbeard
 
@@ -2202,8 +2202,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerStaffFire
 
@@ -2211,8 +2211,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerStaffHeal
 
@@ -2220,8 +2220,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerStaffIce
 
@@ -2229,8 +2229,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerStaffSupport
 
@@ -2238,8 +2238,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerSuitArbalest
 
@@ -2247,8 +2247,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerSuitArbalest_Ashlands
 
@@ -2256,8 +2256,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerSuitFire
 
@@ -2265,8 +2265,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerSuitIce
 
@@ -2274,8 +2274,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerSuitSupport
 
@@ -2283,8 +2283,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergrKey
 
@@ -2292,8 +2292,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergrKeyFragment
 
@@ -2301,8 +2301,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergrNeedle
 
@@ -2310,8 +2310,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DyrnwynBladeFragment
 
@@ -2319,8 +2319,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DyrnwynHiltFragment
 
@@ -2328,8 +2328,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DyrnwynTipFragment
 
@@ -2337,8 +2337,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Eitr
 
@@ -2346,8 +2346,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ElderBark
 
@@ -2355,8 +2355,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Entrails
 
@@ -2364,8 +2364,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Eyescream
 
@@ -2373,7 +2373,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## FaderDrop
@@ -2382,8 +2382,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## fallenvalkyrie_claws
 
@@ -2391,8 +2391,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## fallenvalkyrie_screech
 
@@ -2400,8 +2400,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## fallenvalkyrie_spin
 
@@ -2409,8 +2409,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## fallenvalkyrie_swoopattack
 
@@ -2418,8 +2418,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## fallenvalkyrie_taunt
 
@@ -2427,8 +2427,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## fallenvalkyrie_wingspin
 
@@ -2436,8 +2436,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastAshlands
 
@@ -2445,8 +2445,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastAshlands_Material
 
@@ -2454,8 +2454,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastBlackforest
 
@@ -2463,8 +2463,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastBlackforest_Material
 
@@ -2472,8 +2472,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Feaster
 
@@ -2481,8 +2481,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastMeadows
 
@@ -2490,8 +2490,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastMeadows_Material
 
@@ -2499,8 +2499,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastMistlands
 
@@ -2508,8 +2508,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastMistlands_Material
 
@@ -2517,8 +2517,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastMountains
 
@@ -2526,8 +2526,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastMountains_Material
 
@@ -2535,8 +2535,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastOceans
 
@@ -2544,8 +2544,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastOceans_Material
 
@@ -2553,8 +2553,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastPlains
 
@@ -2562,8 +2562,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastPlains_Material
 
@@ -2571,8 +2571,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastSwamps
 
@@ -2580,8 +2580,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastSwamps_Material
 
@@ -2589,8 +2589,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Feathers
 
@@ -2598,8 +2598,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fiddleheadfern
 
@@ -2607,7 +2607,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## FierySvinstew
@@ -2625,8 +2625,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FirCone
 
@@ -2634,8 +2634,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FireworksRocket_Blue
 
@@ -2643,8 +2643,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FireworksRocket_Cyan
 
@@ -2652,8 +2652,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FireworksRocket_Green
 
@@ -2661,8 +2661,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FireworksRocket_Purple
 
@@ -2670,8 +2670,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FireworksRocket_Red
 
@@ -2679,8 +2679,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FireworksRocket_White
 
@@ -2688,8 +2688,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FireworksRocket_Yellow
 
@@ -2697,8 +2697,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish1
 
@@ -2706,8 +2706,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish10
 
@@ -2715,8 +2715,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish11
 
@@ -2724,8 +2724,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish12
 
@@ -2733,8 +2733,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish2
 
@@ -2742,8 +2742,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish3
 
@@ -2751,8 +2751,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish4_cave
 
@@ -2760,8 +2760,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish5
 
@@ -2769,8 +2769,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish6
 
@@ -2778,8 +2778,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish7
 
@@ -2787,8 +2787,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish8
 
@@ -2796,8 +2796,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Fish9
 
@@ -2805,8 +2805,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|False|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishAndBread
 
@@ -2823,8 +2823,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishAnglerRaw
 
@@ -2832,8 +2832,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishCooked
 
@@ -2850,8 +2850,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingBaitAshlands
 
@@ -2859,8 +2859,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingBaitCave
 
@@ -2868,8 +2868,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingBaitDeepNorth
 
@@ -2877,8 +2877,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingBaitForest
 
@@ -2886,8 +2886,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingBaitMistlands
 
@@ -2895,8 +2895,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingBaitOcean
 
@@ -2904,8 +2904,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingBaitPlains
 
@@ -2913,8 +2913,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingBaitSwamp
 
@@ -2922,8 +2922,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishingRod
 
@@ -2931,8 +2931,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishRaw
 
@@ -2940,8 +2940,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FishWraps
 
@@ -2949,7 +2949,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## FistFenrirClaw
@@ -2958,8 +2958,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Flametal
 
@@ -2967,8 +2967,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FlametalNew
 
@@ -2976,8 +2976,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FlametalOre
 
@@ -2985,8 +2985,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FlametalOreNew
 
@@ -2994,8 +2994,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Flax
 
@@ -3003,8 +3003,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Flint
 
@@ -3012,8 +3012,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FragrantBundle
 
@@ -3021,8 +3021,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FreezeGland
 
@@ -3030,8 +3030,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FreshSeaweed
 
@@ -3039,8 +3039,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GemstoneBlue
 
@@ -3048,8 +3048,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GemstoneGreen
 
@@ -3057,8 +3057,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GemstoneRed
 
@@ -3066,8 +3066,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GiantBloodSack
 
@@ -3075,8 +3075,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinArmband
 
@@ -3084,8 +3084,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_ArmGuard
 
@@ -3093,8 +3093,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_Attack
 
@@ -3102,8 +3102,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_Backbones
 
@@ -3111,8 +3111,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_ExecutionerCap
 
@@ -3120,8 +3120,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_HipCloth
 
@@ -3129,8 +3129,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_LegBones
 
@@ -3138,8 +3138,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_RageAttack
 
@@ -3147,8 +3147,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_ShoulderGuard
 
@@ -3156,8 +3156,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBrute_Taunt
 
@@ -3165,8 +3165,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBruteBros_Attack
 
@@ -3174,8 +3174,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinBruteBros_RageAttack
 
@@ -3183,8 +3183,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinClub
 
@@ -3192,8 +3192,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinHelmet
 
@@ -3201,8 +3201,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinLegband
 
@@ -3210,8 +3210,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinLoin
 
@@ -3219,8 +3219,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_attack_poke
 
@@ -3228,8 +3228,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Headdress_antlers
 
@@ -3237,8 +3237,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Headdress_feathers
 
@@ -3246,8 +3246,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Staff_Bones
 
@@ -3255,8 +3255,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Staff_Feathers
 
@@ -3264,8 +3264,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Staff_Hildir
 
@@ -3273,8 +3273,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinShoulders
 
@@ -3282,8 +3282,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinSpear
 
@@ -3291,8 +3291,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinSword
 
@@ -3300,8 +3300,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinTorch
 
@@ -3309,8 +3309,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GoblinTotem
 
@@ -3318,8 +3318,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Grausten
 
@@ -3327,8 +3327,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## GreydwarfEye
 
@@ -3336,8 +3336,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Guck
 
@@ -3345,8 +3345,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Hammer
 
@@ -3354,8 +3354,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HardAntler
 
@@ -3363,8 +3363,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HareMeat
 
@@ -3372,8 +3372,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HealthUpgrade_Bonemass
 
@@ -3381,8 +3381,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HealthUpgrade_GDKing
 
@@ -3390,8 +3390,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetAshlandsMediumHood
 
@@ -3399,8 +3399,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetBronze
 
@@ -3408,8 +3408,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetCarapace
 
@@ -3417,8 +3417,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetDrake
 
@@ -3426,8 +3426,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetDverger
 
@@ -3435,8 +3435,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetFenring
 
@@ -3444,8 +3444,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetFishingHat
 
@@ -3453,8 +3453,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetFlametal
 
@@ -3462,8 +3462,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat1
 
@@ -3471,8 +3471,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat10
 
@@ -3480,8 +3480,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat2
 
@@ -3489,8 +3489,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat3
 
@@ -3498,8 +3498,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat4
 
@@ -3507,8 +3507,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat5
 
@@ -3516,8 +3516,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat6
 
@@ -3525,8 +3525,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat7
 
@@ -3534,8 +3534,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat8
 
@@ -3543,8 +3543,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetHat9
 
@@ -3552,8 +3552,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetIron
 
@@ -3561,8 +3561,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetLeather
 
@@ -3570,8 +3570,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetMage
 
@@ -3579,8 +3579,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetMage_Ashlands
 
@@ -3588,8 +3588,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetMidsummerCrown
 
@@ -3597,8 +3597,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetOdin
 
@@ -3606,8 +3606,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetPadded
 
@@ -3615,8 +3615,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetPointyHat
 
@@ -3624,8 +3624,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetRoot
 
@@ -3633,8 +3633,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetStrawHat
 
@@ -3642,8 +3642,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetTrollLeather
 
@@ -3651,8 +3651,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetYule
 
@@ -3660,8 +3660,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HildirKey_forestcrypt
 
@@ -3669,8 +3669,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HildirKey_mountaincave
 
@@ -3678,8 +3678,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HildirKey_plainsfortress
 
@@ -3687,8 +3687,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Hoe
 
@@ -3696,8 +3696,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Honey
 
@@ -3705,7 +3705,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## HoneyGlazedChicken
@@ -3723,8 +3723,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Iron
 
@@ -3732,8 +3732,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## IronNails
 
@@ -3741,8 +3741,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## IronOre
 
@@ -3750,8 +3750,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Ironpit
 
@@ -3759,8 +3759,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## IronScrap
 
@@ -3768,8 +3768,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## JuteBlue
 
@@ -3777,8 +3777,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## JuteRed
 
@@ -3786,8 +3786,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## KnifeBlackMetal
 
@@ -3795,8 +3795,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## KnifeButcher
 
@@ -3804,8 +3804,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## KnifeChitin
 
@@ -3813,8 +3813,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## KnifeCopper
 
@@ -3822,8 +3822,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## KnifeFlint
 
@@ -3831,8 +3831,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## KnifeSilver
 
@@ -3840,8 +3840,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## KnifeSkollAndHati
 
@@ -3849,8 +3849,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Lantern
 
@@ -3858,8 +3858,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Larva
 
@@ -3867,8 +3867,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## LeatherScraps
 
@@ -3876,8 +3876,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## LinenThread
 
@@ -3885,8 +3885,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## LoxMeat
 
@@ -3894,8 +3894,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## LoxPelt
 
@@ -3903,8 +3903,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## LoxPie
 
@@ -3921,8 +3921,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceBronze
 
@@ -3930,8 +3930,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceEldner
 
@@ -3939,8 +3939,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceEldnerBlood
 
@@ -3948,8 +3948,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceEldnerLightning
 
@@ -3957,8 +3957,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceEldnerNature
 
@@ -3966,8 +3966,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceIron
 
@@ -3975,8 +3975,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceNeedle
 
@@ -3984,8 +3984,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceSilver
 
@@ -3993,8 +3993,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MagicallyStuffedShroom
 
@@ -4011,8 +4011,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Mandible
 
@@ -4020,8 +4020,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MarinatedGreens
 
@@ -4038,7 +4038,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadBaseBugRepellent
@@ -4047,8 +4047,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseBzerker
 
@@ -4056,8 +4056,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseEitrLingering
 
@@ -4065,8 +4065,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseEitrMinor
 
@@ -4074,8 +4074,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseFrostResist
 
@@ -4083,8 +4083,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseHasty
 
@@ -4092,8 +4092,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseHealthLingering
 
@@ -4101,8 +4101,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseHealthMajor
 
@@ -4110,8 +4110,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseHealthMedium
 
@@ -4119,8 +4119,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseHealthMinor
 
@@ -4128,8 +4128,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseLightFoot
 
@@ -4137,8 +4137,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBasePoisonResist
 
@@ -4146,8 +4146,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseStaminaLingering
 
@@ -4155,8 +4155,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseStaminaMedium
 
@@ -4164,8 +4164,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseStaminaMinor
 
@@ -4173,8 +4173,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseStrength
 
@@ -4182,8 +4182,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseSwimmer
 
@@ -4191,8 +4191,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseTamer
 
@@ -4200,8 +4200,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBaseTasty
 
@@ -4209,8 +4209,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MeadBugRepellent
 
@@ -4218,7 +4218,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadBzerker
@@ -4227,7 +4227,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadEitrLingering
@@ -4236,7 +4236,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadEitrMinor
@@ -4245,7 +4245,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadFrostResist
@@ -4254,7 +4254,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadHasty
@@ -4263,7 +4263,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadHealthLingering
@@ -4272,7 +4272,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadHealthMajor
@@ -4281,7 +4281,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadHealthMedium
@@ -4290,7 +4290,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadHealthMinor
@@ -4299,7 +4299,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadLightfoot
@@ -4308,7 +4308,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadPoisonResist
@@ -4317,7 +4317,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadStaminaLingering
@@ -4326,7 +4326,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadStaminaMedium
@@ -4335,7 +4335,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadStaminaMinor
@@ -4344,7 +4344,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadStrength
@@ -4353,7 +4353,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadSwimmer
@@ -4362,7 +4362,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadTamer
@@ -4371,7 +4371,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadTasty
@@ -4380,7 +4380,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeadTrollPheromones
@@ -4389,7 +4389,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MeatPlatter
@@ -4407,8 +4407,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MechanicalSpring
 
@@ -4416,8 +4416,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MinceMeatSauce
 
@@ -4443,8 +4443,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Mistile_kamikaze
 
@@ -4452,8 +4452,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MoltenCore
 
@@ -4461,8 +4461,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MorgenHeart
 
@@ -4470,8 +4470,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MorgenSinew
 
@@ -4479,8 +4479,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Mushroom
 
@@ -4488,7 +4488,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MushroomBlue
@@ -4497,8 +4497,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MushroomBzerker
 
@@ -4506,7 +4506,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MushroomJotunPuffs
@@ -4515,7 +4515,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MushroomMagecap
@@ -4524,7 +4524,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MushroomOmelette
@@ -4542,7 +4542,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## MushroomYellow
@@ -4551,7 +4551,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## NeckTail
@@ -4560,8 +4560,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## NeckTailGrilled
 
@@ -4578,8 +4578,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Obsidian
 
@@ -4587,8 +4587,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Onion
 
@@ -4596,7 +4596,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## OnionSeeds
@@ -4605,8 +4605,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## OnionSoup
 
@@ -4623,8 +4623,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PickaxeAntler
 
@@ -4632,8 +4632,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PickaxeBlackMetal
 
@@ -4641,8 +4641,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PickaxeBronze
 
@@ -4650,8 +4650,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PickaxeIron
 
@@ -4659,8 +4659,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PickaxeStone
 
@@ -4668,8 +4668,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PineCone
 
@@ -4677,8 +4677,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PiquantPie
 
@@ -4695,8 +4695,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PlayerUnarmed
 
@@ -4704,8 +4704,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Pot_Shard_Green
 
@@ -4713,8 +4713,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Pot_Shard_Red
 
@@ -4722,8 +4722,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## PowderedDragonEgg
 
@@ -4731,8 +4731,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ProustitePowder
 
@@ -4740,8 +4740,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Pukeberries
 
@@ -4749,7 +4749,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## PungentPebbles
@@ -4758,8 +4758,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## QueenBee
 
@@ -4767,8 +4767,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## QueenDrop
 
@@ -4776,8 +4776,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## QueensJam
 
@@ -4785,7 +4785,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## Raspberry
@@ -4794,7 +4794,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## RawMeat
@@ -4803,8 +4803,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Resin
 
@@ -4812,8 +4812,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## RoastedCrustPie
 
@@ -4830,8 +4830,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Root
 
@@ -4839,8 +4839,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## RottenMeat
 
@@ -4848,8 +4848,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## RoundLog
 
@@ -4857,8 +4857,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## RoyalJelly
 
@@ -4866,7 +4866,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## Ruby
@@ -4875,8 +4875,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SaddleAsksvin
 
@@ -4884,8 +4884,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SaddleLox
 
@@ -4893,8 +4893,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Salad
 
@@ -4902,7 +4902,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## Sap
@@ -4911,8 +4911,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Sausages
 
@@ -4929,8 +4929,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ScorchingMedley
 
@@ -4947,8 +4947,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ScytheHandle
 
@@ -4956,8 +4956,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SeekerAspic
 
@@ -4965,7 +4965,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## SeekerBrute_Taunt
@@ -4974,8 +4974,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SeekerQueen_Call
 
@@ -4983,8 +4983,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SeekerQueen_Teleport
 
@@ -4992,8 +4992,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SerpentMeat
 
@@ -5001,8 +5001,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SerpentMeatCooked
 
@@ -5019,8 +5019,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SerpentStew
 
@@ -5037,8 +5037,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldBanded
 
@@ -5046,8 +5046,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldBlackmetal
 
@@ -5055,8 +5055,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldBlackmetalTower
 
@@ -5064,8 +5064,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldBoneTower
 
@@ -5073,8 +5073,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldBronzeBuckler
 
@@ -5082,8 +5082,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldCarapace
 
@@ -5091,8 +5091,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldCarapaceBuckler
 
@@ -5100,8 +5100,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldCore
 
@@ -5109,8 +5109,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldFlametal
 
@@ -5118,8 +5118,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldFlametalTower
 
@@ -5127,8 +5127,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldIronBuckler
 
@@ -5136,8 +5136,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldIronSquare
 
@@ -5145,8 +5145,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldIronTower
 
@@ -5154,8 +5154,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldKnight
 
@@ -5163,8 +5163,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldSerpentscale
 
@@ -5172,8 +5172,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldSilver
 
@@ -5181,8 +5181,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldWood
 
@@ -5190,8 +5190,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldWoodTower
 
@@ -5199,8 +5199,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShocklateSmoothie
 
@@ -5208,7 +5208,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## Silver
@@ -5217,8 +5217,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SilverNecklace
 
@@ -5226,8 +5226,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SilverOre
 
@@ -5235,8 +5235,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SizzlingBerryBroth
 
@@ -5253,8 +5253,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## skeleton_bow2
 
@@ -5262,8 +5262,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## skeleton_hildir_firenova
 
@@ -5271,8 +5271,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## skeleton_mace
 
@@ -5280,8 +5280,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## skeleton_sword
 
@@ -5289,8 +5289,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## skeleton_sword_hildir
 
@@ -5298,8 +5298,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## skeleton_sword2
 
@@ -5307,8 +5307,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SledgeCheat
 
@@ -5316,8 +5316,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SledgeDemolisher
 
@@ -5325,8 +5325,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SledgeIron
 
@@ -5334,8 +5334,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SledgeStagbreaker
 
@@ -5343,8 +5343,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Softtissue
 
@@ -5352,8 +5352,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Sparkler
 
@@ -5361,8 +5361,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SparklingShroomshake
 
@@ -5370,7 +5370,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## SpearBronze
@@ -5379,8 +5379,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearCarapace
 
@@ -5388,8 +5388,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearChitin
 
@@ -5397,8 +5397,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearElderbark
 
@@ -5406,8 +5406,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearFlint
 
@@ -5415,8 +5415,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearSplitner
 
@@ -5424,8 +5424,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearSplitner_Blood
 
@@ -5433,8 +5433,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearSplitner_Lightning
 
@@ -5442,8 +5442,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearSplitner_Nature
 
@@ -5451,8 +5451,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearWolfFang
 
@@ -5460,8 +5460,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpiceAshlands
 
@@ -5469,8 +5469,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpiceForests
 
@@ -5478,8 +5478,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpiceMistlands
 
@@ -5487,8 +5487,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpiceMountains
 
@@ -5496,8 +5496,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpiceOceans
 
@@ -5505,8 +5505,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpicePlains
 
@@ -5514,8 +5514,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpicyMarmalade
 
@@ -5523,7 +5523,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## staff_greenroots_tentaroot_attack
@@ -5532,8 +5532,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffClusterbomb
 
@@ -5541,8 +5541,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffFireball
 
@@ -5550,8 +5550,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffGreenRoots
 
@@ -5559,8 +5559,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffIceShards
 
@@ -5568,8 +5568,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffLightning
 
@@ -5577,8 +5577,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffRedTroll
 
@@ -5586,8 +5586,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffShield
 
@@ -5595,8 +5595,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffSkeleton
 
@@ -5604,8 +5604,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaminaUpgrade_Greydwarf
 
@@ -5613,8 +5613,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaminaUpgrade_Troll
 
@@ -5622,8 +5622,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaminaUpgrade_Wraith
 
@@ -5631,8 +5631,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Stone
 
@@ -5640,8 +5640,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## stonegolem_attack1_spike
 
@@ -5649,8 +5649,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StoneGolem_clubs
 
@@ -5658,8 +5658,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StoneGolem_hat
 
@@ -5667,8 +5667,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StoneGolem_spikes
 
@@ -5676,8 +5676,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SulfurStone
 
@@ -5685,8 +5685,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SurtlingCore
 
@@ -5694,8 +5694,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordBlackmetal
 
@@ -5703,8 +5703,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordBronze
 
@@ -5712,8 +5712,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordCheat
 
@@ -5721,8 +5721,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordDyrnwyn
 
@@ -5730,8 +5730,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordIron
 
@@ -5739,8 +5739,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordIronFire
 
@@ -5748,8 +5748,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordMistwalker
 
@@ -5757,8 +5757,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordNiedhogg
 
@@ -5766,8 +5766,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordNiedhoggBlood
 
@@ -5775,8 +5775,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordNiedhoggLightning
 
@@ -5784,8 +5784,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordNiedhoggNature
 
@@ -5793,8 +5793,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordSilver
 
@@ -5802,8 +5802,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Tankard
 
@@ -5811,8 +5811,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Tankard_dvergr
 
@@ -5820,8 +5820,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TankardAnniversary
 
@@ -5829,8 +5829,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TankardOdin
 
@@ -5838,8 +5838,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Tar
 
@@ -5847,8 +5847,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## tentaroot_attack
 
@@ -5856,8 +5856,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Thistle
 
@@ -5865,8 +5865,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## THSwordKrom
 
@@ -5874,8 +5874,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## THSwordSlayer
 
@@ -5883,8 +5883,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## THSwordSlayerBlood
 
@@ -5892,8 +5892,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## THSwordSlayerLightning
 
@@ -5901,8 +5901,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## THSwordSlayerNature
 
@@ -5910,8 +5910,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Thunderstone
 
@@ -5919,8 +5919,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Tin
 
@@ -5928,8 +5928,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TinOre
 
@@ -5937,8 +5937,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Torch
 
@@ -5946,8 +5946,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TorchMist
 
@@ -5955,8 +5955,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## troll_log_swing_h
 
@@ -5964,8 +5964,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## troll_log_swing_v
 
@@ -5973,8 +5973,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## troll_summoned_log_swing_h
 
@@ -5982,8 +5982,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## troll_summoned_log_swing_v
 
@@ -5991,8 +5991,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrollHide
 
@@ -6000,8 +6000,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyAbomination
 
@@ -6009,8 +6009,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyAsksvin
 
@@ -6018,8 +6018,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyBlob
 
@@ -6027,8 +6027,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyBoar
 
@@ -6036,8 +6036,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyBonemass
 
@@ -6045,8 +6045,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyBonemawSerpent
 
@@ -6054,8 +6054,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyCharredArcher
 
@@ -6063,8 +6063,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyCharredMage
 
@@ -6072,8 +6072,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyCharredMelee
 
@@ -6081,8 +6081,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyCultist
 
@@ -6090,8 +6090,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyCultist_Hildir
 
@@ -6099,8 +6099,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyDeathsquito
 
@@ -6108,8 +6108,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyDeer
 
@@ -6117,8 +6117,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyDragonQueen
 
@@ -6126,8 +6126,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyDraugr
 
@@ -6135,8 +6135,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyDraugrElite
 
@@ -6144,8 +6144,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyDraugrFem
 
@@ -6153,8 +6153,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyDvergr
 
@@ -6162,8 +6162,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyEikthyr
 
@@ -6171,8 +6171,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyFader
 
@@ -6180,8 +6180,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyFallenValkyrie
 
@@ -6189,8 +6189,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyFenring
 
@@ -6198,8 +6198,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyForestTroll
 
@@ -6207,8 +6207,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyFrostTroll
 
@@ -6216,8 +6216,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGjall
 
@@ -6225,8 +6225,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGoblin
 
@@ -6234,8 +6234,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGoblinBrute
 
@@ -6243,8 +6243,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGoblinBruteBrosBrute
 
@@ -6252,8 +6252,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGoblinBruteBrosShaman
 
@@ -6261,8 +6261,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGoblinKing
 
@@ -6270,8 +6270,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGoblinShaman
 
@@ -6279,8 +6279,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGreydwarf
 
@@ -6288,8 +6288,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGreydwarfBrute
 
@@ -6297,8 +6297,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGreydwarfShaman
 
@@ -6306,8 +6306,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyGrowth
 
@@ -6315,8 +6315,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyHare
 
@@ -6324,8 +6324,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyHatchling
 
@@ -6333,8 +6333,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyKvastur
 
@@ -6342,8 +6342,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyLeech
 
@@ -6351,8 +6351,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyLox
 
@@ -6360,8 +6360,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyMorgen
 
@@ -6369,8 +6369,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyNeck
 
@@ -6378,8 +6378,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySeeker
 
@@ -6387,8 +6387,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySeekerBrute
 
@@ -6396,8 +6396,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySeekerQueen
 
@@ -6405,8 +6405,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySerpent
 
@@ -6414,8 +6414,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySGolem
 
@@ -6423,8 +6423,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySkeleton
 
@@ -6432,8 +6432,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySkeletonHildir
 
@@ -6441,8 +6441,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySkeletonPoison
 
@@ -6450,8 +6450,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophySurtling
 
@@ -6459,8 +6459,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyTheElder
 
@@ -6468,8 +6468,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyTick
 
@@ -6477,8 +6477,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyUlv
 
@@ -6486,8 +6486,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyVolture
 
@@ -6495,8 +6495,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyWolf
 
@@ -6504,8 +6504,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyWraith
 
@@ -6513,8 +6513,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Turnip
 
@@ -6522,8 +6522,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TurnipSeeds
 
@@ -6531,8 +6531,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TurnipStew
 
@@ -6549,8 +6549,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TurretBoltBone
 
@@ -6558,8 +6558,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TurretBoltFlametal
 
@@ -6567,8 +6567,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TurretBoltWood
 
@@ -6576,8 +6576,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Ulv_attack1_bite
 
@@ -6585,8 +6585,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Ulv_attack2_slash
 
@@ -6594,8 +6594,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## VegvisirShard_Bonemass
 
@@ -6603,8 +6603,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Vineberry
 
@@ -6612,7 +6612,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## VineberrySeeds
@@ -6621,8 +6621,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## VineGreenSeeds
 
@@ -6630,8 +6630,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## volture_talons
 
@@ -6639,8 +6639,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## VoltureEgg
 
@@ -6648,8 +6648,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## VoltureMeat
 
@@ -6657,8 +6657,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Wishbone
 
@@ -6666,8 +6666,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Wisp
 
@@ -6675,8 +6675,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## WitheredBone
 
@@ -6684,8 +6684,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## WolfClaw
 
@@ -6693,8 +6693,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## WolfFang
 
@@ -6702,8 +6702,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## WolfHairBundle
 
@@ -6711,8 +6711,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## WolfJerky
 
@@ -6720,7 +6720,7 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## WolfMeat
@@ -6729,8 +6729,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## WolfMeatSkewer
 
@@ -6747,8 +6747,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Wood
 
@@ -6756,8 +6756,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## wraith_melee
 
@@ -6765,8 +6765,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## YagluthDrop
 
@@ -6774,8 +6774,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## YggdrasilPorridge
 
@@ -6792,8 +6792,8 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## YmirRemains
 
@@ -6801,6 +6801,6 @@
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
-|m_pieceEnableObj|UnityEngine.GameObject||
-|m_pieceDisabledObj|UnityEngine.GameObject||
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 

@@ -11,7 +11,7 @@
 |m_requireNearbyFire|System.Boolean|True|
 |m_requireUnderRoof|System.Boolean|False|
 |m_requireCoverPercentige|System.Single|0.7|
-|m_growingObject|UnityEngine.GameObject||
+|m_growingObject|UnityEngine.GameObject|*null*|
 |m_notGrowingObject|UnityEngine.GameObject|Not Growing|
 
 ## ChickenEgg
@@ -25,6 +25,6 @@
 |m_requireNearbyFire|System.Boolean|True|
 |m_requireUnderRoof|System.Boolean|True|
 |m_requireCoverPercentige|System.Single|0.7|
-|m_growingObject|UnityEngine.GameObject||
+|m_growingObject|UnityEngine.GameObject|*null*|
 |m_notGrowingObject|UnityEngine.GameObject|Not Growing|
 

@@ -33,6 +33,6 @@
 |m_updateConnectionsInterval|System.Single|5|
 |m_enabledByDefault|System.Boolean|False|
 |m_enabledEffect|UnityEngine.GameObject|WayEffect|
-|m_connectEffect|UnityEngine.GameObject||
-|m_inRangeEffect|UnityEngine.GameObject||
+|m_connectEffect|UnityEngine.GameObject|*null*|
+|m_inRangeEffect|UnityEngine.GameObject|*null*|
 

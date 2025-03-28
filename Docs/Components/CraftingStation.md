@@ -15,7 +15,7 @@
 |m_useAnimation|System.Int32|2|
 |m_areaMarker|UnityEngine.GameObject|AreaMarker|
 |m_inUseObject|UnityEngine.GameObject|_enabled|
-|m_haveFireObject|UnityEngine.GameObject||
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 
 ## forge
 
@@ -32,7 +32,7 @@
 |m_useAnimation|System.Int32|2|
 |m_areaMarker|UnityEngine.GameObject|AreaMarker|
 |m_inUseObject|UnityEngine.GameObject|_enabled|
-|m_haveFireObject|UnityEngine.GameObject||
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 
 ## piece_artisanstation
 
@@ -48,8 +48,8 @@
 |m_useDistance|System.Single|2|
 |m_useAnimation|System.Int32|1|
 |m_areaMarker|UnityEngine.GameObject|AreaMarker|
-|m_inUseObject|UnityEngine.GameObject||
-|m_haveFireObject|UnityEngine.GameObject||
+|m_inUseObject|UnityEngine.GameObject|*null*|
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 
 ## piece_cauldron
 
@@ -64,8 +64,8 @@
 |m_showBasicRecipies|System.Boolean|False|
 |m_useDistance|System.Single|1.9|
 |m_useAnimation|System.Int32|3|
-|m_areaMarker|UnityEngine.GameObject||
-|m_inUseObject|UnityEngine.GameObject||
+|m_areaMarker|UnityEngine.GameObject|*null*|
+|m_inUseObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|HaveFire|
 
 ## piece_magetable
@@ -82,8 +82,8 @@
 |m_useDistance|System.Single|2|
 |m_useAnimation|System.Int32|1|
 |m_areaMarker|UnityEngine.GameObject|AreaMarker|
-|m_inUseObject|UnityEngine.GameObject||
-|m_haveFireObject|UnityEngine.GameObject||
+|m_inUseObject|UnityEngine.GameObject|*null*|
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 
 ## piece_MeadCauldron
 
@@ -98,8 +98,8 @@
 |m_showBasicRecipies|System.Boolean|False|
 |m_useDistance|System.Single|1.9|
 |m_useAnimation|System.Int32|3|
-|m_areaMarker|UnityEngine.GameObject||
-|m_inUseObject|UnityEngine.GameObject||
+|m_areaMarker|UnityEngine.GameObject|*null*|
+|m_inUseObject|UnityEngine.GameObject|*null*|
 |m_haveFireObject|UnityEngine.GameObject|HaveFire|
 
 ## piece_preptable
@@ -115,9 +115,9 @@
 |m_showBasicRecipies|System.Boolean|False|
 |m_useDistance|System.Single|1.9|
 |m_useAnimation|System.Int32|1|
-|m_areaMarker|UnityEngine.GameObject||
-|m_inUseObject|UnityEngine.GameObject||
-|m_haveFireObject|UnityEngine.GameObject||
+|m_areaMarker|UnityEngine.GameObject|*null*|
+|m_inUseObject|UnityEngine.GameObject|*null*|
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 
 ## piece_stonecutter
 
@@ -133,8 +133,8 @@
 |m_useDistance|System.Single|2|
 |m_useAnimation|System.Int32|1|
 |m_areaMarker|UnityEngine.GameObject|AreaMarker|
-|m_inUseObject|UnityEngine.GameObject||
-|m_haveFireObject|UnityEngine.GameObject||
+|m_inUseObject|UnityEngine.GameObject|*null*|
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 
 ## piece_workbench
 
@@ -150,6 +150,6 @@
 |m_useDistance|System.Single|2|
 |m_useAnimation|System.Int32|1|
 |m_areaMarker|UnityEngine.GameObject|AreaMarker|
-|m_inUseObject|UnityEngine.GameObject||
-|m_haveFireObject|UnityEngine.GameObject||
+|m_inUseObject|UnityEngine.GameObject|*null*|
+|m_haveFireObject|UnityEngine.GameObject|*null*|
 

@@ -26,7 +26,7 @@
 |m_copySkillToRandomFactor|System.Single|0|
 |m_setMaxInstancesFromWeaponLevel|System.Boolean|False|
 |m_maxTargetRange|System.Single|40|
-|m_aoePrefab|UnityEngine.GameObject||
+|m_aoePrefab|UnityEngine.GameObject|*null*|
 |m_projectileVelocity|System.Single|10|
 |m_projectileVelocityMax|System.Single|16|
 |m_projectileAccuracy|System.Single|10|

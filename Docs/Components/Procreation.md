@@ -14,8 +14,8 @@
 |m_offspring|UnityEngine.GameObject|AsksvinEgg|
 |m_minOffspringLevel|System.Int32|0|
 |m_spawnOffset|System.Single|0|
-|m_seperatePartner|UnityEngine.GameObject||
-|m_noPartnerOffspring|UnityEngine.GameObject||
+|m_seperatePartner|UnityEngine.GameObject|*null*|
+|m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 
 ## Boar
 
@@ -31,8 +31,8 @@
 |m_offspring|UnityEngine.GameObject|Boar_piggy|
 |m_minOffspringLevel|System.Int32|0|
 |m_spawnOffset|System.Single|1|
-|m_seperatePartner|UnityEngine.GameObject||
-|m_noPartnerOffspring|UnityEngine.GameObject||
+|m_seperatePartner|UnityEngine.GameObject|*null*|
+|m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 
 ## Hen
 
@@ -48,8 +48,8 @@
 |m_offspring|UnityEngine.GameObject|ChickenEgg|
 |m_minOffspringLevel|System.Int32|0|
 |m_spawnOffset|System.Single|0|
-|m_seperatePartner|UnityEngine.GameObject||
-|m_noPartnerOffspring|UnityEngine.GameObject||
+|m_seperatePartner|UnityEngine.GameObject|*null*|
+|m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 
 ## Lox
 
@@ -65,8 +65,8 @@
 |m_offspring|UnityEngine.GameObject|Lox_Calf|
 |m_minOffspringLevel|System.Int32|0|
 |m_spawnOffset|System.Single|2|
-|m_seperatePartner|UnityEngine.GameObject||
-|m_noPartnerOffspring|UnityEngine.GameObject||
+|m_seperatePartner|UnityEngine.GameObject|*null*|
+|m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 
 ## Wolf
 
@@ -82,6 +82,6 @@
 |m_offspring|UnityEngine.GameObject|Wolf_cub|
 |m_minOffspringLevel|System.Int32|0|
 |m_spawnOffset|System.Single|1|
-|m_seperatePartner|UnityEngine.GameObject||
-|m_noPartnerOffspring|UnityEngine.GameObject||
+|m_seperatePartner|UnityEngine.GameObject|*null*|
+|m_noPartnerOffspring|UnityEngine.GameObject|*null*|
 

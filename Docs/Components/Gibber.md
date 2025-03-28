@@ -4,8 +4,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|15|
@@ -19,8 +19,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|1|
 |m_maxVel|System.Single|10|
@@ -34,8 +34,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|20|
@@ -49,8 +49,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|20|
@@ -64,8 +64,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|20|
@@ -79,8 +79,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|20|
@@ -94,8 +94,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|20|
@@ -109,8 +109,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|20|
@@ -124,8 +124,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -139,8 +139,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -154,8 +154,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|10|
 |m_maxVel|System.Single|20|
@@ -169,8 +169,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -184,8 +184,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|3|
 |m_maxVel|System.Single|10|
@@ -199,8 +199,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -214,8 +214,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -229,8 +229,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -244,8 +244,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -259,8 +259,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -274,8 +274,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -289,8 +289,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -304,8 +304,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -319,8 +319,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -334,8 +334,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -349,8 +349,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -364,8 +364,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -379,8 +379,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -394,8 +394,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -409,8 +409,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -424,8 +424,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -439,8 +439,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -454,8 +454,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -469,8 +469,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -484,8 +484,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|4|
@@ -499,8 +499,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -514,8 +514,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -529,8 +529,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -544,8 +544,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -559,8 +559,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|4|
@@ -574,8 +574,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|3|
 |m_maxVel|System.Single|6|
@@ -589,8 +589,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|3|
 |m_maxVel|System.Single|6|
@@ -604,8 +604,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -619,8 +619,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -634,8 +634,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -649,8 +649,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|0|
 |m_maxVel|System.Single|1|
@@ -664,8 +664,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|0|
 |m_maxVel|System.Single|1|
@@ -679,8 +679,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|0|
 |m_maxVel|System.Single|1|
@@ -694,8 +694,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|0|
 |m_maxVel|System.Single|1|
@@ -709,8 +709,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -724,8 +724,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -739,8 +739,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|4|
@@ -754,8 +754,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|4|
@@ -769,8 +769,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -784,8 +784,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -799,8 +799,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -814,8 +814,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|8|
@@ -829,8 +829,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|8|
@@ -844,8 +844,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|8|
@@ -859,8 +859,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -874,8 +874,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -889,8 +889,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -904,8 +904,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -919,8 +919,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|8|
@@ -934,8 +934,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|8|
@@ -949,8 +949,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -964,8 +964,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -979,8 +979,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|4|
@@ -994,8 +994,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1009,8 +1009,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1024,8 +1024,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1039,8 +1039,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1054,8 +1054,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1069,8 +1069,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|5|
 |m_maxVel|System.Single|10|
@@ -1084,8 +1084,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1099,8 +1099,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1114,8 +1114,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1129,8 +1129,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1144,8 +1144,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1159,8 +1159,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1174,8 +1174,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1189,8 +1189,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1204,8 +1204,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1219,8 +1219,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|
@@ -1234,8 +1234,8 @@
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_gibHitEffect|UnityEngine.GameObject||
-|m_gibDestroyEffect|UnityEngine.GameObject||
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
 |m_minVel|System.Single|2|
 |m_maxVel|System.Single|5|

@@ -9,7 +9,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## AshlandsTreeLog2
 
@@ -20,7 +20,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## AshlandsTreeLogHalf1
 
@@ -31,7 +31,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## AshlandsTreeLogHalf2
 
@@ -42,7 +42,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## barrell
 
@@ -53,7 +53,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BatteringRam
 
@@ -64,7 +64,7 @@
 |m_force|System.Single|1.3|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## beech_log
 
@@ -75,7 +75,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## beech_log_half
 
@@ -86,7 +86,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Birch_log
 
@@ -97,7 +97,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Birch_log_half
 
@@ -108,7 +108,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Blackwood
 
@@ -119,7 +119,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BoneMawSerpentMeat
 
@@ -130,7 +130,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BonemawSerpentTooth
 
@@ -141,7 +141,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Bow
 
@@ -152,7 +152,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowAshlands
 
@@ -163,7 +163,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowAshlandsBlood
 
@@ -174,7 +174,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowAshlandsRoot
 
@@ -185,7 +185,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowAshlandsStorm
 
@@ -196,7 +196,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowDraugrFang
 
@@ -207,7 +207,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowFineWood
 
@@ -218,7 +218,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowHuntsman
 
@@ -229,7 +229,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowSpineSnap
 
@@ -240,7 +240,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CargoCrate
 
@@ -251,7 +251,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Cart
 
@@ -262,7 +262,7 @@
 |m_force|System.Single|1.3|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CastleKit_braided_box01
 
@@ -273,7 +273,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Catapult
 
@@ -284,7 +284,7 @@
 |m_force|System.Single|1.3|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## caverock_ice_stalagtite_falling
 
@@ -295,7 +295,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## chest_hildir1
 
@@ -306,7 +306,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## chest_hildir2
 
@@ -317,7 +317,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## chest_hildir3
 
@@ -328,7 +328,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Club
 
@@ -339,7 +339,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CookedBoneMawSerpentMeat
 
@@ -350,7 +350,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CrossbowArbalest
 
@@ -361,7 +361,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipper
 
@@ -372,7 +372,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipperBlood
 
@@ -383,7 +383,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipperLightning
 
@@ -394,7 +394,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipperNature
 
@@ -405,7 +405,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## CryptKey
 
@@ -416,7 +416,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Demister
 
@@ -427,7 +427,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DragonEgg
 
@@ -438,7 +438,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DragonTear
 
@@ -449,7 +449,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DragonTear
 
@@ -460,7 +460,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DvergerArbalest
 
@@ -471,7 +471,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DvergerArbalest_shoot
 
@@ -482,7 +482,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DvergerArbalest_shootAshlands
 
@@ -493,7 +493,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DvergerStaffFire
 
@@ -504,7 +504,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DvergerStaffHeal
 
@@ -515,7 +515,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DvergerStaffIce
 
@@ -526,7 +526,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## DvergerStaffSupport
 
@@ -537,7 +537,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ElderBark
 
@@ -548,7 +548,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FaderDrop
 
@@ -559,7 +559,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FineWood
 
@@ -570,7 +570,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FirCone
 
@@ -581,7 +581,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FirTree_log
 
@@ -592,7 +592,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FirTree_log_half
 
@@ -603,7 +603,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBait
 
@@ -614,7 +614,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBaitAshlands
 
@@ -625,7 +625,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBaitCave
 
@@ -636,7 +636,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBaitDeepNorth
 
@@ -647,7 +647,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBaitForest
 
@@ -658,7 +658,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBaitMistlands
 
@@ -669,7 +669,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBaitOcean
 
@@ -680,7 +680,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBaitPlains
 
@@ -691,7 +691,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingBaitSwamp
 
@@ -702,7 +702,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingRod
 
@@ -713,7 +713,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FishingRodFloat
 
@@ -735,7 +735,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_attack_poke
 
@@ -746,7 +746,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Headdress_antlers
 
@@ -757,7 +757,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Headdress_feathers
 
@@ -768,7 +768,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Staff_Bones
 
@@ -779,7 +779,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Staff_Feathers
 
@@ -790,7 +790,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## GoblinShaman_Staff_Hildir
 
@@ -801,7 +801,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## HardAntler
 
@@ -812,7 +812,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## HealthUpgrade_Bonemass
 
@@ -823,7 +823,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## HealthUpgrade_GDKing
 
@@ -834,7 +834,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## HildirKey_forestcrypt
 
@@ -845,7 +845,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## HildirKey_mountaincave
 
@@ -856,7 +856,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## HildirKey_plainsfortress
 
@@ -867,7 +867,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ice1
 
@@ -878,7 +878,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MaceBronze
 
@@ -889,7 +889,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MaceEldner
 
@@ -900,7 +900,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MaceEldnerBlood
 
@@ -911,7 +911,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MaceEldnerLightning
 
@@ -922,7 +922,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MaceEldnerNature
 
@@ -933,7 +933,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MaceIron
 
@@ -944,7 +944,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MaceNeedle
 
@@ -955,7 +955,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MeadSwimmer
 
@@ -966,7 +966,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Oak_log
 
@@ -977,7 +977,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Oak_log_half
 
@@ -988,7 +988,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Pickable_Tar
 
@@ -999,7 +999,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## PineCone
 
@@ -1010,7 +1010,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## PineTree_log
 
@@ -1021,7 +1021,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## PineTree_log_half
 
@@ -1032,7 +1032,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## PineTree_log_halfOLD
 
@@ -1043,7 +1043,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## PineTree_logOLD
 
@@ -1054,7 +1054,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Player_tombstone
 
@@ -1065,7 +1065,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## PlayerUnarmed
 
@@ -1076,7 +1076,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## QueenDrop
 
@@ -1087,7 +1087,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Root
 
@@ -1098,7 +1098,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## RoundLog
 
@@ -1109,7 +1109,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SaddleAsksvin
 
@@ -1120,7 +1120,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SaddleLox
 
@@ -1131,7 +1131,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SerpentMeat
 
@@ -1142,7 +1142,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldBanded
 
@@ -1153,7 +1153,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldBlackmetal
 
@@ -1164,7 +1164,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldBlackmetalTower
 
@@ -1175,7 +1175,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldBoneTower
 
@@ -1186,7 +1186,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldCarapace
 
@@ -1197,7 +1197,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldCarapaceBuckler
 
@@ -1208,7 +1208,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldFlametal
 
@@ -1219,7 +1219,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldFlametalTower
 
@@ -1230,7 +1230,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldIronSquare
 
@@ -1241,7 +1241,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldIronTower
 
@@ -1252,7 +1252,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldKnight
 
@@ -1263,7 +1263,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldSerpentscale
 
@@ -1274,7 +1274,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldSilver
 
@@ -1285,7 +1285,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldWood
 
@@ -1296,7 +1296,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldWoodTower
 
@@ -1307,7 +1307,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SledgeStagbreaker
 
@@ -1318,7 +1318,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearBronze
 
@@ -1329,7 +1329,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearCarapace
 
@@ -1340,7 +1340,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearChitin
 
@@ -1351,7 +1351,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearElderbark
 
@@ -1362,7 +1362,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearFlint
 
@@ -1373,7 +1373,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearSplitner
 
@@ -1384,7 +1384,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearSplitner_Blood
 
@@ -1395,7 +1395,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearSplitner_Lightning
 
@@ -1406,7 +1406,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearSplitner_Nature
 
@@ -1417,7 +1417,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearWolfFang
 
@@ -1428,7 +1428,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## StaffLightning
 
@@ -1439,7 +1439,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## StaminaUpgrade_Greydwarf
 
@@ -1450,7 +1450,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## StaminaUpgrade_Troll
 
@@ -1461,7 +1461,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## StaminaUpgrade_Wraith
 
@@ -1472,7 +1472,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SwampTree1_log
 
@@ -1483,7 +1483,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Tar
 
@@ -1494,7 +1494,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## TrophyAbomination
 
@@ -1505,7 +1505,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## TrophyBonemass
 
@@ -1516,7 +1516,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## TrophyDragonQueen
 
@@ -1527,7 +1527,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## TrophyEikthyr
 
@@ -1538,7 +1538,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## TrophyFader
 
@@ -1549,7 +1549,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## TrophyGoblinKing
 
@@ -1560,7 +1560,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## TrophySeekerQueen
 
@@ -1571,7 +1571,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## TrophyTheElder
 
@@ -1582,7 +1582,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## VoltureMeat
 
@@ -1593,7 +1593,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Wishbone
 
@@ -1604,7 +1604,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## WitheredBone
 
@@ -1615,7 +1615,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.02|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Wood
 
@@ -1626,7 +1626,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## YagluthDrop
 
@@ -1637,7 +1637,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## yggashoot_log
 
@@ -1648,7 +1648,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## yggashoot_log_half
 
@@ -1659,7 +1659,7 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## YggdrasilWood
 
@@ -1670,5 +1670,5 @@
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
-|m_surfaceEffects|UnityEngine.GameObject||
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
 

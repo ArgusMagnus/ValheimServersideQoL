@@ -13,7 +13,7 @@
 |General|IgnoreWorldVersionCheck|False|True/False|True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption|
 |Build Pieces|DisableRainDamage|False|True/False|True to prevent rain from damaging build pieces|
 |Build Pieces|DisableSupportRequirements|None|Combination of None, PlayerBuilt, World|Ignore support requirements on build pieces|
-|Carts|ContentMassMultiplier|NaN||Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
+|Carts|ContentMassMultiplier|1||Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
 |Containers|AutoSort|False|True/False|True to auto sort container inventories|
 |Containers|AutoPickup|False|True/False|True to automatically put dropped items into containers if they already contain said item|
 |Containers|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target|
@@ -80,6 +80,7 @@
 |Map Tables|AutoUpdateShips|False|True/False|True to update map tables with ship pins|
 |Plants|GrowTimeMultiplier|1||Multiply plant grow time by this factor|
 |Plants|SpaceRequirementMultiplier|1||Multiply plant grow time by this factor|
+|Plants|DontDestroyIfCantGrow|False|True/False|True to keep plants which can't grow alive|
 |Players|InfiniteBuildingStamina|False|True/False|True to give players infinite stamina when building. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|InfiniteFarmingStamina|False|True/False|True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Signs|TimeSigns|False|True/False|True to update sign texts which contain time emojis (any of 🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦) with the in-game time|
@@ -87,6 +88,8 @@
 |Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source|
 |Smelters|FeedFromContainersLeaveAtLeastFuel|1||Minimum amout of fuel to leave in a container|
 |Smelters|FeedFromContainersLeaveAtLeastOre|1||Minimum amout of ore to leave in a container|
+|Summons|UnsummonDistanceMultiplier|1||Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning|
+|Summons|UnsummonLogoutTimeMultiplier|1||Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning|
 |Tames|MakeCommandable|False|True/False|True to make all tames commandable (like wolves)|
 |Tames|SendTamingPogressMessages|False|True/False|True to send taming progress messages to nearby players|
 |Tames|AlwaysFed|False|True/False|True to make tames always fed (not hungry)|
