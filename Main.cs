@@ -18,7 +18,11 @@ public sealed partial class Main : BaseUnityPlugin
     /// <Ideas>
     /// - Prevent <see cref="Catapult"/> from accepting equipment as ammo. Test what <see cref="Catapult.m_onlyUseIncludedProjectiles"/> does
     /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/> <see cref="StatusEffect.StatusAttribute"/>
-    /// - <see cref="Pathfinding"/> <see cref="Plant"/>
+    /// - <see cref="Pathfinding"/> <see cref="SapCollector"/> <see cref="ResourceRoot"/>
+    /// - <see cref="ShieldGenerator"/> <see cref="Trap"/> <see cref="WearNTear"/> <see cref="DamageText"/>
+    /// - Summons: (<see cref="Tameable"/>
+    ///   - Modify max instances <see cref="ZDOVars.s_maxInstances"/>
+    ///   - Disable unsummon based on distance/logout <see cref="Tameable.m_unsummonDistance"/> <see cref="Tameable.m_unsummonOnOwnerLogoutSeconds"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

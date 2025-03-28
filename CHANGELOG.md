@@ -1,5 +1,6 @@
 ### v0.2.5
 - New feature: modify plant grow time and space requirement
+- Changed taming progress message to be displayed in world
 
 ### v0.2.4
 - New feature: always unlock trader items (remove progression requirements for buying from trader items). Only supported on dedicated servers.

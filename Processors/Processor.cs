@@ -1,5 +1,6 @@
 ﻿using BepInEx.Logging;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -57,11 +58,22 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
     protected static class RPC
     {
-        public static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
+        static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
         {
             /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, "ShowMessage", (int)type, message);
+        }
+
+        public static void ShowMessage(MessageHud.MessageType type, string message)
+            => ShowMessage(ZRoutedRpc.Everybody, type, message);
+
+        public static void ShowMessage(ZNetPeer peer, MessageHud.MessageType type, string message)
+            => ShowMessage(peer.m_uid, type, message);
+
+        public static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
+        {
             foreach (var peer in peers)
-                ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "ShowMessage", (int)type, message);
+                ShowMessage(peer, type, message);
         }
 
         public static void UseStamina(ExtendedZDO playerZdo, float value)
@@ -75,5 +87,26 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
             /// <see cref="ZoneSystem.SendGlobalKeys"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "GlobalKeys", keys);
         }
+
+        static void ShowInWorldText(IEnumerable<long> targetPeerIds, DamageText.TextType type, Vector3 pos, string text)
+        {
+            /// <see cref="DamageText.ShowText(DamageText.TextType, Vector3, string, bool)"/>
+            ZPackage zPackage = new ZPackage();
+            zPackage.Write((int)type);
+            zPackage.Write(pos);
+            zPackage.Write(text);
+            zPackage.Write(false);
+            foreach (var peer in targetPeerIds)
+                ZRoutedRpc.instance.InvokeRoutedRPC(peer, "RPC_DamageText", zPackage);
+        }
+
+        public static void ShowInWorldText(IEnumerable<ZNetPeer> peers, DamageText.TextType type, Vector3 pos, string text)
+            => ShowInWorldText(peers.Select(x => x.m_uid), type, pos, text);
+
+        public static void DamageText(DamageText.TextType type, Vector3 pos, string text)
+            => ShowInWorldText([ZRoutedRpc.Everybody], type, pos, text);
+
+        public static void DamageText(ZNetPeer peer, DamageText.TextType type, Vector3 pos, string text)
+            => ShowInWorldText([peer.m_uid], type, pos, text);
     }
 }

@@ -33,7 +33,7 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         /// <see cref="Player.TryPlacePiece(Piece)"/>
         var peer = peers.FirstOrDefault(x => x.m_uid == owner);
         if (peer is not null)
-            RPC.ShowMessage([peer], MessageHud.MessageType.Center, "$msg_nobuildzone");
+            RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$msg_nobuildzone");
 
         return false;
     }

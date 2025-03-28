@@ -78,8 +78,8 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
         foreach (var tameZdoId in tames)
         {
-            var tameZdo = (ExtendedZDO)ZDOMan.instance.GetZDO(tameZdoId);
-            if (!tameZdo.IsValid() || tameZdo.Vars.GetFollow() != playerName)
+            var tameZdo = ZDOMan.instance.GetExtendedZDO(tameZdoId);
+            if (tameZdo?.IsValid() is not true || tameZdo.Vars.GetFollow() != playerName)
             {
                 tames.Remove(tameZdoId);
                 continue;
