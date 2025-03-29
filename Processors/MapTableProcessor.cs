@@ -69,7 +69,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                         return x;
                     })
                     .Where(x => x is not null)
-                    .Select(x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Piece?.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid)));
+                    .Select(x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Ship!.Value.Piece.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid)));
             }
 
             foreach (var pin in pins)

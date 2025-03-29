@@ -25,7 +25,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             return false;
         }
 
-        if (zdo.PrefabInfo.Piece is not null && zdo.Vars.GetPiece())
+        if (zdo.PrefabInfo.ItemDrop.Value.Piece.Value is not null && zdo.Vars.GetPiece())
             return true; // ignore placed items (such as feasts)
 
         if (zdo.PrefabInfo.EggGrow is not null)
@@ -46,7 +46,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
 			return false; // player to close
 
-		var shared = zdo.PrefabInfo.ItemDrop.m_itemData.m_shared;
+		var shared = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.m_itemData.m_shared;
         if (!SharedProcessorState.ContainersByItemName.TryGetValue(shared, out var containers))
             return false;
 
@@ -55,7 +55,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
         foreach (var containerZdo in containers)
         {
-            if (!containerZdo.IsValid() || containerZdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
+            if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
             {
                 containers.Remove(containerZdo);
                 continue;
@@ -133,7 +133,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                 (item.m_stack, stack) = (stack, item.m_stack);
                 zdo.ClaimOwnershipInternal();
                 ItemDrop.SaveToZDO(item, zdo);
-                RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{containerZdo.PrefabInfo.Piece!.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
+                RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{containerZdo.PrefabInfo.Container.Value.Piece.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
             }
 
             if (item.m_stack is 0)

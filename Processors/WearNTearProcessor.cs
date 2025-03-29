@@ -12,7 +12,7 @@ sealed class WearNTearProcessor(ManualLogSource logger, ModConfig cfg) : Process
             return false;
 
         var fields = zdo.Fields<WearNTear>();
-        var isPlayerBuilt = zdo.PrefabInfo is { Piece: not null, PieceTable: not null } && zdo.Vars.GetCreator() is not 0;
+        var isPlayerBuilt = zdo.PrefabInfo.WearNTear is { Piece: { Value: not null }, PieceTable: { Value: not null } } && zdo.Vars.GetCreator() is not 0;
         if (isPlayerBuilt)
         {
             if (!Config.WearNTear.DisableRainDamage.Value)

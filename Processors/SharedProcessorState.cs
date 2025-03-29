@@ -1,6 +1,7 @@
 ﻿using BepInEx.Configuration;
 using System.Collections.Concurrent;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -26,7 +27,33 @@ static class SharedProcessorState
     public static ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();
 
     static readonly Dictionary<int, PrefabInfo?> __prefabInfo = new();
-    static readonly IReadOnlyList<Type> __componentTypes = typeof(PrefabInfo).GetProperties().Select(x => x.PropertyType).Where(x => typeof(MonoBehaviour).IsAssignableFrom(x)).ToList();
+    static readonly IReadOnlyList<Type> __componentTypes = typeof(PrefabInfo).GetProperties()
+        .Select(x => x.PropertyType).Where(x => typeof(MonoBehaviour).IsAssignableFrom(x)).ToList();
+
+    static readonly IReadOnlyList<IReadOnlyList<(Type Type, bool Optional)>> __componentTypeCombinations = typeof(PrefabInfo).GetProperties()
+        .Select(x => x.PropertyType)
+        .Where(x => x.IsConstructedGenericType && x.GetGenericTypeDefinition() == typeof(Nullable<>) && x.GenericTypeArguments[0].IsConstructedGenericType)
+        .Select(x => x.GenericTypeArguments[0])
+        .Where(x => x.IsConstructedGenericType && typeof(ITuple).IsAssignableFrom(x))
+        .Select(x =>
+        {
+            List<(Type Type, bool Optional)>? list = new(x.GenericTypeArguments.Length);
+            foreach (var type in x.GenericTypeArguments)
+            {
+                if (typeof(MonoBehaviour).IsAssignableFrom(type))
+                    list.Add((type, false));
+                else if (type.IsConstructedGenericType && type.GetGenericTypeDefinition() == typeof(PrefabInfo.Optional<>))
+                    list.Add((type.GenericTypeArguments[0], true));
+                else
+                {
+                    list = null;
+                    break;
+                }
+            }
+            return list!;
+        })
+        .Where(x => x is not null)
+        .ToList();
 
     public static void Initialize()
     {
@@ -67,14 +94,35 @@ static class SharedProcessorState
             Dictionary<Type, MonoBehaviour>? components = null;
             foreach (var componentType in __componentTypes)
             {
-                var component = (prefab.GetComponent(componentType) ?? prefab.GetComponentInChildren(componentType)) as MonoBehaviour;
+                var component = GetComponent(prefab, componentType);
                 if (component is not null)
                     (components ??= new()).Add(componentType, component);
             }
+            foreach (var componentTypeCombinations in __componentTypeCombinations)
+            {
+                var componentCombinations = componentTypeCombinations
+                    .Select(x => (x.Type, x.Optional, Component: (components?.TryGetValue(x.Type, out var c) ?? false) ? c : GetComponent(prefab, x.Type)))
+                    .ToList();
+                if (componentCombinations.Count > 0 && !componentCombinations.Any(x => x.Component is null && !x.Optional))
+                {
+                    components ??= new();
+                    foreach (var (type, _, component) in componentCombinations)
+                    {
+                        if (component is not null && !components.ContainsKey(type))
+                            components.Add(type, component);
+                    }
+                }
+            }
             if (components is null)
                 return null;
-            PieceTablesByPiece.TryGetValue(prefab.name, out var pieceTable);
-            return new PrefabInfo(components, pieceTable);
+            return new(components);
+        }
+
+        static MonoBehaviour? GetComponent(GameObject prefab, Type componentType)
+        {
+            if (componentType == typeof(PieceTable))
+                return PieceTablesByPiece.TryGetValue(prefab.name, out var c) ? c : null;
+            return (prefab.GetComponent(componentType) ?? prefab.GetComponentInChildren(componentType)) as MonoBehaviour;
         }
     }
 }

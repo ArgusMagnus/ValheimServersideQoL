@@ -344,7 +344,7 @@ sealed class ExtendedZDO : ZDO
             var w = fields.GetInt(x => x.m_width);
             var h = fields.GetInt(x => x.m_height);
             if (Inventory is null || Inventory.GetWidth() != w || Inventory.GetHeight() != h)
-                Inventory = new(ZDO.PrefabInfo.Container!.m_name, ZDO.PrefabInfo.Container!.m_bkg, w, h);
+                Inventory = new(ZDO.PrefabInfo.Container!.Value.Container.m_name, ZDO.PrefabInfo.Container!.Value.Container.m_bkg, w, h);
 
             if (string.IsNullOrEmpty(data))
                 Items.Clear();

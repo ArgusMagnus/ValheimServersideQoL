@@ -8,7 +8,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (zdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null } || zdo.Vars.GetCreator() is 0)
+        if (zdo.PrefabInfo.Container is null || zdo.Vars.GetCreator() is 0)
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -83,7 +83,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
             .ThenBy(x => x.m_shared.m_name)
             .ThenByDescending(x => x.m_stack))
         {
-            if (zdo.PrefabInfo.Container.m_privacy is not Container.PrivacySetting.Private)
+            if (zdo.PrefabInfo.Container.Value.Container.m_privacy is not Container.PrivacySetting.Private)
             {
                 var set = SharedProcessorState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
                 set.Add(zdo);
@@ -196,7 +196,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (changed)
         {
             inventory.Save();
-            RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece.m_name} sorted");
+            RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Container.Value.Piece.m_name} sorted");
         }
 
         return true;

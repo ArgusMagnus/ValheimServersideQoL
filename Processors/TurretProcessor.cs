@@ -6,7 +6,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (zdo.PrefabInfo is not { Turret: not null, Piece: not null, PieceTable: not null })
+        if (zdo.PrefabInfo.Turret is null)
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -49,7 +49,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
         var addedAmmo = 0;
         
-        foreach (var ammoItem in zdo.PrefabInfo.Turret.m_allowedAmmo.Select(x => x.m_ammo))
+        foreach (var ammoItem in zdo.PrefabInfo.Turret.Value.Turret.m_allowedAmmo.Select(x => x.m_ammo))
         {
             if (!string.IsNullOrEmpty(allowedAmmoDropPrefabName) && ammoItem.name != allowedAmmoDropPrefabName)
                 continue;
@@ -60,7 +60,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             List<ItemDrop.ItemData>? removeSlots = null;
             foreach (var containerZdo in containers)
             {
-                if (!containerZdo.IsValid() || containerZdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
+                if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
                 {
                     containers.Remove(containerZdo);
                     continue;
@@ -128,7 +128,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         }
 
         if (addedAmmo is not 0)
-            RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece.m_name}: $msg_added {allowedAmmo!.m_shared.m_name} {addedAmmo}x");
+            RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Turret.Value.Piece.m_name}: $msg_added {allowedAmmo!.m_shared.m_name} {addedAmmo}x");
         //else
         //    RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_noturretammo");
 
