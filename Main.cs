@@ -227,7 +227,7 @@ public sealed partial class Main : BaseUnityPlugin
 
 #if DEBUG
             GenerateDefaultConfigMarkdown(base.Config);
-            GeneratePrefabSheet();
+            GenerateDocs();
 #endif
 
             base.Config.Bind(DummyConfigSection, "Dummy", "", $"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}");
@@ -417,7 +417,7 @@ public sealed partial class Main : BaseUnityPlugin
         }
     }
 
-    static void GeneratePrefabSheet()
+    static void GenerateDocs()
     {
         var docsPath = Path.Combine(Path.GetDirectoryName(ConfigMarkdownPath), "Docs");
         var docsComponentsPath = Path.Combine(docsPath, "Components");
@@ -512,6 +512,10 @@ public sealed partial class Main : BaseUnityPlugin
         WritePrefabsFile(docsPath, "PrefabsSFX.md", prefabsSfx);
         WritePrefabsFile(docsPath, "PrefabsVFX.md", prefabsVfx);
 
+        WriteLocalizationsFile(docsPath, "Localization.md");
+
+        return;
+
         static void WritePrefabsFile(string path, string filename, IEnumerable<(string Prefab, string? Name, string Components)> prefabs)
         {
             using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
@@ -528,6 +532,17 @@ public sealed partial class Main : BaseUnityPlugin
                 else
                     writer.WriteLine($"|{prefab}<small><br>- Name: {name}</small>|{components}|");
             }
+        }
+
+        static void WriteLocalizationsFile(string path, string filename)
+        {
+            using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
+            writer.WriteLine("# Localization");
+            writer.WriteLine();
+            writer.WriteLine("|Key|English|");
+            writer.WriteLine("|---|-------|");
+            foreach (var (key, value) in PrivateAccessor.GetLocalizationStrings(Localization.instance).Select(x => (x.Key, x.Value)).OrderBy(x => x.Key))
+                writer.WriteLine($"|{key}|{value?.Replace("\n", "<br>") ?? "*null*"}|");
         }
     }
 #endif

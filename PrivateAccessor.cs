@@ -47,4 +47,11 @@ static class PrivateAccessor
             Expression.Parameter(typeof(ZDOMan)) is var par1 ? par1 : throw new Exception(),
             typeof(ZDOMan).GetField("m_objectsByID", BindingFlags.NonPublic | BindingFlags.Instance)),
         par1).Compile();
+
+    static Func<Localization, IReadOnlyDictionary<string, string>>? __getLocalizationStrings;
+    public static Func<Localization, IReadOnlyDictionary<string, string>> GetLocalizationStrings => __getLocalizationStrings ??= Expression.Lambda<Func<Localization, IReadOnlyDictionary<string, string>>>(
+        Expression.Field(
+            Expression.Parameter(typeof(Localization)) is var par1 ? par1 : throw new Exception(),
+            typeof(Localization).GetField("m_translations", BindingFlags.NonPublic | BindingFlags.Instance)),
+        par1).Compile();
 }
