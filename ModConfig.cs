@@ -30,8 +30,10 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
         public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.Bind(section, nameof(DiagnosticLogs), false, "Enables/disables diagnostic logs");
-        public ConfigEntry<float> StartDelay { get; } = cfg.Bind(section, nameof(StartDelay), 0f, "Time (in seconds) before the mod starts processing the world");
-        public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f, "How many times per second the mod processes the world");
+        public ConfigEntry<float> StartDelay { get; } = cfg.Bind(section, nameof(StartDelay), 0f, new ConfigDescription(
+            "Time (in seconds) before the mod starts processing the world", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+        public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f,
+            new ConfigDescription("How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 20, "Max processing time (in ms) per update");
         public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.Bind(section, nameof(ZonesAroundPlayers), 1, "Zones to process around each player");
         public ConfigEntry<float> MinPlayerDistance { get; } = cfg.Bind(section, nameof(MinPlayerDistance), 4f, "Min distance all players must have to a ZDO for it to be modified");
@@ -104,7 +106,8 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class CartsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), 1f, "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight");
+        public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), 1f,
+            new ConfigDescription("Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
     }
 
     public sealed class DoorsConfig(ConfigFile cfg, string section)
@@ -296,14 +299,18 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class PlantsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> GrowTimeMultiplier { get; } = cfg.Bind(section, nameof(GrowTimeMultiplier), 1f, "Multiply plant grow time by this factor");
-        public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.Bind(section, nameof(SpaceRequirementMultiplier), 1f, "Multiply plant grow time by this factor");
+        public ConfigEntry<float> GrowTimeMultiplier { get; } = cfg.Bind(section, nameof(GrowTimeMultiplier), 1f,
+            new ConfigDescription("Multiply plant grow time by this factor", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+        public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.Bind(section, nameof(SpaceRequirementMultiplier), 1f,
+            new ConfigDescription("Multiply plant grow time by this factor", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.Bind(section, nameof(DontDestroyIfCantGrow), false, "True to keep plants which can't grow alive");
     }
 
     public sealed class SummonsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> UnsummonDistanceMultiplier { get; } = cfg.Bind(section, nameof(UnsummonDistanceMultiplier), 1f, "Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning");
-        public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f, "Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning");
+        public ConfigEntry<float> UnsummonDistanceMultiplier { get; } = cfg.Bind(section, nameof(UnsummonDistanceMultiplier), 1f,
+            new ConfigDescription("Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+        public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f,
+            new ConfigDescription("Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
     }
 }
