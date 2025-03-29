@@ -152,6 +152,8 @@ sealed class ExtendedZDO : ZDO
         public void SetAmmo(int value) => _zdo.Set(ZDOVars.s_ammo, value);
         public string GetAmmoType(string defaultValue = "") => _zdo.GetString(ZDOVars.s_ammoType, defaultValue);
         public void SetAmmoType(string value) => _zdo.Set(ZDOVars.s_ammoType, value);
+        public float GetGrowStart(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_growStart, defaultValue);
+        public void SetGrowStart(float value) => _zdo.Set(ZDOVars.s_growStart, value);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)

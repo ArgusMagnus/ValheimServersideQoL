@@ -12,11 +12,14 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             return false;
         }
 
-		if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
-			return false; // player to close
+        if (zdo.PrefabInfo.Piece is not null && zdo.Vars.GetPiece())
+            return true; // ignore placed items (such as feasts)
 
-		if (zdo.PrefabInfo.Piece is not null && zdo.Vars.GetPiece())
-			return false; // ignore placed items (such as feasts)
+        if (zdo.PrefabInfo.EggGrow is not null && zdo.Vars.GetGrowStart() > 0)
+            return true;
+
+        if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
+			return false; // player to close
 
 		var shared = zdo.PrefabInfo.ItemDrop.m_itemData.m_shared;
         if (!SharedProcessorState.ContainersByItemName.TryGetValue(shared, out var containers))
