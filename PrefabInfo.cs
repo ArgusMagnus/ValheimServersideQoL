@@ -10,7 +10,7 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components)
     public MapTable? MapTable { get; } = Get<MapTable>(components);
     public Tameable? Tameable { get; } = Get<Tameable>(components);
     public Fireplace? Fireplace { get; } = Get<Fireplace>(components);
-    public (Container Container, Piece Piece, PieceTable PieceTable)? Container { get; } = Get<Container, Piece, PieceTable>(components);
+    public (Container Container, Piece Piece, PieceTable PieceTable, Optional<ZSyncTransform> ZSyncTransform)? Container { get; } = Get<Container, Piece, PieceTable, ZSyncTransform>(components);
     public (Ship Ship, Piece Piece)? Ship { get; } = Get<Ship, Piece>(components);
     public (ItemDrop ItemDrop, Optional<Piece> Piece)? ItemDrop { get; } = Get<ItemDrop, Piece>(components);
     public Smelter? Smelter { get; } = Get<Smelter>(components);
@@ -20,7 +20,6 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components)
     public Player? Player { get; } = Get<Player>(components);
     public TeleportWorld? TeleportWorld { get; } = Get<TeleportWorld>(components);
     public Door? Door { get; } = Get<Door>(components);
-    public ZSyncTransform? ZSyncTransform { get; } = Get<ZSyncTransform>(components);
     public (Turret Turret, Piece Piece, PieceTable PieceTable)? Turret { get; } = Get<Turret, Piece, PieceTable>(components);
     public (WearNTear WearNTear, Optional<Piece> Piece, Optional<PieceTable> PieceTable)? WearNTear { get; } = Get<WearNTear, Piece, PieceTable>(components);
     public Trader? Trader { get; } = Get<Trader>(components);

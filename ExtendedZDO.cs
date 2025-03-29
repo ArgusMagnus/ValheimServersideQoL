@@ -376,7 +376,7 @@ sealed class ExtendedZDO : ZDO
             {
                 // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.
                 // Not sure about the increment value though...
-                if (ZDO.PrefabInfo.ZSyncTransform is not null)
+                if (ZDO.PrefabInfo.Container is { ZSyncTransform: { Value: not null } })
                     ZDO.DataRevision += 120;
             }
 
