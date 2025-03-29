@@ -137,6 +137,9 @@
 |Traders|AlwaysUnlockHildirHelmetHat9|False|True/False|Remove the progression requirements for buying Extravagant Orange Cap from Hildir|
 |Traders|AlwaysUnlockHildirHelmetStrawHat|False|True/False|Remove the progression requirements for buying Straw Hat from Hildir|
 |Traders|AlwaysUnlockHildirFireworksRocket_White|False|True/False|Remove the progression requirements for buying Basic Fireworks from Hildir|
+|Traps|DisableTriggeredByPlayers|False|True/False|True to stop traps from being triggered by players|
+|Traps|DisableFriendlyFire|False|True/False|True to stop traps from damaging players and tames|
+|Traps|SelfDamageMultiplier|1|From 0 to Infinity|Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage|
 |Turrets|DontTargetPlayers|False|True/False|True to stop ballistas from targeting players|
 |Turrets|DontTargetTames|False|True/False|True to stop ballistas from targeting tames|
 |Turrets|LoadFromContainers|False|True/False|True to automatically load ballistas from containers|

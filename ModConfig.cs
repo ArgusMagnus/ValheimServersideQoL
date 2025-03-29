@@ -25,6 +25,7 @@ sealed class ModConfig(ConfigFile cfg)
     public WearNTearConfig WearNTear { get; } = new(cfg, "B - Build Pieces");
     public TradersConfig Traders { get; } = new(cfg, "B - Traders");
     public PlantsConfig Plants { get; } = new(cfg, "B - Plants");
+    public TrapsConfig Traps { get; } = new(cfg, "B - Traps");
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -313,5 +314,13 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription("Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f,
             new ConfigDescription("Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+    }
+
+    public sealed class TrapsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> DisableTriggeredByPlayers { get; } = cfg.Bind(section, nameof(DisableTriggeredByPlayers), false, "True to stop traps from being triggered by players");
+        public ConfigEntry<bool> DisableFriendlyFire { get; } = cfg.Bind(section, nameof(DisableFriendlyFire), false, "True to stop traps from damaging players and tames");
+        public ConfigEntry<float> SelfDamageMultiplier { get; } = cfg.Bind(section, nameof(SelfDamageMultiplier), 1f,
+            new ConfigDescription("Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
     }
 }

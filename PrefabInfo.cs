@@ -27,6 +27,7 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components)
     public Plant? Plant { get; } = Get<Plant>(components);
     public EggGrow? EggGrow { get; } = Get<EggGrow>(components);
     public Growup? Growup { get; } = Get<Growup>(components);
+    public (Trap Trap, Aoe Aoe, Piece Piece, PieceTable PieceTable)? Trap { get; } = Get<Trap, Aoe, Piece, PieceTable>(components);
 
     public static PrefabInfo Dummy { get; } = new(new Dictionary<Type, MonoBehaviour>(0));
 
@@ -50,11 +51,17 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components)
         return ((T1)f1, new(prefabs.TryGetValue(typeof(T2), out var f2) ? (T2)f2 : null), new(prefabs.TryGetValue(typeof(T3), out var f3) ? (T3)f3 : null));
     }
 
-    public readonly struct Optional<T>(T? value) where T : MonoBehaviour
+    static (T1 F1, Optional<T2> F2, Optional<T3> F3, Optional<T4> F4)? Get<T1, T2, T3, T4>(IReadOnlyDictionary<Type, MonoBehaviour> prefabs)
+        where T1 : MonoBehaviour where T2 : MonoBehaviour where T3 : MonoBehaviour where T4 : MonoBehaviour
     {
-        public T? Value { get; } = value;
+        if (!prefabs.TryGetValue(typeof(T1), out var f1))
+            return null;
+        return ((T1)f1, new(prefabs.TryGetValue(typeof(T2), out var f2) ? (T2)f2 : null),
+            new(prefabs.TryGetValue(typeof(T3), out var f3) ? (T3)f3 : null), new(prefabs.TryGetValue(typeof(T4), out var f4) ? (T4)f4 : null));
+    }
 
-        //public static implicit operator Optional<T>(T value) => new() { Value = value };
+    public record struct Optional<T>(T? Value) where T : MonoBehaviour
+    {
         public static implicit operator T(in Optional<T> value) => value.Value ?? throw new ArgumentNullException();
     }
 }

@@ -4,6 +4,7 @@
     - Modify unsummon distance/time of summons (Skeletons)
     - Show growing progress for tames' offspring/eggs
     - Include shield generators when auto-feeding smelters
+    - Prevent traps from being triggered by players, friendly fire and damaging themselves
 - Changed taming progress message to be displayed in world
 - Fix:
     - Exclude personal chests from auto-pickup/auto-feeding smelters, etc.
