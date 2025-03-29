@@ -24,7 +24,7 @@ sealed class ExtendedZDO : ZDO
             if (_lastId != m_uid || _addData is null)
             {
                 _lastId = m_uid;
-                if (SharedProcessorState.PrefabInfo.TryGetValue(GetPrefab(), out var prefabInfo))
+                if (SharedProcessorState.GetPrefabInfo(GetPrefab()) is { } prefabInfo)
                     _addData = new(prefabInfo);
                 else
                     _addData = AdditionalData_.Dummy;

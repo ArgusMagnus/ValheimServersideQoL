@@ -35,7 +35,6 @@ public sealed partial class Main : BaseUnityPlugin
 
     ulong _executeCounter;
     uint _unfinishedProcessingInRow;
-    bool _resetPrefabInfo;
     record SectorInfo(List<ZNetPeer> Peers, List<ZDO> ZDOs)
     {
         public int InverseWeight { get; set; }
@@ -48,8 +47,6 @@ public sealed partial class Main : BaseUnityPlugin
     public Main()
     {
         Config ??= new(base.Config);
-
-        base.Config.SettingChanged += (_, _) => _resetPrefabInfo = true;
     }
 
     public void Awake()
@@ -182,10 +179,8 @@ public sealed partial class Main : BaseUnityPlugin
         if (ZNetScene.instance is null || ZDOMan.instance is null)
             return;
 
-        if (_executeCounter++ is 0 || _resetPrefabInfo)
+        if (_executeCounter++ is 0)
         {
-            _resetPrefabInfo = false;
-
             if (!string.IsNullOrEmpty(Config.GlobalsKeys.Preset.Value))
             {
                 try { MyTerminal.ExecuteCommand("setworldpreset", Config.GlobalsKeys.Preset.Value); }
@@ -222,7 +217,7 @@ public sealed partial class Main : BaseUnityPlugin
                 }
             }
 
-            SharedProcessorState.Initialize(Config);
+            SharedProcessorState.Initialize();
             foreach (var processor in Processor.DefaultProcessors)
                 processor.Initialize();
 

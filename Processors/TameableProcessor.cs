@@ -47,10 +47,8 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             else if (fields.SetIfChanged(x => x.m_unsummonOnOwnerLogoutSeconds, zdo.PrefabInfo.Tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
                 RecreateZdo = true;
 
-            if (zdo.Vars.GetFollow() is { Length: > 0 } playerName)
-            {
+            if (!RecreateZdo && zdo.Vars.GetFollow() is { Length: > 0 } playerName)
                 SharedProcessorState.FollowingTamesByPlayerName.GetOrAdd(playerName, static _ => new()).Add(zdo.m_uid);
-            }
         }
         else if (Config.Tames.SendTamingPogressMessages.Value)
         {
