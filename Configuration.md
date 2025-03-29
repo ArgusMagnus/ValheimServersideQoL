@@ -2,8 +2,8 @@
 |---|---|---|---|---|
 |General|Enabled|True|True/False|Enables/disables the entire mode|
 |General|DiagnosticLogs|False|True/False|Enables/disables diagnostic logs|
-|General|StartDelay|0||Time (in seconds) before the mod starts processing the world|
-|General|Frequency|5||How many times per second the mod processes the world|
+|General|StartDelay|0|From 0 to Infinity|Time (in seconds) before the mod starts processing the world|
+|General|Frequency|5|From 0 to Infinity|How many times per second the mod processes the world|
 |General|MaxProcessingTime|20||Max processing time (in ms) per update|
 |General|ZonesAroundPlayers|1||Zones to process around each player|
 |General|MinPlayerDistance|4||Min distance all players must have to a ZDO for it to be modified|
@@ -78,8 +78,8 @@
 |Map Tables|AutoUpdatePortalsExclude|||Portals with a tag that matches this filter are not added to map tables|
 |Map Tables|AutoUpdatePortalsInclude|*||Only portals with a tag that matches this filter are added to map tables|
 |Map Tables|AutoUpdateShips|False|True/False|True to update map tables with ship pins|
-|Plants|GrowTimeMultiplier|1||Multiply plant grow time by this factor|
-|Plants|SpaceRequirementMultiplier|1||Multiply plant grow time by this factor|
+|Plants|GrowTimeMultiplier|1|From 0 to Infinity|Multiply plant grow time by this factor|
+|Plants|SpaceRequirementMultiplier|1|From 0 to Infinity|Multiply plant grow time by this factor|
 |Plants|DontDestroyIfCantGrow|False|True/False|True to keep plants which can't grow alive|
 |Players|InfiniteBuildingStamina|False|True/False|True to give players infinite stamina when building. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|InfiniteFarmingStamina|False|True/False|True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
@@ -88,8 +88,8 @@
 |Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source|
 |Smelters|FeedFromContainersLeaveAtLeastFuel|1||Minimum amout of fuel to leave in a container|
 |Smelters|FeedFromContainersLeaveAtLeastOre|1||Minimum amout of ore to leave in a container|
-|Summons|UnsummonDistanceMultiplier|1||Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning|
-|Summons|UnsummonLogoutTimeMultiplier|1||Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning|
+|Summons|UnsummonDistanceMultiplier|1|From 0 to Infinity|Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning|
+|Summons|UnsummonLogoutTimeMultiplier|1|From 0 to Infinity|Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning|
 |Tames|MakeCommandable|False|True/False|True to make all tames commandable (like wolves)|
 |Tames|SendTamingPogressMessages|False|True/False|True to send taming progress messages to nearby players|
 |Tames|AlwaysFed|False|True/False|True to make tames always fed (not hungry)|
