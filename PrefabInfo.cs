@@ -27,7 +27,7 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components)
     public Plant? Plant { get; } = Get<Plant>(components);
     public EggGrow? EggGrow { get; } = Get<EggGrow>(components);
     public Growup? Growup { get; } = Get<Growup>(components);
-    public (Trap Trap, Aoe Aoe, Piece Piece, PieceTable PieceTable)? Trap { get; } = Get<Trap, Aoe, Piece, PieceTable>(components);
+    public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = Get<Aoe, Piece, PieceTable, Trap>(components);
 
     public static PrefabInfo Dummy { get; } = new(new Dictionary<Type, MonoBehaviour>(0));
 

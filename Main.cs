@@ -224,6 +224,7 @@ public sealed partial class Main : BaseUnityPlugin
                 processor.Initialize();
 
 #if DEBUG
+            _ = Config.Containers.ContainerSizes; // force initialization
             GenerateDefaultConfigMarkdown(base.Config);
             GenerateDocs();
 #endif
