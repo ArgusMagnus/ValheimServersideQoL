@@ -3,6 +3,8 @@
     - Modify plant grow time and space requirement, option to keep plants which can't grow alive
     - Modify unsummon distance/time of summons (Skeletons)
 - Changed taming progress message to be displayed in world
+- Fix:
+    - Exclude personal chests from auto-pickup/auto-feeding smelters, etc.
 
 ### v0.2.4
 - New feature: always unlock trader items (remove progression requirements for buying from trader items). Only supported on dedicated servers.

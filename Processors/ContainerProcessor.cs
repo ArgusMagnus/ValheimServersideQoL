@@ -83,8 +83,11 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
             .ThenBy(x => x.m_shared.m_name)
             .ThenByDescending(x => x.m_stack))
         {
-            var set = SharedProcessorState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
-            set.Add(zdo);
+            if (zdo.PrefabInfo.Container.m_privacy is not Container.PrivacySetting.Private)
+            {
+                var set = SharedProcessorState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
+                set.Add(zdo);
+            }
             if (!Config.Containers.AutoSort.Value && !RecreateZdo)
                 continue;
 
