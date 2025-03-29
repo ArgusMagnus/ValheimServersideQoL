@@ -21,6 +21,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - <see cref="Pathfinding"/> <see cref="SapCollector"/> <see cref="ResourceRoot"/>
     /// - <see cref="ShieldGenerator"/> <see cref="Trap"/> <see cref="WearNTear"/> <see cref="DamageText"/>
     /// - Prevent traps from damaging themselves or friendlies <see cref="Aoe.m_damageSelf"/> <see cref="Aoe.m_hitFriendly"/>
+    /// - Make stakewalls drop their resources when destroyed <see cref="Piece.DropResources(HitData)"/> <see cref="WearNTear.Remove(bool)"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

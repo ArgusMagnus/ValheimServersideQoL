@@ -154,6 +154,8 @@ sealed class ExtendedZDO : ZDO
         public void SetAmmoType(string value) => _zdo.Set(ZDOVars.s_ammoType, value);
         public float GetGrowStart(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_growStart, defaultValue);
         public void SetGrowStart(float value) => _zdo.Set(ZDOVars.s_growStart, value);
+        public DateTime GetSpawnTime(DateTime defaultValue = default) => new(_zdo.GetLong(ZDOVars.s_spawnTime, defaultValue.Ticks));
+        public void SetSpawnTime(DateTime value) => _zdo.Set(ZDOVars.s_spawnTime, value.Ticks);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
