@@ -10,9 +10,10 @@ This mod is in early development and the features experimental. Backup your worl
 - Map Tables: Automatically add pins for portals and ships to map tables
 - Tames
     - Commandable: Make all tames commandable (like wolves)
-    - Taming progress: Show taming progress messages to nearby players
+    - Taming progress: Show taming progress to nearby players
     - Teleport follow: Teleport following tames to the players location if they get too far away from the player
     - Always fed: Make all tames always fed (not hungry)
+    - Growing progress: Show growing progress of offspring/eggs to nearby players
 - Fireplaces (including torches/sconces/braziers/etc.)
     - Toggleable: Make all fireplaces toggleable (you can turn them on/off)
     - Infinite fuel: Make all fireplaces have infinite fuel

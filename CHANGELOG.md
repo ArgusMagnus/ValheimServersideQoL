@@ -2,6 +2,7 @@
 - New features:
     - Modify plant grow time and space requirement, option to keep plants which can't grow alive
     - Modify unsummon distance/time of summons (Skeletons)
+    - Show growing progress for tames' offspring/eggs
 - Changed taming progress message to be displayed in world
 - Fix:
     - Exclude personal chests from auto-pickup/auto-feeding smelters, etc.

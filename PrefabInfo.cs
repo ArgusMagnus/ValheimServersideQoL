@@ -29,6 +29,7 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components, Pie
     public Trader? Trader { get; } = Get<Trader>(components);
     public Plant? Plant { get; } = Get<Plant>(components);
     public EggGrow? EggGrow { get; } = Get<EggGrow>(components);
+    public Growup? Growup { get; } = Get<Growup>(components);
 
     public static PrefabInfo Dummy { get; } = new(new Dictionary<Type, MonoBehaviour>(0), null);
 }

@@ -6,15 +6,15 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _lastTameness = new();
+    readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _lastMessage = new();
 
     public override void PreProcess()
     {
         base.PreProcess();
-        foreach (var zdo in _lastTameness.Keys)
+        foreach (var zdo in _lastMessage.Keys)
         {
             if (!zdo.IsValid() || zdo.PrefabInfo.Tameable is null)
-                _lastTameness.TryRemove(zdo, out _);
+                _lastMessage.TryRemove(zdo, out _);
         }
     }
 
@@ -50,19 +50,19 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             if (!RecreateZdo && zdo.Vars.GetFollow() is { Length: > 0 } playerName)
                 SharedProcessorState.FollowingTamesByPlayerName.GetOrAdd(playerName, static _ => new()).Add(zdo.m_uid);
         }
-        else if (Config.Tames.SendTamingPogressMessages.Value)
+        else if (Config.Tames.ShowTamingProgress.Value)
         {
             /// <see cref="Tameable.GetRemainingTime()"/>
             var tameTime = fields.GetFloat(x => x.m_tamingTime);
             var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
             if (tameTimeLeft < tameTime)
             {
-                var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
-                if (!_lastTameness.TryGetValue(zdo, out var lastTameness) || (DateTimeOffset.UtcNow - lastTameness) > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
+                if (!_lastMessage.TryGetValue(zdo, out var lastMessage) || (DateTimeOffset.UtcNow - lastMessage) > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
                 {
-                    _lastTameness[zdo] = DateTimeOffset.UtcNow;
+                    _lastMessage[zdo] = DateTimeOffset.UtcNow;
                     var range = DamageText.instance.m_maxTextDistance;
                     var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo.GetPosition()) <= range);
+                    var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
                     RPC.ShowInWorldText(playersInRange, DamageText.TextType.Normal, zdo.GetPosition(), $"$hud_tameness {tameness:P0}");
                 }
             }

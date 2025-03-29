@@ -13,7 +13,7 @@
 |General|IgnoreWorldVersionCheck|False|True/False|True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption|
 |Build Pieces|DisableRainDamage|False|True/False|True to prevent rain from damaging build pieces|
 |Build Pieces|DisableSupportRequirements|None|Combination of None, PlayerBuilt, World|Ignore support requirements on build pieces|
-|Carts|ContentMassMultiplier|1||Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
+|Carts|ContentMassMultiplier|1|From 0 to Infinity|Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
 |Containers|AutoSort|False|True/False|True to auto sort container inventories|
 |Containers|AutoPickup|False|True/False|True to automatically put dropped items into containers if they already contain said item|
 |Containers|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target|
@@ -91,7 +91,8 @@
 |Summons|UnsummonDistanceMultiplier|1|From 0 to Infinity|Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning|
 |Summons|UnsummonLogoutTimeMultiplier|1|From 0 to Infinity|Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning|
 |Tames|MakeCommandable|False|True/False|True to make all tames commandable (like wolves)|
-|Tames|SendTamingPogressMessages|False|True/False|True to send taming progress messages to nearby players|
+|Tames|ShowTamingProgress|False|True/False|True to show taming progress to nearby players|
+|Tames|ShowGrowingProgress|False|True/False|True to show growing progress to nearby players|
 |Tames|AlwaysFed|False|True/False|True to make tames always fed (not hungry)|
 |Tames|TeleportFollow|False|True/False|True to teleport following tames to the players location if the player gets too far away from them|
 |Traders|AlwaysUnlockBogWitchScytheHandle|False|True/False|Remove the progression requirements for buying Scythe Handle from |

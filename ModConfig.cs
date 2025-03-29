@@ -62,7 +62,8 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> MakeCommandable { get; } = cfg.Bind(section, nameof(MakeCommandable), false, "True to make all tames commandable (like wolves)");
         //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to feed tames from containers");
 
-        public ConfigEntry<bool> SendTamingPogressMessages { get; } = cfg.Bind(section, nameof(SendTamingPogressMessages), false, "True to send taming progress messages to nearby players");
+        public ConfigEntry<bool> ShowTamingProgress { get; } = cfg.Bind(section, nameof(ShowTamingProgress), false, "True to show taming progress to nearby players");
+        public ConfigEntry<bool> ShowGrowingProgress { get; } = cfg.Bind(section, nameof(ShowGrowingProgress), false, "True to show growing progress to nearby players");
         public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
 
         public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), false, "True to teleport following tames to the players location if the player gets too far away from them");
