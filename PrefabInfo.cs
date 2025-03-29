@@ -18,6 +18,7 @@ sealed class PrefabInfo(IReadOnlyDictionary<Type, MonoBehaviour> components, Pie
     public Piece? Piece { get; } = Get<Piece>(components);
     public PieceTable? PieceTable { get; } = pieceTable;
     public Smelter? Smelter { get; } = Get<Smelter>(components);
+    public ShieldGenerator? ShieldGenerator { get; } = Get<ShieldGenerator>(components);
     public Windmill? Windmill { get; } = Get<Windmill>(components);
     public Vagon? Vagon { get; } = Get<Vagon>(components);
     public Player? Player { get; } = Get<Player>(components);

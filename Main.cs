@@ -24,7 +24,6 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Make stakewalls drop their resources when destroyed <see cref="Piece.DropResources(HitData)"/> <see cref="WearNTear.Remove(bool)"/>
     ///   Not easily possible: Responsible code in <see cref="Piece.DropResources(HitData)"/> uses <see cref="Piece.m_resources"/> / <see cref="Piece.Requirement.m_recover"/>
     ///   which cannot be modified via ZDO fields. We would have to somehow detect when a stakewall is destroyed and spawn the resources ourselves.
-    /// - Show growing progress for offspring/eggs
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";
@@ -53,10 +52,9 @@ public sealed partial class Main : BaseUnityPlugin
         Config ??= new(base.Config);
     }
 
-    public void Awake()
+    void Awake()
     {
-        var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-        HarmonyInstance.PatchAll(assembly);
+        HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
     }
 
     readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.220.4");
@@ -65,7 +63,7 @@ public sealed partial class Main : BaseUnityPlugin
     const uint ExpectedWorldVersion = 35;
     const string DummyConfigSection = "Dummy";
 
-    public void Start()
+    void Start()
     {
         if (!Config.General.Enabled.Value)
             return;

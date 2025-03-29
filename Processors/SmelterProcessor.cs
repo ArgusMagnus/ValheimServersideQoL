@@ -1,4 +1,5 @@
 ﻿using BepInEx.Logging;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -6,7 +7,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
 	{
-        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo.Smelter is null)
+        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null})
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -17,91 +18,95 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
 		/// <see cref="Smelter.OnAddFuel"/>
 		{
-            var maxFuel = zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel);
+            var maxFuel = zdo.PrefabInfo.Smelter is not null ? zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel) : zdo.Fields<ShieldGenerator>().GetInt(x => x.m_maxFuel);
             var currentFuel = zdo.Vars.GetFuel();
             var maxFuelAdd = (int)(maxFuel - currentFuel);
             if (maxFuelAdd > maxFuel / 2)
             {
-                var fuelItem = zdo.PrefabInfo.Smelter.m_fuelItem.m_itemData;
-                var addedFuel = 0;
-                if (SharedProcessorState.ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
+                foreach (var fuelItem in zdo.PrefabInfo.ShieldGenerator?.m_fuelItems.Select(x => x.m_itemData) ?? [zdo.PrefabInfo.Smelter!.m_fuelItem.m_itemData])
                 {
-                    List<ItemDrop.ItemData>? removeSlots = null;
-                    foreach (var containerZdo in containers)
+                    var addedFuel = 0;
+                    if (SharedProcessorState.ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
                     {
-                        if (!containerZdo.IsValid() || containerZdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
+                        List<ItemDrop.ItemData>? removeSlots = null;
+                        foreach (var containerZdo in containers)
                         {
-                            containers.Remove(containerZdo);
-                            continue;
-                        }
+                            if (!containerZdo.IsValid() || containerZdo.PrefabInfo is not { Container: not null, Piece: not null, PieceTable: not null })
+                            {
+                                containers.Remove(containerZdo);
+                                continue;
+                            }
 
-                        if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
-                            continue;
-
-                        if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
-                            continue; // in use or player to close
-
-                        removeSlots?.Clear();
-                        float addFuel = 0;
-                        var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
-                        foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
-                        {
-                            var take = Math.Min(maxFuelAdd, slot.m_stack);
-                            var leaveDiff = Math.Min(take, leave);
-                            leave -= leaveDiff;
-                            take -= leaveDiff;
-                            if (take is 0)
+                            if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
                                 continue;
 
-                            addFuel += take;
-                            slot.m_stack -= take;
-                            if (slot.m_stack is 0)
-                                (removeSlots ??= new()).Add(slot);
+                            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
+                                continue; // in use or player to close
 
-                            maxFuelAdd -= take;
-                            if (maxFuelAdd is 0)
-                                break;
-                        }
+                            removeSlots?.Clear();
+                            var addFuel = 0;
+                            var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
+                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
+                            {
+                                var take = Math.Min(maxFuelAdd, slot.m_stack);
+                                var leaveDiff = Math.Min(take, leave);
+                                leave -= leaveDiff;
+                                take -= leaveDiff;
+                                if (take is 0)
+                                    continue;
 
-                        if (addFuel is 0)
-                        {
-                            containers.Remove(containerZdo);
-                            if (containers is { Count: 0 })
-                                SharedProcessorState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
-                            continue;
-                        }
+                                addFuel += take;
+                                slot.m_stack -= take;
+                                if (slot.m_stack is 0)
+                                    (removeSlots ??= new()).Add(slot);
 
-                        if (removeSlots is { Count: > 0 })
-                        {
-                            foreach (var remove in removeSlots)
-                                containerZdo.Inventory.Items.Remove(remove);
+                                maxFuelAdd -= take;
+                                if (maxFuelAdd is 0)
+                                    break;
+                            }
 
-                            if (containerZdo.Inventory.Items is { Count: 0 })
+                            if (addFuel is 0)
                             {
                                 containers.Remove(containerZdo);
                                 if (containers is { Count: 0 })
                                     SharedProcessorState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
+                                continue;
                             }
+
+                            if (removeSlots is { Count: > 0 })
+                            {
+                                foreach (var remove in removeSlots)
+                                    containerZdo.Inventory.Items.Remove(remove);
+
+                                if (containerZdo.Inventory.Items is { Count: 0 })
+                                {
+                                    containers.Remove(containerZdo);
+                                    if (containers is { Count: 0 })
+                                        SharedProcessorState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
+                                }
+                            }
+
+                            zdo.ClaimOwnership();
+                            currentFuel += addFuel;
+                            zdo.Vars.SetFuel(currentFuel);
+                            containerZdo.Inventory.Save();
+
+                            addedFuel += addFuel;
+
+                            if (maxFuelAdd is 0)
+                                break;
                         }
-
-                        zdo.ClaimOwnership();
-                        currentFuel += addFuel;
-                        zdo.Vars.SetFuel(currentFuel);
-                        containerZdo.Inventory.Save();
-
-                        addedFuel += (int)addFuel;
-
                         if (maxFuelAdd is 0)
                             break;
                     }
+                    if (addedFuel is not 0)
+                        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Smelter?.m_name ?? zdo.PrefabInfo.ShieldGenerator!.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
                 }
-
-                if (addedFuel is not 0)
-                    RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece?.m_name ?? zdo.PrefabInfo.Smelter.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
             }
         }
 
         /// <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
+        if (zdo.PrefabInfo.Smelter is not null)
         {
             int maxOre = zdo.Fields<Smelter>().GetInt(x => x.m_maxOre);
             var currentOre = zdo.Vars.GetQueued();
@@ -188,7 +193,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                     }
 
                     if (addedOre is not 0)
-                        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Piece?.m_name ?? zdo.PrefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x");
+                        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x");
                 }
             }
         }

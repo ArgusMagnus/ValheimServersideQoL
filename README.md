@@ -21,7 +21,8 @@ This mod is in early development and the features experimental. Backup your worl
     - Automatically sort inventories
     - Configure inventory sizes
 - Item drops: Automatically put dropped items into chests
-- Smelters: Feed/refuel smelters from nearby containers
+- Smelters (including windmills/hot-tubs/shield generators/etc.)
+    - Feed/refuel smelters from nearby containers
 - Windmills: Make windmills ignore wind intensity
 - Doors: Automatically close doors
 - Infinite Stamina: Give players infinite stamina when building/farming or always
