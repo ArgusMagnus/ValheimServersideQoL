@@ -1,4 +1,5 @@
-﻿using BepInEx.Logging;
+﻿using BepInEx.Configuration;
+using BepInEx.Logging;
 using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -17,9 +18,14 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly int _prefabMetalWall = "piece_dvergr_metal_wall_2x2".GetStableHashCode();
     readonly int _prefabIronGate = "iron_grate".GetStableHashCode();
     readonly int _prefabGuardStone = "dverger_guardstone".GetStableHashCode();
+    readonly int _prefabSign = "sign".GetStableHashCode();
+    readonly int _prefabCandle = "Candle_resin".GetStableHashCode();
+    const string SignFormatPrefix = "<color=white>";
 
     ExtendedZDO _guardStone = default!;
-    readonly ConcurrentDictionary<ExtendedZDO, bool> _isAdmin = new();
+    readonly ConcurrentDictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
+    readonly Dictionary<ZDOID, ExtendedZDO> _signsByCandle = new();
+    readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
 
     static Vector3 GetInitialOffset()
     {
@@ -36,11 +42,11 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
             zdo.Destroy();
 
-        var configSections = Config.ConfigFile.Keys
-            .Select(x => Regex.Match(x.Section, "^[B-Z] - (?<N>.+)$").Groups["N"].Value)
-            .Where(x => !string.IsNullOrEmpty(x))
-            .Distinct()
-            .OrderBy(x => x)
+        var configSections = Config.ConfigFile
+            .Select(x => (Entry: x.Value, Section: Regex.Match(x.Key.Section, "^[B-Z] - (?<N>.+)$").Groups["N"].Value))
+            .Where(x => !string.IsNullOrEmpty(x.Section))
+            .GroupBy(x => x.Section, x => x.Entry)
+            .OrderBy(x => x.Key)
             .ToList();
 
         var sectionEnumerator = configSections.GetEnumerator();
@@ -66,9 +72,6 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 if (!iIsEdge && !kIsEdge)
                     continue;
 
-                if (!sectionEnumerator.MoveNext())
-                    continue;
-
                 var rot = 0f;
                 if (iIsEdge && kIsEdge)
                 {
@@ -80,9 +83,6 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                         rot = 90 + 45;
                     else
                         rot = 180 + 45;
-                    //    rot -= 45;
-                    //rot += k is 0 ? 0 : 90;
-                    //rot += i is 0 ? 90 : 180;
                 }
                 else if (iIsEdge)
                 {
@@ -102,9 +102,12 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 else if (!kIsEdge)
                     pos.x += i is 0 ? -1.5f : 1.5f;
 
-                var zdo = PlacePiece(pos, _prefabPortal, rot);
-                zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
-                zdo.Vars.SetTag($"Config: {sectionEnumerator.Current}");
+                if (sectionEnumerator.MoveNext())
+                {
+                    var zdo = PlacePiece(pos, _prefabPortal, rot);
+                    zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+                    zdo.Vars.SetTag($"Config: {sectionEnumerator.Current.Key}");
+                }
 
                 if (iIsEdge)
                 {
@@ -121,8 +124,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     rot -= 90;
                     pos.x += i is 0 ? 0.25f : -0.25f;
                     pos.y += 0.5f;
-                    zdo = PlacePiece(pos, _prefabSconce, rot);
-                    zdo.Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                    PlacePiece(pos, _prefabSconce, rot)
+                        .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
                 }
                 if (kIsEdge)
                 {
@@ -139,8 +142,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     rot -= 90;
                     pos.z += k is 0 ? 0.25f : -0.25f;
                     pos.y += 0.5f;
-                    zdo = PlacePiece(pos, _prefabSconce, rot);
-                    zdo.Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                    PlacePiece(pos, _prefabSconce, rot)
+                        .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
                 }
             }
         }
@@ -200,84 +203,141 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             PlacePiece(pos, _prefabMetalWall, 270);
         }
 
+        var yOffset = _initialOffset.y;
+        foreach (var group in configSections)
+        {
+            yOffset += 5;
+            var entryEnumerator = group.GetEnumerator();
+            width = Math.Max(3, (int)Math.Ceiling(Math.Sqrt(group.Count())));
+            for (int i = 0; i < width; i++)
+            {
+                var iIsEdge = i is 0 || i == width - 1;
+                var x = (i - width / 2f) * 4;
+                for (int k = 0; k < width; k++)
+                {
+                    var z = (k - width / 2f) * 4;
+
+                    var pos = _initialOffset with { y = yOffset };
+                    pos.x += x;
+                    pos.z += z;
+
+                    PlacePiece(pos, _prefabFloor, 0f);
+                    pos.y += 4.5f;
+                    PlacePiece(pos, _prefabFloor, 0f);
+                    pos.y -= 4.5f;
+
+                    var kIsEdge = k is 0 || k == width - 1;
+                    if (!iIsEdge && !kIsEdge)
+                        continue;
+
+                    if (iIsEdge)
+                    {
+                        pos = _initialOffset with { y = yOffset };
+                        pos.x += x;
+                        pos.z += z;
+                        pos.y += 0.25f;
+                        float rot = i is 0 ? 90 : 270;
+                        pos.x += i is 0 ? -2f : 2f;
+                        PlacePiece(pos, _prefabWall, rot);
+                        pos.y += 2;
+                        PlacePiece(pos, _prefabWall, rot);
+
+                        if (entryEnumerator.MoveNext())
+                        {
+                            var entry = entryEnumerator.Current;
+                            rot -= 90;
+                            pos.x += i is 0 ? 0.25f : -0.25f;
+                            pos.y += 1.1f;
+                            PlacePiece(pos, _prefabSign, rot + 90)
+                                .Vars.SetText($"{SignFormatPrefix}{entry.Definition.Key}");
+                            pos.y -= 0.6f;
+                            PlacePiece(pos, _prefabSign, rot + 90)
+                                .Vars.SetText($"{SignFormatPrefix}{entry.Description.Description}");
+                            pos.y -= 1;
+                            var sign = PlacePiece(pos, _prefabSign, rot + 90);
+                            sign.Vars.SetText($"{SignFormatPrefix}{entry.BoxedValue}");
+                            _configBySign.Add(sign.m_uid, entry);
+
+                            if (entry.SettingType == typeof(bool))
+                            {
+                                pos.y -= 0.55f;
+                                var candle = PlacePiece(pos, _prefabCandle, rot);
+                                candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
+                                candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
+                                _signsByCandle.Add(candle.m_uid, sign);
+                                pos.y += 0.55f;
+                            }
+
+                            pos.z -= 1;
+                            PlacePiece(pos, _prefabSconce, rot)
+                                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                            pos.z += 2;
+                            PlacePiece(pos, _prefabSconce, rot)
+                                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                        }
+                    }
+                    if (kIsEdge)
+                    {
+                        pos = _initialOffset with { y = yOffset };
+                        pos.x += x;
+                        pos.z += z;
+                        pos.y += 0.25f;
+                        float rot = k is 0 ? 0 : 180;
+                        pos.z += k is 0 ? -2f : 2f;
+                        PlacePiece(pos, _prefabWall, rot);
+                        pos.y += 2;
+                        PlacePiece(pos, _prefabWall, rot);
+
+                        if (entryEnumerator.MoveNext())
+                        {
+                            var entry = entryEnumerator.Current;
+
+                            rot -= 90;
+                            pos.z += k is 0 ? 0.25f : -0.25f;
+                            pos.y += 1.1f;
+                            PlacePiece(pos, _prefabSign, rot + 90)
+                                .Vars.SetText($"{SignFormatPrefix}{entry.Definition.Key}");
+                            pos.y -= 0.6f;
+                            PlacePiece(pos, _prefabSign, rot + 90)
+                                .Vars.SetText($"{SignFormatPrefix}{entry.Description.Description}");
+                            pos.y -= 1;
+                            var sign = PlacePiece(pos, _prefabSign, rot + 90);
+                            sign.Vars.SetText($"{SignFormatPrefix}{entry.BoxedValue}");
+                            _configBySign.Add(sign.m_uid, entry);
+
+                            if (entry.SettingType == typeof(bool))
+                            {
+                                pos.y -= 0.55f;
+                                var candle = PlacePiece(pos, _prefabCandle, rot);
+                                candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
+                                candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
+                                _signsByCandle.Add(candle.m_uid, sign);
+                                pos.y += 0.55f;
+                            }
+
+                            pos.x -= 1;
+                            PlacePiece(pos, _prefabSconce, rot)
+                                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                            pos.x += 2;
+                            PlacePiece(pos, _prefabSconce, rot)
+                                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                        }
+                    }
+                }
+            }
+
+            {
+                var pos = _initialOffset with { y = yOffset };
+                pos.x -= 2;
+                pos.z -= 2;
+                var zdo = PlacePiece(pos, _prefabPortal, 0f);
+                zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+                zdo.Vars.SetTag($"Config: {group.Key}");
+
+            }
+        }
+
         PrivateAccessor.ConvertPortals(ZDOMan.instance);
-
-
-        //List<(string Name, int Prefab, Vector3 Pos, Quaternion Rot, byte[] data)> prefabs = new();
-        //using (var reader = new StreamReader(typeof(Main).Assembly.GetManifestResourceStream(typeof(Main), "InWorldConfigPieces.csv")))
-        //{
-        //    while (reader.ReadLine() is { Length: > 0 } line)
-        //    {
-        //        var parts = line.Split(';');
-        //        var prefab = int.Parse(parts[1]);
-        //        var pos = Utils.ParseVector3(parts[2]);
-        //        var rot = Quaternion.Euler(Utils.ParseVector3(parts[3]));
-        //        var data = Convert.FromBase64String(parts[4]);
-        //        prefabs.Add((parts[0], prefab, pos, rot, data));
-
-        //        //pos.x += 40;
-        //        //pos.y += 85;
-        //        //pos.z -= 220;
-
-        //        //var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
-        //        //zdo.Deserialize(new(data));
-        //        //zdo.SetRotation(rot);
-        //        //zdo.Vars.SetCreator(PluginGuidHash);
-        //        //zdo.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
-        //        //zdo.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false);
-        //        //if (zdo.PrefabInfo.Fireplace is not null)
-        //        //    zdo.Fields<Fireplace>().Set(x => x.m_infiniteFuel, true);
-        //        //_ignore.Add(zdo.m_uid);
-
-        //        //pos.z += 4;
-        //        //zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
-        //        //zdo.Deserialize(new(data));
-        //        //zdo.SetRotation(rot);
-        //        //zdo.Vars.SetCreator(PluginGuidHash);
-        //        //zdo.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
-        //        //zdo.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false);
-        //        //if (zdo.PrefabInfo.Fireplace is not null)
-        //        //    zdo.Fields<Fireplace>().Set(x => x.m_infiniteFuel, true);
-        //        //_ignore.Add(zdo.m_uid);
-        //    }
-        //}
-
-        //List<ExtendedZDO> signs = new();
-        //var z = -220;
-        //foreach (var entry in base.Config.Select(x => x.Value).OrderBy(x => x.Definition.Section).ThenBy(x => x.Definition.Key))
-        //{
-        //    signs.Clear();
-        //    foreach (var (prefabName, prefab, position, rot, data) in prefabs)
-        //    {
-        //        if (entry.SettingType != typeof(bool) && prefabName is "itemstandh" or "Candle_resin")
-        //            continue;
-
-        //        var pos = position;
-        //        pos.x += 40;
-        //        pos.y += 85;
-        //        pos.z += z;
-
-        //        var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
-        //        zdo.Deserialize(new(data));
-        //        zdo.SetRotation(rot);
-        //        zdo.Vars.SetCreator(PluginGuidHash);
-        //        zdo.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
-        //        zdo.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false);
-        //        if (zdo.PrefabInfo.Fireplace is not null)
-        //            zdo.Fields<Fireplace>().Set(x => x.m_infiniteFuel, true);
-        //        if (zdo.PrefabInfo.Sign is not null)
-        //            signs.Add(zdo);
-        //        _ignore.Add(zdo.m_uid);
-        //    }
-
-        //    signs.Sort((a, b) => a.GetPosition().y < b.GetPosition().y ? 1 : -1);
-        //    signs[0].Vars.SetText($"<color=white>{entry.Definition.Section}");
-        //    signs[1].Vars.SetText($"<color=white>{entry.Definition.Key}");
-        //    signs[2].Vars.SetText($"<color=white>{entry.Description.Description}");
-        //    signs[3].Vars.SetText($"<color=white>{entry.BoxedValue}");
-
-        //    z -= 4;
-        //}
     }
 
     public override bool ClaimExclusive(ExtendedZDO zdo) => _configPieces.Contains(zdo.m_uid);
@@ -285,42 +345,69 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     public override void PreProcess()
     {
         base.PreProcess();
-        foreach (var zdo in _isAdmin.Keys)
+        foreach (var (id, zdo) in _isAdmin.Select(x => (x.Key, x.Value.Player)))
         {
             if (!zdo.IsValid() || zdo.PrefabInfo.Player is null)
-                _isAdmin.TryRemove(zdo, out _);
+                _isAdmin.TryRemove(id, out _);
         }
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (zdo.PrefabInfo.Player is null)
+        if (zdo.PrefabInfo.Player is not null)
         {
             UnregisterZdoProcessor = true;
+
+            ZNetPeer? peer = null;
+            bool isAdmin;
+            if (_isAdmin.TryGetValue(zdo.m_uid, out var entry))
+                isAdmin = entry.IsAdmin;
+            else
+            {
+                peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
+                isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.m_socket.GetHostName());
+                _isAdmin.TryAdd(zdo.m_uid, (zdo, isAdmin));
+                if (isAdmin)
+                    AddAdmin(_guardStone, zdo.Vars.GetPlayerID(), zdo.Vars.GetPlayerName());
+            }
+
+            if (!isAdmin && zdo.GetPosition().y >= _initialOffset.y &&
+                Utils.DistanceXZ(zdo.GetPosition(), _guardStone.GetPosition()) > 4 &&
+                ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_guardStone.GetPosition()))
+            {
+                peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
+                var pos = _guardStone.GetPosition();
+                pos.y = zdo.GetPosition().y;
+                RPC.TeleportPlayer(peer, pos, zdo.GetRotation(), false);
+                RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$piece_noaccess");
+            }
             return false;
         }
 
-        ZNetPeer? peer = null;
-        if (!_isAdmin.TryGetValue(zdo, out var isAdmin))
+        if (zdo.PrefabInfo.Fireplace is not null && _signsByCandle.TryGetValue(zdo.m_uid, out var signZdo))
         {
-            peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
-            isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.m_socket.GetHostName());
-            _isAdmin.TryAdd(zdo, isAdmin);
-            if (isAdmin)
-                AddAdmin(_guardStone, zdo.Vars.GetPlayerID(), zdo.Vars.GetPlayerName());
+            var state = zdo.Vars.GetState();
+            signZdo.Vars.SetText($"{SignFormatPrefix}{(state is 1 ? bool.TrueString : bool.FalseString)}");
+            return true;
+        }
+        
+        if (zdo.PrefabInfo.Sign is not null && _configBySign.TryGetValue(zdo.m_uid, out var config))
+        {
+            var text = zdo.Vars.GetText();
+            if (text.StartsWith(SignFormatPrefix))
+                text = text.Substring(SignFormatPrefix.Length);
+
+            try { config.BoxedValue = TomlTypeConverter.ConvertToValue(text, config.SettingType); }
+            catch (Exception)
+            {
+                zdo.Vars.SetText($"{SignFormatPrefix}{config.BoxedValue}");
+                RPC.ShowMessage(peers.Where(x => _isAdmin.TryGetValue(x.m_characterID, out var y) && y.IsAdmin),
+                    MessageHud.MessageType.Center, "$invalid_keybind_header");
+            }
+            return true;
         }
 
-        if (isAdmin && zdo.GetPosition().y >= _initialOffset.y &&
-            Utils.DistanceXZ(zdo.GetPosition(), _guardStone.GetPosition()) > 4 &&
-            ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_guardStone.GetPosition()))
-        {
-            peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
-            var pos = _guardStone.GetPosition();
-            pos.y = zdo.GetPosition().y;
-            RPC.TeleportPlayer(peer, pos, zdo.GetRotation(), false);
-            RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$piece_noaccess");
-        }
-
+        UnregisterZdoProcessor = true;
         return false;
     }
 
