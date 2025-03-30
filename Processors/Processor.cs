@@ -110,5 +110,20 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
         public static void ShowInWorldText(ZNetPeer peer, DamageText.TextType type, Vector3 pos, string text)
             => ShowInWorldText([peer.m_uid], type, pos, text);
+
+        static void TeleportPlayer(long targetPeerID, Vector3 pos, Quaternion rot, bool distantTeleport)
+        {
+            /// <see cref="Chat.TeleportPlayer(long, Vector3, Quaternion, bool)"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerID, "RPC_TeleportPlayer", pos, rot, distantTeleport);
+        }
+
+        public static void TeleportPlayer(ZNetPeer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
+            => TeleportPlayer(peer.m_uid, pos, rot, distantTeleport);
+
+        public static void TeleportPlayer(ExtendedZDO player, Vector3 pos, Quaternion rot, bool distantTeleport)
+        {
+            /// <see cref="Player.TeleportTo(Vector3, Quaternion, bool)"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(player.GetOwner(), player.m_uid, "RPC_TeleportTo", pos, rot, distantTeleport);
+        }
     }
 }

@@ -19,7 +19,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly int _prefabGuardStone = "dverger_guardstone".GetStableHashCode();
 
     ExtendedZDO _guardStone = default!;
-    readonly ConcurrentDictionary<ZNetPeer?, bool> _isAdmin = new();
+    readonly ConcurrentDictionary<ExtendedZDO, bool> _isAdmin = new();
 
     static Vector3 GetInitialOffset()
     {
@@ -148,15 +148,17 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         {
             var pos = _initialOffset;
             pos.x -= 2;
-            pos.z -= 2 + 1.5f;
-            var zdo = PlacePiece(pos, _prefabPortal, 0f);
-            zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
-            zdo.Vars.SetTag("QOL CONFIG");
+            pos.z -= 2;
 
             pos.y -= 2;
             _guardStone = PlacePiece(pos, _prefabGuardStone, 0f);
-            if (Player.m_localPlayer is not null)
-                AddAdmin(_guardStone, Player.m_localPlayer.GetPlayerID(), Player.m_localPlayer.GetPlayerName());
+
+            pos.y += 2;
+            pos.z -= 1.5f;
+            var zdo = PlacePiece(pos, _prefabPortal, 0f);
+            zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+            zdo.Vars.SetTag("Qol config");
+
 
             pos = _initialOffset;
             pos.y += 0.75f;
@@ -283,29 +285,40 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     public override void PreProcess()
     {
         base.PreProcess();
-        foreach (var peer in _isAdmin.Keys)
+        foreach (var zdo in _isAdmin.Keys)
         {
-            if (peer is not null && !peer.m_socket.IsConnected())
-                _isAdmin.TryRemove(peer, out _);
+            if (!zdo.IsValid() || zdo.PrefabInfo.Player is null)
+                _isAdmin.TryRemove(zdo, out _);
         }
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        UnregisterZdoProcessor = true;
-        foreach (var peer in peers)
+        if (zdo.PrefabInfo.Player is null)
         {
-            if (_isAdmin.ContainsKey(peer))
-                continue;
+            UnregisterZdoProcessor = true;
+            return false;
+        }
 
-            var playerZdo = ZDOMan.instance.GetExtendedZDO(peer.m_characterID);
-            if (playerZdo is null)
-                continue;
-
-            var isAdmin = ZNet.instance.IsAdmin(peer.m_socket.GetHostName());
-            _isAdmin.TryAdd(peer, isAdmin);
+        ZNetPeer? peer = null;
+        if (!_isAdmin.TryGetValue(zdo, out var isAdmin))
+        {
+            peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
+            isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.m_socket.GetHostName());
+            _isAdmin.TryAdd(zdo, isAdmin);
             if (isAdmin)
-                AddAdmin(_guardStone, playerZdo.Vars.GetPlayerID(), playerZdo.Vars.GetPlayerName());
+                AddAdmin(_guardStone, zdo.Vars.GetPlayerID(), zdo.Vars.GetPlayerName());
+        }
+
+        if (isAdmin && zdo.GetPosition().y >= _initialOffset.y &&
+            Utils.DistanceXZ(zdo.GetPosition(), _guardStone.GetPosition()) > 4 &&
+            ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_guardStone.GetPosition()))
+        {
+            peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
+            var pos = _guardStone.GetPosition();
+            pos.y = zdo.GetPosition().y;
+            RPC.TeleportPlayer(peer, pos, zdo.GetRotation(), false);
+            RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$piece_noaccess");
         }
 
         return false;
