@@ -66,8 +66,8 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         if (!Config.Tames.TeleportFollow.Value)
             return false;
 
-        if (zdo.GetPosition() is { y: > 1000 })
-            return false; // player in dungeon
+        if (Character.InInterior(zdo.GetPosition()))
+            return false;
 
         var playerName = zdo.Vars.GetPlayerName();
 

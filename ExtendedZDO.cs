@@ -132,6 +132,8 @@ sealed class ExtendedZDO : ZDO
         public void SetData(byte[]? value) => _zdo.Set(ZDOVars.s_data, value);
         public float GetStamina(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_stamina, defaultValue);
         public void SetStamina(float value) => _zdo.Set(ZDOVars.s_stamina, value);
+        public long GetPlayerID(long defaultValue = default) => _zdo.GetLong(ZDOVars.s_playerID, defaultValue);
+        public void SetPlayerID(long value) => _zdo.Set(ZDOVars.s_playerID, value);
         public string GetPlayerName(string defaultValue = "") => _zdo.GetString(ZDOVars.s_playerName, defaultValue);
         public void SetPlayerName(string value) => _zdo.Set(ZDOVars.s_playerName, value);
         public string GetFollow(string defaultValue = "") => _zdo.GetString(ZDOVars.s_follow, defaultValue);
@@ -156,6 +158,10 @@ sealed class ExtendedZDO : ZDO
         public void SetGrowStart(float value) => _zdo.Set(ZDOVars.s_growStart, value);
         public DateTime GetSpawnTime(DateTime defaultValue = default) => new(_zdo.GetLong(ZDOVars.s_spawnTime, defaultValue.Ticks));
         public void SetSpawnTime(DateTime value) => _zdo.Set(ZDOVars.s_spawnTime, value.Ticks);
+        public float GetHealth(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_health, defaultValue);
+        public void SetHealth(float value) => _zdo.Set(ZDOVars.s_health, value);
+        public int GetPermitted(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_permitted, defaultValue);
+        public void SetPermitted(int value) => _zdo.Set(ZDOVars.s_permitted, value);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)

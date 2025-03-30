@@ -21,7 +21,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - <see cref="Pathfinding"/> <see cref="SapCollector"/> <see cref="ResourceRoot"/>
     /// - <see cref="ShieldGenerator"/> <see cref="Trap"/> <see cref="WearNTear"/>
     /// - Prevent traps from damaging themselves or friendlies <see cref="Aoe.m_damageSelf"/> <see cref="Aoe.m_hitFriendly"/>
-    /// - Make stakewalls drop their resources when destroyed <see cref="Piece.DropResources(HitData)"/> <see cref="WearNTear.Remove(bool)"/>
+    /// - Make sharp stakes drop their resources when destroyed <see cref="Piece.DropResources(HitData)"/> <see cref="WearNTear.Remove(bool)"/>
     ///   Not easily possible: Responsible code in <see cref="Piece.DropResources(HitData)"/> uses <see cref="Piece.m_resources"/> / <see cref="Piece.Requirement.m_recover"/>
     ///   which cannot be modified via ZDO fields. We would have to somehow detect when a stakewall is destroyed and spawn the resources ourselves.
     /// - <see cref="Chat"/> <see cref="Humanoid"/> <see cref="Character"/> <see cref="InventoryGui.SortMethod"/> <see cref="ZNet"/>
@@ -46,6 +46,7 @@ public sealed partial class Main : BaseUnityPlugin
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
+    readonly HashSet<ZDOID> _ignore = new();
     readonly List<Processor> _unregister = new();
 
     public Main()
@@ -341,8 +342,25 @@ public sealed partial class Main : BaseUnityPlugin
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
                 sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
-                if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
+                if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy) || _ignore.Contains(zdo.m_uid))
                     continue;
+
+                if (zdo.Processors.Count > 1)
+                {
+                    Processor? claimedExclusiveBy = null;
+                    foreach (var processor in zdo.Processors)
+                    {
+                        if (!processor.ClaimExclusive(zdo))
+                            continue;
+                        if (claimedExclusiveBy is null)
+                            claimedExclusiveBy = processor;
+                        else if (Config.General.DiagnosticLogs.Value)
+                            Logger.LogError($"ZDO {zdo.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}");
+                    }
+
+                    if (claimedExclusiveBy is not null)
+                        zdo.Unregister(zdo.Processors.Where(x => x != claimedExclusiveBy));
+                }
 
                 var destroy = false;
                 var recreate = false;

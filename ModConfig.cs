@@ -8,6 +8,7 @@ namespace Valheim.ServersideQoL;
 
 sealed class ModConfig(ConfigFile cfg)
 {
+    public ConfigFile ConfigFile { get; } = cfg;
     public GeneralConfig General { get; } = new(cfg, "A - General");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(cfg, "B - Global Keys");
     public SignsConfig Signs { get; } = new(cfg, "B - Signs");

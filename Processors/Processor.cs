@@ -32,6 +32,8 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         _watch.Reset();
     }
 
+    public virtual bool ClaimExclusive(ExtendedZDO zdo) => false;
+
     protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
     public void Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {

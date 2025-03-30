@@ -54,4 +54,11 @@ static class PrivateAccessor
             Expression.Parameter(typeof(Localization)) is var par1 ? par1 : throw new Exception(),
             typeof(Localization).GetField("m_translations", BindingFlags.NonPublic | BindingFlags.Instance)),
         par1).Compile();
+
+    static Action<ZDOMan>? __convertPortals;
+    public static Action<ZDOMan> ConvertPortals => __convertPortals ??= Expression.Lambda<Action<ZDOMan>>(
+        Expression.Call(
+            Expression.Parameter(typeof(ZDOMan)) is var par1 ? par1 : throw new Exception(),
+            typeof(ZDOMan).GetMethod("ConvertPortals", BindingFlags.NonPublic | BindingFlags.Instance)),
+        par1).Compile();
 }
