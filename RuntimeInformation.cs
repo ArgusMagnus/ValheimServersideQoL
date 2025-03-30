@@ -22,8 +22,8 @@ sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, i
             worldVersion = default;
 
         var loadedMods = AppDomain.CurrentDomain.GetAssemblies()
-            .Where(x => x != typeof(Main).Assembly)
-            .SelectMany(x => x.ExportedTypes.Select(y => y.GetCustomAttribute<BepInPlugin>()).Where(y => y is not null))
+            .Where(x => x != typeof(Main).Assembly && !x.IsDynamic)
+            .SelectMany(x => x.GetTypes().Where(y => y.IsClass && typeof(BaseUnityPlugin).IsAssignableFrom(y)).Select(y => y.GetCustomAttribute<BepInPlugin>()).Where(y => y is not null))
             .Select(x => new Mod(x.GUID, x.Name, $"{x.Version}"))
             .ToList();
 

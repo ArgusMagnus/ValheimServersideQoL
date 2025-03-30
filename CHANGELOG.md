@@ -1,3 +1,6 @@
+### v0.2.6
+- Fix for `NotSupportedException` on load [[19]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/19)
+
 ### v0.2.5
 - New features:
     - Modify plant grow time and space requirement, option to keep plants which can't grow alive
