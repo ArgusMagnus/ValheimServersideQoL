@@ -37,19 +37,22 @@
 |Doors|AutoCloseMinPlayerDistance|NaN||Min distance all players must have to the door before it is closed. NaN to disable this feature|
 |Fireplaces|MakeToggleable|False|True/False|True to make all fireplaces (including torches, braziers, etc.) toggleable|
 |Fireplaces|InfiniteFuel|False|True/False|True to make all fireplaces have infinite fuel|
+|Global Keys|SetPresetFromConfig|False|True/False|True to set the world preset according to the 'Preset' config entry|
+|Global Keys|SetModifiersFromConfig|False|True/False|True to set world modifiers according to the following configuration entries|
+|Global Keys|SetGlobalKeysFromConfig|False|True/False|True to set global keys according to the following configuration entries|
 |Global Keys|NoPortalsPreventsContruction|True|True/False|True to change the effect of the 'NoPortals' global key, to prevent the construction of new portals but leave existing portals functional|
-|Global Keys|PlayerDamage|100||Sets the value for the 'PlayerDamage' global key|
-|Global Keys|EnemyDamage|100||Sets the value for the 'EnemyDamage' global key|
-|Global Keys|WorldLevel|0|From 0 to 10|Sets the value for the 'WorldLevel' global key|
-|Global Keys|EventRate|100||Sets the value for the 'EventRate' global key|
-|Global Keys|ResourceRate|100||Sets the value for the 'ResourceRate' global key|
-|Global Keys|StaminaRate|100||Sets the value for the 'StaminaRate' global key|
-|Global Keys|MoveStaminaRate|100||Sets the value for the 'MoveStaminaRate' global key|
-|Global Keys|StaminaRegenRate|100||Sets the value for the 'StaminaRegenRate' global key|
-|Global Keys|SkillGainRate|100||Sets the value for the 'SkillGainRate' global key|
-|Global Keys|SkillReductionRate|100||Sets the value for the 'SkillReductionRate' global key|
-|Global Keys|EnemySpeedSize|100||Sets the value for the 'EnemySpeedSize' global key|
-|Global Keys|EnemyLevelUpRate|100||Sets the value for the 'EnemyLevelUpRate' global key|
+|Global Keys|PlayerDamage|100||Sets the value for the 'PlayerDamage' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|EnemyDamage|100||Sets the value for the 'EnemyDamage' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|WorldLevel|0|From 0 to 10|Sets the value for the 'WorldLevel' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|EventRate|100||Sets the value for the 'EventRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|ResourceRate|100||Sets the value for the 'ResourceRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|StaminaRate|100||Sets the value for the 'StaminaRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|MoveStaminaRate|100||Sets the value for the 'MoveStaminaRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|StaminaRegenRate|100||Sets the value for the 'StaminaRegenRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|SkillGainRate|100||Sets the value for the 'SkillGainRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|SkillReductionRate|100||Sets the value for the 'SkillReductionRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|EnemySpeedSize|100||Sets the value for the 'EnemySpeedSize' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|EnemyLevelUpRate|100||Sets the value for the 'EnemyLevelUpRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |Global Keys|PlayerEvents|False|True/False|True to set the 'PlayerEvents' global key|
 |Global Keys|Fire|False|True/False|True to set the 'Fire' global key|
 |Global Keys|DeathKeepEquip|False|True/False|True to set the 'DeathKeepEquip' global key|
@@ -68,12 +71,12 @@
 |Global Keys|NoBossPortals|False|True/False|True to set the 'NoBossPortals' global key|
 |Global Keys|DungeonBuild|False|True/False|True to set the 'DungeonBuild' global key|
 |Global Keys|TeleportAll|False|True/False|True to set the 'TeleportAll' global key|
-|Global Keys|Preset||, Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset|
-|Global Keys|Combat||, VeryEasy, Easy, Default, Hard, VeryHard|World modifier 'Combat'|
-|Global Keys|DeathPenalty||, Casual, VeryEasy, Easy, Default, Hard, Hardcore|World modifier 'DeathPenalty'|
-|Global Keys|Resources||, MuchLess, Less, Default, More, MuchMore, Most|World modifier 'Resources'|
-|Global Keys|Raids||, None, MuchLess, Less, Default, More, MuchMore|World modifier 'Raids'|
-|Global Keys|Portals||, Casual, Default, Hard, VeryHard|World modifier 'Portals'|
+|Global Keys|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|
+|Global Keys|Combat|Default|VeryEasy, Easy, Default, Hard, VeryHard|World modifier 'Combat'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|DeathPenalty|Default|Casual, VeryEasy, Easy, Default, Hard, Hardcore|World modifier 'DeathPenalty'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|Resources|Default|MuchLess, Less, Default, More, MuchMore, Most|World modifier 'Resources'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|Raids|Default|None, MuchLess, Less, Default, More, MuchMore|World modifier 'Raids'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|Portals|Default|Casual, Default, Hard, VeryHard|World modifier 'Portals'. Enable 'SetModifiersFromConfig' for this to have an effect|
 |Map Tables|AutoUpdatePortals|False|True/False|True to update map tables with portal pins|
 |Map Tables|AutoUpdatePortalsExclude|||Portals with a tag that matches this filter are not added to map tables|
 |Map Tables|AutoUpdatePortalsInclude|*||Only portals with a tag that matches this filter are added to map tables|

@@ -48,6 +48,7 @@ public sealed partial class Main : BaseUnityPlugin
 
     readonly HashSet<ZDOID> _ignore = new();
     readonly List<Processor> _unregister = new();
+    bool _configChanged = false;
 
     public Main()
     {
@@ -183,41 +184,51 @@ public sealed partial class Main : BaseUnityPlugin
         if (ZNetScene.instance is null || ZDOMan.instance is null)
             return;
 
-        if (_executeCounter++ is 0)
+        if (_executeCounter++ is 0 || _configChanged)
         {
-            if (!string.IsNullOrEmpty(Config.GlobalsKeys.Preset.Value))
+            _configChanged = false;
+
+            _ = Config.GlobalsKeys.Preset; // Force initialization
+            if (Config.GlobalsKeys.SetPresetFromConfig.Value)
             {
                 try { MyTerminal.ExecuteCommand("setworldpreset", Config.GlobalsKeys.Preset.Value); }
-                catch(Exception ex) { Logger.LogError(ex); }
-            }
-
-            foreach (var (modifier, value) in Config.GlobalsKeys.Modifiers.Select(x => (x.Key, x.Value.Value)).Where(x => !string.IsNullOrEmpty(x.Value)))
-            {
-                try { MyTerminal.ExecuteCommand("setworldmodifier", modifier, value); }
                 catch (Exception ex) { Logger.LogError(ex); }
             }
 
-            /// <see cref="FejdStartup.ParseServerArguments"/>
-            /// This would not work correctly IF config was actually reloaded, as reset config values would not reset the global key
-            foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Where(x => !Equals(x.Value.DefaultValue, x.Value.BoxedValue)).Select(x => (x.Key, x.Value)))
+            _ = Config.GlobalsKeys.Modifiers; // Force initialization
+            if (Config.GlobalsKeys.SetModifiersFromConfig.Value)
             {
-                if (entry.BoxedValue is bool boolValue)
+                foreach (var (modifier, value) in Config.GlobalsKeys.Modifiers.Select(x => (x.Key, x.Value.Value)))
                 {
-                    if (boolValue)
-                        ZoneSystem.instance.SetGlobalKey(key);
-                    else
-                        ZoneSystem.instance.RemoveGlobalKey(key);
+                    try { MyTerminal.ExecuteCommand("setworldmodifier", modifier, value); }
+                    catch (Exception ex) { Logger.LogError(ex); }
                 }
-                else
+            }
+
+            _ = Config.GlobalsKeys.KeyConfigs; // Force initialization
+            if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
+            {
+                /// <see cref="FejdStartup.ParseServerArguments"/>
+                foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Select(x => (x.Key, x.Value)))
                 {
-                    float value;
-                    try { value = (float)Convert.ChangeType(entry.BoxedValue, typeof(float)); }
-                    catch (Exception ex)
+                    if (entry.BoxedValue is bool boolValue)
                     {
-                        Logger.LogError(ex);
-                        continue;
+                        if (boolValue)
+                            ZoneSystem.instance.SetGlobalKey(key);
+                        else
+                            ZoneSystem.instance.RemoveGlobalKey(key);
                     }
-                    ZoneSystem.instance.SetGlobalKey(key, value);
+                    else
+                    {
+                        float value;
+                        try { value = (float)Convert.ChangeType(entry.BoxedValue, typeof(float)); }
+                        catch (Exception ex)
+                        {
+                            Logger.LogError(ex);
+                            continue;
+                        }
+                        ZoneSystem.instance.SetGlobalKey(key, value);
+                    }
                 }
             }
 
@@ -225,13 +236,24 @@ public sealed partial class Main : BaseUnityPlugin
             foreach (var processor in Processor.DefaultProcessors)
                 processor.Initialize();
 
+            if (_executeCounter is 1)
+            {
 #if DEBUG
-            _ = Config.Containers.ContainerSizes; // force initialization
-            GenerateDefaultConfigMarkdown(base.Config);
-            GenerateDocs();
+                _ = Config.Containers.ContainerSizes; // force initialization
+                GenerateDefaultConfigMarkdown(base.Config);
+                GenerateDocs();
 #endif
 
-            base.Config.Bind(DummyConfigSection, "Dummy", "", $"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}");
+                base.Config.Bind(DummyConfigSection, "Dummy", "", $"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}");
+                base.Config.SettingChanged += (_, _) => _configChanged = true;
+            }
+            else
+            {
+                Logger.LogWarning("Config changed");
+                foreach (ExtendedZDO zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values)
+                    zdo.ReregisterAllProcessors();
+            }
+
             return;
         }
 
@@ -359,7 +381,7 @@ public sealed partial class Main : BaseUnityPlugin
                     }
 
                     if (claimedExclusiveBy is not null)
-                        zdo.Unregister(zdo.Processors.Where(x => x != claimedExclusiveBy));
+                        zdo.UnregisterProcessors(zdo.Processors.Where(x => x != claimedExclusiveBy));
                 }
 
                 var destroy = false;
@@ -380,7 +402,7 @@ public sealed partial class Main : BaseUnityPlugin
                 if (!destroy && recreate)
                     zdo.Recreate();
                 else if (_unregister.Count > 0)
-                    zdo.Unregister(_unregister);
+                    zdo.UnregisterProcessors(_unregister);
             }
         }
 

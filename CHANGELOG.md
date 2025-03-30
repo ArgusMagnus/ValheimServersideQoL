@@ -1,3 +1,7 @@
+### v0.2.7
+- New feature: in-world config room: A generated room that allows admins to make changes to this mods config by editing signs
+- Fix for Exception on load [[19]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/19)
+
 ### v0.2.6
 - Fix for `NotSupportedException` on load [[19]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/19)
 

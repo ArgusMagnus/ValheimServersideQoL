@@ -39,6 +39,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     {
         base.Initialize();
 
+        if (_guardStone is not null)
+            return;
+
         foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
             zdo.Destroy();
 
@@ -50,7 +53,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             .ToList();
 
         var sectionEnumerator = configSections.GetEnumerator();
-        var width = (int)Math.Ceiling(Math.Sqrt(configSections.Count));
+        // 4*(width-1) = count -> width = count/4 + 1
+        var width = (int)Math.Ceiling(configSections.Count / 4f + 1);
         for (int i = 0; i < width; i++)
         {
             var iIsEdge = i is 0 || i == width - 1;
@@ -148,6 +152,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             }
         }
 
+        if (sectionEnumerator.MoveNext())
+            throw new Exception("Algorithm failed to place all portals");
+
         {
             var pos = _initialOffset;
             pos.x -= 2;
@@ -208,7 +215,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         {
             yOffset += 5;
             var entryEnumerator = group.GetEnumerator();
-            width = Math.Max(3, (int)Math.Ceiling(Math.Sqrt(group.Count())));
+            // count = 4*width
+            width = Math.Max(3, (int)Math.Ceiling(group.Count() / 4f));
             for (int i = 0; i < width; i++)
             {
                 var iIsEdge = i is 0 || i == width - 1;
@@ -326,6 +334,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 }
             }
 
+            if (entryEnumerator.MoveNext())
+                throw new Exception($"Algorithm failed to place all signs in config section {group.Key}");
+
             {
                 var pos = _initialOffset with { y = yOffset };
                 pos.x -= 2;
@@ -356,8 +367,6 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     {
         if (zdo.PrefabInfo.Player is not null)
         {
-            UnregisterZdoProcessor = true;
-
             ZNetPeer? peer = null;
             bool isAdmin;
             if (_isAdmin.TryGetValue(zdo.m_uid, out var entry))
@@ -368,7 +377,10 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.m_socket.GetHostName());
                 _isAdmin.TryAdd(zdo.m_uid, (zdo, isAdmin));
                 if (isAdmin)
+                {
+                    UnregisterZdoProcessor = true;
                     AddAdmin(_guardStone, zdo.Vars.GetPlayerID(), zdo.Vars.GetPlayerName());
+                }
             }
 
             if (!isAdmin && zdo.GetPosition().y >= _initialOffset.y &&
@@ -404,6 +416,17 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 RPC.ShowMessage(peers.Where(x => _isAdmin.TryGetValue(x.m_characterID, out var y) && y.IsAdmin),
                     MessageHud.MessageType.Center, "$invalid_keybind_header");
             }
+            return true;
+        }
+
+        if (zdo.PrefabInfo.Door is not null && _configPieces.Contains(zdo.m_uid))
+        {
+            if (!CheckMinDistance(peers, zdo, 8))
+                return false;
+
+            const int StateClosed = 0;
+            if (zdo.Vars.GetState() is not StateClosed)
+                zdo.Vars.SetState(StateClosed);
             return true;
         }
 

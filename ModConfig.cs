@@ -153,11 +153,19 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
     {
+        public ConfigEntry<bool> SetPresetFromConfig { get; } = cfg.Bind(section, nameof(SetPresetFromConfig), false,
+            $"True to set the world preset according to the '{nameof(Preset)}' config entry");
         ConfigEntry<string>? _preset;
         public ConfigEntry<string> Preset => _preset ??= GetPreset(cfg, section);
 
+        public ConfigEntry<bool> SetModifiersFromConfig { get; } = cfg.Bind(section, nameof(SetModifiersFromConfig), false,
+            "True to set world modifiers according to the following configuration entries");
+
         IReadOnlyDictionary<string, ConfigEntry<string>>? _modifiers;
         public IReadOnlyDictionary<string, ConfigEntry<string>> Modifiers => _modifiers ??= GetModifiers(cfg, section);
+
+        public ConfigEntry<bool> SetGlobalKeysFromConfig { get; } = cfg.Bind(section, nameof(SetGlobalKeysFromConfig), false,
+            "True to set global keys according to the following configuration entries");
 
         IReadOnlyDictionary<GlobalKeys, ConfigEntryBase>? _keyConfigs;
         public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs => _keyConfigs ??= GetGlobalKeyEntries(cfg, section);
@@ -169,8 +177,8 @@ sealed class ModConfig(ConfigFile cfg)
         {
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
             var presets = PrivateAccessor.GetServerOptionsGUIPresets();
-            return cfg.Bind(section, nameof(Preset), "", new ConfigDescription("World preset",
-                new AcceptableValueList<string>(["", .. presets.Select(x => $"{x.m_preset}")])));
+            return cfg.Bind(section, nameof(Preset), $"{WorldPresets.Default}", new ConfigDescription($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect",
+                new AcceptableValueList<string>([..presets.Select(x => $"{x.m_preset}")])));
         }
 
         static IReadOnlyDictionary<string, ConfigEntry<string>> GetModifiers(ConfigFile cfg, string section)
@@ -178,9 +186,9 @@ sealed class ModConfig(ConfigFile cfg)
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldModifiers, WorldModifierOption)"/>
             var modifiers = PrivateAccessor.GetServerOptionsGUIModifiers()
                 .OfType<KeySlider>()
-                .Select(keySlider => cfg.Bind(section, $"{keySlider.m_modifier}", "",
-                    new ConfigDescription($"World modifier '{keySlider.m_modifier}'",
-                        new AcceptableValueList<string>(["", .. keySlider.m_settings.Select(x => $"{x.m_modifierValue}")]))))
+                .Select(keySlider => cfg.Bind(section, $"{keySlider.m_modifier}", $"{WorldModifierOption.Default}",
+                    new ConfigDescription($"World modifier '{keySlider.m_modifier}'. Enable '{nameof(SetModifiersFromConfig)}' for this to have an effect",
+                        new AcceptableValueList<string>([.. keySlider.m_settings.Select(x => $"{x.m_modifierValue}")]))))
                 .ToDictionary(x => x.Definition.Key);
             return modifiers;
         }
@@ -262,7 +270,7 @@ sealed class ModConfig(ConfigFile cfg)
                     AcceptableValueBase? range = null;
                     if (min > float.MinValue && max < float.MaxValue)
                         range = (AcceptableValueBase)Activator.CreateInstance(typeof(AcceptableValueRange<>).MakeGenericType(field.FieldType), Convert.ChangeType(min, field.FieldType), Convert.ChangeType(max, field.FieldType));
-                    var desc = new ConfigDescription($"Sets the value for the '{name}' global key", range);
+                    var desc = new ConfigDescription($"Sets the value for the '{name}' global key. Enable '{nameof(SetGlobalKeysFromConfig)}' for this to have an effect", range);
                     bindDefinition ??= new Func<string, string, bool, ConfigDescription, ConfigEntry<bool>>(cfg.Bind).Method.GetGenericMethodDefinition();
                     var entry = (ConfigEntryBase)bindDefinition.MakeGenericMethod(field.FieldType).Invoke(cfg, [section, name, Convert.ChangeType(originalValue, field.FieldType), desc]);
                     result.Add(key, entry);
