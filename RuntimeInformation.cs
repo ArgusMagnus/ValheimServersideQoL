@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Valheim.ServersideQoL;
 
-sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, int ItemDataVersion, int WorldVersion, string LoadedMods)
+sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, int ItemDataVersion, int WorldVersion, string LoadedMods, bool ExceptionWhenReadingLoadedMods)
 {
     sealed record Mod(string GUID, string Name, string? Version);
 
@@ -21,14 +21,27 @@ sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, i
         if (versionType.GetField("m_worldVersion")?.GetValue(null) is not int worldVersion)
             worldVersion = default;
 
-        var loadedMods = AppDomain.CurrentDomain.GetAssemblies()
-            .Where(x => x != typeof(Main).Assembly && !x.IsDynamic)
-            .SelectMany(x => x.GetTypes().Where(y => y.IsClass && typeof(BaseUnityPlugin).IsAssignableFrom(y)).Select(y => y.GetCustomAttribute<BepInPlugin>()).Where(y => y is not null))
-            .Select(x => new Mod(x.GUID, x.Name, $"{x.Version}"))
-            .ToList();
+        var excpetionsCaught = false;
+        var loadedMods = new List<Mod>();
+        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(x => x != typeof(Main).Assembly && !x.IsDynamic))
+        {
+            try
+            {
+                foreach (var type in assembly.GetTypes())
+                {
+                    try
+                    {
+                        if (type.IsClass && typeof(BaseUnityPlugin).IsAssignableFrom(type) && type.GetCustomAttribute<BepInPlugin>() is { } plugin)
+                            loadedMods.Add(new(plugin.GUID, plugin.Name, $"{plugin.Version}"));
+                    }
+                    catch (Exception) { excpetionsCaught = true; }
+                }
+            }
+            catch (Exception) { excpetionsCaught = true; }
+        }
 
         var loadedModsStr = $"{{ {string.Join(", ", loadedMods)} }}";
 
-        return new(gameVersion, networkVersion, itemDataVersion, worldVersion, loadedModsStr);
+        return new(gameVersion, networkVersion, itemDataVersion, worldVersion, loadedModsStr, excpetionsCaught);
     }
 }
