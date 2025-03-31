@@ -42,8 +42,11 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         if (_guardStone is not null)
             return;
 
-        foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
+        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
             zdo.Destroy();
+
+        if (!Config.General.InWorldConfigRoom.Value)
+            return;
 
         var configSections = Config.ConfigFile
             .Select(x => (Entry: x.Value, Section: Regex.Match(x.Key.Section, "^[A-Z] - (?<N>.+)$").Groups["N"].Value))
@@ -111,6 +114,13 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     var zdo = PlacePiece(pos, _prefabPortal, rot);
                     zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
                     zdo.Vars.SetTag($"Config: {sectionEnumerator.Current.Key}");
+
+                    if (!iIsEdge)
+                        pos.z += k is 0 ? -0.25f : 0.25f;
+                    else if (!kIsEdge)
+                        pos.x += i is 0 ? -0.25f : 0.25f;
+                    PlacePiece(pos, _prefabSign, rot + 90)
+                        .Vars.SetText($"{SignFormatPrefix}{sectionEnumerator.Current.Key}");
                 }
 
                 if (iIsEdge)
@@ -348,7 +358,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             }
         }
 
-        PrivateAccessor.ConvertPortals(ZDOMan.instance);
+        ZDOMan.instance.ConvertPortals();
     }
 
     public override bool ClaimExclusive(ExtendedZDO zdo) => _configPieces.Contains(zdo.m_uid);
@@ -365,6 +375,12 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
+        if (!Config.General.InWorldConfigRoom.Value)
+        {
+            UnregisterZdoProcessor = true;
+            return false;
+        }
+        
         if (zdo.PrefabInfo.Player is not null)
         {
             ZNetPeer? peer = null;
@@ -429,6 +445,13 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 zdo.Vars.SetState(StateClosed);
             return true;
         }
+
+        //if (zdo.PrefabInfo.TeleportWorld is not null && _configPieces.Contains(zdo.m_uid))
+        //{
+        //    // Not sure, why this is needed. Main portal loses connection sometimes
+        //    if (zdo.GetConnectionZDOID(ZDOExtraData.ConnectionType.Portal) == ZDOID.None)
+        //        ZDOMan.instance.ConvertPortals();
+        //}
 
         UnregisterZdoProcessor = true;
         return false;

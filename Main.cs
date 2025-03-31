@@ -116,9 +116,9 @@ public sealed partial class Main : BaseUnityPlugin
             var cmd = commands[command];
             // var action = typeof(ConsoleCommand).GetField("action", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd)
             //     ?? typeof(ConsoleCommand).GetField("actionFailable", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd);
-            if (PrivateAccessor.GetCommandAction(cmd) is { } consoleEvent)
+            if (cmd.GetAction() is { } consoleEvent)
                 consoleEvent(new MyConsoleEventArgs(command, args));
-            else if (PrivateAccessor.GetCommandActionFailable(cmd) is { } consoleEventFailable)
+            else if (cmd.GetActionFailable() is { } consoleEventFailable)
             {
                 var result = consoleEventFailable(new MyConsoleEventArgs(command, args));
                 if (result is not bool b || !b)
@@ -249,7 +249,7 @@ public sealed partial class Main : BaseUnityPlugin
             else
             {
                 Logger.LogWarning("Config changed");
-                foreach (ExtendedZDO zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values)
+                foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjectsByID().Values)
                     zdo.ReregisterAllProcessors();
             }
 
@@ -580,7 +580,7 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine();
             writer.WriteLine("|Key|English|");
             writer.WriteLine("|---|-------|");
-            foreach (var (key, value) in PrivateAccessor.GetLocalizationStrings(Localization.instance).Select(x => (x.Key, x.Value)).OrderBy(x => x.Key))
+            foreach (var (key, value) in Localization.instance.GetStrings().Select(x => (x.Key, x.Value)).OrderBy(x => x.Key))
                 writer.WriteLine($"|{key}|{value?.Replace("\n", "<br>") ?? "*null*"}|");
         }
     }

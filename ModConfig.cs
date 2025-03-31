@@ -30,6 +30,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
+        public ConfigEntry<bool> InWorldConfigRoom { get; } = cfg.Bind(section, nameof(InWorldConfigRoom), false, "True to generate an in-world room which admins can enter to configure this mod by editing signs");
         public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.Bind(section, nameof(DiagnosticLogs), false, "Enables/disables diagnostic logs");
         public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f,
             new ConfigDescription("How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity)));

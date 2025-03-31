@@ -77,7 +77,7 @@ static class SharedProcessorState
     static ConcurrentHashSet<ExtendedZDO> GetShips()
     {
         var ships = new ConcurrentHashSet<ExtendedZDO>();
-        foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
+        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
             ships.Add(zdo);
         return ships;
     }
