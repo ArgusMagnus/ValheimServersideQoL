@@ -31,7 +31,7 @@ sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, i
                 {
                     try
                     {
-                        if (type.IsClass && type.IsSubclassOf(typeof(BaseUnityPlugin)) && type.GetCustomAttribute<BepInPlugin>() is { } plugin)
+                        if (type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(BaseUnityPlugin)) && type.GetCustomAttribute<BepInPlugin>() is { } plugin)
                             loadedMods.Add(new(plugin.GUID, plugin.Name, $"{plugin.Version}"));
                     }
                     catch (Exception) { excpetionsCaught = true; }
