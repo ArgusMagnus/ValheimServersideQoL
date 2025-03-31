@@ -1,5 +1,7 @@
 # Serverside QoL
-This mod adds some QoL features as a serverside-only mod. It's designed and tested for dedicated servers and clients running vanilla (e.g. xbox users).
+This mod adds some QoL features as a serverside-only mod.
+
+It's designed and tested for **dedicated servers** with **vanilla clients** (e.g. xbox users).
 
 ## Disclaimer
 This mod is in early development and the features experimental. Backup your world before using this mod.
@@ -54,5 +56,5 @@ However, if you have an idea you think might fit this mod, I invite you to creat
 If you experience an issue, please file a report in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
 
 ## Configuration
-The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/argusmagnus.ServersideQoL.cfg`.
+The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/argusmagnus.ServersideQoL.cfg`. Start the server once to generate the file if it does not exist.
 
