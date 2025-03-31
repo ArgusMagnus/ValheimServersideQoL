@@ -31,9 +31,12 @@ public sealed partial class Main : BaseUnityPlugin
     internal const string PluginGuid = $"argusmagnus.{PluginName}";
     internal static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
 
+    internal static Main Instance { get; private set; } = default!;
+
     static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
-    internal static new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
-    internal static new ModConfig Config { get; private set; } = default!;
+    internal new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
+    ModConfig? _config;
+    internal new ModConfig Config => _config ??= new(base.Config);
 
     readonly Stopwatch _watch = new();
 
@@ -48,11 +51,11 @@ public sealed partial class Main : BaseUnityPlugin
 
     readonly HashSet<ZDOID> _ignore = new();
     readonly List<Processor> _unregister = new();
-    bool _configChanged = false;
+    bool _configChanged = true;
 
     public Main()
     {
-        Config ??= new(base.Config);
+        Instance = this;
     }
 
     void Awake()
@@ -68,65 +71,29 @@ public sealed partial class Main : BaseUnityPlugin
 
     void Start()
     {
-        if (!Config.General.Enabled.Value)
-            return;
-
-        var failed = false;
-        var abort = false;
-        if (RuntimeInformation.Instance.GameVersion != ExpectedGameVersion)
-        {
-            Logger.LogWarning($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}");
-            failed = true;
-            abort |= !Config.General.IgnoreGameVersionCheck.Value;
-        }
-        if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
-        {
-            Logger.LogWarning($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}");
-            failed = true;
-            abort |= !Config.General.IgnoreNetworkVersionCheck.Value;
-        }
-        if (RuntimeInformation.Instance.ItemDataVersion != ExpectedItemDataVersion)
-        {
-            Logger.LogWarning($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}");
-            failed = true;
-            abort |= !Config.General.IgnoreItemDataVersionCheck.Value;
-        }
-        if (RuntimeInformation.Instance.WorldVersion != ExpectedWorldVersion)
-        {
-            Logger.LogWarning($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}");
-            failed = true;
-            abort |= !Config.General.IgnoreWorldVersionCheck.Value;
-        }
-
-        if (failed)
-        {
-            if (!abort)
-                Logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
-            else
-            {
-                Logger.LogError("Version checks failed. Mod execution is stopped");
-                return;
-            }
-        }
-
-        //_logger.LogInfo($"World Preset: {Config.GlobalsKeys.Preset.Value}");
-        //_logger.LogInfo(string.Join($"{Environment.NewLine}    ", Config.GlobalsKeys.Modifiers.Select(x => $"{x.Key} = {x.Value.Value}").Prepend("World Modifiers:")));
-        var keyConfigs = Config.GlobalsKeys.KeyConfigs;
-
-        if (Config.General.DiagnosticLogs.Value)
-            Logger.LogInfo(string.Join($"{Environment.NewLine}    ", keyConfigs.Select(x => $"{x.Key} = {x.Value.BoxedValue}").Prepend("Global Keys:")));
-
-#if DEBUG
-        Logger.LogInfo($"Registered Processors: {Processor.DefaultProcessors.Count}");
-#endif
-
         StartCoroutine(CallExecute());
 
         IEnumerator<YieldInstruction> CallExecute()
         {
-            yield return new WaitForSeconds(Config.General.StartDelay.Value);
+            while (ZNet.instance is null)
+                yield return new WaitForSeconds(0.2f);
+
+            if (ZNet.instance.IsServer() is false)
+            {
+                Logger.LogWarning("Mod should only be installed on the host");
+                yield break;
+            }
+
+            while (ZDOMan.instance is null || ZNetScene.instance is null)
+                yield return new WaitForSeconds(0.2f);
+
+            if (!Initialize())
+                yield break;
+
             while (true)
             {
+                yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
+
                 try { Execute(); }
                 catch (OperationCanceledException) { yield break; }
                 catch (Exception ex)
@@ -134,7 +101,6 @@ public sealed partial class Main : BaseUnityPlugin
                     Logger.LogError(ex);
                     yield break;
                 }
-                yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
             }
         }
     }
@@ -170,32 +136,68 @@ public sealed partial class Main : BaseUnityPlugin
         }
     }
 
-    void Execute()
+    bool Initialize()
     {
-        if (ZNet.instance is null)
-            return;
+        if (!Config.General.Enabled.Value)
+            return false;
 
-        if (ZNet.instance.IsServer() is false)
+        var failed = false;
+        var abort = false;
+        if (RuntimeInformation.Instance.GameVersion != ExpectedGameVersion)
         {
-            Logger.LogWarning("Mod should only be installed on the host");
-            throw new OperationCanceledException();
+            Logger.LogWarning($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}");
+            failed = true;
+            abort |= !Config.General.IgnoreGameVersionCheck.Value;
+        }
+        if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
+        {
+            Logger.LogWarning($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}");
+            failed = true;
+            abort |= !Config.General.IgnoreNetworkVersionCheck.Value;
+        }
+        if (RuntimeInformation.Instance.ItemDataVersion != ExpectedItemDataVersion)
+        {
+            Logger.LogWarning($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}");
+            failed = true;
+            abort |= !Config.General.IgnoreItemDataVersionCheck.Value;
+        }
+        if (RuntimeInformation.Instance.WorldVersion != ExpectedWorldVersion)
+        {
+            Logger.LogWarning($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}");
+            failed = true;
+            abort |= !Config.General.IgnoreWorldVersionCheck.Value;
         }
 
-        if (ZNetScene.instance is null || ZDOMan.instance is null)
-            return;
+        if (failed)
+        {
+            if (!abort)
+                Logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
+            else
+            {
+                Logger.LogError("Version checks failed. Mod execution is stopped");
+                return false;
+            }
+        }
 
-        if (_executeCounter++ is 0 || _configChanged)
+#if DEBUG
+        Logger.LogInfo($"Registered Processors: {Processor.DefaultProcessors.Count}");
+#endif
+        return true;
+    }
+
+    void Execute()
+    {
+        _executeCounter++;
+        if (_configChanged)
         {
             _configChanged = false;
 
-            _ = Config.GlobalsKeys.Preset; // Force initialization
             if (Config.GlobalsKeys.SetPresetFromConfig.Value)
             {
                 try { MyTerminal.ExecuteCommand("setworldpreset", Config.GlobalsKeys.Preset.Value); }
                 catch (Exception ex) { Logger.LogError(ex); }
             }
 
-            _ = Config.GlobalsKeys.Modifiers; // Force initialization
             if (Config.GlobalsKeys.SetModifiersFromConfig.Value)
             {
                 foreach (var (modifier, value) in Config.GlobalsKeys.Modifiers.Select(x => (x.Key, x.Value.Value)))
@@ -205,7 +207,6 @@ public sealed partial class Main : BaseUnityPlugin
                 }
             }
 
-            _ = Config.GlobalsKeys.KeyConfigs; // Force initialization
             if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
             {
                 /// <see cref="FejdStartup.ParseServerArguments"/>
@@ -232,14 +233,12 @@ public sealed partial class Main : BaseUnityPlugin
                 }
             }
 
-            SharedProcessorState.Initialize();
             foreach (var processor in Processor.DefaultProcessors)
                 processor.Initialize();
 
             if (_executeCounter is 1)
             {
 #if DEBUG
-                _ = Config.Containers.ContainerSizes; // force initialization
                 GenerateDefaultConfigMarkdown(base.Config);
                 GenerateDocs();
 #endif

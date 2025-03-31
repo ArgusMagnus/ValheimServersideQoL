@@ -19,9 +19,13 @@ record struct SharedItemDataKey(string Name)
 
 static class SharedProcessorState
 {
-    public static IReadOnlyCollection<PieceTable> PieceTables { get; } = new HashSet<PieceTable>();
-    public static IReadOnlyDictionary<string, PieceTable> PieceTablesByPiece { get; } = new Dictionary<string, PieceTable>();
-    public static ConcurrentHashSet<ExtendedZDO> Ships { get; } = new();
+    sealed record PieceTableInfo(HashSet<PieceTable> PieceTables, Dictionary<string, PieceTable> PieceTablesByName);
+    static PieceTableInfo? __pieceTables;
+    public static IReadOnlyCollection<PieceTable> PieceTables => (__pieceTables ??= GetPieceTableInfo()).PieceTables;
+    public static IReadOnlyDictionary<string, PieceTable> PieceTablesByPiece => (__pieceTables ??= GetPieceTableInfo()).PieceTablesByName;
+
+    static ConcurrentHashSet<ExtendedZDO>? __ships;
+    public static ConcurrentHashSet<ExtendedZDO> Ships => __ships ??= GetShips();
 
     public static ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
     public static ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();
@@ -55,25 +59,27 @@ static class SharedProcessorState
         .Where(x => x is not null)
         .ToList();
 
-    public static void Initialize()
+    static PieceTableInfo GetPieceTableInfo()
     {
-        if (PieceTables is { Count: 0})
+        var result = new PieceTableInfo(new(), new());
+        foreach (var prefab in ZNetScene.instance.m_prefabs)
         {
-            var pieceTables = (HashSet<PieceTable>)PieceTables;
-            var pieceTablesByPiece = (IDictionary<string, PieceTable>)PieceTablesByPiece;
-            foreach (var prefab in ZNetScene.instance.m_prefabs)
-            {
-                var table = prefab.GetComponent<ItemDrop>()?.m_itemData.m_shared.m_buildPieces;
-                if (table is null || !pieceTables.Add(table))
-                    continue;
+            var table = prefab.GetComponent<ItemDrop>()?.m_itemData.m_shared.m_buildPieces;
+            if (table is null || !result.PieceTables.Add(table))
+                continue;
 
-                foreach (var piece in table.m_pieces)
-                    pieceTablesByPiece.Add(piece.name, table);
-            }
-
-            foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
-                Ships.Add(zdo);
+            foreach (var piece in table.m_pieces)
+                result.PieceTablesByName.Add(piece.name, table);
         }
+        return result;
+    }
+
+    static ConcurrentHashSet<ExtendedZDO> GetShips()
+    {
+        var ships = new ConcurrentHashSet<ExtendedZDO>();
+        foreach (var zdo in PrivateAccessor.GetZDOManObjectsByID(ZDOMan.instance).Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
+            ships.Add(zdo);
+        return ships;
     }
 
     public static PrefabInfo? GetPrefabInfo(int hash)

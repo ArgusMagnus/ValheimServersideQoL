@@ -2,7 +2,6 @@
 |---|---|---|---|---|
 |General|Enabled|True|True/False|Enables/disables the entire mode|
 |General|DiagnosticLogs|False|True/False|Enables/disables diagnostic logs|
-|General|StartDelay|0|From 0 to Infinity|Time (in seconds) before the mod starts processing the world|
 |General|Frequency|5|From 0 to Infinity|How many times per second the mod processes the world|
 |General|MaxProcessingTime|20||Max processing time (in ms) per update|
 |General|ZonesAroundPlayers|1||Zones to process around each player|
@@ -38,9 +37,14 @@
 |Fireplaces|MakeToggleable|False|True/False|True to make all fireplaces (including torches, braziers, etc.) toggleable|
 |Fireplaces|InfiniteFuel|False|True/False|True to make all fireplaces have infinite fuel|
 |Global Keys|SetPresetFromConfig|False|True/False|True to set the world preset according to the 'Preset' config entry|
+|Global Keys|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|
 |Global Keys|SetModifiersFromConfig|False|True/False|True to set world modifiers according to the following configuration entries|
+|Global Keys|Combat|Default|VeryEasy, Easy, Default, Hard, VeryHard|World modifier 'Combat'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|DeathPenalty|Default|Casual, VeryEasy, Easy, Default, Hard, Hardcore|World modifier 'DeathPenalty'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|Resources|Default|MuchLess, Less, Default, More, MuchMore, Most|World modifier 'Resources'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|Raids|Default|None, MuchLess, Less, Default, More, MuchMore|World modifier 'Raids'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|Portals|Default|Casual, Default, Hard, VeryHard|World modifier 'Portals'. Enable 'SetModifiersFromConfig' for this to have an effect|
 |Global Keys|SetGlobalKeysFromConfig|False|True/False|True to set global keys according to the following configuration entries|
-|Global Keys|NoPortalsPreventsContruction|True|True/False|True to change the effect of the 'NoPortals' global key, to prevent the construction of new portals but leave existing portals functional|
 |Global Keys|PlayerDamage|100||Sets the value for the 'PlayerDamage' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |Global Keys|EnemyDamage|100||Sets the value for the 'EnemyDamage' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |Global Keys|WorldLevel|0|From 0 to 10|Sets the value for the 'WorldLevel' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
@@ -71,12 +75,7 @@
 |Global Keys|NoBossPortals|False|True/False|True to set the 'NoBossPortals' global key|
 |Global Keys|DungeonBuild|False|True/False|True to set the 'DungeonBuild' global key|
 |Global Keys|TeleportAll|False|True/False|True to set the 'TeleportAll' global key|
-|Global Keys|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|
-|Global Keys|Combat|Default|VeryEasy, Easy, Default, Hard, VeryHard|World modifier 'Combat'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|DeathPenalty|Default|Casual, VeryEasy, Easy, Default, Hard, Hardcore|World modifier 'DeathPenalty'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|Resources|Default|MuchLess, Less, Default, More, MuchMore, Most|World modifier 'Resources'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|Raids|Default|None, MuchLess, Less, Default, More, MuchMore|World modifier 'Raids'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|Portals|Default|Casual, Default, Hard, VeryHard|World modifier 'Portals'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|NoPortalsPreventsContruction|True|True/False|True to change the effect of the 'NoPortals' global key, to prevent the construction of new portals but leave existing portals functional|
 |Map Tables|AutoUpdatePortals|False|True/False|True to update map tables with portal pins|
 |Map Tables|AutoUpdatePortalsExclude|||Portals with a tag that matches this filter are not added to map tables|
 |Map Tables|AutoUpdatePortalsInclude|*||Only portals with a tag that matches this filter are added to map tables|

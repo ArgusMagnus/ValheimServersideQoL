@@ -7,10 +7,9 @@ namespace Valheim.ServersideQoL.Processors;
 abstract class Processor(ManualLogSource logger, ModConfig cfg)
 {
     static IReadOnlyList<Processor>? _defaultProcessors;
-    public static IReadOnlyList<Processor> DefaultProcessors => _defaultProcessors ??= typeof(Processor).Assembly.GetTypes()
-            .Where(x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
-            .Select(x => (Processor)Activator.CreateInstance(x, args: [Main.Logger, Main.Config]))
-            .ToList();
+    public static IReadOnlyList<Processor> DefaultProcessors => _defaultProcessors ??= [.. typeof(Processor).Assembly.GetTypes()
+        .Where(x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
+        .Select(x => (Processor)Activator.CreateInstance(x, args: [Main.Instance.Logger, Main.Instance.Config]))];
 
     protected ManualLogSource Logger { get; } = logger;
     protected ModConfig Config { get; } = cfg;

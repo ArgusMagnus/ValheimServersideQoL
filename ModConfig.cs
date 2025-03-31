@@ -32,8 +32,6 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
         public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.Bind(section, nameof(DiagnosticLogs), false, "Enables/disables diagnostic logs");
-        public ConfigEntry<float> StartDelay { get; } = cfg.Bind(section, nameof(StartDelay), 0f, new ConfigDescription(
-            "Time (in seconds) before the mod starts processing the world", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f,
             new ConfigDescription("How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 20, "Max processing time (in ms) per update");
@@ -85,8 +83,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a dropped item to be considered as auto pickup target");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
 
-        IReadOnlyDictionary<int, ConfigEntry<string>>? _containerSizes;
-        public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes => _containerSizes ??= ZNetScene.instance.m_prefabs
+        public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
             .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
             .Select(x => (Name: x.name, Container: x.GetComponent<Container>() ?? x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
             .Where(x => x is { Container: not null, Piece: not null })
@@ -155,20 +152,15 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> SetPresetFromConfig { get; } = cfg.Bind(section, nameof(SetPresetFromConfig), false,
             $"True to set the world preset according to the '{nameof(Preset)}' config entry");
-        ConfigEntry<string>? _preset;
-        public ConfigEntry<string> Preset => _preset ??= GetPreset(cfg, section);
+        public ConfigEntry<string> Preset { get; } = GetPreset(cfg, section);
 
         public ConfigEntry<bool> SetModifiersFromConfig { get; } = cfg.Bind(section, nameof(SetModifiersFromConfig), false,
             "True to set world modifiers according to the following configuration entries");
-
-        IReadOnlyDictionary<string, ConfigEntry<string>>? _modifiers;
-        public IReadOnlyDictionary<string, ConfigEntry<string>> Modifiers => _modifiers ??= GetModifiers(cfg, section);
+        public IReadOnlyDictionary<string, ConfigEntry<string>> Modifiers { get; } = GetModifiers(cfg, section);
 
         public ConfigEntry<bool> SetGlobalKeysFromConfig { get; } = cfg.Bind(section, nameof(SetGlobalKeysFromConfig), false,
             "True to set global keys according to the following configuration entries");
-
-        IReadOnlyDictionary<GlobalKeys, ConfigEntryBase>? _keyConfigs;
-        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs => _keyConfigs ??= GetGlobalKeyEntries(cfg, section);
+        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs { get; } = GetGlobalKeyEntries(cfg, section);
 
         public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
             $"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional");
@@ -289,8 +281,7 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class TradersConfig(ConfigFile cfg, string section)
     {
-        IReadOnlyDictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>>? _alwaysUnlock;
-        public IReadOnlyDictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>> AlwaysUnlock => _alwaysUnlock ??= GetAlwaysUnlock(cfg, section);
+        public IReadOnlyDictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>> AlwaysUnlock { get; } = GetAlwaysUnlock(cfg, section);
 
         static IReadOnlyDictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>> GetAlwaysUnlock(ConfigFile cfg, string section)
         {
