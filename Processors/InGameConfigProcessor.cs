@@ -395,10 +395,10 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             try { config.BoxedValue = TomlTypeConverter.ConvertToValue(text, config.SettingType); }
             catch (Exception)
             {
-                zdo.Vars.SetText($"{SignFormatPrefix}{config.BoxedValue}");
                 RPC.ShowMessage(peers.Where(x => _isAdmin.TryGetValue(x.m_characterID, out var y) && y.IsAdmin),
                     MessageHud.MessageType.Center, "$invalid_keybind_header");
             }
+            zdo.Vars.SetText($"{SignFormatPrefix}{config.BoxedValue}");
             return true;
         }
 
