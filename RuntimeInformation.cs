@@ -25,10 +25,12 @@ sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, i
         var loadedMods = new List<Mod>();
         try
         {
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(x => x != typeof(Main).Assembly && !x.IsDynamic))
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
                 try
                 {
+                    if (assembly == typeof(Main).Assembly || assembly.IsDynamic)
+                        continue;
                     foreach (var type in assembly.GetTypes())
                     {
                         try
