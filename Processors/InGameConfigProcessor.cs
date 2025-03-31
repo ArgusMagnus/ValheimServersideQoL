@@ -12,25 +12,23 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly int _prefabWall = "Piece_grausten_wall_4x2".GetStableHashCode();
     readonly int _prefabPortal = "portal_wood".GetStableHashCode();
     readonly int _prefabSconce = "piece_walltorch".GetStableHashCode();
-    readonly int _prefabMetalWall = "piece_dvergr_metal_wall_2x2".GetStableHashCode();
-    readonly int _prefabIronGate = "iron_grate".GetStableHashCode();
     readonly int _prefabGuardStone = "dverger_guardstone".GetStableHashCode(); //"guard_stone".GetStableHashCode();
     readonly int _prefabSign = "sign".GetStableHashCode();
     readonly int _prefabCandle = "Candle_resin".GetStableHashCode();
     const string SignFormatPrefix = "<color=white>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
 
-    ExtendedZDO _guardStone = default!;
     readonly HashSet<ZDOID> _configPieces = new();
     readonly ConcurrentDictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
     readonly Dictionary<ZDOID, ExtendedZDO> _signsByCandle = new();
     readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
+    readonly Vector3 _worldSpawn = ZoneSystem.instance.m_locationInstances.Values.FirstOrDefault(x => x.m_location.m_prefabName is "StartTemple").m_position;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        if (_guardStone is not null)
+        if (_configPieces.Count > 0)
             return;
 
         foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
@@ -39,29 +37,25 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         if (!Config.General.InWorldConfigRoom.Value)
             return;
 
-        var initialOffset = ZoneSystem.instance.m_locationInstances.Values.FirstOrDefault(x => x.m_location.m_prefabName is "StartTemple").m_position;
-        if (initialOffset == default)
+        if (_worldSpawn == default)
         {
             Logger.LogWarning($"StartTemple not found, skipping generation of config room");
             return;
         }
 
         {
-            var pos = initialOffset;
+            var pos = _worldSpawn;
             pos.z -= 3;
             PlacePiece(pos, _prefabPortal, 0f)
                 .Vars.SetTag(MainPortalTag);
             pos.y -= 3;
             PlacePiece(pos, _prefabGuardStone, 0)
-                .Fields<PrivateArea>(true).Set(x => x.m_radius, 1).Set(x => x.m_enabledByDefault, true);
+                .Fields<PrivateArea>(true).Set(x => x.m_radius, 3).Set(x => x.m_enabledByDefault, true);
         }
 
-        /// offset, so that the two guard stones area does not overlapped, otherwhise the access list is shared
-        /// <see cref="PrivateArea.CheckAccess"/> <see cref="PrivateArea.IsInside"/>
-        initialOffset.z += 10;
-
-        while (!Character.InInterior(initialOffset))
-            initialOffset.y += 1000;
+        var offset = _worldSpawn;
+        while (!Character.InInterior(offset))
+            offset.y += 1000;
 
         var configSections = Config.ConfigFile
             .Where(x => x.Key.Section != Main.DummyConfigSection && !x.Key.Section.StartsWith("A - "))
@@ -80,7 +74,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             {
                 var z = (k - width / 2f) * 4;
 
-                var pos = initialOffset;
+                var pos = offset;
                 pos.x += x;
                 pos.z += z;
 
@@ -146,7 +140,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
                 if (iIsEdge)
                 {
-                    pos = initialOffset;
+                    pos = offset;
                     pos.x += x;
                     pos.z += z;
                     pos.y += 0.25f;
@@ -164,7 +158,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 }
                 if (kIsEdge)
                 {
-                    pos = initialOffset;
+                    pos = offset;
                     pos.x += x;
                     pos.z += z;
                     pos.y += 0.25f;
@@ -187,65 +181,16 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             throw new Exception("Algorithm failed to place all portals");
 
         {
-            var pos = initialOffset;
+            var pos = offset;
             pos.x -= 2;
             pos.z -= 2;
 
             pos.z -= 1.5f;
             PlacePiece(pos, _prefabPortal, 0f)
                 .Vars.SetTag(MainPortalTag);
-            pos.y -= 2;
-            PlacePiece(pos, _prefabGuardStone, 0f)
-                .Fields<PrivateArea>(true).Set(x => x.m_radius, 1).Set(x => x.m_enabledByDefault, true);
-            pos.y += 2;
-
-
-            pos = initialOffset;
-            pos.x -= 3;
-            pos.y -= 2;
-            _guardStone = PlacePiece(pos, _prefabGuardStone, 0f);
-            _guardStone.Fields<PrivateArea>(true).Set(x => x.m_radius, 1).Set(x => x.m_enabledByDefault, true);
-            pos.y += 2;
-            pos.y += 0.75f;
-            PlacePiece(pos, _prefabIronGate, 0);
-
-            pos.y += 3;
-            PlacePiece(pos, _prefabMetalWall, 0);
-            pos.y -= 0.5f;
-            pos.x += 2;
-            PlacePiece(pos, _prefabMetalWall, 0);
-            pos.y -= 2;
-            PlacePiece(pos, _prefabMetalWall, 0);
-            pos.x += 1;
-            pos.z -= 1;
-            PlacePiece(pos, _prefabMetalWall, 90);
-            pos.y += 2;
-            PlacePiece(pos, _prefabMetalWall, 90);
-            pos.z -= 2;
-            PlacePiece(pos, _prefabMetalWall, 90);
-            pos.y -= 2;
-            PlacePiece(pos, _prefabMetalWall, 90);
-            pos.z -= 1;
-            pos.x -= 1;
-            PlacePiece(pos, _prefabMetalWall, 180);
-            pos.y += 2;
-            PlacePiece(pos, _prefabMetalWall, 180);
-            pos.x -= 2;
-            PlacePiece(pos, _prefabMetalWall, 180);
-            pos.y -= 2;
-            PlacePiece(pos, _prefabMetalWall, 180);
-            pos.x -= 1;
-            pos.z += 1;
-            PlacePiece(pos, _prefabMetalWall, 270);
-            pos.y += 2;
-            PlacePiece(pos, _prefabMetalWall, 270);
-            pos.z += 2;
-            PlacePiece(pos, _prefabMetalWall, 270);
-            pos.y -= 2;
-            PlacePiece(pos, _prefabMetalWall, 270);
         }
 
-        var yOffset = initialOffset.y;
+        var yOffset = offset.y;
         foreach (var group in configSections)
         {
             yOffset += 5;
@@ -260,7 +205,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 {
                     var z = (k - width / 2f) * 4;
 
-                    var pos = initialOffset with { y = yOffset };
+                    var pos = offset with { y = yOffset };
                     pos.x += x;
                     pos.z += z;
 
@@ -275,7 +220,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
                     if (iIsEdge)
                     {
-                        pos = initialOffset with { y = yOffset };
+                        pos = offset with { y = yOffset };
                         pos.x += x;
                         pos.z += z;
                         pos.y += 0.25f;
@@ -321,7 +266,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     }
                     if (kIsEdge)
                     {
-                        pos = initialOffset with { y = yOffset };
+                        pos = offset with { y = yOffset };
                         pos.x += x;
                         pos.z += z;
                         pos.y += 0.25f;
@@ -374,7 +319,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
             {
                 var section = Regex.Replace(group.Key, @"^[A-Z] - ", "");
-                var pos = initialOffset with { y = yOffset };
+                var pos = offset with { y = yOffset };
                 pos.x -= 2;
                 pos.z -= 2;
                 var zdo = PlacePiece(pos, _prefabPortal, 0f);
@@ -419,19 +364,15 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.m_socket.GetHostName());
                 _isAdmin.TryAdd(zdo.m_uid, (zdo, isAdmin));
                 if (isAdmin)
-                {
                     UnregisterZdoProcessor = true;
-                    AddAdmin(_guardStone, zdo.Vars.GetPlayerID(), zdo.Vars.GetPlayerName());
-                }
             }
 
-            if (!isAdmin && zdo.GetPosition().y >= _guardStone.GetPosition().y &&
-                Utils.DistanceXZ(zdo.GetPosition(), _guardStone.GetPosition()) > 4 &&
-                ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_guardStone.GetPosition()))
+            if (!isAdmin && Character.InInterior(zdo.GetPosition()) &&
+                ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_worldSpawn))
             {
                 peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
-                var pos = _guardStone.GetPosition();
-                pos.y = zdo.GetPosition().y;
+                var pos = _worldSpawn;
+                pos.y += 1;
                 RPC.TeleportPlayer(peer, pos, zdo.GetRotation(), false);
                 RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$piece_noaccess");
             }
