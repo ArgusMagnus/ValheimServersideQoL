@@ -1,4 +1,5 @@
 ### v0.2.7
+- **BREAKING CHANGE**: split `Global Keys` config section into 2 separate sections for world preset/modifiers and global keys
 - New feature: in-world config room: A generated room that allows admins to make changes to this mods config by editing signs
 - Fix for Exception on load [[19]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/19)
 

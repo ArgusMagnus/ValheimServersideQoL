@@ -46,8 +46,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             zdo.Destroy();
 
         var configSections = Config.ConfigFile
-            .Select(x => (Entry: x.Value, Section: Regex.Match(x.Key.Section, "^[B-Z] - (?<N>.+)$").Groups["N"].Value))
-            .Where(x => !string.IsNullOrEmpty(x.Section))
+            .Select(x => (Entry: x.Value, Section: Regex.Match(x.Key.Section, "^[A-Z] - (?<N>.+)$").Groups["N"].Value))
+            .Where(x => !string.IsNullOrEmpty(x.Section) && x.Section != Main.DummyConfigSection)
             .GroupBy(x => x.Section, x => x.Entry)
             .OrderBy(x => x.Key)
             .ToList();

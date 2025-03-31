@@ -1,5 +1,5 @@
 |Category|Key|Default Value|Acceptable Values|Description|
-|---|---|---|---|---|
+|--------|---|-------------|-----------------|-----------|
 |General|Enabled|True|True/False|Enables/disables the entire mode|
 |General|DiagnosticLogs|False|True/False|Enables/disables diagnostic logs|
 |General|Frequency|5|From 0 to Infinity|How many times per second the mod processes the world|
@@ -36,46 +36,6 @@
 |Doors|AutoCloseMinPlayerDistance|NaN||Min distance all players must have to the door before it is closed. NaN to disable this feature|
 |Fireplaces|MakeToggleable|False|True/False|True to make all fireplaces (including torches, braziers, etc.) toggleable|
 |Fireplaces|InfiniteFuel|False|True/False|True to make all fireplaces have infinite fuel|
-|Global Keys|SetPresetFromConfig|False|True/False|True to set the world preset according to the 'Preset' config entry|
-|Global Keys|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|
-|Global Keys|SetModifiersFromConfig|False|True/False|True to set world modifiers according to the following configuration entries|
-|Global Keys|Combat|Default|VeryEasy, Easy, Default, Hard, VeryHard|World modifier 'Combat'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|DeathPenalty|Default|Casual, VeryEasy, Easy, Default, Hard, Hardcore|World modifier 'DeathPenalty'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|Resources|Default|MuchLess, Less, Default, More, MuchMore, Most|World modifier 'Resources'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|Raids|Default|None, MuchLess, Less, Default, More, MuchMore|World modifier 'Raids'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|Portals|Default|Casual, Default, Hard, VeryHard|World modifier 'Portals'. Enable 'SetModifiersFromConfig' for this to have an effect|
-|Global Keys|SetGlobalKeysFromConfig|False|True/False|True to set global keys according to the following configuration entries|
-|Global Keys|PlayerDamage|100||Sets the value for the 'PlayerDamage' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|EnemyDamage|100||Sets the value for the 'EnemyDamage' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|WorldLevel|0|From 0 to 10|Sets the value for the 'WorldLevel' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|EventRate|100||Sets the value for the 'EventRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|ResourceRate|100||Sets the value for the 'ResourceRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|StaminaRate|100||Sets the value for the 'StaminaRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|MoveStaminaRate|100||Sets the value for the 'MoveStaminaRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|StaminaRegenRate|100||Sets the value for the 'StaminaRegenRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|SkillGainRate|100||Sets the value for the 'SkillGainRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|SkillReductionRate|100||Sets the value for the 'SkillReductionRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|EnemySpeedSize|100||Sets the value for the 'EnemySpeedSize' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|EnemyLevelUpRate|100||Sets the value for the 'EnemyLevelUpRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|PlayerEvents|False|True/False|True to set the 'PlayerEvents' global key|
-|Global Keys|Fire|False|True/False|True to set the 'Fire' global key|
-|Global Keys|DeathKeepEquip|False|True/False|True to set the 'DeathKeepEquip' global key|
-|Global Keys|DeathDeleteItems|False|True/False|True to set the 'DeathDeleteItems' global key|
-|Global Keys|DeathDeleteUnequipped|False|True/False|True to set the 'DeathDeleteUnequipped' global key|
-|Global Keys|DeathSkillsReset|False|True/False|True to set the 'DeathSkillsReset' global key|
-|Global Keys|NoBuildCost|False|True/False|True to set the 'NoBuildCost' global key|
-|Global Keys|NoCraftCost|False|True/False|True to set the 'NoCraftCost' global key|
-|Global Keys|AllPiecesUnlocked|False|True/False|True to set the 'AllPiecesUnlocked' global key|
-|Global Keys|NoWorkbench|False|True/False|True to set the 'NoWorkbench' global key|
-|Global Keys|AllRecipesUnlocked|False|True/False|True to set the 'AllRecipesUnlocked' global key|
-|Global Keys|WorldLevelLockedTools|False|True/False|True to set the 'WorldLevelLockedTools' global key|
-|Global Keys|PassiveMobs|False|True/False|True to set the 'PassiveMobs' global key|
-|Global Keys|NoMap|False|True/False|True to set the 'NoMap' global key|
-|Global Keys|NoPortals|False|True/False|True to set the 'NoPortals' global key|
-|Global Keys|NoBossPortals|False|True/False|True to set the 'NoBossPortals' global key|
-|Global Keys|DungeonBuild|False|True/False|True to set the 'DungeonBuild' global key|
-|Global Keys|TeleportAll|False|True/False|True to set the 'TeleportAll' global key|
-|Global Keys|NoPortalsPreventsContruction|True|True/False|True to change the effect of the 'NoPortals' global key, to prevent the construction of new portals but leave existing portals functional|
 |Map Tables|AutoUpdatePortals|False|True/False|True to update map tables with portal pins|
 |Map Tables|AutoUpdatePortalsExclude|||Portals with a tag that matches this filter are not added to map tables|
 |Map Tables|AutoUpdatePortalsInclude|*||Only portals with a tag that matches this filter are added to map tables|
@@ -147,3 +107,43 @@
 |Turrets|LoadFromContainers|False|True/False|True to automatically load ballistas from containers|
 |Turrets|LoadFromContainersRange|4||Required proxmity of a container to a ballista to be used as ammo source|
 |Windmills|IgnoreWind|False|True/False|True to make windmills ignore wind (Cover still decreases operating efficiency though)|
+|World Modifiers|SetPresetFromConfig|False|True/False|True to set the world preset according to the 'Preset' config entry|
+|World Modifiers|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|
+|World Modifiers|SetModifiersFromConfig|False|True/False|True to set world modifiers according to the following configuration entries|
+|World Modifiers|Combat|Default|VeryEasy, Easy, Default, Hard, VeryHard|World modifier 'Combat'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|World Modifiers|DeathPenalty|Default|Casual, VeryEasy, Easy, Default, Hard, Hardcore|World modifier 'DeathPenalty'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|World Modifiers|Resources|Default|MuchLess, Less, Default, More, MuchMore, Most|World modifier 'Resources'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|World Modifiers|Raids|Default|None, MuchLess, Less, Default, More, MuchMore|World modifier 'Raids'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|World Modifiers|Portals|Default|Casual, Default, Hard, VeryHard|World modifier 'Portals'. Enable 'SetModifiersFromConfig' for this to have an effect|
+|Global Keys|SetGlobalKeysFromConfig|False|True/False|True to set global keys according to the following configuration entries|
+|Global Keys|PlayerDamage|100||Sets the value for the 'PlayerDamage' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|EnemyDamage|100||Sets the value for the 'EnemyDamage' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|WorldLevel|0|From 0 to 10|Sets the value for the 'WorldLevel' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|EventRate|100||Sets the value for the 'EventRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|ResourceRate|100||Sets the value for the 'ResourceRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|StaminaRate|100||Sets the value for the 'StaminaRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|MoveStaminaRate|100||Sets the value for the 'MoveStaminaRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|StaminaRegenRate|100||Sets the value for the 'StaminaRegenRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|SkillGainRate|100||Sets the value for the 'SkillGainRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|SkillReductionRate|100||Sets the value for the 'SkillReductionRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|EnemySpeedSize|100||Sets the value for the 'EnemySpeedSize' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|EnemyLevelUpRate|100||Sets the value for the 'EnemyLevelUpRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|PlayerEvents|False|True/False|True to set the 'PlayerEvents' global key|
+|Global Keys|Fire|False|True/False|True to set the 'Fire' global key|
+|Global Keys|DeathKeepEquip|False|True/False|True to set the 'DeathKeepEquip' global key|
+|Global Keys|DeathDeleteItems|False|True/False|True to set the 'DeathDeleteItems' global key|
+|Global Keys|DeathDeleteUnequipped|False|True/False|True to set the 'DeathDeleteUnequipped' global key|
+|Global Keys|DeathSkillsReset|False|True/False|True to set the 'DeathSkillsReset' global key|
+|Global Keys|NoBuildCost|False|True/False|True to set the 'NoBuildCost' global key|
+|Global Keys|NoCraftCost|False|True/False|True to set the 'NoCraftCost' global key|
+|Global Keys|AllPiecesUnlocked|False|True/False|True to set the 'AllPiecesUnlocked' global key|
+|Global Keys|NoWorkbench|False|True/False|True to set the 'NoWorkbench' global key|
+|Global Keys|AllRecipesUnlocked|False|True/False|True to set the 'AllRecipesUnlocked' global key|
+|Global Keys|WorldLevelLockedTools|False|True/False|True to set the 'WorldLevelLockedTools' global key|
+|Global Keys|PassiveMobs|False|True/False|True to set the 'PassiveMobs' global key|
+|Global Keys|NoMap|False|True/False|True to set the 'NoMap' global key|
+|Global Keys|NoPortals|False|True/False|True to set the 'NoPortals' global key|
+|Global Keys|NoBossPortals|False|True/False|True to set the 'NoBossPortals' global key|
+|Global Keys|DungeonBuild|False|True/False|True to set the 'DungeonBuild' global key|
+|Global Keys|TeleportAll|False|True/False|True to set the 'TeleportAll' global key|
+|Global Keys|NoPortalsPreventsContruction|True|True/False|True to change the effect of the 'NoPortals' global key, to prevent the construction of new portals but leave existing portals functional|

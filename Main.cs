@@ -67,7 +67,7 @@ public sealed partial class Main : BaseUnityPlugin
     const uint ExpectedNetworkVersion = 33;
     const uint ExpectedItemDataVersion = 106;
     const uint ExpectedWorldVersion = 35;
-    const string DummyConfigSection = "Dummy";
+    internal const string DummyConfigSection = "Z - Dummy";
 
     void Start()
     {
@@ -192,15 +192,15 @@ public sealed partial class Main : BaseUnityPlugin
         {
             _configChanged = false;
 
-            if (Config.GlobalsKeys.SetPresetFromConfig.Value)
+            if (Config.WorldModifiers.SetPresetFromConfig.Value)
             {
-                try { MyTerminal.ExecuteCommand("setworldpreset", Config.GlobalsKeys.Preset.Value); }
+                try { MyTerminal.ExecuteCommand("setworldpreset", Config.WorldModifiers.Preset.Value); }
                 catch (Exception ex) { Logger.LogError(ex); }
             }
 
-            if (Config.GlobalsKeys.SetModifiersFromConfig.Value)
+            if (Config.WorldModifiers.SetModifiersFromConfig.Value)
             {
-                foreach (var (modifier, value) in Config.GlobalsKeys.Modifiers.Select(x => (x.Key, x.Value.Value)))
+                foreach (var (modifier, value) in Config.WorldModifiers.Modifiers.Select(x => (x.Key, x.Value.Value)))
                 {
                     try { MyTerminal.ExecuteCommand("setworldmodifier", modifier, value); }
                     catch (Exception ex) { Logger.LogError(ex); }
@@ -430,7 +430,7 @@ public sealed partial class Main : BaseUnityPlugin
     {
         using var writer = new StreamWriter(ConfigMarkdownPath, false, new UTF8Encoding(false));
         writer.WriteLine("|Category|Key|Default Value|Acceptable Values|Description|");
-        writer.WriteLine("|---|---|---|---|---|");
+        writer.WriteLine("|--------|---|-------------|-----------------|-----------|");
 
         foreach (var (def, entry) in cfg.OrderBy(x => x.Key.Section).Select(x => (x.Key, x.Value)))
         {

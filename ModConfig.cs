@@ -1,7 +1,5 @@
 ﻿using BepInEx.Configuration;
-using System.Linq;
 using System.Reflection;
-using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
@@ -10,7 +8,6 @@ sealed class ModConfig(ConfigFile cfg)
 {
     public ConfigFile ConfigFile { get; } = cfg;
     public GeneralConfig General { get; } = new(cfg, "A - General");
-    public GlobalsKeysConfig GlobalsKeys { get; } = new(cfg, "B - Global Keys");
     public SignsConfig Signs { get; } = new(cfg, "B - Signs");
     public MapTableConfig MapTables { get; } = new(cfg, "B - Map Tables");
     public TamesConfig Tames { get; } = new(cfg, "B - Tames");
@@ -27,6 +24,8 @@ sealed class ModConfig(ConfigFile cfg)
     public TradersConfig Traders { get; } = new(cfg, "B - Traders");
     public PlantsConfig Plants { get; } = new(cfg, "B - Plants");
     public TrapsConfig Traps { get; } = new(cfg, "B - Traps");
+    public WorldModifiersConfig WorldModifiers { get; } = new(cfg, "C - World Modifiers");
+    public GlobalsKeysConfig GlobalsKeys { get; } = new(cfg, "D - Global Keys");
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -148,7 +147,7 @@ sealed class ModConfig(ConfigFile cfg)
         }
     }
 
-    public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
+    public sealed class WorldModifiersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> SetPresetFromConfig { get; } = cfg.Bind(section, nameof(SetPresetFromConfig), false,
             $"True to set the world preset according to the '{nameof(Preset)}' config entry");
@@ -158,19 +157,12 @@ sealed class ModConfig(ConfigFile cfg)
             "True to set world modifiers according to the following configuration entries");
         public IReadOnlyDictionary<string, ConfigEntry<string>> Modifiers { get; } = GetModifiers(cfg, section);
 
-        public ConfigEntry<bool> SetGlobalKeysFromConfig { get; } = cfg.Bind(section, nameof(SetGlobalKeysFromConfig), false,
-            "True to set global keys according to the following configuration entries");
-        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs { get; } = GetGlobalKeyEntries(cfg, section);
-
-        public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
-            $"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional");
-
         static ConfigEntry<string> GetPreset(ConfigFile cfg, string section)
         {
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
             var presets = PrivateAccessor.GetServerOptionsGUIPresets();
             return cfg.Bind(section, nameof(Preset), $"{WorldPresets.Default}", new ConfigDescription($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect",
-                new AcceptableValueList<string>([..presets.Select(x => $"{x.m_preset}")])));
+                new AcceptableValueList<string>([.. presets.Select(x => $"{x.m_preset}")])));
         }
 
         static IReadOnlyDictionary<string, ConfigEntry<string>> GetModifiers(ConfigFile cfg, string section)
@@ -184,6 +176,16 @@ sealed class ModConfig(ConfigFile cfg)
                 .ToDictionary(x => x.Definition.Key);
             return modifiers;
         }
+    }
+
+    public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> SetGlobalKeysFromConfig { get; } = cfg.Bind(section, nameof(SetGlobalKeysFromConfig), false,
+            "True to set global keys according to the following configuration entries");
+        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs { get; } = GetGlobalKeyEntries(cfg, section);
+
+        public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
+            $"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional");
 
         static IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> GetGlobalKeyEntries(ConfigFile cfg, string section)
         {
