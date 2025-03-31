@@ -2,9 +2,10 @@
 
 namespace Valheim.ServersideQoL;
 
-sealed class PrefabInfo(string prefabName, IReadOnlyDictionary<Type, MonoBehaviour> components)
+sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehaviour> components)
 {
-    public string PrefabName { get; } = prefabName;
+    public GameObject Prefab { get; } = prefab;
+    public string PrefabName => Prefab?.name ?? "";
     public IReadOnlyDictionary<Type, MonoBehaviour> Components { get; } = components;
 
     public Sign? Sign { get; } = Get<Sign>(components);
@@ -28,8 +29,9 @@ sealed class PrefabInfo(string prefabName, IReadOnlyDictionary<Type, MonoBehavio
     public EggGrow? EggGrow { get; } = Get<EggGrow>(components);
     public Growup? Growup { get; } = Get<Growup>(components);
     public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = Get<Aoe, Piece, PieceTable, Trap>(components);
+    //public PrivateArea? PrivateArea { get; } = Get<PrivateArea>(components);
 
-    public static PrefabInfo Dummy { get; } = new("", new Dictionary<Type, MonoBehaviour>(0));
+    public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
 
     static T? Get<T>(IReadOnlyDictionary<Type, MonoBehaviour> prefabs)
         where T : MonoBehaviour

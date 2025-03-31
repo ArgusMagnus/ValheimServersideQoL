@@ -23,22 +23,26 @@ sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, i
 
         var excpetionsCaught = false;
         var loadedMods = new List<Mod>();
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(x => x != typeof(Main).Assembly && !x.IsDynamic))
+        try
         {
-            try
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(x => x != typeof(Main).Assembly && !x.IsDynamic))
             {
-                foreach (var type in assembly.GetTypes())
+                try
                 {
-                    try
+                    foreach (var type in assembly.GetTypes())
                     {
-                        if (type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(BaseUnityPlugin)) && type.GetCustomAttribute<BepInPlugin>() is { } plugin)
-                            loadedMods.Add(new(plugin.GUID, plugin.Name, $"{plugin.Version}"));
+                        try
+                        {
+                            if (type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(BaseUnityPlugin)) && type.GetCustomAttribute<BepInPlugin>() is { } plugin)
+                                loadedMods.Add(new(plugin.GUID, plugin.Name, $"{plugin.Version}"));
+                        }
+                        catch (Exception) { excpetionsCaught = true; }
                     }
-                    catch (Exception) { excpetionsCaught = true; }
                 }
+                catch (Exception) { excpetionsCaught = true; }
             }
-            catch (Exception) { excpetionsCaught = true; }
         }
+        catch (Exception) { excpetionsCaught = true; }
 
         var loadedModsStr = $"{{ {string.Join(", ", loadedMods)} }}";
 

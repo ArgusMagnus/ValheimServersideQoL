@@ -110,8 +110,15 @@ sealed class ExtendedZDO : ZDO
     public void ClaimOwnership() => SetOwner(ZDOMan.GetSessionID());
     public void ClaimOwnershipInternal() => SetOwnerInternal(ZDOMan.GetSessionID());
 
-    public ComponentFieldAccessor<TComponent> Fields<TComponent>() where TComponent : MonoBehaviour
-        => (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key => new ComponentFieldAccessor<TComponent>(this, (TComponent)PrefabInfo.Components[key]));
+    public ComponentFieldAccessor<TComponent> Fields<TComponent>(bool getUnknownComponent = false) where TComponent : MonoBehaviour
+        => (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key =>
+        {
+            if (!PrefabInfo.Components.TryGetValue(key, out var component) && getUnknownComponent)
+                component = PrefabInfo.Prefab.GetComponentInChildren<TComponent>();
+            if (component is null)
+                throw new KeyNotFoundException();
+            return new ComponentFieldAccessor<TComponent>(this, (TComponent)component);
+        });
 
     public readonly struct ZDOVars_(ExtendedZDO zdo)
     {

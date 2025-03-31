@@ -121,7 +121,7 @@ static class SharedProcessorState
             }
             if (components is null)
                 return null;
-            return new( prefab.name, components);
+            return new(prefab, components);
         }
 
         static MonoBehaviour? GetComponent(GameObject prefab, Type componentType)

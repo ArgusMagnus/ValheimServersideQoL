@@ -17,7 +17,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly int _prefabSconce = "piece_walltorch".GetStableHashCode();
     readonly int _prefabMetalWall = "piece_dvergr_metal_wall_2x2".GetStableHashCode();
     readonly int _prefabIronGate = "iron_grate".GetStableHashCode();
-    readonly int _prefabGuardStone = "dverger_guardstone".GetStableHashCode();
+    readonly int _prefabGuardStone = "dverger_guardstone".GetStableHashCode(); //"guard_stone".GetStableHashCode();
     readonly int _prefabSign = "sign".GetStableHashCode();
     readonly int _prefabCandle = "Candle_resin".GetStableHashCode();
     const string SignFormatPrefix = "<color=white>";
@@ -29,7 +29,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
     static Vector3 GetInitialOffset()
     {
-        var pos = new Vector3();
+        var pos = ZoneSystem.instance.m_locationInstances.Values.FirstOrDefault(x => x.m_location.m_prefabName is "StartTemple").m_position;
         while (!Character.InInterior(pos))
             pos.y += 1000;
         return pos;
@@ -49,9 +49,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             return;
 
         var configSections = Config.ConfigFile
-            .Select(x => (Entry: x.Value, Section: Regex.Match(x.Key.Section, "^[A-Z] - (?<N>.+)$").Groups["N"].Value))
-            .Where(x => !string.IsNullOrEmpty(x.Section) && x.Section != Main.DummyConfigSection)
-            .GroupBy(x => x.Section, x => x.Entry)
+            .Where(x => x.Key.Section != Main.DummyConfigSection && !x.Key.Section.StartsWith("A - "))
+            .GroupBy(x => x.Key.Section, x => x.Value)
             .OrderBy(x => x.Key)
             .ToList();
 
@@ -108,19 +107,26 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     pos.z += k is 0 ? -1.5f : 1.5f;
                 else if (!kIsEdge)
                     pos.x += i is 0 ? -1.5f : 1.5f;
-
+                
                 if (sectionEnumerator.MoveNext())
                 {
+                    var section = Regex.Replace(sectionEnumerator.Current.Key, @"^[A-Z] - ", "");
                     var zdo = PlacePiece(pos, _prefabPortal, rot);
                     zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
-                    zdo.Vars.SetTag($"Config: {sectionEnumerator.Current.Key}");
+                    zdo.Vars.SetTag($"Config: {section}");
 
-                    if (!iIsEdge)
+                    if (iIsEdge && kIsEdge)
+                    {
+                        pos.z += (k is 0 ? -0.25f : 0.25f) * Mathf.Sqrt(2);
+                        pos.x += (i is 0 ? -0.25f : 0.25f) * Mathf.Sqrt(2);
+                    }
+                    else if (!iIsEdge)
                         pos.z += k is 0 ? -0.25f : 0.25f;
                     else if (!kIsEdge)
                         pos.x += i is 0 ? -0.25f : 0.25f;
-                    PlacePiece(pos, _prefabSign, rot + 90)
-                        .Vars.SetText($"{SignFormatPrefix}{sectionEnumerator.Current.Key}");
+                    pos.y += 2;
+                    PlacePiece(pos, _prefabSign, rot)
+                        .Vars.SetText($"{SignFormatPrefix}{section}");
                 }
 
                 if (iIsEdge)
@@ -172,6 +178,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
             pos.y -= 2;
             _guardStone = PlacePiece(pos, _prefabGuardStone, 0f);
+            _guardStone.Fields<PrivateArea>(true).Set(x => x.m_enabledByDefault, true);
 
             pos.y += 2;
             pos.z -= 1.5f;
@@ -348,12 +355,13 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 throw new Exception($"Algorithm failed to place all signs in config section {group.Key}");
 
             {
+                var section = Regex.Replace(group.Key, @"^[A-Z] - ", "");
                 var pos = _initialOffset with { y = yOffset };
                 pos.x -= 2;
                 pos.z -= 2;
                 var zdo = PlacePiece(pos, _prefabPortal, 0f);
                 zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
-                zdo.Vars.SetTag($"Config: {group.Key}");
+                zdo.Vars.SetTag($"Config: {section}");
 
             }
         }
