@@ -866,6 +866,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_checkSolids|System.Boolean|False|
 |m_fallCheckRadius|System.Single|0|
 
+## Pickable_HardRockOffspring: Pickable_HardRockOffspring
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_pushUp|System.Boolean|True|
+|m_fall|System.Boolean|True|
+|m_checkSolids|System.Boolean|True|
+|m_fallCheckRadius|System.Single|0|
+
 ## Pickable_Meteorite: Pickable_Meteorite
 
 |Field|Type|Default Value|
@@ -966,6 +975,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fallCheckRadius|System.Single|0|
 
 ## Pickable_Stone: Pickable_Stone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_pushUp|System.Boolean|True|
+|m_fall|System.Boolean|True|
+|m_checkSolids|System.Boolean|False|
+|m_fallCheckRadius|System.Single|0|
+
+## Pickable_StoneRock: Pickable_StoneRock
 
 |Field|Type|Default Value|
 |-----|----|-------------|

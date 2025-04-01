@@ -34,6 +34,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -82,6 +83,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -130,6 +132,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -178,6 +181,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -226,6 +230,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -274,6 +279,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -322,6 +328,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -370,6 +377,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -418,6 +426,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -466,6 +475,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -514,6 +524,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -562,6 +573,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -610,6 +622,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -658,6 +671,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -706,6 +720,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -754,6 +769,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -802,6 +818,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -850,6 +867,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -898,6 +916,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -946,6 +965,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -994,6 +1014,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1042,6 +1063,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1090,6 +1112,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1138,6 +1161,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1186,6 +1210,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1234,6 +1259,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1282,6 +1308,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1330,6 +1357,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1378,6 +1406,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1426,6 +1455,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1474,6 +1504,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1522,6 +1553,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1570,6 +1602,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1618,6 +1651,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1666,6 +1700,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1714,6 +1749,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1762,6 +1798,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1810,6 +1847,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1858,6 +1896,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1906,6 +1945,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -1954,6 +1994,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2002,6 +2043,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2050,6 +2092,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2098,6 +2141,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2146,6 +2190,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2194,6 +2239,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2242,6 +2288,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2290,6 +2337,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2338,6 +2386,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2386,6 +2435,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2434,6 +2484,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2482,6 +2533,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2530,6 +2582,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2578,6 +2631,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2626,6 +2680,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2674,6 +2729,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2722,6 +2778,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2770,6 +2827,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2818,6 +2876,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2866,6 +2925,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2914,6 +2974,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -2962,6 +3023,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3010,6 +3072,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3058,6 +3121,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3106,6 +3170,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3154,6 +3219,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3202,6 +3268,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3250,6 +3317,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3298,6 +3366,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3346,6 +3415,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3394,6 +3464,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3442,6 +3513,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3490,6 +3562,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3538,6 +3611,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3586,6 +3660,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3634,6 +3709,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3682,6 +3758,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3730,6 +3807,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3778,6 +3856,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3826,6 +3905,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3874,6 +3954,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3922,6 +4003,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -3970,6 +4052,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4018,6 +4101,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4066,6 +4150,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4114,6 +4199,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4162,6 +4248,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4210,6 +4297,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4258,6 +4346,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4306,6 +4395,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4354,6 +4444,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4402,6 +4493,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4450,6 +4542,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4498,6 +4591,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4546,6 +4640,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4594,6 +4689,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4642,6 +4738,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4690,6 +4787,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4738,6 +4836,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4786,6 +4885,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4834,6 +4934,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4882,6 +4983,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4930,6 +5032,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -4978,6 +5081,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5026,6 +5130,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5074,6 +5179,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5122,6 +5228,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5170,6 +5277,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5218,6 +5326,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5266,6 +5375,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5314,6 +5424,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5362,6 +5473,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5410,6 +5522,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5458,6 +5571,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5506,6 +5620,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5554,6 +5669,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5602,6 +5718,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5650,6 +5767,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5698,6 +5816,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5746,6 +5865,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5794,6 +5914,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5842,6 +5963,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5890,6 +6012,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5938,6 +6061,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -5986,6 +6110,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6034,6 +6159,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6082,6 +6208,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6130,6 +6257,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6178,6 +6306,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6226,6 +6355,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6274,6 +6404,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6322,6 +6453,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6370,6 +6502,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6418,6 +6551,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6466,6 +6600,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6514,6 +6649,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6562,6 +6698,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6610,6 +6747,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6658,6 +6796,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6706,6 +6845,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6754,6 +6894,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6802,6 +6943,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6850,6 +6992,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6898,6 +7041,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6946,6 +7090,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -6994,6 +7139,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7042,6 +7188,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7090,6 +7237,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7138,6 +7286,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7186,6 +7335,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7234,6 +7384,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7282,6 +7433,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7330,6 +7482,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7378,6 +7531,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7426,6 +7580,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7474,6 +7629,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7522,6 +7678,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7570,6 +7727,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7618,6 +7776,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7666,6 +7825,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7714,6 +7874,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7762,6 +7923,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7810,6 +7972,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7858,6 +8021,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7906,6 +8070,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -7954,6 +8119,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8002,6 +8168,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8050,6 +8217,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8098,6 +8266,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8146,6 +8315,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8194,6 +8364,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8242,6 +8413,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8290,6 +8462,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8338,6 +8511,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8386,6 +8560,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8434,6 +8609,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8482,6 +8658,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8530,6 +8707,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8578,6 +8756,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8626,6 +8805,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8674,6 +8854,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8722,6 +8903,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8770,6 +8952,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8818,6 +9001,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8866,6 +9050,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8914,6 +9099,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -8962,6 +9148,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9010,6 +9197,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9058,6 +9246,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9106,6 +9295,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9154,6 +9344,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9202,6 +9393,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9250,6 +9442,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9298,6 +9491,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9346,6 +9540,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9394,6 +9589,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9442,6 +9638,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9490,6 +9687,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9538,6 +9736,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9586,6 +9785,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9634,6 +9834,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9682,6 +9883,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9730,6 +9932,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9778,6 +9981,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9826,6 +10030,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9874,6 +10079,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9922,6 +10128,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -9970,6 +10177,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10018,6 +10226,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10066,6 +10275,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10114,6 +10324,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10162,6 +10373,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10210,6 +10422,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10258,6 +10471,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10306,6 +10520,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10354,6 +10569,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10402,6 +10618,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10450,6 +10667,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10498,6 +10716,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10546,6 +10765,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10594,6 +10814,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10642,6 +10863,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10690,6 +10912,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10738,6 +10961,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10786,6 +11010,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10834,6 +11059,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10882,6 +11108,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10930,6 +11157,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -10978,6 +11206,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11026,6 +11255,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11074,6 +11304,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11122,6 +11353,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11170,6 +11402,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11218,6 +11451,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11266,6 +11500,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11314,6 +11549,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11362,6 +11598,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11410,6 +11647,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11458,6 +11696,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11506,6 +11745,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11554,6 +11794,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11602,6 +11843,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11650,6 +11892,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11698,6 +11941,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11746,6 +11990,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11794,6 +12039,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11842,6 +12088,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11890,6 +12137,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11938,6 +12186,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -11986,6 +12235,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12034,6 +12284,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12082,6 +12333,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12130,6 +12382,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12178,6 +12431,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12226,6 +12480,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12274,6 +12529,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12322,6 +12578,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12370,6 +12627,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12418,6 +12676,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12466,6 +12725,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12514,6 +12774,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12562,6 +12823,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12610,6 +12872,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12658,6 +12921,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12706,6 +12970,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12754,6 +13019,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12802,6 +13068,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12850,6 +13117,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12898,6 +13166,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12946,6 +13215,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -12994,6 +13264,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13042,6 +13313,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13090,6 +13362,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13138,6 +13411,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13186,6 +13460,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13234,6 +13509,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13282,6 +13558,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13330,6 +13607,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13378,6 +13656,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13426,6 +13705,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13474,6 +13754,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13522,6 +13803,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13570,6 +13852,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13618,6 +13901,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13666,6 +13950,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13714,6 +13999,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13762,6 +14048,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13810,6 +14097,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13858,6 +14146,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13906,6 +14195,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -13954,6 +14244,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14002,6 +14293,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14050,6 +14342,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14098,6 +14391,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14146,6 +14440,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14194,6 +14489,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14242,6 +14538,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14290,6 +14587,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14338,6 +14636,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14386,6 +14685,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14434,6 +14734,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14482,6 +14783,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14530,6 +14832,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14578,6 +14881,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14626,6 +14930,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14674,6 +14979,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14722,6 +15028,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14770,6 +15077,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14818,6 +15126,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14866,6 +15175,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14914,6 +15224,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -14962,6 +15273,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15010,6 +15322,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15058,6 +15371,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15106,6 +15420,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15154,6 +15469,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15202,6 +15518,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15250,6 +15567,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15298,6 +15616,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15346,6 +15665,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15394,6 +15714,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15442,6 +15763,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15490,6 +15812,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15538,6 +15861,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15586,6 +15910,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15634,6 +15959,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15682,6 +16008,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15730,6 +16057,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15778,6 +16106,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15826,6 +16155,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15874,6 +16204,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15922,6 +16253,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -15970,6 +16302,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16018,6 +16351,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16066,6 +16400,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16114,6 +16449,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16162,6 +16498,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16210,6 +16547,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16258,6 +16596,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16306,6 +16645,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16354,6 +16694,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16402,6 +16743,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16450,6 +16792,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16498,6 +16841,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16546,6 +16890,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16594,6 +16939,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16642,6 +16988,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16690,6 +17037,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16738,6 +17086,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16786,6 +17135,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16834,6 +17184,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16882,6 +17233,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16930,6 +17282,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -16978,6 +17331,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17026,6 +17380,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17074,6 +17429,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17122,6 +17478,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17170,6 +17527,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17218,6 +17576,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17266,6 +17625,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17314,6 +17674,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17362,6 +17723,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|2|
@@ -17410,6 +17772,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17458,6 +17821,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|15|
@@ -17506,6 +17870,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17554,6 +17919,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17602,6 +17968,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17650,6 +18017,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17698,6 +18066,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17746,6 +18115,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17794,6 +18164,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17842,6 +18213,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17890,6 +18262,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17938,6 +18311,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -17986,6 +18360,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18034,6 +18409,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18082,6 +18458,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18130,6 +18507,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18178,6 +18556,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18226,6 +18605,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18274,6 +18654,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18322,6 +18703,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18370,6 +18752,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18418,6 +18801,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18466,6 +18850,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18514,6 +18899,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18526,6 +18912,104 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_harvestRadiusMaxLevel|System.Single|0|
 |m_dlc|System.String||
 |m_returnResourceHeightOffset|System.Single|0.1|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
+## Placeable_HardRock: Placeable_HardRock
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_targetNonPlayerBuilt|System.Boolean|True|
+|m_name|System.String|$item_hardrock|
+|m_description|System.String|$item_hardrock_description|
+|m_enabled|System.Boolean|True|
+|m_isUpgrade|System.Boolean|False|
+|m_comfort|System.Int32|0|
+|m_comfortObject|UnityEngine.GameObject|*null*|
+|m_groundPiece|System.Boolean|False|
+|m_allowAltGroundPlacement|System.Boolean|False|
+|m_groundOnly|System.Boolean|False|
+|m_cultivatedGroundOnly|System.Boolean|False|
+|m_waterPiece|System.Boolean|False|
+|m_clipGround|System.Boolean|False|
+|m_clipEverything|System.Boolean|False|
+|m_noInWater|System.Boolean|False|
+|m_notOnWood|System.Boolean|False|
+|m_notOnTiltingSurface|System.Boolean|True|
+|m_inCeilingOnly|System.Boolean|False|
+|m_notOnFloor|System.Boolean|False|
+|m_noClipping|System.Boolean|False|
+|m_onlyInTeleportArea|System.Boolean|False|
+|m_allowedInDungeons|System.Boolean|True|
+|m_spaceRequirement|System.Single|0|
+|m_repairPiece|System.Boolean|False|
+|m_removePiece|System.Boolean|False|
+|m_canRotate|System.Boolean|True|
+|m_randomInitBuildRotation|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|True|
+|m_allowRotatedOverlap|System.Boolean|False|
+|m_vegetationGroundOnly|System.Boolean|False|
+|m_blockRadius|System.Single|0|
+|m_connectRadius|System.Single|0|
+|m_mustBeAboveConnected|System.Boolean|False|
+|m_noVines|System.Boolean|False|
+|m_extraPlacementDistance|System.Int32|0|
+|m_harvest|System.Boolean|False|
+|m_harvestRadius|System.Single|0|
+|m_harvestRadiusMaxLevel|System.Single|0|
+|m_dlc|System.String||
+|m_returnResourceHeightOffset|System.Single|1|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
+## Placeable_Stone: Placeable_Stone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_targetNonPlayerBuilt|System.Boolean|True|
+|m_name|System.String|$item_stone|
+|m_description|System.String|$item_stone_description|
+|m_enabled|System.Boolean|True|
+|m_isUpgrade|System.Boolean|False|
+|m_comfort|System.Int32|0|
+|m_comfortObject|UnityEngine.GameObject|*null*|
+|m_groundPiece|System.Boolean|False|
+|m_allowAltGroundPlacement|System.Boolean|False|
+|m_groundOnly|System.Boolean|False|
+|m_cultivatedGroundOnly|System.Boolean|False|
+|m_waterPiece|System.Boolean|False|
+|m_clipGround|System.Boolean|False|
+|m_clipEverything|System.Boolean|False|
+|m_noInWater|System.Boolean|False|
+|m_notOnWood|System.Boolean|False|
+|m_notOnTiltingSurface|System.Boolean|False|
+|m_inCeilingOnly|System.Boolean|False|
+|m_notOnFloor|System.Boolean|False|
+|m_noClipping|System.Boolean|False|
+|m_onlyInTeleportArea|System.Boolean|False|
+|m_allowedInDungeons|System.Boolean|True|
+|m_spaceRequirement|System.Single|0|
+|m_repairPiece|System.Boolean|False|
+|m_removePiece|System.Boolean|False|
+|m_canRotate|System.Boolean|True|
+|m_randomInitBuildRotation|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
+|m_allowRotatedOverlap|System.Boolean|False|
+|m_vegetationGroundOnly|System.Boolean|False|
+|m_blockRadius|System.Single|0|
+|m_connectRadius|System.Single|0|
+|m_mustBeAboveConnected|System.Boolean|False|
+|m_noVines|System.Boolean|False|
+|m_extraPlacementDistance|System.Int32|0|
+|m_harvest|System.Boolean|False|
+|m_harvestRadius|System.Single|0|
+|m_harvestRadiusMaxLevel|System.Single|0|
+|m_dlc|System.String||
+|m_returnResourceHeightOffset|System.Single|1|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
@@ -18562,6 +19046,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18610,6 +19095,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18658,6 +19144,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18706,6 +19193,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18754,6 +19242,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18802,6 +19291,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18850,6 +19340,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18898,6 +19389,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18946,6 +19438,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -18994,6 +19487,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19042,6 +19536,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19090,6 +19585,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19138,6 +19634,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19186,6 +19683,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19234,6 +19732,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19282,6 +19781,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19330,6 +19830,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19378,6 +19879,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19426,6 +19928,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19474,6 +19977,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19522,6 +20026,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19570,6 +20075,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19618,6 +20124,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19666,6 +20173,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19714,6 +20222,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19762,6 +20271,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19810,6 +20320,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19858,6 +20369,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19906,6 +20418,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -19954,6 +20467,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20002,6 +20516,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20050,6 +20565,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20098,6 +20614,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20146,6 +20663,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20194,6 +20712,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20242,6 +20761,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20290,6 +20810,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20338,6 +20859,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20386,6 +20908,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20434,6 +20957,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20482,6 +21006,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20530,6 +21055,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20578,6 +21104,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20626,6 +21153,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20674,6 +21202,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20722,6 +21251,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20770,6 +21300,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20818,6 +21349,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20866,6 +21398,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20914,6 +21447,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -20962,6 +21496,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21010,6 +21545,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21058,6 +21594,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21106,6 +21643,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21154,6 +21692,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21202,6 +21741,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21250,6 +21790,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21298,6 +21839,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21346,6 +21888,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21394,6 +21937,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21442,6 +21986,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21490,6 +22035,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21538,6 +22084,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21586,6 +22133,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21634,6 +22182,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21682,6 +22231,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21730,6 +22280,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21778,6 +22329,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21826,6 +22378,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21874,6 +22427,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21922,6 +22476,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -21970,6 +22525,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22018,6 +22574,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22066,6 +22623,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22114,6 +22672,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22162,6 +22721,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22210,6 +22770,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22258,6 +22819,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22306,6 +22868,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22354,6 +22917,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22402,6 +22966,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22450,6 +23015,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22498,6 +23064,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22546,6 +23113,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22594,6 +23162,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22642,6 +23211,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|True|
 |m_canBeRemoved|System.Boolean|False|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22690,6 +23260,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22738,6 +23309,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22786,6 +23358,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22834,6 +23407,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22882,6 +23456,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22930,6 +23505,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -22978,6 +23554,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23026,6 +23603,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23074,6 +23652,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23122,6 +23701,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23170,6 +23750,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23218,6 +23799,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23266,6 +23848,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23314,6 +23897,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23362,6 +23946,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23410,6 +23995,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23458,6 +24044,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23506,6 +24093,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23554,6 +24142,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23602,6 +24191,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23650,6 +24240,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23698,6 +24289,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23746,6 +24338,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23794,6 +24387,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23842,6 +24436,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23890,6 +24485,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23938,6 +24534,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -23986,6 +24583,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24034,6 +24632,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24082,6 +24681,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24130,6 +24730,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24178,6 +24779,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24226,6 +24828,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24274,6 +24877,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24322,6 +24926,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24370,6 +24975,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24418,6 +25024,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24466,6 +25073,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24514,6 +25122,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24562,6 +25171,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24610,6 +25220,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24658,6 +25269,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24706,6 +25318,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24754,6 +25367,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|True|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24802,6 +25416,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24850,6 +25465,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24898,6 +25514,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24946,6 +25563,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -24994,6 +25612,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -25042,6 +25661,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|
@@ -25090,6 +25710,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canRotate|System.Boolean|True|
 |m_randomInitBuildRotation|System.Boolean|False|
 |m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
 |m_allowRotatedOverlap|System.Boolean|False|
 |m_vegetationGroundOnly|System.Boolean|False|
 |m_blockRadius|System.Single|0|

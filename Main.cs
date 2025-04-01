@@ -63,8 +63,8 @@ public sealed partial class Main : BaseUnityPlugin
         HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
     }
 
-    readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.220.4");
-    const uint ExpectedNetworkVersion = 33;
+    readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.220.5");
+    const uint ExpectedNetworkVersion = 34;
     const uint ExpectedItemDataVersion = 106;
     const uint ExpectedWorldVersion = 35;
     internal const string DummyConfigSection = "Z - Dummy";
@@ -194,7 +194,7 @@ public sealed partial class Main : BaseUnityPlugin
 
             if (Config.WorldModifiers.SetPresetFromConfig.Value)
             {
-                try { MyTerminal.ExecuteCommand("setworldpreset", Config.WorldModifiers.Preset.Value); }
+                try { MyTerminal.ExecuteCommand("setworldpreset", $"{Config.WorldModifiers.Preset.Value}"); }
                 catch (Exception ex) { Logger.LogError(ex); }
             }
 
@@ -202,7 +202,7 @@ public sealed partial class Main : BaseUnityPlugin
             {
                 foreach (var (modifier, value) in Config.WorldModifiers.Modifiers.Select(x => (x.Key, x.Value.Value)))
                 {
-                    try { MyTerminal.ExecuteCommand("setworldmodifier", modifier, value); }
+                    try { MyTerminal.ExecuteCommand("setworldmodifier", $"{modifier}", $"{value}"); }
                     catch (Exception ex) { Logger.LogError(ex); }
                 }
             }

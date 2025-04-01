@@ -26,11 +26,10 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             return false;
         }
 
-        /// <see cref="WearNTear.RPC_Remove"/>
-        var owner = zdo.GetOwner();
-        ZRoutedRpc.instance.InvokeRoutedRPC(owner, zdo.m_uid, "RPC_Remove", [false]);
+        RPC.Remove(zdo);
 
         /// <see cref="Player.TryPlacePiece(Piece)"/>
+        var owner = zdo.GetOwner();
         var peer = peers.FirstOrDefault(x => x.m_uid == owner);
         if (peer is not null)
             RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$msg_nobuildzone");

@@ -124,5 +124,11 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
             /// <see cref="Player.TeleportTo(Vector3, Quaternion, bool)"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(player.GetOwner(), player.m_uid, "RPC_TeleportTo", pos, rot, distantTeleport);
         }
+
+        public static void Remove(ExtendedZDO piece, bool blockDrop = false)
+        {
+            /// <see cref="WearNTear.RPC_Remove"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(piece.GetOwner(), piece.m_uid, "RPC_Remove", false);
+        }
     }
 }

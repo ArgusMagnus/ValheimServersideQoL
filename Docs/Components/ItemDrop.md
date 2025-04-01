@@ -5681,6 +5681,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## StoneRock: StoneRock
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## SulfurStone: SulfurStone
 
 |Field|Type|Default Value|

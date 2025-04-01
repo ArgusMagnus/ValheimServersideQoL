@@ -722,6 +722,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
+## Pickable_HardRockOffspring: Pickable_HardRockOffspring
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
+|m_itemPrefab|UnityEngine.GameObject|Stone|
+|m_amount|System.Int32|1|
+|m_minAmountScaled|System.Int32|1|
+|m_dontScale|System.Boolean|False|
+|m_overrideName|System.String||
+|m_respawnTimeMinutes|System.Single|0|
+|m_respawnTimeInitMin|System.Single|0|
+|m_respawnTimeInitMax|System.Single|0|
+|m_spawnOffset|System.Single|0.5|
+|m_pickEffectAtSpawnPoint|System.Boolean|False|
+|m_useInteractAnimation|System.Boolean|True|
+|m_tarPreventsPicking|System.Boolean|False|
+|m_aggravateRange|System.Single|0|
+|m_defaultPicked|System.Boolean|False|
+|m_defaultEnabled|System.Boolean|True|
+|m_harvestable|System.Boolean|False|
+|m_maxLevelBonusChance|System.Single|0.25|
+|m_bonusYieldAmount|System.Int32|1|
+
 ## Pickable_MeatPile: Pickable_MeatPile
 
 |Field|Type|Default Value|
@@ -1202,6 +1226,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxLevelBonusChance|System.Single|0.25|
 |m_bonusYieldAmount|System.Int32|1|
 
+## Pickable_StoneRock: Pickable_StoneRock
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
+|m_itemPrefab|UnityEngine.GameObject|StoneRock|
+|m_amount|System.Int32|1|
+|m_minAmountScaled|System.Int32|1|
+|m_dontScale|System.Boolean|False|
+|m_overrideName|System.String||
+|m_respawnTimeMinutes|System.Single|0|
+|m_respawnTimeInitMin|System.Single|0|
+|m_respawnTimeInitMax|System.Single|0|
+|m_spawnOffset|System.Single|0.5|
+|m_pickEffectAtSpawnPoint|System.Boolean|False|
+|m_useInteractAnimation|System.Boolean|True|
+|m_tarPreventsPicking|System.Boolean|False|
+|m_aggravateRange|System.Single|0|
+|m_defaultPicked|System.Boolean|False|
+|m_defaultEnabled|System.Boolean|True|
+|m_harvestable|System.Boolean|False|
+|m_maxLevelBonusChance|System.Single|0.25|
+|m_bonusYieldAmount|System.Int32|1|
+
 ## Pickable_SulfurRock: Pickable_SulfurRock
 
 |Field|Type|Default Value|
@@ -1448,6 +1496,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_hideWhenPicked|UnityEngine.GameObject|*null*|
 |m_itemPrefab|UnityEngine.GameObject|VoltureEgg|
+|m_amount|System.Int32|1|
+|m_minAmountScaled|System.Int32|1|
+|m_dontScale|System.Boolean|False|
+|m_overrideName|System.String||
+|m_respawnTimeMinutes|System.Single|0|
+|m_respawnTimeInitMin|System.Single|0|
+|m_respawnTimeInitMax|System.Single|0|
+|m_spawnOffset|System.Single|0.5|
+|m_pickEffectAtSpawnPoint|System.Boolean|False|
+|m_useInteractAnimation|System.Boolean|True|
+|m_tarPreventsPicking|System.Boolean|False|
+|m_aggravateRange|System.Single|0|
+|m_defaultPicked|System.Boolean|False|
+|m_defaultEnabled|System.Boolean|True|
+|m_harvestable|System.Boolean|False|
+|m_maxLevelBonusChance|System.Single|0.25|
+|m_bonusYieldAmount|System.Int32|1|
+
+## Placeable_Stone: Placeable_Stone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hideWhenPicked|UnityEngine.GameObject|*null*|
+|m_itemPrefab|UnityEngine.GameObject|Stone|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
 |m_dontScale|System.Boolean|False|

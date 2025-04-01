@@ -1203,6 +1203,21 @@
 |item_hammer_description|With this to your hand, you can raise high halls and mighty fortifications.|
 |item_hardantler|Hard Antler|
 |item_hardantler_description|A piece of very hard antlers.|
+|item_hardrock|Mysterious Rock|
+|item_hardrock_description|It's just a rock...|
+|item_hardrock_knowledge1|Fear not death, for the hour of your doom is set, and no man can escape it.|
+|item_hardrock_knowledge10|You can keep as quiet as you like, but one day, someone will find you.|
+|item_hardrock_knowledge11|No matter how much suffering you went through, you never want to let go of those memories.|
+|item_hardrock_knowledge12|When you come out of the storm, you won’t be the same person who walked in. That’s what the storm is all about.|
+|item_hardrock_knowledge13|A rock feels no pain, and an island never cries.|
+|item_hardrock_knowledge2|Better to fight and fall than to live without hope.|
+|item_hardrock_knowledge3|Runes shall you find, and rightly read, of wondrous weight and mighty magic.|
+|item_hardrock_knowledge4|Man cannot discover new oceans unless he has the courage to lose sight of the shore.|
+|item_hardrock_knowledge5|He who has a why to live can bear almost any how.|
+|item_hardrock_knowledge6|The wound is the place where the light enters you.|
+|item_hardrock_knowledge7|We suffer more in imagination than in reality.|
+|item_hardrock_knowledge8|Pain is inevitable. Suffering is optional.|
+|item_hardrock_knowledge9|Whatever it is you’re seeking won’t come in the form you’re expecting.|
 |item_hare_meat|Hare Meat|
 |item_hare_meat_cooked|Cooked Hare Meat|
 |item_hare_meat_cooked_description|Stringy but flavorful.|
@@ -1719,6 +1734,8 @@
 |item_staminause|Use stamina|
 |item_stone|Stone|
 |item_stone_description|It's a rock.|
+|item_stonerock|Rock|
+|item_stonerock_description|It's a stone.|
 |item_sulfurstone|Sulfur|
 |item_sulfurstone_description|Smells like rotten eggs.|
 |item_surtlingcore|Surtling Core|
@@ -4015,6 +4032,7 @@
 |tutorial_workbench_topic|You have built a workbench|
 |tutorial_yggroot_label|Hugin: Yggdrasil roots|
 |tutorial_yggroot_text|Kraa! Although severed from the trunk, I can see that magic still lingers in the roots of the old ash.<br><br>Needless to say, no weapon of your design will be able to break the bark. You need something better, fashioned by more capable hands.|
+|ui_hold|Hold|
 |wolf_statue|Fenris Shrine|
 |xbox_error_crossplayprivilege|Your platform privilege settings prevent you from playing on servers that allow crossplay with other platforms.|
 |xbox_menu_resolve_privilege|Resolve privilege issue?|

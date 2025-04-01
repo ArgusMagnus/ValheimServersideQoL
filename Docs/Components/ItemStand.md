@@ -9,7 +9,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
+|m_currentItemName|System.String||
 
 ## BossStone_DragonQueen: itemstand
 
@@ -18,7 +20,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
+|m_currentItemName|System.String||
 
 ## BossStone_Eikthyr: itemstand
 
@@ -27,7 +31,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
+|m_currentItemName|System.String||
 
 ## BossStone_Fader: itemstand
 
@@ -36,7 +42,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
+|m_currentItemName|System.String||
 
 ## BossStone_TheElder: itemstand
 
@@ -45,7 +53,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
+|m_currentItemName|System.String||
 
 ## BossStone_TheQueen: itemstand
 
@@ -54,7 +64,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
+|m_currentItemName|System.String||
 
 ## BossStone_Yagluth: itemstand
 
@@ -63,7 +75,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
+|m_currentItemName|System.String||
 
 ## dragoneggcup: dragoneggcup
 
@@ -72,7 +86,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$prop_eggcup|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|2|
+|m_currentItemName|System.String||
 
 ## fader_bellholder: fader_bellholder
 
@@ -81,7 +97,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$faderlocation_bellholder|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|2|
+|m_currentItemName|System.String||
 
 ## goblinking_totemholder: goblinking_totemholder
 
@@ -90,7 +108,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$prop_eggcup|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|True|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|2|
+|m_currentItemName|System.String||
 
 ## itemstand: itemstand
 
@@ -99,7 +119,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$piece_itemstand|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|False|
+|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|2|
+|m_currentItemName|System.String||
 
 ## itemstandh: itemstandh
 
@@ -108,5 +130,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$piece_itemstand|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|False|
+|m_horizontal|System.Boolean|True|
 |m_powerActivationDelay|System.Single|2|
+|m_currentItemName|System.String||
+
+## Placeable_HardRock: Placeable_HardRock
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String||
+|m_canBeRemoved|System.Boolean|True|
+|m_autoAttach|System.Boolean|False|
+|m_horizontal|System.Boolean|True|
+|m_powerActivationDelay|System.Single|2|
+|m_currentItemName|System.String||
 
