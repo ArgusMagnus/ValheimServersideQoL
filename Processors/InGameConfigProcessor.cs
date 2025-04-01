@@ -223,98 +223,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                         continue;
 
                     if (iIsEdge)
-                    {
-                        pos = offset with { y = yOffset };
-                        pos.x += x;
-                        pos.z += z;
-                        pos.y += 0.25f;
-                        float rot = i is 0 ? 90 : 270;
-                        pos.x += i is 0 ? -2f : 2f;
-                        PlacePiece(pos, _prefabWall, rot);
-                        pos.y += 2;
-                        PlacePiece(pos, _prefabWall, rot);
-
-                        if (entryEnumerator.MoveNext())
-                        {
-                            var entry = entryEnumerator.Current;
-                            rot -= 90;
-                            pos.x += i is 0 ? 0.25f : -0.25f;
-                            pos.y += 1.1f;
-                            PlacePiece(pos, _prefabSign, rot + 90)
-                                .Vars.SetText($"{SignFormatWhite}{entry.Definition.Key}");
-                            pos.y -= 0.6f;
-                            PlacePiece(pos, _prefabSign, rot + 90)
-                                .Vars.SetText($"{SignFormatWhite}{entry.Description.Description}");
-                            pos.y -= 1;
-                            var sign = PlacePiece(pos, _prefabSign, rot + 90);
-                            sign.Vars.SetText(GetSignText(entry));
-                            _configBySign.Add(sign.m_uid, entry);
-
-                            if (entry.SettingType == typeof(bool))
-                            {
-                                pos.y -= 0.55f;
-                                var candle = PlacePiece(pos, _prefabCandle, rot);
-                                candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
-                                candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
-                                _signsByCandle.Add(candle.m_uid, sign);
-                                pos.y += 0.55f;
-                            }
-
-                            pos.z -= 1;
-                            PlacePiece(pos, _prefabSconce, rot)
-                                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
-                            pos.z += 2;
-                            PlacePiece(pos, _prefabSconce, rot)
-                                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
-                        }
-                    }
+                        PlaceConfigWall(new(offset.x + x, yOffset + 0.25f, offset.z + z), false, i is 0, 90, entryEnumerator);
                     if (kIsEdge)
-                    {
-                        pos = offset with { y = yOffset };
-                        pos.x += x;
-                        pos.z += z;
-                        pos.y += 0.25f;
-                        float rot = k is 0 ? 0 : 180;
-                        pos.z += k is 0 ? -2f : 2f;
-                        PlacePiece(pos, _prefabWall, rot);
-                        pos.y += 2;
-                        PlacePiece(pos, _prefabWall, rot);
-
-                        if (entryEnumerator.MoveNext())
-                        {
-                            var entry = entryEnumerator.Current;
-
-                            rot -= 90;
-                            pos.z += k is 0 ? 0.25f : -0.25f;
-                            pos.y += 1.1f;
-                            PlacePiece(pos, _prefabSign, rot + 90)
-                                .Vars.SetText($"{SignFormatWhite}{entry.Definition.Key}");
-                            pos.y -= 0.6f;
-                            PlacePiece(pos, _prefabSign, rot + 90)
-                                .Vars.SetText($"{SignFormatWhite}{entry.Description.Description}");
-                            pos.y -= 1;
-                            var sign = PlacePiece(pos, _prefabSign, rot + 90);
-                            sign.Vars.SetText(GetSignText(entry));
-                            _configBySign.Add(sign.m_uid, entry);
-
-                            if (entry.SettingType == typeof(bool))
-                            {
-                                pos.y -= 0.55f;
-                                var candle = PlacePiece(pos, _prefabCandle, rot);
-                                candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
-                                candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
-                                _signsByCandle.Add(candle.m_uid, sign);
-                                pos.y += 0.55f;
-                            }
-
-                            pos.x -= 1;
-                            PlacePiece(pos, _prefabSconce, rot)
-                                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
-                            pos.x += 2;
-                            PlacePiece(pos, _prefabSconce, rot)
-                                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
-                        }
-                    }
+                        PlaceConfigWall(new(offset.x + x, yOffset + 0.25f, offset.z + z), true, k is 0, 0, entryEnumerator);
                 }
             }
 
@@ -334,6 +245,52 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         }
 
         ZDOMan.instance.ConvertPortals();
+    }
+
+    void PlaceConfigWall(Vector3 pos, bool alongX, bool isStart, float rot, IEnumerator<ConfigEntryBase> entryEnumerator)
+    {
+        ref var x = ref (alongX ? ref pos.x : ref pos.z);
+        ref var z = ref (alongX ? ref pos.z : ref pos.x);
+        rot += isStart ? 0 : 180;
+        z += isStart ? -2f : 2f;
+        PlacePiece(pos, _prefabWall, rot);
+        pos.y += 2;
+        PlacePiece(pos, _prefabWall, rot);
+
+        if (entryEnumerator.MoveNext())
+        {
+            var entry = entryEnumerator.Current;
+
+            rot -= 90;
+            z += isStart ? 0.25f : -0.25f;
+            pos.y += 1.1f;
+            PlacePiece(pos, _prefabSign, rot + 90)
+                .Vars.SetText($"{SignFormatWhite}{entry.Definition.Key}");
+            pos.y -= 0.6f;
+            PlacePiece(pos, _prefabSign, rot + 90)
+                .Vars.SetText($"{SignFormatWhite}{entry.Description.Description}");
+            pos.y -= 1;
+            var sign = PlacePiece(pos, _prefabSign, rot + 90);
+            sign.Vars.SetText(GetSignText(entry));
+            _configBySign.Add(sign.m_uid, entry);
+
+            if (entry.SettingType == typeof(bool))
+            {
+                pos.y -= 0.55f;
+                var candle = PlacePiece(pos, _prefabCandle, rot);
+                candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
+                candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
+                _signsByCandle.Add(candle.m_uid, sign);
+                pos.y += 0.55f;
+            }
+
+            x -= 1;
+            PlacePiece(pos, _prefabSconce, rot)
+                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+            x += 2;
+            PlacePiece(pos, _prefabSconce, rot)
+                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+        }
     }
 
     public override bool ClaimExclusive(ExtendedZDO zdo) => _configPieces.Contains(zdo.m_uid);
