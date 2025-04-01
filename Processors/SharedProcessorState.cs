@@ -69,7 +69,10 @@ static class SharedProcessorState
                 continue;
 
             foreach (var piece in table.m_pieces)
-                result.PieceTablesByName.Add(piece.name, table);
+            {
+                if (!result.PieceTablesByName.ContainsKey(piece.name))
+                    result.PieceTablesByName.Add(piece.name, table);
+            }
         }
         return result;
     }
