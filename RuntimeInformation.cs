@@ -1,9 +1,10 @@
 ﻿using BepInEx;
+using BepInEx.Bootstrap;
 using System.Reflection;
 
 namespace Valheim.ServersideQoL;
 
-sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, int ItemDataVersion, int WorldVersion, string LoadedMods, bool ExceptionWhenReadingLoadedMods)
+sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, int ItemDataVersion, int WorldVersion, string LoadedMods)
 {
     sealed record Mod(string GUID, string Name, string? Version);
 
@@ -21,33 +22,12 @@ sealed record RuntimeInformation(GameVersion GameVersion, uint NetworkVersion, i
         if (versionType.GetField("m_worldVersion")?.GetValue(null) is not int worldVersion)
             worldVersion = default;
 
-        var excpetionsCaught = false;
-        var loadedMods = new List<Mod>();
-        try
-        {
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-            {
-                try
-                {
-                    if (assembly == typeof(Main).Assembly || assembly.IsDynamic)
-                        continue;
-                    foreach (var type in assembly.GetTypes())
-                    {
-                        try
-                        {
-                            if (type.IsClass && !type.IsAbstract && type.IsSubclassOf(typeof(BaseUnityPlugin)) && type.GetCustomAttribute<BepInPlugin>() is { } plugin)
-                                loadedMods.Add(new(plugin.GUID, plugin.Name, $"{plugin.Version}"));
-                        }
-                        catch (Exception) { excpetionsCaught = true; }
-                    }
-                }
-                catch (Exception) { excpetionsCaught = true; }
-            }
-        }
-        catch (Exception) { excpetionsCaught = true; }
+        var mods = Chainloader.PluginInfos.Values
+            .Where(x => !ReferenceEquals(x.Instance, Main.Instance))
+            .Select(x => new Mod(x.Metadata.GUID, x.Metadata.Name, $"{x.Metadata.Version}"));
 
-        var loadedModsStr = $"{{ {string.Join(", ", loadedMods)} }}";
+        var modsStr = $"{{ {string.Join(", ", mods)} }}";
 
-        return new(gameVersion, networkVersion, itemDataVersion, worldVersion, loadedModsStr, excpetionsCaught);
+        return new(gameVersion, networkVersion, itemDataVersion, worldVersion, modsStr);
     }
 }
