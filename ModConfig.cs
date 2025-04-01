@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using System.Linq.Expressions;
 using System.Reflection;
 using Valheim.ServersideQoL.Processors;
 
@@ -137,7 +138,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> DisableRainDamage { get; } = cfg.Bind(section, nameof(DisableRainDamage), false, "True to prevent rain from damaging build pieces");
 
         public ConfigEntry<DisableSupportRequirementsOptions> DisableSupportRequirements { get; } = cfg.Bind(section, nameof(DisableSupportRequirements), DisableSupportRequirementsOptions.None,
-            "Ignore support requirements on build pieces");
+            new ConfigDescription("Ignore support requirements on build pieces", new AcceptableEnum<DisableSupportRequirementsOptions>()));
 
         [Flags]
         public enum DisableSupportRequirementsOptions
@@ -152,29 +153,29 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> SetPresetFromConfig { get; } = cfg.Bind(section, nameof(SetPresetFromConfig), false,
             $"True to set the world preset according to the '{nameof(Preset)}' config entry");
-        public ConfigEntry<string> Preset { get; } = GetPreset(cfg, section);
+        public ConfigEntry<WorldPresets> Preset { get; } = GetPreset(cfg, section);
 
         public ConfigEntry<bool> SetModifiersFromConfig { get; } = cfg.Bind(section, nameof(SetModifiersFromConfig), false,
             "True to set world modifiers according to the following configuration entries");
-        public IReadOnlyDictionary<string, ConfigEntry<string>> Modifiers { get; } = GetModifiers(cfg, section);
+        public IReadOnlyDictionary<WorldModifiers, ConfigEntry<WorldModifierOption>> Modifiers { get; } = GetModifiers(cfg, section);
 
-        static ConfigEntry<string> GetPreset(ConfigFile cfg, string section)
+        static ConfigEntry<WorldPresets> GetPreset(ConfigFile cfg, string section)
         {
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
             var presets = PrivateAccessor.GetServerOptionsGUIPresets();
-            return cfg.Bind(section, nameof(Preset), $"{WorldPresets.Default}", new ConfigDescription($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect",
-                new AcceptableValueList<string>([.. presets.Select(x => $"{x.m_preset}")])));
+            return cfg.Bind(section, nameof(Preset), WorldPresets.Default, new ConfigDescription($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect",
+                new AcceptableEnum<WorldPresets>([.. presets.Select(x => x.m_preset)])));
         }
 
-        static IReadOnlyDictionary<string, ConfigEntry<string>> GetModifiers(ConfigFile cfg, string section)
+        static IReadOnlyDictionary<WorldModifiers, ConfigEntry<WorldModifierOption>> GetModifiers(ConfigFile cfg, string section)
         {
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldModifiers, WorldModifierOption)"/>
             var modifiers = PrivateAccessor.GetServerOptionsGUIModifiers()
                 .OfType<KeySlider>()
-                .Select(keySlider => cfg.Bind(section, $"{keySlider.m_modifier}", $"{WorldModifierOption.Default}",
+                .Select(keySlider => (Key: keySlider.m_modifier, Cfg: cfg.Bind(section, $"{keySlider.m_modifier}", WorldModifierOption.Default,
                     new ConfigDescription($"World modifier '{keySlider.m_modifier}'. Enable '{nameof(SetModifiersFromConfig)}' for this to have an effect",
-                        new AcceptableValueList<string>([.. keySlider.m_settings.Select(x => $"{x.m_modifierValue}")]))))
-                .ToDictionary(x => x.Definition.Key);
+                        new AcceptableEnum<WorldModifierOption>([.. keySlider.m_settings.Select(x => x.m_modifierValue)])))))
+                .ToDictionary(x => x.Key, x => x.Cfg);
             return modifiers;
         }
     }
@@ -325,5 +326,64 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> DisableFriendlyFire { get; } = cfg.Bind(section, nameof(DisableFriendlyFire), false, "True to stop traps from damaging players and tames");
         public ConfigEntry<float> SelfDamageMultiplier { get; } = cfg.Bind(section, nameof(SelfDamageMultiplier), 1f,
             new ConfigDescription("Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+    }
+
+    sealed class AcceptableEnum<T> : AcceptableValueBase
+        where T : unmanaged, Enum
+    {
+        static readonly bool __isBitSet = typeof(T).GetCustomAttribute<FlagsAttribute>() is not null;
+        static readonly Func<T, ulong> __castToUlong = Expression.Lambda<Func<T, ulong>>(
+            Expression.Convert(Expression.Parameter(typeof(T)) is var par ? par : throw new Exception(), typeof(ulong)), par).Compile();
+        static readonly Func<ulong, T> __castToEnum = Expression.Lambda<Func<ulong, T>>(
+            Expression.Convert(Expression.Parameter(typeof(ulong)) is var par ? par : throw new Exception(), typeof(T)), par).Compile();
+
+        readonly IReadOnlyList<T> _values;
+        readonly T _default;
+
+        public AcceptableEnum()
+            : this((T[])Enum.GetValues(typeof(T))) { }
+
+        public AcceptableEnum(IReadOnlyList<T> values)
+            : base (typeof(T))
+        {
+            _values = values;
+            if (__isBitSet)
+                _default = default;
+            else
+                _default = _values.FirstOrDefault();
+        }
+
+        public override object Clamp(object value)
+        {
+            if (value is not T e)
+                return _default;
+
+            if (__isBitSet)
+            {
+                var val = __castToUlong(e);
+                ulong result = 0;
+                foreach (var flag in _values.Select(x => __castToUlong(x)).Where(x => (val & x) == x))
+                    result |= flag;
+                return __castToEnum(result);
+            }
+            else if (!_values.Any(x => x.Equals(e)))
+            {
+                return _default;
+            }
+            return e;
+        }
+
+        public override bool IsValid(object value)
+        {
+            return Equals(value, Clamp(value));
+        }
+
+        public override string ToDescriptionString()
+        {
+            if (__isBitSet)
+                return $"# Acceptable values: {_default} or combination of {string.Join(", ", _values.Where(x => !x.Equals(_default)))}";
+            else
+                return $"# Acceptable values: {string.Join(", ", _values)}";
+        }
     }
 }

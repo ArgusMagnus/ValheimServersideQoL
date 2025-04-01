@@ -1,10 +1,14 @@
+### v0.2.8
+- Fix initialization issue [#21](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/21)
+- Tweaks to in-world config room
+
 ### v0.2.7
 - **BREAKING CHANGE**: split `Global Keys` config section into 2 separate sections for world preset/modifiers and global keys
 - New feature: in-world config room: A generated room that allows admins to make changes to this mods config by editing signs
-- Fix for Exception on load [[19]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/19)
+- Fix for Exception on load [#19](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/19)
 
 ### v0.2.6
-- Fix for `NotSupportedException` on load [[19]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/19)
+- Fix for `NotSupportedException` on load [#19](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/19)
 
 ### v0.2.5
 - New features:
@@ -23,13 +27,13 @@
 - Changed container sorting algorithm to first try filling whole rows/columns with one item type
 
 ### v0.2.3
-- Fix boats getting destroyed [[8]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/8)
-- Fix for infinite stamina related issues [[4]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/4)
+- Fix boats getting destroyed [#8](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/8)
+- Fix for infinite stamina related issues [#4](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/4)
 
 ### v0.2.2
-- Change default config: disable all features by default [[7]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/7)
-- Potential fix for infinite stamina related issues [[4]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/4)
-- Fix certain build pieces getting duplicated [[9]](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/9)
+- Change default config: disable all features by default [#7](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/7)
+- Potential fix for infinite stamina related issues [#4](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/4)
+- Fix certain build pieces getting duplicated [#9](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/9)
 
 ### v0.2.1
 - New icon

@@ -15,7 +15,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly int _prefabGuardStone = "dverger_guardstone".GetStableHashCode(); //"guard_stone".GetStableHashCode();
     readonly int _prefabSign = "sign".GetStableHashCode();
     readonly int _prefabCandle = "Candle_resin".GetStableHashCode();
-    const string SignFormatPrefix = "<color=white>";
+    const string SignFormatWhite = "<color=white>";
+    const string SignFormatGreen = "<color=green>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
 
     readonly HashSet<ZDOID> _configPieces = new();
@@ -23,6 +24,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly Dictionary<ZDOID, ExtendedZDO> _signsByCandle = new();
     readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
     readonly Vector3 _worldSpawn = ZoneSystem.instance.m_locationInstances.Values.FirstOrDefault(x => x.m_location.m_prefabName is "StartTemple").m_position;
+
+    static string GetSignText(ConfigEntryBase entry) => $"<color={(Equals(entry.BoxedValue, entry.DefaultValue) ? "white" : "green")}>{entry.BoxedValue}";
 
     public override void Initialize()
     {
@@ -120,6 +123,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 if (sectionEnumerator.MoveNext())
                 {
                     var section = Regex.Replace(sectionEnumerator.Current.Key, @"^[A-Z] - ", "");
+                    var hasNonDefault = sectionEnumerator.Current.Any(x => !Equals(x.BoxedValue, x.DefaultValue));
                     var zdo = PlacePiece(pos, _prefabPortal, rot);
                     zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
                     zdo.Vars.SetTag($"Config: {section}");
@@ -135,7 +139,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                         pos.x += i is 0 ? -0.25f : 0.25f;
                     pos.y += 2;
                     PlacePiece(pos, _prefabSign, rot)
-                        .Vars.SetText($"{SignFormatPrefix}{section}");
+                        .Vars.SetText($"{(hasNonDefault ? SignFormatGreen : SignFormatWhite)}{section}");
                 }
 
                 if (iIsEdge)
@@ -237,13 +241,13 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                             pos.x += i is 0 ? 0.25f : -0.25f;
                             pos.y += 1.1f;
                             PlacePiece(pos, _prefabSign, rot + 90)
-                                .Vars.SetText($"{SignFormatPrefix}{entry.Definition.Key}");
+                                .Vars.SetText($"{SignFormatWhite}{entry.Definition.Key}");
                             pos.y -= 0.6f;
                             PlacePiece(pos, _prefabSign, rot + 90)
-                                .Vars.SetText($"{SignFormatPrefix}{entry.Description.Description}");
+                                .Vars.SetText($"{SignFormatWhite}{entry.Description.Description}");
                             pos.y -= 1;
                             var sign = PlacePiece(pos, _prefabSign, rot + 90);
-                            sign.Vars.SetText($"{SignFormatPrefix}{entry.BoxedValue}");
+                            sign.Vars.SetText(GetSignText(entry));
                             _configBySign.Add(sign.m_uid, entry);
 
                             if (entry.SettingType == typeof(bool))
@@ -284,13 +288,13 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                             pos.z += k is 0 ? 0.25f : -0.25f;
                             pos.y += 1.1f;
                             PlacePiece(pos, _prefabSign, rot + 90)
-                                .Vars.SetText($"{SignFormatPrefix}{entry.Definition.Key}");
+                                .Vars.SetText($"{SignFormatWhite}{entry.Definition.Key}");
                             pos.y -= 0.6f;
                             PlacePiece(pos, _prefabSign, rot + 90)
-                                .Vars.SetText($"{SignFormatPrefix}{entry.Description.Description}");
+                                .Vars.SetText($"{SignFormatWhite}{entry.Description.Description}");
                             pos.y -= 1;
                             var sign = PlacePiece(pos, _prefabSign, rot + 90);
-                            sign.Vars.SetText($"{SignFormatPrefix}{entry.BoxedValue}");
+                            sign.Vars.SetText(GetSignText(entry));
                             _configBySign.Add(sign.m_uid, entry);
 
                             if (entry.SettingType == typeof(bool))
@@ -382,15 +386,13 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         if (zdo.PrefabInfo.Fireplace is not null && _signsByCandle.TryGetValue(zdo.m_uid, out var signZdo))
         {
             var state = zdo.Vars.GetState();
-            signZdo.Vars.SetText($"{SignFormatPrefix}{(state is 1 ? bool.TrueString : bool.FalseString)}");
+            signZdo.Vars.SetText(state is 1 ? bool.TrueString : bool.FalseString);
             return true;
         }
         
         if (zdo.PrefabInfo.Sign is not null && _configBySign.TryGetValue(zdo.m_uid, out var config))
         {
-            var text = zdo.Vars.GetText();
-            if (text.StartsWith(SignFormatPrefix))
-                text = text.Substring(SignFormatPrefix.Length);
+            var text = zdo.Vars.GetText().RemoveRichTextTags();
 
             try { config.BoxedValue = TomlTypeConverter.ConvertToValue(text, config.SettingType); }
             catch (Exception)
@@ -398,7 +400,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 RPC.ShowMessage(peers.Where(x => _isAdmin.TryGetValue(x.m_characterID, out var y) && y.IsAdmin),
                     MessageHud.MessageType.Center, "$invalid_keybind_header");
             }
-            zdo.Vars.SetText($"{SignFormatPrefix}{config.BoxedValue}");
+            zdo.Vars.SetText(GetSignText(config));
             return true;
         }
 
