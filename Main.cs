@@ -60,6 +60,8 @@ public sealed partial class Main : BaseUnityPlugin
 
     void Awake()
     {
+        if (PluginVersion != PluginInformationalVersion)
+            Logger.LogWarning($"You are running a pre-release version: {PluginInformationalVersion}");
         HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
     }
 

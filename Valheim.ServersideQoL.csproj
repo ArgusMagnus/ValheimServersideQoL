@@ -7,9 +7,13 @@
     <LangVersion>latest</LangVersion>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
+	<MinVerTagPrefix>v</MinVerTagPrefix>
     <ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
-    <Version>0.0.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="MinVer" Version="6.0.0" PrivateAssets="All" />
+  </ItemGroup>
 
   <ItemGroup>
     <RequiredReference Include="assembly_utils">
@@ -107,13 +111,15 @@
 
   <Target Name="GenerateBuildInfo" BeforeTargets="CoreCompile">
     <PropertyGroup>
+	  <VersionNumber>$(Version.Split('-')[0])</VersionNumber>
       <BuildInfoFile>$(IntermediateOutputPath)BuildInfo.cs</BuildInfoFile>
       <MyTextLines>
 namespace $(RootNamespace)%3B
 
 partial class Main
 {
-    const string PluginVersion = "$(Version)"%3B
+    const string PluginVersion = "$(VersionNumber)"%3B
+    internal const string PluginInformationalVersion = "$(Version)"%3B
 #if DEBUG
     const string ConfigMarkdownPath = @"$(ProjectDir)Configuration.md"%3B
 #endif
@@ -138,7 +144,7 @@ partial class Main
 
   <Target Name="CreatePackage" AfterTargets="AfterBuild">	
 	<Exec Command="powershell -ExecutionPolicy ByPass -Command &quot;Add-Content -LiteralPath '$(OutDir)README.md' -Encoding UTF8 -Value (Get-Content Configuration.md -Encoding UTF8)&quot;" />	  
-    <Exec Command="powershell -ExecutionPolicy ByPass -File Update-Manifest.ps1 -Path $(OutDir)manifest.json -Version $(Version)" />
+    <Exec Command="powershell -ExecutionPolicy ByPass -File Update-Manifest.ps1 -Path $(OutDir)manifest.json -Version $(Version) -VersionNumber $(VersionNumber)" />
     <ZipDirectory SourceDirectory="$(OutDir)" DestinationFile="$(OutDir)..\$(TargetName).zip" Overwrite="true" />
   </Target>
 
