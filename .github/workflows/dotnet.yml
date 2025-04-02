@@ -40,10 +40,11 @@ jobs:
     #   run: dotnet test --no-build --verbosity normal
 
     - name: Upload build artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Valheim.ServersideQoL-v${{ env.VERSION }}.zip
         path: ./output/Valheim.ServersideQoL.zip
+        compression-level: 0
           
   publish:
 
