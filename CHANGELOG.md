@@ -1,3 +1,6 @@
+### v0.2.9
+- Fix config initialization issue [#22](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/22)
+- 
 ### v0.2.8
 - Fix initialization issue [#21](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/21)
 - Tweaks to in-world config room
