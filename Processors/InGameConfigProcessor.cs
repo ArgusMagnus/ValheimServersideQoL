@@ -1,8 +1,11 @@
 ﻿using BepInEx.Configuration;
 using BepInEx.Logging;
 using System.Collections.Concurrent;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using Color = System.Drawing.Color;
+using IEnumerable = System.Collections.IEnumerable;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -16,7 +19,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly int _prefabSign = "sign".GetStableHashCode();
     readonly int _prefabCandle = "Candle_resin".GetStableHashCode();
     const string SignFormatWhite = "<color=white>";
-    const string SignFormatGreen = "<color=green>";
+    const string SignFormatGreen = "<color=#00FF00>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
 
     readonly HashSet<ZDOID> _configPieces = new();
@@ -25,7 +28,10 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
     readonly Vector3 _worldSpawn = ZoneSystem.instance.m_locationInstances.Values.FirstOrDefault(x => x.m_location.m_prefabName is "StartTemple").m_position;
 
-    static string GetSignText(ConfigEntryBase entry) => $"<color={(Equals(entry.BoxedValue, entry.DefaultValue) ? "white" : "green")}>{entry.BoxedValue}";
+    static string GetSignText(object value, Type type, Color c)
+        => Invariant($"<color=#{c.R:X2}{c.G:X2}{c.B:X2}>{TomlTypeConverter.ConvertToString(value, type)}");
+    static string GetSignText(ConfigEntryBase entry, Color? color = null)
+        => GetSignText(entry.BoxedValue, entry.SettingType, color ?? (Equals(entry.BoxedValue, entry.DefaultValue) ? Color.White : Color.FromArgb(0, 255, 0)));
 
     public override void Initialize()
     {
@@ -263,33 +269,86 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
             rot -= 90;
             z += isStart ? 0.25f : -0.25f;
-            pos.y += 1.1f;
+            pos.y += 1.1f + 0.25f;
             PlacePiece(pos, _prefabSign, rot + 90)
                 .Vars.SetText($"{SignFormatWhite}{entry.Definition.Key}");
             pos.y -= 0.6f;
             PlacePiece(pos, _prefabSign, rot + 90)
                 .Vars.SetText($"{SignFormatWhite}{entry.Description.Description}");
-            pos.y -= 1;
-            var sign = PlacePiece(pos, _prefabSign, rot + 90);
-            sign.Vars.SetText(GetSignText(entry));
-            _configBySign.Add(sign.m_uid, entry);
 
-            if (entry.SettingType == typeof(bool))
-            {
-                pos.y -= 0.55f;
-                var candle = PlacePiece(pos, _prefabCandle, rot);
-                candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
-                candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
-                _signsByCandle.Add(candle.m_uid, sign);
-                pos.y += 0.55f;
-            }
 
+            pos.y -= 0.25f;
             x -= 1;
             PlacePiece(pos, _prefabSconce, rot)
                 .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
             x += 2;
             PlacePiece(pos, _prefabSconce, rot)
                 .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+            x -= 1;
+            pos.y += 0.25f;
+
+            pos.y -= 1;
+
+            IReadOnlyList<object>? values = null;
+            if (entry.Description.AcceptableValues?.GetType() is { IsConstructedGenericType: true } acceptableValuesType)
+            {
+                var genericDef = acceptableValuesType.GetGenericTypeDefinition();
+                if (genericDef == typeof(AcceptableValueList<>))
+                {
+                    values = [.. (IEnumerable)acceptableValuesType.GetProperty(nameof(AcceptableValueList<int>.AcceptableValues), BindingFlags.Public | BindingFlags.Instance)
+                        .GetValue(entry.Description.AcceptableValues)];
+                }
+                else if (genericDef == typeof(ModConfig.AcceptableEnum<>))
+                {
+                    values = [.. (IEnumerable)acceptableValuesType.GetProperty(nameof(ModConfig.AcceptableEnum<WorldPresets>.AcceptableValues), BindingFlags.Public | BindingFlags.Instance)
+                        .GetValue(entry.Description.AcceptableValues)];
+                }
+            }
+
+            if (values is { Count: > 0 and <= 8 })
+            {
+                var cols = Math.Max(2, (values.Count + 1) / 2);
+                var dx = 1f; // 4f / cols;
+                var initialX = x - (dx * (cols - 1) / 2);
+                pos.y += 1;
+                for (int i = 0; i < values.Count; i++)
+                {
+                    if ((i % cols) is 0)
+                    {
+                        x = initialX;
+                        pos.y -= 1;
+                    }
+
+                    var sign = PlacePiece(pos, _prefabSign, rot + 90);
+                    sign.Vars.SetText(GetSignText(values[i], entry.SettingType, Color.Silver));
+                    //_configBySign.Add(sign.m_uid, entry);
+
+                    pos.y -= 0.55f;
+                    var candle = PlacePiece(pos, _prefabCandle, rot);
+                    candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
+                    //candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
+                    //_signsByCandle.Add(candle.m_uid, sign);
+                    pos.y += 0.55f;
+
+                    x += dx;
+                }
+            }
+            else
+            {
+                var sign = PlacePiece(pos, _prefabSign, rot + 90);
+                sign.Vars.SetText(GetSignText(entry));
+                _configBySign.Add(sign.m_uid, entry);
+
+                if (entry.SettingType == typeof(bool))
+                {
+                    pos.y -= 0.55f;
+                    var candle = PlacePiece(pos, _prefabCandle, rot);
+                    candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
+                    candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
+                    _signsByCandle.Add(candle.m_uid, sign);
+                    pos.y += 0.55f;
+                }
+            }
         }
     }
 
@@ -343,7 +402,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         if (zdo.PrefabInfo.Fireplace is not null && _signsByCandle.TryGetValue(zdo.m_uid, out var signZdo))
         {
             var state = zdo.Vars.GetState();
-            signZdo.Vars.SetText(state is 1 ? bool.TrueString : bool.FalseString);
+            signZdo.Vars.SetText(TomlTypeConverter.ConvertToString(state is 1, typeof(bool)));
             return true;
         }
         
