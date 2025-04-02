@@ -56,8 +56,11 @@ jobs:
         dotnet build -c Release -o ./publish/bin
         $manifest = Get-Content -LiteralPath ./publish/bin/manifest.json -Raw | ConvertFrom-Json
         $isPrerelease = $manifest.version -ne $version_number
-        if (!$isPrerelease) {
-          Add-Content -Path $env:GITHUB_ENV -Value "TAG=v$($manifest.version)" -Encoding UTF8
+        if ($isPrerelease) {
+          Add-Content -Path $env:GITHUB_ENV -Value "TAG=${{ github.sha }}" -Encoding UTF8
+        }
+        else {
+          Add-Content -Path $env:GITHUB_ENV -Value "TAG=${{ github.ref }}" -Encoding UTF8
         }
         Add-Content -Path $env:GITHUB_ENV -Value "VERSION=$($manifest.version)" -Encoding UTF8
         Add-Content -Path $env:GITHUB_ENV -Value "PRERELEASE=$isPrerelease" -Encoding UTF8
