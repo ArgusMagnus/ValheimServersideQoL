@@ -264,7 +264,7 @@ sealed class ModConfig(ConfigFile cfg)
                     originalValue *= multiplier;
 
                     AcceptableValueBase? range = null;
-                    if (min > float.MinValue && max < float.MaxValue)
+                    if (min > float.MinValue && max < float.MaxValue && min < max)
                         range = (AcceptableValueBase)Activator.CreateInstance(typeof(AcceptableValueRange<>).MakeGenericType(field.FieldType), Convert.ChangeType(min, field.FieldType), Convert.ChangeType(max, field.FieldType));
                     var desc = new ConfigDescription($"Sets the value for the '{name}' global key. Enable '{nameof(SetGlobalKeysFromConfig)}' for this to have an effect", range);
                     bindDefinition ??= new Func<string, string, bool, ConfigDescription, ConfigEntry<bool>>(cfg.Bind).Method.GetGenericMethodDefinition();
