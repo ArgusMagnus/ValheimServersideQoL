@@ -55,7 +55,12 @@ jobs:
       run: |
         dotnet build -c Release -o ./publish/bin
         $manifest = Get-Content -LiteralPath ./publish/bin/manifest.json -Raw | ConvertFrom-Json
+        $isPrerelease = $manifest.version -ne $version_number
+        if (!$isPrerelease) {
+          Add-Content -Path $env:GITHUB_ENV -Value "TAG=v$($manifest.version)" -Encoding UTF8
+        }
         Add-Content -Path $env:GITHUB_ENV -Value "VERSION=$($manifest.version)" -Encoding UTF8
+        Add-Content -Path $env:GITHUB_ENV -Value "PRERELEASE=$isPrerelease" -Encoding UTF8
         Add-Content -Path $env:GITHUB_ENV -Value "MOD_NAME=$($manifest.name)" -Encoding UTF8
         Add-Content -Path $env:GITHUB_ENV -Value "MOD_DESC=$($manifest.description)" -Encoding UTF8
     - name: Create Release
@@ -64,10 +69,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ env.TAG }}
+        release_name: Release v${{ env.VERSION }}
         draft: false
-        prerelease: false
+        prerelease: {{ env.PRERELEASE }}
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1.0.1
