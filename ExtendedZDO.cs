@@ -151,8 +151,8 @@ sealed class ExtendedZDO : ZDO
         public void SetRightItem(int value) => _zdo.Set(ZDOVars.s_rightItem, value);
         public string GetText(string defaultValue = "") => _zdo.GetString(ZDOVars.s_text, defaultValue);
         public void SetText(string value) => _zdo.Set(ZDOVars.s_text, value);
-        public string GetItem(int idx, string defaultValue = "") => _zdo.GetString(FormattableString.Invariant($"item{idx}"), defaultValue);
-        public void SetItem(int idx, string value) => _zdo.Set(FormattableString.Invariant($"item{idx}"), value);
+        public string GetItem(int idx, string defaultValue = "") => _zdo.GetString(Invariant($"item{idx}"), defaultValue);
+        public void SetItem(int idx, string value) => _zdo.Set(Invariant($"item{idx}"), value);
         public int GetQueued(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_queued, defaultValue);
         public void SetQueued(int value) => _zdo.Set(ZDOVars.s_queued, value);
         public bool GetTamed(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_tamed, defaultValue);
@@ -209,7 +209,7 @@ sealed class ExtendedZDO : ZDO
         readonly TComponent _component = component;
         bool? _hasComponentFields;
 
-        static readonly int __hasComponentFieldsHash = $"{ZNetView.CustomFieldsStr}{typeof(TComponent).Name}".GetStableHashCode();
+        static readonly int __hasComponentFieldsHash = Invariant($"{ZNetView.CustomFieldsStr}{typeof(TComponent).Name}").GetStableHashCode();
         bool HasFields => _zdo.HasFields && (_hasComponentFields ??= _zdo.GetBool(__hasComponentFieldsHash));
         void SetHasFields(bool value)
         {
@@ -224,7 +224,7 @@ sealed class ExtendedZDO : ZDO
         {
             var body = (MemberExpression)fieldExpression.Body;
             field = (FieldInfo)body.Member;
-            return $"{typeof(TComponent).Name}.{field.Name}".GetStableHashCode();
+            return Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode();
         }
 
         T Get<T>(Expression<Func<TComponent, T>> fieldExpression, Func<ZDO, int, T?, T> getter)
@@ -234,7 +234,7 @@ sealed class ExtendedZDO : ZDO
             if (!HasFields)
                 return (T)field.GetValue(_component);
 
-            var hash = $"{typeof(TComponent).Name}.{field.Name}".GetStableHashCode();
+            var hash = Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode();
             return getter(_zdo, hash, (T)field.GetValue(_component));
         }
 

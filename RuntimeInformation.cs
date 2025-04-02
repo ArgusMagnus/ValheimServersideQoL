@@ -24,9 +24,9 @@ sealed record RuntimeInformation(string ModVersion, GameVersion GameVersion, uin
 
         var mods = Chainloader.PluginInfos.Values
             .Where(x => !ReferenceEquals(x.Instance, Main.Instance))
-            .Select(x => new Mod(x.Metadata.GUID, x.Metadata.Name, $"{x.Metadata.Version}"));
+            .Select(x => new Mod(x.Metadata.GUID, x.Metadata.Name, Invariant($"{x.Metadata.Version}")));
 
-        var modsStr = $"{{ {string.Join(", ", mods)} }}";
+        var modsStr = Invariant($"{{ {string.Join(", ", mods)} }}");
 
         return new(Main.PluginInformationalVersion, gameVersion, networkVersion, itemDataVersion, worldVersion, modsStr);
     }

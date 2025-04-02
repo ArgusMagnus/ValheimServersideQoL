@@ -46,7 +46,8 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class SignsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), false, $"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time");
+        public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), false,
+            Invariant($"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time"));
     }
 
     public sealed class MapTableConfig(ConfigFile cfg, string section)
@@ -89,7 +90,7 @@ sealed class ModConfig(ConfigFile cfg)
             .Select(x => (Name: x.name, Container: x.GetComponent<Container>() ?? x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
             .Where(x => x is { Container: not null, Piece: not null })
             .ToDictionary(x => x.Name.GetStableHashCode(), x => cfg
-                .Bind(section, $"InventorySize_{x.Name}", $"{x.Container.m_width}x{x.Container.m_height}", $"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'"));
+                .Bind(section, Invariant($"InventorySize_{x.Name}"), Invariant($"{x.Container.m_width}x{x.Container.m_height}"), Invariant($"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'")));
     }
 
     public sealed class SmeltersConfig(ConfigFile cfg, string section)
@@ -114,15 +115,15 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class DoorsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), float.NaN,
-            $"Min distance all players must have to the door before it is closed. {float.NaN} to disable this feature");
+            Invariant($"Min distance all players must have to the door before it is closed. {float.NaN} to disable this feature"));
     }
 
     public sealed class PlayersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> InfiniteBuildingStamina { get; } = cfg.Bind(section, nameof(InfiniteBuildingStamina), false,
-            $"True to give players infinite stamina when building. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0");
+            Invariant($"True to give players infinite stamina when building. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
         public ConfigEntry<bool> InfiniteFarmingStamina { get; } = cfg.Bind(section, nameof(InfiniteFarmingStamina), false,
-            $"True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0");
+            Invariant($"True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
     }
 
     public sealed class TurretsConfig(ConfigFile cfg, string section)
@@ -152,7 +153,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> SetPresetFromConfig { get; } = cfg.Bind(section, nameof(SetPresetFromConfig), false,
-            $"True to set the world preset according to the '{nameof(Preset)}' config entry");
+            Invariant($"True to set the world preset according to the '{nameof(Preset)}' config entry"));
         public ConfigEntry<WorldPresets> Preset { get; } = GetPreset(cfg, section);
 
         public ConfigEntry<bool> SetModifiersFromConfig { get; } = cfg.Bind(section, nameof(SetModifiersFromConfig), false,
@@ -163,7 +164,7 @@ sealed class ModConfig(ConfigFile cfg)
         {
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
             var presets = PrivateAccessor.GetServerOptionsGUIPresets();
-            return cfg.Bind(section, nameof(Preset), WorldPresets.Default, new ConfigDescription($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect",
+            return cfg.Bind(section, nameof(Preset), WorldPresets.Default, new ConfigDescription(Invariant($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect"),
                 new AcceptableEnum<WorldPresets>([.. presets.Select(x => x.m_preset)])));
         }
 
@@ -172,8 +173,8 @@ sealed class ModConfig(ConfigFile cfg)
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldModifiers, WorldModifierOption)"/>
             var modifiers = PrivateAccessor.GetServerOptionsGUIModifiers()
                 .OfType<KeySlider>()
-                .Select(keySlider => (Key: keySlider.m_modifier, Cfg: cfg.Bind(section, $"{keySlider.m_modifier}", WorldModifierOption.Default,
-                    new ConfigDescription($"World modifier '{keySlider.m_modifier}'. Enable '{nameof(SetModifiersFromConfig)}' for this to have an effect",
+                .Select(keySlider => (Key: keySlider.m_modifier, Cfg: cfg.Bind(section, Invariant($"{keySlider.m_modifier}"), WorldModifierOption.Default,
+                    new ConfigDescription(Invariant($"World modifier '{keySlider.m_modifier}'. Enable '{nameof(SetModifiersFromConfig)}' for this to have an effect"),
                         new AcceptableEnum<WorldModifierOption>([.. keySlider.m_settings.Select(x => x.m_modifierValue)])))))
                 .ToDictionary(x => x.Key, x => x.Cfg);
             return modifiers;
@@ -187,7 +188,7 @@ sealed class ModConfig(ConfigFile cfg)
         public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs { get; } = GetGlobalKeyEntries(cfg, section);
 
         public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
-            $"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional");
+            Invariant($"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional"));
 
         static IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> GetGlobalKeyEntries(ConfigFile cfg, string section)
         {
@@ -232,7 +233,7 @@ sealed class ModConfig(ConfigFile cfg)
                 foreach (var testValue in testValues)
                 {
                     keyTestValues.Clear();
-                    keyTestValues.Add(nameLower, FormattableString.Invariant($"{testValue}"));
+                    keyTestValues.Add(nameLower, Invariant($"{testValue}"));
                     try { Game.UpdateWorldRates(keys, keyTestValues); }
                     catch (NullReferenceException) { } /// expect in <see cref="Game.UpdateNoMap"/>
                     double value = double.NaN;
@@ -266,14 +267,14 @@ sealed class ModConfig(ConfigFile cfg)
                     AcceptableValueBase? range = null;
                     if (min > float.MinValue && max < float.MaxValue && min < max)
                         range = (AcceptableValueBase)Activator.CreateInstance(typeof(AcceptableValueRange<>).MakeGenericType(field.FieldType), Convert.ChangeType(min, field.FieldType), Convert.ChangeType(max, field.FieldType));
-                    var desc = new ConfigDescription($"Sets the value for the '{name}' global key. Enable '{nameof(SetGlobalKeysFromConfig)}' for this to have an effect", range);
+                    var desc = new ConfigDescription(Invariant($"Sets the value for the '{name}' global key. Enable '{nameof(SetGlobalKeysFromConfig)}' for this to have an effect"), range);
                     bindDefinition ??= new Func<string, string, bool, ConfigDescription, ConfigEntry<bool>>(cfg.Bind).Method.GetGenericMethodDefinition();
                     var entry = (ConfigEntryBase)bindDefinition.MakeGenericMethod(field.FieldType).Invoke(cfg, [section, name, Convert.ChangeType(originalValue, field.FieldType), desc]);
                     result.Add(key, entry);
                 }
                 else
                 {
-                    result.Add(key, cfg.Bind(section, name, false, $"True to set the '{name}' global key"));
+                    result.Add(key, cfg.Bind(section, name, false, Invariant($"True to set the '{name}' global key")));
                 }
 
                 field?.SetValue(null, orignalValueObject);
@@ -295,8 +296,8 @@ sealed class ModConfig(ConfigFile cfg)
             return ZNetScene.instance.m_prefabs.Select(x => x.GetComponent<Trader>()).Where(x => x is not null)
                 .Select(trader => (Trader: trader, Entries: (IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>)trader.m_items
                     .Where(x => !string.IsNullOrEmpty(x.m_requiredGlobalKey))
-                    .Select(item => (item.m_requiredGlobalKey, cfg.Bind(section, $"{nameof(AlwaysUnlock)}{trader.name}{item.m_prefab.name}", false,
-                        $"Remove the progression requirements for buying {Localization.instance.Localize(item.m_prefab.m_itemData.m_shared.m_name)} from {Localization.instance.Localize(trader.m_name)}")))
+                    .Select(item => (item.m_requiredGlobalKey, cfg.Bind(section, Invariant($"{nameof(AlwaysUnlock)}{trader.name}{item.m_prefab.name}"), false,
+                        Invariant($"Remove the progression requirements for buying {Localization.instance.Localize(item.m_prefab.m_itemData.m_shared.m_name)} from {Localization.instance.Localize(trader.m_name)}"))))
                     .ToList()))
                 .Where(x => x.Entries.Any())
                 .ToDictionary(x => x.Trader, x => x.Entries);
@@ -381,9 +382,9 @@ sealed class ModConfig(ConfigFile cfg)
         public override string ToDescriptionString()
         {
             if (__isBitSet)
-                return $"# Acceptable values: {_default} or combination of {string.Join(", ", _values.Where(x => !x.Equals(_default)))}";
+                return Invariant($"# Acceptable values: {_default} or combination of {string.Join(", ", _values.Where(x => !x.Equals(_default)))}");
             else
-                return $"# Acceptable values: {string.Join(", ", _values)}";
+                return Invariant($"# Acceptable values: {string.Join(", ", _values)}");
         }
     }
 }

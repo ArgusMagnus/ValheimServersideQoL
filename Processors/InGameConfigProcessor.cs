@@ -42,7 +42,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
         if (_worldSpawn == default)
         {
-            Logger.LogWarning($"StartTemple not found, skipping generation of config room");
+            Logger.LogWarning("StartTemple not found, skipping generation of config room");
             return;
         }
 
@@ -388,8 +388,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         /// <see cref="PrivateArea.SetPermittedPlayers"/>
         var i = guardStone.Vars.GetPermitted();
         guardStone.Vars.SetPermitted(i + 1);
-        guardStone.Set($"pu_id{i}", playerId);
-        guardStone.Set($"pu_name{i}", playerName);
+        guardStone.Set(Invariant($"pu_id{i}"), playerId);
+        guardStone.Set(Invariant($"pu_name{i}"), playerName);
     }
 
     //sealed record ConfigPiece(string PrefabName, Vector3 Pos, Vector3 Rot)
