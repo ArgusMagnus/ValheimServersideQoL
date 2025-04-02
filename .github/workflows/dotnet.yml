@@ -20,6 +20,8 @@ jobs:
       with:
         lfs: true
         submodules: true
+        fetch-depth: 0
+        fetch-tags: true
         token: ${{ secrets.DEP_ACCESS_TOKEN }}
 
     # - name: Setup .NET
@@ -29,14 +31,24 @@ jobs:
     # - name: Restore dependencies
     #   run: dotnet restore
     - name: Build
-      run: dotnet build -c Release
+      run: |
+        dotnet build -c Release -o ./output/bin
+        $manifest = Get-Content -LiteralPath ./output/bin/manifest.json -Raw | ConvertFrom-Json
+        Add-Content -Path $env:GITHUB_ENV -Value "VERSION=$($manifest.version)" -Encoding UTF8
+    
     # - name: Test
     #   run: dotnet test --no-build --verbosity normal
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Valheim.ServersideQoL-v${{ env.VERSION }}.zip
+        path: ./output/Valheim.ServersideQoL.zip
           
   publish:
 
     runs-on: windows-latest
-    if: github.event_name != 'pull_request'
+    if: startsWith(github.ref, 'refs/tags/v') # works only version tagged
     needs: [build]
     permissions:
       contents: write
@@ -46,6 +58,8 @@ jobs:
       with:
         lfs: true
         submodules: true
+        # fetch-depth: 0
+        # fetch-tags: true
         token: ${{ secrets.DEP_ACCESS_TOKEN }}
     # - name: Setup .NET
     #   uses: actions/setup-dotnet@v3
@@ -55,15 +69,7 @@ jobs:
       run: |
         dotnet build -c Release -o ./publish/bin
         $manifest = Get-Content -LiteralPath ./publish/bin/manifest.json -Raw | ConvertFrom-Json
-        $isPrerelease = $manifest.version -ne $version_number
-        if ($isPrerelease) {
-          Add-Content -Path $env:GITHUB_ENV -Value "TAG=${{ github.sha }}" -Encoding UTF8
-        }
-        else {
-          Add-Content -Path $env:GITHUB_ENV -Value "TAG=${{ github.ref }}" -Encoding UTF8
-        }
         Add-Content -Path $env:GITHUB_ENV -Value "VERSION=$($manifest.version)" -Encoding UTF8
-        Add-Content -Path $env:GITHUB_ENV -Value "PRERELEASE=$isPrerelease" -Encoding UTF8
         Add-Content -Path $env:GITHUB_ENV -Value "MOD_NAME=$($manifest.name)" -Encoding UTF8
         Add-Content -Path $env:GITHUB_ENV -Value "MOD_DESC=$($manifest.description)" -Encoding UTF8
     - name: Create Release
@@ -72,10 +78,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        tag_name: ${{ env.TAG }}
-        release_name: Release v${{ env.VERSION }}
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
         draft: false
-        prerelease: ${{ env.PRERELEASE }}
+        prerelease: false
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1.0.1
