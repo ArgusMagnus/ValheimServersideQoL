@@ -129,22 +129,22 @@
 |Global Keys|SkillReductionRate|100||Sets the value for the 'SkillReductionRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |Global Keys|EnemySpeedSize|100||Sets the value for the 'EnemySpeedSize' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |Global Keys|EnemyLevelUpRate|100||Sets the value for the 'EnemyLevelUpRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
-|Global Keys|PlayerEvents|False|True/False|True to set the 'PlayerEvents' global key|
-|Global Keys|Fire|False|True/False|True to set the 'Fire' global key|
-|Global Keys|DeathKeepEquip|False|True/False|True to set the 'DeathKeepEquip' global key|
-|Global Keys|DeathDeleteItems|False|True/False|True to set the 'DeathDeleteItems' global key|
-|Global Keys|DeathDeleteUnequipped|False|True/False|True to set the 'DeathDeleteUnequipped' global key|
-|Global Keys|DeathSkillsReset|False|True/False|True to set the 'DeathSkillsReset' global key|
-|Global Keys|NoBuildCost|False|True/False|True to set the 'NoBuildCost' global key|
-|Global Keys|NoCraftCost|False|True/False|True to set the 'NoCraftCost' global key|
-|Global Keys|AllPiecesUnlocked|False|True/False|True to set the 'AllPiecesUnlocked' global key|
-|Global Keys|NoWorkbench|False|True/False|True to set the 'NoWorkbench' global key|
-|Global Keys|AllRecipesUnlocked|False|True/False|True to set the 'AllRecipesUnlocked' global key|
-|Global Keys|WorldLevelLockedTools|False|True/False|True to set the 'WorldLevelLockedTools' global key|
-|Global Keys|PassiveMobs|False|True/False|True to set the 'PassiveMobs' global key|
-|Global Keys|NoMap|False|True/False|True to set the 'NoMap' global key|
-|Global Keys|NoPortals|False|True/False|True to set the 'NoPortals' global key|
-|Global Keys|NoBossPortals|False|True/False|True to set the 'NoBossPortals' global key|
-|Global Keys|DungeonBuild|False|True/False|True to set the 'DungeonBuild' global key|
-|Global Keys|TeleportAll|False|True/False|True to set the 'TeleportAll' global key|
+|Global Keys|PlayerEvents|False|True/False|Sets the value for the 'PlayerEvents' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|Fire|False|True/False|Sets the value for the 'Fire' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|DeathKeepEquip|False|True/False|Sets the value for the 'DeathKeepEquip' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|DeathDeleteItems|False|True/False|Sets the value for the 'DeathDeleteItems' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|DeathDeleteUnequipped|False|True/False|Sets the value for the 'DeathDeleteUnequipped' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|DeathSkillsReset|False|True/False|Sets the value for the 'DeathSkillsReset' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|NoBuildCost|False|True/False|Sets the value for the 'NoBuildCost' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|NoCraftCost|False|True/False|Sets the value for the 'NoCraftCost' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|AllPiecesUnlocked|False|True/False|Sets the value for the 'AllPiecesUnlocked' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|NoWorkbench|False|True/False|Sets the value for the 'NoWorkbench' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|AllRecipesUnlocked|False|True/False|Sets the value for the 'AllRecipesUnlocked' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|WorldLevelLockedTools|False|True/False|Sets the value for the 'WorldLevelLockedTools' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|PassiveMobs|False|True/False|Sets the value for the 'PassiveMobs' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|NoMap|False|True/False|Sets the value for the 'NoMap' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|NoPortals|False|True/False|Sets the value for the 'NoPortals' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|NoBossPortals|False|True/False|Sets the value for the 'NoBossPortals' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|DungeonBuild|False|True/False|Sets the value for the 'DungeonBuild' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|Global Keys|TeleportAll|False|True/False|Sets the value for the 'TeleportAll' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |Global Keys|NoPortalsPreventsContruction|True|True/False|True to change the effect of the 'NoPortals' global key, to prevent the construction of new portals but leave existing portals functional|

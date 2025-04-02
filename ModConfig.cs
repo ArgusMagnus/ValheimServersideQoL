@@ -1,5 +1,4 @@
 ﻿using BepInEx.Configuration;
-using System.Linq.Expressions;
 using System.Reflection;
 using Valheim.ServersideQoL.Processors;
 
@@ -165,7 +164,7 @@ sealed class ModConfig(ConfigFile cfg)
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
             var presets = PrivateAccessor.GetServerOptionsGUIPresets();
             return cfg.Bind(section, nameof(Preset), WorldPresets.Default, new ConfigDescription(Invariant($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect"),
-                new AcceptableEnum<WorldPresets>([.. presets.Select(x => x.m_preset)])));
+                new AcceptableEnum<WorldPresets>(presets.Select(x => x.m_preset))));
         }
 
         static IReadOnlyDictionary<WorldModifiers, ConfigEntry<WorldModifierOption>> GetModifiers(ConfigFile cfg, string section)
@@ -175,52 +174,49 @@ sealed class ModConfig(ConfigFile cfg)
                 .OfType<KeySlider>()
                 .Select(keySlider => (Key: keySlider.m_modifier, Cfg: cfg.Bind(section, Invariant($"{keySlider.m_modifier}"), WorldModifierOption.Default,
                     new ConfigDescription(Invariant($"World modifier '{keySlider.m_modifier}'. Enable '{nameof(SetModifiersFromConfig)}' for this to have an effect"),
-                        new AcceptableEnum<WorldModifierOption>([.. keySlider.m_settings.Select(x => x.m_modifierValue)])))))
+                        new AcceptableEnum<WorldModifierOption>(keySlider.m_settings.Select(x => x.m_modifierValue))))))
                 .ToDictionary(x => x.Key, x => x.Cfg);
             return modifiers;
         }
     }
 
-    public sealed class GlobalsKeysConfig(ConfigFile cfg, string section)
+    public sealed class GlobalsKeysConfig(ConfigFile cfg, string section, object? tmp = null)
     {
         public ConfigEntry<bool> SetGlobalKeysFromConfig { get; } = cfg.Bind(section, nameof(SetGlobalKeysFromConfig), false,
             "True to set global keys according to the following configuration entries");
-        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs { get; } = GetGlobalKeyEntries(cfg, section);
+        public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs { get; } = ((GlobalKeyConfigFinder)(tmp ??= new GlobalKeyConfigFinder()))
+            .Get<GlobalKeys>(GlobalKeys.Preset, cfg, section, Invariant($"Sets the value for the '{{0}}' global key. Enable '{nameof(SetGlobalKeysFromConfig)}' for this to have an effect"));
 
         public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
             Invariant($"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional"));
 
-        static IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> GetGlobalKeyEntries(ConfigFile cfg, string section)
+        //public IReadOnlyDictionary<PlayerKeys, ConfigEntryBase> PlayerKeys { get; } = ((GlobalKeyConfigFinder)(tmp ??= new GlobalKeyConfigFinder()))
+        //    .Get<PlayerKeys>(null, cfg, section, Invariant($"Sets the value for the '{{0}}' player key. Enable '{nameof(SetGlobalKeysFromConfig)}' for this to have an effect"));
+    }
+
+    sealed class GlobalKeyConfigFinder
+    {
+        /// <see cref="ZoneSystem.GetGlobalKey(GlobalKeys, out string)"/>
+        /// <see cref="Game.UpdateWorldRates(HashSet{string}, Dictionary{string, string})"/>
+        
+        sealed record FieldInfoEx(FieldInfo Field, object? OriginalValueObject, double OriginalValue);
+        readonly List<FieldInfoEx> fields = [.. typeof(Game).GetFields(BindingFlags.Public | BindingFlags.Static)
+            .Select(x => new FieldInfoEx(x, x.GetValue(null), TryGetAsDouble(x)))
+            .Where(x => !double.IsNaN(x.OriginalValue))];
+
+        readonly List<(double TestValue, double Value)> _testResults = new();
+        readonly IEnumerable<double> _testValues = [float.MinValue, int.MinValue, .. Enumerable.Range(-100, 100).Select(x => (double)x), int.MaxValue, float.MaxValue];
+        readonly Dictionary<string, string> _keyTestValues = new();
+
+        MethodInfo? _bindDefinition = null;
+
+        public IReadOnlyDictionary<TKey, ConfigEntryBase> Get<TKey>(TKey? maxEclusive, ConfigFile cfg, string section, string descriptionFormat)
+            where TKey : unmanaged, Enum
         {
-            static double TryGetAsDouble(FieldInfo field)
+            var result = new Dictionary<TKey, ConfigEntryBase>();
+            foreach (TKey key in Enum.GetValues(typeof(TKey)))
             {
-                var obj = field.GetValue(null);
-                try { return (double)Convert.ChangeType(obj, typeof(double)); }
-                catch { return double.NaN; }
-            }
-
-            /// <see cref="ZoneSystem.GetGlobalKey(GlobalKeys, out string)"/>
-            /// <see cref="Game.UpdateWorldRates(HashSet{string}, Dictionary{string, string})"/>
-            var fields = typeof(Game).GetFields(BindingFlags.Public | BindingFlags.Static)
-                .Select(x => (Field: x, OrignalValueObject: x.GetValue(null), OriginalValue: TryGetAsDouble(x)))
-                .Where(x => !double.IsNaN(x.OriginalValue))
-                .ToList();
-
-            IEnumerable<double> testValues = [float.MinValue, int.MinValue];
-            testValues = testValues.Concat(Enumerable.Range(-100, 100).Select(x => (double)x));
-            testValues = testValues.Concat([int.MaxValue, float.MaxValue]);
-
-            HashSet<string> keys = [];
-            Dictionary<string, string> keyTestValues = new();
-            List<(double TestValue, double Value)> testResults = new();
-
-            var result = new Dictionary<GlobalKeys, ConfigEntryBase>();
-
-            MethodInfo? bindDefinition = null;
-
-            foreach (GlobalKeys key in Enum.GetValues(typeof(GlobalKeys)))
-            {
-                if (key is GlobalKeys.Preset or >= GlobalKeys.NonServerOption)
+                if (maxEclusive is not null && key.ToInt64() >= maxEclusive.Value.ToInt64())
                     continue;
 
                 var name = key.ToString();
@@ -229,17 +225,17 @@ sealed class ModConfig(ConfigFile cfg)
                 FieldInfo? field = null;
                 object? orignalValueObject = null;
                 double originalValue = double.NaN;
-                testResults.Clear();
-                foreach (var testValue in testValues)
+                _testResults.Clear();
+                foreach (var testValue in _testValues)
                 {
-                    keyTestValues.Clear();
-                    keyTestValues.Add(nameLower, Invariant($"{testValue}"));
-                    try { Game.UpdateWorldRates(keys, keyTestValues); }
+                    _keyTestValues.Clear();
+                    _keyTestValues.Add(nameLower, Invariant($"{testValue}"));
+                    try { Game.UpdateWorldRates([], _keyTestValues); }
                     catch (NullReferenceException) { } /// expect in <see cref="Game.UpdateNoMap"/>
                     double value = double.NaN;
                     if (field is null)
                     {
-                        (field, orignalValueObject, originalValue, value, var idx) = fields.Select((x, i) => (x.Field, x.OrignalValueObject, x.OriginalValue, Value: TryGetAsDouble(x.Field), i)).FirstOrDefault(x => x.OriginalValue != x.Value);
+                        (field, orignalValueObject, originalValue, value, var idx) = fields.Select((x, i) => (x.Field, x.OriginalValueObject, x.OriginalValue, Value: TryGetAsDouble(x.Field), i)).FirstOrDefault(x => x.OriginalValue != x.Value);
                         if (field is not null)
                             fields.RemoveAt(idx);
                     }
@@ -251,14 +247,14 @@ sealed class ModConfig(ConfigFile cfg)
                     }
 
                     if (!double.IsNaN(value))
-                        testResults.Add((testValue, value));
+                        _testResults.Add((testValue, value));
                 }
 
-                if (testResults is { Count: > 0 } && field is not null)
+                if (_testResults is { Count: > 0 } && field is not null)
                 {
-                    var min = testResults.Min(x => x.Value);
-                    var max = testResults.Max(x => x.Value);
-                    var inRange = testResults.Where(x => x.Value is not 0 && x.Value > min && x.Value < max);
+                    var min = _testResults.Min(x => x.Value);
+                    var max = _testResults.Max(x => x.Value);
+                    var inRange = _testResults.Where(x => x.Value is not 0 && x.Value > min && x.Value < max);
                     var multiplier = inRange.Any() ? inRange.Average(x => x.TestValue / x.Value) : 1;
                     min *= multiplier;
                     max *= multiplier;
@@ -267,20 +263,27 @@ sealed class ModConfig(ConfigFile cfg)
                     AcceptableValueBase? range = null;
                     if (min > float.MinValue && max < float.MaxValue && min < max)
                         range = (AcceptableValueBase)Activator.CreateInstance(typeof(AcceptableValueRange<>).MakeGenericType(field.FieldType), Convert.ChangeType(min, field.FieldType), Convert.ChangeType(max, field.FieldType));
-                    var desc = new ConfigDescription(Invariant($"Sets the value for the '{name}' global key. Enable '{nameof(SetGlobalKeysFromConfig)}' for this to have an effect"), range);
-                    bindDefinition ??= new Func<string, string, bool, ConfigDescription, ConfigEntry<bool>>(cfg.Bind).Method.GetGenericMethodDefinition();
-                    var entry = (ConfigEntryBase)bindDefinition.MakeGenericMethod(field.FieldType).Invoke(cfg, [section, name, Convert.ChangeType(originalValue, field.FieldType), desc]);
+                    var desc = new ConfigDescription(string.Format(descriptionFormat, name), range);
+                    _bindDefinition ??= new Func<string, string, bool, ConfigDescription, ConfigEntry<bool>>(cfg.Bind).Method.GetGenericMethodDefinition();
+                    var entry = (ConfigEntryBase)_bindDefinition.MakeGenericMethod(field.FieldType).Invoke(cfg, [section, name, Convert.ChangeType(originalValue, field.FieldType), desc]);
                     result.Add(key, entry);
                 }
                 else
                 {
-                    result.Add(key, cfg.Bind(section, name, false, Invariant($"True to set the '{name}' global key")));
+                    result.Add(key, cfg.Bind(section, name, false, string.Format(descriptionFormat, name)));
                 }
 
                 field?.SetValue(null, orignalValueObject);
             }
 
             return result;
+        }
+
+        static double TryGetAsDouble(FieldInfo field)
+        {
+            var obj = field.GetValue(null);
+            try { return (double)Convert.ChangeType(obj, typeof(double)); }
+            catch { return double.NaN; }
         }
     }
 
@@ -329,29 +332,30 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription("Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
     }
 
-    sealed class AcceptableEnum<T> : AcceptableValueBase
+    internal sealed class AcceptableEnum<T> : AcceptableValueBase
         where T : unmanaged, Enum
     {
         static readonly bool __isBitSet = typeof(T).GetCustomAttribute<FlagsAttribute>() is not null;
-        static readonly Func<T, ulong> __castToUlong = Expression.Lambda<Func<T, ulong>>(
-            Expression.Convert(Expression.Parameter(typeof(T)) is var par ? par : throw new Exception(), typeof(ulong)), par).Compile();
-        static readonly Func<ulong, T> __castToEnum = Expression.Lambda<Func<ulong, T>>(
-            Expression.Convert(Expression.Parameter(typeof(ulong)) is var par ? par : throw new Exception(), typeof(T)), par).Compile();
 
-        readonly IReadOnlyList<T> _values;
+        public IReadOnlyList<T> AcceptableValues { get; }
         readonly T _default;
 
         public AcceptableEnum()
             : this((T[])Enum.GetValues(typeof(T))) { }
 
-        public AcceptableEnum(IReadOnlyList<T> values)
+        public AcceptableEnum(IEnumerable<T> values)
             : base (typeof(T))
         {
-            _values = values;
             if (__isBitSet)
+            {
+                AcceptableValues = [.. values.Where(x => !x.Equals(default(T)))];
                 _default = default;
+            }
             else
-                _default = _values.FirstOrDefault();
+            {
+                AcceptableValues = values as IReadOnlyList<T> ?? [.. values];
+                _default = AcceptableValues.FirstOrDefault();
+            }
         }
 
         public override object Clamp(object value)
@@ -361,13 +365,13 @@ sealed class ModConfig(ConfigFile cfg)
 
             if (__isBitSet)
             {
-                var val = __castToUlong(e);
+                var val = e.ToUInt64();
                 ulong result = 0;
-                foreach (var flag in _values.Select(x => __castToUlong(x)).Where(x => (val & x) == x))
+                foreach (var flag in AcceptableValues.Select(x => x.ToUInt64()).Where(x => (val & x) == x))
                     result |= flag;
-                return __castToEnum(result);
+                return EnumUtils.ToEnum<T>(result);
             }
-            else if (!_values.Any(x => x.Equals(e)))
+            else if (!AcceptableValues.Any(x => x.Equals(e)))
             {
                 return _default;
             }
@@ -382,9 +386,9 @@ sealed class ModConfig(ConfigFile cfg)
         public override string ToDescriptionString()
         {
             if (__isBitSet)
-                return Invariant($"# Acceptable values: {_default} or combination of {string.Join(", ", _values.Where(x => !x.Equals(_default)))}");
+                return Invariant($"# Acceptable values: {_default} or combination of {string.Join(", ", AcceptableValues.Where(x => !x.Equals(_default)))}");
             else
-                return Invariant($"# Acceptable values: {string.Join(", ", _values)}");
+                return Invariant($"# Acceptable values: {string.Join(", ", AcceptableValues)}");
         }
     }
 }
