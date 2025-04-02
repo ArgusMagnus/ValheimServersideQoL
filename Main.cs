@@ -147,25 +147,25 @@ public sealed partial class Main : BaseUnityPlugin
         var abort = false;
         if (RuntimeInformation.Instance.GameVersion != ExpectedGameVersion)
         {
-            Logger.LogWarning($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}");
+            Logger.LogWarning(Invariant($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreGameVersionCheck.Value;
         }
         if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
         {
-            Logger.LogWarning($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}");
+            Logger.LogWarning(Invariant($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreNetworkVersionCheck.Value;
         }
         if (RuntimeInformation.Instance.ItemDataVersion != ExpectedItemDataVersion)
         {
-            Logger.LogWarning($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}");
+            Logger.LogWarning(Invariant($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreItemDataVersionCheck.Value;
         }
         if (RuntimeInformation.Instance.WorldVersion != ExpectedWorldVersion)
         {
-            Logger.LogWarning($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}");
+            Logger.LogWarning(Invariant($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreWorldVersionCheck.Value;
         }
@@ -182,7 +182,7 @@ public sealed partial class Main : BaseUnityPlugin
         }
 
 #if DEBUG
-        Logger.LogInfo($"Registered Processors: {Processor.DefaultProcessors.Count}");
+        Logger.LogInfo(Invariant($"Registered Processors: {Processor.DefaultProcessors.Count}"));
 #endif
         return true;
     }
@@ -196,7 +196,7 @@ public sealed partial class Main : BaseUnityPlugin
 
             if (Config.WorldModifiers.SetPresetFromConfig.Value)
             {
-                try { MyTerminal.ExecuteCommand("setworldpreset", $"{Config.WorldModifiers.Preset.Value}"); }
+                try { MyTerminal.ExecuteCommand("setworldpreset", Invariant($"{Config.WorldModifiers.Preset.Value}")); }
                 catch (Exception ex) { Logger.LogError(ex); }
             }
 
@@ -204,7 +204,7 @@ public sealed partial class Main : BaseUnityPlugin
             {
                 foreach (var (modifier, value) in Config.WorldModifiers.Modifiers.Select(x => (x.Key, x.Value.Value)))
                 {
-                    try { MyTerminal.ExecuteCommand("setworldmodifier", $"{modifier}", $"{value}"); }
+                    try { MyTerminal.ExecuteCommand("setworldmodifier", Invariant($"{modifier}"), Invariant($"{value}")); }
                     catch (Exception ex) { Logger.LogError(ex); }
                 }
             }
@@ -245,7 +245,7 @@ public sealed partial class Main : BaseUnityPlugin
                 GenerateDocs();
 #endif
 
-                base.Config.Bind(DummyConfigSection, "Dummy", "", $"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}");
+                base.Config.Bind(DummyConfigSection, "Dummy", "", Invariant($"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}"));
                 base.Config.SettingChanged += (_, _) => _configChanged = true;
             }
             else
@@ -378,7 +378,7 @@ public sealed partial class Main : BaseUnityPlugin
                         if (claimedExclusiveBy is null)
                             claimedExclusiveBy = processor;
                         else if (Config.General.DiagnosticLogs.Value)
-                            Logger.LogError($"ZDO {zdo.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}");
+                            Logger.LogError(Invariant($"ZDO {zdo.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
                     }
 
                     if (claimedExclusiveBy is not null)
@@ -421,10 +421,10 @@ public sealed partial class Main : BaseUnityPlugin
 
         var logLevel = _watch.ElapsedMilliseconds > Config.General.MaxProcessingTime.Value ? LogLevel.Info : LogLevel.Debug;
         Logger.Log(logLevel,
-            $"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}");
+            Invariant($"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Uncomplete runs in row: {_unfinishedProcessingInRow}"));
 
-        Logger.Log(logLevel, $"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(x => x.ProcessingTime.Ticks > 0).OrderByDescending(x => x.ProcessingTime.Ticks).Select(x => $"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms"))}");
-        //Logger.LogDebug(string.Join($"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => $"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
+        Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(x => x.ProcessingTime.Ticks > 0).OrderByDescending(x => x.ProcessingTime.Ticks).Select(x => Invariant($"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms")))}"));
+        //Logger.LogDebug(string.Join(Invariant(.$"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => Invariant(.$"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
 
 #if DEBUG
@@ -445,16 +445,16 @@ public sealed partial class Main : BaseUnityPlugin
             if (accetableValues is not null)
                 accetableValues = Regex.Replace(accetableValues, @"^#.+?\:\s*", "");
             else if (entry.SettingType == typeof(bool))
-                accetableValues = $"{bool.TrueString}/{bool.FalseString}";
+                accetableValues = Invariant($"{bool.TrueString}/{bool.FalseString}");
             else if (entry.SettingType.IsEnum)
             {
                 if (entry.SettingType.GetCustomAttribute<FlagsAttribute>() is null)
-                    accetableValues = $"One of {string.Join(", ", Enum.GetNames(entry.SettingType))}";
+                    accetableValues = Invariant($"One of {string.Join(", ", Enum.GetNames(entry.SettingType))}");
                 else
-                    accetableValues = $"Combination of {string.Join(", ", Enum.GetNames(entry.SettingType))}";
+                    accetableValues = Invariant($"Combination of {string.Join(", ", Enum.GetNames(entry.SettingType))}");
             }
 
-            writer.WriteLine($"|{section}|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description}|");
+            writer.WriteLine(Invariant($"|{section}|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description}|"));
         }
     }
 
@@ -518,7 +518,7 @@ public sealed partial class Main : BaseUnityPlugin
             bag.Add((prefab.name, name, string.Join(", ", components
                     .Select(x => (Type: x.GetType().Name, Name: x.name))
                     .OrderBy(x => x.Type).ThenBy(x => x.Name)
-                    .Select(x => $"[{x.Type} ({x.Name})](Components/{x.Type}.md#{prefab.name.ToLowerInvariant().Replace(' ', '-')}-{x.Name.ToLowerInvariant().Replace(' ', '-')})"))));
+                    .Select(x => Invariant($"[{x.Type} ({x.Name})](Components/{x.Type}.md#{prefab.name.ToLowerInvariant().Replace(' ', '-')}-{x.Name.ToLowerInvariant().Replace(' ', '-')})")))));
         });
 
         Parallel.ForEach(componentsBag.GroupBy(x => x.Key.GetType()), group =>
@@ -526,12 +526,12 @@ public sealed partial class Main : BaseUnityPlugin
             var componentType = group.Key;
             var fields = componentFields[componentType];
 
-            using var writer = new StreamWriter(Path.Combine(docsComponentsPath, $"{componentType.Name}.md"), false, new UTF8Encoding(false));
-            writer.WriteLine($"# {componentType.Name}");
+            using var writer = new StreamWriter(Path.Combine(docsComponentsPath, Invariant($"{componentType.Name}.md")), false, new UTF8Encoding(false));
+            writer.WriteLine(Invariant($"# {componentType.Name}"));
             writer.WriteLine();
             writer.WriteLine("The following section headers are in the format `Prefab.name: Component.name`.");
             writer.WriteLine();
-            foreach (var (component, header) in group.Select(x => (x.Key, $"## {x.Value}: {x.Key.name}")).OrderBy(x => x.Item2))
+            foreach (var (component, header) in group.Select(x => (x.Key, Invariant($"## {x.Value}: {x.Key.name}"))).OrderBy(x => x.Item2))
             {
                 writer.WriteLine(header);
                 writer.WriteLine();
@@ -542,7 +542,7 @@ public sealed partial class Main : BaseUnityPlugin
                     var value = field.GetValue(component);
                     if (value is UnityEngine.Object obj)
                         value = obj.name;
-                    writer.WriteLine($"|{field.Name}|{field.FieldType}|{value ?? "*null*"}|");
+                    writer.WriteLine(Invariant($"|{field.Name}|{field.FieldType}|{value ?? "*null*"}|"));
                 }
                 writer.WriteLine();
             }
@@ -567,11 +567,11 @@ public sealed partial class Main : BaseUnityPlugin
             foreach (var (prefab, name, components) in prefabs.OrderBy(x => x.Prefab))
             {
                 if (name is null)
-                    writer.WriteLine($"|{prefab}|{components}|");
+                    writer.WriteLine(Invariant($"|{prefab}|{components}|"));
                 else if (Localization.instance.Localize(name) is { } localized && localized != name)
-                    writer.WriteLine($"|{prefab}<small><br>- Name: {name}<br>- English Name: {localized}</small>|{components}|");
+                    writer.WriteLine(Invariant($"|{prefab}<small><br>- Name: {name}<br>- English Name: {localized}</small>|{components}|"));
                 else
-                    writer.WriteLine($"|{prefab}<small><br>- Name: {name}</small>|{components}|");
+                    writer.WriteLine(Invariant($"|{prefab}<small><br>- Name: {name}</small>|{components}|"));
             }
         }
 
@@ -583,7 +583,7 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine("|Key|English|");
             writer.WriteLine("|---|-------|");
             foreach (var (key, value) in Localization.instance.GetStrings().Select(x => (x.Key, x.Value)).OrderBy(x => x.Key))
-                writer.WriteLine($"|{key}|{value?.Replace("\n", "<br>") ?? "*null*"}|");
+                writer.WriteLine(Invariant($"|{key}|{value?.Replace("\n", "<br>") ?? "*null*"}|"));
         }
     }
 #endif

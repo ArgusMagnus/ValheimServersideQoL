@@ -94,7 +94,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             var version = pkg.ReadInt();
             if (version is not 3)
             {
-                Logger.LogWarning($"MapTable data version {version} is not supported");
+                Logger.LogWarning(Invariant($"MapTable data version {version} is not supported"));
                 return false;
             }
             data = pkg.ReadByteArray();

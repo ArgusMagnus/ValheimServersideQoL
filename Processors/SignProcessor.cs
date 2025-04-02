@@ -39,7 +39,6 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
 
         if (text != newText)
         {
-            Logger.LogDebug($"Changing sign text from '{text}' to '{newText}'");
             zdo.Vars.SetText(newText);
             //zdo.Set(ZDOVars.s_author, );
         }
