@@ -52,13 +52,15 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             var pins = Enumerable.Empty<Pin>();
             if (Config.MapTables.AutoUpdatePortals.Value)
             {
-                pins = pins.Concat(ZDOMan.instance.GetPortals().Cast<ExtendedZDO>().Select(x => new Pin(Main.PluginGuidHash, x.Vars.GetTag(), x.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid)));
+                pins = [.. pins, .. ZDOMan.instance.GetPortals().Cast<ExtendedZDO>()
+                    .Where(x => x.Vars.GetCreator() != Main.PluginGuidHash) // exclude map room portals
+                    .Select(x => new Pin(Main.PluginGuidHash, x.Vars.GetTag(), x.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid))];
                 if ((_includePortalRegex ?? _excludePortalRegex) is not null)
                     pins = pins.Where(x => _includePortalRegex?.IsMatch(x.Tag) is not false && _excludePortalRegex?.IsMatch(x.Tag) is not true);
             }
             if (Config.MapTables.AutoUpdateShips.Value)
             {
-                pins = pins.Concat(SharedProcessorState.Ships
+                pins = [.. pins, .. SharedProcessorState.Ships
                     .Select(x =>
                     {
                         if (!x.IsValid() || x.PrefabInfo.Ship is null)
@@ -69,7 +71,7 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                         return x;
                     })
                     .Where(x => x is not null)
-                    .Select(x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Ship!.Value.Piece.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid)));
+                    .Select(x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Ship!.Value.Piece.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid))];
             }
 
             foreach (var pin in pins)
