@@ -250,7 +250,7 @@ public sealed partial class Main : BaseUnityPlugin
             }
             else
             {
-                Logger.LogWarning("Config changed");
+                Logger.LogInfo("Configuration changed");
                 foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjectsByID().Values)
                     zdo.ReregisterAllProcessors();
             }

@@ -1,7 +1,7 @@
 |Category|Key|Default Value|Acceptable Values|Description|
 |--------|---|-------------|-----------------|-----------|
 |General|Enabled|True|True/False|Enables/disables the entire mode|
-|General|InWorldConfigRoom|False|True/False|True to generate an in-world room which admins can enter to configure this mod by editing signs|
+|General|InWorldConfigRoom|False|True/False|True to generate an in-world room which admins can enter to configure this mod by editing signs. A portal is placed at the start location|
 |General|DiagnosticLogs|False|True/False|Enables/disables diagnostic logs|
 |General|Frequency|5|From 0 to Infinity|How many times per second the mod processes the world|
 |General|MaxProcessingTime|20||Max processing time (in ms) per update|

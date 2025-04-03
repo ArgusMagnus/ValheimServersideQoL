@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using static UnityEngine.Random;
 using Color = System.Drawing.Color;
 using IEnumerable = System.Collections.IEnumerable;
 
@@ -24,14 +25,22 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
     readonly HashSet<ZDOID> _configPieces = new();
     readonly ConcurrentDictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
-    readonly Dictionary<ZDOID, ExtendedZDO> _signsByCandle = new();
-    readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
-    readonly Vector3 _worldSpawn = ZoneSystem.instance.m_locationInstances.Values.FirstOrDefault(x => x.m_location.m_prefabName is "StartTemple").m_position;
 
-    static string GetSignText(object value, Type type, Color c)
+    sealed record ConfigState(ConfigEntryBase Entry, object? Value, ExtendedZDO Sign)
+    {
+        public bool CandleState { get; set; }
+    }
+
+    readonly Dictionary<ZDOID, ConfigState> _candleToggles = new();
+    readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
+
+    /// <see cref="Game.FindSpawnPoint">
+    readonly Vector3 _worldSpawn = ZoneSystem.instance.GetLocationIcon(Game.instance.m_StartLocation, out var pos) ? pos : default;
+
+    static string GetSignText(object? value, Type type, Color c)
         => Invariant($"<color=#{c.R:X2}{c.G:X2}{c.B:X2}>{TomlTypeConverter.ConvertToString(value, type)}");
     static string GetSignText(ConfigEntryBase entry, Color? color = null)
-        => GetSignText(entry.BoxedValue, entry.SettingType, color ?? (Equals(entry.BoxedValue, entry.DefaultValue) ? Color.White : Color.FromArgb(0, 255, 0)));
+        => GetSignText(entry.BoxedValue, entry.SettingType, color ?? (Equals(entry.BoxedValue, entry.DefaultValue) ? Color.White : Color.Lime));
 
     public override void Initialize()
     {
@@ -48,7 +57,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
         if (_worldSpawn == default)
         {
-            Logger.LogWarning("StartTemple not found, skipping generation of config room");
+            Logger.LogWarning($"{Game.instance.m_StartLocation} not found, skipping generation of config room");
             return;
         }
 
@@ -321,13 +330,23 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
                     var sign = PlacePiece(pos, _prefabSign, rot + 90);
                     sign.Vars.SetText(GetSignText(values[i], entry.SettingType, Color.Silver));
-                    //_configBySign.Add(sign.m_uid, entry);
 
+                    var configState = new ConfigState(entry, values[i], sign);
+                    if (entry.SettingType.IsEnum && EnumUtils.OfType(entry.SettingType) is { IsBitSet: true } enumUtils)
+                    {
+                        var value = enumUtils.EnumToUInt64(entry.BoxedValue);
+                        var flag = enumUtils.EnumToUInt64(values[i]);
+                        configState.CandleState = (value & flag) == flag;
+                    }
+                    else
+                    {
+                        configState.CandleState = Equals(entry.BoxedValue, values[i]);
+                    }
                     pos.y -= 0.55f;
                     var candle = PlacePiece(pos, _prefabCandle, rot);
                     candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
-                    //candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
-                    //_signsByCandle.Add(candle.m_uid, sign);
+                    candle.Vars.SetState(configState.CandleState ? 1 : 2);
+                    _candleToggles.Add(candle.m_uid, configState);
                     pos.y += 0.55f;
 
                     x += dx;
@@ -337,15 +356,17 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             {
                 var sign = PlacePiece(pos, _prefabSign, rot + 90);
                 sign.Vars.SetText(GetSignText(entry));
-                _configBySign.Add(sign.m_uid, entry);
 
-                if (entry.SettingType == typeof(bool))
+                if (entry.SettingType != typeof(bool))
+                    _configBySign.Add(sign.m_uid, entry);
+                else
                 {
+                    var configState = new ConfigState(entry, null, sign) { CandleState = (bool)entry.BoxedValue };
                     pos.y -= 0.55f;
                     var candle = PlacePiece(pos, _prefabCandle, rot);
                     candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
-                    candle.Vars.SetState((bool)entry.BoxedValue ? 1 : 2);
-                    _signsByCandle.Add(candle.m_uid, sign);
+                    candle.Vars.SetState(configState.CandleState ? 1 : 2);
+                    _candleToggles.Add(candle.m_uid, configState);
                     pos.y += 0.55f;
                 }
             }
@@ -391,33 +412,12 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_worldSpawn))
             {
                 peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
-                var pos = _worldSpawn;
-                pos.y += 1;
+                /// <see cref="Game.FindSpawnPoint">
+                var pos = _worldSpawn + Vector3.up * 2f;
                 RPC.TeleportPlayer(peer, pos, zdo.GetRotation(), false);
                 RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$piece_noaccess");
             }
             return false;
-        }
-
-        if (zdo.PrefabInfo.Fireplace is not null && _signsByCandle.TryGetValue(zdo.m_uid, out var signZdo))
-        {
-            var state = zdo.Vars.GetState();
-            signZdo.Vars.SetText(TomlTypeConverter.ConvertToString(state is 1, typeof(bool)));
-            return true;
-        }
-        
-        if (zdo.PrefabInfo.Sign is not null && _configBySign.TryGetValue(zdo.m_uid, out var config))
-        {
-            var text = zdo.Vars.GetText().RemoveRichTextTags();
-
-            try { config.BoxedValue = TomlTypeConverter.ConvertToValue(text, config.SettingType); }
-            catch (Exception)
-            {
-                RPC.ShowMessage(peers.Where(x => _isAdmin.TryGetValue(x.m_characterID, out var y) && y.IsAdmin),
-                    MessageHud.MessageType.Center, "$invalid_keybind_header");
-            }
-            zdo.Vars.SetText(GetSignText(config));
-            return true;
         }
 
         if (zdo.PrefabInfo.Door is not null && _configPieces.Contains(zdo.m_uid))
@@ -431,14 +431,111 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             return true;
         }
 
+        if (peers.Any(x => Character.InInterior(x.m_refPos)))
+        {
+            if (zdo.PrefabInfo.Fireplace is not null && _candleToggles.TryGetValue(zdo.m_uid, out var configState))
+            {
+                var state = zdo.Vars.GetState() is 1;
+                string? text = null;
+                if (state != configState.CandleState)
+                {
+                    configState.CandleState = state;
+                    if (configState.Entry.SettingType == typeof(bool))
+                    {
+                        configState.Entry.BoxedValue = state;
+                        text = GetSignText(configState.Entry);
+                    }
+                    else if (configState.Value is not null && configState.Entry.SettingType.IsEnum && EnumUtils.OfType(configState.Entry.SettingType) is { IsBitSet: true } enumUtils)
+                    {
+                        var value = enumUtils.EnumToUInt64(configState.Entry.BoxedValue);
+                        var flag = enumUtils.EnumToUInt64(configState.Value);
+                        Color color;
+                        if (state)
+                        {
+                            value |= flag;
+                            var defaultValue = enumUtils.EnumToUInt64(configState.Entry.DefaultValue);
+                            color = ((defaultValue & flag) == flag) ? Color.White : Color.Lime;
+                        }
+                        else
+                        {
+                            value &= ~flag;
+                            color = Color.Silver;
+                        }
+                        configState.Entry.BoxedValue = enumUtils.UInt64ToEnum(value);
+                        text = GetSignText(configState.Entry, color);
+                    }
+                    else
+                    {
+                        configState.Entry.BoxedValue = configState.Value;
+                        text = GetSignText(configState.Entry);
+                    }
+                }
+                else
+                {
+                    if (configState.Entry.SettingType == typeof(bool))
+                    {
+                        configState.CandleState = (bool)configState.Entry.BoxedValue;
+                        text = GetSignText(configState.Entry);
+                    }
+                    else if (configState.Value is not null && configState.Entry.SettingType.IsEnum && EnumUtils.OfType(configState.Entry.SettingType) is { IsBitSet: true } enumUtils)
+                    {
+                        var value = enumUtils.EnumToUInt64(configState.Entry.BoxedValue);
+                        var flag = enumUtils.EnumToUInt64(configState.Value);
+                        configState.CandleState = (value & flag) == flag;
+                        Color color;
+                        if (!configState.CandleState)
+                            color = Color.Silver;
+                        else
+                        {
+                            var defaultValue = enumUtils.EnumToUInt64(configState.Entry.DefaultValue);
+                            color = ((defaultValue & flag) == flag) ? Color.White : Color.Lime;
+                        }
+                        text = GetSignText(configState.Value, configState.Entry.SettingType, color);
+                    }
+                    else
+                    {
+                        configState.CandleState = Equals(configState.Value, configState.Entry.BoxedValue);
+                        Color color;
+                        if (configState.CandleState)
+                            color = Equals(configState.Value, configState.Entry.DefaultValue) ? Color.White : Color.Lime;
+                        else
+                            color = Color.Silver;
+                        text = GetSignText(configState.Value, configState.Entry.SettingType, color);
+                    }
+
+                    if (configState.CandleState != state)
+                        zdo.Vars.SetState(configState.CandleState ? 1 : 2);
+                }
+
+                if (text is not null)
+                    configState.Sign.Vars.SetText(text);
+
+                return false;
+            }
+
+            if (zdo.PrefabInfo.Sign is not null && _configBySign.TryGetValue(zdo.m_uid, out var entry))
+            {
+                var text = zdo.Vars.GetText().RemoveRichTextTags();
+
+                try { entry.BoxedValue = TomlTypeConverter.ConvertToValue(text, entry.SettingType); }
+                catch (Exception)
+                {
+                    RPC.ShowMessage(peers.Where(x => _isAdmin.TryGetValue(x.m_characterID, out var y) && y.IsAdmin),
+                        MessageHud.MessageType.Center, "$invalid_keybind_header");
+                }
+                zdo.Vars.SetText(GetSignText(entry));
+                return true;
+            }
+
+            UnregisterZdoProcessor = true;
+        }
+
         //if (zdo.PrefabInfo.TeleportWorld is not null && _configPieces.Contains(zdo.m_uid))
         //{
         //    // Not sure, why this is needed. Main portal loses connection sometimes
         //    if (zdo.GetConnectionZDOID(ZDOExtraData.ConnectionType.Portal) == ZDOID.None)
         //        ZDOMan.instance.ConvertPortals();
         //}
-
-        UnregisterZdoProcessor = true;
         return false;
     }
 
