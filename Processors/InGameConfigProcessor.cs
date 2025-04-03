@@ -4,7 +4,6 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
-using static UnityEngine.Random;
 using Color = System.Drawing.Color;
 using IEnumerable = System.Collections.IEnumerable;
 
@@ -31,6 +30,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         public bool CandleState { get; set; }
     }
 
+    readonly List<(ExtendedZDO Sign, string Text, IReadOnlyList<ConfigEntryBase> Entries)> _portalSigns = new();
     readonly Dictionary<ZDOID, ConfigState> _candleToggles = new();
     readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
 
@@ -48,6 +48,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
         if (_configPieces.Count > 0)
             return;
+
+        Config.ConfigFile.SettingChanged += OnSettingsChanged;
 
         foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
             zdo.Destroy();
@@ -138,7 +140,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 if (sectionEnumerator.MoveNext())
                 {
                     var section = Regex.Replace(sectionEnumerator.Current.Key, @"^[A-Z] - ", "");
-                    var hasNonDefault = sectionEnumerator.Current.Any(x => !Equals(x.BoxedValue, x.DefaultValue));
+                    IReadOnlyList<ConfigEntryBase> entries = [.. sectionEnumerator.Current];
+                    var hasNonDefault = entries.Any(x => !Equals(x.BoxedValue, x.DefaultValue));
                     var zdo = PlacePiece(pos, _prefabPortal, rot);
                     zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
                     zdo.Vars.SetTag($"Config: {section}");
@@ -153,8 +156,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     else if (!kIsEdge)
                         pos.x += i is 0 ? -0.25f : 0.25f;
                     pos.y += 2;
-                    PlacePiece(pos, _prefabSign, rot)
-                        .Vars.SetText($"{(hasNonDefault ? SignFormatGreen : SignFormatWhite)}{section}");
+                    var sign = PlacePiece(pos, _prefabSign, rot);
+                    sign.Vars.SetText($"{(hasNonDefault ? SignFormatGreen : SignFormatWhite)}{section}");
+                    _portalSigns.Add((sign, section, entries));
                 }
 
                 if (iIsEdge)
@@ -260,6 +264,15 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         }
 
         ZDOMan.instance.ConvertPortals();
+    }
+
+    void OnSettingsChanged(object sender, EventArgs args)
+    {
+        foreach (var (sign, text, entries) in _portalSigns)
+        {
+            var hasNonDefault = entries.Any(x => !Equals(x.BoxedValue, x.DefaultValue));
+            sign.Vars.SetText($"{(hasNonDefault ? SignFormatGreen : SignFormatWhite)}{text}");
+        }
     }
 
     void PlaceConfigWall(Vector3 pos, bool alongX, bool isStart, float rot, IEnumerator<ConfigEntryBase> entryEnumerator)
