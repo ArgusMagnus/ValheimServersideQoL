@@ -30,7 +30,8 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
-        public ConfigEntry<bool> InWorldConfigRoom { get; } = cfg.Bind(section, nameof(InWorldConfigRoom), false, "True to generate an in-world room which admins can enter to configure this mod by editing signs");
+        public ConfigEntry<bool> InWorldConfigRoom { get; } = cfg.Bind(section, nameof(InWorldConfigRoom), false,
+            "True to generate an in-world room which admins can enter to configure this mod by editing signs. A portal is placed at the start location");
         public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.Bind(section, nameof(DiagnosticLogs), false, "Enables/disables diagnostic logs");
         public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f,
             new ConfigDescription("How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
@@ -335,8 +336,6 @@ sealed class ModConfig(ConfigFile cfg)
     internal sealed class AcceptableEnum<T> : AcceptableValueBase
         where T : unmanaged, Enum
     {
-        static readonly bool __isBitSet = typeof(T).GetCustomAttribute<FlagsAttribute>() is not null;
-
         public IReadOnlyList<T> AcceptableValues { get; }
         readonly T _default;
 
@@ -346,7 +345,7 @@ sealed class ModConfig(ConfigFile cfg)
         public AcceptableEnum(IEnumerable<T> values)
             : base (typeof(T))
         {
-            if (__isBitSet)
+            if (EnumUtils.IsBitSet<T>())
             {
                 AcceptableValues = [.. values.Where(x => !x.Equals(default(T)))];
                 _default = default;
@@ -363,7 +362,7 @@ sealed class ModConfig(ConfigFile cfg)
             if (value is not T e)
                 return _default;
 
-            if (__isBitSet)
+            if (EnumUtils.IsBitSet<T>())
             {
                 var val = e.ToUInt64();
                 ulong result = 0;
@@ -385,7 +384,7 @@ sealed class ModConfig(ConfigFile cfg)
 
         public override string ToDescriptionString()
         {
-            if (__isBitSet)
+            if (EnumUtils.IsBitSet<T>())
                 return Invariant($"# Acceptable values: {_default} or combination of {string.Join(", ", AcceptableValues.Where(x => !x.Equals(_default)))}");
             else
                 return Invariant($"# Acceptable values: {string.Join(", ", AcceptableValues)}");
