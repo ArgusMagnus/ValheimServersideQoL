@@ -26,6 +26,11 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
                 RecreateZdo = true;
             zdo.Vars.SetFuel(fields.GetFloat(x => x.m_maxFuel));
         }
+
+        if (!Config.Fireplaces.IgnoreRain.Value)
+            fields.Reset(x => x.m_coverCheckOffset);
+        else if (fields.SetIfChanged(x => x.m_coverCheckOffset, -25))
+            RecreateZdo = true;
         
         return true;
     }
