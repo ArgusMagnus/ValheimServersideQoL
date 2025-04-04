@@ -1,3 +1,6 @@
+### v0.2.11
+- New feature: Make fireplaces ignore rain
+
 ### v0.2.10
 - Fix for config room portals being added as automatic map table pins [#25](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/25)
 - Tweaks to in-world config room: Config values which have a defined set of acceptable values can now be changed by toggling candles

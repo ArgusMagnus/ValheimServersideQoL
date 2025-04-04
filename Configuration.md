@@ -37,6 +37,7 @@
 |Doors|AutoCloseMinPlayerDistance|NaN||Min distance all players must have to the door before it is closed. NaN to disable this feature|
 |Fireplaces|MakeToggleable|False|True/False|True to make all fireplaces (including torches, braziers, etc.) toggleable|
 |Fireplaces|InfiniteFuel|False|True/False|True to make all fireplaces have infinite fuel|
+|Fireplaces|IgnoreRain|False|True/False|True to make all fireplaces ignore rain|
 |Map Tables|AutoUpdatePortals|False|True/False|True to update map tables with portal pins|
 |Map Tables|AutoUpdatePortalsExclude|||Portals with a tag that matches this filter are not added to map tables|
 |Map Tables|AutoUpdatePortalsInclude|*||Only portals with a tag that matches this filter are added to map tables|

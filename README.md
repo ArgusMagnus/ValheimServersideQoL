@@ -20,6 +20,7 @@ This mod is in early development and the features experimental. Backup your worl
 - Fireplaces (including torches/sconces/braziers/etc.)
     - Toggleable: Make all fireplaces toggleable (you can turn them on/off)
     - Infinite fuel: Make all fireplaces have infinite fuel
+    - Ignore rain: Make all fireplaces ignore rain
 - Containers
     - Automatically sort inventories
     - Configure inventory sizes
@@ -53,6 +54,7 @@ However, if you have an idea you think might fit this mod, I invite you to creat
 - Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player
 - Removing trader item progression requirements may cause Hunin/Munin to appear with hints to undiscovered biomes, etc.
   Going to the trader at night may result in night-time spawns of undefeated bosses.
+- Toggleable fireplaces will be toggled off by rain [#20](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/20)
 
 If you experience an issue, please file a report in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
 
