@@ -7,14 +7,17 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
 {
     readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _openSince = new();
 
-    public override void PreProcess()
+    public override void Initialize()
     {
-        base.PreProcess();
-        foreach (var zdo in _openSince.Keys)
-        {
-            if (!zdo.IsValid() || zdo.PrefabInfo.Door is null)
-                _openSince.TryRemove(zdo, out _);
-        }
+        base.Initialize();
+        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
+        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+    }
+
+    void OnZdoDestroyed(ZDO arg)
+    {
+        var zdo = (ExtendedZDO)arg;
+        _openSince.TryRemove(zdo, out _);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)

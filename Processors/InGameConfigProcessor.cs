@@ -21,7 +21,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     const string SignFormatGreen = "<color=#00FF00>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
 
-    readonly ConcurrentDictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
+    readonly Dictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
 
     sealed record ConfigState(ConfigEntryBase Entry, object? Value, ExtendedZDO Sign)
     {
@@ -258,7 +258,10 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
         ZDOMan.instance.ConvertPortals();
 
+        Config.ConfigFile.SettingChanged -= OnSettingsChanged;
         Config.ConfigFile.SettingChanged += OnSettingsChanged;
+        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
+        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
     }
 
     void OnSettingsChanged(object sender, EventArgs args)
@@ -381,14 +384,10 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         }
     }
 
-    public override void PreProcess()
+    void OnZdoDestroyed(ZDO arg)
     {
-        base.PreProcess();
-        foreach (var (id, zdo) in _isAdmin.Select(x => (x.Key, x.Value.Player)))
-        {
-            if (!zdo.IsValid() || zdo.PrefabInfo.Player is null)
-                _isAdmin.TryRemove(id, out _);
-        }
+        var zdo = (ExtendedZDO)arg;
+        _isAdmin.Remove(zdo.m_uid);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
@@ -409,7 +408,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             {
                 peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
                 isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.m_socket.GetHostName());
-                _isAdmin.TryAdd(zdo.m_uid, (zdo, isAdmin));
+                _isAdmin.Add(zdo.m_uid, (zdo, isAdmin));
                 if (isAdmin)
                     UnregisterZdoProcessor = true;
             }
