@@ -5,16 +5,19 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = new();
+    readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = new();
 
-    public override void PreProcess()
+    public override void Initialize()
     {
-        base.PreProcess();
-        foreach (var zdo in _eggDropTime.Keys)
-        {
-            if (!zdo.IsValid() || zdo.PrefabInfo.EggGrow is null)
-                _eggDropTime.TryRemove(zdo, out _);
-        }
+        base.Initialize();
+        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
+        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+    }
+
+    void OnZdoDestroyed(ZDO arg)
+    {
+        var zdo = (ExtendedZDO)arg;
+        _eggDropTime.Remove(zdo);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
@@ -35,12 +38,12 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
             if (!_eggDropTime.TryGetValue(zdo, out var dropTime))
             {
-                _eggDropTime.TryAdd(zdo, DateTimeOffset.UtcNow);
+                _eggDropTime.Add(zdo, DateTimeOffset.UtcNow);
                 return false;
             }
             if (DateTimeOffset.UtcNow - dropTime < TimeSpan.FromSeconds(2 * zdo.PrefabInfo.EggGrow.m_updateInterval + 2))
                 return false;
-            _eggDropTime.TryRemove(zdo, out _);
+            _eggDropTime.Remove(zdo);
         }
 
         if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))

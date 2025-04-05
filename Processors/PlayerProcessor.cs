@@ -18,14 +18,17 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         public float ResetStamina { get; set; } = float.NaN;
     }
 
-    public override void PreProcess()
+    public override void Initialize()
     {
-        base.PreProcess();
-        foreach (var zdo in _playerData.Keys)
-        {
-            if (!zdo.IsValid() || zdo.PrefabInfo.Player is null)
-                _playerData.TryRemove(zdo, out _);
-        }
+        base.Initialize();
+        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
+        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+    }
+
+    void OnZdoDestroyed(ZDO arg)
+    {
+        var zdo = (ExtendedZDO)arg;
+        _playerData.TryRemove(zdo, out _);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)

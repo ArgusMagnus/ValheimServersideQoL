@@ -7,7 +7,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class GrowProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly ConcurrentDictionary<ExtendedZDO, LastMessage> _lastMessage = new();
+    readonly Dictionary<ExtendedZDO, LastMessage> _lastMessage = new();
 
     sealed class LastMessage
     {
@@ -15,14 +15,17 @@ sealed class GrowProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         public int Progress { get; set; }
     }
 
-    public override void PreProcess()
+    public override void Initialize()
     {
-        base.PreProcess();
-        foreach (var zdo in _lastMessage.Keys)
-        {
-            if (!zdo.IsValid() || zdo.PrefabInfo is not { EggGrow: not null } and not { Growup: not null })
-                _lastMessage.TryRemove(zdo, out _);
-        }
+        base.Initialize();
+        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
+        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+    }
+
+    void OnZdoDestroyed(ZDO arg)
+    {
+        var zdo = (ExtendedZDO)arg;
+        _lastMessage.Remove(zdo);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)

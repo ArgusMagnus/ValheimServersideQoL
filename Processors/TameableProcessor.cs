@@ -6,16 +6,19 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _lastMessage = new();
+    readonly Dictionary<ExtendedZDO, DateTimeOffset> _lastMessage = new();
 
-    public override void PreProcess()
+    public override void Initialize()
     {
-        base.PreProcess();
-        foreach (var zdo in _lastMessage.Keys)
-        {
-            if (!zdo.IsValid() || zdo.PrefabInfo.Tameable is null)
-                _lastMessage.TryRemove(zdo, out _);
-        }
+        base.Initialize();
+        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
+        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+    }
+
+    void OnZdoDestroyed(ZDO arg)
+    {
+        var zdo = (ExtendedZDO)arg;
+        _lastMessage.Remove(zdo);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
