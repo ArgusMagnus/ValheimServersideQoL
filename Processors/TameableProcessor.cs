@@ -32,7 +32,9 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         var fields = zdo.Fields<Tameable>();
         if (zdo.Vars.GetTamed())
         {
-            if (fields.SetIfChanged(x => x.m_commandable, Config.Tames.MakeCommandable.Value))
+            if (!Config.Tames.MakeCommandable.Value)
+                fields.Reset(x => x.m_commandable);
+            else if (fields.SetIfChanged(x => x.m_commandable, true))
                 RecreateZdo = true;
 
             if (!Config.Tames.AlwaysFed.Value)
