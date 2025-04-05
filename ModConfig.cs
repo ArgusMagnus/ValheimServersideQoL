@@ -75,7 +75,15 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> MakeToggleable { get; } = cfg.Bind(section, nameof(MakeToggleable), false, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
         public ConfigEntry<bool> InfiniteFuel { get; } = cfg.Bind(section, nameof(InfiniteFuel), false, "True to make all fireplaces have infinite fuel");
-        public ConfigEntry<bool> IgnoreRain { get; } = cfg.Bind(section, nameof(IgnoreRain), false, "True to make all fireplaces ignore rain");
+        public ConfigEntry<IgnoreRainOptions> IgnoreRain { get; } = cfg.Bind(section, nameof(IgnoreRain), IgnoreRainOptions.Never,
+            new ConfigDescription("Options to make all fireplaces ignore rain", new AcceptableEnum<IgnoreRainOptions>()));
+
+        public enum IgnoreRainOptions
+        {
+            Never,
+            Always,
+            InsideShield
+        }
     }
 
     public sealed class ContainersConfig(ConfigFile cfg, string section)
