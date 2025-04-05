@@ -11,7 +11,6 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly int _prefabFloor = "Piece_grausten_floor_4x4".GetStableHashCode();
     readonly int _prefabWall = "Piece_grausten_wall_4x2".GetStableHashCode();
     readonly int _prefabPortal = "portal_wood".GetStableHashCode();
     readonly int _prefabSconce = "piece_walltorch".GetStableHashCode();
@@ -22,7 +21,6 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     const string SignFormatGreen = "<color=#00FF00>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
 
-    readonly HashSet<ZDOID> _configPieces = new();
     readonly ConcurrentDictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
 
     sealed record ConfigState(ConfigEntryBase Entry, object? Value, ExtendedZDO Sign)
@@ -46,13 +44,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     {
         base.Initialize();
 
-        if (_configPieces.Count > 0)
+        if (PlacedPieces.Count > 0)
             return;
-
-        Config.ConfigFile.SettingChanged += OnSettingsChanged;
-
-        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
-            zdo.Destroy();
 
         if (!Config.General.InWorldConfigRoom.Value)
             return;
@@ -98,9 +91,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 pos.x += x;
                 pos.z += z;
 
-                PlacePiece(pos, _prefabFloor, 0f);
+                PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
                 pos.y += 4.5f;
-                PlacePiece(pos, _prefabFloor, 0f);
+                PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
                 pos.y -= 4.5f;
 
                 var kIsEdge = k is 0 || k == width - 1;
@@ -232,9 +225,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     pos.x += x;
                     pos.z += z;
 
-                    PlacePiece(pos, _prefabFloor, 0f);
+                    PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
                     pos.y += 4.5f;
-                    PlacePiece(pos, _prefabFloor, 0f);
+                    PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
                     pos.y -= 4.5f;
 
                     var kIsEdge = k is 0 || k == width - 1;
@@ -264,6 +257,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         }
 
         ZDOMan.instance.ConvertPortals();
+
+        Config.ConfigFile.SettingChanged += OnSettingsChanged;
     }
 
     void OnSettingsChanged(object sender, EventArgs args)
@@ -386,8 +381,6 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         }
     }
 
-    public override bool ClaimExclusive(ExtendedZDO zdo) => _configPieces.Contains(zdo.m_uid);
-
     public override void PreProcess()
     {
         base.PreProcess();
@@ -433,7 +426,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             return false;
         }
 
-        if (zdo.PrefabInfo.Door is not null && _configPieces.Contains(zdo.m_uid))
+        if (zdo.PrefabInfo.Door is not null && PlacedPieces.Contains(zdo.m_uid))
         {
             if (!CheckMinDistance(peers, zdo, 8))
                 return false;
@@ -566,22 +559,6 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     //    public int Prefab { get; } = PrefabName.GetStableHashCode();
     //    public Quaternion Rotation { get; } = Quaternion.Euler(Rot);
     //}
-
-    ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot)
-    {
-        var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
-        zdo.SetPrefab(prefab);
-        zdo.Persistent = true;
-        zdo.Distant = false;
-        zdo.Type = ZDO.ObjectType.Default;
-        zdo.SetRotation(Quaternion.Euler(0, rot, 0));
-        zdo.Vars.SetCreator(Main.PluginGuidHash);
-        zdo.Vars.SetHealth(-1);
-        _configPieces.Add(zdo.m_uid);
-        zdo.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
-        zdo.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false).Set(x => x.m_health, -1);
-        return zdo;
-    }
 
     //readonly IReadOnlyList<ConfigPiece>
 }

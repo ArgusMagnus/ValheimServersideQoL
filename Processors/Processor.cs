@@ -19,19 +19,30 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
     public bool UnregisterZdoProcessor { get; protected set; }
 
     readonly System.Diagnostics.Stopwatch _watch = new();
+    protected HashSet<ZDOID> PlacedPieces { get; } = new();
+    static bool __initialized;
 
     public TimeSpan ProcessingTime => _watch.Elapsed;
     long _totalProcessingTimeTicks;
     public TimeSpan TotalProcessingTime => new(_totalProcessingTimeTicks + _watch.ElapsedTicks);
 
-    public virtual void Initialize() { }
+    public virtual void Initialize()
+    {
+        if (__initialized)
+            return;
+        __initialized = true;
+
+        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
+            zdo.Destroy();
+    }
+
     public virtual void PreProcess()
     {
         _totalProcessingTimeTicks += _watch.ElapsedTicks;
         _watch.Reset();
     }
 
-    public virtual bool ClaimExclusive(ExtendedZDO zdo) => false;
+    public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo.m_uid);
 
     protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
     public void Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
@@ -56,6 +67,34 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
     protected static bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo, float minDistance)
         => peers.Min(x => Utils.DistanceSqr(x.m_refPos, zdo.GetPosition())) >= minDistance * minDistance;
+
+    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot)
+    {
+        var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
+        zdo.SetPrefab(prefab);
+        zdo.Persistent = true;
+        zdo.Distant = false;
+        zdo.Type = ZDO.ObjectType.Default;
+        zdo.SetRotation(Quaternion.Euler(0, rot, 0));
+        zdo.Vars.SetCreator(Main.PluginGuidHash);
+        zdo.Vars.SetHealth(-1);
+        PlacedPieces.Add(zdo.m_uid);
+        zdo.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
+        zdo.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false).Set(x => x.m_health, -1);
+        return zdo;
+    }
+
+    protected void DestroyPiece(ExtendedZDO zdo)
+    {
+        if (!PlacedPieces.Remove(zdo.m_uid))
+            throw new ArgumentException();
+        zdo.Destroy();
+    }
+
+    protected static class Prefabs
+    {
+        public static int GraustenFloor4x4 { get; } = "Piece_grausten_floor_4x4".GetStableHashCode();
+    }
 
     protected static class RPC
     {

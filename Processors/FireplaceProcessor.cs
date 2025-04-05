@@ -1,12 +1,35 @@
 ﻿using BepInEx.Logging;
+using System.Collections.Concurrent;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    readonly ConcurrentHashSet<ExtendedZDO> _shieldGenerators = new();
+    readonly ConcurrentDictionary<ExtendedZDO, ExtendedZDO> _roofs = new();
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
+        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+    }
+
+    void OnZdoDestroyed(ZDO arg)
+    {
+        var zdo = (ExtendedZDO)arg;
+        _shieldGenerators.Remove(zdo);
+        if (_roofs.TryRemove(zdo, out var roof))
+            DestroyPiece(roof);
+    }
+
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         UnregisterZdoProcessor = true;
+        if (zdo.PrefabInfo.ShieldGenerator is not null)
+            _shieldGenerators.Add(zdo);
+
         if (zdo.PrefabInfo.Fireplace is null)
             return false;
 
@@ -27,11 +50,41 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
             zdo.Vars.SetFuel(fields.GetFloat(x => x.m_maxFuel));
         }
 
-        if (!Config.Fireplaces.IgnoreRain.Value)
-            fields.Reset(x => x.m_coverCheckOffset);
-        else if (fields.SetIfChanged(x => x.m_coverCheckOffset, -25))
-            RecreateZdo = true;
-        
+        var ignoreRain = Config.Fireplaces.IgnoreRain.Value switch
+        {
+            ModConfig.FireplacesConfig.IgnoreRainOptions.Never => false,
+            ModConfig.FireplacesConfig.IgnoreRainOptions.Always => true,
+            ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield => _shieldGenerators
+                .Any(x => x.Vars.GetFuel() > 0 && Vector3.Distance(x.GetPosition(), zdo.GetPosition()) < x.Fields<ShieldGenerator>().GetFloat(x => x.m_maxShieldRadius)),
+            _ => false
+        };
+
+        const float offset = -100;
+        if (ignoreRain)
+        {
+            if (fields.SetIfChanged(x => x.m_coverCheckOffset, offset))
+                RecreateZdo = true;
+            if (!RecreateZdo && !_roofs.ContainsKey(zdo))
+            {
+                var pos = zdo.GetPosition();
+                pos.y += offset + zdo.PrefabInfo.Fireplace.m_coverCheckOffset + 0.5f + 2;
+                _roofs.TryAdd(zdo, PlacePiece(pos, Prefabs.GraustenFloor4x4, 0));
+            }
+        }
+        else
+        {
+            if (fields.ResetIfChanged(x => x.m_coverCheckOffset))
+                RecreateZdo = true;
+            if (_roofs.TryRemove(zdo, out var roof))
+                DestroyPiece(roof);
+        }
+
+        if (Config.Fireplaces.IgnoreRain.Value is ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield)
+        {
+            UnregisterZdoProcessor = false;
+            return false;
+        }
+
         return true;
     }
 }
