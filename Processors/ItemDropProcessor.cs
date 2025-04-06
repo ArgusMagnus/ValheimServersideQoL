@@ -10,13 +10,11 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
     public override void Initialize()
     {
         base.Initialize();
-        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
-        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+        RegisterZdoDestroyed();
     }
 
-    void OnZdoDestroyed(ZDO arg)
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        var zdo = (ExtendedZDO)arg;
         _eggDropTime.Remove(zdo);
     }
 
