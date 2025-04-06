@@ -8,6 +8,7 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     readonly Dictionary<ExtendedZDO, string> _knownPortals = new();
+    bool _enabled;
     float _hubRadius = 0;
     bool _update;
     Regex? _includeRegex;
@@ -25,8 +26,11 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
     {
         base.Initialize();
 
+        var changed = _enabled != Config.PortalHub.Enable.Value;
+        _enabled = Config.PortalHub.Enable.Value;
+
         _knownPortals.Clear();
-        if (Config.PortalHub.Enable.Value)
+        if (_enabled)
         {
             var filter = Config.PortalHub.Include.Value.Trim();
             _includeRegex = string.IsNullOrEmpty(filter.Trim(['*'])) ? null : new(ConvertToRegexPattern(filter));
@@ -40,14 +44,15 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
                     _knownPortals.Add(zdo, tag);
             }
         }
-        UpdatePortalHub();
-        if (Config.PortalHub.Enable.Value)
+        if (changed)
+            UpdatePortalHub();
+        if (_enabled)
             RegisterZdoDestroyed();
     }
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        if (Config.PortalHub.Enable.Value && _knownPortals.Remove(zdo))
+        if (_enabled && _knownPortals.Remove(zdo))
             _update = true;
     }
 
@@ -61,7 +66,7 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        if (!Config.PortalHub.Enable.Value)
+        if (!_enabled)
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -96,7 +101,10 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
     {
         foreach (var zdo in PlacedPieces)
             zdo.Destroy();
-        PlacedPieces.Clear();            
+        PlacedPieces.Clear();
+        
+        if (!_enabled)
+            return;
 
         IReadOnlyList<string> tags = [.. _knownPortals.Values
             .GroupBy(x => x)
