@@ -10,13 +10,11 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
     public override void Initialize()
     {
         base.Initialize();
-        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
-        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+        RegisterZdoDestroyed();
     }
 
-    void OnZdoDestroyed(ZDO arg)
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        var zdo = (ExtendedZDO)arg;
         _openSince.TryRemove(zdo, out _);
     }
 

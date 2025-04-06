@@ -36,6 +36,15 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
             zdo.Destroy();
     }
 
+    protected void RegisterZdoDestroyed()
+    {
+        void OnDestroyed(ZDO zdo) => OnZdoDestroyed((ExtendedZDO)zdo);
+        ZDOMan.instance.m_onZDODestroyed -= OnDestroyed;
+        ZDOMan.instance.m_onZDODestroyed += OnDestroyed;
+    }
+
+    protected virtual void OnZdoDestroyed(ExtendedZDO zdo) { }
+
     public virtual void PreProcess()
     {
         _totalProcessingTimeTicks += _watch.ElapsedTicks;

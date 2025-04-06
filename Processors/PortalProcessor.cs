@@ -9,20 +9,18 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
     public override void Initialize()
     {
+        base.Initialize();
         if (Config.GlobalsKeys.NoPortalsPreventsContruction.Value && _initialPortals.Count is 0 && !_enabled && (_enabled = ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoPortals)))
         {
             ZoneSystem.instance.RemoveGlobalKey(GlobalKeys.NoPortals);
             foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
                 _initialPortals.Add(zdo);
-            ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
-            ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+            RegisterZdoDestroyed();
         }
-        base.Initialize();
     }
 
-    void OnZdoDestroyed(ZDO arg)
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        var zdo = (ExtendedZDO)arg;
         _initialPortals.Remove(zdo);
     }
 

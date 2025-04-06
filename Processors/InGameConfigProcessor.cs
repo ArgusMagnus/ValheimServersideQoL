@@ -254,8 +254,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
         Config.ConfigFile.SettingChanged -= OnSettingsChanged;
         Config.ConfigFile.SettingChanged += OnSettingsChanged;
-        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
-        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+        RegisterZdoDestroyed();
     }
 
     void OnSettingsChanged(object sender, EventArgs args)
@@ -378,9 +377,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         }
     }
 
-    void OnZdoDestroyed(ZDO arg)
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        var zdo = (ExtendedZDO)arg;
         _isAdmin.Remove(zdo.m_uid);
     }
 

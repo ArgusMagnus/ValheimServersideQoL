@@ -12,13 +12,11 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
     public override void Initialize()
     {
         base.Initialize();
-        ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
-        ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+        RegisterZdoDestroyed();
     }
 
-    void OnZdoDestroyed(ZDO arg)
-    {
-        var zdo = (ExtendedZDO)arg;
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    { 
         _shieldGenerators.Remove(zdo);
         if (_roofs.TryRemove(zdo, out var roof))
             DestroyPiece(roof);
