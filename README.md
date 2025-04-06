@@ -9,6 +9,7 @@ This mod is in early development and the features experimental. Backup your worl
 ## Features
 **All of these features are disabled by default and must be enabled in the configuration first**
 - Generated in-world room where admins can change the mod's configuration by editing signs and toggling candles
+- Automatically generated portal hub to connect all portals
 - Time Signs: Signs which show the ingame time
 - Map Tables: Automatically add pins for portals and ships to map tables
 - Tames

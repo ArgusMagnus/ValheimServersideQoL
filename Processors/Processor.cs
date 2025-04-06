@@ -1,5 +1,6 @@
 ﻿using BepInEx.Logging;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -19,7 +20,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
     public bool UnregisterZdoProcessor { get; protected set; }
 
     readonly System.Diagnostics.Stopwatch _watch = new();
-    protected HashSet<ZDOID> PlacedPieces { get; } = new();
+    protected HashSet<ExtendedZDO> PlacedPieces { get; } = new();
     static bool __initialized;
 
     public TimeSpan ProcessingTime => _watch.Elapsed;
@@ -51,7 +52,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         _watch.Reset();
     }
 
-    public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo.m_uid);
+    public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo);
 
     protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
     public void Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
@@ -87,7 +88,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         zdo.SetRotation(Quaternion.Euler(0, rot, 0));
         zdo.Vars.SetCreator(Main.PluginGuidHash);
         zdo.Vars.SetHealth(-1);
-        PlacedPieces.Add(zdo.m_uid);
+        PlacedPieces.Add(zdo);
         zdo.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
         zdo.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false).Set(x => x.m_health, -1);
         return zdo;
@@ -95,9 +96,16 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
     protected void DestroyPiece(ExtendedZDO zdo)
     {
-        if (!PlacedPieces.Remove(zdo.m_uid))
+        if (!PlacedPieces.Remove(zdo))
             throw new ArgumentException();
         zdo.Destroy();
+    }
+
+    protected static string ConvertToRegexPattern(string searchPattern)
+    {
+        searchPattern = Regex.Escape(searchPattern);
+        searchPattern = searchPattern.Replace("\\*", ".*").Replace("\\?", ".?");
+        return $"(?i)^{searchPattern}$";
     }
 
     protected static class Prefabs

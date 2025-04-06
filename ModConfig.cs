@@ -24,6 +24,7 @@ sealed class ModConfig(ConfigFile cfg)
     public TradersConfig Traders { get; } = new(cfg, "B - Traders");
     public PlantsConfig Plants { get; } = new(cfg, "B - Plants");
     public TrapsConfig Traps { get; } = new(cfg, "B - Traps");
+    public PortalHubConfig PortalHub { get; } = new(cfg, "B - Portal Hub");
     public WorldModifiersConfig WorldModifiers { get; } = new(cfg, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(cfg, "D - Global Keys");
 
@@ -157,6 +158,13 @@ sealed class ModConfig(ConfigFile cfg)
             PlayerBuilt = (1 << 0),
             World = (1 << 1)
         }
+    }
+
+    public sealed class PortalHubConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to automatically generate a portal hub");
+        public ConfigEntry<string> Exclude { get; } = cfg.Bind(section, nameof(Exclude), "", "Portals with a tag that matches this filter are not added to the portal hub");
+        public ConfigEntry<string> Include { get; } = cfg.Bind(section, nameof(Include), "*", "Only portals with a tag that matches this filter are added to the portal hub");
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)
