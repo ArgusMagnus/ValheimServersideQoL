@@ -1,3 +1,6 @@
+### v0.2.13
+- Fix bug with generated portal hub
+
 ### v0.2.12
 - New feature: Automatically generated portal hub
 - Fix NoPortalsPreventsContruction not working [#29](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/29)

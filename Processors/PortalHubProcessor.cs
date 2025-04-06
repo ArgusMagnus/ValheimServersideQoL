@@ -36,7 +36,7 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
             foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
             {
                 string? tag = null;
-                if (zdo.GetOwner() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
+                if (zdo.Vars.GetCreator() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
                     _knownPortals.Add(zdo, tag);
             }
         }
@@ -82,8 +82,8 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
         else
         {
-            var tag = zdo.Vars.GetTag();
-            if (CheckFilter(zdo, tag) && (!_knownPortals.TryGetValue(zdo, out var oldTag) || oldTag != tag))
+            string? tag = null;
+            if (zdo.Vars.GetCreator() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()) && (!_knownPortals.TryGetValue(zdo, out var oldTag) || oldTag != tag))
             {
                 _knownPortals[zdo] = tag;
                 _update = true;
@@ -102,6 +102,7 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
             .GroupBy(x => x)
             .Where(x => x.Count() % 2 is not 0)
             .Select(x => x.Key)
+            .Concat(Config.General.InWorldConfigRoom.Value ? [InGameConfigProcessor.PortalHubTag] : [])
             .OrderBy(x => x)];
 
         // 4*(width-1) = count -> width = count/4 + 1

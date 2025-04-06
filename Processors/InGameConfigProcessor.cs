@@ -14,6 +14,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     const string SignFormatWhite = "<color=white>";
     const string SignFormatGreen = "<color=#00FF00>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
+    internal const string PortalHubTag = $"{Main.PluginName} Portal Hub";
 
     readonly Dictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
 
@@ -195,7 +196,13 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             pos.x -= 2;
             pos.z -= 2;
 
-            pos.z -= 1.5f;
+            if (Config.PortalHub.Enable.Value)
+            {
+                pos.z -= 0.5f;
+                PlacePiece(pos, Prefabs.PortalWood, 180f)
+                    .Vars.SetTag(PortalHubTag);
+                pos.z += 1;
+            }
             PlacePiece(pos, Prefabs.PortalWood, 0f)
                 .Vars.SetTag(MainPortalTag);
         }
