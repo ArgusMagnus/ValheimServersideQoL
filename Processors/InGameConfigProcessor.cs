@@ -11,12 +11,6 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly int _prefabWall = "Piece_grausten_wall_4x2".GetStableHashCode();
-    readonly int _prefabPortal = "portal_wood".GetStableHashCode();
-    readonly int _prefabSconce = "piece_walltorch".GetStableHashCode();
-    readonly int _prefabGuardStone = "dverger_guardstone".GetStableHashCode(); //"guard_stone".GetStableHashCode();
-    readonly int _prefabSign = "sign".GetStableHashCode();
-    readonly int _prefabCandle = "Candle_resin".GetStableHashCode();
     const string SignFormatWhite = "<color=white>";
     const string SignFormatGreen = "<color=#00FF00>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
@@ -59,10 +53,10 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         {
             var pos = _worldSpawn;
             pos.z -= 3;
-            PlacePiece(pos, _prefabPortal, 0f)
+            PlacePiece(pos, Prefabs.PortalWood, 0f)
                 .Vars.SetTag(MainPortalTag);
             pos.y -= 3;
-            PlacePiece(pos, _prefabGuardStone, 0)
+            PlacePiece(pos, Prefabs.DvergerGuardstone, 0)
                 .Fields<PrivateArea>(true).Set(x => x.m_radius, 3).Set(x => x.m_enabledByDefault, true);
         }
 
@@ -135,7 +129,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     var section = Regex.Replace(sectionEnumerator.Current.Key, @"^[A-Z] - ", "");
                     IReadOnlyList<ConfigEntryBase> entries = [.. sectionEnumerator.Current];
                     var hasNonDefault = entries.Any(x => !Equals(x.BoxedValue, x.DefaultValue));
-                    var zdo = PlacePiece(pos, _prefabPortal, rot);
+                    var zdo = PlacePiece(pos, Prefabs.PortalWood, rot);
                     zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
                     zdo.Vars.SetTag($"Config: {section}");
 
@@ -149,7 +143,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     else if (!kIsEdge)
                         pos.x += i is 0 ? -0.25f : 0.25f;
                     pos.y += 2;
-                    var sign = PlacePiece(pos, _prefabSign, rot);
+                    var sign = PlacePiece(pos, Prefabs.Sign, rot);
                     sign.Vars.SetText($"{(hasNonDefault ? SignFormatGreen : SignFormatWhite)}{section}");
                     _portalSigns.Add((sign, section, entries));
                 }
@@ -162,14 +156,14 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     pos.y += 0.25f;
                     rot = i is 0 ? 90 : 270;
                     pos.x += i is 0 ? -2f : 2f;
-                    PlacePiece(pos, _prefabWall, rot);
+                    PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
                     pos.y += 2;
-                    PlacePiece(pos, _prefabWall, rot);
+                    PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
 
                     rot -= 90;
                     pos.x += i is 0 ? 0.25f : -0.25f;
                     pos.y += 0.5f;
-                    PlacePiece(pos, _prefabSconce, rot)
+                    PlacePiece(pos, Prefabs.Sconce, rot)
                         .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
                 }
                 if (kIsEdge)
@@ -180,14 +174,14 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                     pos.y += 0.25f;
                     rot = k is 0 ? 0 : 180;
                     pos.z += k is 0 ? -2f : 2f;
-                    PlacePiece(pos, _prefabWall, rot);
+                    PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
                     pos.y += 2;
-                    PlacePiece(pos, _prefabWall, rot);
+                    PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
 
                     rot -= 90;
                     pos.z += k is 0 ? 0.25f : -0.25f;
                     pos.y += 0.5f;
-                    PlacePiece(pos, _prefabSconce, rot)
+                    PlacePiece(pos, Prefabs.Sconce, rot)
                         .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
                 }
             }
@@ -202,7 +196,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             pos.z -= 2;
 
             pos.z -= 1.5f;
-            PlacePiece(pos, _prefabPortal, 0f)
+            PlacePiece(pos, Prefabs.PortalWood, 0f)
                 .Vars.SetTag(MainPortalTag);
         }
 
@@ -249,7 +243,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 var pos = offset with { y = yOffset };
                 pos.x -= 2;
                 pos.z -= 2;
-                var zdo = PlacePiece(pos, _prefabPortal, 0f);
+                var zdo = PlacePiece(pos, Prefabs.PortalWood, 0f);
                 zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
                 zdo.Vars.SetTag($"Config: {section}");
 
@@ -279,9 +273,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         ref var z = ref (alongX ? ref pos.z : ref pos.x);
         rot += isStart ? 0 : 180;
         z += isStart ? -2f : 2f;
-        PlacePiece(pos, _prefabWall, rot);
+        PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
         pos.y += 2;
-        PlacePiece(pos, _prefabWall, rot);
+        PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
 
         if (entryEnumerator.MoveNext())
         {
@@ -290,19 +284,19 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             rot -= 90;
             z += isStart ? 0.25f : -0.25f;
             pos.y += 1.1f + 0.25f;
-            PlacePiece(pos, _prefabSign, rot + 90)
+            PlacePiece(pos, Prefabs.Sign, rot + 90)
                 .Vars.SetText($"{SignFormatWhite}{entry.Definition.Key}");
             pos.y -= 0.6f;
-            PlacePiece(pos, _prefabSign, rot + 90)
+            PlacePiece(pos, Prefabs.Sign, rot + 90)
                 .Vars.SetText($"{SignFormatWhite}{entry.Description.Description}");
 
 
             pos.y -= 0.25f;
             x -= 1;
-            PlacePiece(pos, _prefabSconce, rot)
+            PlacePiece(pos, Prefabs.Sconce, rot)
                 .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
             x += 2;
-            PlacePiece(pos, _prefabSconce, rot)
+            PlacePiece(pos, Prefabs.Sconce, rot)
                 .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
             x -= 1;
             pos.y += 0.25f;
@@ -339,7 +333,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                         pos.y -= 1;
                     }
 
-                    var sign = PlacePiece(pos, _prefabSign, rot + 90);
+                    var sign = PlacePiece(pos, Prefabs.Sign, rot + 90);
                     sign.Vars.SetText(GetSignText(values[i], entry.SettingType, Color.Silver));
 
                     var configState = new ConfigState(entry, values[i], sign);
@@ -354,7 +348,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                         configState.CandleState = Equals(entry.BoxedValue, values[i]);
                     }
                     pos.y -= 0.55f;
-                    var candle = PlacePiece(pos, _prefabCandle, rot);
+                    var candle = PlacePiece(pos, Prefabs.Candle, rot);
                     candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
                     candle.Vars.SetState(configState.CandleState ? 1 : 2);
                     _candleToggles.Add(candle.m_uid, configState);
@@ -365,7 +359,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             }
             else
             {
-                var sign = PlacePiece(pos, _prefabSign, rot + 90);
+                var sign = PlacePiece(pos, Prefabs.Sign, rot + 90);
                 sign.Vars.SetText(GetSignText(entry));
 
                 if (entry.SettingType != typeof(bool))
@@ -374,7 +368,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 {
                     var configState = new ConfigState(entry, null, sign) { CandleState = (bool)entry.BoxedValue };
                     pos.y -= 0.55f;
-                    var candle = PlacePiece(pos, _prefabCandle, rot);
+                    var candle = PlacePiece(pos, Prefabs.Candle, rot);
                     candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
                     candle.Vars.SetState(configState.CandleState ? 1 : 2);
                     _candleToggles.Add(candle.m_uid, configState);

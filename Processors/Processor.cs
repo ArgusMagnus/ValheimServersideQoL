@@ -94,6 +94,12 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
     protected static class Prefabs
     {
         public static int GraustenFloor4x4 { get; } = "Piece_grausten_floor_4x4".GetStableHashCode();
+        public static int GraustenWall4x2 { get; } = "Piece_grausten_wall_4x2".GetStableHashCode();
+        public static int PortalWood { get; } = "portal_wood".GetStableHashCode();
+        public static int Sconce { get; } = "piece_walltorch".GetStableHashCode();
+        public static int DvergerGuardstone { get; } = "dverger_guardstone".GetStableHashCode();
+        public static int Sign { get; } = "sign".GetStableHashCode();
+        public static int Candle { get; } = "Candle_resin".GetStableHashCode();
     }
 
     protected static class RPC
