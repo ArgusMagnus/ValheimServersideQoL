@@ -439,7 +439,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         {
             if (zdo.PrefabInfo.Fireplace is not null && _candleToggles.TryGetValue(zdo.m_uid, out var configState))
             {
-                var state = zdo.Vars.GetState() is 1;
+                var state = zdo.Vars.GetState(1) is 1;
                 string? text = null;
                 if (state != configState.CandleState)
                 {

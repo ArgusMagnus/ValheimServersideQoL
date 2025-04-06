@@ -10,7 +10,9 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     public override void Initialize()
     {
         base.Initialize();
-        if (Config.GlobalsKeys.NoPortalsPreventsContruction.Value && _initialPortals.Count is 0 && !_enabled && (_enabled = ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoPortals)))
+        _enabled = false;
+        _initialPortals.Clear();
+        if (Config.GlobalsKeys.NoPortalsPreventsContruction.Value && (_enabled = ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoPortals)))
         {
             ZoneSystem.instance.RemoveGlobalKey(GlobalKeys.NoPortals);
             foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
