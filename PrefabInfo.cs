@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL;
 
@@ -12,9 +13,9 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
     public MapTable? MapTable { get; } = Get<MapTable>(components);
     public Tameable? Tameable { get; } = Get<Tameable>(components);
     public Fireplace? Fireplace { get; } = Get<Fireplace>(components);
-    public (Container Container, Piece Piece, PieceTable PieceTable, Optional<ZSyncTransform> ZSyncTransform)? Container { get; } = Get<Container, Piece, PieceTable, ZSyncTransform>(components);
-    public (Ship Ship, Piece Piece)? Ship { get; } = Get<Ship, Piece>(components);
-    public (ItemDrop ItemDrop, Optional<Piece> Piece)? ItemDrop { get; } = Get<ItemDrop, Piece>(components);
+    public (Container Container, Piece Piece, PieceTable PieceTable, Optional<ZSyncTransform> ZSyncTransform)? Container { get; } = GetTuple<(Container, Piece, PieceTable, Optional<ZSyncTransform>)>(components);
+    public (Ship Ship, Piece Piece)? Ship { get; } = GetTuple<(Ship, Piece)>(components);
+    public (ItemDrop ItemDrop, Optional<Piece> Piece)? ItemDrop { get; } = GetTuple<(ItemDrop, Optional<Piece>)>(components);
     public Smelter? Smelter { get; } = Get<Smelter>(components);
     public ShieldGenerator? ShieldGenerator { get; } = Get<ShieldGenerator>(components);
     public Windmill? Windmill { get; } = Get<Windmill>(components);
@@ -22,13 +23,13 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
     public Player? Player { get; } = Get<Player>(components);
     public TeleportWorld? TeleportWorld { get; } = Get<TeleportWorld>(components);
     public Door? Door { get; } = Get<Door>(components);
-    public (Turret Turret, Piece Piece, PieceTable PieceTable)? Turret { get; } = Get<Turret, Piece, PieceTable>(components);
-    public (WearNTear WearNTear, Optional<Piece> Piece, Optional<PieceTable> PieceTable)? WearNTear { get; } = Get<WearNTear, Piece, PieceTable>(components);
+    public (Turret Turret, Piece Piece, PieceTable PieceTable)? Turret { get; } = GetTuple<(Turret, Piece, PieceTable)>(components);
+    public (WearNTear WearNTear, Optional<Piece> Piece, Optional<PieceTable> PieceTable)? WearNTear { get; } = GetTuple<(WearNTear, Optional<Piece>, Optional<PieceTable>)>(components);
     public Trader? Trader { get; } = Get<Trader>(components);
     public Plant? Plant { get; } = Get<Plant>(components);
     public EggGrow? EggGrow { get; } = Get<EggGrow>(components);
     public Growup? Growup { get; } = Get<Growup>(components);
-    public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = Get<Aoe, Piece, PieceTable, Trap>(components);
+    public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = GetTuple<(Aoe, Piece, PieceTable, Optional<Trap>)>(components);
     //public PrivateArea? PrivateArea { get; } = Get<PrivateArea>(components);
 
     public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
@@ -37,33 +38,28 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
         where T : MonoBehaviour
         => prefabs.TryGetValue(typeof(T), out var value) ? (T)value : null;
 
-    static (T1 F1, Optional<T2> F2)? Get<T1, T2>(IReadOnlyDictionary<Type, MonoBehaviour> prefabs)
-        where T1 : MonoBehaviour where T2 : MonoBehaviour
+    static T? GetTuple<T>(IReadOnlyDictionary<Type, MonoBehaviour> prefabs)
+        where T : struct, ITuple
     {
-        if (!prefabs.TryGetValue(typeof(T1), out var f1))
-            return null;
-        return ((T1)f1, new(prefabs.TryGetValue(typeof(T2), out var f2) ? (T2)f2 : null));
+        var types = typeof(T).GenericTypeArguments;
+        var args = new object[types.Length];
+        for (var i = 0; i < types.Length; i++)
+        {
+            var type = types[i];
+            if (!type.IsGenericType || type.GetGenericTypeDefinition() != typeof(Optional<>))
+            {
+                if (!prefabs.TryGetValue(type, out var value))
+                    return default;
+                args[i] = value;
+            }
+            else
+            {
+                prefabs.TryGetValue(type.GenericTypeArguments[0], out var value);
+                args[i] = Activator.CreateInstance(type, args: [value]);
+            }
+        }
+        return (T)Activator.CreateInstance(typeof(T), args: args);
     }
 
-    static (T1 F1, Optional<T2> F2, Optional<T3> F3)? Get<T1, T2, T3>(IReadOnlyDictionary<Type, MonoBehaviour> prefabs)
-        where T1 : MonoBehaviour where T2 : MonoBehaviour where T3 : MonoBehaviour
-    {
-        if (!prefabs.TryGetValue(typeof(T1), out var f1))
-            return null;
-        return ((T1)f1, new(prefabs.TryGetValue(typeof(T2), out var f2) ? (T2)f2 : null), new(prefabs.TryGetValue(typeof(T3), out var f3) ? (T3)f3 : null));
-    }
-
-    static (T1 F1, Optional<T2> F2, Optional<T3> F3, Optional<T4> F4)? Get<T1, T2, T3, T4>(IReadOnlyDictionary<Type, MonoBehaviour> prefabs)
-        where T1 : MonoBehaviour where T2 : MonoBehaviour where T3 : MonoBehaviour where T4 : MonoBehaviour
-    {
-        if (!prefabs.TryGetValue(typeof(T1), out var f1))
-            return null;
-        return ((T1)f1, new(prefabs.TryGetValue(typeof(T2), out var f2) ? (T2)f2 : null),
-            new(prefabs.TryGetValue(typeof(T3), out var f3) ? (T3)f3 : null), new(prefabs.TryGetValue(typeof(T4), out var f4) ? (T4)f4 : null));
-    }
-
-    public record struct Optional<T>(T? Value) where T : MonoBehaviour
-    {
-        public static implicit operator T(in Optional<T> value) => value.Value ?? throw new ArgumentNullException();
-    }
+    public record struct Optional<T>(T? Value) where T : MonoBehaviour;
 }

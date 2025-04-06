@@ -131,7 +131,13 @@ static class SharedProcessorState
         {
             if (componentType == typeof(PieceTable))
                 return PieceTablesByPiece.TryGetValue(prefab.name, out var c) ? c : null;
-            return (prefab.GetComponent(componentType) ?? prefab.GetComponentInChildren(componentType)) as MonoBehaviour;
+            return (MonoBehaviour?)prefab.GetComponent<ZNetView>()?.gameObject.GetComponentInChildren(componentType);
+
+            //if (componentType == typeof(PieceTable))
+            //    return PieceTablesByPiece.TryGetValue(prefab.name, out var c) ? c : null;
+            //if ((prefab.GetComponent(componentType) ?? prefab.GetComponentInChildren(componentType)) is MonoBehaviour component)
+            //    return component;
+            //return null;
         }
     }
 }
