@@ -23,13 +23,6 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         _includePortalRegex = string.IsNullOrEmpty(filter.Trim(['*'])) ? null : new(ConvertToRegexPattern(filter));
         filter = Config.MapTables.AutoUpdatePortalsExclude.Value.Trim();
         _excludePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
-
-        static string ConvertToRegexPattern(string searchPattern)
-        {
-            searchPattern = Regex.Escape(searchPattern);
-            searchPattern = searchPattern.Replace("\\*", ".*").Replace("\\?", ".?");
-            return $"(?i)^{searchPattern}$";
-        }
     }
 
     public override void PreProcess()

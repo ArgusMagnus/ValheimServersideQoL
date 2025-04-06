@@ -417,7 +417,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             return false;
         }
 
-        if (zdo.PrefabInfo.Door is not null && PlacedPieces.Contains(zdo.m_uid))
+        if (zdo.PrefabInfo.Door is not null && PlacedPieces.Contains(zdo))
         {
             if (!CheckMinDistance(peers, zdo, 8))
                 return false;
