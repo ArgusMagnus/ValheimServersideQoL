@@ -7,7 +7,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly HashSet<ExtendedZDO> _knownPortals = new();
+    readonly Dictionary<ExtendedZDO, string> _knownPortals = new();
     float _hubRadius = 0;
     bool _update;
     Regex? _includeRegex;
@@ -35,8 +35,9 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
             foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
             {
-                if (zdo.GetOwner() != Main.PluginGuidHash && CheckFilter(zdo))
-                    _knownPortals.Add(zdo);
+                string? tag = null;
+                if (zdo.GetOwner() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
+                    _knownPortals.Add(zdo, tag);
             }
         }
         UpdatePortalHub();
@@ -50,12 +51,11 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
             _update = true;
     }
 
-    bool CheckFilter(ExtendedZDO zdo)
+    bool CheckFilter(ExtendedZDO zdo, string tag)
     {
         if ((_includeRegex ?? _excludeRegex) is null)
             return true;
 
-        var tag = zdo.Vars.GetTag();
         return _includeRegex?.IsMatch(tag) is not false && _excludeRegex?.IsMatch(tag) is not true;
     }
 
@@ -66,22 +66,30 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
             UnregisterZdoProcessor = true;
             return false;
         }
-
-        UnregisterZdoProcessor = zdo.PrefabInfo.Player is null; // Keep running at least one instance
-
-        if (zdo.PrefabInfo.TeleportWorld is not null && !PlacedPieces.Contains(zdo))
+        else if (zdo.PrefabInfo.Player is not null) // Keep running at least one instance
         {
-            if (CheckFilter(zdo) && _knownPortals.Add(zdo))
+            if (_update && !peers.Any(x => Utils.DistanceXZ(x.m_refPos, _offset) < _hubRadius))
+            {
+                _update = false;
+                UpdatePortalHub();
+            }
+            return false;
+        }
+        else if (zdo.PrefabInfo.TeleportWorld is null || PlacedPieces.Contains(zdo))
+        {
+            UnregisterZdoProcessor = true;
+            return false;
+        }
+        else
+        {
+            var tag = zdo.Vars.GetTag();
+            if (CheckFilter(zdo, tag) && (!_knownPortals.TryGetValue(zdo, out var oldTag) || oldTag != tag))
+            {
+                _knownPortals[zdo] = tag;
                 _update = true;
+            }
+            return true;
         }
-
-        if (_update && !peers.Any(x => Utils.DistanceXZ(x.m_refPos, _offset) < _hubRadius))
-        {
-            _update = false;
-            UpdatePortalHub();
-        }
-
-        return false;
     }
 
     void UpdatePortalHub()
@@ -90,8 +98,7 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
             zdo.Destroy();
         PlacedPieces.Clear();            
 
-        IReadOnlyList<string> tags = [.. _knownPortals
-            .Select(x => x.Vars.GetTag())
+        IReadOnlyList<string> tags = [.. _knownPortals.Values
             .GroupBy(x => x)
             .Where(x => x.Count() % 2 is not 0)
             .Select(x => x.Key)
@@ -100,6 +107,10 @@ sealed class PortalHubProcessor(ManualLogSource logger, ModConfig cfg) : Process
         // 4*(width-1) = count -> width = count/4 + 1
         var width = (int)Math.Ceiling(tags.Count / 4f + 1);
         _hubRadius = (width + 1) * 4f * Mathf.Sqrt(2);
+
+        PlacePiece(_offset, Prefabs.DvergerGuardstone, 0)
+            .Fields<PrivateArea>(true).Set(x => x.m_radius, _hubRadius);
+
         for (int i = 0; i < width; i++)
         {
             var x = (i - width / 2f) * 4;
