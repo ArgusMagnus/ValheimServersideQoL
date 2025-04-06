@@ -14,25 +14,30 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             ZoneSystem.instance.RemoveGlobalKey(GlobalKeys.NoPortals);
             foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
                 _initialPortals.Add(zdo);
+            ZDOMan.instance.m_onZDODestroyed -= OnZdoDestroyed;
+            ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
         }
         base.Initialize();
     }
 
-	protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    void OnZdoDestroyed(ZDO arg)
     {
-        if (!_enabled || zdo.PrefabInfo.TeleportWorld is null || !_initialPortals.Contains(zdo))
-        {
-            UnregisterZdoProcessor = true;
+        var zdo = (ExtendedZDO)arg;
+        _initialPortals.Remove(zdo);
+    }
+
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    {
+        UnregisterZdoProcessor = true;
+        if (!_enabled || zdo.PrefabInfo.TeleportWorld is null || _initialPortals.Contains(zdo))
             return false;
-        }
 
         RPC.Remove(zdo);
 
         /// <see cref="Player.TryPlacePiece(Piece)"/>
         var owner = zdo.GetOwner();
-        var peer = peers.FirstOrDefault(x => x.m_uid == owner);
-        if (peer is not null)
-            RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$msg_nobuildzone");
+        if (owner is not 0)
+            RPC.ShowMessage(owner, MessageHud.MessageType.Center, "$msg_nobuildzone");
 
         return false;
     }

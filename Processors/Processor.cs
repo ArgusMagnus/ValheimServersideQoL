@@ -98,7 +98,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
     protected static class RPC
     {
-        static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
+        public static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
         {
             /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, "ShowMessage", (int)type, message);

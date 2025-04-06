@@ -1,3 +1,6 @@
+### v0.2.12
+- Fix NoPortalsPreventsContruction not working [#29](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/29)
+
 ### v0.2.11
 - New feature: Make fireplaces ignore rain
 
