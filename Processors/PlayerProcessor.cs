@@ -71,20 +71,12 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             return false;
 
         var playerName = zdo.Vars.GetPlayerName();
-
-        if (!SharedProcessorState.FollowingTamesByPlayerName.TryGetValue(playerName, out var tames))
-            return false;
-
         var playerZone = ZoneSystem.GetZone(zdo.GetPosition());
 
-        foreach (var tameZdoId in tames)
+        foreach (var tameZdo in Instance<TameableProcessor>().Tames)
         {
-            var tameZdo = ZDOMan.instance.GetExtendedZDO(tameZdoId);
-            if (tameZdo?.IsValid() is not true || tameZdo.Vars.GetFollow() != playerName)
-            {
-                tames.Remove(tameZdoId);
+            if (tameZdo.Vars.GetFollow() != playerName)
                 continue;
-            }
 
             var tameZone = ZoneSystem.GetZone(tameZdo.GetPosition());
             if (Math.Max(Math.Abs(tameZone.x - playerZone.x), Math.Abs(tameZone.y - playerZone.y)) <= ZoneSystem.instance.m_activeArea)
@@ -100,9 +92,6 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             tameZdo.SetPosition(targetPos);
             tameZdo.SetOwnerInternal(owner);
         }
-
-        if (tames is { Count: 0 })
-            SharedProcessorState.FollowingTamesByPlayerName.TryRemove(playerName, out _);
 
         return false;
     }

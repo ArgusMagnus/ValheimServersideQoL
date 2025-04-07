@@ -11,7 +11,7 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
 
     public Sign? Sign { get; } = Get<Sign>(components);
     public MapTable? MapTable { get; } = Get<MapTable>(components);
-    public Tameable? Tameable { get; } = Get<Tameable>(components);
+    public (Tameable Tameable, MonsterAI MonsterAI)? Tameable { get; } = GetTuple<(Tameable, MonsterAI)>(components);
     public Fireplace? Fireplace { get; } = Get<Fireplace>(components);
     public (Container Container, Piece Piece, PieceTable PieceTable, Optional<ZSyncTransform> ZSyncTransform)? Container { get; } = GetTuple<(Container, Piece, PieceTable, Optional<ZSyncTransform>)>(components);
     public (Ship Ship, Piece Piece)? Ship { get; } = GetTuple<(Ship, Piece)>(components);

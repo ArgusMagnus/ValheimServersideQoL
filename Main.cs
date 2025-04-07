@@ -274,17 +274,6 @@ public sealed partial class Main : BaseUnityPlugin
                 if (set is { Count: 0 })
                     Processor.Instance<ContainerProcessor>().ContainersByItemName.TryRemove(key, out _);
             }
-
-            foreach (var (key, set) in SharedProcessorState.FollowingTamesByPlayerName.Select(x => (x.Key, x.Value)))
-            {
-                foreach (var id in set)
-                {
-                    if (ZDOMan.instance.GetZDO(id) is not { } zdo || !zdo.IsValid())
-                        set.Remove(id);
-                }
-                if (set is { Count: 0 })
-                    SharedProcessorState.FollowingTamesByPlayerName.TryRemove(key, out _);
-            }
         }
 
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);

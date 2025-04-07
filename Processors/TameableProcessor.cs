@@ -7,6 +7,8 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     readonly Dictionary<ExtendedZDO, DateTimeOffset> _lastMessage = new();
+    readonly List<ExtendedZDO> _tames = new();
+    public IReadOnlyList<ExtendedZDO> Tames => _tames;
 
     public override void Initialize()
     {
@@ -17,19 +19,24 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
         _lastMessage.Remove(zdo);
+        _tames.Remove(zdo);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
+        UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Tameable is null)
-        {
-            UnregisterZdoProcessor = true;
             return false;
-        }
+
+        var (tameable, monsterAi) = zdo.PrefabInfo.Tameable.Value;
+
+        //zdo.PrefabInfo.Tameable.Value.MonsterAI.m_consumeItems;
 
         var fields = zdo.Fields<Tameable>();
         if (zdo.Vars.GetTamed())
         {
+            _tames.Add(zdo);
+
             if (!Config.Tames.MakeCommandable.Value)
                 fields.Reset(x => x.m_commandable);
             else if (fields.SetIfChanged(x => x.m_commandable, true))
@@ -42,19 +49,18 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
             if (Config.Summons.UnsummonDistanceMultiplier.Value is 1f)
                 fields.Reset(x => x.m_unsummonDistance);
-            else if (fields.SetIfChanged(x => x.m_unsummonDistance, zdo.PrefabInfo.Tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
+            else if (fields.SetIfChanged(x => x.m_unsummonDistance, tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
                 RecreateZdo = true;
 
             if (Config.Summons.UnsummonLogoutTimeMultiplier.Value is 1f)
                 fields.Reset(x => x.m_unsummonOnOwnerLogoutSeconds);
-            else if (fields.SetIfChanged(x => x.m_unsummonOnOwnerLogoutSeconds, zdo.PrefabInfo.Tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
+            else if (fields.SetIfChanged(x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
                 RecreateZdo = true;
-
-            if (!RecreateZdo && zdo.Vars.GetFollow() is { Length: > 0 } playerName)
-                SharedProcessorState.FollowingTamesByPlayerName.GetOrAdd(playerName, static _ => new()).Add(zdo.m_uid);
         }
         else if (Config.Tames.ShowTamingProgress.Value)
         {
+            UnregisterZdoProcessor = false;
+
             /// <see cref="Tameable.GetRemainingTime()"/>
             var tameTime = fields.GetFloat(x => x.m_tamingTime);
             var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);

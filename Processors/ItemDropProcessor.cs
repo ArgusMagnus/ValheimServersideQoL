@@ -51,6 +51,20 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         if (!Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(shared, out var containers))
             return false;
 
+        if (Config.Containers.AutoPickupExcludeFodder.Value)
+        {
+            foreach (var tameZdo in Instance<TameableProcessor>().Tames)
+            {
+                /// <see cref="MonsterAI.CanConsume(ItemDrop.ItemData)"/>
+                if (!tameZdo.PrefabInfo.Tameable!.Value.MonsterAI.m_consumeItems.Any(x => x.m_itemData.m_shared.m_name == shared.m_name))
+                    continue;
+                var rangeSqr = tameZdo.PrefabInfo.Tameable.Value.MonsterAI.m_consumeSearchRange;
+                rangeSqr *= rangeSqr;
+                if (Utils.DistanceSqr(zdo.GetPosition(), tameZdo.GetPosition()) < rangeSqr)
+                    return false;
+            }
+        }
+
         HashSet<Vector2i>? usedSlots = null;
         ItemDrop.ItemData? item = null;
 

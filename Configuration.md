@@ -18,6 +18,7 @@
 |Containers|AutoPickup|False|True/False|True to automatically put dropped items into containers if they already contain said item|
 |Containers|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target|
 |Containers|AutoPickupMinPlayerDistance|8||Min distance all player must have to a dropped item for it to be picked up|
+|Containers|AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
 |Containers|InventorySize_Cart|6x3||Inventory size for 'Cart'|
 |Containers|InventorySize_incinerator|7x3||Inventory size for 'Obliterator'|
 |Containers|InventorySize_Karve|2x2||Inventory size for 'Karve'|
