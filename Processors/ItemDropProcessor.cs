@@ -48,7 +48,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 			return false; // player to close
 
 		var shared = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.m_itemData.m_shared;
-        if (!SharedProcessorState.ContainersByItemName.TryGetValue(shared, out var containers))
+        if (!Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(shared, out var containers))
             return false;
 
         HashSet<Vector2i>? usedSlots = null;
@@ -102,7 +102,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             {
                 containers.Remove(containerZdo);
                 if (containers is { Count: 0 })
-                    SharedProcessorState.ContainersByItemName.TryRemove(item.m_shared, out _);
+                    Instance<ContainerProcessor>().ContainersByItemName.TryRemove(item.m_shared, out _);
                 continue;
             }
 

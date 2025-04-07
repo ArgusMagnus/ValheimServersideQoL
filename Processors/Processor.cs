@@ -12,6 +12,12 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         .Where(x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
         .Select(x => (Processor)Activator.CreateInstance(x, args: [Main.Instance.Logger, Main.Instance.Config]))];
 
+    static class InstanceCache<T> where T : Processor
+    {
+        public static T Instance { get; } = DefaultProcessors.OfType<T>().First();
+    }
+    public static T Instance<T>() where T : Processor => InstanceCache<T>.Instance;
+
     protected ManualLogSource Logger { get; } = logger;
     protected ModConfig Config { get; } = cfg;
 
