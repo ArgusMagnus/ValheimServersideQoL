@@ -47,7 +47,6 @@ public sealed partial class Main : BaseUnityPlugin
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
-    readonly HashSet<ZDOID> _ignore = new();
     readonly List<Processor> _unregister = new();
     bool _configChanged = true;
 
@@ -352,7 +351,7 @@ public sealed partial class Main : BaseUnityPlugin
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
                 sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
-                if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy) || _ignore.Contains(zdo.m_uid))
+                if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
                     continue;
 
                 if (zdo.Processors.Count > 1)
