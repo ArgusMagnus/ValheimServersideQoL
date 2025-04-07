@@ -26,7 +26,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                 foreach (var fuelItem in zdo.PrefabInfo.ShieldGenerator?.m_fuelItems.Select(x => x.m_itemData) ?? [zdo.PrefabInfo.Smelter!.m_fuelItem.m_itemData])
                 {
                     var addedFuel = 0;
-                    if (SharedProcessorState.ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
+                    if (Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
                     {
                         List<ItemDrop.ItemData>? removeSlots = null;
                         foreach (var containerZdo in containers)
@@ -46,8 +46,10 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             removeSlots?.Clear();
                             var addFuel = 0;
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
+                            var found = false;
                             foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
                             {
+                                found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxFuelAdd, slot.m_stack);
                                 var leaveDiff = Math.Min(take, leave);
                                 leave -= leaveDiff;
@@ -67,9 +69,12 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
                             if (addFuel is 0)
                             {
-                                containers.Remove(containerZdo);
-                                if (containers is { Count: 0 })
-                                    SharedProcessorState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
+                                if (!found)
+                                {
+                                    containers.Remove(containerZdo);
+                                    if (containers is { Count: 0 })
+                                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
+                                }
                                 continue;
                             }
 
@@ -82,7 +87,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                                 {
                                     containers.Remove(containerZdo);
                                     if (containers is { Count: 0 })
-                                        SharedProcessorState.ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
+                                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
                                 }
                             }
 
@@ -117,7 +122,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                 {
                     var oreItem = conversion.m_from.m_itemData;
                     var addedOre = 0;
-                    if (SharedProcessorState.ContainersByItemName.TryGetValue(oreItem.m_shared, out var containers))
+                    if (Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(oreItem.m_shared, out var containers))
                     {
                         List<ItemDrop.ItemData>? removeSlots = null;
                         foreach (var containerZdo in containers)
@@ -137,8 +142,10 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             removeSlots?.Clear();
                             int addOre = 0;
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastOre.Value;
+                            var found = false;
                             foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
                             {
+                                found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxOreAdd, slot.m_stack);
                                 var leaveDiff = Math.Min(take, leave);
                                 leave -= leaveDiff;
@@ -158,9 +165,12 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
                             if (addOre is 0)
                             {
-                                containers.Remove(containerZdo);
-                                if (containers is { Count: 0 })
-                                    SharedProcessorState.ContainersByItemName.TryRemove(oreItem.m_shared, out _);
+                                if (!found)
+                                {
+                                    containers.Remove(containerZdo);
+                                    if (containers is { Count: 0 })
+                                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(oreItem.m_shared, out _);
+                                }
                                 continue;
                             }
 
@@ -173,7 +183,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                                 {
                                     containers.Remove(containerZdo);
                                     if (containers is { Count: 0 })
-                                        SharedProcessorState.ContainersByItemName.TryRemove(oreItem.m_shared, out _);
+                                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(oreItem.m_shared, out _);
                                 }
                             }
 

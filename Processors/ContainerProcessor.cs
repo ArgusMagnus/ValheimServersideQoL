@@ -1,10 +1,13 @@
 ﻿using BepInEx.Logging;
+using System.Collections.Concurrent;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     readonly Dictionary<ItemKey, int> _stackPerItem = new();
+
+    public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
@@ -85,7 +88,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         {
             if (zdo.PrefabInfo.Container.Value.Container.m_privacy is not Container.PrivacySetting.Private)
             {
-                var set = SharedProcessorState.ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
+                var set = ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
                 set.Add(zdo);
             }
             if (!Config.Containers.AutoSort.Value && !RecreateZdo)

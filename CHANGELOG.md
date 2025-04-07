@@ -1,3 +1,7 @@
+### v0.2.14
+- Fix Auto-Collection Stops After Instant Resource Consumption [#32](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/32)
+- Tweaks and bug fixes
+
 ### v0.2.13
 - Fix bug with generated portal hub
 

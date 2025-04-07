@@ -54,7 +54,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             if (!string.IsNullOrEmpty(allowedAmmoDropPrefabName) && ammoItem.name != allowedAmmoDropPrefabName)
                 continue;
 
-            if (!SharedProcessorState.ContainersByItemName.TryGetValue(ammoItem.m_itemData.m_shared, out var containers))
+            if (!Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(ammoItem.m_itemData.m_shared, out var containers))
                 continue;
 
             List<ItemDrop.ItemData>? removeSlots = null;
@@ -74,8 +74,10 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
                 removeSlots?.Clear();
                 var addAmmo = 0;
+                var found = false;
                 foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == ammoItem.m_itemData).OrderBy(x => x.m_stack))
                 {
+                    found = found || slot is { m_stack: > 0 };
                     var take = Math.Min(maxAdd, slot.m_stack);
                     if (take is 0)
                         continue;
@@ -95,9 +97,12 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
                 if (addAmmo is 0)
                 {
-                    containers.Remove(containerZdo);
-                    if (containers is { Count: 0 })
-                        SharedProcessorState.ContainersByItemName.TryRemove(ammoItem.m_itemData.m_shared, out _);
+                    if (!found)
+                    {
+                        containers.Remove(containerZdo);
+                        if (containers is { Count: 0 })
+                            Instance<ContainerProcessor>().ContainersByItemName.TryRemove(ammoItem.m_itemData.m_shared, out _);
+                    }
                     continue;
                 }
 
@@ -110,7 +115,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                     {
                         containers.Remove(containerZdo);
                         if (containers is { Count: 0 })
-                            SharedProcessorState.ContainersByItemName.TryRemove(ammoItem.m_itemData.m_shared, out _);
+                            Instance<ContainerProcessor>().ContainersByItemName.TryRemove(ammoItem.m_itemData.m_shared, out _);
                     }
                 }
 

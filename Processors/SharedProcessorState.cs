@@ -26,8 +26,6 @@ static class SharedProcessorState
 
     static ConcurrentHashSet<ExtendedZDO>? __ships;
     public static ConcurrentHashSet<ExtendedZDO> Ships => __ships ??= GetShips();
-
-    public static ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
     public static ConcurrentDictionary<string, ConcurrentHashSet<ZDOID>> FollowingTamesByPlayerName { get; } = new();
 
     static readonly Dictionary<int, PrefabInfo?> __prefabInfo = new();
