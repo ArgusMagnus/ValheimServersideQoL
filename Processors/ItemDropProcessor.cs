@@ -55,8 +55,11 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         {
             foreach (var tameZdo in Instance<TameableProcessor>().Tames)
             {
+                if (tameZdo.PrefabInfo.Tameable is null)
+                    continue;
+
                 /// <see cref="MonsterAI.CanConsume(ItemDrop.ItemData)"/>
-                if (!tameZdo.PrefabInfo.Tameable!.Value.MonsterAI.m_consumeItems.Any(x => x.m_itemData.m_shared.m_name == shared.m_name))
+                if (!tameZdo.PrefabInfo.Tameable.Value.MonsterAI.m_consumeItems.Any(x => x.m_itemData.m_shared.m_name == shared.m_name))
                     continue;
                 var rangeSqr = tameZdo.PrefabInfo.Tameable.Value.MonsterAI.m_consumeSearchRange;
                 rangeSqr *= rangeSqr;

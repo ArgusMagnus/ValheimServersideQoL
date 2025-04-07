@@ -28,15 +28,11 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         if (zdo.PrefabInfo.Tameable is null)
             return false;
 
-        var (tameable, monsterAi) = zdo.PrefabInfo.Tameable.Value;
-
-        //zdo.PrefabInfo.Tameable.Value.MonsterAI.m_consumeItems;
+        var (tameable, _) = zdo.PrefabInfo.Tameable.Value;
 
         var fields = zdo.Fields<Tameable>();
         if (zdo.Vars.GetTamed())
         {
-            _tames.Add(zdo);
-
             if (!Config.Tames.MakeCommandable.Value)
                 fields.Reset(x => x.m_commandable);
             else if (fields.SetIfChanged(x => x.m_commandable, true))
@@ -56,6 +52,9 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                 fields.Reset(x => x.m_unsummonOnOwnerLogoutSeconds);
             else if (fields.SetIfChanged(x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
                 RecreateZdo = true;
+
+            if (!RecreateZdo)
+                _tames.Add(zdo);
         }
         else if (Config.Tames.ShowTamingProgress.Value)
         {
