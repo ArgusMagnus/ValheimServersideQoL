@@ -52,7 +52,7 @@ if I think it's something I may want to use myself.
 However, if you have an idea you think might fit this mod, I invite you to create a feature request issue in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
 
 ## Known Issues
-- Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player
+- Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player [#10](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/10)
 - Removing trader item progression requirements may cause Hunin/Munin to appear with hints to undiscovered biomes, etc.
   Going to the trader at night may result in night-time spawns of undefeated bosses.
 - Toggleable fireplaces will be toggled off by rain [#20](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/20)
