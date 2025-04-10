@@ -14,7 +14,7 @@ sealed class TrapProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
             return false;
         }
 
-        if (zdo.PrefabInfo.Trap is { Trap: {Value: not null } })
+        if (zdo.PrefabInfo.Trap is { Trap: { Value: not null } })
         {
             if (!Config.Traps.DisableTriggeredByPlayers.Value)
                 zdo.Fields<Trap>().Reset(x => x.m_triggeredByPlayers);
@@ -29,7 +29,7 @@ sealed class TrapProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
             RecreateZdo = true;
 
         if (fields.SetIfChanged(x => x.m_damageSelf, zdo.PrefabInfo.Trap.Value.Aoe.m_damageSelf * Config.Traps.SelfDamageMultiplier.Value))
-            RecreateZdo = true;        
+            RecreateZdo = true;
 
         return false;
     }
