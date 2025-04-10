@@ -7,7 +7,7 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     readonly ConcurrentHashSet<ExtendedZDO> _shieldGenerators = new();
-    readonly ConcurrentDictionary<ExtendedZDO, ExtendedZDO> _roofs = new();
+    readonly ConcurrentDictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = new();
 
     public override void Initialize()
     {
@@ -18,8 +18,11 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     { 
         _shieldGenerators.Remove(zdo);
-        if (_roofs.TryRemove(zdo, out var roof))
-            DestroyPiece(roof);
+        if (_enclosure.TryRemove(zdo, out var enclosures))
+        {
+            foreach (var piece in enclosures)
+                DestroyPiece(piece);
+        }
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
@@ -60,21 +63,25 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
         const float offset = -100;
         if (ignoreRain)
         {
+            /// <see cref="Fireplace.CheckWet"/>
             if (fields.SetIfChanged(x => x.m_coverCheckOffset, offset))
                 RecreateZdo = true;
-            if (!RecreateZdo && !_roofs.ContainsKey(zdo))
-            {
-                var pos = zdo.GetPosition();
-                pos.y += offset + zdo.PrefabInfo.Fireplace.m_coverCheckOffset + 0.5f + 2;
-                _roofs.TryAdd(zdo, PlacePiece(pos, Prefabs.GraustenFloor4x4, 0));
-            }
+            if (fields.SetIfChanged(x => x.m_disableCoverCheck, true))
+                RecreateZdo = true;
+            if (!RecreateZdo && !_enclosure.ContainsKey(zdo))
+                _enclosure.TryAdd(zdo, [.. PlaceEnclosure(zdo.GetPosition(), offset, zdo.PrefabInfo.Fireplace.m_coverCheckOffset)]);
         }
         else
         {
             if (fields.ResetIfChanged(x => x.m_coverCheckOffset))
                 RecreateZdo = true;
-            if (_roofs.TryRemove(zdo, out var roof))
-                DestroyPiece(roof);
+            if (fields.ResetIfChanged(x => x.m_disableCoverCheck))
+                RecreateZdo = true;
+            if (_enclosure.TryRemove(zdo, out var enclosures))
+            {
+                foreach (var piece in enclosures)
+                    DestroyPiece(piece);
+            }
         }
 
         if (Config.Fireplaces.IgnoreRain.Value is ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield)
@@ -84,5 +91,27 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
 
         return true;
+    }
+
+    IEnumerable<ExtendedZDO> PlaceEnclosure(Vector3 pos, float offset, float coverCheckOffset)
+    {
+        /// <see cref="Cover.GetCoverForPoint(Vector3, out float, out bool, float)"/>
+        var y = pos.y + offset + coverCheckOffset + 0.5f + 0.5f;
+        yield return PlacePiece(pos with { y = y }, Prefabs.GraustenFloor4x4, 0);
+        y -= 2.25f;
+        yield return PlacePiece(pos with { z = pos.z - 2, y = y }, Prefabs.GraustenWall4x2, 0);
+        yield return PlacePiece(pos with { x = pos.x - 2, y = y }, Prefabs.GraustenWall4x2, 90);
+        yield return PlacePiece(pos with { z = pos.z + 2, y = y }, Prefabs.GraustenWall4x2, 0);
+        yield return PlacePiece(pos with { x = pos.x + 2, y = y }, Prefabs.GraustenWall4x2, 90);
+        while (y > pos.y)
+        {
+            y -= 2;
+            yield return PlacePiece(pos with { z = pos.z - 2, y = y }, Prefabs.GraustenWall4x2, 0);
+            yield return PlacePiece(pos with { x = pos.x - 2, y = y }, Prefabs.GraustenWall4x2, 90);
+            yield return PlacePiece(pos with { z = pos.z + 2, y = y }, Prefabs.GraustenWall4x2, 0);
+            yield return PlacePiece(pos with { x = pos.x + 2, y = y }, Prefabs.GraustenWall4x2, 90);
+        }
+        y -= 0.25f;
+        yield return PlacePiece(pos with { y = y }, Prefabs.GraustenFloor4x4, 0);
     }
 }

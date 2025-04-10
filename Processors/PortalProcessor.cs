@@ -18,7 +18,7 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
     readonly Vector3 _offset = new Func<Vector3>(static () =>
     {
-        var pos = new Vector3(WorldGenerator.worldSize + 5 * ZoneSystem.c_ZoneSize, 0, 0);
+        var pos = new Vector3(WorldGenerator.worldSize * 1.1f, 0, 0);
         while (!Character.InInterior(pos))
             pos.y += 1000;
         return pos;
