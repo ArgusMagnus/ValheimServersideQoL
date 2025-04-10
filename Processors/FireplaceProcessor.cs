@@ -51,6 +51,10 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
             zdo.Vars.SetFuel(fields.GetFloat(x => x.m_maxFuel));
         }
 
+        /// Weather has no effect, <see cref="Fireplace.CheckEnv()"/>
+        if (zdo.PrefabInfo.Fireplace is { m_enabledObjectLow: null } or { m_enabledObjectHigh: null })
+            return false;
+
         var ignoreRain = Config.Fireplaces.IgnoreRain.Value switch
         {
             ModConfig.FireplacesConfig.IgnoreRainOptions.Never => false,

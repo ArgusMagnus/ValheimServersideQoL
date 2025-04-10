@@ -15,6 +15,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     const string SignFormatGreen = "<color=#00FF00>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
     internal const string PortalHubTag = $"{Main.PluginName} Portal Hub";
+    const float FloorOffset = 5;
 
     readonly Dictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
 
@@ -28,7 +29,14 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
 
     /// <see cref="Game.FindSpawnPoint">
-    readonly Vector3 _worldSpawn = ZoneSystem.instance.GetLocationIcon(Game.instance.m_StartLocation, out var pos) ? pos : default;
+    readonly (Vector3 WorldSpawn, Vector3 Room) _offset = new Func<(Vector3, Vector3)>(static () =>
+    {
+        var worldSpawn = ZoneSystem.instance.GetLocationIcon(Game.instance.m_StartLocation, out var pos) ? pos : default;
+        var room = worldSpawn;
+        while (!Character.InInterior(room))
+            room.y += 1000;
+        return (worldSpawn, room);
+    }).Invoke();
 
     static string GetSignText(object? value, Type type, Color c)
         => Invariant($"<color=#{c.R:X2}{c.G:X2}{c.B:X2}>{TomlTypeConverter.ConvertToString(value, type)}");
@@ -45,14 +53,14 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         if (!Config.General.InWorldConfigRoom.Value)
             return;
 
-        if (_worldSpawn == default)
+        if (_offset.WorldSpawn == default)
         {
             Logger.LogWarning($"{Game.instance.m_StartLocation} not found, skipping generation of config room");
             return;
         }
 
         {
-            var pos = _worldSpawn;
+            var pos = _offset.WorldSpawn;
             pos.z -= 3;
             PlacePiece(pos, Prefabs.PortalWood, 0f)
                 .Vars.SetTag(MainPortalTag);
@@ -60,10 +68,6 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             PlacePiece(pos, Prefabs.DvergerGuardstone, 0)
                 .Fields<PrivateArea>(true).Set(x => x.m_radius, 3).Set(x => x.m_enabledByDefault, true);
         }
-
-        var offset = _worldSpawn;
-        while (!Character.InInterior(offset))
-            offset.y += 1000;
 
         var configSections = Config.ConfigFile
             .Where(x => x.Key.Section != Main.DummyConfigSection && !x.Key.Section.StartsWith("A - "))
@@ -82,7 +86,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             {
                 var z = (k - width / 2f) * 4;
 
-                var pos = offset;
+                var pos = _offset.Room;
                 pos.x += x;
                 pos.z += z;
 
@@ -151,7 +155,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
                 if (iIsEdge)
                 {
-                    pos = offset;
+                    pos = _offset.Room;
                     pos.x += x;
                     pos.z += z;
                     pos.y += 0.25f;
@@ -169,7 +173,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 }
                 if (kIsEdge)
                 {
-                    pos = offset;
+                    pos = _offset.Room;
                     pos.x += x;
                     pos.z += z;
                     pos.y += 0.25f;
@@ -192,7 +196,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             throw new Exception("Algorithm failed to place all portals");
 
         {
-            var pos = offset;
+            var pos = _offset.Room;
             pos.x -= 2;
             pos.z -= 2;
 
@@ -207,10 +211,10 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 .Vars.SetTag(MainPortalTag);
         }
 
-        var yOffset = offset.y;
+        var yOffset = _offset.Room.y;
         foreach (var group in configSections)
         {
-            yOffset += 5;
+            yOffset += FloorOffset;
             var entryEnumerator = group.GetEnumerator();
             // count = 4*width
             width = Math.Max(3, (int)Math.Ceiling(group.Count() / 4f));
@@ -222,7 +226,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 {
                     var z = (k - width / 2f) * 4;
 
-                    var pos = offset with { y = yOffset };
+                    var pos = _offset.Room with { y = yOffset };
                     pos.x += x;
                     pos.z += z;
 
@@ -236,9 +240,9 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                         continue;
 
                     if (iIsEdge)
-                        PlaceConfigWall(new(offset.x + x, yOffset + 0.25f, offset.z + z), false, i is 0, 90, entryEnumerator);
+                        PlaceConfigWall(new(_offset.Room.x + x, yOffset + 0.25f, _offset.Room.z + z), false, i is 0, 90, entryEnumerator);
                     if (kIsEdge)
-                        PlaceConfigWall(new(offset.x + x, yOffset + 0.25f, offset.z + z), true, k is 0, 0, entryEnumerator);
+                        PlaceConfigWall(new(_offset.Room.x + x, yOffset + 0.25f, _offset.Room.z + z), true, k is 0, 0, entryEnumerator);
                 }
             }
 
@@ -247,7 +251,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
 
             {
                 var section = Regex.Replace(group.Key, @"^[A-Z] - ", "");
-                var pos = offset with { y = yOffset };
+                var pos = _offset.Room with { y = yOffset };
                 pos.x -= 2;
                 pos.z -= 2;
                 var zdo = PlacePiece(pos, Prefabs.PortalWood, 0f);
@@ -354,8 +358,13 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                         configState.CandleState = Equals(entry.BoxedValue, values[i]);
                     }
                     pos.y -= 0.55f;
-                    var candle = PlacePiece(pos, Prefabs.Candle, rot);
-                    candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
+                    var candle = PlacePiece(pos, Prefabs.Sconce, rot);
+                    candle.Fields<Fireplace>()
+                        .Set(x => x.m_secPerFuel, 0)
+                        .Set(x => x.m_canRefill, false)
+                        .Set(x => x.m_canTurnOff, true)
+                        .Set(x => x.m_disableCoverCheck, true);
+                    candle.Vars.SetFuel(candle.PrefabInfo.Fireplace!.m_maxFuel);
                     candle.Vars.SetState(configState.CandleState ? 1 : 2);
                     _candleToggles.Add(candle.m_uid, configState);
                     pos.y += 0.55f;
@@ -374,9 +383,14 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 {
                     var configState = new ConfigState(entry, null, sign) { CandleState = (bool)entry.BoxedValue };
                     pos.y -= 0.55f;
-                    var candle = PlacePiece(pos, Prefabs.Candle, rot);
-                    candle.Fields<Fireplace>().Set(x => x.m_secPerFuel, 0).Set(x => x.m_canTurnOff, true);
+                    var candle = PlacePiece(pos, Prefabs.Sconce, rot);
+                    candle.Fields<Fireplace>()
+                        .Set(x => x.m_secPerFuel, 0)
+                        .Set(x => x.m_canRefill, false)
+                        .Set(x => x.m_canTurnOff, true)
+                        .Set(x => x.m_disableCoverCheck, true);
                     candle.Vars.SetState(configState.CandleState ? 1 : 2);
+                    candle.Vars.SetFuel(candle.PrefabInfo.Fireplace!.m_maxFuel);
                     _candleToggles.Add(candle.m_uid, configState);
                     pos.y += 0.55f;
                 }
@@ -413,39 +427,33 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             }
 
             if (!isAdmin && Character.InInterior(zdo.GetPosition()) &&
-                ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_worldSpawn))
+                ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_offset.WorldSpawn))
             {
                 peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
                 /// <see cref="Game.FindSpawnPoint">
-                var pos = _worldSpawn + Vector3.up * 2f;
+                var pos = _offset.WorldSpawn + Vector3.up * 2f;
                 RPC.TeleportPlayer(peer, pos, zdo.GetRotation(), false);
                 RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$piece_noaccess");
             }
             return false;
         }
 
-        if (zdo.PrefabInfo.Door is not null && PlacedPieces.Contains(zdo))
-        {
-            if (!CheckMinDistance(peers, zdo, 8))
-                return false;
+        var maxPeerY = peers.Max(x => x.m_refPos.y);
 
-            const int StateClosed = 0;
-            if (zdo.Vars.GetState() is not StateClosed)
-                zdo.Vars.SetState(StateClosed);
-            return true;
-        }
-
-        if (peers.Any(x => Character.InInterior(x.m_refPos)))
+        if (maxPeerY > _offset.Room.y)
         {
             if (zdo.PrefabInfo.Fireplace is not null && _candleToggles.TryGetValue(zdo.m_uid, out var configState))
             {
                 var state = zdo.Vars.GetState(1) is 1;
                 string? text = null;
-                if (state != configState.CandleState)
+                // Check if a player has entered one of the upper (config) floors, to introduce a grace period before
+                // processing the candles. Otherwise candles might still be turned off by rain while teleporting in.
+                if (state != configState.CandleState && maxPeerY > _offset.Room.y + FloorOffset)
                 {
                     configState.CandleState = state;
                     if (configState.Entry.SettingType == typeof(bool))
                     {
+                        //Logger.LogWarning($"Setting config {configState.Entry.Definition.Key} = {state}, (CachedState: {configState.CandleState}, Setting: {configState.Entry.BoxedValue}, State: {state})");
                         configState.Entry.BoxedValue = state;
                         text = GetSignText(configState.Entry);
                     }
@@ -478,33 +486,46 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
                 {
                     if (configState.Entry.SettingType == typeof(bool))
                     {
-                        configState.CandleState = (bool)configState.Entry.BoxedValue;
-                        text = GetSignText(configState.Entry);
+                        var entryState = (bool)configState.Entry.BoxedValue;
+                        if (configState.CandleState != entryState)
+                        {
+                            //Logger.LogWarning($"Setting state {configState.Entry.Definition.Key} = {configState.Entry.BoxedValue}, (CachedState: {configState.CandleState}, Setting: {configState.Entry.BoxedValue}, State: {state})");
+                            configState.CandleState = entryState;
+                            text = GetSignText(configState.Entry);
+                        }
                     }
                     else if (configState.Value is not null && configState.Entry.SettingType.IsEnum && EnumUtils.OfType(configState.Entry.SettingType) is { IsBitSet: true } enumUtils)
                     {
                         var value = enumUtils.EnumToUInt64(configState.Entry.BoxedValue);
                         var flag = enumUtils.EnumToUInt64(configState.Value);
-                        configState.CandleState = (value & flag) == flag;
-                        Color color;
-                        if (!configState.CandleState)
-                            color = Color.Silver;
-                        else
+                        var entryState = (value & flag) == flag;
+                        if (configState.CandleState != entryState)
                         {
-                            var defaultValue = enumUtils.EnumToUInt64(configState.Entry.DefaultValue);
-                            color = ((defaultValue & flag) == flag) ? Color.White : Color.Lime;
+                            configState.CandleState = entryState;
+                            Color color;
+                            if (!configState.CandleState)
+                                color = Color.Silver;
+                            else
+                            {
+                                var defaultValue = enumUtils.EnumToUInt64(configState.Entry.DefaultValue);
+                                color = ((defaultValue & flag) == flag) ? Color.White : Color.Lime;
+                            }
+                            text = GetSignText(configState.Value, configState.Entry.SettingType, color);
                         }
-                        text = GetSignText(configState.Value, configState.Entry.SettingType, color);
                     }
                     else
                     {
-                        configState.CandleState = Equals(configState.Value, configState.Entry.BoxedValue);
-                        Color color;
-                        if (configState.CandleState)
-                            color = Equals(configState.Value, configState.Entry.DefaultValue) ? Color.White : Color.Lime;
-                        else
-                            color = Color.Silver;
-                        text = GetSignText(configState.Value, configState.Entry.SettingType, color);
+                        var entryState = Equals(configState.Value, configState.Entry.BoxedValue);
+                        if (configState.CandleState != entryState)
+                        {
+                            configState.CandleState = entryState;
+                            Color color;
+                            if (configState.CandleState)
+                                color = Equals(configState.Value, configState.Entry.DefaultValue) ? Color.White : Color.Lime;
+                            else
+                                color = Color.Silver;
+                            text = GetSignText(configState.Value, configState.Entry.SettingType, color);
+                        }
                     }
 
                     if (configState.CandleState != state)

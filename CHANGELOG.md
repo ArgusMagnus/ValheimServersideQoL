@@ -1,6 +1,7 @@
 ### v0.2.15
 - Fix bug introduced in v0.2.14 which lead to many features not working correctly
 - When fireplaces are configured to ignore rain, also protect against strong wind
+- Use sconces instead of candles in the config room, because candles get turned off by rain when teleporting in [#35](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/35)
 
 ### v0.2.14
 - New config option: AutoPickupExcludeFodder: exclude food items for tames from auto-pickup if tames are within search range (defaults to true)
