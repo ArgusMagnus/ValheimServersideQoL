@@ -1,3 +1,6 @@
+### v0.2.15
+- Fix bug introduced in v0.2.14 which lead to many features not working correctly
+
 ### v0.2.14
 - New config option: AutoPickupExcludeFodder: exclude food items for tames from auto-pickup if tames are within search range (defaults to true)
 - Fix Auto-Collection Stops After Instant Resource Consumption [#32](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/32)
