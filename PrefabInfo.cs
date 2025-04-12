@@ -30,7 +30,7 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
     public EggGrow? EggGrow { get; } = Get<EggGrow>(components);
     public Growup? Growup { get; } = Get<Growup>(components);
     public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = GetTuple<(Aoe, Piece, PieceTable, Optional<Trap>)>(components);
-    //public PrivateArea? PrivateArea { get; } = Get<PrivateArea>(components);
+    public Mister? Mister { get; } = Get<Mister>(components);
 
     public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
 

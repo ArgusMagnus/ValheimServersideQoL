@@ -1,3 +1,6 @@
+### v0.2.16
+- New feature: remove mist from Mistlands
+
 ### v0.2.15
 - Fix bug introduced in v0.2.14 which lead to many features not working correctly
 - When fireplaces are configured to ignore rain, also protect against strong wind

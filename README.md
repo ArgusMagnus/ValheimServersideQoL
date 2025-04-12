@@ -41,6 +41,7 @@ This mod is in early development and the features experimental. Backup your worl
 - Traders: always unlock trader items (remove progression requirements for buying from trader items). Only supported on dedicated servers.
 - Plants: modify plant grow time and space requirement
 - Traps: prevent traps from being triggered by players, friendly fire and damaging themselves
+- World: remove mist from Mistlands
 - Global Keys
     - Set world preset/modifiers and global keys via config
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional

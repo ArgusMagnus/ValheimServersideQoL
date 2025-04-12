@@ -249,7 +249,7 @@ public sealed partial class Main : BaseUnityPlugin
             else
             {
                 Logger.LogInfo("Configuration changed");
-                foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjectsByID().Values)
+                foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
                     zdo.ReregisterAllProcessors();
             }
 

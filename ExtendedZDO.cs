@@ -341,6 +341,15 @@ sealed class ExtendedZDO : ZDO
 
         public bool ResetIfChanged(Expression<Func<TComponent, int>> fieldExpression)
             => ResetIfChangedCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
+
+        public bool SetOrReset(Expression<Func<TComponent, bool>> fieldExpression, bool set, bool setValue)
+            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
+
+        public bool SetOrReset(Expression<Func<TComponent, float>> fieldExpression, bool set, float setValue)
+            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
+
+        public bool SetOrReset(Expression<Func<TComponent, int>> fieldExpression, bool set, int setValue)
+            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
     }
 
     sealed class ZDOInventory(ExtendedZDO zdo) : IZDOInventory
