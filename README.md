@@ -3,9 +3,6 @@ This mod adds some QoL features as a serverside-only mod.
 
 It's designed and tested for **dedicated servers** with **vanilla clients** (e.g. xbox users).
 
-## Disclaimer
-This mod is in early development and the features experimental. Backup your world before using this mod.
-
 ## Features
 **All of these features are disabled by default and must be enabled in the configuration first**
 - Generated in-world room where admins can change the mod's configuration by editing signs and toggling candles
@@ -47,10 +44,7 @@ This mod is in early development and the features experimental. Backup your worl
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
 
 ### Feature Requests
-I'm developing this mod mainly for myself, so the main deciding factor if a feature gets implemented or not (besides if it is technically possible) is
-if I think it's something I may want to use myself.
-
-However, if you have an idea you think might fit this mod, I invite you to create a feature request issue in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
+If you have an idea you think might fit this mod, you can create a feature request issue in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
 
 ## Known Issues
 - Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player [#10](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/10)

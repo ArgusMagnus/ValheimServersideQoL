@@ -6,7 +6,6 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly ConcurrentHashSet<ExtendedZDO> _shieldGenerators = new();
     readonly ConcurrentDictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = new();
 
     public override void Initialize()
@@ -17,7 +16,6 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     { 
-        _shieldGenerators.Remove(zdo);
         if (_enclosure.TryRemove(zdo, out var enclosures))
         {
             foreach (var piece in enclosures)
@@ -28,9 +26,6 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         UnregisterZdoProcessor = true;
-        if (zdo.PrefabInfo.ShieldGenerator is not null)
-            _shieldGenerators.Add(zdo);
-
         if (zdo.PrefabInfo.Fireplace is null)
             return false;
 
@@ -59,7 +54,7 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
         {
             ModConfig.FireplacesConfig.IgnoreRainOptions.Never => false,
             ModConfig.FireplacesConfig.IgnoreRainOptions.Always => true,
-            ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield => _shieldGenerators
+            ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield => Instance<ShieldGeneratorProcessor>().ShieldGenerators
                 .Any(x => x.Vars.GetFuel() > 0 && Vector3.Distance(x.GetPosition(), zdo.GetPosition()) < x.Fields<ShieldGenerator>().GetFloat(x => x.m_maxShieldRadius)),
             _ => false
         };

@@ -193,7 +193,16 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class WorldConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> RemoveMistlandsMist { get; } = cfg.Bind(section, nameof(RemoveMistlandsMist), false, "True to remove the mist from the mistlands");
+        public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.Bind(section, nameof(RemoveMistlandsMist), RemoveMistlandsMistOptions.Never,
+            new ConfigDescription("Condition to remove the mist from the mistlands", new AcceptableEnum<RemoveMistlandsMistOptions>()));
+
+        public enum RemoveMistlandsMistOptions
+        {
+            Never,
+            Always,
+            AfterQueenKilled,
+            InsideShield
+        }
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)
