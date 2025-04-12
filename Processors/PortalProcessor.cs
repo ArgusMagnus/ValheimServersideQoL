@@ -16,9 +16,11 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     Regex? _includeRegex;
     Regex? _excludeRegex;
 
+    bool _autoTag;
+
     readonly Vector3 _offset = new Func<Vector3>(static () =>
     {
-        var pos = new Vector3(WorldGenerator.worldSize * 1.1f, 0, 0);
+        var pos = new Vector3(WorldGenerator.waterEdge + 5 * ZoneSystem.c_ZoneSize, 0, 0);
         while (!Character.InInterior(pos))
             pos.y += 1000;
         return pos;
@@ -30,6 +32,7 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
         var changed = _hubEnabled != Config.PortalHub.Enable.Value;
         _hubEnabled = Config.PortalHub.Enable.Value;
+        _autoTag = _hubEnabled && Config.PortalHub.AutoNameNewPortals.Value;
 
         _knownPortals.Clear();
         if (_hubEnabled)
@@ -116,7 +119,24 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         else
         {
             var tag = zdo.Vars.GetTag();
-            if (CheckFilter(zdo, tag) && (!_knownPortals.TryGetValue(zdo, out var oldTag) || oldTag != tag))
+            _knownPortals.TryGetValue(zdo, out var oldTag);
+            if (_autoTag && oldTag is null && string.IsNullOrEmpty(tag))
+            {
+                var biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
+                var biomeText = Localization.instance.Localize($"$biome_{biome.ToString().ToLowerInvariant()}");
+                var knownTags = ZDOMan.instance.GetPortals().Cast<ExtendedZDO>().Select(x => x.Vars.GetTag()).ToHashSet();
+                foreach (var i in Enumerable.Range(1, 1000))
+                {
+                    var newTag = string.Format(Config.PortalHub.AutoNameNewPortalsFormat.Value, biomeText, i);
+                    if (!knownTags.Contains(newTag))
+                    {
+                        zdo.Vars.SetTag(tag = newTag);
+                        break;
+                    }
+                }
+            }
+
+            if (CheckFilter(zdo, tag) && oldTag != tag)
             {
                 _knownPortals[zdo] = tag;
                 _updateHub = true;

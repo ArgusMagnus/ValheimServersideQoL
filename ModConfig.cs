@@ -167,6 +167,28 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to automatically generate a portal hub");
         public ConfigEntry<string> Exclude { get; } = cfg.Bind(section, nameof(Exclude), "", "Portals with a tag that matches this filter are not added to the portal hub");
         public ConfigEntry<string> Include { get; } = cfg.Bind(section, nameof(Include), "*", "Only portals with a tag that matches this filter are added to the portal hub");
+        public ConfigEntry<bool> AutoNameNewPortals { get; } = cfg.Bind(section, nameof(AutoNameNewPortals), false, $"True to automatically name new portals. Has no effect if '{nameof(Enable)}' is false");
+        public ConfigEntry<string> AutoNameNewPortalsFormat { get; } = cfg.Bind(section, nameof(AutoNameNewPortalsFormat), "{0} {1:D2}",
+            new ConfigDescription("Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer",
+                new AcceptablePortalNameFormat(["Test", 0])));
+
+        sealed class AcceptablePortalNameFormat(object[] testArgs) : AcceptableValueBase(typeof(string))
+        {
+            public override bool IsValid(object value)
+            {
+                if (value is not string format)
+                    return false;
+
+                try { string.Format(format, testArgs); }
+                catch (FormatException) { return false; }
+                return true;
+            }
+
+            public override object Clamp(object value) => value;
+
+            public override string ToDescriptionString()
+                => $"# Acceptable values: .NET Format strings for two arguments ({string.Join(", ", testArgs.Select(x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method";
+        }
     }
 
     public sealed class WorldConfig(ConfigFile cfg, string section)

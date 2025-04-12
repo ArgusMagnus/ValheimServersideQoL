@@ -14,6 +14,11 @@ sealed class MisterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         if (fields.SetOrReset(x => x.m_radius, Config.World.RemoveMistlandsMist.Value, float.MinValue))
             RecreateZdo = true;
 
+#if DEBUG
+        if (fields.ResetIfChanged(x => x.m_height))
+            RecreateZdo = true;
+#endif
+
         return false;
     }
 }

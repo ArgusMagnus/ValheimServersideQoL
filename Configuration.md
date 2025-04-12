@@ -51,6 +51,8 @@
 |Portal Hub|Enable|False|True/False|True to automatically generate a portal hub|
 |Portal Hub|Exclude|||Portals with a tag that matches this filter are not added to the portal hub|
 |Portal Hub|Include|*||Only portals with a tag that matches this filter are added to the portal hub|
+|Portal Hub|AutoNameNewPortals|False|True/False|True to automatically name new portals. Has no effect if 'Enable' is false|
+|Portal Hub|AutoNameNewPortalsFormat|{0} {1:D2}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer|
 |Signs|TimeSigns|False|True/False|True to update sign texts which contain time emojis (any of 🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦) with the in-game time|
 |Smelters|FeedFromContainers|False|True/False|True to automatically feed smelters from nearby containers|
 |Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source|
