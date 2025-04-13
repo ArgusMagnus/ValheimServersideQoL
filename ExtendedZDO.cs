@@ -110,6 +110,8 @@ sealed class ExtendedZDO : ZDO
     public void ClaimOwnership() => SetOwner(ZDOMan.GetSessionID());
     public void ClaimOwnershipInternal() => SetOwnerInternal(ZDOMan.GetSessionID());
 
+    public TimeSpan GetTimeSinceSpawned() => ZNet.instance.GetTime() - Vars.GetSpawnTime();
+
     public ComponentFieldAccessor<TComponent> Fields<TComponent>(bool getUnknownComponent = false) where TComponent : MonoBehaviour
         => (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key =>
         {
@@ -210,7 +212,7 @@ sealed class ExtendedZDO : ZDO
         bool? _hasComponentFields;
 
         static readonly int __hasComponentFieldsHash = Invariant($"{ZNetView.CustomFieldsStr}{typeof(TComponent).Name}").GetStableHashCode();
-        bool HasFields => _zdo.HasFields && (_hasComponentFields ??= _zdo.GetBool(__hasComponentFieldsHash));
+        public bool HasFields => _zdo.HasFields && (_hasComponentFields ??= _zdo.GetBool(__hasComponentFieldsHash));
         void SetHasFields(bool value)
         {
             if (value && !_zdo.HasFields)
@@ -276,6 +278,15 @@ sealed class ExtendedZDO : ZDO
 
         public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, string>> fieldExpression, string value)
             => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value));
+
+        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, GameObject>> fieldExpression, string value)
+        {
+            var hash = GetHash(fieldExpression, out _);
+            if (!HasFields)
+                SetHasFields(true);
+            _zdo.Set(hash, value);
+            return this;
+        }
 
         bool SetIfChangedCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<ZDO, int, T?, T> getter)
             where T : notnull
