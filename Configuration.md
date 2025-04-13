@@ -112,8 +112,8 @@
 |Traps|SelfDamageMultiplier|1|From 0 to Infinity|Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage|
 |Trophy Spawner|Enable|False|True/False|True to make dropped trophies spawn mobs|
 |Trophy Spawner|ActivationDelay|3660||Time in seconds before trophies start spawning mobs.|
-|Trophy Spawner|MinRespawnDelay|12||Minimum respawn delay in seconds|
-|Trophy Spawner|MaxRespawnDelay|240||Maximum respawn delay in seconds|
+|Trophy Spawner|MinRespawnDelay|12||Minimum respawn delay in seconds. The actual respawn delay is chosen between min and max based on the stack size of the dropped trophies|
+|Trophy Spawner|MaxRespawnDelay|240||Maximum respawn delay in seconds. The actual respawn delay is chosen between min and max based on the stack size of the dropped trophies|
 |Turrets|DontTargetPlayers|False|True/False|True to stop ballistas from targeting players|
 |Turrets|DontTargetTames|False|True/False|True to stop ballistas from targeting tames|
 |Turrets|LoadFromContainers|False|True/False|True to automatically load ballistas from containers|

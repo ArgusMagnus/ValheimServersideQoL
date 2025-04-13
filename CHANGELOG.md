@@ -2,6 +2,7 @@
 - New features:
     - Remove mist from Mistlands
     - Auto name portals when automatically generated portal hub is enabled
+    - Spawn creatures from dropped trophies
 
 ### v0.2.15
 - Fix bug introduced in v0.2.14 which lead to many features not working correctly
