@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ShieldGeneratorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly ConcurrentHashSet<ExtendedZDO> _shieldGenerators = new();
+    readonly ConcurrentHashSet<ExtendedZDO> _shieldGenerators = [];
     public IReadOnlyCollection<ExtendedZDO> ShieldGenerators => _shieldGenerators;
 
     public override void Initialize()

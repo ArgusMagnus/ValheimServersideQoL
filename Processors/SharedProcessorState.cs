@@ -27,11 +27,11 @@ static class SharedProcessorState
     static ConcurrentHashSet<ExtendedZDO>? __ships;
     public static ConcurrentHashSet<ExtendedZDO> Ships => __ships ??= GetShips();
 
-    static readonly Dictionary<int, PrefabInfo?> __prefabInfo = new();
-    static readonly IReadOnlyList<Type> __componentTypes = typeof(PrefabInfo).GetProperties()
-        .Select(x => x.PropertyType).Where(x => typeof(MonoBehaviour).IsAssignableFrom(x)).ToList();
+    static readonly Dictionary<int, PrefabInfo?> __prefabInfo = [];
+    static readonly IReadOnlyList<Type> __componentTypes = [.. typeof(PrefabInfo).GetProperties()
+        .Select(x => x.PropertyType).Where(x => typeof(MonoBehaviour).IsAssignableFrom(x))];
 
-    static readonly IReadOnlyList<IReadOnlyList<(Type Type, bool Optional)>> __componentTypeCombinations = typeof(PrefabInfo).GetProperties()
+    static readonly IReadOnlyList<IReadOnlyList<(Type Type, bool Optional)>> __componentTypeCombinations = [.. typeof(PrefabInfo).GetProperties()
         .Select(x => x.PropertyType)
         .Where(x => x.IsConstructedGenericType && x.GetGenericTypeDefinition() == typeof(Nullable<>) && x.GenericTypeArguments[0].IsConstructedGenericType)
         .Select(x => x.GenericTypeArguments[0])
@@ -53,8 +53,29 @@ static class SharedProcessorState
             }
             return list!;
         })
-        .Where(x => x is not null)
-        .ToList();
+        .Where(x => x is not null)];
+
+    static IReadOnlyDictionary<SharedItemDataKey, string>? __characterByTrophy;
+    public static IReadOnlyDictionary<SharedItemDataKey, string> CharacterByTrophy => __characterByTrophy ??= new Func<IReadOnlyDictionary<SharedItemDataKey, string>>(static () =>
+    {
+        Dictionary<SharedItemDataKey, string> result = new();
+        foreach (var prefab in ZNetScene.instance.m_prefabs)
+        {
+            if (prefab.GetComponent<Character>() is not { m_boss: false } || prefab.GetComponent<CharacterDrop>() is not { } characterDrop)
+                continue;
+
+            var drop = characterDrop.m_drops.Select(x => x.m_prefab?.GetComponent<ItemDrop>()).FirstOrDefault(x => x is { m_itemData: { m_shared: { m_itemType: ItemDrop.ItemData.ItemType.Trophy } } });
+            if (drop is null)
+                continue;
+
+            //Main.Instance.Logger.LogWarning($"{prefab.name}: {drop.name}");
+            if (!result.TryGetValue(drop.m_itemData.m_shared, out var otherCharacterPrefab))
+                result.Add(drop.m_itemData.m_shared, prefab.name);
+            else if (drop.name.Contains(prefab.name) || prefab.name.Length < otherCharacterPrefab.Length)
+                result[drop.m_itemData.m_shared] = prefab.name;
+        }
+        return result;
+    }).Invoke();
 
     static PieceTableInfo GetPieceTableInfo()
     {
