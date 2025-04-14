@@ -5,7 +5,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly Dictionary<ItemKey, int> _stackPerItem = new();
+    readonly ConcurrentDictionary<ItemKey, int> _stackPerItem = new();
 
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
 

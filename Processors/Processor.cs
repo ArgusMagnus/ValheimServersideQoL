@@ -26,7 +26,9 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
     public bool UnregisterZdoProcessor { get; protected set; }
 
     readonly System.Diagnostics.Stopwatch _watch = new();
-    protected HashSet<ExtendedZDO> PlacedPieces { get; } = new();
+    protected ConcurrentHashSet<ExtendedZDO> PlacedPieces { get; } = new();
+    static SharedProcessorState? __sharedState;
+    internal static SharedProcessorState SharedState => __sharedState ??= new();
     static bool __initialized;
 
     public TimeSpan ProcessingTime => _watch.Elapsed;
@@ -38,6 +40,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         if (__initialized)
             return;
         __initialized = true;
+        _ = SharedState;
 
         foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
             zdo.Destroy();
@@ -130,7 +133,10 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         public static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
         {
             /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, "ShowMessage", (int)type, message);
+            lock (ZRoutedRpc.instance)
+            {
+                ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, "ShowMessage", (int)type, message);
+            }
         }
 
         public static void ShowMessage(MessageHud.MessageType type, string message)
@@ -148,13 +154,19 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         public static void UseStamina(ExtendedZDO playerZdo, float value)
         {
             /// <see cref="Player.UseStamina(float)"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(playerZdo.GetOwner(), playerZdo.m_uid, "UseStamina", value);
+            lock (ZRoutedRpc.instance)
+            {
+                ZRoutedRpc.instance.InvokeRoutedRPC(playerZdo.GetOwner(), playerZdo.m_uid, "UseStamina", value);
+            }
         }
 
         public static void SendGlobalKeys(ZNetPeer peer, List<string> keys)
         {
             /// <see cref="ZoneSystem.SendGlobalKeys"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "GlobalKeys", keys);
+            lock (ZRoutedRpc.instance)
+            {
+                ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "GlobalKeys", keys);
+            }
         }
 
         static void ShowInWorldText(IEnumerable<long> targetPeerIds, DamageText.TextType type, Vector3 pos, string text)
@@ -165,8 +177,11 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
             zPackage.Write(pos);
             zPackage.Write(text);
             zPackage.Write(false);
-            foreach (var peer in targetPeerIds)
-                ZRoutedRpc.instance.InvokeRoutedRPC(peer, "RPC_DamageText", zPackage);
+            lock (ZRoutedRpc.instance)
+            {
+                foreach (var peer in targetPeerIds)
+                    ZRoutedRpc.instance.InvokeRoutedRPC(peer, "RPC_DamageText", zPackage);
+            }
         }
 
         public static void ShowInWorldText(IEnumerable<ZNetPeer> peers, DamageText.TextType type, Vector3 pos, string text)
@@ -181,7 +196,10 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         static void TeleportPlayer(long targetPeerID, Vector3 pos, Quaternion rot, bool distantTeleport)
         {
             /// <see cref="Chat.TeleportPlayer(long, Vector3, Quaternion, bool)"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerID, "RPC_TeleportPlayer", pos, rot, distantTeleport);
+            lock (ZRoutedRpc.instance)
+            {
+                ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerID, "RPC_TeleportPlayer", pos, rot, distantTeleport);
+            }
         }
 
         public static void TeleportPlayer(ZNetPeer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
@@ -190,13 +208,19 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         public static void TeleportPlayer(ExtendedZDO player, Vector3 pos, Quaternion rot, bool distantTeleport)
         {
             /// <see cref="Player.TeleportTo(Vector3, Quaternion, bool)"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(player.GetOwner(), player.m_uid, "RPC_TeleportTo", pos, rot, distantTeleport);
+            lock (ZRoutedRpc.instance)
+            {
+                ZRoutedRpc.instance.InvokeRoutedRPC(player.GetOwner(), player.m_uid, "RPC_TeleportTo", pos, rot, distantTeleport);
+            }
         }
 
         public static void Remove(ExtendedZDO piece, bool blockDrop = false)
         {
             /// <see cref="WearNTear.RPC_Remove"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(piece.GetOwner(), piece.m_uid, "RPC_Remove", false);
+            lock (ZRoutedRpc.instance)
+            {
+                ZRoutedRpc.instance.InvokeRoutedRPC(piece.GetOwner(), piece.m_uid, "RPC_Remove", false);
+            }
         }
     }
 }

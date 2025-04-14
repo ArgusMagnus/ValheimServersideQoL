@@ -15,39 +15,77 @@ interface IZDOInventory
 
 sealed class ExtendedZDO : ZDO
 {
+    static readonly object _zdoDataLock = new object();
+
     ZDOID _lastId = ZDOID.None;
     AdditionalData_? _addData;
     AdditionalData_ AddData
     {
         get
         {
-            if (_lastId != m_uid || _addData is null)
+            if (_lastId == m_uid && _addData is not null)
+                return _addData;
+
+            lock(this)
             {
-                _lastId = m_uid;
-                if (m_uid != ZDOID.None && SharedProcessorState.GetPrefabInfo(GetPrefab()) is { } prefabInfo)
-                    _addData = new(prefabInfo);
-                else
-                    _addData = AdditionalData_.Dummy;
+                if (_lastId != m_uid || _addData is null)
+                {
+                    _lastId = m_uid;
+                    if (m_uid != ZDOID.None && Processor.SharedState.PrefabInfo.TryGetValue(GetPrefab(), out var prefabInfo))
+                        _addData = new(prefabInfo);
+                    else
+                        _addData = AdditionalData_.Dummy;
+                }
             }
             return _addData;
         }
     }
 
     public PrefabInfo PrefabInfo => AddData.PrefabInfo;
-    public IZDOInventory Inventory => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
+    public IZDOInventory Inventory
+    {
+        get
+        {
+            if (AddData.Inventory is null)
+            {
+                if (PrefabInfo.Container is null)
+                    throw new InvalidOperationException();
+                lock (this)
+                {
+                    AddData.Inventory ??= new(this);
+                }
+            }
+            return AddData.Inventory.Update();
+        }
+    }
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
-    public bool HasFields => AddData.HasFields ??= GetBool(__hasFieldsHash);
+    public bool HasFields
+    {
+        get
+        {
+            if (AddData.HasFields is not null)
+                return AddData.HasFields.Value;
+            lock (_zdoDataLock)
+            {
+                AddData.HasFields ??= GetBool(__hasFieldsHash);
+            }
+            return AddData.HasFields.Value;
+        }
+    }
 
     public ZDOVars_ Vars => new(this);
 
     void SetHasFields()
     {
-        if (AddData.HasFields is not true)
+        if (AddData.HasFields is null or false)
+            return;
+
+        lock (_zdoDataLock)
         {
             Set(__hasFieldsHash, true);
-            AddData.HasFields = true;
         }
+        AddData.HasFields = true;
     }
 
     public IReadOnlyList<Processor> Processors => AddData.Processors;
@@ -107,8 +145,27 @@ sealed class ExtendedZDO : ZDO
         return zdo;
     }
 
-    public void ClaimOwnership() => SetOwner(ZDOMan.GetSessionID());
-    public void ClaimOwnershipInternal() => SetOwnerInternal(ZDOMan.GetSessionID());
+    public void ClaimOwnership()
+    {
+        lock (this)
+        {
+            lock (_zdoDataLock)
+            {
+                SetOwner(ZDOMan.GetSessionID());
+            }
+        }
+    }
+
+    public void ClaimOwnershipInternal()
+    {
+        lock (this)
+        {
+            lock (_zdoDataLock)
+            {
+                SetOwnerInternal(ZDOMan.GetSessionID());
+            }
+        }
+    }
 
     public TimeSpan GetTimeSinceSpawned() => ZNet.instance.GetTime() - Vars.GetSpawnTime();
 
@@ -125,54 +182,54 @@ sealed class ExtendedZDO : ZDO
     public readonly struct ZDOVars_(ExtendedZDO zdo)
     {
         readonly ExtendedZDO _zdo = zdo;
-        public int GetState(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_state, defaultValue);
-        public void SetState(int value) => _zdo.Set(ZDOVars.s_state, value);
-        public long GetCreator(long defaultValue = default) => _zdo.GetLong(ZDOVars.s_creator, defaultValue);
-        public void SetCreator(long value) => _zdo.Set(ZDOVars.s_creator, value);
-        public bool GetInUse(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_inUse, defaultValue);
-        public void SetInUse(bool value) => _zdo.Set(ZDOVars.s_inUse, value);
-        public float GetFuel(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_fuel, defaultValue);
-        public void SetFuel(float value) => _zdo.Set(ZDOVars.s_fuel, value);
-        public bool GetPiece(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_piece, defaultValue);
-        public void SetPiece(bool value) => _zdo.Set(ZDOVars.s_piece, value);
-        public string GetItems(string defaultValue = "") => _zdo.GetString(ZDOVars.s_items, defaultValue);
-        public void SetItems(string value) => _zdo.Set(ZDOVars.s_items, value);
-        public string GetTag(string defaultValue = "") => _zdo.GetString(ZDOVars.s_tag, defaultValue);
-        public void SetTag(string value) => _zdo.Set(ZDOVars.s_tag, value);
-        public byte[]? GetData(byte[]? defaultValue = null) => _zdo.GetByteArray(ZDOVars.s_data, defaultValue);
-        public void SetData(byte[]? value) => _zdo.Set(ZDOVars.s_data, value);
-        public float GetStamina(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_stamina, defaultValue);
-        public void SetStamina(float value) => _zdo.Set(ZDOVars.s_stamina, value);
-        public long GetPlayerID(long defaultValue = default) => _zdo.GetLong(ZDOVars.s_playerID, defaultValue);
-        public void SetPlayerID(long value) => _zdo.Set(ZDOVars.s_playerID, value);
-        public string GetPlayerName(string defaultValue = "") => _zdo.GetString(ZDOVars.s_playerName, defaultValue);
-        public void SetPlayerName(string value) => _zdo.Set(ZDOVars.s_playerName, value);
-        public string GetFollow(string defaultValue = "") => _zdo.GetString(ZDOVars.s_follow, defaultValue);
-        public void SetFollow(string value) => _zdo.Set(ZDOVars.s_follow, value);
-        public int GetRightItem(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_rightItem, defaultValue);
-        public void SetRightItem(int value) => _zdo.Set(ZDOVars.s_rightItem, value);
-        public string GetText(string defaultValue = "") => _zdo.GetString(ZDOVars.s_text, defaultValue);
-        public void SetText(string value) => _zdo.Set(ZDOVars.s_text, value);
-        public string GetItem(int idx, string defaultValue = "") => _zdo.GetString(Invariant($"item{idx}"), defaultValue);
-        public void SetItem(int idx, string value) => _zdo.Set(Invariant($"item{idx}"), value);
-        public int GetQueued(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_queued, defaultValue);
-        public void SetQueued(int value) => _zdo.Set(ZDOVars.s_queued, value);
-        public bool GetTamed(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_tamed, defaultValue);
-        public void SetTamed(bool value) => _zdo.Set(ZDOVars.s_tamed, value);
-        public float GetTameTimeLeft(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_tameTimeLeft, defaultValue);
-        public void SetTameTimeLeft(float value) => _zdo.Set(ZDOVars.s_tameTimeLeft, value);
-        public int GetAmmo(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_ammo, defaultValue);
-        public void SetAmmo(int value) => _zdo.Set(ZDOVars.s_ammo, value);
-        public string GetAmmoType(string defaultValue = "") => _zdo.GetString(ZDOVars.s_ammoType, defaultValue);
-        public void SetAmmoType(string value) => _zdo.Set(ZDOVars.s_ammoType, value);
-        public float GetGrowStart(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_growStart, defaultValue);
-        public void SetGrowStart(float value) => _zdo.Set(ZDOVars.s_growStart, value);
-        public DateTime GetSpawnTime(DateTime defaultValue = default) => new(_zdo.GetLong(ZDOVars.s_spawnTime, defaultValue.Ticks));
-        public void SetSpawnTime(DateTime value) => _zdo.Set(ZDOVars.s_spawnTime, value.Ticks);
-        public float GetHealth(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_health, defaultValue);
-        public void SetHealth(float value) => _zdo.Set(ZDOVars.s_health, value);
-        public int GetPermitted(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_permitted, defaultValue);
-        public void SetPermitted(int value) => _zdo.Set(ZDOVars.s_permitted, value);
+        public int GetState(int defaultValue = default) { lock (_zdoDataLock) return _zdo.GetInt(ZDOVars.s_state, defaultValue); }
+        public void SetState(int value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_state, value); }
+        public long GetCreator(long defaultValue = default) { lock (_zdoDataLock) return _zdo.GetLong(ZDOVars.s_creator, defaultValue); }
+        public void SetCreator(long value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_creator, value); }
+        public bool GetInUse(bool defaultValue = default) { lock (_zdoDataLock) return _zdo.GetBool(ZDOVars.s_inUse, defaultValue); }
+        public void SetInUse(bool value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_inUse, value); }
+        public float GetFuel(float defaultValue = default) { lock (_zdoDataLock) return _zdo.GetFloat(ZDOVars.s_fuel, defaultValue); }
+        public void SetFuel(float value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_fuel, value); }
+        public bool GetPiece(bool defaultValue = default) { lock (_zdoDataLock) return _zdo.GetBool(ZDOVars.s_piece, defaultValue); }
+        public void SetPiece(bool value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_piece, value); }
+        public string GetItems(string defaultValue = "") { lock (_zdoDataLock) return _zdo.GetString(ZDOVars.s_items, defaultValue); }
+        public void SetItems(string value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_items, value); }
+        public string GetTag(string defaultValue = "") { lock (_zdoDataLock) return _zdo.GetString(ZDOVars.s_tag, defaultValue); }
+        public void SetTag(string value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_tag, value); }
+        public byte[]? GetData(byte[]? defaultValue = null) { lock (_zdoDataLock) return _zdo.GetByteArray(ZDOVars.s_data, defaultValue); }
+        public void SetData(byte[]? value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_data, value); }
+        public float GetStamina(float defaultValue = default) { lock (_zdoDataLock) return _zdo.GetFloat(ZDOVars.s_stamina, defaultValue); }
+        public void SetStamina(float value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_stamina, value); }
+        public long GetPlayerID(long defaultValue = default) { lock (_zdoDataLock) return _zdo.GetLong(ZDOVars.s_playerID, defaultValue); }
+        public void SetPlayerID(long value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_playerID, value); }
+        public string GetPlayerName(string defaultValue = "") { lock (_zdoDataLock) return _zdo.GetString(ZDOVars.s_playerName, defaultValue); }
+        public void SetPlayerName(string value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_playerName, value); }
+        public string GetFollow(string defaultValue = "") { lock (_zdoDataLock) return _zdo.GetString(ZDOVars.s_follow, defaultValue); }
+        public void SetFollow(string value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_follow, value); }
+        public int GetRightItem(int defaultValue = default) { lock (_zdoDataLock) return _zdo.GetInt(ZDOVars.s_rightItem, defaultValue); }
+        public void SetRightItem(int value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_rightItem, value); }
+        public string GetText(string defaultValue = "") { lock (_zdoDataLock) return _zdo.GetString(ZDOVars.s_text, defaultValue); }
+        public void SetText(string value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_text, value); }
+        public string GetItem(int idx, string defaultValue = "") { lock (_zdoDataLock) return _zdo.GetString(Invariant($"item{idx}"), defaultValue); }
+        public void SetItem(int idx, string value) { lock (_zdoDataLock) _zdo.Set(Invariant($"item{idx}"), value); }
+        public int GetQueued(int defaultValue = default) { lock (_zdoDataLock) return _zdo.GetInt(ZDOVars.s_queued, defaultValue); }
+        public void SetQueued(int value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_queued, value); }
+        public bool GetTamed(bool defaultValue = default) { lock (_zdoDataLock) return _zdo.GetBool(ZDOVars.s_tamed, defaultValue); }
+        public void SetTamed(bool value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_tamed, value); }
+        public float GetTameTimeLeft(float defaultValue = default) { lock (_zdoDataLock) return _zdo.GetFloat(ZDOVars.s_tameTimeLeft, defaultValue); }
+        public void SetTameTimeLeft(float value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_tameTimeLeft, value); }
+        public int GetAmmo(int defaultValue = default) { lock (_zdoDataLock) return _zdo.GetInt(ZDOVars.s_ammo, defaultValue); }
+        public void SetAmmo(int value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_ammo, value); }
+        public string GetAmmoType(string defaultValue = "") { lock (_zdoDataLock) return _zdo.GetString(ZDOVars.s_ammoType, defaultValue); }
+        public void SetAmmoType(string value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_ammoType, value); }
+        public float GetGrowStart(float defaultValue = default) { lock (_zdoDataLock) return _zdo.GetFloat(ZDOVars.s_growStart, defaultValue); }
+        public void SetGrowStart(float value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_growStart, value); }
+        public DateTime GetSpawnTime(DateTime defaultValue = default) { lock (_zdoDataLock) return new(_zdo.GetLong(ZDOVars.s_spawnTime, defaultValue.Ticks)); }
+        public void SetSpawnTime(DateTime value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_spawnTime, value.Ticks); }
+        public float GetHealth(float defaultValue = default) { lock (_zdoDataLock) return _zdo.GetFloat(ZDOVars.s_health, defaultValue); }
+        public void SetHealth(float value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_health, value); }
+        public int GetPermitted(int defaultValue = default) { lock (_zdoDataLock) return _zdo.GetInt(ZDOVars.s_permitted, defaultValue); }
+        public void SetPermitted(int value) { lock (_zdoDataLock) _zdo.Set(ZDOVars.s_permitted, value); }
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
@@ -180,27 +237,37 @@ sealed class ExtendedZDO : ZDO
         public IReadOnlyList<Processor> Processors { get; private set; } = Processor.DefaultProcessors;
         public PrefabInfo PrefabInfo { get; } = prefabInfo;
         public ConcurrentDictionary<Type, object>? ComponentFieldAccessors { get; set; }
-        public Dictionary<Processor, uint>? ProcessorDataRevisions { get; set; }
+        public ConcurrentDictionary<Processor, uint>? ProcessorDataRevisions { get; set; }
         public ZDOInventory? Inventory { get; set; }
         public bool? HasFields { get; set; }
 
         static ConcurrentDictionary<int, IReadOnlyList<Processor>> _processors = new();
 
         public void Ungregister(IEnumerable<Processor> processors)
-        {            
+        {
             var hash = 0;
-            foreach (var processor in Processors)
+            lock (this)
             {
-                if (!processors.Any(x => ReferenceEquals(x, processor)))
-                    hash = (hash, processor.GetType()).GetHashCode();
+                foreach (var processor in Processors)
+                {
+                    if (!processors.Any(x => ReferenceEquals(x, processor)))
+                        hash = (hash, processor.GetType()).GetHashCode();
+                }
+
+                Processors = _processors.GetOrAdd(hash, _ => [.. Processors.Where(x => !processors.Any(y => ReferenceEquals(x, y)))]);
             }
 
-            Processors = _processors.GetOrAdd(hash, _ => Processors.Where(x => !processors.Any(y => ReferenceEquals(x, y))).ToList());
             foreach (var processor in processors)
-                ProcessorDataRevisions?.Remove(processor);
+                ProcessorDataRevisions?.TryRemove(processor, out _);
         }
 
-        public void ReregisterAll() => Processors = Processor.DefaultProcessors;
+        public void ReregisterAll()
+        {
+            lock (this)
+            {
+                Processors = Processor.DefaultProcessors;
+            }
+        }
 
         public static AdditionalData_ Dummy { get; } = new(PrefabInfo.Dummy);
     }
@@ -218,7 +285,10 @@ sealed class ExtendedZDO : ZDO
             if (value && !_zdo.HasFields)
                 _zdo.SetHasFields();
 
-            if (_hasComponentFields != value)
+            if (_hasComponentFields == value)
+                return;
+
+            lock (_zdoDataLock)
                 _zdo.Set(__hasComponentFieldsHash, (_hasComponentFields = value).Value);
         }
 
@@ -237,7 +307,8 @@ sealed class ExtendedZDO : ZDO
                 return (T)field.GetValue(_component);
 
             var hash = Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode();
-            return getter(_zdo, hash, (T)field.GetValue(_component));
+            lock (_zdoDataLock)
+                return getter(_zdo, hash, (T)field.GetValue(_component));
         }
 
         public bool GetBool(Expression<Func<TComponent, bool>> fieldExpression)
@@ -257,12 +328,16 @@ sealed class ExtendedZDO : ZDO
         {
             var hash = GetHash(fieldExpression, out var field);
             if (remover is not null && value.Equals(field.GetValue(_component)))
-                remover(_zdo, hash);
+            {
+                lock (_zdoDataLock)
+                    remover(_zdo, hash);
+            }
             else
             {
                 if (!HasFields)
                     SetHasFields(true);
-                setter(_zdo, hash, value);
+                lock (_zdoDataLock)
+                    setter(_zdo, hash, value);
             }
             return this;
         }
@@ -284,7 +359,8 @@ sealed class ExtendedZDO : ZDO
             var hash = GetHash(fieldExpression, out _);
             if (!HasFields)
                 SetHasFields(true);
-            _zdo.Set(hash, value);
+            lock (_zdoDataLock)
+                _zdo.Set(hash, value);
             return this;
         }
 
@@ -297,12 +373,17 @@ sealed class ExtendedZDO : ZDO
                 return false;
 
             if (remover is not null && value.Equals(defaultValue))
-                remover(_zdo, hash);
+            {
+                lock (_zdoDataLock)
+                    remover(_zdo, hash);
+            }
+
             else
             {
                 if (!HasFields)
                     SetHasFields(true);
-                setter(_zdo, hash, value);
+                lock (_zdoDataLock)
+                    setter(_zdo, hash, value);
             }
             return true;
         }
@@ -322,7 +403,8 @@ sealed class ExtendedZDO : ZDO
         ComponentFieldAccessor<TComponent> ResetCore<T>(Expression<Func<TComponent, T>> fieldExpression, Action<ZDO, int> remover)
         {
             var hash = GetHash(fieldExpression, out _);
-            remover(_zdo, hash);
+            lock (_zdoDataLock)
+                remover(_zdo, hash);
             return this;
         }
 
@@ -341,7 +423,8 @@ sealed class ExtendedZDO : ZDO
         bool ResetIfChangedCore<T>(Expression<Func<TComponent, T>> fieldExpression, Func<ZDO, int, bool> remover)
         {
             var hash = GetHash(fieldExpression, out _);
-            return remover(_zdo, hash);
+            lock (_zdoDataLock)
+                return remover(_zdo, hash);
         }
 
         public bool ResetIfChanged(Expression<Func<TComponent, bool>> fieldExpression)
@@ -385,55 +468,61 @@ sealed class ExtendedZDO : ZDO
 
         public ZDOInventory Update()
         {
-            if (_dataRevision == ZDO.DataRevision)
-                return this;
+            lock (this)
+            {
+                if (_dataRevision == ZDO.DataRevision)
+                    return this;
 
-            var data = ZDO.Vars.GetItems();
-            if (_lastData == data)
-                return this;
+                var data = ZDO.Vars.GetItems();
+                if (_lastData == data)
+                    return this;
 
-            var fields = ZDO.Fields<Container>();
-            var w = fields.GetInt(x => x.m_width);
-            var h = fields.GetInt(x => x.m_height);
-            if (Inventory is null || Inventory.GetWidth() != w || Inventory.GetHeight() != h)
-                Inventory = new(ZDO.PrefabInfo.Container!.Value.Container.m_name, ZDO.PrefabInfo.Container!.Value.Container.m_bkg, w, h);
+                var fields = ZDO.Fields<Container>();
+                var w = fields.GetInt(x => x.m_width);
+                var h = fields.GetInt(x => x.m_height);
+                if (Inventory is null || Inventory.GetWidth() != w || Inventory.GetHeight() != h)
+                    Inventory = new(ZDO.PrefabInfo.Container!.Value.Container.m_name, null, w, h);
 
-            if (string.IsNullOrEmpty(data))
-                Items.Clear();
-            else
-                Inventory.Load(new(data));
+                if (string.IsNullOrEmpty(data))
+                    Items.Clear();
+                else
+                    Inventory.Load(new(data)); Crash!!!;
 
-            _dataRevision = ZDO.DataRevision;
-            _lastData = data;
+                _dataRevision = ZDO.DataRevision;
+                _lastData = data;
+            }
             return this;
         }
 
-        public void UpdateZDO(ExtendedZDO zdo)
-        {
-            ZDO = zdo;
-            _items = default;
-            _dataRevision = default;
-            _lastData = default;
-            Update();
-        }
+        //public void UpdateZDO(ExtendedZDO zdo)
+        //{
+        //    ZDO = zdo;
+        //    _items = default;
+        //    _dataRevision = default;
+        //    _lastData = default;
+        //    Update();
+        //}
 
         public void Save()
         {
-            var pkg = new ZPackage();
-            Inventory.Save(pkg);
-            var dataRevision = ZDO.DataRevision;
-            var data = pkg.GetBase64();
-            ZDO.Vars.SetItems(data);
-            if (dataRevision != ZDO.DataRevision) // items changed
+            lock (this)
             {
-                // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.
-                // Not sure about the increment value though...
-                if (ZDO.PrefabInfo.Container is { ZSyncTransform: { Value: not null } })
-                    ZDO.DataRevision += 120;
-            }
+                var pkg = new ZPackage();
+                Inventory.Save(pkg);
+                var dataRevision = ZDO.DataRevision;
+                var data = pkg.GetBase64();
+                ZDO.Vars.SetItems(data);
+                if (dataRevision != ZDO.DataRevision) // items changed
+                {
+                    // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.
+                    // Not sure about the increment value though...
+                    if (ZDO.PrefabInfo.Container is { ZSyncTransform: { Value: not null } })
+                        ZDO.DataRevision += 120;
+                }
 
-            _dataRevision = ZDO.DataRevision;
-            _lastData = data;
+                _dataRevision = ZDO.DataRevision;
+                _lastData = data;
+            }
         }
     }
 }

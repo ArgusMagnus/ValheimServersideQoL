@@ -5,8 +5,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly Dictionary<Trader, List<string>> _globalKeysToSet = new();
-    readonly HashSet<ZNetPeer> _reset = new();
+    readonly ConcurrentDictionary<Trader, List<string>> _globalKeysToSet = [];
+    readonly ConcurrentHashSet<ZNetPeer> _reset = [];
 
     public override void Initialize()
     {
@@ -15,7 +15,7 @@ sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         foreach(var (trader, cfgList) in Config.Traders.AlwaysUnlock.Select(x => (x.Key, x.Value)))
         {
             var list = cfgList.Where(x => x.ConfigEntry.Value).Select(x => x.GlobalKey).ToList();
-            _globalKeysToSet.Add(trader, list);
+            _globalKeysToSet.TryAdd(trader, list);
         }
 
         List<ZNetPeer>? remove = null;
@@ -77,7 +77,7 @@ sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             foreach (var key in remove)
                 globalKeysToSet.Remove(key);
             if (globalKeysToSet.Count is 0)
-                _globalKeysToSet.Remove(zdo.PrefabInfo.Trader);
+                _globalKeysToSet.TryRemove(zdo.PrefabInfo.Trader, out _);
         }
 
         return false;

@@ -53,12 +53,12 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             }
             if (Config.MapTables.AutoUpdateShips.Value)
             {
-                pins = [.. pins, .. SharedProcessorState.Ships
+                pins = [.. pins, .. Instance<ShipProcessor>().Ships
                     .Select(x =>
                     {
                         if (!x.IsValid() || x.PrefabInfo.Ship is null)
                         {
-                            SharedProcessorState.Ships.Remove(x);
+                            Instance<ShipProcessor>().Ships.Remove(x);
                             return null;
                         }
                         return x;

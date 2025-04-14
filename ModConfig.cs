@@ -99,7 +99,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = cfg.Bind(section, nameof(AutoPickupExcludeFodder), true, "True to exclude food items for tames when tames are within search range");
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
-            .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
+            .Where(x => Processor.SharedState.PieceTablesByPiece.ContainsKey(x.name))
             .Select(x => (Name: x.name, Container: x.GetComponent<Container>() ?? x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
             .Where(x => x is { Container: not null, Piece: not null })
             .ToDictionary(x => x.Name.GetStableHashCode(), x => cfg

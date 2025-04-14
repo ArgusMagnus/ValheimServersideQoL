@@ -1,4 +1,5 @@
 ﻿using BepInEx.Logging;
+using System.Collections.Concurrent;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -7,8 +8,8 @@ sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 {
     TimeSpan _activationDelay;
     readonly int _spawnerPrefab = "Spawner_Bat".GetStableHashCode();
-    readonly Dictionary<ZDOID, TrophyState> _spawnerByTrophy = [];
-    readonly HashSet<ExtendedZDO> _spawners = [];
+    readonly ConcurrentDictionary<ZDOID, TrophyState> _spawnerByTrophy = [];
+    readonly ConcurrentHashSet<ExtendedZDO> _spawners = [];
     readonly TimeSpan _textDuration = TimeSpan.FromSeconds(DamageText.instance.m_textDuration * 2);
 
     sealed class TrophyState
@@ -37,7 +38,7 @@ sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         var itemDrop = zdo.PrefabInfo.ItemDrop?.ItemDrop;
-        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.m_itemData.m_shared, out var trophyCharacterPrefab))
+        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || !SharedState.CharacterByTrophy.TryGetValue(itemDrop.m_itemData.m_shared, out var trophyCharacterPrefab))
         {
             UnregisterZdoProcessor = true;
             return false;

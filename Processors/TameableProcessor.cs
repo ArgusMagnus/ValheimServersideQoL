@@ -6,9 +6,9 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly Dictionary<ExtendedZDO, DateTimeOffset> _lastMessage = new();
-    readonly List<ExtendedZDO> _tames = new();
-    public IReadOnlyList<ExtendedZDO> Tames => _tames;
+    readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _lastMessage = [];
+    readonly ConcurrentHashSet<ExtendedZDO> _tames = [];
+    public IReadOnlyCollection<ExtendedZDO> Tames => _tames;
 
     public override void Initialize()
     {
@@ -18,7 +18,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        _lastMessage.Remove(zdo);
+        _lastMessage.TryRemove(zdo, out _);
         _tames.Remove(zdo);
     }
 

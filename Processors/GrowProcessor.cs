@@ -7,7 +7,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class GrowProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly Dictionary<ExtendedZDO, LastMessage> _lastMessage = new();
+    readonly ConcurrentDictionary<ExtendedZDO, LastMessage> _lastMessage = new();
 
     sealed class LastMessage
     {
@@ -23,7 +23,7 @@ sealed class GrowProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        _lastMessage.Remove(zdo);
+        _lastMessage.TryRemove(zdo, out _);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)

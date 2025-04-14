@@ -23,7 +23,7 @@ public sealed partial class Main : BaseUnityPlugin
     ///   Not easily possible: Responsible code in <see cref="Piece.DropResources(HitData)"/> uses <see cref="Piece.m_resources"/> / <see cref="Piece.Requirement.m_recover"/>
     ///   which cannot be modified via ZDO fields. We would have to somehow detect when a stakewall is destroyed and spawn the resources ourselves.
     /// - <see cref="Chat"/> <see cref="Humanoid"/> <see cref="Character"/> <see cref="InventoryGui.SortMethod"/> <see cref="ZNet"/>
-    /// - <see cref="SpawnArea"/>
+    /// - <see cref="SpawnArea"/> <see cref="CreatureSpawner"/> <see cref="MonsterAI"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";
@@ -32,6 +32,7 @@ public sealed partial class Main : BaseUnityPlugin
 
     internal static Main Instance { get; private set; } = default!;
 
+    internal static SynchronizationContext SynchronizationContext { get; } = SynchronizationContext.Current;
     static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
     internal new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
     ModConfig? _config;
@@ -41,14 +42,16 @@ public sealed partial class Main : BaseUnityPlugin
 
     ulong _executeCounter;
     uint _unfinishedProcessingInRow;
-    record SectorInfo(List<ZNetPeer> Peers, List<ZDO> ZDOs)
+    record SectorInfo(List<ZNetPeer> Peers, List<ZDO?> ZDOs)
     {
         public int InverseWeight { get; set; }
     }
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
     ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
 
-    readonly List<Processor> _unregister = new();
+    readonly ConcurrentBag<List<Processor>> _unregister = [];
+    readonly ConcurrentBag<ExtendedZDO> _destroy = [];
+    readonly ConcurrentBag<ExtendedZDO> _recreate = [];
     bool _configChanged = true;
 
     public Main()
@@ -363,13 +366,13 @@ public sealed partial class Main : BaseUnityPlugin
 
             totalZdos += sectorInfo.ZDOs.Count;
 
-            while (sectorInfo is { ZDOs: { Count: > 0 } } && _watch.ElapsedMilliseconds < Config.General.MaxProcessingTime.Value)
+            Parallel.For(0, sectorInfo.ZDOs.Count, (i, loopState) =>
             {
-                processedZdos++;
-                var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
-                sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
+                Interlocked.Increment(ref processedZdos);
+                var zdo = (ExtendedZDO)sectorInfo.ZDOs[i]!;
+                sectorInfo.ZDOs[i] = null;
                 if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
-                    continue;
+                    return;
 
                 if (zdo.Processors.Count > 1)
                 {
@@ -390,24 +393,46 @@ public sealed partial class Main : BaseUnityPlugin
 
                 var destroy = false;
                 var recreate = false;
-                _unregister.Clear();
+                if (!_unregister.TryTake(out var unregister))
+                    unregister = [];
                 foreach (var processor in zdo.Processors)
                 {
                     processor.Process(zdo, sectorInfo.Peers);
                     if (processor.UnregisterZdoProcessor)
-                        _unregister.Add(processor);
+                        unregister.Add(processor);
                     if (destroy = processor.DestroyZdo)
                     {
-                        zdo.Destroy();
+                        _destroy.Add(zdo);
                         break;
                     }
                     recreate = recreate || processor.RecreateZdo;
                 }
                 if (!destroy && recreate)
-                    zdo.Recreate();
-                else if (_unregister.Count > 0)
-                    zdo.UnregisterProcessors(_unregister);
+                    _recreate.Add(zdo);
+                else if (unregister.Count > 0)
+                {
+                    zdo.UnregisterProcessors(unregister);
+                    unregister.Clear();
+                }
+
+                _unregister.Add(unregister);
+
+                if (_watch.ElapsedMilliseconds >= Config.General.MaxProcessingTime.Value)
+                    loopState.Stop();
+            });
+
+            for (int i = sectorInfo.ZDOs.Count - 1; i >= 0; i--)
+            {
+                if (sectorInfo.ZDOs[i] is null)
+                    sectorInfo.ZDOs.RemoveAt(i);
             }
+
+            foreach (var zdo in _destroy)
+                zdo.Destroy();
+            foreach (var zdo in _recreate)
+                zdo.Recreate();
+            _destroy.Clear();
+            _recreate.Clear();
         }
 
         if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)

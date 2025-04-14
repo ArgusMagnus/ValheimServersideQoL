@@ -1,4 +1,5 @@
 ﻿using BepInEx.Logging;
+using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -7,9 +8,9 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     bool _destroyNewPortals;
-    readonly HashSet<ExtendedZDO> _initialPortals = [];
+    readonly ConcurrentHashSet<ExtendedZDO> _initialPortals = [];
 
-    readonly Dictionary<ExtendedZDO, string> _knownPortals = [];
+    readonly ConcurrentDictionary<ExtendedZDO, string> _knownPortals = [];
     bool _hubEnabled;
     float _hubRadius = 0;
     bool _updateHub;
@@ -46,7 +47,7 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             {
                 string? tag = null;
                 if (zdo.Vars.GetCreator() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
-                    _knownPortals.Add(zdo, tag);
+                    _knownPortals.TryAdd(zdo, tag);
             }
         }
 
@@ -69,7 +70,7 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
         _initialPortals.Remove(zdo);
-        if (_hubEnabled && _knownPortals.Remove(zdo))
+        if (_hubEnabled && _knownPortals.TryRemove(zdo, out _))
             _updateHub = true;
     }
 

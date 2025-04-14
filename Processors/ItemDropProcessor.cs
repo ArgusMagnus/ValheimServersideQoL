@@ -1,10 +1,11 @@
 ﻿using BepInEx.Logging;
+using System.Collections.Concurrent;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = new();
+    readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = new();
 
     public override void Initialize()
     {
@@ -14,7 +15,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        _eggDropTime.Remove(zdo);
+        _eggDropTime.TryRemove(zdo, out _);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
@@ -33,14 +34,10 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             if (zdo.Vars.GetGrowStart() > 0)
                 return true;
 
-            if (!_eggDropTime.TryGetValue(zdo, out var dropTime))
-            {
-                _eggDropTime.Add(zdo, DateTimeOffset.UtcNow);
-                return false;
-            }
+            var dropTime = _eggDropTime.GetOrAdd(zdo, static _ => DateTimeOffset.UtcNow);
             if (DateTimeOffset.UtcNow - dropTime < TimeSpan.FromSeconds(2 * zdo.PrefabInfo.EggGrow.m_updateInterval + 2))
                 return false;
-            _eggDropTime.Remove(zdo);
+            _eggDropTime.TryRemove(zdo, out _);
         }
 
         if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
