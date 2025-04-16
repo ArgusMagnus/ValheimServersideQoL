@@ -63,8 +63,8 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
     public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo);
 
-    protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
-    public void Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected abstract ValueTask<bool> ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
+    public async ValueTask Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         _watch.Start();
 
@@ -74,7 +74,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
         if (zdo.CheckProcessorDataRevisionChanged(this))
         {
-            if (ProcessCore(zdo, peers))
+            if (await ProcessCore(zdo, peers))
                 zdo.UpdateProcessorDataRevision(this);
         }
 

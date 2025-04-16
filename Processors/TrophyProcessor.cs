@@ -35,7 +35,7 @@ sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
     public override bool ClaimExclusive(ExtendedZDO zdo) => _spawners.Contains(zdo) || base.ClaimExclusive(zdo);
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override async ValueTask<bool> ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         var itemDrop = zdo.PrefabInfo.ItemDrop?.ItemDrop;
         if (!Config.TrophySpawner.Enable.Value || itemDrop is null || !SharedState.CharacterByTrophy.TryGetValue(itemDrop.m_itemData.m_shared, out var trophyCharacterPrefab))

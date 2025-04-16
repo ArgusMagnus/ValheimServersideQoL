@@ -5,7 +5,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override async ValueTask<bool> ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
 	{
         if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null})
         {
@@ -43,11 +43,12 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
 
+                            var inventory = await containerZdo.GetInventory();
                             removeSlots?.Clear();
                             var addFuel = 0;
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
                             var found = false;
-                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
+                            foreach (var slot in inventory.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxFuelAdd, slot.m_stack);
@@ -81,9 +82,9 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             if (removeSlots is { Count: > 0 })
                             {
                                 foreach (var remove in removeSlots)
-                                    containerZdo.Inventory.Items.Remove(remove);
+                                    inventory.Items.Remove(remove);
 
-                                if (containerZdo.Inventory.Items is { Count: 0 })
+                                if (inventory.Items is { Count: 0 })
                                 {
                                     containers.Remove(containerZdo);
                                     if (containers is { Count: 0 })
@@ -94,7 +95,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             zdo.ClaimOwnership();
                             currentFuel += addFuel;
                             zdo.Vars.SetFuel(currentFuel);
-                            containerZdo.Inventory.Save();
+                            inventory.Save();
 
                             addedFuel += addFuel;
 
@@ -139,11 +140,12 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
 
+                            var inventory = await containerZdo.GetInventory();
                             removeSlots?.Clear();
                             int addOre = 0;
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastOre.Value;
                             var found = false;
-                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
+                            foreach (var slot in inventory.Items.Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxOreAdd, slot.m_stack);
@@ -177,9 +179,9 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             if (removeSlots is { Count: > 0 })
                             {
                                 foreach (var remove in removeSlots)
-                                    containerZdo.Inventory.Items.Remove(remove);
+                                    inventory.Items.Remove(remove);
 
-                                if (containerZdo.Inventory.Items is { Count: 0 })
+                                if (inventory.Items is { Count: 0 })
                                 {
                                     containers.Remove(containerZdo);
                                     if (containers is { Count: 0 })
@@ -193,7 +195,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             currentOre += addOre;
                             zdo.Vars.SetQueued(currentOre);
 
-                            containerZdo.Inventory.Save();
+                            inventory.Save();
 
                             addedOre += addOre;
 

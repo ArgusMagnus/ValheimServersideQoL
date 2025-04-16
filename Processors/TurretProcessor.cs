@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override async ValueTask<bool> ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Turret is null)
         {
@@ -72,10 +72,11 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                     continue; // in use or player to close
 
+                var inventory = await containerZdo.GetInventory();
                 removeSlots?.Clear();
                 var addAmmo = 0;
                 var found = false;
-                foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == ammoItem.m_itemData).OrderBy(x => x.m_stack))
+                foreach (var slot in inventory.Items.Where(x => new ItemKey(x) == ammoItem.m_itemData).OrderBy(x => x.m_stack))
                 {
                     found = found || slot is { m_stack: > 0 };
                     var take = Math.Min(maxAdd, slot.m_stack);
@@ -109,9 +110,9 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 if (removeSlots is { Count: > 0 })
                 {
                     foreach (var remove in removeSlots)
-                        containerZdo.Inventory.Items.Remove(remove);
+                        inventory.Items.Remove(remove);
 
-                    if (containerZdo.Inventory.Items is { Count: 0 })
+                    if (inventory.Items is { Count: 0 })
                     {
                         containers.Remove(containerZdo);
                         if (containers is { Count: 0 })
@@ -123,7 +124,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 zdo.Vars.SetAmmo(currentAmmo);
                 zdo.Vars.SetAmmoType(allowedAmmoDropPrefabName!);
 
-                containerZdo.Inventory.Save();
+                inventory.Save();
 
                 addedAmmo += addAmmo;
 

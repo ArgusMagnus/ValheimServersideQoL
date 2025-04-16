@@ -18,7 +18,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         _eggDropTime.TryRemove(zdo, out _);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override async ValueTask<bool> ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
 	{
         if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value)
         {
@@ -91,8 +91,9 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
             usedSlots ??= new();
             usedSlots.Clear();
 
+            var inventory = await containerZdo.GetInventory();
             ItemDrop.ItemData? containerItem = null;
-            foreach (var slot in containerZdo.Inventory!.Items)
+            foreach (var slot in inventory.Items)
             {
                 usedSlots.Add(slot.m_gridPos);
                 if (new ItemKey(item) != slot)
@@ -119,16 +120,16 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                 continue;
             }
 
-            for (var emptySlots = containerZdo.Inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
+            for (var emptySlots = inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
             {
                 var amount = Math.Min(stack, item.m_shared.m_maxStackSize);
 
                 var slot = containerItem.Clone();
                 slot.m_stack = amount;
                 slot.m_gridPos.x = -1;
-                for (int x = 0; x < containerZdo.Inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
+                for (int x = 0; x < inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
                 {
-                    for (int y = 0; y < containerZdo.Inventory.Inventory.GetHeight(); y++)
+                    for (int y = 0; y < inventory.Inventory.GetHeight(); y++)
                     {
                         if (usedSlots.Add(new(x, y)))
                         {
@@ -137,13 +138,13 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
                         }
                     }
                 }
-                containerZdo.Inventory.Items.Add(slot);
+                inventory.Items.Add(slot);
                 stack -= amount;
             }
 
             if (stack != item.m_stack)
             {
-                containerZdo.Inventory.Save();
+                inventory.Save();
                 (item.m_stack, stack) = (stack, item.m_stack);
                 zdo.ClaimOwnershipInternal();
                 ItemDrop.SaveToZDO(item, zdo);

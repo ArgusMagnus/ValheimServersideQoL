@@ -18,7 +18,7 @@ sealed class ShieldGeneratorProcessor(ManualLogSource logger, ModConfig cfg) : P
         _shieldGenerators.Remove(zdo);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override async ValueTask<bool> ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.ShieldGenerator is not null)

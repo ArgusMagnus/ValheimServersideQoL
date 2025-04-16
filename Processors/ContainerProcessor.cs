@@ -9,7 +9,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override async ValueTask<bool> ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Container is null || zdo.Vars.GetCreator() is 0)
         {
@@ -18,7 +18,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
 
         var fields = zdo.Fields<Container>();
-        var inventory = zdo.Inventory!;
+        var inventory = await zdo.GetInventory();
         var width = inventory.Inventory.GetWidth();
         var height = inventory.Inventory.GetHeight();
         if (Config.Containers.ContainerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg)
@@ -27,7 +27,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
             && int.TryParse(parts[1], out var desiredHeight)
             && (width, height) != (desiredWidth, desiredHeight))
         {
-            if (zdo.Inventory is { Items: { Count: 0 } })
+            if (inventory is { Items: { Count: 0 } })
             {
                 fields.Set(x => x.m_width, width = desiredWidth);
                 fields.Set(x => x.m_height, height = desiredHeight);

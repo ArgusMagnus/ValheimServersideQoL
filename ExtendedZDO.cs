@@ -42,21 +42,16 @@ sealed class ExtendedZDO : ZDO
     }
 
     public PrefabInfo PrefabInfo => AddData.PrefabInfo;
-    public IZDOInventory Inventory
+    public async ValueTask<IZDOInventory> GetInventory()
     {
-        get
+        if (AddData.Inventory is null)
         {
-            if (AddData.Inventory is null)
-            {
-                if (PrefabInfo.Container is null)
-                    throw new InvalidOperationException();
-                lock (this)
-                {
-                    AddData.Inventory ??= new(this);
-                }
-            }
-            return AddData.Inventory.Update();
+            if (PrefabInfo.Container is null)
+                throw new InvalidOperationException();
+            using (await AwaitableLock.Acquire(this))
+                AddData.Inventory ??= new(this);
         }
+        return await AddData.Inventory.Update();
     }
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
@@ -466,9 +461,9 @@ sealed class ExtendedZDO : ZDO
             }
         }
 
-        public ZDOInventory Update()
+        public async ValueTask<ZDOInventory> Update()
         {
-            lock (this)
+            using (await AwaitableLock.Acquire(this))
             {
                 if (_dataRevision == ZDO.DataRevision)
                     return this;
@@ -486,7 +481,10 @@ sealed class ExtendedZDO : ZDO
                 if (string.IsNullOrEmpty(data))
                     Items.Clear();
                 else
-                    Inventory.Load(new(data)); Crash!!!;
+                {
+                    await Main.Instance.SynchronizationContext;
+                    Inventory.Load(new(data));
+                }
 
                 _dataRevision = ZDO.DataRevision;
                 _lastData = data;
@@ -516,7 +514,7 @@ sealed class ExtendedZDO : ZDO
                 {
                     // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.
                     // Not sure about the increment value though...
-                    if (ZDO.PrefabInfo.Container is { ZSyncTransform: { Value: not null } })
+                    if (ZDO.PrefabInfo.Container is { ZSyncTransform.Value: not null })
                         ZDO.DataRevision += 120;
                 }
 

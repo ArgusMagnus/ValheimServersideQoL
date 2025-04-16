@@ -24,7 +24,7 @@ sealed class ShipProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         Ships.Remove(zdo);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override async ValueTask<bool> ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Ship is not null)

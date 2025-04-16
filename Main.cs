@@ -32,7 +32,7 @@ public sealed partial class Main : BaseUnityPlugin
 
     internal static Main Instance { get; private set; } = default!;
 
-    internal static SynchronizationContext SynchronizationContext { get; } = SynchronizationContext.Current;
+    internal SynchronizationContext SynchronizationContext { get; } = SynchronizationContext.Current;
     static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
     internal new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
     ModConfig? _config;
@@ -87,9 +87,12 @@ public sealed partial class Main : BaseUnityPlugin
     const uint ExpectedWorldVersion = 35;
     internal const string DummyConfigSection = "Z - Dummy";
 
+    readonly CancellationTokenSource _cts = new();
+
+    void OnApplicationQuit() => _cts.Cancel();
+
     void Start()
     {
-
         StartCoroutine(CallExecute());
 
         IEnumerator<YieldInstruction> CallExecute()
@@ -109,18 +112,28 @@ public sealed partial class Main : BaseUnityPlugin
             if (!Initialize())
                 yield break;
 
-            while (true)
+            Task.Run(async () =>
             {
-                yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
-
-                try { Execute(); }
-                catch (OperationCanceledException) { yield break; }
-                catch (Exception ex)
+                while (!_cts.IsCancellationRequested)
                 {
-                    Logger.LogError(ex);
-                    yield break;
+                    await SynchronizationContext;
+                    try { await Execute().ConfigureAwait(false); }
+                    catch (OperationCanceledException) { break; }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex);
+                        break;
+                    }
+                    await Task.Delay(50, _cts.Token);
                 }
-            }
+            }).ContinueWith(task =>
+            {
+                foreach (var ex in task.Exception.InnerExceptions)
+                {
+                    if (ex is not OperationCanceledException)
+                        Logger.LogError(ex);
+                }
+            }, TaskContinuationOptions.OnlyOnFaulted);
         }
     }
 
@@ -204,7 +217,7 @@ public sealed partial class Main : BaseUnityPlugin
         return true;
     }
 
-    void Execute()
+    async Task Execute()
     {
         _executeCounter++;
         if (_configChanged)
@@ -366,66 +379,70 @@ public sealed partial class Main : BaseUnityPlugin
 
             totalZdos += sectorInfo.ZDOs.Count;
 
-            Parallel.For(0, sectorInfo.ZDOs.Count, (i, loopState) =>
+            int index = -1;
+            await Task.WhenAll(Enumerable.Range(0, Environment.ProcessorCount).Select(_ => Task.Run(async () =>
             {
-                Interlocked.Increment(ref processedZdos);
-                var zdo = (ExtendedZDO)sectorInfo.ZDOs[i]!;
-                sectorInfo.ZDOs[i] = null;
-                if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
-                    return;
-
-                if (zdo.Processors.Count > 1)
+                int i;
+                while ((i = Interlocked.Increment(ref index)) < sectorInfo.ZDOs.Count && _watch.ElapsedMilliseconds < Config.General.MaxProcessingTime.Value)
                 {
-                    Processor? claimedExclusiveBy = null;
+                    Interlocked.Increment(ref processedZdos);
+                    var zdo = (ExtendedZDO)sectorInfo.ZDOs[i]!;
+                    sectorInfo.ZDOs[i] = null;
+                    if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
+                        return;
+
+                    if (zdo.Processors.Count > 1)
+                    {
+                        Processor? claimedExclusiveBy = null;
+                        foreach (var processor in zdo.Processors)
+                        {
+                            if (!processor.ClaimExclusive(zdo))
+                                continue;
+                            if (claimedExclusiveBy is null)
+                                claimedExclusiveBy = processor;
+                            else if (Config.General.DiagnosticLogs.Value)
+                                Logger.LogError(Invariant($"ZDO {zdo.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
+                        }
+
+                        if (claimedExclusiveBy is not null)
+                            zdo.UnregisterProcessors(zdo.Processors.Where(x => x != claimedExclusiveBy));
+                    }
+
+                    var destroy = false;
+                    var recreate = false;
+                    if (!_unregister.TryTake(out var unregister))
+                        unregister = [];
                     foreach (var processor in zdo.Processors)
                     {
-                        if (!processor.ClaimExclusive(zdo))
-                            continue;
-                        if (claimedExclusiveBy is null)
-                            claimedExclusiveBy = processor;
-                        else if (Config.General.DiagnosticLogs.Value)
-                            Logger.LogError(Invariant($"ZDO {zdo.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
+                        await processor.Process(zdo, sectorInfo.Peers);
+                        if (processor.UnregisterZdoProcessor)
+                            unregister.Add(processor);
+                        if (destroy = processor.DestroyZdo)
+                        {
+                            _destroy.Add(zdo);
+                            break;
+                        }
+                        recreate = recreate || processor.RecreateZdo;
                     }
-
-                    if (claimedExclusiveBy is not null)
-                        zdo.UnregisterProcessors(zdo.Processors.Where(x => x != claimedExclusiveBy));
-                }
-
-                var destroy = false;
-                var recreate = false;
-                if (!_unregister.TryTake(out var unregister))
-                    unregister = [];
-                foreach (var processor in zdo.Processors)
-                {
-                    processor.Process(zdo, sectorInfo.Peers);
-                    if (processor.UnregisterZdoProcessor)
-                        unregister.Add(processor);
-                    if (destroy = processor.DestroyZdo)
+                    if (!destroy && recreate)
+                        _recreate.Add(zdo);
+                    else if (unregister.Count > 0)
                     {
-                        _destroy.Add(zdo);
-                        break;
+                        zdo.UnregisterProcessors(unregister);
+                        unregister.Clear();
                     }
-                    recreate = recreate || processor.RecreateZdo;
-                }
-                if (!destroy && recreate)
-                    _recreate.Add(zdo);
-                else if (unregister.Count > 0)
-                {
-                    zdo.UnregisterProcessors(unregister);
-                    unregister.Clear();
-                }
 
-                _unregister.Add(unregister);
-
-                if (_watch.ElapsedMilliseconds >= Config.General.MaxProcessingTime.Value)
-                    loopState.Stop();
-            });
+                    _unregister.Add(unregister);
+                }
+            }))).ConfigureAwait(false);
 
             for (int i = sectorInfo.ZDOs.Count - 1; i >= 0; i--)
             {
                 if (sectorInfo.ZDOs[i] is null)
                     sectorInfo.ZDOs.RemoveAt(i);
             }
+
+            await SynchronizationContext;
 
             foreach (var zdo in _destroy)
                 zdo.Destroy();
