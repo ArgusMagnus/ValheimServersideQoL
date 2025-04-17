@@ -10,6 +10,7 @@ namespace System.Runtime.CompilerServices
     //     Indicates that compiler support for a particular feature is required for the
     //     location where this attribute is applied.
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
+    [EditorBrowsable(EditorBrowsableState.Never)]
     sealed class CompilerFeatureRequiredAttribute : Attribute
     {
         //
@@ -198,5 +199,6 @@ namespace System.Diagnostics.CodeAnalysis
     //     Specifies that this constructor sets all required members for the current type,
     //     and callers do not need to set any required members themselves.
     [AttributeUsage(AttributeTargets.Constructor, AllowMultiple = false, Inherited = false)]
+    [EditorBrowsable(EditorBrowsableState.Never)]
     sealed class SetsRequiredMembersAttribute : Attribute;
 }

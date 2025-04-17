@@ -198,5 +198,11 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
             /// <see cref="WearNTear.RPC_Remove"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(piece.GetOwner(), piece.m_uid, "RPC_Remove", false);
         }
+
+        public static void AddStatusEffect(ExtendedZDO character, int nameHash, bool resetTime = false, int itemLevel = 0, float skillLevel = 0f)
+        {
+            /// <see cref="SEMan.AddStatusEffect"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_AddStatusEffect", [nameHash, resetTime, itemLevel, skillLevel]);
+        }
     }
 }
