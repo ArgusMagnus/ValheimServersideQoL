@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TrapProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Trap is null || zdo.Vars.GetCreator() is 0)

@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlantProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Plant is null || (Config.Plants.GrowTimeMultiplier.Value is 1f && Config.Plants.SpaceRequirementMultiplier.Value is 1f))

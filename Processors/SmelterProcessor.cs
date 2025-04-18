@@ -34,7 +34,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
 	{
         if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null})
         {

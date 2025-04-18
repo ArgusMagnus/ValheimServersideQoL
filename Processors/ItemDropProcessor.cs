@@ -35,7 +35,7 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
 	{
         if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value)
         {

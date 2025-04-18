@@ -403,7 +403,7 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         _isAdmin.Remove(zdo.m_uid);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (!Config.General.InWorldConfigRoom.Value)
         {
@@ -413,14 +413,15 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
         
         if (zdo.PrefabInfo.Player is not null)
         {
-            ZNetPeer? peer = null;
+            Peer peer = default;
             bool isAdmin;
             if (_isAdmin.TryGetValue(zdo.m_uid, out var entry))
                 isAdmin = entry.IsAdmin;
             else
             {
-                peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
-                isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.m_socket.GetHostName());
+                if (peer.IsDefault)
+                    peer = peers.First(x => x.m_characterID == zdo.m_uid);
+                isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.GetHostName());
                 _isAdmin.Add(zdo.m_uid, (zdo, isAdmin));
                 if (isAdmin)
                     UnregisterZdoProcessor = true;
@@ -429,7 +430,8 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             if (!isAdmin && Character.InInterior(zdo.GetPosition()) &&
                 ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_offset.WorldSpawn))
             {
-                peer ??= peers.First(x => x.m_characterID == zdo.m_uid);
+                if (peer.IsDefault)
+                    peer = peers.First(x => x.m_characterID == zdo.m_uid);
                 /// <see cref="Game.FindSpawnPoint">
                 var pos = _offset.WorldSpawn + Vector3.up * 2f;
                 RPC.TeleportPlayer(peer, pos, zdo.GetRotation(), false);

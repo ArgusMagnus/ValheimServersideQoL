@@ -81,7 +81,7 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         return _includeRegex?.IsMatch(tag) is not false && _excludeRegex?.IsMatch(tag) is not true;
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         long? creator = null;
         if (_destroyNewPortals && zdo.PrefabInfo.TeleportWorld is not null && !_initialPortals.Contains(zdo) && (creator = zdo.Vars.GetCreator()) != Main.PluginGuidHash)
