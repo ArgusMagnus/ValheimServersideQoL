@@ -250,7 +250,7 @@ public sealed partial class Main : BaseUnityPlugin
             }
 
             foreach (var processor in Processor.DefaultProcessors)
-                processor.Initialize();
+                processor.Initialize(_executeCounter is 1);
 
             if (_executeCounter is 1)
             {

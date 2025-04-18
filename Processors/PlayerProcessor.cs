@@ -18,9 +18,9 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         public float ResetStamina { get; set; } = float.NaN;
     }
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         RegisterZdoDestroyed();
     }
 

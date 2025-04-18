@@ -26,9 +26,9 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         return pos;
     }).Invoke();
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
 
         var changed = _hubEnabled != Config.PortalHub.Enable.Value;
         _hubEnabled = Config.PortalHub.Enable.Value;

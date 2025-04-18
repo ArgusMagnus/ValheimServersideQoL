@@ -15,9 +15,9 @@ sealed class GrowProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         public int Progress { get; set; }
     }
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         RegisterZdoDestroyed();
     }
 

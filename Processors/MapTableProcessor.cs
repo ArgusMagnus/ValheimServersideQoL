@@ -15,9 +15,9 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
     Regex? _includePortalRegex;
     Regex? _excludePortalRegex;
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
 
         var filter = Config.MapTables.AutoUpdatePortalsInclude.Value.Trim();
         _includePortalRegex = string.IsNullOrEmpty(filter.Trim(['*'])) ? null : new(ConvertToRegexPattern(filter));

@@ -6,9 +6,9 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 {
     readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = new();
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         RegisterZdoDestroyed();
     }
 

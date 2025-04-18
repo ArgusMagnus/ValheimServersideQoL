@@ -7,9 +7,9 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
 {
     readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _openSince = new();
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         RegisterZdoDestroyed();
     }
 

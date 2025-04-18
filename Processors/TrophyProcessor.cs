@@ -17,9 +17,9 @@ sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         public ExtendedZDO? Spawner { get; set; }
     }
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         RegisterZdoDestroyed();
         _activationDelay = TimeSpan.FromSeconds(Config.TrophySpawner.ActivationDelay.Value);
     }

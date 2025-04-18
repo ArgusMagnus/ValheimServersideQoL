@@ -8,28 +8,21 @@ sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     readonly Dictionary<Trader, List<string>> _globalKeysToSet = new();
     readonly HashSet<ZNetPeer> _reset = new();
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         _globalKeysToSet.Clear();
         foreach(var (trader, cfgList) in Config.Traders.AlwaysUnlock.Select(x => (x.Key, x.Value)))
         {
             var list = cfgList.Where(x => x.ConfigEntry.Value).Select(x => x.GlobalKey).ToList();
             _globalKeysToSet.Add(trader, list);
         }
+    }
 
-        List<ZNetPeer>? remove = null;
-        foreach (var peer in _reset)
-        {
-            if (!peer.m_socket.IsConnected())
-                (remove ??= []).Add(peer);
-        }
-
-        if (remove is not null)
-        {
-            foreach (var peer in remove)
-                _reset.Remove(peer);
-        }
+    public override void PreProcess()
+    {
+        base.PreProcess();
+        _reset.RemoveWhere(static x => !x.m_socket.IsConnected());
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)

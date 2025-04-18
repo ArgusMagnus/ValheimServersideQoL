@@ -10,9 +10,9 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
     readonly List<ExtendedZDO> _tames = new();
     public IReadOnlyList<ExtendedZDO> Tames => _tames;
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         RegisterZdoDestroyed();
     }
 

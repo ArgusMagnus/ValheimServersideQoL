@@ -7,9 +7,9 @@ sealed class ShieldGeneratorProcessor(ManualLogSource logger, ModConfig cfg) : P
     readonly ConcurrentHashSet<ExtendedZDO> _shieldGenerators = [];
     public IReadOnlyCollection<ExtendedZDO> ShieldGenerators => _shieldGenerators;
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         RegisterZdoDestroyed();
     }
 

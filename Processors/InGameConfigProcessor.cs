@@ -43,11 +43,11 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
     static string GetSignText(ConfigEntryBase entry, Color? color = null)
         => GetSignText(entry.BoxedValue, entry.SettingType, color ?? (Equals(entry.BoxedValue, entry.DefaultValue) ? Color.White : Color.Lime));
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
 
-        if (PlacedPieces.Count > 0)
+        if (!firstTime)
             return;
 
         if (!Config.General.InWorldConfigRoom.Value)

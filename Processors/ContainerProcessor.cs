@@ -7,6 +7,8 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
 {
     readonly Dictionary<ItemKey, int> _stackPerItem = new();
 
+    public event Action<ExtendedZDO>? ContainerChanged;
+
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
@@ -48,7 +50,10 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
             return true; // in use or player to close
 
         if (inventory is { Items: { Count: 0 } })
+        {
+            ContainerChanged?.Invoke(zdo);
             return true;
+        }
 
         if ((width, height) != (desiredWidth, desiredHeight))
         {
@@ -202,6 +207,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
             RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Container.Value.Piece.m_name} sorted");
         }
 
+        ContainerChanged?.Invoke(zdo);
         return true;
     }
 }

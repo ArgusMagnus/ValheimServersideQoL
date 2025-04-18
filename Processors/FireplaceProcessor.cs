@@ -8,9 +8,9 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
 {
     readonly ConcurrentDictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = new();
 
-    public override void Initialize()
+    public override void Initialize(bool firstTime)
     {
-        base.Initialize();
+        base.Initialize(firstTime);
         RegisterZdoDestroyed();
     }
 

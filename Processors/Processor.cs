@@ -33,7 +33,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
     long _totalProcessingTimeTicks;
     public TimeSpan TotalProcessingTime => new(_totalProcessingTimeTicks + _watch.ElapsedTicks);
 
-    public virtual void Initialize()
+    public virtual void Initialize(bool firstTime)
     {
         if (__initialized)
             return;

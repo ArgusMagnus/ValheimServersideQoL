@@ -58,6 +58,9 @@ sealed class ExtendedZDO : ZDO
     public void UpdateProcessorDataRevision(Processor processor)
         => (AddData.ProcessorDataRevisions ??= new())[processor] = DataRevision;
 
+    public void ResetProcessorDataRevision(Processor processor)
+        => AddData.ProcessorDataRevisions?.Remove(processor);
+
     public bool CheckProcessorDataRevisionChanged(Processor processor)
     {
         if (AddData.ProcessorDataRevisions is null || !AddData.ProcessorDataRevisions.TryGetValue(processor, out var dataRevision) || dataRevision != DataRevision)
