@@ -6,11 +6,9 @@ sealed class TrapProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
+        UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Trap is null || zdo.Vars.GetCreator() is 0)
-        {
-            UnregisterZdoProcessor = true;
             return false;
-        }
 
         if (zdo.PrefabInfo.Trap is { Trap.Value: not null })
         {

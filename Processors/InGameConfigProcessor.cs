@@ -437,6 +437,11 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             }
             return false;
         }
+        else if (!PlacedPieces.Contains(zdo))
+        {
+            UnregisterZdoProcessor = true;
+            return false;
+        }
 
         var maxPeerY = peers.Max(x => x.m_refPos.y);
 
