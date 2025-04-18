@@ -6,15 +6,13 @@ sealed class TrapProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
-        // For some reason, the trap still damages tames if we always unregister (and thus the ZDO is only processed once)
-        //UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Trap is null || zdo.Vars.GetCreator() is 0)
         {
             UnregisterZdoProcessor = true;
             return false;
         }
 
-        if (zdo.PrefabInfo.Trap is { Trap: { Value: not null } })
+        if (zdo.PrefabInfo.Trap is { Trap.Value: not null })
         {
             if (!Config.Traps.DisableTriggeredByPlayers.Value)
                 zdo.Fields<Trap>().Reset(x => x.m_triggeredByPlayers);
