@@ -42,9 +42,9 @@ sealed class MisterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 UnregisterZdoProcessor = false;
                 var maxRadius = float.PositiveInfinity;
                 var range = Mathf.Max(ParticleMist.instance.m_localRange, ParticleMist.instance.m_distantMaxRange);
-                foreach (var shieldGenerator in Instance<ShieldGeneratorProcessor>().ShieldGenerators)
+                foreach (var (shieldGenerator, hasFuel) in Instance<ShieldGeneratorProcessor>().ShieldGenerators)
                 {
-                    if (!(shieldGenerator.Vars.GetFuel() > 0))
+                    if (!hasFuel)
                         continue;
                     var dist = Vector3.Distance(shieldGenerator.GetPosition(), zdo.GetPosition());
                     maxRadius = Mathf.Min(maxRadius, dist - shieldGenerator.PrefabInfo.ShieldGenerator!.m_maxShieldRadius - range);

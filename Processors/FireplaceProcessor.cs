@@ -7,11 +7,24 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     readonly ConcurrentDictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = new();
+    readonly List<ExtendedZDO> _fireplaces = [];
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
+        if (!firstTime)
+            return;
         RegisterZdoDestroyed();
+        Instance<ShieldGeneratorProcessor>().ShieldGeneratorChanged += OnShieldGeneratorChanged;
+    }
+
+    void OnShieldGeneratorChanged(ExtendedZDO shieldGenerator, bool hasFuel)
+    {
+        foreach (var zdo in _fireplaces)
+        {
+            if (Vector3.Distance(shieldGenerator.GetPosition(), zdo.GetPosition()) < shieldGenerator.PrefabInfo.ShieldGenerator!.m_maxShieldRadius)
+                zdo.ResetProcessorDataRevision(this);
+        }
     }
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
@@ -55,7 +68,7 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
             ModConfig.FireplacesConfig.IgnoreRainOptions.Never => false,
             ModConfig.FireplacesConfig.IgnoreRainOptions.Always => true,
             ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield => Instance<ShieldGeneratorProcessor>().ShieldGenerators
-                .Any(x => x.Vars.GetFuel() > 0 && Vector3.Distance(x.GetPosition(), zdo.GetPosition()) < x.Fields<ShieldGenerator>().GetFloat(x => x.m_maxShieldRadius)),
+                .Any(x => x.HasFuel && Vector3.Distance(x.ShieldGenerator.GetPosition(), zdo.GetPosition()) < x.ShieldGenerator.PrefabInfo.ShieldGenerator!.m_maxShieldRadius),
             _ => false
         };
 
@@ -86,10 +99,12 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
         if (Config.Fireplaces.IgnoreRain.Value is ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield)
         {
             UnregisterZdoProcessor = false;
-            return false;
+            if (!_fireplaces.Contains(zdo))
+                _fireplaces.Add(zdo);
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     IEnumerable<ExtendedZDO> PlaceEnclosure(Vector3 pos, float offset, float coverCheckOffset)
