@@ -1,20 +1,38 @@
 ﻿using BepInEx.Logging;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = new();
+    readonly List<ExtendedZDO> _itemDrops = [];
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
+        if (!firstTime)
+            return;
         RegisterZdoDestroyed();
+        Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
     }
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
         _eggDropTime.Remove(zdo);
+        _itemDrops.Remove(zdo);
+    }
+
+    void OnContainerChanged(ExtendedZDO containerZdo)
+    {
+        if (containerZdo.Inventory.Items.Count is 0)
+            return;
+
+        foreach (var zdo in _itemDrops)
+        {
+            if (Vector3.Distance(zdo.GetPosition(), containerZdo.GetPosition()) <= Config.Containers.AutoPickupRange.Value)
+                zdo.ResetProcessorDataRevision(this);
+        }
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
@@ -159,7 +177,9 @@ sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processo
 
         if (item?.m_stack is 0)
             DestroyZdo = true;
+        else if (!_itemDrops.Contains(zdo))
+            _itemDrops.Add(zdo);
 
-        return false;
+        return true;
     }
 }

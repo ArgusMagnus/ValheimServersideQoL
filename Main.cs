@@ -405,7 +405,7 @@ public sealed partial class Main : BaseUnityPlugin
                 }
                 if (!destroy && recreate)
                     zdo.Recreate();
-                else if (_unregister.Count > 0)
+                else if (!destroy && _unregister.Count > 0)
                     zdo.UnregisterProcessors(_unregister);
             }
         }
@@ -417,12 +417,14 @@ public sealed partial class Main : BaseUnityPlugin
 
         _watch.Stop();
 
-#if !DEBUG
+#if DEBUG
+        var logLevel = LogLevel.Info;
+#else
         if (!Config.General.DiagnosticLogs.Value)
             return;
+        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
 #endif
 
-        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
         Logger.Log(logLevel,
             Invariant($"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
 
