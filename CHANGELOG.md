@@ -1,3 +1,6 @@
+### v0.2.17
+- Performance improvements
+
 ### v0.2.16
 - New features:
     - Remove mist from Mistlands

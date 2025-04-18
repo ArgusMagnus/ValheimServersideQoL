@@ -52,9 +52,7 @@ sealed class GrowProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         lastMessage.Timestamp = DateTimeOffset.UtcNow;
         lastMessage.Progress = progress;
 
-        var range = DamageText.instance.m_maxTextDistance;
-        var playersInRange = peers.Where(x => Vector3.Distance(x.m_refPos, zdo.GetPosition()) <= range);
-        RPC.ShowInWorldText(playersInRange, DamageText.TextType.Normal, zdo.GetPosition(), $"$caption_growing {progress}%");
+        RPC.ShowInWorldText(peers, DamageText.TextType.Normal, zdo.GetPosition(), $"$caption_growing {progress}%");
         return false;
     }
 }

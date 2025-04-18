@@ -52,7 +52,7 @@ sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             if (DateTimeOffset.UtcNow - state.LastMessage > _textDuration)
             {
                 state.LastMessage = DateTimeOffset.UtcNow;
-                RPC.ShowInWorldText(DamageText.TextType.Normal, zdo.GetPosition(), $"Attracting creatures... {progress:P0}");
+                RPC.ShowInWorldText(peers, DamageText.TextType.Normal, zdo.GetPosition(), $"Attracting creatures... {progress:P0}");
             }
             return false;
         }
@@ -90,7 +90,7 @@ sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         else if (DateTimeOffset.UtcNow - state.LastMessage > _textDuration)
         {
             state.LastMessage = DateTimeOffset.UtcNow;
-            RPC.ShowInWorldText(DamageText.TextType.Weak, zdo.GetPosition(), $"Attracting creatures");
+            RPC.ShowInWorldText(peers, DamageText.TextType.Weak, zdo.GetPosition(), $"Attracting creatures");
         }
 
         return false;

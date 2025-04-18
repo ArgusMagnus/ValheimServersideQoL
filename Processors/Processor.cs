@@ -170,7 +170,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         }
 
         public static void ShowInWorldText(IEnumerable<ZNetPeer> peers, DamageText.TextType type, Vector3 pos, string text)
-            => ShowInWorldText(peers.Select(x => x.m_uid), type, pos, text);
+            => ShowInWorldText(peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance).Select(x => x.m_uid), type, pos, text);
 
         public static void ShowInWorldText(DamageText.TextType type, Vector3 pos, string text)
             => ShowInWorldText([ZRoutedRpc.Everybody], type, pos, text);
