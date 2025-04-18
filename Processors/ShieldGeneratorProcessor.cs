@@ -25,7 +25,7 @@ sealed class ShieldGeneratorProcessor(ManualLogSource logger, ModConfig cfg) : P
             _info = null;
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo.ShieldGenerator is null)
         {

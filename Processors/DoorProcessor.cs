@@ -18,7 +18,7 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         _openSince.TryRemove(zdo, out _);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo.Door is null || float.IsNaN(Config.Doors.AutoCloseMinPlayerDistance.Value))
         {

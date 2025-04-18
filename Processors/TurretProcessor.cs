@@ -34,7 +34,7 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo.Turret is null)
         {

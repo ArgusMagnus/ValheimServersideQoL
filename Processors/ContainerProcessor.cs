@@ -11,7 +11,7 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
 
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo.Container is null || zdo.Vars.GetCreator() is 0)
         {

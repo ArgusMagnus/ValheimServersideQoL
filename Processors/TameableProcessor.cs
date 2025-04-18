@@ -22,7 +22,7 @@ sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         _tames.Remove(zdo);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Tameable is null)

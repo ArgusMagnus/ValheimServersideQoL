@@ -16,7 +16,7 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         _timeText = null;
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo.Sign is null || !Config.Signs.TimeSigns.Value)
         {

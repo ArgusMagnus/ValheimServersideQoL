@@ -6,7 +6,7 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     readonly Dictionary<Trader, List<string>> _globalKeysToSet = new();
-    readonly HashSet<ZNetPeer> _reset = new();
+    readonly HashSet<Peer> _reset = new();
 
     public override void Initialize(bool firstTime)
     {
@@ -22,10 +22,10 @@ sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     public override void PreProcess()
     {
         base.PreProcess();
-        _reset.RemoveWhere(static x => !x.m_socket.IsConnected());
+        _reset.RemoveWhere(static x => !x.IsConnected);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo.Trader is null || !_globalKeysToSet.TryGetValue(zdo.PrefabInfo.Trader, out var globalKeysToSet))
         {

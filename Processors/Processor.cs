@@ -60,8 +60,8 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
     public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo);
 
-    protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers);
-    public void Process(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers);
+    public void Process(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         _watch.Start();
 
@@ -78,10 +78,10 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         _watch.Stop();
     }
 
-    protected bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo)
+    protected bool CheckMinDistance(IEnumerable<Peer> peers, ZDO zdo)
         => CheckMinDistance(peers, zdo, Config.General.MinPlayerDistance.Value);
 
-    protected static bool CheckMinDistance(IEnumerable<ZNetPeer> peers, ZDO zdo, float minDistance)
+    protected static bool CheckMinDistance(IEnumerable<Peer> peers, ZDO zdo, float minDistance)
         => peers.Min(x => Utils.DistanceSqr(x.m_refPos, zdo.GetPosition())) >= minDistance * minDistance;
 
     protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot)
@@ -136,10 +136,10 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         public static void ShowMessage(MessageHud.MessageType type, string message)
             => ShowMessage(ZRoutedRpc.Everybody, type, message);
 
-        public static void ShowMessage(ZNetPeer peer, MessageHud.MessageType type, string message)
+        public static void ShowMessage(Peer peer, MessageHud.MessageType type, string message)
             => ShowMessage(peer.m_uid, type, message);
 
-        public static void ShowMessage(IEnumerable<ZNetPeer> peers, MessageHud.MessageType type, string message)
+        public static void ShowMessage(IEnumerable<Peer> peers, MessageHud.MessageType type, string message)
         {
             foreach (var peer in peers)
                 ShowMessage(peer, type, message);
@@ -151,7 +151,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
             ZRoutedRpc.instance.InvokeRoutedRPC(playerZdo.GetOwner(), playerZdo.m_uid, "UseStamina", value);
         }
 
-        public static void SendGlobalKeys(ZNetPeer peer, List<string> keys)
+        public static void SendGlobalKeys(Peer peer, List<string> keys)
         {
             /// <see cref="ZoneSystem.SendGlobalKeys"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "GlobalKeys", keys);
@@ -169,13 +169,13 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
                 ZRoutedRpc.instance.InvokeRoutedRPC(peer, "RPC_DamageText", zPackage);
         }
 
-        public static void ShowInWorldText(IEnumerable<ZNetPeer> peers, DamageText.TextType type, Vector3 pos, string text)
+        public static void ShowInWorldText(IEnumerable<Peer> peers, DamageText.TextType type, Vector3 pos, string text)
             => ShowInWorldText(peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance).Select(x => x.m_uid), type, pos, text);
 
         public static void ShowInWorldText(DamageText.TextType type, Vector3 pos, string text)
             => ShowInWorldText([ZRoutedRpc.Everybody], type, pos, text);
 
-        public static void ShowInWorldText(ZNetPeer peer, DamageText.TextType type, Vector3 pos, string text)
+        public static void ShowInWorldText(Peer peer, DamageText.TextType type, Vector3 pos, string text)
             => ShowInWorldText([peer.m_uid], type, pos, text);
 
         static void TeleportPlayer(long targetPeerID, Vector3 pos, Quaternion rot, bool distantTeleport)
@@ -184,7 +184,7 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
             ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerID, "RPC_TeleportPlayer", pos, rot, distantTeleport);
         }
 
-        public static void TeleportPlayer(ZNetPeer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
+        public static void TeleportPlayer(Peer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
             => TeleportPlayer(peer.m_uid, pos, rot, distantTeleport);
 
         public static void TeleportPlayer(ExtendedZDO player, Vector3 pos, Quaternion rot, bool distantTeleport)

@@ -36,7 +36,7 @@ sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Process
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Fireplace is null)

@@ -26,7 +26,7 @@ sealed class GrowProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         _lastMessage.Remove(zdo);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo is not { EggGrow: not null } and not { Growup: not null } || !Config.Tames.ShowGrowingProgress.Value)
         {

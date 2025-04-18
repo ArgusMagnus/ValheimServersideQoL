@@ -2,6 +2,7 @@
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
@@ -41,7 +42,7 @@ public sealed partial class Main : BaseUnityPlugin
 
     ulong _executeCounter;
     uint _unfinishedProcessingInRow;
-    record SectorInfo(List<ZNetPeer> Peers, List<ZDO> ZDOs)
+    record SectorInfo(List<Peer> Peers, List<ZDO> ZDOs)
     {
         public int InverseWeight { get; set; }
     }
@@ -84,6 +85,82 @@ public sealed partial class Main : BaseUnityPlugin
     const uint ExpectedWorldVersion = 35;
     internal const string DummyConfigSection = "Z - Dummy";
 
+    sealed class DummySocket : ISocket
+    {
+        public ISocket Accept()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Close() { }
+
+        public void Dispose() { }
+
+        public bool Flush()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetAndResetStats(out int totalSent, out int totalRecv)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetConnectionQuality(out float localQuality, out float remoteQuality, out int ping, out float outByteSec, out float inByteSec)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetCurrentSendRate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetEndPointString()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetHostName() => "";
+
+        public int GetHostPort()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetSendQueueSize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool GotNewData()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsConnected() => true;
+
+        public bool IsHost()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ZPackage Recv()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Send(ZPackage pkg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void VersionMatch()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     void Start()
     {
 
@@ -106,11 +183,25 @@ public sealed partial class Main : BaseUnityPlugin
             if (!Initialize())
                 yield break;
 
+            ZNetPeer? localPeer = null;
+            if (!ZNet.instance.IsDedicated())
+            {
+                while (Player.m_localPlayer is null)
+                    yield return new WaitForSeconds(0.2f);
+
+                localPeer = new(new DummySocket(), true)
+                {
+                    m_uid = ZDOMan.GetSessionID(),
+                    m_characterID = Player.m_localPlayer.GetZDOID()
+                };
+            }
+            var peers = new PeersEnumerable(localPeer);
+
             while (true)
             {
                 yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
 
-                try { Execute(); }
+                try { Execute(peers); }
                 catch (OperationCanceledException) { yield break; }
                 catch (Exception ex)
                 {
@@ -201,7 +292,7 @@ public sealed partial class Main : BaseUnityPlugin
         return true;
     }
 
-    void Execute()
+    void Execute(PeersEnumerable peers)
     {
         _executeCounter++;
         if (_configChanged)
@@ -272,7 +363,8 @@ public sealed partial class Main : BaseUnityPlugin
             return;
         }
 
-        if (ZNet.instance.GetPeers() is not { Count: > 0 } peers)
+        peers.Update();
+        if (peers.Count is 0)
             return;
 
         _watch.Restart();
@@ -592,4 +684,27 @@ public sealed partial class Main : BaseUnityPlugin
         }
     }
 #endif
+
+    sealed class PeersEnumerable(ZNetPeer? localPeer) : IEnumerable<Peer>
+    {
+        readonly ZNetPeer? _localPeer = localPeer;
+        IReadOnlyList<ZNetPeer> _peers = [];
+
+        public int Count => _peers.Count + (_localPeer is null ? 0 : 1);
+
+        public void Update()
+        {
+            _peers = ZNet.instance.GetPeers();
+        }
+
+        public IEnumerator<Peer> GetEnumerator()
+        {
+            if (_localPeer is not null)
+                yield return new(_localPeer);
+            foreach (var peer in _peers)
+                yield return new(peer);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
 }
