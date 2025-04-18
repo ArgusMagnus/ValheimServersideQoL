@@ -5,6 +5,35 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
+    readonly List<ExtendedZDO> _smelters = [];
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        if (!firstTime)
+            return;
+
+        RegisterZdoDestroyed();
+        Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
+    }
+
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    {
+        _smelters.Remove(zdo);
+    }
+
+    void OnContainerChanged(ExtendedZDO containerZdo)
+    {
+        if (containerZdo.Inventory.Items.Count is 0)
+            return;
+
+        foreach (var zdo in _smelters)
+        {
+            if (Vector3.Distance(zdo.GetPosition(), containerZdo.GetPosition()) <= Config.Smelters.FeedFromContainersRange.Value)
+                zdo.ResetProcessorDataRevision(this);
+        }
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
 	{
         if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null})
@@ -208,6 +237,9 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
             }
         }
 
-        return false;
+        if (!_smelters.Contains(zdo))
+            _smelters.Add(zdo);
+
+        return true;
     }
 }

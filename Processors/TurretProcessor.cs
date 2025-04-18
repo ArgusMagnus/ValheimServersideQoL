@@ -1,9 +1,39 @@
 ﻿using BepInEx.Logging;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
+    readonly List<ExtendedZDO> _turrets = [];
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        if (!firstTime)
+            return;
+
+        RegisterZdoDestroyed();
+        Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
+    }
+
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    {
+        _turrets.Remove(zdo);
+    }
+
+    void OnContainerChanged(ExtendedZDO containerZdo)
+    {
+        if (containerZdo.Inventory.Items.Count is 0)
+            return;
+
+        foreach (var zdo in _turrets)
+        {
+            if (Vector3.Distance(zdo.GetPosition(), containerZdo.GetPosition()) <= Config.Smelters.FeedFromContainersRange.Value && zdo.Vars.GetAmmo() is 0)
+                zdo.ResetProcessorDataRevision(this);
+        }
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<ZNetPeer> peers)
     {
         if (zdo.PrefabInfo.Turret is null)
@@ -137,6 +167,10 @@ sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         //else
         //    RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_noturretammo");
 
-        return currentAmmo > 0;
+        if (!_turrets.Contains(zdo))
+            _turrets.Add(zdo);
+
+        return true;
+        //return currentAmmo > 0;
     }
 }
