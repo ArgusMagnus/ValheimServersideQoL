@@ -5,6 +5,22 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class MisterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
+    readonly Dictionary<ExtendedZDO, float> _misters = [];
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        if (!firstTime)
+            return;
+
+        RegisterZdoDestroyed();
+    }
+
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    {
+        _misters.Remove(zdo);
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         UnregisterZdoProcessor = true;
@@ -58,6 +74,19 @@ sealed class MisterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 else
                 {
                     if (fields.ResetIfChanged(x => x.m_radius))
+                        RecreateZdo = true;
+                }
+                break;
+
+            case ModConfig.WorldConfig.RemoveMistlandsMistOptions.DynamicTimeBased:
+                UnregisterZdoProcessor = false;
+                var p = zdo.GetPosition();
+                var f = 0.5f + 0.5f * Mathf.Sin(((float)ZNet.instance.GetTimeSeconds() + p.x + p.y + p.z) / Mathf.PI * 0.25f);
+                var radius = Mathf.Round(f * zdo.PrefabInfo.Mister.m_radius);
+                if (!_misters.TryGetValue(zdo, out var oldRadius) || radius != oldRadius)
+                {
+                    _misters[zdo] = radius;
+                    if (fields.SetIfChanged(x => x.m_radius, Mathf.Round(radius)))
                         RecreateZdo = true;
                 }
                 break;
