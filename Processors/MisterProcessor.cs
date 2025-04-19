@@ -81,7 +81,7 @@ sealed class MisterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             case ModConfig.WorldConfig.RemoveMistlandsMistOptions.DynamicTimeBased:
                 UnregisterZdoProcessor = false;
                 var p = zdo.GetPosition();
-                var f = 0.5f + 0.5f * Mathf.Sin(((float)ZNet.instance.GetTimeSeconds() + p.x + p.y + p.z) / Mathf.PI * 0.25f);
+                var f = 0.5f + 0.5f * Mathf.Sin(((float)ZNet.instance.GetTimeSeconds() + p.x + p.y + p.z) * (2 * Mathf.PI / Config.World.RemoveMistlandsMistInterval.Value));
                 var radius = Mathf.Round(f * zdo.PrefabInfo.Mister.m_radius);
                 if (!_misters.TryGetValue(zdo, out var oldRadius) || radius != oldRadius)
                 {
