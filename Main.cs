@@ -694,6 +694,8 @@ public sealed partial class Main : BaseUnityPlugin
 
         public void Update()
         {
+            if (_localPeer is not null)
+                _localPeer.m_refPos = ZNet.instance.GetReferencePosition();
             _peers = ZNet.instance.GetPeers();
         }
 
