@@ -202,7 +202,8 @@ sealed class ModConfig(ConfigFile cfg)
             Never,
             Always,
             AfterQueenKilled,
-            InsideShield
+            InsideShield,
+            DynamicTimeBased
         }
     }
 
