@@ -1,3 +1,6 @@
+### v0.2.18
+- Fix mod not working correctly on non-dedicated servers [#38](https://github.com/ArgusMagnus/ValheimServersideQoL/discussions/38)
+
 ### v0.2.17
 - Performance improvements
 
