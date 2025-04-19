@@ -233,6 +233,10 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.Bind(section, nameof(RemoveMistlandsMist), RemoveMistlandsMistOptions.Never,
             new ConfigDescription("Condition to remove the mist from the mistlands", new AcceptableEnum<RemoveMistlandsMistOptions>()));
 
+        public ConfigEntry<int> RemoveMistlandsMistInterval { get; } = cfg.Bind(section, nameof(RemoveMistlandsMistInterval), 60,
+            new ConfigDescription($"Interval in seconds when {nameof(RemoveMistlandsMist)} = {RemoveMistlandsMistOptions.DynamicTimeBased}",
+                new AcceptableValueRange<int>(10, int.MaxValue)));
+
         public enum RemoveMistlandsMistOptions
         {
             Never,

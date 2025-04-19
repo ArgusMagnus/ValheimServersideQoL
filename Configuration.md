@@ -128,6 +128,7 @@
 |Turrets|LoadFromContainersRange|4||Required proxmity of a container to a ballista to be used as ammo source|
 |Windmills|IgnoreWind|False|True/False|True to make windmills ignore wind (Cover still decreases operating efficiency though)|
 |World|RemoveMistlandsMist|Never|Never, Always, AfterQueenKilled, InsideShield, DynamicTimeBased|Condition to remove the mist from the mistlands|
+|World|RemoveMistlandsMistInterval|60|From 10 to 2147483647|Interval in seconds when RemoveMistlandsMist = DynamicTimeBased|
 |World Modifiers|SetPresetFromConfig|False|True/False|True to set the world preset according to the 'Preset' config entry|
 |World Modifiers|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|
 |World Modifiers|SetModifiersFromConfig|False|True/False|True to set world modifiers according to the following configuration entries|
