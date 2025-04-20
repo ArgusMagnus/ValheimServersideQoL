@@ -178,6 +178,8 @@ sealed class ExtendedZDO : ZDO
         public void SetPermitted(int value) => _zdo.Set(ZDOVars.s_permitted, value);
         public int GetLevel(int defaultValue = 1) => _zdo.GetInt(ZDOVars.s_level, defaultValue);
         public void SetLevel(int value) => _zdo.Set(ZDOVars.s_level, value);
+        public bool GetHaveSaddle(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_haveSaddleHash, defaultValue);
+        public void SetHaveSaddle(bool value) => _zdo.Set(ZDOVars.s_haveSaddleHash, value);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
@@ -285,6 +287,15 @@ sealed class ExtendedZDO : ZDO
             => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value));
 
         public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, GameObject>> fieldExpression, string value)
+        {
+            var hash = GetHash(fieldExpression, out _);
+            if (!HasFields)
+                SetHasFields(true);
+            _zdo.Set(hash, value);
+            return this;
+        }
+
+        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, ItemDrop>> fieldExpression, string value)
         {
             var hash = GetHash(fieldExpression, out _);
             if (!HasFields)

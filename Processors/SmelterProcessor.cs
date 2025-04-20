@@ -36,7 +36,13 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
 	{
-        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null})
+        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null} /*and not { Fireplace: not null }*/)
+        {
+            UnregisterZdoProcessor = true;
+            return false;
+        }
+
+        if (zdo.PrefabInfo is { Smelter: null, ShieldGenerator: null } && Config.Fireplaces.InfiniteFuel.Value)
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -47,12 +53,26 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
 		/// <see cref="Smelter.OnAddFuel"/>
 		{
-            var maxFuel = zdo.PrefabInfo.Smelter is not null ? zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel) : zdo.Fields<ShieldGenerator>().GetInt(x => x.m_maxFuel);
+            var maxFuel = zdo.PrefabInfo switch
+            {
+                { Smelter: not null } => zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel),
+                { ShieldGenerator: not null } => zdo.Fields<ShieldGenerator>().GetInt(x => x.m_maxFuel),
+                { Fireplace: not null } => zdo.Fields<Fireplace>().GetFloat(x => x.m_maxFuel),
+                _ => throw new ArgumentException()
+            };
             var currentFuel = zdo.Vars.GetFuel();
             var maxFuelAdd = (int)(maxFuel - currentFuel);
             if (maxFuelAdd > maxFuel / 2)
             {
-                foreach (var fuelItem in zdo.PrefabInfo.ShieldGenerator?.m_fuelItems.Select(x => x.m_itemData) ?? [zdo.PrefabInfo.Smelter!.m_fuelItem.m_itemData])
+                var fuelItems = zdo.PrefabInfo switch
+                {
+                    { Smelter: not null } => [zdo.PrefabInfo.Smelter.m_fuelItem.m_itemData],
+                    { ShieldGenerator: not null } => zdo.PrefabInfo.ShieldGenerator.m_fuelItems.Select(x => x.m_itemData),
+                    { Fireplace: not null } => [zdo.PrefabInfo.Fireplace.m_fuelItem.m_itemData],
+                    _ => throw new ArgumentException()
+                };
+
+                foreach (var fuelItem in fuelItems)
                 {
                     var addedFuel = 0;
                     if (Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
@@ -134,7 +154,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                             break;
                     }
                     if (addedFuel is not 0)
-                        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Smelter?.m_name ?? zdo.PrefabInfo.ShieldGenerator!.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
+                        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Smelter?.m_name ?? zdo.PrefabInfo.ShieldGenerator?.m_name ?? zdo.PrefabInfo.Fireplace!.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
                 }
             }
         }
