@@ -98,6 +98,9 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> InfiniteFuel { get; } = cfg.Bind(section, nameof(InfiniteFuel), false, "True to make all fireplaces have infinite fuel");
         public ConfigEntry<IgnoreRainOptions> IgnoreRain { get; } = cfg.Bind(section, nameof(IgnoreRain), IgnoreRainOptions.Never,
             new ConfigDescription("Options to make all fireplaces ignore rain", new AcceptableEnum<IgnoreRainOptions>()));
+        public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "");
+        public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.Bind(section, nameof(FeedFromContainersRange), ZoneSystem.c_ZoneSize, "");
+        public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastFuel), 1, "Minimum amout of fuel to leave in a container");
 
         public enum IgnoreRainOptions
         {
@@ -115,6 +118,8 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize, "Required proximity of a container to a dropped item to be considered as auto pickup target");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
         public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = cfg.Bind(section, nameof(AutoPickupExcludeFodder), true, "True to exclude food items for tames when tames are within search range");
+        public ConfigEntry<string> AutoPickupRangeSignPattern { get; } = cfg.Bind(section, nameof(AutoPickupRangeSignPattern), @"🧲(\d+)", "");
+        public ConfigEntry<string> AutoFeedRangeSignPattern { get; } = cfg.Bind(section, nameof(AutoFeedRangeSignPattern), @"↔️(\d+)", "");
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
             .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))

@@ -36,13 +36,8 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
 	{
-        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null} /*and not { Fireplace: not null }*/)
-        {
-            UnregisterZdoProcessor = true;
-            return false;
-        }
-
-        if (zdo.PrefabInfo is { Smelter: null, ShieldGenerator: null } && Config.Fireplaces.InfiniteFuel.Value)
+        if ((!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null}) &&
+            (Config.Fireplaces.InfiniteFuel.Value || !Config.Fireplaces.FeedFromContainers.Value || zdo.PrefabInfo.Fireplace is null))
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -50,6 +45,13 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
 		if (!CheckMinDistance(peers, zdo))
 			return false; // player to close
+
+        var (range, leaveFuel) = zdo.PrefabInfo switch
+        {
+            { Smelter: not null } or { ShieldGenerator: not null } => (Config.Smelters.FeedFromContainersRange.Value, Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value),
+            { Fireplace: not null } => (Config.Fireplaces.FeedFromContainersRange.Value, Config.Fireplaces.FeedFromContainersLeaveAtLeastFuel.Value),
+            _ => throw new ArgumentException()
+        };
 
 		/// <see cref="Smelter.OnAddFuel"/>
 		{
@@ -86,7 +88,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
                                 continue;
                             }
 
-                            if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
+                            if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > range)
                                 continue;
 
                             if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
@@ -94,7 +96,7 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
 
                             removeSlots?.Clear();
                             var addFuel = 0;
-                            var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
+                            var leave = leaveFuel;
                             var found = false;
                             foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
                             {
