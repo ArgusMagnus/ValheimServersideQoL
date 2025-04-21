@@ -168,45 +168,52 @@ public sealed partial class Main : BaseUnityPlugin
 
         IEnumerator<YieldInstruction> CallExecute()
         {
-            while (ZNet.instance is null)
-                yield return new WaitForSeconds(0.2f);
-
-            if (ZNet.instance.IsServer() is false)
-            {
-                Logger.LogWarning("Mod should only be installed on the host");
-                yield break;
-            }
-
-            while (ZDOMan.instance is null || ZNetScene.instance is null)
-                yield return new WaitForSeconds(0.2f);
-
-            if (!Initialize())
-                yield break;
-
-            ZNetPeer? localPeer = null;
-            if (!ZNet.instance.IsDedicated())
-            {
-                while (Player.m_localPlayer is null)
-                    yield return new WaitForSeconds(0.2f);
-
-                localPeer = new(new DummySocket(), true)
-                {
-                    m_uid = ZDOMan.GetSessionID(),
-                    m_characterID = Player.m_localPlayer.GetZDOID()
-                };
-            }
-            var peers = new PeersEnumerable(localPeer);
-
             while (true)
             {
-                yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
+                while (ZNet.instance is null)
+                    yield return new WaitForSeconds(0.2f);
 
-                try { Execute(peers); }
-                catch (OperationCanceledException) { yield break; }
-                catch (Exception ex)
+                if (ZNet.instance.IsServer() is false)
                 {
-                    Logger.LogError(ex);
-                    yield break;
+                    Logger.LogWarning("Mod should only be installed on the host");
+                    yield return new WaitForSeconds(5);
+                    continue;
+                }
+
+                while (ZDOMan.instance is null || ZNetScene.instance is null)
+                    yield return new WaitForSeconds(0.2f);
+
+                if (!Initialize())
+                {
+                    yield return new WaitForSeconds(5);
+                    continue;
+                }
+
+                ZNetPeer? localPeer = null;
+                if (!ZNet.instance.IsDedicated())
+                {
+                    while (Player.m_localPlayer is null)
+                        yield return new WaitForSeconds(0.2f);
+
+                    localPeer = new(new DummySocket(), true)
+                    {
+                        m_uid = ZDOMan.GetSessionID(),
+                        m_characterID = Player.m_localPlayer.GetZDOID()
+                    };
+                }
+                var peers = new PeersEnumerable(localPeer);
+
+                while (ZNet.instance is not null)
+                {
+                    yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
+
+                    try { Execute(peers); }
+                    catch (OperationCanceledException) { yield break; }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex);
+                        yield break;
+                    }
                 }
             }
         }
