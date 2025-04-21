@@ -461,7 +461,7 @@ public sealed partial class Main : BaseUnityPlugin
             processedSectors++;
 
             if (sectorInfo is { ZDOs: { Count: 0 } })
-                ZDOMan.instance.FindSectorObjects(sector, 1, 0, sectorInfo.ZDOs);
+                ZDOMan.instance.FindSectorObjects(sector, 0, 0, sectorInfo.ZDOs);
 
             totalZdos += sectorInfo.ZDOs.Count;
 
