@@ -79,6 +79,17 @@ sealed class ModConfig(ConfigFile cfg)
     {
         public ConfigEntry<bool> ShowHigherLevelStars { get; } = cfg.Bind(section, nameof(ShowHigherLevelStars), false,
             "True to show stars for higher level creatures (> 2 stars). The intended use is with other mods, which spawn higher level creatures");
+
+        public ConfigEntry<ShowHigherLevelAuraOptions> ShowHigherLevelAura { get; } = cfg.Bind(section, nameof(ShowHigherLevelAura), ShowHigherLevelAuraOptions.Never,
+            new ConfigDescription("Show an aura for higher level creatures (> 2 stars)", new AcceptableEnum<ShowHigherLevelAuraOptions>()));
+
+        [Flags]
+        public enum ShowHigherLevelAuraOptions
+        {
+            Never = 0,
+            Wild = (1 << 0),
+            Tamed = (1 << 1)
+        }
     }
 
     public sealed class FireplacesConfig(ConfigFile cfg, string section)

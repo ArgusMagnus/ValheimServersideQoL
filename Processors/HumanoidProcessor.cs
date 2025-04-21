@@ -4,6 +4,29 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class HumanoidProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
+    readonly IReadOnlyList<int> _statusEffects = [
+        //SEMan.s_statusEffectBurning, SEMan.s_statusEffectLightning, SEMan.s_statusEffectPoison,
+        SEMan.s_statusEffectSpirit];
+    sealed class HumanoidState(int statusEffect)
+    {
+        public int StatusEffect { get; } = statusEffect;
+        public TimeSpan Duration { get; } = TimeSpan.FromSeconds(ObjectDB.instance.GetStatusEffect(statusEffect).m_ttl - 0.2f);
+        public DateTimeOffset LastApplied { get; set; }
+    }
+    readonly Dictionary<ExtendedZDO, HumanoidState> _states = [];
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        _states.Clear();
+        RegisterZdoDestroyed();
+    }
+
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    {
+        _states.Remove(zdo);
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         UnregisterZdoProcessor = true;
@@ -14,11 +37,37 @@ sealed class HumanoidProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         if (level <= 3)
             return false;
 
-        var fields = zdo.Fields<Humanoid>();
-        if (!Config.Creatures.ShowHigherLevelStars.Value)
-            fields.Reset(x => x.m_name);
-        else if (fields.SetIfChanged(x => x.m_name, $"<line-height=150%><voffset=-2em>{zdo.PrefabInfo.Humanoid.m_name}<size=70%><br><color=yellow>{string.Concat(Enumerable.Repeat("⭐", level - 1))}</color></size></voffset></line-height>"))
-            RecreateZdo = true;        
+        UnregisterZdoProcessor = false;
+        if (!_states.TryGetValue(zdo, out var state))
+        {
+            var fields = zdo.Fields<Humanoid>();
+            if (!Config.Creatures.ShowHigherLevelStars.Value)
+                fields.Reset(x => x.m_name);
+            else if (fields.SetIfChanged(x => x.m_name, $"<line-height=150%><voffset=-2em>{zdo.PrefabInfo.Humanoid.m_name}<size=70%><br><color=yellow>{string.Concat(Enumerable.Repeat("⭐", level - 1))}</color></size></voffset></line-height>"))
+                RecreateZdo = true;
+
+            if (!RecreateZdo)
+            {
+                var tamed = zdo.Vars.GetTamed();
+                if ((tamed && Config.Creatures.ShowHigherLevelAura.Value.HasFlag(ModConfig.CreaturesConfig.ShowHigherLevelAuraOptions.Tamed)) ||
+                    (!tamed && Config.Creatures.ShowHigherLevelAura.Value.HasFlag(ModConfig.CreaturesConfig.ShowHigherLevelAuraOptions.Wild)))
+                {
+                    _states.Add(zdo, state = new(_statusEffects[UnityEngine.Random.Range(0, _statusEffects.Count)]));
+                }
+            }
+        }
+
+        if (state is null)
+        {
+            UnregisterZdoProcessor = true;
+            return false;
+        }
+
+        if (DateTimeOffset.UtcNow - state.LastApplied > state.Duration)
+        {
+            state.LastApplied = DateTimeOffset.UtcNow;
+            RPC.AddStatusEffect(zdo, state.StatusEffect, true);
+        }
 
         return false;
     }
