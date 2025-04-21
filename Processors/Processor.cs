@@ -123,6 +123,9 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         public static int DvergerGuardstone { get; } = "dverger_guardstone".GetStableHashCode();
         public static int Sign { get; } = "sign".GetStableHashCode();
         public static int Candle { get; } = "Candle_resin".GetStableHashCode();
+        public static int BlackmetalChest { get; } = "piece_chest_blackmetal".GetStableHashCode();
+        public static int ReinforcedChest { get; } = "piece_chest".GetStableHashCode();
+        public static int WoodChest { get; } = "piece_chest_wood".GetStableHashCode();
     }
 
     protected static class RPC

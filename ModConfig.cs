@@ -116,12 +116,30 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
         public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = cfg.Bind(section, nameof(AutoPickupExcludeFodder), true, "True to exclude food items for tames when tames are within search range");
 
+        public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
+            new ConfigDescription("Options to automatically put signs on wood chests", new AcceptableEnum<SignOptions>()));
+        public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.Bind(section, nameof(ReinforcedChestSigns), SignOptions.None,
+            new ConfigDescription("Options to automatically put signs on reinforced chests", new AcceptableEnum<SignOptions>()));
+        public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = cfg.Bind(section, nameof(BlackmetalChestSigns), SignOptions.None,
+            new ConfigDescription("Options to automatically put signs on blackmetal chests", new AcceptableEnum<SignOptions>()));
+        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), "<color=white>...", "Default text for chest signs");
+
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
             .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
             .Select(x => (Name: x.name, Container: x.GetComponent<Container>() ?? x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
             .Where(x => x is { Container: not null, Piece: not null })
             .ToDictionary(x => x.Name.GetStableHashCode(), x => cfg
                 .Bind(section, Invariant($"InventorySize_{x.Name}"), Invariant($"{x.Container.m_width}x{x.Container.m_height}"), Invariant($"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'")));
+        
+        [Flags]
+        public enum SignOptions
+        {
+            None,
+            Left = (1 << 0),
+            Right = (1 << 1),
+            Front = (1 << 2),
+            Back = (1 << 3)
+        }
     }
 
     public sealed class SmeltersConfig(ConfigFile cfg, string section)

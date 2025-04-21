@@ -18,31 +18,46 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
-        if (zdo.PrefabInfo.Sign is null || !Config.Signs.TimeSigns.Value)
+        if (zdo.PrefabInfo.Sign is null)
         {
             UnregisterZdoProcessor = true;
             return false;
         }
 
-        var text = zdo.Vars.GetText();
-        var newText = _clockRegex.Replace(text, match =>
+        var isTimeSign = false;
+        string? text = null;
+        if (Config.Signs.TimeSigns.Value)
         {
-            if (_timeText is null)
+            text = zdo.Vars.GetText();
+            var newText = _clockRegex.Replace(text, _ =>
             {
-                var dayFraction = EnvMan.instance.GetDayFraction();
-                var emojiIdx = (int)Math.Floor(ClockEmojis.Count * 2 * dayFraction) % ClockEmojis.Count;
-                var time = TimeSpan.FromDays(dayFraction);
-                _timeText = $@"{ClockEmojis[emojiIdx]} {time:hh\:mm}";
+                isTimeSign = true;
+                if (_timeText is null)
+                {
+                    var dayFraction = EnvMan.instance.GetDayFraction();
+                    var emojiIdx = (int)Math.Floor(ClockEmojis.Count * 2 * dayFraction) % ClockEmojis.Count;
+                    var time = TimeSpan.FromDays(dayFraction);
+                    _timeText = $@"{ClockEmojis[emojiIdx]} {time:hh\:mm}";
+                }
+                return _timeText;
+            });
+            if (newText != text)
+            {
+                zdo.Vars.SetText(newText);
+                //zdo.Set(ZDOVars.s_author, );
             }
-            return _timeText;
-        });
-
-        if (text != newText)
-        {
-            zdo.Vars.SetText(newText);
-            //zdo.Set(ZDOVars.s_author, );
         }
 
-        return false;
+        if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
+        {
+            text ??= zdo.Vars.GetText();
+            Logger.LogWarning($"Set chest text: {text}");
+            chest.Vars.SetText(text);
+        }
+
+        if (isTimeSign)
+            return false;
+
+        return true;
     }
 }

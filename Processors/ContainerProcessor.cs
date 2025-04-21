@@ -1,15 +1,57 @@
 ﻿using BepInEx.Logging;
 using System.Collections.Concurrent;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
     readonly Dictionary<ItemKey, int> _stackPerItem = new();
+    readonly Dictionary<ExtendedZDO, List<ExtendedZDO>> _signsByChests = [];
+    readonly Dictionary<ExtendedZDO, ExtendedZDO> _chestsBySigns = [];
 
     public event Action<ExtendedZDO>? ContainerChanged;
 
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
+    public IReadOnlyDictionary<ExtendedZDO, ExtendedZDO> ChestsBySigns => _chestsBySigns;
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+
+        foreach (var zdo in _chestsBySigns.Keys)
+            zdo.Destroy();
+        _signsByChests.Clear();
+        _chestsBySigns.Clear();
+
+        RegisterZdoDestroyed();
+    }
+
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    {
+        if (_signsByChests.Remove(zdo, out var signs))
+        {
+            foreach (var sign in signs)
+                sign.Destroy();
+        }
+        else
+        {
+            _chestsBySigns.Remove(zdo);
+        }
+    }
+
+    (Vector3 Offset, ModConfig.ContainersConfig.SignOptions Options) GetSignOptions(int prefab)
+    {
+        if (prefab == Prefabs.WoodChest)
+            return (new(0.8f, 0.5f, 0.4f), Config.Containers.WoodChestSigns.Value);
+        if (prefab == Prefabs.ReinforcedChest)
+            return (new(0.85f, 0.5f, 0.5f), Config.Containers.ReinforcedChestSigns.Value);
+        if (prefab == Prefabs.BlackmetalChest)
+            return (new(0.95f, 0.5f, 0.6f), Config.Containers.BlackmetalChestSigns.Value);
+        return default;
+    }
+
+    public override bool ClaimExclusive(ExtendedZDO zdo) => false;
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
@@ -17,6 +59,50 @@ sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Process
         {
             UnregisterZdoProcessor = true;
             return false;
+        }
+
+        var (signOffset, signOptions) = GetSignOptions(zdo.GetPrefab());
+
+        if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo))
+        {
+            var p = zdo.GetPosition();
+            p.y += signOffset.y;
+            var r = zdo.GetRotation();
+            var rot = r.eulerAngles.y + 90;
+            var signs = new List<ExtendedZDO>(4);
+            var text = zdo.Vars.GetText();
+            if (string.IsNullOrEmpty(text))
+                text = Config.Containers.ChestSignsDefaultText.Value;
+            ExtendedZDO sign;
+            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Left))
+            {
+                sign = PlacePiece(p + r * Vector3.right * signOffset.x, Prefabs.Sign, rot);
+                sign.Vars.SetText(text);
+                signs.Add(sign);
+                _chestsBySigns.Add(sign, zdo);
+            }
+            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Right))
+            {
+                sign = PlacePiece(p + r * Vector3.left * signOffset.x, Prefabs.Sign, rot + 180);
+                sign.Vars.SetText(text);
+                signs.Add(sign);
+                _chestsBySigns.Add(sign, zdo);
+            }
+            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Front))
+            {
+                sign = PlacePiece(p + r * Vector3.forward * signOffset.z, Prefabs.Sign, rot + 270);
+                sign.Vars.SetText(text);
+                signs.Add(sign);
+                _chestsBySigns.Add(sign, zdo);
+            }
+            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Back))
+            {
+                sign = PlacePiece(p + r * Vector3.back * signOffset.z, Prefabs.Sign, rot + 90);
+                sign.Vars.SetText(text);
+                signs.Add(sign);
+                _chestsBySigns.Add(sign, zdo);
+            }
+            _signsByChests.Add(zdo, signs);
         }
 
         var fields = zdo.Fields<Container>();
