@@ -340,8 +340,14 @@ sealed class ExtendedZDO : ZDO
         public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, int>> fieldExpression)
             => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
 
-        //public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, string>> fieldExpression)
-        //    => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveString(hash));
+        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, string>> fieldExpression)
+        {
+            var hash = GetHash(fieldExpression, out var field);
+            var defaultValue = (string)field.GetValue(_component);
+            _zdo.Set(hash, defaultValue);
+            return this;
+
+        }
 
         bool ResetIfChangedCore<T>(Expression<Func<TComponent, T>> fieldExpression, Func<ZDO, int, bool> remover)
         {

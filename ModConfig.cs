@@ -77,8 +77,8 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class CreaturesConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> ShowLevelInName { get; } = cfg.Bind(section, nameof(ShowLevelInName), false,
-            "True to change the name of creatures of level 3 or higher to reflect their level. The intended use is with other mods, which spawn higher level creatures (> 2-Star)");
+        public ConfigEntry<bool> ShowHigherLevelStars { get; } = cfg.Bind(section, nameof(ShowHigherLevelStars), false,
+            "True to show stars for higher level creatures (> 2 stars). The intended use is with other mods, which spawn higher level creatures");
     }
 
     public sealed class FireplacesConfig(ConfigFile cfg, string section)
