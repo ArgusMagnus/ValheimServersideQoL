@@ -28,6 +28,7 @@ static class SharedProcessorState
     public static ConcurrentHashSet<ExtendedZDO> Ships => __ships ??= GetShips();
 
     static readonly Dictionary<int, PrefabInfo?> __prefabInfo = [];
+
     static readonly IReadOnlyList<Type> __componentTypes = [.. typeof(PrefabInfo).GetProperties()
         .Select(x => x.PropertyType).Where(x => typeof(MonoBehaviour).IsAssignableFrom(x))];
 
@@ -118,17 +119,20 @@ static class SharedProcessorState
 
         static PrefabInfo? Get(int hash, GameObject prefab)
         {
+            if (prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is not { } availableComponents)
+                return null;
+
             Dictionary<Type, MonoBehaviour>? components = null;
             foreach (var componentType in __componentTypes)
             {
-                var component = GetComponent(prefab, componentType);
+                var component = GetComponent(prefab, componentType, availableComponents);
                 if (component is not null)
                     (components ??= new()).Add(componentType, component);
             }
             foreach (var componentTypeCombinations in __componentTypeCombinations)
             {
                 var componentCombinations = componentTypeCombinations
-                    .Select(x => (x.Type, x.Optional, Component: (components?.TryGetValue(x.Type, out var c) ?? false) ? c : GetComponent(prefab, x.Type)))
+                    .Select(x => (x.Type, x.Optional, Component: (components?.TryGetValue(x.Type, out var c) ?? false) ? c : GetComponent(prefab, x.Type, availableComponents)))
                     .ToList();
                 if (componentCombinations.Count > 0 && !componentCombinations.Any(x => x.Component is null && !x.Optional))
                 {
@@ -145,11 +149,11 @@ static class SharedProcessorState
             return new(prefab, components);
         }
 
-        static MonoBehaviour? GetComponent(GameObject prefab, Type componentType)
+        static MonoBehaviour? GetComponent(GameObject prefab, Type componentType, IReadOnlyList<MonoBehaviour> availableComponents)
         {
             if (componentType == typeof(PieceTable))
                 return PieceTablesByPiece.TryGetValue(prefab.name, out var c) ? c : null;
-            return (MonoBehaviour?)prefab.GetComponent<ZNetView>()?.gameObject.GetComponentInChildren(componentType);
+            return availableComponents.FirstOrDefault(x => x.GetType() == componentType);
 
             //if (componentType == typeof(PieceTable))
             //    return PieceTablesByPiece.TryGetValue(prefab.name, out var c) ? c : null;
