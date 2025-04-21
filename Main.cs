@@ -203,9 +203,12 @@ public sealed partial class Main : BaseUnityPlugin
                 }
                 var peers = new PeersEnumerable(localPeer);
 
-                while (ZNet.instance is not null)
+                while (true)
                 {
                     yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
+
+                    if (ZNet.instance is null)
+                        break;
 
                     try { Execute(peers); }
                     catch (OperationCanceledException) { yield break; }
