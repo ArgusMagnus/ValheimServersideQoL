@@ -232,6 +232,12 @@ sealed class ModConfig(ConfigFile cfg)
             "Minimum respawn delay in seconds. The actual respawn delay is chosen between min and max based on the stack size of the dropped trophies");
         public ConfigEntry<int> MaxRespawnDelay { get; } = cfg.Bind(section, nameof(MaxRespawnDelay), 240,
             "Maximum respawn delay in seconds. The actual respawn delay is chosen between min and max based on the stack size of the dropped trophies");
+        public ConfigEntry<int> MaxLevel { get; } = cfg.Bind(section, nameof(MaxLevel), 3,
+            new ConfigDescription("Maximum level of spawned mobs. The actual maximum level is chosen between 1 and this value based on the stack size of the dropped trophies",
+                new AcceptableValueRange<int>(1, 9)));
+
+        public ConfigEntry<int> LevelUpChance { get; } = cfg.Bind(section, nameof(LevelUpChance), 10,
+            new ConfigDescription("Level up chance for spawned mobs", new AcceptableValueRange<int>(0, 100)));
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

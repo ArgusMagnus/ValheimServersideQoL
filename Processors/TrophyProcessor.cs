@@ -83,7 +83,8 @@ sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             var f = (float)item.m_stack / item.m_shared.m_maxStackSize;
             state.Spawner.Fields<CreatureSpawner>()
                 .Set(x => x.m_creaturePrefab, trophyCharacterPrefab)
-                .Set(x => x.m_maxLevel, Mathf.RoundToInt(Utils.Lerp(1, 3, f)))
+                .Set(x => x.m_maxLevel, Mathf.RoundToInt(Utils.Lerp(1, Config.TrophySpawner.MaxLevel.Value, f)))
+                .Set(x => x.m_levelupChance, Config.TrophySpawner.LevelUpChance.Value)
                 .Set(x => x.m_respawnTimeMinuts, (float)TimeSpan.FromSeconds(
                     Utils.Lerp(Config.TrophySpawner.MaxRespawnDelay.Value, Config.TrophySpawner.MinRespawnDelay.Value, f)).TotalMinutes);
         }
