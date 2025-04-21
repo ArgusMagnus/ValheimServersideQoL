@@ -176,6 +176,8 @@ sealed class ExtendedZDO : ZDO
         public void SetHealth(float value) => _zdo.Set(ZDOVars.s_health, value);
         public int GetPermitted(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_permitted, defaultValue);
         public void SetPermitted(int value) => _zdo.Set(ZDOVars.s_permitted, value);
+        public int GetLevel(int defaultValue = 1) => _zdo.GetInt(ZDOVars.s_level, defaultValue);
+        public void SetLevel(int value) => _zdo.Set(ZDOVars.s_level, value);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)

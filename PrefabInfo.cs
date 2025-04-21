@@ -32,6 +32,7 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
     public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = GetTuple<(Aoe, Piece, PieceTable, Optional<Trap>)>(components);
     public Mister? Mister { get; } = Get<Mister>(components);
     public CreatureSpawner? CreatureSpawner { get; } = Get<CreatureSpawner>(components);
+    public Humanoid? Humanoid { get; } = Get<Humanoid>(components);
 
     public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
 

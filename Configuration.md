@@ -35,6 +35,7 @@
 |Containers|InventorySize_piece_pot3|1x1||Inventory size for 'Small Green Pot'|
 |Containers|InventorySize_VikingShip|6x3||Inventory size for 'Longship'|
 |Containers|InventorySize_VikingShip_Ashlands|8x4||Inventory size for 'Drakkar'|
+|Creatures|ShowLevelInName|False|True/False|True to change the name of creatures of level 3 or higher to reflect their level. The intended use is with other mods, which spawn higher level creatures (> 2-Star)|
 |Doors|AutoCloseMinPlayerDistance|NaN||Min distance all players must have to the door before it is closed. NaN to disable this feature|
 |Fireplaces|MakeToggleable|False|True/False|True to make all fireplaces (including torches, braziers, etc.) toggleable|
 |Fireplaces|InfiniteFuel|False|True/False|True to make all fireplaces have infinite fuel|
