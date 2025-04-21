@@ -2,6 +2,8 @@
 - New features:
     - Show stars for higher level creatures (> 2 stars)
     - Show aura for higher level creatures (> 2 stars)
+    - New config options for trophy spawners (MaxLevel/LevelUpChance)
+- Fix NullReferenceException After Logging Out and Back In Without Quitting Game [#40](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/40)
 
 ### v0.2.18
 - Fix mod not working correctly on non-dedicated servers [#38](https://github.com/ArgusMagnus/ValheimServersideQoL/discussions/38)
