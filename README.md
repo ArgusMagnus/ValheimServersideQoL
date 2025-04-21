@@ -15,6 +15,9 @@ It's designed and tested for **dedicated servers** with **vanilla clients** (e.g
     - Teleport follow: Teleport following tames to the players location if they get too far away from the player
     - Always fed: Make all tames always fed (not hungry)
     - Growing progress: Show growing progress of offspring/eggs to nearby players
+- Creatures
+    - Show stars for higher level creatures (> 2 stars)
+    - Show aura for higher level creatures (> 2 stars)
 - Fireplaces (including torches/sconces/braziers/etc.)
     - Toggleable: Make all fireplaces toggleable (you can turn them on/off)
     - Infinite fuel: Make all fireplaces have infinite fuel
