@@ -1,3 +1,6 @@
+### v0.2.20
+- New feature: modify time per product of smelters
+
 ### v0.2.19
 - New features:
     - Automatically put signs on chests

@@ -29,6 +29,7 @@ It's designed and tested for **dedicated servers** with **vanilla clients** (e.g
 - Item drops: Automatically put dropped items into chests
 - Smelters (including windmills/hot-tubs/shield generators/etc.)
     - Feed/refuel smelters from nearby containers
+    - Modify the time it takes per product
 - Windmills: Make windmills ignore wind intensity
 - Doors: Automatically close doors
 - Infinite Stamina: Give players infinite stamina when building/farming or always
