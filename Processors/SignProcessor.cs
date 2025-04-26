@@ -51,7 +51,7 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
         {
             text ??= zdo.Vars.GetText();
-            Logger.LogWarning($"Set chest text: {text}");
+            //Logger.LogWarning($"Set chest text: {text} / {zdo.DataRevision}");
             chest.Vars.SetText(text);
         }
 

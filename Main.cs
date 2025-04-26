@@ -520,7 +520,7 @@ public sealed partial class Main : BaseUnityPlugin
         _watch.Stop();
 
 #if DEBUG
-        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Info : LogLevel.Warning;
+        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
 #else
         if (!Config.General.DiagnosticLogs.Value)
             return;

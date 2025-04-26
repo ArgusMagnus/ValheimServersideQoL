@@ -1,5 +1,6 @@
 ### v0.2.19
 - New features:
+    - Automatically put signs on chests
     - Show stars for higher level creatures (> 2 stars)
     - Show aura for higher level creatures (> 2 stars)
     - New config options for trophy spawners (MaxLevel/LevelUpChance)
