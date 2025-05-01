@@ -42,16 +42,13 @@ sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor
             return false;
         }
 
-        if (zdo.PrefabInfo.Smelter is not null)
+#if DEBUG
+        if (zdo.PrefabInfo.Smelter is not null && zdo.Fields<Smelter>().ResetIfChanged(x => x.m_secPerProduct))
         {
-            if (Config.Smelters.TimePerProductMultiplier.Value is 1f)
-                zdo.Fields<Smelter>().Reset(x => x.m_secPerProduct);
-            else if (zdo.Fields<Smelter>().SetIfChanged(x => x.m_secPerProduct, Mathf.Max(1f, zdo.PrefabInfo.Smelter.m_secPerProduct * Config.Smelters.TimePerProductMultiplier.Value)))
-            {
-                RecreateZdo = true;
-                return false;
-            }
+            RecreateZdo = true;
+            return false;
         }
+#endif
 
         if (!CheckMinDistance(peers, zdo))
                 return false; // player to close
