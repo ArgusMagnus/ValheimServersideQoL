@@ -46,10 +46,11 @@ public sealed partial class Main : BaseUnityPlugin
     {
         public int InverseWeight { get; set; }
     }
-    ConcurrentDictionary<Vector2i, SectorInfo> _playerSectors = new();
-    ConcurrentDictionary<Vector2i, SectorInfo> _playerSectorsOld = new();
+    readonly Stack<SectorInfo> _sectorInfoPool = [];
+    Dictionary<Vector2i, SectorInfo> _playerSectors = [];
+    Dictionary<Vector2i, SectorInfo> _playerSectorsOld = [];
 
-    readonly List<Processor> _unregister = new();
+    readonly List<Processor> _unregister = [];
     bool _configChanged = true;
 
     public Main()
@@ -373,11 +374,11 @@ public sealed partial class Main : BaseUnityPlugin
             return;
         }
 
+        _watch.Restart();
+
         peers.Update();
         if (peers.Count is 0)
             return;
-
-        _watch.Restart();
 
         // roughly once per minute
         if (_executeCounter % (ulong)(60 * Config.General.Frequency.Value) is 0)
@@ -395,7 +396,6 @@ public sealed partial class Main : BaseUnityPlugin
         }
 
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
-        _playerSectors.Clear();
         const int SortPlayerSectorsThreshold = 10;
         foreach (var peer in peers)
         {
@@ -405,27 +405,42 @@ public sealed partial class Main : BaseUnityPlugin
                 for (int y = playerSector.y - Config.General.ZonesAroundPlayers.Value; y <= playerSector.y + Config.General.ZonesAroundPlayers.Value; y++)
                 {
                     var sector = new Vector2i(x, y);
-                    if (_playerSectorsOld.TryRemove(sector, out var sectorInfo))
+                    if (_playerSectorsOld.Remove(sector, out var sectorInfo))
                     {
-                        _playerSectors.TryAdd(sector, sectorInfo);
+                        _playerSectors.Add(sector, sectorInfo);
                         sectorInfo.InverseWeight = 0;
                         sectorInfo.Peers.Clear();
                         sectorInfo.Peers.Add(peer);
                     }
                     else if (_playerSectors.TryGetValue(sector, out sectorInfo))
                     {
-                        sectorInfo.InverseWeight = 0;
                         sectorInfo.Peers.Add(peer);
                     }
                     else
                     {
-                        sectorInfo = new([peer], []);
-                        _playerSectors.TryAdd(sector, sectorInfo);
+                        if (_sectorInfoPool.TryPop(out sectorInfo))
+                            sectorInfo.Peers.Add(peer);
+                        else
+                            sectorInfo = new([peer], []);
+                        _playerSectors.Add(sector, sectorInfo);
                     }
                 }
             }
         }
 
+        foreach (var sectorInfo in _playerSectorsOld.Values)
+        {
+            sectorInfo.Peers.Clear();
+            sectorInfo.ZDOs.Clear();
+            _sectorInfoPool.Push(sectorInfo);
+        }
+        _playerSectorsOld.Clear();
+
+        int processedSectors = 0;
+        int processedZdos = 0;
+        int totalZdos = 0;
+
+        var playerSectors = _playerSectors.AsEnumerable();
         if (_unfinishedProcessingInRow > SortPlayerSectorsThreshold)
         {
             // The idea here is to process zones in order of player proximity.
@@ -440,15 +455,8 @@ public sealed partial class Main : BaseUnityPlugin
                     sectorInfo.InverseWeight += dx * dx + dy * dy;
                 }
             }
-        }
-
-        int processedSectors = 0;
-        int processedZdos = 0;
-        int totalZdos = 0;
-
-        var playerSectors = _playerSectors.AsEnumerable();
-        if (_unfinishedProcessingInRow > SortPlayerSectorsThreshold)
             playerSectors = playerSectors.OrderBy(x => x.Value.InverseWeight);
+        }
 
         foreach (var processor in Processor.DefaultProcessors)
             processor.PreProcess();
@@ -465,7 +473,7 @@ public sealed partial class Main : BaseUnityPlugin
 
             totalZdos += sectorInfo.ZDOs.Count;
 
-            while (sectorInfo is { ZDOs: { Count: > 0 } } && _watch.ElapsedMilliseconds < Config.General.MaxProcessingTime.Value)
+            while (sectorInfo is { ZDOs.Count: > 0 } && _watch.ElapsedMilliseconds < Config.General.MaxProcessingTime.Value)
             {
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
