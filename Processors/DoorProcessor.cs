@@ -27,7 +27,7 @@ sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
         }
 
         /// <see cref="Door.CanInteract"/>
-        if (zdo.PrefabInfo.Door.m_keyItem is not null || zdo.PrefabInfo.Door.m_canNotBeClosed)
+        if (zdo.PrefabInfo.Door.m_keyItem is not null || zdo.PrefabInfo.Door.m_canNotBeClosed || zdo.Vars.GetCreator() is 0)
         {
             UnregisterZdoProcessor = true;
             return false;
