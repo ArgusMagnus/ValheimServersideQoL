@@ -1,15 +1,9 @@
 ﻿using BepInEx.Logging;
-using System.Collections.Concurrent;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly int _hammerPrefab = "Hammer".GetStableHashCode();
-    readonly int _hoePrefab = "Hoe".GetStableHashCode();
-    readonly int _cultivatorPrefab = "Cultivator".GetStableHashCode();
-    readonly int _scythePrefab = "Scythe".GetStableHashCode();
-
     readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
 
     public override void Initialize(bool firstTime)
@@ -18,7 +12,8 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         RegisterZdoDestroyed();
 
         UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger,
-            Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value);
+            (Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value)
+            && Game.m_staminaRate > 0);
     }
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
@@ -63,41 +58,10 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
-        /// sfx_pickaxe_swing <see cref="ZRoutedRpc"/> <see cref="ZoneSystem"/>
         if (zdo.PrefabInfo.Player is null)
             return false;
 
         _players.TryAdd(zdo.m_uid, zdo);
-
-        //if ((Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value) && Game.m_staminaRate > 0)
-        //{
-        //    var setInfinite = false;
-        //    var rightItem = zdo.Vars.GetRightItem();
-        //    if (Config.Players.InfiniteBuildingStamina.Value && (rightItem == _hammerPrefab || rightItem == _hoePrefab))
-        //        setInfinite = true;
-        //    else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab || rightItem == _scythePrefab))
-        //        setInfinite = true;
-
-        //    if (setInfinite)
-        //    {
-        //        var playerData = _playerData.GetOrAdd(zdo, static _ => new());
-        //        if (DateTimeOffset.UtcNow - playerData.LastUpdated > TimeSpan.FromSeconds(2))
-        //        {
-        //            if (float.IsNaN(playerData.ResetStamina))
-        //                playerData.ResetStamina = zdo.Vars.GetStamina();
-        //            RPC.UseStamina(zdo, -99000f);
-        //            playerData.LastUpdated = DateTimeOffset.UtcNow;
-        //        }
-        //    }
-        //    else if (_playerData.TryGetValue(zdo, out var playerData) && !float.IsNaN(playerData.ResetStamina))
-        //    {
-        //        var stamina = zdo.Vars.GetStamina();
-        //        var diff = stamina - playerData.ResetStamina;
-        //        playerData.ResetStamina = float.NaN;
-        //        if (diff > 0)
-        //            RPC.UseStamina(zdo, diff);
-        //    }
-        //}
 
         if (!Config.Tames.TeleportFollow.Value)
             return false;
