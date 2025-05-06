@@ -1,5 +1,5 @@
 ﻿using BepInEx.Logging;
-using System.Collections.Generic;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -112,6 +112,75 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
         searchPattern = Regex.Escape(searchPattern);
         searchPattern = searchPattern.Replace("\\*", ".*").Replace("\\?", ".?");
         return $"(?i)^{searchPattern}$";
+    }
+
+    static bool HandleRoutedRPCPrefix(ZRoutedRpc.RoutedRPCData data)
+    {
+        if (__methods.TryGetValue(data.m_methodHash, out var rpcMethod))
+        {
+            object[]? args = null;
+            for (int i = 0; i < rpcMethod.Delegates.Count; i++)
+            {
+                var del = rpcMethod.Delegates[i];
+                Exception? exception = null;
+                if (args is null)
+                {
+                    try
+                    {
+                        List<object> parameters = [];
+                        ZRpc.Deserialize(del.Method.GetParameters(), data.m_parameters, ref parameters);
+                        args = [data, .. parameters];
+                    }
+                    catch (Exception ex) { exception = ex; }
+                    if (exception is null)
+                    {
+                        try { del.DynamicInvoke(args); }
+                        catch (Exception ex) when (ex is TargetParameterCountException or TargetInvocationException or ArgumentException) { exception = ex; }
+                    }
+                }
+
+                if (exception is not null)
+                {
+                    Main.Instance.Logger.LogError($"Invalid method signature for RPC method {rpcMethod.Name}: {del.Method.DeclaringType.Name}.{del.Method.Name}: {exception}");
+                    args = null;
+                    rpcMethod.Delegates.RemoveAt(i--);
+                    if (rpcMethod.Delegates.Count is 0)
+                    {
+                        if (__methods.Remove(data.m_methodHash) && __methods.Count is 0)
+                            Main.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
+                    }
+                }
+            }
+        }
+        
+        return true;
+    }
+
+    sealed record RpcMethod(string Name, List<Delegate> Delegates);
+    static readonly Dictionary<int, RpcMethod> __methods = [];
+    static readonly MethodInfo __handleRoutedRPCMethod = typeof(ZRoutedRpc).GetMethod("HandleRoutedRPC", BindingFlags.NonPublic | BindingFlags.Instance);
+    static readonly MethodInfo __handleRoutedRPCPrefix = new Func<ZRoutedRpc.RoutedRPCData, bool>(HandleRoutedRPCPrefix).Method;
+
+    protected static void UpdateRpcSubscription(string methodName, Delegate handler, bool subscribe)
+    {
+        var methodHash = methodName.GetStableHashCode();
+        if (!__methods.TryGetValue(methodHash, out var rpcMethod) && subscribe)
+            __methods.Add(methodHash, rpcMethod = new(methodName, []));
+        if (subscribe)
+        {
+            if (!rpcMethod.Delegates.Contains(handler))
+                rpcMethod.Delegates.Add(handler);
+        }
+        else if (rpcMethod is not null)
+        {
+            rpcMethod.Delegates.Remove(handler);
+            if (rpcMethod.Delegates.Count is 0)
+                __methods.Remove(methodHash);
+        }
+
+        Main.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
+        if (__methods.Count > 0)
+            Main.HarmonyInstance.Patch(__handleRoutedRPCMethod, prefix: new(__handleRoutedRPCPrefix));
     }
 
     protected static class Prefabs

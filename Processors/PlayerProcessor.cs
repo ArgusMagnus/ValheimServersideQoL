@@ -22,6 +22,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     {
         base.Initialize(firstTime);
         RegisterZdoDestroyed();
+        UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger, true);
     }
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
@@ -29,8 +30,16 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         _playerData.TryRemove(zdo, out _);
     }
 
+    /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
+    void OnZSyncAnimationSetTrigger(ZRoutedRpc.RoutedRPCData data, string name)
+    {
+        if (ZDOMan.instance.GetExtendedZDO(data.m_targetZDO) is { PrefabInfo.Player: not null })
+            Logger.LogWarning($"{data.m_targetZDO}: SetTrigger: {name}");
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
+        /// sfx_pickaxe_swing <see cref="ZRoutedRpc"/> <see cref="ZoneSystem"/>
         if (zdo.PrefabInfo.Player is null)
             return false;
 

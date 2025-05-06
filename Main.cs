@@ -33,7 +33,7 @@ public sealed partial class Main : BaseUnityPlugin
 
     internal static Main Instance { get; private set; } = default!;
 
-    static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
+    internal static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
     internal new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
     ModConfig? _config;
     internal new ModConfig Config => _config ??= new(base.Config);
