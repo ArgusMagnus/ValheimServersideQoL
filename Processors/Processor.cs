@@ -135,13 +135,13 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
                     if (exception is null)
                     {
                         try { del.DynamicInvoke(args); }
-                        catch (Exception ex) when (ex is TargetParameterCountException or TargetInvocationException or ArgumentException) { exception = ex; }
+                        catch (Exception ex) /*when (ex is TargetParameterCountException or TargetInvocationException or ArgumentException)*/ { exception = ex; }
                     }
                 }
 
                 if (exception is not null)
                 {
-                    Main.Instance.Logger.LogError($"Invalid method signature for RPC method {rpcMethod.Name}: {del.Method.DeclaringType.Name}.{del.Method.Name}: {exception}");
+                    Main.Instance.Logger.LogError($"{rpcMethod.Name}: {del.Method.DeclaringType.Name}.{del.Method.Name}: {exception}");
                     args = null;
                     rpcMethod.Delegates.RemoveAt(i--);
                     if (rpcMethod.Delegates.Count is 0)

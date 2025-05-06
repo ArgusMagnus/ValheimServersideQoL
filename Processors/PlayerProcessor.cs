@@ -10,31 +10,55 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     readonly int _cultivatorPrefab = "Cultivator".GetStableHashCode();
     readonly int _scythePrefab = "Scythe".GetStableHashCode();
 
-    readonly ConcurrentDictionary<ExtendedZDO, PlayerData> _playerData = new();
-
-    sealed class PlayerData
-    {
-        public DateTimeOffset LastUpdated { get; set; }
-        public float ResetStamina { get; set; } = float.NaN;
-    }
+    readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
         RegisterZdoDestroyed();
-        UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger, true);
+
+        UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger,
+            Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value);
     }
 
     protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        _playerData.TryRemove(zdo, out _);
+        _players.Remove(zdo.m_uid);
     }
 
     /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
     void OnZSyncAnimationSetTrigger(ZRoutedRpc.RoutedRPCData data, string name)
     {
-        if (ZDOMan.instance.GetExtendedZDO(data.m_targetZDO) is { PrefabInfo.Player: not null })
-            Logger.LogWarning($"{data.m_targetZDO}: SetTrigger: {name}");
+        if (!_players.TryGetValue(data.m_targetZDO, out var zdo))
+            return;
+
+#if DEBUG
+        Logger.LogInfo($"ZDO {data.m_targetZDO}: SetTrigger: {name}");
+#endif
+
+        static bool CheckStamina(string triggerName, ModConfig.PlayersConfig cfg)
+        {
+            switch (triggerName)
+            {
+                case "swing_pickaxe":
+                    return cfg.InfiniteMiningStamina.Value;
+                case "swing_hammer":
+                    return cfg.InfiniteBuildingStamina.Value;
+                case "swing_hoe":
+                case "scything":
+                    return cfg.InfiniteFarmingStamina.Value;
+                default:
+                    return false;
+            }
+        }
+
+        if (!CheckStamina(name, Config.Players))
+            return;
+
+        var rightItem = ObjectDB.instance.GetItemPrefab(zdo.Vars.GetRightItem()).GetComponent<ItemDrop>();
+        var requiredStamina = rightItem.m_itemData.m_shared.m_attack.m_attackStamina;
+        if (zdo.Vars.GetStamina() < 2 * requiredStamina)
+            RPC.UseStamina(zdo, -requiredStamina);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
@@ -43,35 +67,37 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         if (zdo.PrefabInfo.Player is null)
             return false;
 
-        if ((Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value) && Game.m_staminaRate > 0)
-        {
-            var setInfinite = false;
-            var rightItem = zdo.Vars.GetRightItem();
-            if (Config.Players.InfiniteBuildingStamina.Value && (rightItem == _hammerPrefab || rightItem == _hoePrefab))
-                setInfinite = true;
-            else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab || rightItem == _scythePrefab))
-                setInfinite = true;
+        _players.TryAdd(zdo.m_uid, zdo);
 
-            if (setInfinite)
-            {
-                var playerData = _playerData.GetOrAdd(zdo, static _ => new());
-                if (DateTimeOffset.UtcNow - playerData.LastUpdated > TimeSpan.FromSeconds(2))
-                {
-                    if (float.IsNaN(playerData.ResetStamina))
-                        playerData.ResetStamina = zdo.Vars.GetStamina();
-                    RPC.UseStamina(zdo, -99000f);
-                    playerData.LastUpdated = DateTimeOffset.UtcNow;
-                }
-            }
-            else if (_playerData.TryGetValue(zdo, out var playerData) && !float.IsNaN(playerData.ResetStamina))
-            {
-                var stamina = zdo.Vars.GetStamina();
-                var diff = stamina - playerData.ResetStamina;
-                playerData.ResetStamina = float.NaN;
-                if (diff > 0)
-                    RPC.UseStamina(zdo, diff);
-            }
-        }
+        //if ((Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value) && Game.m_staminaRate > 0)
+        //{
+        //    var setInfinite = false;
+        //    var rightItem = zdo.Vars.GetRightItem();
+        //    if (Config.Players.InfiniteBuildingStamina.Value && (rightItem == _hammerPrefab || rightItem == _hoePrefab))
+        //        setInfinite = true;
+        //    else if (Config.Players.InfiniteFarmingStamina.Value && (rightItem == _cultivatorPrefab || rightItem == _hoePrefab || rightItem == _scythePrefab))
+        //        setInfinite = true;
+
+        //    if (setInfinite)
+        //    {
+        //        var playerData = _playerData.GetOrAdd(zdo, static _ => new());
+        //        if (DateTimeOffset.UtcNow - playerData.LastUpdated > TimeSpan.FromSeconds(2))
+        //        {
+        //            if (float.IsNaN(playerData.ResetStamina))
+        //                playerData.ResetStamina = zdo.Vars.GetStamina();
+        //            RPC.UseStamina(zdo, -99000f);
+        //            playerData.LastUpdated = DateTimeOffset.UtcNow;
+        //        }
+        //    }
+        //    else if (_playerData.TryGetValue(zdo, out var playerData) && !float.IsNaN(playerData.ResetStamina))
+        //    {
+        //        var stamina = zdo.Vars.GetStamina();
+        //        var diff = stamina - playerData.ResetStamina;
+        //        playerData.ResetStamina = float.NaN;
+        //        if (diff > 0)
+        //            RPC.UseStamina(zdo, diff);
+        //    }
+        //}
 
         if (!Config.Tames.TeleportFollow.Value)
             return false;

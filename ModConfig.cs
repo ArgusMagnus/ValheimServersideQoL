@@ -173,6 +173,8 @@ sealed class ModConfig(ConfigFile cfg)
             Invariant($"True to give players infinite stamina when building. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
         public ConfigEntry<bool> InfiniteFarmingStamina { get; } = cfg.Bind(section, nameof(InfiniteFarmingStamina), false,
             Invariant($"True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
+        public ConfigEntry<bool> InfiniteMiningStamina { get; } = cfg.Bind(section, nameof(InfiniteMiningStamina), false,
+            Invariant($"True to give players infinite stamina when mining. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
     }
 
     public sealed class TurretsConfig(ConfigFile cfg, string section)

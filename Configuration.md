@@ -54,6 +54,7 @@
 |Plants|DontDestroyIfCantGrow|False|True/False|True to keep plants which can't grow alive|
 |Players|InfiniteBuildingStamina|False|True/False|True to give players infinite stamina when building. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|InfiniteFarmingStamina|False|True/False|True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
+|Players|InfiniteMiningStamina|False|True/False|True to give players infinite stamina when mining. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Portal Hub|Enable|False|True/False|True to automatically generate a portal hub|
 |Portal Hub|Exclude|||Portals with a tag that matches this filter are not added to the portal hub|
 |Portal Hub|Include|*||Only portals with a tag that matches this filter are added to the portal hub|

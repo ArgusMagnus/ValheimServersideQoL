@@ -31,7 +31,7 @@ It's designed and tested for **dedicated servers** with **vanilla clients** (e.g
     - Feed/refuel smelters from nearby containers
 - Windmills: Make windmills ignore wind intensity
 - Doors: Automatically close doors
-- Infinite Stamina: Give players infinite stamina when building/farming or always
+- Infinite Stamina: Give players infinite stamina when building/farming/mining or always
 - Ballista
     - Dont target players: stop ballistas from targeting players
     - Dont target tames: stop ballistas from targeting tames

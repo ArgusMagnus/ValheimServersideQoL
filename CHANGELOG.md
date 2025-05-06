@@ -1,5 +1,6 @@
 ### v0.2.20
-- 
+- New feature: infinite mining stamina
+- Changed infinite farming/building/mining stamina to only restore the necessary stamina for the action
 
 ### v0.2.19
 - New features:
