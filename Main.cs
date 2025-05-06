@@ -14,6 +14,7 @@ using Valheim.ServersideQoL.Processors;
 namespace Valheim.ServersideQoL;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+[BepInDependency(ExpandWorld.Prefab.EWP.GUID)]
 public sealed partial class Main : BaseUnityPlugin
 {
     /// <Ideas>

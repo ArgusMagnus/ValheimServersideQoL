@@ -1,5 +1,6 @@
 ﻿using BepInEx.Logging;
 using System.Collections.Concurrent;
+//using ExpandWorld.Prefab;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -12,6 +13,13 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
     readonly ConcurrentDictionary<ExtendedZDO, PlayerData> _playerData = new();
 
+    //readonly Info _info = new()
+    //{
+    //    Prefabs = "Player",
+    //    Type = ActionType.State,
+    //    Filter = new() { ha }
+    //};
+
     sealed class PlayerData
     {
         public DateTimeOffset LastUpdated { get; set; }
@@ -21,6 +29,17 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
+
+        if (!firstTime)
+            return;
+
+        //if (!InfoManager.StateDatas.Info.Values.SelectMany(x => x).Contains(_info))
+        //{
+            
+        //    InfoManager.StateDatas.Add(_info);
+        //    InfoManager.Patch();
+        //}
+
         RegisterZdoDestroyed();
     }
 
