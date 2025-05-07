@@ -161,11 +161,14 @@ sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             .Concat(Config.General.InWorldConfigRoom.Value ? [InGameConfigProcessor.PortalHubTag] : [])
             .OrderBy(x => x)];
 
+        if (tags.Count is 0)
+            return;
+
         // 4*(width-1) = count -> width = count/4 + 1
-        var width = (int)Math.Ceiling(tags.Count / 4f + 1);
+        var width = Math.Max(3, (int)Math.Ceiling(tags.Count / 4f + 1));
         _hubRadius = (width + 1) * 4f * Mathf.Sqrt(2);
 
-        PlacePiece(_offset, Prefabs.DvergerGuardstone, 0)
+        PlacePiece(_offset with { y = _offset.y - 2 }, Prefabs.DvergerGuardstone, 0)
             .Fields<PrivateArea>(true).Set(x => x.m_radius, _hubRadius);
 
         for (int i = 0; i < width; i++)

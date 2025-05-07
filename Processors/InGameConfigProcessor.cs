@@ -203,12 +203,17 @@ sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Proc
             if (Config.PortalHub.Enable.Value)
             {
                 pos.z -= 0.5f;
-                PlacePiece(pos, Prefabs.PortalWood, 180f)
-                    .Vars.SetTag(PortalHubTag);
+                var zdo = PlacePiece(pos, Prefabs.PortalWood, 180f);
+                zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+                zdo.Vars.SetTag(PortalHubTag);
                 pos.z += 1;
             }
-            PlacePiece(pos, Prefabs.PortalWood, 0f)
-                .Vars.SetTag(MainPortalTag);
+
+            {
+                var zdo = PlacePiece(pos, Prefabs.PortalWood, 0f);
+                zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+                zdo.Vars.SetTag(MainPortalTag);
+            }
         }
 
         var yOffset = _offset.Room.y;

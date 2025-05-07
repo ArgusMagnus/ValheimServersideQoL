@@ -10,9 +10,9 @@ sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(lo
 
     string? _timeText;
 
-    public override void PreProcess()
+    protected override void PreProcessCore()
     {
-        base.PreProcess();
+        base.PreProcessCore();
         _timeText = null;
     }
 

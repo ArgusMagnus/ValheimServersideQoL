@@ -52,11 +52,15 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
 
     protected virtual void OnZdoDestroyed(ExtendedZDO zdo) { }
 
-    public virtual void PreProcess()
+    public void PreProcess()
     {
         _totalProcessingTimeTicks += _watch.ElapsedTicks;
-        _watch.Reset();
+        _watch.Restart();
+        PreProcessCore();
+        _watch.Stop();
     }
+
+    protected virtual void PreProcessCore() { }
 
     public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo);
 

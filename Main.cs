@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -23,7 +24,7 @@ public sealed partial class Main : BaseUnityPlugin
     /// - Make sharp stakes drop their resources when destroyed <see cref="Piece.DropResources(HitData)"/> <see cref="WearNTear.Remove(bool)"/>
     ///   Not easily possible: Responsible code in <see cref="Piece.DropResources(HitData)"/> uses <see cref="Piece.m_resources"/> / <see cref="Piece.Requirement.m_recover"/>
     ///   which cannot be modified via ZDO fields. We would have to somehow detect when a stakewall is destroyed and spawn the resources ourselves.
-    /// - <see cref="Chat"/> <see cref="Humanoid"/> <see cref="Character"/> <see cref="InventoryGui.SortMethod"/> <see cref="ZNet"/>
+    /// - <see cref="Chat"/> <see cref="Humanoid"/> <see cref="Character"/> <see cref="InventoryGui.SortMethod"/> <see cref="Player"/>
     /// - <see cref="SpawnArea"/>
     /// </Ideas>
 
@@ -380,6 +381,8 @@ public sealed partial class Main : BaseUnityPlugin
         if (peers.Count is 0)
             return;
 
+        LogProcessingTime();
+
         // roughly once per minute
         if (_executeCounter % (ulong)(60 * Config.General.Frequency.Value) is 0)
         {
@@ -395,8 +398,9 @@ public sealed partial class Main : BaseUnityPlugin
             }
         }
 
+        LogProcessingTime();
+
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
-        const int SortPlayerSectorsThreshold = 10;
         foreach (var peer in peers)
         {
             var playerSector = ZoneSystem.GetZone(peer.m_refPos);
@@ -430,18 +434,17 @@ public sealed partial class Main : BaseUnityPlugin
 
         foreach (var sectorInfo in _playerSectorsOld.Values)
         {
+            sectorInfo.InverseWeight = 0;
             sectorInfo.Peers.Clear();
             sectorInfo.ZDOs.Clear();
             _sectorInfoPool.Push(sectorInfo);
         }
         _playerSectorsOld.Clear();
 
-        int processedSectors = 0;
-        int processedZdos = 0;
-        int totalZdos = 0;
+        LogProcessingTime();
 
         var playerSectors = _playerSectors.AsEnumerable();
-        if (_unfinishedProcessingInRow > SortPlayerSectorsThreshold)
+        if (_unfinishedProcessingInRow > 10)
         {
             // The idea here is to process zones in order of player proximity.
             // However, if all ZDOs are processed anyway, this ordering is a waste of time.
@@ -458,8 +461,16 @@ public sealed partial class Main : BaseUnityPlugin
             playerSectors = playerSectors.OrderBy(x => x.Value.InverseWeight);
         }
 
+        LogProcessingTime();
+
         foreach (var processor in Processor.DefaultProcessors)
             processor.PreProcess();
+
+        LogProcessingTime();
+
+        int processedSectors = 0;
+        int processedZdos = 0;
+        int totalZdos = 0;
 
         foreach (var (sector, sectorInfo) in playerSectors.Select(x => (x.Key, x.Value)))
         {
@@ -540,6 +551,14 @@ public sealed partial class Main : BaseUnityPlugin
 
         Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(x => x.ProcessingTime.Ticks > 0).OrderByDescending(x => x.ProcessingTime.Ticks).Select(x => Invariant($"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms")))}"));
         //Logger.LogDebug(string.Join(Invariant(.$"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => Invariant(.$"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
+    }
+
+    [Conditional("DEBUG")]
+    void LogProcessingTime([CallerLineNumber]int lineNo = default)
+    {
+        if (_unfinishedProcessingInRow < 20)
+            return;
+        Logger.LogInfo($"Line {lineNo}: {_watch.ElapsedMilliseconds} ms");
     }
 
 #if DEBUG

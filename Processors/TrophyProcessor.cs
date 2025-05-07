@@ -36,6 +36,8 @@ sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
+        /// <see cref="MonsterAI"/> <see cref="BaseAI.GetPatrolPoint"/>
+
         var itemDrop = zdo.PrefabInfo.ItemDrop?.ItemDrop;
         if (!Config.TrophySpawner.Enable.Value || itemDrop is null || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.m_itemData.m_shared, out var trophyCharacterPrefab))
         {

@@ -12,7 +12,7 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         RegisterZdoDestroyed();
 
         UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger,
-            (Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value)
+            (Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value || Config.Players.InfiniteWoodCuttingStamina.Value)
             && Game.m_staminaRate > 0);
     }
 
@@ -42,6 +42,8 @@ sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                 case "swing_hoe":
                 case "scything":
                     return cfg.InfiniteFarmingStamina.Value;
+                case "swing_axe0":
+                    return cfg.InfiniteWoodCuttingStamina.Value;
                 default:
                     return false;
             }

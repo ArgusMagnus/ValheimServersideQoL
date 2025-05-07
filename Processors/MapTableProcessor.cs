@@ -25,9 +25,9 @@ sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processo
         _excludePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
     }
 
-    public override void PreProcess()
+    protected override void PreProcessCore()
     {
-        base.PreProcess();
+        base.PreProcessCore();
         _pins.Clear();
         _oldPinsHash = 0;
     }

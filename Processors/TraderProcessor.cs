@@ -1,12 +1,11 @@
 ﻿using BepInEx.Logging;
-using System.Collections.Concurrent;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
 {
-    readonly Dictionary<Trader, List<string>> _globalKeysToSet = new();
-    readonly HashSet<Peer> _reset = new();
+    readonly Dictionary<Trader, List<string>> _globalKeysToSet = [];
+    readonly Dictionary<ZDOID, Peer> _reset = [];
 
     public override void Initialize(bool firstTime)
     {
@@ -15,14 +14,15 @@ sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
         foreach(var (trader, cfgList) in Config.Traders.AlwaysUnlock.Select(x => (x.Key, x.Value)))
         {
             var list = cfgList.Where(x => x.ConfigEntry.Value).Select(x => x.GlobalKey).ToList();
-            _globalKeysToSet.Add(trader, list);
+            if (list.Count > 0)
+                _globalKeysToSet.Add(trader, list);
         }
+        RegisterZdoDestroyed();
     }
 
-    public override void PreProcess()
+    protected override void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        base.PreProcess();
-        _reset.RemoveWhere(static x => !x.IsConnected);
+        _reset.Remove(zdo.m_uid);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
@@ -42,7 +42,7 @@ sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
             minDistSqr ??= zdo.PrefabInfo.Trader.m_standRange * zdo.PrefabInfo.Trader.m_standRange;
             if (Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistSqr)
             {
-                if (_reset.Add(peer))
+                if (_reset.TryAdd(peer.m_characterID, peer))
                 {
                     if (keys is null)
                     {
@@ -58,7 +58,7 @@ sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(
                     RPC.SendGlobalKeys(peer, keys);
                 }
             }
-            else if (_reset.Remove(peer))
+            else if (_reset.Remove(peer.m_characterID))
             {
                 serverKeys ??= ZoneSystem.instance.GetGlobalKeys();
                 RPC.SendGlobalKeys(peer, serverKeys);

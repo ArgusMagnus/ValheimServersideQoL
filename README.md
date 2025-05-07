@@ -48,7 +48,7 @@ It's designed and tested for **dedicated servers** with **vanilla clients** (e.g
     - NoPortals: Change the behavior of the NoPortals key to prevent the construction of new portals, but leave existing portals functional
 
 ### Feature Requests
-If you have an idea you think might fit this mod, you can create a feature request issue in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
+If you have an idea you think might fit this mod, you can create a feature request issue in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Aenhancement%20).
 
 ## Known Issues
 - Modifying the inventory size of ships causes them to stay in the air after construction, until touched by a player [#10](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/10)
@@ -56,7 +56,7 @@ If you have an idea you think might fit this mod, you can create a feature reque
   Going to the trader at night may result in night-time spawns of undefeated bosses.
 - Toggleable fireplaces will be toggled off by rain [#20](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/20)
 
-If you experience an issue, please file a report in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues).
+If you experience an issue, please file a report in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug).
 
 ## Configuration
 The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/argusmagnus.ServersideQoL.cfg`. Start the server once to generate the file if it does not exist.
