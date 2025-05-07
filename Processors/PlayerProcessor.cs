@@ -1,6 +1,4 @@
-﻿using BepInEx.Logging;
-
-namespace Valheim.ServersideQoL.Processors;
+﻿namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor : Processor
 {
@@ -43,6 +41,8 @@ sealed class PlayerProcessor : Processor
                 case "scything":
                     return cfg.InfiniteFarmingStamina.Value;
                 case "swing_axe0":
+                case "battleaxe_attack0":
+                case "dualaxes0":
                     return cfg.InfiniteWoodCuttingStamina.Value;
                 default:
                     return false;
