@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class TrapProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class TrapProcessor : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {

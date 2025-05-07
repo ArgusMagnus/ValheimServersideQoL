@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class PlayerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class PlayerProcessor : Processor
 {
     readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
 

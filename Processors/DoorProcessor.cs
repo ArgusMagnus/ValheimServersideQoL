@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class DoorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class DoorProcessor : Processor
 {
     readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _openSince = new();
 

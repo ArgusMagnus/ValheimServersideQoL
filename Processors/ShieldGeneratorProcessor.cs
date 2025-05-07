@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class ShieldGeneratorProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class ShieldGeneratorProcessor : Processor
 {
     readonly Dictionary<ExtendedZDO, bool> _shieldGenerators = [];
 

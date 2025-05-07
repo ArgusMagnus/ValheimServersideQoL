@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-abstract class Processor(ManualLogSource logger, ModConfig cfg)
+abstract class Processor
 {
     static IReadOnlyList<Processor>? _defaultProcessors;
     public static IReadOnlyList<Processor> DefaultProcessors => _defaultProcessors ??= [.. typeof(Processor).Assembly.GetTypes()
         .Where(x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
-        .Select(x => (Processor)Activator.CreateInstance(x, args: [Main.Instance.Logger, Main.Instance.Config]))];
+        .Select(x => (Processor)Activator.CreateInstance(x))];
 
     static class InstanceCache<T> where T : Processor
     {
@@ -18,8 +18,8 @@ abstract class Processor(ManualLogSource logger, ModConfig cfg)
     }
     public static T Instance<T>() where T : Processor => InstanceCache<T>.Instance;
 
-    protected ManualLogSource Logger { get; } = logger;
-    protected ModConfig Config { get; } = cfg;
+    protected ManualLogSource Logger => Main.Instance.Logger;
+    protected ModConfig Config => Main.Instance.Config;
 
     public bool DestroyZdo { get; protected set; }
     public bool RecreateZdo { get; protected set; }

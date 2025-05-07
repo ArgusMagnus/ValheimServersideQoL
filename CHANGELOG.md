@@ -1,5 +1,7 @@
 ### v0.2.20
-- New feature: infinite mining/wood cutting stamina
+- New features:
+    - Infinite mining/wood cutting stamina
+    - Support for one config file per world
 - Changed infinite farming/building/mining/wood cutting stamina to only restore the necessary stamina for the action
 - Potential fix for Mod sometimes stops working after a player disconnects [#45](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/45)
 

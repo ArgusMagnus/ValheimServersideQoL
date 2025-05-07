@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class GrowProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class GrowProcessor : Processor
 {
     readonly Dictionary<ExtendedZDO, LastMessage> _lastMessage = new();
 

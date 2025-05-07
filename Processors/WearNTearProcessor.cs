@@ -3,7 +3,7 @@ using static Valheim.ServersideQoL.ModConfig.WearNTearConfig;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class WearNTearProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class WearNTearProcessor : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {

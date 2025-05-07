@@ -9,7 +9,7 @@ using IEnumerable = System.Collections.IEnumerable;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class InGameConfigProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class InGameConfigProcessor : Processor
 {
     const string SignFormatWhite = "<color=white>";
     const string SignFormatGreen = "<color=#00FF00>";

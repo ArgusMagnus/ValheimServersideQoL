@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class WindmillProcesser(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class WindmillProcesser : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class TrophyProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class TrophyProcessor : Processor
 {
     TimeSpan _activationDelay;
     readonly int _spawnerPrefab = "Spawner_Bat".GetStableHashCode();

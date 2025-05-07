@@ -36,8 +36,10 @@ public sealed partial class Main : BaseUnityPlugin
 
     internal static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
     internal new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
-    ModConfig? _config;
-    internal new ModConfig Config => _config ??= new(base.Config);
+    ModConfig? _mainConfig;
+    ModConfig MainConfig => _mainConfig ??= new(base.Config);
+    ModConfig? _worldConfig;
+    internal new ModConfig Config => _worldConfig ?? MainConfig;
 
     readonly Stopwatch _watch = new();
 
@@ -182,7 +184,7 @@ public sealed partial class Main : BaseUnityPlugin
                     continue;
                 }
 
-                while (ZDOMan.instance is null || ZNetScene.instance is null)
+                while (ZDOMan.instance is null || ZNetScene.instance is null || ZNet.World is null)
                     yield return new WaitForSeconds(0.2f);
 
                 if (!Initialize())
@@ -257,6 +259,18 @@ public sealed partial class Main : BaseUnityPlugin
 
     bool Initialize()
     {
+        _worldConfig = null;
+        _executeCounter = 0;
+
+        if (Config.General.ConfigPerWorld.Value)
+        {
+            var path = ZNet.World.GetRootPath(FileHelpers.FileSource.Local);
+            path = $"{path}.{PluginName}.cfg";
+            if (!File.Exists(path) && File.Exists(base.Config.ConfigFilePath))
+                File.Copy(base.Config.ConfigFilePath, path);
+            _worldConfig = new(new(path, true, new(PluginGuid, PluginName, PluginVersion)));
+        }
+
         if (!Config.General.Enabled.Value)
             return false;
 
@@ -303,6 +317,8 @@ public sealed partial class Main : BaseUnityPlugin
 #endif
         return true;
     }
+
+    void OnConfigChanged(object sender, EventArgs e) => _configChanged = true;
 
     void Execute(PeersEnumerable peers)
     {
@@ -362,8 +378,9 @@ public sealed partial class Main : BaseUnityPlugin
                 GenerateDocs();
 #endif
 
-                base.Config.Bind(DummyConfigSection, "Dummy", "", Invariant($"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}"));
-                base.Config.SettingChanged += (_, _) => _configChanged = true;
+                //base.Config.Bind(DummyConfigSection, "Dummy", "", Invariant($"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}"));
+                Config.ConfigFile.SettingChanged -= OnConfigChanged;
+                Config.ConfigFile.SettingChanged += OnConfigChanged;
             }
             else
             {
@@ -570,8 +587,8 @@ public sealed partial class Main : BaseUnityPlugin
 
         foreach (var (def, entry) in cfg.OrderBy(x => x.Key.Section).Select(x => (x.Key, x.Value)))
         {
-            if (def.Section == DummyConfigSection)
-                continue;
+            //if (def.Section == DummyConfigSection)
+            //    continue;
 
             var section = Regex.Replace(def.Section, @"^[A-Z] - ", "");
 

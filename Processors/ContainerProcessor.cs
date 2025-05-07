@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class ContainerProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class ContainerProcessor : Processor
 {
     readonly Dictionary<ItemKey, int> _stackPerItem = new();
     readonly Dictionary<ExtendedZDO, List<ExtendedZDO>> _signsByChests = [];

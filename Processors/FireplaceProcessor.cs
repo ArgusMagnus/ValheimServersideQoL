@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class FireplaceProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class FireplaceProcessor : Processor
 {
     readonly ConcurrentDictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = new();
     readonly List<ExtendedZDO> _fireplaces = [];

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class SmelterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class SmelterProcessor : Processor
 {
     readonly List<ExtendedZDO> _smelters = [];
 

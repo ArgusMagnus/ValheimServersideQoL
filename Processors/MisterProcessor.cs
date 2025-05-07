@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class MisterProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class MisterProcessor : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {

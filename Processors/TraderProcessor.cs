@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class TraderProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class TraderProcessor : Processor
 {
     readonly Dictionary<Trader, List<string>> _globalKeysToSet = [];
     readonly Dictionary<ZDOID, Peer> _reset = [];

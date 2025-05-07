@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class VagonProcesser(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class VagonProcesser : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {

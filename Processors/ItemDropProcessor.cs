@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class ItemDropProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class ItemDropProcessor : Processor
 {
     readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = new();
     readonly List<ExtendedZDO> _itemDrops = [];

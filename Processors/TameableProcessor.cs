@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class TameableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class TameableProcessor : Processor
 {
     readonly Dictionary<ExtendedZDO, DateTimeOffset> _lastMessage = new();
     readonly List<ExtendedZDO> _tames = new();

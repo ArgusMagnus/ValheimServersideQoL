@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class SignProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class SignProcessor : Processor
 {
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");

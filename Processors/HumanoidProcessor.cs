@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class HumanoidProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class HumanoidProcessor : Processor
 {
     readonly IReadOnlyList<int> _statusEffects = [
         //SEMan.s_statusEffectBurning, SEMan.s_statusEffectLightning, SEMan.s_statusEffectPoison,

@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class MapTableProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class MapTableProcessor : Processor
 {
     record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
     readonly List<Pin> _pins = new();

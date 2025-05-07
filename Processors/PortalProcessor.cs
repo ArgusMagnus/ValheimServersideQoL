@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class PortalProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class PortalProcessor : Processor
 {
     bool _destroyNewPortals;
     readonly HashSet<ExtendedZDO> _initialPortals = [];

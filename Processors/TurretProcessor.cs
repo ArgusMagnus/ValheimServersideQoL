@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class TurretProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class TurretProcessor : Processor
 {
     readonly List<ExtendedZDO> _turrets = [];
 

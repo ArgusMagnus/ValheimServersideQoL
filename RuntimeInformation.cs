@@ -6,7 +6,7 @@ namespace Valheim.ServersideQoL;
 
 sealed record RuntimeInformation(string ModVersion, GameVersion GameVersion, uint NetworkVersion, int ItemDataVersion, int WorldVersion, string LoadedMods)
 {
-    sealed record Mod(string GUID, string Name, string? Version);
+    //sealed record Mod(string GUID, string Name, string? Version);
 
     public static RuntimeInformation Instance { get; } = Initialize();
 
@@ -22,11 +22,12 @@ sealed record RuntimeInformation(string ModVersion, GameVersion GameVersion, uin
         if (versionType.GetField("m_worldVersion")?.GetValue(null) is not int worldVersion)
             worldVersion = default;
 
-        var mods = Chainloader.PluginInfos.Values
-            .Where(x => !ReferenceEquals(x.Instance, Main.Instance))
-            .Select(x => new Mod(x.Metadata.GUID, x.Metadata.Name, Invariant($"{x.Metadata.Version}")));
+        //var mods = Chainloader.PluginInfos.Values
+        //    .Where(x => !ReferenceEquals(x.Instance, Main.Instance))
+        //    .Select(x => new Mod(x.Metadata.GUID, x.Metadata.Name, Invariant($"{x.Metadata.Version}")));
 
-        var modsStr = Invariant($"{{ {string.Join(", ", mods)} }}");
+        //var modsStr = Invariant($"{{ {string.Join(", ", mods)} }}");
+        var modsStr = "";
 
         return new(Main.PluginInformationalVersion, gameVersion, networkVersion, itemDataVersion, worldVersion, modsStr);
     }

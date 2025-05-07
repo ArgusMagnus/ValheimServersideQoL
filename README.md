@@ -56,7 +56,7 @@ If you have an idea you think might fit this mod, you can create a feature reque
   Going to the trader at night may result in night-time spawns of undefeated bosses.
 - Toggleable fireplaces will be toggled off by rain [#20](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/20)
 
-If you experience an issue, please file a report in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug).
+If you experience an issue, please file a report in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Abug%20(state%3Aopen%20OR%20label%3Awontfix)).
 
 ## Configuration
 The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/argusmagnus.ServersideQoL.cfg`. Start the server once to generate the file if it does not exist.

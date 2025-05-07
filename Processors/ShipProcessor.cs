@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class ShipProcessor(ManualLogSource logger, ModConfig cfg) : Processor(logger, cfg)
+sealed class ShipProcessor : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
