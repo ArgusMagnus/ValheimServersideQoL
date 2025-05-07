@@ -7,6 +7,7 @@
     - Support for one config file per world [#49](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/49)
 - Changed infinite farming/building/mining/wood cutting stamina to only restore the necessary stamina for the action
 - Potential fix for Mod sometimes stops working after a player disconnects [#45](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/45)
+- Fixed Auto close only player-built doors [#48](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/48)
 
 ### v0.2.19
 - New features:
