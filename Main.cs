@@ -268,6 +268,7 @@ public sealed partial class Main : BaseUnityPlugin
             path = $"{path}.{PluginName}.cfg";
             if (!File.Exists(path) && File.Exists(base.Config.ConfigFilePath))
                 File.Copy(base.Config.ConfigFilePath, path);
+            Logger.LogInfo("Using world config file");
             _worldConfig = new(new(path, true, new(PluginGuid, PluginName, PluginVersion)));
         }
 
