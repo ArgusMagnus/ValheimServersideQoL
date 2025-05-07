@@ -51,7 +51,7 @@ It's designed and tested for **dedicated servers** with **vanilla clients** (e.g
 If you have an idea you think might fit this mod, you can create a feature request issue in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Aenhancement%20).
 
 ## Known Issues
-Known issues are listed in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Abug%20(state%3Aopen%20OR%20label%3Awontfix).
+Known issues are listed in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Abug%20(state%3Aopen%20OR%20label%3Awontfix)).
 If you experience an issue, please file a report there.
 
 ## Configuration
