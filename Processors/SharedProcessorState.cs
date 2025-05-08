@@ -1,7 +1,4 @@
-﻿using BepInEx.Configuration;
-using System.Collections.Concurrent;
-using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -56,13 +53,13 @@ static class SharedProcessorState
         })
         .Where(x => x is not null)];
 
-    static IReadOnlyDictionary<SharedItemDataKey, string>? __characterByTrophy;
-    public static IReadOnlyDictionary<SharedItemDataKey, string> CharacterByTrophy => __characterByTrophy ??= new Func<IReadOnlyDictionary<SharedItemDataKey, string>>(static () =>
+    static IReadOnlyDictionary<SharedItemDataKey, Character>? __characterByTrophy;
+    public static IReadOnlyDictionary<SharedItemDataKey, Character> CharacterByTrophy => __characterByTrophy ??= new Func<IReadOnlyDictionary<SharedItemDataKey, Character>>(static () =>
     {
-        Dictionary<SharedItemDataKey, string> result = new();
+        Dictionary<SharedItemDataKey, Character> result = new();
         foreach (var prefab in ZNetScene.instance.m_prefabs)
         {
-            if (prefab.GetComponent<Character>() is not { m_boss: false } || prefab.GetComponent<CharacterDrop>() is not { } characterDrop)
+            if (prefab.GetComponent<Character>() is not { m_boss: false } character || prefab.GetComponent<CharacterDrop>() is not { } characterDrop)
                 continue;
 
             var drop = characterDrop.m_drops.Select(x => x.m_prefab?.GetComponent<ItemDrop>()).FirstOrDefault(x => x is { m_itemData: { m_shared: { m_itemType: ItemDrop.ItemData.ItemType.Trophy } } });
@@ -71,9 +68,9 @@ static class SharedProcessorState
 
             //Main.Instance.Logger.LogWarning($"{prefab.name}: {drop.name}");
             if (!result.TryGetValue(drop.m_itemData.m_shared, out var otherCharacterPrefab))
-                result.Add(drop.m_itemData.m_shared, prefab.name);
-            else if (drop.name.Contains(prefab.name) || prefab.name.Length < otherCharacterPrefab.Length)
-                result[drop.m_itemData.m_shared] = prefab.name;
+                result.Add(drop.m_itemData.m_shared, character);
+            else if (drop.name.Contains(prefab.name) || prefab.name.Length < otherCharacterPrefab.name.Length)
+                result[drop.m_itemData.m_shared] = character;
         }
         return result;
     }).Invoke();

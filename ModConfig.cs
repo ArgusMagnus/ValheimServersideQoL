@@ -238,6 +238,8 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.Bind(section, nameof(RemoveMistlandsMist), RemoveMistlandsMistOptions.Never,
             new ConfigDescription("Condition to remove the mist from the mistlands", new AcceptableEnum<RemoveMistlandsMistOptions>()));
 
+        public ConfigEntry<bool> UnlockSunkenCryptsAfterElder { get; } = cfg.Bind(section, nameof(UnlockSunkenCryptsAfterElder), false, "True to unlock sunken crypts after the Elder has been defeated");
+
         public enum RemoveMistlandsMistOptions
         {
             Never,
@@ -424,9 +426,9 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class PlantsConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<float> GrowTimeMultiplier { get; } = cfg.Bind(section, nameof(GrowTimeMultiplier), 1f,
-            new ConfigDescription("Multiply plant grow time by this factor", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+            new ConfigDescription("Multiply plant grow time by this factor. 0 to make them grow almost instantly.", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.Bind(section, nameof(SpaceRequirementMultiplier), 1f,
-            new ConfigDescription("Multiply plant grow time by this factor", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+            new ConfigDescription("Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.Bind(section, nameof(DontDestroyIfCantGrow), false, "True to keep plants which can't grow alive");
     }
 

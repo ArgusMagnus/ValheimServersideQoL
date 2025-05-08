@@ -257,11 +257,13 @@ sealed class ExtendedZDO : ZDO
         public string GetString(Expression<Func<TComponent, string>> fieldExpression)
             => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
 
-        ComponentFieldAccessor<TComponent> SetCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int>? remover, Action<ZDO, int, T> setter)
+        ComponentFieldAccessor<TComponent> SetCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, TObj valueObj, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<TObj, T> cast)
+            where TObj : notnull
             where T : notnull
         {
             var hash = GetHash(fieldExpression, out var field);
-            if (remover is not null && value.Equals(field.GetValue(_component)))
+            var value = cast(valueObj);
+            if (remover is not null && value.Equals(cast((TObj)field.GetValue(_component))))
                 remover(_zdo, hash);
             else
             {
@@ -271,6 +273,10 @@ sealed class ExtendedZDO : ZDO
             }
             return this;
         }
+
+        ComponentFieldAccessor<TComponent> SetCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int>? remover, Action<ZDO, int, T> setter)
+            where T : notnull
+            => SetCore(fieldExpression, value, remover, setter, static x => x);
 
         public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, bool>> fieldExpression, bool value)
             => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
@@ -284,20 +290,19 @@ sealed class ExtendedZDO : ZDO
         public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, string>> fieldExpression, string value)
             => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value));
 
-        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, GameObject>> fieldExpression, string value)
-        {
-            var hash = GetHash(fieldExpression, out _);
-            if (!HasFields)
-                SetHasFields(true);
-            _zdo.Set(hash, value);
-            return this;
-        }
+        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, GameObject>> fieldExpression, GameObject value)
+            => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static x => x.name);
 
-        bool SetIfChangedCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<ZDO, int, T?, T> getter)
+        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, ItemDrop>> fieldExpression, ItemDrop value)
+            => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static x => x.name);
+
+        bool SetIfChangedCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, TObj valueObj, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<ZDO, int, T?, T> getter, Func<TObj, T> cast)
+            where TObj : notnull
             where T : notnull
         {
             var hash = GetHash(fieldExpression, out var field);
-            var defaultValue = (T)field.GetValue(_component);
+            var defaultValue = cast((TObj)field.GetValue(_component));
+            var value = cast(valueObj);
             if (value.Equals(getter(_zdo, hash, defaultValue)))
                 return false;
 
@@ -312,6 +317,10 @@ sealed class ExtendedZDO : ZDO
             return true;
         }
 
+        bool SetIfChangedCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<ZDO, int, T?, T> getter)
+            where T : notnull
+            => SetIfChangedCore(fieldExpression, value, remover, setter, getter, static x => x);
+
         public bool SetIfChanged(Expression<Func<TComponent, bool>> fieldExpression, bool value)
             => SetIfChangedCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetBool(hash, defaultValue));
 
@@ -324,10 +333,26 @@ sealed class ExtendedZDO : ZDO
         public bool SetIfChanged(Expression<Func<TComponent, string>> fieldExpression, string value)
             => SetIfChangedCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
 
+        public bool SetIfChanged(Expression<Func<TComponent, GameObject>> fieldExpression, GameObject value)
+            => SetIfChangedCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x.name);
+
+        public bool SetIfChanged(Expression<Func<TComponent, ItemDrop>> fieldExpression, ItemDrop value)
+            => SetIfChangedCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x.name);
+
         ComponentFieldAccessor<TComponent> ResetCore<T>(Expression<Func<TComponent, T>> fieldExpression, Action<ZDO, int> remover)
         {
             var hash = GetHash(fieldExpression, out _);
             remover(_zdo, hash);
+            return this;
+        }
+
+        ComponentFieldAccessor<TComponent> ResetCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, Action<ZDO, int, T> setter, Func<TObj, T> cast)
+            where TObj : notnull
+            where T : notnull
+        {
+            var hash = GetHash(fieldExpression, out var field);
+            var defaultValue = cast((TObj)field.GetValue(_component));
+            setter(_zdo, hash, defaultValue);
             return this;
         }
 
@@ -341,13 +366,13 @@ sealed class ExtendedZDO : ZDO
             => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
 
         public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, string>> fieldExpression)
-        {
-            var hash = GetHash(fieldExpression, out var field);
-            var defaultValue = (string)field.GetValue(_component);
-            _zdo.Set(hash, defaultValue);
-            return this;
+            => ResetCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static x => x);
 
-        }
+        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, GameObject>> fieldExpression)
+            => ResetCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static x => x.name);
+
+        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, ItemDrop>> fieldExpression)
+            => ResetCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static x => x.name);
 
         bool ResetIfChangedCore<T>(Expression<Func<TComponent, T>> fieldExpression, Func<ZDO, int, bool> remover)
         {

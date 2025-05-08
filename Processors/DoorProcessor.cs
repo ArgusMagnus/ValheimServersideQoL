@@ -1,11 +1,18 @@
-﻿using BepInEx.Logging;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class DoorProcessor : Processor
 {
     readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _openSince = new();
+    readonly ItemDrop _unobtainableKey = ObjectDB.instance.GetItemPrefab("Fader_Bite").GetComponent<ItemDrop>();
+    readonly List<ExtendedZDO> _allowedPlayers = [];
+    readonly Dictionary<int, int> _keyItemWeightByHash = [];
+
+    /// <see cref="VisEquipment"/>
+    readonly IEnumerable<int> _visEquipmentVars = [ZDOVars.s_leftItem, ZDOVars.s_rightItem, ZDOVars.s_leftBackItem, ZDOVars.s_rightBackItem,
+        ZDOVars.s_chestItem, ZDOVars.s_legItem, ZDOVars.s_helmetItem, ZDOVars.s_shoulderItem, ZDOVars.s_utilityItem];
 
     public override void Initialize(bool firstTime)
     {
@@ -20,23 +27,91 @@ sealed class DoorProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
-        if (zdo.PrefabInfo.Door is null || float.IsNaN(Config.Doors.AutoCloseMinPlayerDistance.Value))
-        {
-            UnregisterZdoProcessor = true;
+        const int StateClosed = 0;
+
+        UnregisterZdoProcessor = true;
+        if (zdo.PrefabInfo.Door is null)
             return false;
+
+        if (zdo.PrefabInfo.Door.m_keyItem is { name: "CryptKey" } && zdo.Vars.GetState() is StateClosed)
+        {
+            var fields = zdo.Fields<Door>();
+            if (!Config.World.UnlockSunkenCryptsAfterElder.Value)
+                fields.Reset(x => x.m_keyItem);
+            else
+            {
+                UnregisterZdoProcessor = false;
+
+                /// <see cref="RandEventSystem.GetPossibleRandomEvents"/> <see cref="Player.UpdateEvents"/>
+                _allowedPlayers.Clear();
+                if (ZoneSystem.instance.GetGlobalKey(GlobalKeys.defeated_gdking))
+                {
+                    foreach (var peer in peers)
+                    {
+                        static bool ElderDefeated(string possibleEvents)
+                        {
+                            if (possibleEvents.Contains("army_theelder"))
+                                return false;
+                            return possibleEvents.Contains("foresttrolls");
+                        }
+
+                        if (Vector3.Distance(peer.m_refPos, zdo.GetPosition()) > ZoneSystem.c_ZoneHalfSize / 2 || !ElderDefeated(peer.m_serverSyncedPlayerData["possibleEvents"]))
+                            continue;
+                        if (Instance<PlayerProcessor>().Players.TryGetValue(peer.m_characterID, out var player))
+                            _allowedPlayers.Add(player);
+                    }
+                }
+
+                if (_allowedPlayers.Count is 0)
+                {
+                    if (fields.SetIfChanged(x => x.m_keyItem, _unobtainableKey))
+                        RecreateZdo = true;
+                }
+                else
+                {
+                    // Not possible to set m_keyItem to null, so an item possessed by all players is chosen
+                    int maxWeight = 0;
+                    int keyHash = 0;
+                    foreach (var zdoVar in _visEquipmentVars)
+                    {
+                        foreach (var player in _allowedPlayers)
+                        {
+                            var itemHash = player.GetInt(zdoVar);
+                            if (itemHash is 0)
+                                continue;
+                            if (!_keyItemWeightByHash.TryGetValue(itemHash, out var weight))
+                                weight = 1;
+                            else
+                                weight++;
+                            _keyItemWeightByHash[itemHash] = weight;
+                            if (weight <= maxWeight)
+                                continue;
+                            maxWeight = weight;
+                            keyHash = itemHash;
+                        }
+                    }
+                    _keyItemWeightByHash.Clear();
+
+                    if (keyHash is 0 || ObjectDB.instance.GetItemPrefab(keyHash)?.GetComponent<ItemDrop>() is not { } keyItem)
+                        Logger.LogWarning($"Item {keyHash} was chosen as key, but it's not a valid ItemDrop");
+                    else if (fields.SetIfChanged(x => x.m_keyItem, keyItem))
+                        RecreateZdo = true;
+                }
+            }
         }
+
+        if (float.IsNaN(Config.Doors.AutoCloseMinPlayerDistance.Value))
+            return false;
 
         /// <see cref="Door.CanInteract"/>
         if (zdo.PrefabInfo.Door.m_keyItem is not null || zdo.PrefabInfo.Door.m_canNotBeClosed || zdo.Vars.GetCreator() is 0)
-        {
-            UnregisterZdoProcessor = true;
             return false;
-        }
+
+        UnregisterZdoProcessor = false;
 
         if (!CheckMinDistance(peers, zdo, Config.Doors.AutoCloseMinPlayerDistance.Value))
             return false;
 
-        const int StateClosed = 0;
         if (zdo.Vars.GetState() is StateClosed)
         {
             _openSince.TryRemove(zdo, out _);

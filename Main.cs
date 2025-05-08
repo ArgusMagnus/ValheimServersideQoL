@@ -259,6 +259,10 @@ public sealed partial class Main : BaseUnityPlugin
 
     bool Initialize()
     {
+        if (_mainConfig is not null)
+            _mainConfig.ConfigFile.SettingChanged -= OnConfigChanged;
+        if (_worldConfig is not null)
+            _worldConfig.ConfigFile.SettingChanged -= OnConfigChanged;
         _worldConfig = null;
         _executeCounter = 0;
 
@@ -706,6 +710,7 @@ public sealed partial class Main : BaseUnityPlugin
         WritePrefabsFile(docsPath, "PrefabsVFX.md", prefabsVfx);
 
         WriteLocalizationsFile(docsPath, "Localization.md");
+        WriteEventsFile(docsPath, "RandomEvents.md");
 
         return;
 
@@ -736,6 +741,25 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine("|---|-------|");
             foreach (var (key, value) in Localization.instance.GetStrings().Select(x => (x.Key, x.Value)).OrderBy(x => x.Key))
                 writer.WriteLine(Invariant($"|{key}|{value?.Replace("\n", "<br>") ?? "*null*"}|"));
+        }
+
+        static void WriteEventsFile(string path, string filename)
+        {
+            using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
+            writer.WriteLine("# Random Events");
+            writer.WriteLine();
+            writer.WriteLine("|Name|Player: required **not** known items (all)|Player: required **not** set keys (all)|Player: required known items (any)|Player: required keys (any)|Player: required keys (all)|");
+            writer.WriteLine("|----|------------------------------------------|---------------------------------------|----------------------------------|---------------------------|---------------------------|");
+            foreach (var ev in RandEventSystem.instance.m_events.Where(x => x.m_enabled && x.m_random).OrderBy(x => x.m_name))
+            {
+                /// <see cref="RandEventSystem.PlayerIsReadyForEvent(Player, RandomEvent)"/>
+                var altRequiredNotKnownItems = string.Join("<br>", ev.m_altRequiredNotKnownItems.Select(x => $"- {x.name}"));
+                var altNotRequiredPlayerKeys = string.Join("<br>", ev.m_altNotRequiredPlayerKeys.Select(x => $"- {x}"));
+                var altRequiredKnownItems = string.Join("<br>", ev.m_altRequiredKnownItems.Select(x => $"- {x.name}"));
+                var altRequiredPlayerKeysAny = string.Join("<br>", ev.m_altRequiredPlayerKeysAny.Select(x => $"- {x}"));
+                var altRequiredPlayerKeysAll = string.Join("<br>", ev.m_altRequiredPlayerKeysAll.Select(x => $"- {x}"));
+                writer.WriteLine(Invariant($"|{ev.m_name}|{altRequiredNotKnownItems}|{altNotRequiredPlayerKeys}|{altRequiredKnownItems}|{altRequiredPlayerKeysAny}|{altRequiredPlayerKeysAll}|"));
+            }
         }
     }
 #endif

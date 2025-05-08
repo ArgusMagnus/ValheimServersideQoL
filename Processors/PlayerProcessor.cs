@@ -3,6 +3,7 @@
 sealed class PlayerProcessor : Processor
 {
     readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
+    public IReadOnlyDictionary<ZDOID, ExtendedZDO> Players => _players;
 
     public override void Initialize(bool firstTime)
     {

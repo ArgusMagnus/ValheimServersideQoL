@@ -50,8 +50,8 @@
 |Map Tables|AutoUpdatePortalsExclude|||Portals with a tag that matches this filter are not added to map tables|
 |Map Tables|AutoUpdatePortalsInclude|*||Only portals with a tag that matches this filter are added to map tables|
 |Map Tables|AutoUpdateShips|False|True/False|True to update map tables with ship pins|
-|Plants|GrowTimeMultiplier|1|From 0 to Infinity|Multiply plant grow time by this factor|
-|Plants|SpaceRequirementMultiplier|1|From 0 to Infinity|Multiply plant grow time by this factor|
+|Plants|GrowTimeMultiplier|1|From 0 to Infinity|Multiply plant grow time by this factor. 0 to make them grow almost instantly.|
+|Plants|SpaceRequirementMultiplier|1|From 0 to Infinity|Multiply plant space requirement by this factor. 0 to disable space requirements.|
 |Plants|DontDestroyIfCantGrow|False|True/False|True to keep plants which can't grow alive|
 |Players|InfiniteBuildingStamina|False|True/False|True to give players infinite stamina when building. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|InfiniteFarmingStamina|False|True/False|True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
@@ -131,6 +131,7 @@
 |Turrets|LoadFromContainersRange|4||Required proxmity of a container to a ballista to be used as ammo source|
 |Windmills|IgnoreWind|False|True/False|True to make windmills ignore wind (Cover still decreases operating efficiency though)|
 |World|RemoveMistlandsMist|Never|Never, Always, AfterQueenKilled, InsideShield|Condition to remove the mist from the mistlands|
+|World|UnlockSunkenCryptsAfterElder|False|True/False|True to unlock sunken crypts after the Elder has been defeated|
 |World Modifiers|SetPresetFromConfig|False|True/False|True to set the world preset according to the 'Preset' config entry|
 |World Modifiers|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|
 |World Modifiers|SetModifiersFromConfig|False|True/False|True to set world modifiers according to the following configuration entries|
