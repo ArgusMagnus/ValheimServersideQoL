@@ -118,7 +118,7 @@ abstract class Processor
         return $"(?i)^{searchPattern}$";
     }
 
-    static bool HandleRoutedRPCPrefix(ZRoutedRpc.RoutedRPCData data)
+    static void HandleRoutedRPCPrefix(ZRoutedRpc.RoutedRPCData data)
     {
         if (__methods.TryGetValue(data.m_methodHash, out var rpcMethod))
         {
@@ -133,6 +133,7 @@ abstract class Processor
                     {
                         List<object> parameters = [];
                         ZRpc.Deserialize(del.Method.GetParameters(), data.m_parameters, ref parameters);
+                        data.m_parameters.GetStream().Seek(0, SeekOrigin.Begin);
                         args = [data, .. parameters];
                     }
                     catch (Exception ex) { exception = ex; }
@@ -156,14 +157,12 @@ abstract class Processor
                 }
             }
         }
-        
-        return true;
     }
 
     sealed record RpcMethod(string Name, List<Delegate> Delegates);
     static readonly Dictionary<int, RpcMethod> __methods = [];
     static readonly MethodInfo __handleRoutedRPCMethod = typeof(ZRoutedRpc).GetMethod("HandleRoutedRPC", BindingFlags.NonPublic | BindingFlags.Instance);
-    static readonly MethodInfo __handleRoutedRPCPrefix = new Func<ZRoutedRpc.RoutedRPCData, bool>(HandleRoutedRPCPrefix).Method;
+    static readonly MethodInfo __handleRoutedRPCPrefix = new Action<ZRoutedRpc.RoutedRPCData>(HandleRoutedRPCPrefix).Method;
 
     protected static void UpdateRpcSubscription(string methodName, Delegate handler, bool subscribe)
     {

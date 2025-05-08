@@ -1,3 +1,6 @@
+### v0.2.21
+- Fix for [#53](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/53): Unable to use tools/weapons
+
 ### v0.2.20
 - New features:
     - Infinite mining/wood cutting stamina
