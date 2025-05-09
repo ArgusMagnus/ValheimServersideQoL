@@ -5,14 +5,13 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class DoorProcessor : Processor
 {
-    readonly Dictionary<ExtendedZDO, DateTimeOffset> _openSince = new();
-    readonly ItemDrop _unobtainableKey = ObjectDB.instance.GetItemPrefab("Fader_Bite").GetComponent<ItemDrop>();
+    readonly Dictionary<ExtendedZDO, DateTimeOffset> _openSince = [];
     readonly List<ExtendedZDO> _allowedPlayers = [];
     readonly Dictionary<int, int> _keyItemWeightByHash = [];
 
     /// <see cref="VisEquipment"/>
-    readonly IEnumerable<int> _visEquipmentVars = [ZDOVars.s_leftItem, ZDOVars.s_rightItem, ZDOVars.s_leftBackItem, ZDOVars.s_rightBackItem,
-        ZDOVars.s_chestItem, ZDOVars.s_legItem, ZDOVars.s_helmetItem, ZDOVars.s_shoulderItem, ZDOVars.s_utilityItem];
+    readonly IEnumerable<int> _visEquipmentVars = [ZDOVars.s_helmetItem, ZDOVars.s_chestItem, ZDOVars.s_legItem, ZDOVars.s_shoulderItem, ZDOVars.s_utilityItem,
+        ZDOVars.s_leftItem, ZDOVars.s_rightItem, ZDOVars.s_leftBackItem, ZDOVars.s_rightBackItem];
 
     void OnDoorDestroyed(ExtendedZDO zdo)
     {
@@ -58,7 +57,7 @@ sealed class DoorProcessor : Processor
 
                 if (_allowedPlayers.Count is 0)
                 {
-                    if (fields.SetIfChanged(x => x.m_keyItem, _unobtainableKey))
+                    if (fields.ResetIfChanged(x => x.m_keyItem))
                         RecreateZdo = true;
                 }
                 else
