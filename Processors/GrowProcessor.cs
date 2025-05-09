@@ -15,17 +15,6 @@ sealed class GrowProcessor : Processor
         public int Progress { get; set; }
     }
 
-    public override void Initialize(bool firstTime)
-    {
-        base.Initialize(firstTime);
-        RegisterZdoDestroyed();
-    }
-
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
-    {
-        _lastMessage.Remove(zdo);
-    }
-
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo is not { EggGrow: not null } and not { Growup: not null } || !Config.Tames.ShowGrowingProgress.Value)
@@ -48,7 +37,10 @@ sealed class GrowProcessor : Processor
             return false;
 
         if (lastMessage is null)
-            _lastMessage[zdo] = lastMessage = new();
+        {
+            _lastMessage.Add(zdo, lastMessage = new());
+            zdo.Destroyed += x => _lastMessage.Remove(x);
+        }
         lastMessage.Timestamp = DateTimeOffset.UtcNow;
         lastMessage.Progress = progress;
 

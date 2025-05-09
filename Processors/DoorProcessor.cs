@@ -5,7 +5,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class DoorProcessor : Processor
 {
-    readonly ConcurrentDictionary<ExtendedZDO, DateTimeOffset> _openSince = new();
+    readonly Dictionary<ExtendedZDO, DateTimeOffset> _openSince = new();
     readonly ItemDrop _unobtainableKey = ObjectDB.instance.GetItemPrefab("Fader_Bite").GetComponent<ItemDrop>();
     readonly List<ExtendedZDO> _allowedPlayers = [];
     readonly Dictionary<int, int> _keyItemWeightByHash = [];
@@ -14,15 +14,9 @@ sealed class DoorProcessor : Processor
     readonly IEnumerable<int> _visEquipmentVars = [ZDOVars.s_leftItem, ZDOVars.s_rightItem, ZDOVars.s_leftBackItem, ZDOVars.s_rightBackItem,
         ZDOVars.s_chestItem, ZDOVars.s_legItem, ZDOVars.s_helmetItem, ZDOVars.s_shoulderItem, ZDOVars.s_utilityItem];
 
-    public override void Initialize(bool firstTime)
+    void OnDoorDestroyed(ExtendedZDO zdo)
     {
-        base.Initialize(firstTime);
-        RegisterZdoDestroyed();
-    }
-
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
-    {
-        _openSince.TryRemove(zdo, out _);
+        _openSince.Remove(zdo);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
@@ -114,16 +108,23 @@ sealed class DoorProcessor : Processor
 
         if (zdo.Vars.GetState() is StateClosed)
         {
-            _openSince.TryRemove(zdo, out _);
+            if (_openSince.Remove(zdo))
+                zdo.Destroyed -= OnDoorDestroyed;
             return true;
         }
 
-        var openSince = _openSince.GetOrAdd(zdo, DateTimeOffset.UtcNow);
+        if (!_openSince.TryGetValue(zdo, out var openSince))
+        {
+            _openSince.Add(zdo, openSince = DateTimeOffset.UtcNow);
+            zdo.Destroyed += OnDoorDestroyed;
+        }
+
         if (DateTimeOffset.UtcNow - openSince < TimeSpan.FromSeconds(2))
             return false;
 
         zdo.Vars.SetState(StateClosed);
-        _openSince.TryRemove(zdo, out _);
+        if (_openSince.Remove(zdo))
+            zdo.Destroyed -= OnDoorDestroyed;
 
         return true;
     }

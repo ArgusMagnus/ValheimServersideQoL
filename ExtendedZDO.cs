@@ -17,6 +17,9 @@ sealed class ExtendedZDO : ZDO
 {
     ZDOID _lastId = ZDOID.None;
     AdditionalData_? _addData;
+
+    public delegate void RecreateHandler(ExtendedZDO oldZdo, ExtendedZDO newZdo);
+
     AdditionalData_ AddData
     {
         get
@@ -38,6 +41,33 @@ sealed class ExtendedZDO : ZDO
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
     public bool HasFields => AddData.HasFields ??= GetBool(__hasFieldsHash);
+
+    public event RecreateHandler? Recreated
+    {
+        add => AddData.Recreated += value;
+        remove => AddData.Recreated -= value;
+    }
+
+    static bool _onZdoDestroyedRegistered;
+    static void OnZdoDestroyed(ZDO zdo)
+    {
+        var exZdo = (ExtendedZDO)zdo;
+        exZdo._addData?.Destroyed?.Invoke(exZdo);
+    }
+
+    public event Action<ExtendedZDO>? Destroyed
+    {
+        add
+        {
+            if (!_onZdoDestroyedRegistered)
+            {
+                ZDOMan.instance.m_onZDODestroyed += OnZdoDestroyed;
+                _onZdoDestroyedRegistered = true;
+            }
+            AddData.Destroyed += value;
+        }
+        remove => AddData.Destroyed -= value;
+    }
 
     public ZDOVars_ Vars => new(this);
 
@@ -102,11 +132,14 @@ sealed class ExtendedZDO : ZDO
         var pkg = new ZPackage();
         Serialize(pkg);
 
-        Destroy();
-
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.Deserialize(new(pkg.GetArray()));
         zdo.SetOwnerInternal(owner);
+
+        // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
+        _addData?.Recreated?.Invoke(this, zdo);
+
+        Destroy();
         return zdo;
     }
 
@@ -178,6 +211,17 @@ sealed class ExtendedZDO : ZDO
         public void SetPermitted(int value) => _zdo.Set(ZDOVars.s_permitted, value);
         public int GetLevel(int defaultValue = 1) => _zdo.GetInt(ZDOVars.s_level, defaultValue);
         public void SetLevel(int value) => _zdo.Set(ZDOVars.s_level, value);
+        public bool GetPatrol(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_patrol, defaultValue);
+        public void SetPatrol(bool value) => _zdo.Set(ZDOVars.s_patrol, value);
+        public Vector3 GetPatrolPoint(Vector3 defaultValue = default) => _zdo.GetVec3(ZDOVars.s_patrolPoint, defaultValue);
+        public void SetPatrolPoint(Vector3 value) => _zdo.Set(ZDOVars.s_patrolPoint, value);
+        public Vector3 GetSpawnPoint(Vector3 defaultValue = default) => _zdo.GetVec3(ZDOVars.s_spawnPoint, defaultValue);
+        public void SetSpawnPoint(Vector3 value) => _zdo.Set(ZDOVars.s_spawnPoint, value);
+
+
+        static int __lastSpawnedTime = $"{Main.PluginGuid}.LastSpawnedTime".GetStableHashCode();
+        public DateTimeOffset GetLastSpawnedTime(DateTimeOffset defaultValue = default) => new(_zdo.GetLong(__lastSpawnedTime, defaultValue.Ticks), default);
+        public void SetLastSpawnedTime(DateTimeOffset value) => _zdo.Set(__lastSpawnedTime, value.Ticks - value.Offset.Ticks);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
@@ -188,6 +232,8 @@ sealed class ExtendedZDO : ZDO
         public Dictionary<Processor, uint>? ProcessorDataRevisions { get; set; }
         public ZDOInventory? Inventory { get; set; }
         public bool? HasFields { get; set; }
+        public RecreateHandler? Recreated { get; set; }
+        public Action<ExtendedZDO>? Destroyed { get; set; }
 
         static ConcurrentDictionary<int, IReadOnlyList<Processor>> _processors = new();
 

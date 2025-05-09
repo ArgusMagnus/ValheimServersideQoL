@@ -4,20 +4,21 @@ sealed class PlayerProcessor : Processor
 {
     readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
     public IReadOnlyDictionary<ZDOID, ExtendedZDO> Players => _players;
+    public event Action<ExtendedZDO>? PlayerDestroyed;
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
-        RegisterZdoDestroyed();
 
         UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger,
             (Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value || Config.Players.InfiniteWoodCuttingStamina.Value)
             && Game.m_staminaRate > 0);
     }
 
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        _players.Remove(zdo.m_uid);
+        if (_players.Remove(zdo.m_uid))
+            PlayerDestroyed?.Invoke(zdo);
     }
 
     /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
@@ -64,7 +65,8 @@ sealed class PlayerProcessor : Processor
         if (zdo.PrefabInfo.Player is null)
             return false;
 
-        _players.TryAdd(zdo.m_uid, zdo);
+        if (_players.TryAdd(zdo.m_uid, zdo))
+            zdo.Destroyed += OnZdoDestroyed;
 
         if (!Config.Tames.TeleportFollow.Value)
             return false;
@@ -85,6 +87,7 @@ sealed class PlayerProcessor : Processor
                 continue;
 
             /// Maybe take inspiration from <see cref="TeleportWorld.Teleport"/> for better placement
+            /// Quaternion.Euler(0f, UnityEngine.Random.Range(-30, 30), 0f) * vector
             var targetPos = zdo.GetPosition();
             targetPos.x += UnityEngine.Random.Range(-4, 4);
             targetPos.z += UnityEngine.Random.Range(-4, 4);

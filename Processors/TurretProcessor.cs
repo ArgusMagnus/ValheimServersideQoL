@@ -13,13 +13,7 @@ sealed class TurretProcessor : Processor
         if (!firstTime)
             return;
 
-        RegisterZdoDestroyed();
         Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
-    }
-
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
-    {
-        _turrets.Remove(zdo);
     }
 
     void OnContainerChanged(ExtendedZDO containerZdo)
@@ -168,7 +162,10 @@ sealed class TurretProcessor : Processor
         //    RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_noturretammo");
 
         if (!_turrets.Contains(zdo))
+        {
             _turrets.Add(zdo);
+            zdo.Destroyed += x => _turrets.Remove(x);
+        }
 
         return true;
         //return currentAmmo > 0;

@@ -261,8 +261,8 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription("Maximum level of spawned mobs. The actual maximum level is chosen between 1 and this value based on the stack size of the dropped trophies",
                 new AcceptableValueRange<int>(1, 9)));
 
-        public ConfigEntry<int> LevelUpChance { get; } = cfg.Bind(section, nameof(LevelUpChance), 10,
-            new ConfigDescription("Level up chance for spawned mobs", new AcceptableValueRange<int>(0, 100)));
+        public ConfigEntry<int> LevelUpChanceOverride { get; } = cfg.Bind(section, nameof(LevelUpChanceOverride), -1,
+            new ConfigDescription("Level up chance override for spawned mobs. If < 0, world default is used", new AcceptableValueRange<int>(-1, 100)));
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

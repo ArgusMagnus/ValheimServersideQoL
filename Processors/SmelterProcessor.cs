@@ -1,5 +1,4 @@
-﻿using BepInEx.Logging;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -13,13 +12,7 @@ sealed class SmelterProcessor : Processor
         if (!firstTime)
             return;
 
-        RegisterZdoDestroyed();
         Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
-    }
-
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
-    {
-        _smelters.Remove(zdo);
     }
 
     void OnContainerChanged(ExtendedZDO containerZdo)
@@ -246,7 +239,10 @@ sealed class SmelterProcessor : Processor
         }
 
         if (!_smelters.Contains(zdo))
+        {
             _smelters.Add(zdo);
+            zdo.Destroyed += x => _smelters.Remove(x);
+        }
 
         return true;
     }

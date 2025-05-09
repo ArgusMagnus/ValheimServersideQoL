@@ -17,12 +17,11 @@ sealed class TraderProcessor : Processor
             if (list.Count > 0)
                 _globalKeysToSet.Add(trader, list);
         }
-        RegisterZdoDestroyed();
-    }
 
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
-    {
-        _reset.Remove(zdo.m_uid);
+        if (!firstTime)
+            return;
+
+        Instance<PlayerProcessor>().PlayerDestroyed += zdo => _reset.Remove(zdo.m_uid);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)

@@ -17,7 +17,7 @@ sealed class InGameConfigProcessor : Processor
     internal const string PortalHubTag = $"{Main.PluginName} Portal Hub";
     const float FloorOffset = 5;
 
-    readonly Dictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = new();
+    readonly Dictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = [];
 
     sealed record ConfigState(ConfigEntryBase Entry, object? Value, ExtendedZDO Sign)
     {
@@ -270,7 +270,6 @@ sealed class InGameConfigProcessor : Processor
 
         Config.ConfigFile.SettingChanged -= OnSettingsChanged;
         Config.ConfigFile.SettingChanged += OnSettingsChanged;
-        RegisterZdoDestroyed();
     }
 
     void OnSettingsChanged(object sender, EventArgs args)
@@ -403,11 +402,6 @@ sealed class InGameConfigProcessor : Processor
         }
     }
 
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
-    {
-        _isAdmin.Remove(zdo.m_uid);
-    }
-
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (!Config.General.InWorldConfigRoom.Value)
@@ -428,6 +422,7 @@ sealed class InGameConfigProcessor : Processor
                     peer = peers.First(x => x.m_characterID == zdo.m_uid);
                 isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.GetHostName());
                 _isAdmin.Add(zdo.m_uid, (zdo, isAdmin));
+                zdo.Destroyed += x => _isAdmin.Remove(x.m_uid);
                 if (isAdmin)
                     UnregisterZdoProcessor = true;
             }

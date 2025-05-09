@@ -1,5 +1,7 @@
-### v0.2.21
+### v0.2.22
 - New feature: Allow unlocking of crypt doors if Elder has been defeated [#50](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/50)
+
+### v0.2.21
 - Fix for [#53](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/53): Unable to use tools/weapons
 
 ### v0.2.20

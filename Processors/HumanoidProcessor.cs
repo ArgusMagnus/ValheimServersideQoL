@@ -19,12 +19,6 @@ sealed class HumanoidProcessor : Processor
     {
         base.Initialize(firstTime);
         _states.Clear();
-        RegisterZdoDestroyed();
-    }
-
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
-    {
-        _states.Remove(zdo);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
@@ -53,6 +47,7 @@ sealed class HumanoidProcessor : Processor
                     (!tamed && Config.Creatures.ShowHigherLevelAura.Value.HasFlag(ModConfig.CreaturesConfig.ShowHigherLevelAuraOptions.Wild)))
                 {
                     _states.Add(zdo, state = new(_statusEffects[UnityEngine.Random.Range(0, _statusEffects.Count)]));
+                    zdo.Destroyed += x => _states.Remove(x);
                 }
             }
         }

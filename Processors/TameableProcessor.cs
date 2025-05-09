@@ -10,18 +10,6 @@ sealed class TameableProcessor : Processor
     readonly List<ExtendedZDO> _tames = new();
     public IReadOnlyList<ExtendedZDO> Tames => _tames;
 
-    public override void Initialize(bool firstTime)
-    {
-        base.Initialize(firstTime);
-        RegisterZdoDestroyed();
-    }
-
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
-    {
-        _lastMessage.Remove(zdo);
-        _tames.Remove(zdo);
-    }
-
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         UnregisterZdoProcessor = true;
@@ -54,7 +42,10 @@ sealed class TameableProcessor : Processor
                 RecreateZdo = true;
 
             if (!RecreateZdo)
+            {
                 _tames.Add(zdo);
+                zdo.Destroyed += x => _tames.Remove(x);
+            }
         }
         else if (Config.Tames.ShowTamingProgress.Value)
         {
@@ -67,6 +58,8 @@ sealed class TameableProcessor : Processor
             {
                 if (!_lastMessage.TryGetValue(zdo, out var lastMessage) || (DateTimeOffset.UtcNow - lastMessage) > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
                 {
+                    if (lastMessage == default)
+                        zdo.Destroyed += x => _lastMessage.Remove(x);
                     _lastMessage[zdo] = DateTimeOffset.UtcNow;
                     var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
                     RPC.ShowInWorldText(peers, DamageText.TextType.Normal, zdo.GetPosition(), $"$hud_tameness {tameness:P0}");

@@ -124,7 +124,7 @@
 |Trophy Spawner|MinRespawnDelay|12||Minimum respawn delay in seconds. The actual respawn delay is chosen between min and max based on the stack size of the dropped trophies|
 |Trophy Spawner|MaxRespawnDelay|240||Maximum respawn delay in seconds. The actual respawn delay is chosen between min and max based on the stack size of the dropped trophies|
 |Trophy Spawner|MaxLevel|3|From 1 to 9|Maximum level of spawned mobs. The actual maximum level is chosen between 1 and this value based on the stack size of the dropped trophies|
-|Trophy Spawner|LevelUpChance|10|From 0 to 100|Level up chance for spawned mobs|
+|Trophy Spawner|LevelUpChanceOverride|-1|From -1 to 100|Level up chance override for spawned mobs. If < 0, world default is used|
 |Turrets|DontTargetPlayers|False|True/False|True to stop ballistas from targeting players|
 |Turrets|DontTargetTames|False|True/False|True to stop ballistas from targeting tames|
 |Turrets|LoadFromContainers|False|True/False|True to automatically load ballistas from containers|

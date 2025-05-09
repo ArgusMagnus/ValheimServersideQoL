@@ -53,22 +53,29 @@ sealed class PortalProcessor : Processor
         if (changed || !_hubEnabled)
             UpdatePortalHub();
 
+        foreach (var zdo in _initialPortals)
+            zdo.Destroyed -= OnInitialPortalDestroyed;
         _initialPortals.Clear();
+
         _destroyNewPortals = Config.GlobalsKeys.NoPortalsPreventsContruction.Value && ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoPortals);
         if (_destroyNewPortals)
         {
             ZoneSystem.instance.RemoveGlobalKey(GlobalKeys.NoPortals);
             foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
+            {
                 _initialPortals.Add(zdo);
+                zdo.Destroyed += OnInitialPortalDestroyed;
+            }
         }
-
-        if (_destroyNewPortals || _hubEnabled)
-            RegisterZdoDestroyed();
     }
 
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    void OnInitialPortalDestroyed(ExtendedZDO zdo)
     {
         _initialPortals.Remove(zdo);
+    }
+
+    void OnKnownPortalDestroyed(ExtendedZDO zdo)
+    {
         if (_hubEnabled && _knownPortals.Remove(zdo))
             _updateHub = true;
     }
@@ -138,6 +145,8 @@ sealed class PortalProcessor : Processor
 
             if (CheckFilter(zdo, tag) && oldTag != tag)
             {
+                if (oldTag == default)
+                    zdo.Destroyed += OnKnownPortalDestroyed;
                 _knownPortals[zdo] = tag;
                 _updateHub = true;
             }

@@ -23,20 +23,17 @@ sealed class ContainerProcessor : Processor
             zdo.Destroy();
         _signsByChests.Clear();
         _chestsBySigns.Clear();
-
-        RegisterZdoDestroyed();
     }
 
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    void OnChestDestroyed(ExtendedZDO zdo)
     {
         if (_signsByChests.Remove(zdo, out var signs))
         {
             foreach (var sign in signs)
+            {
+                _chestsBySigns.Remove(sign);
                 sign.Destroy();
-        }
-        else
-        {
-            _chestsBySigns.Remove(zdo);
+            }
         }
     }
 
@@ -103,6 +100,8 @@ sealed class ContainerProcessor : Processor
                 _chestsBySigns.Add(sign, zdo);
             }
             _signsByChests.Add(zdo, signs);
+            zdo.Destroyed -= OnChestDestroyed;
+            zdo.Destroyed += OnChestDestroyed;
         }
 
         var fields = zdo.Fields<Container>();

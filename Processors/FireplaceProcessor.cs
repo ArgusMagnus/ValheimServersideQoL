@@ -6,7 +6,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class FireplaceProcessor : Processor
 {
-    readonly ConcurrentDictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = new();
+    readonly Dictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = new();
     readonly List<ExtendedZDO> _fireplaces = [];
 
     public override void Initialize(bool firstTime)
@@ -14,7 +14,7 @@ sealed class FireplaceProcessor : Processor
         base.Initialize(firstTime);
         if (!firstTime)
             return;
-        RegisterZdoDestroyed();
+
         Instance<ShieldGeneratorProcessor>().ShieldGeneratorChanged += OnShieldGeneratorChanged;
     }
 
@@ -27,9 +27,9 @@ sealed class FireplaceProcessor : Processor
         }
     }
 
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    void OnFireplaceDestroyed(ExtendedZDO zdo)
     { 
-        if (_enclosure.TryRemove(zdo, out var enclosures))
+        if (_enclosure.Remove(zdo, out var enclosures))
         {
             foreach (var piece in enclosures)
                 DestroyPiece(piece);
@@ -81,7 +81,10 @@ sealed class FireplaceProcessor : Processor
             if (fields.SetIfChanged(x => x.m_disableCoverCheck, true))
                 RecreateZdo = true;
             if (!RecreateZdo && !_enclosure.ContainsKey(zdo))
-                _enclosure.TryAdd(zdo, [.. PlaceEnclosure(zdo.GetPosition(), offset, zdo.PrefabInfo.Fireplace.m_coverCheckOffset)]);
+            {
+                _enclosure.Add(zdo, [.. PlaceEnclosure(zdo.GetPosition(), offset, zdo.PrefabInfo.Fireplace.m_coverCheckOffset)]);
+                zdo.Destroyed += OnFireplaceDestroyed;
+            }
         }
         else
         {
@@ -89,10 +92,11 @@ sealed class FireplaceProcessor : Processor
                 RecreateZdo = true;
             if (fields.ResetIfChanged(x => x.m_disableCoverCheck))
                 RecreateZdo = true;
-            if (_enclosure.TryRemove(zdo, out var enclosures))
+            if (_enclosure.Remove(zdo, out var enclosures))
             {
                 foreach (var piece in enclosures)
                     DestroyPiece(piece);
+                zdo.Destroyed -= OnFireplaceDestroyed;
             }
         }
 

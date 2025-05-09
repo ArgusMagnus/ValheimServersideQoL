@@ -13,13 +13,7 @@ sealed class ShieldGeneratorProcessor : Processor
     public delegate void ShieldGeneratorChangedHandler(ExtendedZDO shieldGenerator, bool hasFuel);
     public event ShieldGeneratorChangedHandler? ShieldGeneratorChanged;
 
-    public override void Initialize(bool firstTime)
-    {
-        base.Initialize(firstTime);
-        RegisterZdoDestroyed();
-    }
-
-    protected override void OnZdoDestroyed(ExtendedZDO zdo)
+    void OnShieldGeneratorDestroyed(ExtendedZDO zdo)
     {
         if (_shieldGenerators.Remove(zdo))
             _info = null;
@@ -36,6 +30,8 @@ sealed class ShieldGeneratorProcessor : Processor
         var hasFuel = zdo.Vars.GetFuel() > 0;
         if (!_shieldGenerators.TryGetValue(zdo, out var oldFuel) || hasFuel != oldFuel)
         {
+            if (oldFuel == default)
+                zdo.Destroyed += OnShieldGeneratorDestroyed;
             _shieldGenerators[zdo] = hasFuel;
             _info = null;
             ShieldGeneratorChanged?.Invoke(zdo, hasFuel);
