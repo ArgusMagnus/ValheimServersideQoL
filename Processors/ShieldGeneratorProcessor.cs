@@ -30,7 +30,7 @@ sealed class ShieldGeneratorProcessor : Processor
         var hasFuel = zdo.Vars.GetFuel() > 0;
         if (!_shieldGenerators.TryGetValue(zdo, out var oldFuel) || hasFuel != oldFuel)
         {
-            if (oldFuel == default)
+            if (!_shieldGenerators.ContainsKey(zdo))
                 zdo.Destroyed += OnShieldGeneratorDestroyed;
             _shieldGenerators[zdo] = hasFuel;
             _info = null;

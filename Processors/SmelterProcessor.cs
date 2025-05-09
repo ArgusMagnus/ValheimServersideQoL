@@ -29,22 +29,40 @@ sealed class SmelterProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
 	{
-        if (!Config.Smelters.FeedFromContainers.Value || zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null})
+        if (zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null})
         {
             UnregisterZdoProcessor = true;
             return false;
         }
 
-#if DEBUG
-        if (zdo.PrefabInfo.Smelter is not null && zdo.Fields<Smelter>().ResetIfChanged(x => x.m_secPerProduct))
+        if (Config.Smelters.CapacityMultiplier.Value is 1f)
         {
-            RecreateZdo = true;
+            if (zdo.PrefabInfo.Smelter is not null)
+                zdo.Fields<Smelter>().Reset(x => x.m_maxFuel).Reset(x => x.m_maxOre);
+            else
+                zdo.Fields<ShieldGenerator>().Reset(x => x.m_maxFuel);
+        }
+        else
+        {
+            if (zdo.PrefabInfo.Smelter is null)
+                RecreateZdo = zdo.Fields<ShieldGenerator>().SetIfChanged(x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.ShieldGenerator!.m_maxFuel));
+            else
+            {
+                if (zdo.Fields<Smelter>().SetIfChanged(x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxFuel)))
+                    RecreateZdo = true;
+                if (zdo.Fields<Smelter>().SetIfChanged(x => x.m_maxOre, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxOre)))
+                    RecreateZdo = true;
+            }
+        }
+
+        if (!Config.Smelters.FeedFromContainers.Value)
+        {
+            UnregisterZdoProcessor = true;
             return false;
         }
-#endif
 
         if (!CheckMinDistance(peers, zdo))
-                return false; // player to close
+            return false; // player to close
 
 		/// <see cref="Smelter.OnAddFuel"/>
 		{

@@ -149,6 +149,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.Bind(section, nameof(FeedFromContainersRange), 4f, "Required proxmity of a container to a smelter to be used as feeding source");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastFuel), 1, "Minimum amout of fuel to leave in a container");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastOre), 1, "Minimum amout of ore to leave in a container");
+        public ConfigEntry<float> CapacityMultiplier { get; } = cfg.Bind(section, nameof(CapacityMultiplier), 1f, "Multiply a smelter's ore/fuel capacity by this factor");
     }
 
     public sealed class WindmillsConfig(ConfigFile cfg, string section)

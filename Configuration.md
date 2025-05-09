@@ -67,6 +67,7 @@
 |Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source|
 |Smelters|FeedFromContainersLeaveAtLeastFuel|1||Minimum amout of fuel to leave in a container|
 |Smelters|FeedFromContainersLeaveAtLeastOre|1||Minimum amout of ore to leave in a container|
+|Smelters|CapacityMultiplier|1||Multiply a smelter's ore/fuel capacity by this factor|
 |Summons|UnsummonDistanceMultiplier|1|From 0 to Infinity|Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning|
 |Summons|UnsummonLogoutTimeMultiplier|1|From 0 to Infinity|Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning|
 |Tames|MakeCommandable|False|True/False|True to make all tames commandable (like wolves)|
