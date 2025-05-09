@@ -53,6 +53,7 @@ sealed class ExtendedZDO : ZDO
     {
         var exZdo = (ExtendedZDO)zdo;
         exZdo._addData?.Destroyed?.Invoke(exZdo);
+        exZdo._addData = null;
     }
 
     public event Action<ExtendedZDO>? Destroyed
@@ -102,7 +103,6 @@ sealed class ExtendedZDO : ZDO
     {
         ClaimOwnershipInternal();
         ZDOMan.instance.DestroyZDO(this);
-        _addData = null;
     }
 
     //public record ZDOData(int Prefab, Vector3 Position, long Owner, byte[] Data);

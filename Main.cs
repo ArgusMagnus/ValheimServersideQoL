@@ -497,7 +497,7 @@ public sealed partial class Main : BaseUnityPlugin
         int processedZdos = 0;
         int totalZdos = 0;
 
-        foreach (var (sector, sectorInfo) in playerSectors.Select(x => (x.Key, x.Value)))
+        foreach (var (sector, sectorInfo) in playerSectors)
         {
             if (_watch.ElapsedMilliseconds >= Config.General.MaxProcessingTime.Value)
                 break;

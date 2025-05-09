@@ -1,4 +1,6 @@
-﻿namespace Valheim.ServersideQoL.Processors;
+﻿using UnityEngine;
+
+namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor : Processor
 {
@@ -83,15 +85,14 @@ sealed class PlayerProcessor : Processor
                 continue;
 
             var tameZone = ZoneSystem.GetZone(tameZdo.GetPosition());
-            if (Math.Max(Math.Abs(tameZone.x - playerZone.x), Math.Abs(tameZone.y - playerZone.y)) <= ZoneSystem.instance.m_activeArea)
+            if (!ZNetScene.InActiveArea(tameZone, playerZone))
                 continue;
 
-            /// Maybe take inspiration from <see cref="TeleportWorld.Teleport"/> for better placement
-            /// Quaternion.Euler(0f, UnityEngine.Random.Range(-30, 30), 0f) * vector
-            var targetPos = zdo.GetPosition();
-            targetPos.x += UnityEngine.Random.Range(-4, 4);
-            targetPos.z += UnityEngine.Random.Range(-4, 4);
-            targetPos.y += UnityEngine.Random.Range(0, 3);
+            /// <see cref="TeleportWorld.Teleport"/>
+            var direction = zdo.GetRotation() * Vector3.forward;
+            direction = Quaternion.Euler(0, UnityEngine.Random.Range(-45f, 45f), 0) * direction * UnityEngine.Random.Range(1f, 4f);
+            var targetPos = zdo.GetPosition() + direction;
+            targetPos.y += UnityEngine.Random.Range(1, 3);
             var owner = tameZdo.GetOwner();
             tameZdo.ClaimOwnershipInternal();
             tameZdo.SetPosition(targetPos);
