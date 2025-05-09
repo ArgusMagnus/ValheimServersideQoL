@@ -53,10 +53,10 @@ static class SharedProcessorState
         })
         .Where(x => x is not null)];
 
-    static IReadOnlyDictionary<SharedItemDataKey, Character>? __characterByTrophy;
-    public static IReadOnlyDictionary<SharedItemDataKey, Character> CharacterByTrophy => __characterByTrophy ??= new Func<IReadOnlyDictionary<SharedItemDataKey, Character>>(static () =>
+    static IReadOnlyDictionary<string, Character>? __characterByTrophy;
+    public static IReadOnlyDictionary<string, Character> CharacterByTrophy => __characterByTrophy ??= new Func<IReadOnlyDictionary<string, Character>>(static () =>
     {
-        Dictionary<SharedItemDataKey, Character> result = new();
+        Dictionary<string, Character> result = new();
         foreach (var prefab in ZNetScene.instance.m_prefabs)
         {
             if (prefab.GetComponent<Character>() is not { m_boss: false } character || prefab.GetComponent<CharacterDrop>() is not { } characterDrop)
@@ -67,10 +67,10 @@ static class SharedProcessorState
                 continue;
 
             //Main.Instance.Logger.LogWarning($"{prefab.name}: {drop.name}");
-            if (!result.TryGetValue(drop.m_itemData.m_shared, out var otherCharacterPrefab))
-                result.Add(drop.m_itemData.m_shared, character);
+            if (!result.TryGetValue(drop.name, out var otherCharacterPrefab))
+                result.Add(drop.name, character);
             else if (drop.name.Contains(prefab.name) || prefab.name.Length < otherCharacterPrefab.name.Length)
-                result[drop.m_itemData.m_shared] = character;
+                result[drop.name] = character;
         }
         return result;
     }).Invoke();

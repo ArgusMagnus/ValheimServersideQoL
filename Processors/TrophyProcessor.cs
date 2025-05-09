@@ -33,8 +33,12 @@ sealed class TrophyProcessor : Processor
         _stateByTrophy.Remove(zdo);
     }
 
-    bool CheckSpawnLimit(TrophyState state)
+    bool ShouldAttemptSpawn(TrophyState state)
     {
+        if (DateTimeOffset.UtcNow - state.LastSpawned < _respawnDelay)
+            return false;
+
+        state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(10); // retry after 10 seconds
         var zone = ZoneSystem.GetZone(state.Trophy.GetPosition());
         _sectorZdos.Clear();
         ZDOMan.instance.FindSectorObjects(zone, ZoneSystem.instance.GetLoadedArea(), 0, _sectorZdos);
@@ -43,14 +47,13 @@ sealed class TrophyProcessor : Processor
         if (spawnLimitReached < Config.TrophySpawner.SpawnLimit.Value)
             return true;
         Logger.DevLog($"{nameof(TrophyProcessor)}: Spawn limit reached ({state.TrophyCharacter.name})", BepInEx.Logging.LogLevel.Warning);
-        state.LastSpawned = DateTimeOffset.UtcNow;
         return false;
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         var itemDrop = zdo.PrefabInfo.ItemDrop?.ItemDrop;
-        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.m_itemData.m_shared, out var trophyCharacter))
+        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.name, out var trophyCharacter))
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -73,7 +76,7 @@ sealed class TrophyProcessor : Processor
             return false;
         }
 
-        if (DateTimeOffset.UtcNow - state.LastSpawned > _respawnDelay && CheckSpawnLimit(state))
+        if (ShouldAttemptSpawn(state))
         {
             var level = 1;
             var levelUpChance = Config.TrophySpawner.LevelUpChanceOverride.Value < 0 ? 0 : SpawnSystem.GetLevelUpChance(Config.TrophySpawner.LevelUpChanceOverride.Value);
@@ -90,9 +93,9 @@ sealed class TrophyProcessor : Processor
             for (int i = 0; i < 10; i++)
             {
                 // Search for farthest away position in the active area. Could be done with math, but this is good enough for now
-                var step = Quaternion.Euler(0, UnityEngine.Random.Range(0f, 360f), 0) * (Vector3.forward * ZoneSystem.c_ZoneSize);
+                var step = Quaternion.Euler(0, UnityEngine.Random.Range(0f, 360f), 0) * (Vector3.forward * ZoneSystem.c_ZoneSize * ZoneSystem.instance.GetActiveArea());
                 var pos = zdo.GetPosition() + step;
-                step /= 8;
+                step /= 8 * ZoneSystem.instance.GetActiveArea();
                 var dstZone = ZoneSystem.GetZone(pos);
                 while (true)
                 {

@@ -34,6 +34,7 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
     //public CreatureSpawner? CreatureSpawner { get; } = Get<CreatureSpawner>(components);
     public Humanoid? Humanoid { get; } = Get<Humanoid>(components);
     public EffectArea? EffectArea { get; } = Get<EffectArea>(components);
+    //public ItemStand? ItemStand { get; } = Get<ItemStand>(components);
 
     public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
 
