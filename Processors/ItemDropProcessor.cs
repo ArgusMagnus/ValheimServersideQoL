@@ -36,7 +36,7 @@ sealed class ItemDropProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
 	{
-        if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value)
+        if (zdo.PrefabInfo.ItemDrop is null || !Config.Containers.AutoPickup.Value || (Config.TrophySpawner.Enable.Value && Instance<TrophyProcessor>().IsAttracting(zdo)))
         {
             UnregisterZdoProcessor = true;
             return false;

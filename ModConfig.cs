@@ -253,7 +253,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class TrophySpawnerConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to make dropped trophies attract mobs");
-        public ConfigEntry<int> ActivationDelay { get; } = cfg.Bind(section, nameof(ActivationDelay), 600, "Time in seconds before trophies start attracting mobs");
+        public ConfigEntry<int> ActivationDelay { get; } = cfg.Bind(section, nameof(ActivationDelay), 3600, "Time in seconds before trophies start attracting mobs");
         public ConfigEntry<int> RespawnDelay { get; } = cfg.Bind(section, nameof(RespawnDelay), 12, "Respawn delay in seconds");
         public ConfigEntry<int> MaxLevel { get; } = cfg.Bind(section, nameof(MaxLevel), 3,
             new ConfigDescription("Maximum level of spawned mobs",

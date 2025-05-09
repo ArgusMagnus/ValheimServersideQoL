@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -28,6 +27,9 @@ sealed class TrophyProcessor : Processor
         _respawnDelay = TimeSpan.FromSeconds(Config.TrophySpawner.RespawnDelay.Value);
     }
 
+    public bool IsAttracting(ExtendedZDO zdo)
+        => _stateByTrophy.TryGetValue(zdo, out var state) && state.LastSpawned != default;
+
     void OnTrophyDestroyed(ExtendedZDO zdo)
     {
         _stateByTrophy.Remove(zdo);
@@ -35,10 +37,16 @@ sealed class TrophyProcessor : Processor
 
     bool ShouldAttemptSpawn(TrophyState state)
     {
-        if (DateTimeOffset.UtcNow - state.LastSpawned < _respawnDelay)
+        var lastSpawned = state.LastSpawned;
+        state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(10); // retry after 10 seconds
+
+        // skip one attempt if it's the first time this trophy is processed
+        if (lastSpawned == default)
             return false;
 
-        state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(10); // retry after 10 seconds
+        if (DateTimeOffset.UtcNow - lastSpawned < _respawnDelay)
+            return false;
+
         var zone = ZoneSystem.GetZone(state.Trophy.GetPosition());
         _sectorZdos.Clear();
         ZDOMan.instance.FindSectorObjects(zone, ZoneSystem.instance.GetLoadedArea(), 0, _sectorZdos);
@@ -73,6 +81,12 @@ sealed class TrophyProcessor : Processor
                 state.LastMessage = DateTimeOffset.UtcNow;
                 RPC.ShowInWorldText(peers, DamageText.TextType.Normal, zdo.GetPosition(), $"Attracting {trophyCharacter.m_name}... {progress:P0}");
             }
+            return false;
+        }
+
+        if (zdo.Fields<ItemDrop>().SetIfChanged(x => x.m_autoPickup, false))
+        {
+            RecreateZdo = true;
             return false;
         }
 

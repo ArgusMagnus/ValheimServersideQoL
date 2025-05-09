@@ -121,7 +121,7 @@
 |Traps|DisableFriendlyFire|False|True/False|True to stop traps from damaging players and tames|
 |Traps|SelfDamageMultiplier|1|From 0 to Infinity|Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage|
 |Trophy Spawner|Enable|False|True/False|True to make dropped trophies attract mobs|
-|Trophy Spawner|ActivationDelay|600||Time in seconds before trophies start attracting mobs|
+|Trophy Spawner|ActivationDelay|3600||Time in seconds before trophies start attracting mobs|
 |Trophy Spawner|RespawnDelay|12||Respawn delay in seconds|
 |Trophy Spawner|MaxLevel|3|From 1 to 9|Maximum level of spawned mobs|
 |Trophy Spawner|LevelUpChanceOverride|-1|From -1 to 100|Level up chance override for spawned mobs. If < 0, world default is used|
