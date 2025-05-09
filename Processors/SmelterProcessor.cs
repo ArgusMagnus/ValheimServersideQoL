@@ -85,11 +85,13 @@ sealed class SmelterProcessor : Processor
                                 continue;
                             }
 
-                            if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
-                                continue;
-
                             if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
+
+                            var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
+                            feedRangeSqr *= feedRangeSqr;
+                            if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > feedRangeSqr)
+                                continue;
 
                             removeSlots?.Clear();
                             var addFuel = 0;
@@ -181,11 +183,13 @@ sealed class SmelterProcessor : Processor
                                 continue;
                             }
 
-                            if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Smelters.FeedFromContainersRange.Value)
-                                continue;
-
                             if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
+
+                            var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
+                            feedRangeSqr *= feedRangeSqr;
+                            if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > feedRangeSqr)
+                                continue;
 
                             removeSlots?.Clear();
                             int addOre = 0;

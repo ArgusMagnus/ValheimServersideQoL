@@ -17,7 +17,7 @@
 |Carts|ContentMassMultiplier|1|From 0 to Infinity|Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
 |Containers|AutoSort|False|True/False|True to auto sort container inventories|
 |Containers|AutoPickup|False|True/False|True to automatically put dropped items into containers if they already contain said item|
-|Containers|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target|
+|Containers|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '🧲<Range>' on a chest sign|
 |Containers|AutoPickupMinPlayerDistance|8||Min distance all player must have to a dropped item for it to be picked up|
 |Containers|AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
 |Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on wood chests|
@@ -64,7 +64,7 @@
 |Portal Hub|AutoNameNewPortalsFormat|{0} {1:D2}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer|
 |Signs|TimeSigns|False|True/False|True to update sign texts which contain time emojis (any of 🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦) with the in-game time|
 |Smelters|FeedFromContainers|False|True/False|True to automatically feed smelters from nearby containers|
-|Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source|
+|Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source. Can be overriden per chest by putting '↔️<Range>' on a chest sign|
 |Smelters|FeedFromContainersLeaveAtLeastFuel|1||Minimum amout of fuel to leave in a container|
 |Smelters|FeedFromContainersLeaveAtLeastOre|1||Minimum amout of ore to leave in a container|
 |Smelters|CapacityMultiplier|1||Multiply a smelter's ore/fuel capacity by this factor|

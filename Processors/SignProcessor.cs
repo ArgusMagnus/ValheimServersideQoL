@@ -5,6 +5,12 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class SignProcessor : Processor
 {
+    internal const string MagnetEmoji = "🧲";
+    readonly Regex _chestPickupRangeRegex = new($@"{Regex.Escape(MagnetEmoji)}\s*(?<R>\d+)");
+
+    internal const string LeftRightArrowEmoji = "↔️";
+    readonly Regex _chestFeedRangeRegex = new($@"{Regex.Escape(LeftRightArrowEmoji)}\s*(?<R>\d+)");
+
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
@@ -53,6 +59,20 @@ sealed class SignProcessor : Processor
             text ??= zdo.Vars.GetText();
             //Logger.LogWarning($"Set chest text: {text} / {zdo.DataRevision}");
             chest.Vars.SetText(text);
+            if (Config.Containers.AutoPickup.Value)
+            {
+                if (_chestPickupRangeRegex.Match(text) is { Success: true } match)
+                    chest.Inventory.PickupRange = int.Parse(match.Groups["R"].Value);
+                else
+                    chest.Inventory.PickupRange = null;
+            }
+            if (Config.Smelters.FeedFromContainers.Value)
+            {
+                if (_chestFeedRangeRegex.Match(text) is { Success: true } match)
+                    chest.Inventory.FeedRange = int.Parse(match.Groups["R"].Value);
+                else
+                    chest.Inventory.FeedRange = null;
+            }
         }
 
         if (isTimeSign)

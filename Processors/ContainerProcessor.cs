@@ -1,11 +1,11 @@
-﻿using BepInEx.Logging;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor : Processor
 {
+    public const string RangeConfigPrefix = "🧲";
     readonly Dictionary<ItemKey, int> _stackPerItem = new();
     readonly Dictionary<ExtendedZDO, List<ExtendedZDO>> _signsByChests = [];
     readonly Dictionary<ExtendedZDO, ExtendedZDO> _chestsBySigns = [];

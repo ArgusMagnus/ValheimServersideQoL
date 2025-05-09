@@ -11,6 +11,8 @@ interface IZDOInventory
     Inventory Inventory { get; }
     IList<ItemDrop.ItemData> Items { get; }
     void Save();
+    int? PickupRange { get; set; }
+    int? FeedRange { get; set; }
 }
 
 sealed class ExtendedZDO : ZDO
@@ -482,6 +484,9 @@ sealed class ExtendedZDO : ZDO
     {
         public Inventory Inventory { get; private set; } = default!;
         public ExtendedZDO ZDO { get; private set; } = zdo;
+        public int? PickupRange { get; set; }
+        public int? FeedRange { get; set; }
+
         IList<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;
         string? _lastData;

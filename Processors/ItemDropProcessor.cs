@@ -97,11 +97,14 @@ sealed class ItemDropProcessor : Processor
                 continue;
             }
 
-            if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Containers.AutoPickupRange.Value * Config.Containers.AutoPickupRange.Value)
-                continue;
-
             if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                 continue; // in use or player to close
+
+            var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
+            pickupRangeSqr *= pickupRangeSqr;
+
+            if (pickupRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > pickupRangeSqr)
+                continue;
 
             if (item is null)
             {
@@ -114,7 +117,7 @@ sealed class ItemDropProcessor : Processor
             usedSlots.Clear();
 
             ItemDrop.ItemData? containerItem = null;
-            foreach (var slot in containerZdo.Inventory!.Items)
+            foreach (var slot in containerZdo.Inventory.Items)
             {
                 usedSlots.Add(slot.m_gridPos);
                 if (new ItemKey(item) != slot)
