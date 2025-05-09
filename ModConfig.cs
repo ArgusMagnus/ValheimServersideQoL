@@ -252,18 +252,16 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class TrophySpawnerConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to make dropped trophies spawn mobs");
-        public ConfigEntry<int> ActivationDelay { get; } = cfg.Bind(section, nameof(ActivationDelay), 3660, "Time in seconds before trophies start spawning mobs.");
-        public ConfigEntry<int> MinRespawnDelay { get; } = cfg.Bind(section, nameof(MinRespawnDelay), 12,
-            "Minimum respawn delay in seconds. The actual respawn delay is chosen between min and max based on the stack size of the dropped trophies");
-        public ConfigEntry<int> MaxRespawnDelay { get; } = cfg.Bind(section, nameof(MaxRespawnDelay), 240,
-            "Maximum respawn delay in seconds. The actual respawn delay is chosen between min and max based on the stack size of the dropped trophies");
+        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to make dropped trophies attract mobs");
+        public ConfigEntry<int> ActivationDelay { get; } = cfg.Bind(section, nameof(ActivationDelay), 600, "Time in seconds before trophies start attracting mobs");
+        public ConfigEntry<int> RespawnDelay { get; } = cfg.Bind(section, nameof(RespawnDelay), 12, "Respawn delay in seconds");
         public ConfigEntry<int> MaxLevel { get; } = cfg.Bind(section, nameof(MaxLevel), 3,
-            new ConfigDescription("Maximum level of spawned mobs. The actual maximum level is chosen between 1 and this value based on the stack size of the dropped trophies",
+            new ConfigDescription("Maximum level of spawned mobs",
                 new AcceptableValueRange<int>(1, 9)));
-
         public ConfigEntry<int> LevelUpChanceOverride { get; } = cfg.Bind(section, nameof(LevelUpChanceOverride), -1,
             new ConfigDescription("Level up chance override for spawned mobs. If < 0, world default is used", new AcceptableValueRange<int>(-1, 100)));
+        public ConfigEntry<int> SpawnLimit { get; } = cfg.Bind(section, nameof(SpawnLimit), 20,
+            new ConfigDescription("Maximum number of mobs of the trophy's type in the active area", new AcceptableValueRange<int>(1, 10000)));
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

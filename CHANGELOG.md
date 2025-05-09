@@ -2,6 +2,7 @@
 - New features:
     - Modify the ore/fuel capacity of smelters
     - Allow unlocking of crypt doors if Elder has been defeated [#50](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/50)
+- Changed trophy spawners to spawn creatures farther away
 
 ### v0.2.21
 - Fix for [#53](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/53): Unable to use tools/weapons
