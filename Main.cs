@@ -332,6 +332,9 @@ public sealed partial class Main : BaseUnityPlugin
         {
             _configChanged = false;
 
+            if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
+                ZoneSystem.instance.ResetWorldKeys();
+
             if (Config.WorldModifiers.SetPresetFromConfig.Value)
             {
                 try { MyTerminal.ExecuteCommand("setworldpreset", Invariant($"{Config.WorldModifiers.Preset.Value}")); }
@@ -350,7 +353,7 @@ public sealed partial class Main : BaseUnityPlugin
             if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
             {
                 /// <see cref="FejdStartup.ParseServerArguments"/>
-                foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Select(x => (x.Key, x.Value)))
+                foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Where(x => !Equals(x.Value.BoxedValue, x.Value.DefaultValue)))
                 {
                     if (entry.BoxedValue is bool boolValue)
                     {
