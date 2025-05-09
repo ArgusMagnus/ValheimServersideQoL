@@ -85,7 +85,7 @@ sealed class PlayerProcessor : Processor
                 continue;
 
             var tameZone = ZoneSystem.GetZone(tameZdo.GetPosition());
-            if (!ZNetScene.InActiveArea(tameZone, playerZone))
+            if (ZNetScene.InActiveArea(tameZone, playerZone))
                 continue;
 
             /// <see cref="TeleportWorld.Teleport"/>

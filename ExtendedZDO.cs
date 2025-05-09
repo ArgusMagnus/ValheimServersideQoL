@@ -189,6 +189,8 @@ sealed class ExtendedZDO : ZDO
         public void SetRightItem(int value) => _zdo.Set(ZDOVars.s_rightItem, value);
         public string GetText(string defaultValue = "") => _zdo.GetString(ZDOVars.s_text, defaultValue);
         public void SetText(string value) => _zdo.Set(ZDOVars.s_text, value);
+        public string GetItem(string defaultValue = "") => _zdo.GetString(ZDOVars.s_item, defaultValue);
+        public void SetItem(string value) => _zdo.Set(ZDOVars.s_item, value);
         public string GetItem(int idx, string defaultValue = "") => _zdo.GetString(Invariant($"item{idx}"), defaultValue);
         public void SetItem(int idx, string value) => _zdo.Set(Invariant($"item{idx}"), value);
         public int GetQueued(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_queued, defaultValue);
@@ -426,6 +428,19 @@ sealed class ExtendedZDO : ZDO
             return remover(_zdo, hash);
         }
 
+        bool ResetIfChangedCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, Action<ZDO, int, T> setter, Func<ZDO, int, T?, T> getter, Func<TObj, T> cast)
+            where TObj : notnull
+            where T : notnull
+        {
+            var hash = GetHash(fieldExpression, out var field);
+            var defaultValue = cast((TObj)field.GetValue(_component));
+            var value = getter(_zdo, hash, defaultValue);
+            if (value.Equals(defaultValue))
+                return false;
+            setter(_zdo, hash, defaultValue);
+            return true;
+        }
+
         public bool ResetIfChanged(Expression<Func<TComponent, bool>> fieldExpression)
             => ResetIfChangedCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
 
@@ -435,6 +450,15 @@ sealed class ExtendedZDO : ZDO
         public bool ResetIfChanged(Expression<Func<TComponent, int>> fieldExpression)
             => ResetIfChangedCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
 
+        public bool ResetIfChanged(Expression<Func<TComponent, string>> fieldExpression)
+            => ResetIfChangedCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x);
+
+        public bool ResetIfChanged(Expression<Func<TComponent, GameObject>> fieldExpression)
+            => ResetIfChangedCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x.name);
+
+        public bool ResetIfChanged(Expression<Func<TComponent, ItemDrop>> fieldExpression)
+            => ResetIfChangedCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x.name);
+
         public bool SetOrReset(Expression<Func<TComponent, bool>> fieldExpression, bool set, bool setValue)
             => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
 
@@ -442,6 +466,15 @@ sealed class ExtendedZDO : ZDO
             => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
 
         public bool SetOrReset(Expression<Func<TComponent, int>> fieldExpression, bool set, int setValue)
+            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
+
+        public bool SetOrReset(Expression<Func<TComponent, string>> fieldExpression, bool set, string setValue)
+            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
+
+        public bool SetOrReset(Expression<Func<TComponent, GameObject>> fieldExpression, bool set, GameObject setValue)
+            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
+
+        public bool SetOrReset(Expression<Func<TComponent, ItemDrop>> fieldExpression, bool set, ItemDrop setValue)
             => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
     }
 
