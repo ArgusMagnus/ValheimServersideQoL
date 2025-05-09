@@ -61,11 +61,4 @@ static class PrivateAccessor
             Expression.Parameter(typeof(ZDOMan)) is var par1 ? par1 : throw new Exception(),
             typeof(ZDOMan).GetMethod("ConvertPortals", BindingFlags.NonPublic | BindingFlags.Instance)),
         par1).Compile()).Invoke(instance);
-
-    static Func<ZPackage, Stream>? __getStream;
-    public static Stream GetStream(this ZPackage pkg) => (__getStream ??= Expression.Lambda<Func<ZPackage, Stream>>(
-        Expression.Field(
-            Expression.Parameter(typeof(ZPackage)) is var par1 ? par1 : throw new Exception(),
-            typeof(ZPackage).GetField("m_stream", BindingFlags.NonPublic | BindingFlags.Instance)),
-        par1).Compile()).Invoke(pkg);
 }

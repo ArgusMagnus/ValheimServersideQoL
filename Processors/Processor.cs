@@ -133,7 +133,7 @@ abstract class Processor
                     {
                         List<object> parameters = [];
                         ZRpc.Deserialize(del.Method.GetParameters(), data.m_parameters, ref parameters);
-                        data.m_parameters.GetStream().Seek(0, SeekOrigin.Begin);
+                        data.m_parameters.SetPos(0);
                         args = [data, .. parameters];
                     }
                     catch (Exception ex) { exception = ex; }
