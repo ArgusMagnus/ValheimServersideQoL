@@ -4,6 +4,7 @@
     - Allow unlocking of crypt doors if Elder has been defeated [#50](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/50)
 - Chest auto pickup/smelter feeding range is now configurable via chest sign text
 - Changed trophy spawners to spawn creatures farther away
+- Fix for issues with setting global keys via config [#54](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/54)
 
 ### v0.2.21
 - Fix for [#53](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/53): Unable to use tools/weapons
