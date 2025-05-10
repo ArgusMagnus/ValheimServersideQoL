@@ -316,20 +316,32 @@ sealed class ModConfig(ConfigFile cfg)
         /// <see cref="ZoneSystem.GetGlobalKey(GlobalKeys, out string)"/>
         /// <see cref="Game.UpdateWorldRates(HashSet{string}, Dictionary{string, string})"/>
         
-        sealed record FieldInfoEx(FieldInfo Field, object? OriginalValueObject, double OriginalValue);
-        readonly List<FieldInfoEx> fields = [.. typeof(Game).GetFields(BindingFlags.Public | BindingFlags.Static)
-            .Select(x => new FieldInfoEx(x, x.GetValue(null), TryGetAsDouble(x)))
-            .Where(x => !double.IsNaN(x.OriginalValue))];
-
-        readonly List<(double TestValue, double Value)> _testResults = new();
-        readonly IEnumerable<double> _testValues = [float.MinValue, int.MinValue, .. Enumerable.Range(-100, 100).Select(x => (double)x), int.MaxValue, float.MaxValue];
-        readonly Dictionary<string, string> _keyTestValues = new();
-
-        MethodInfo? _bindDefinition = null;
+        sealed record FieldInfoEx(FieldInfo Field, object? RestoreValueObject, double RestoreValue)
+        {
+            public double ComparisonValue { get; set; } = double.NaN;
+        }
 
         public IReadOnlyDictionary<TKey, ConfigEntryBase> Get<TKey>(TKey? maxEclusive, ConfigFile cfg, string section, string descriptionFormat)
             where TKey : unmanaged, Enum
         {
+            List<(double TestValue, double Value)> testResults = [];
+            IEnumerable<double> testValues = [float.MinValue, int.MinValue, .. Enumerable.Range(-100, 100).Select(x => (double)x), int.MaxValue, float.MaxValue];
+            Dictionary<string, string> keyTestValues = [];
+
+            List<FieldInfoEx> fields = [.. typeof(Game).GetFields(BindingFlags.Public | BindingFlags.Static)
+                .Where(x => !x.IsLiteral && !x.IsInitOnly)
+                .Select(x => new FieldInfoEx(x, x.GetValue(null), TryGetAsDouble(x)))
+                .Where(x => !double.IsNaN(x.RestoreValue))];
+
+            MethodInfo? bindDefinition = null;
+
+            // set all fields to default values (in case they were changed before this method is called)
+            try { Game.UpdateWorldRates([], keyTestValues); }
+            catch (NullReferenceException) { } /// expect in <see cref="Game.UpdateNoMap"/>
+
+            foreach (var field in fields)
+                field.ComparisonValue = TryGetAsDouble(field.Field);
+
             var result = new Dictionary<TKey, ConfigEntryBase>();
             foreach (TKey key in Enum.GetValues(typeof(TKey)))
             {
@@ -340,49 +352,51 @@ sealed class ModConfig(ConfigFile cfg)
                 var nameLower = name.ToLower();
 
                 FieldInfo? field = null;
-                object? orignalValueObject = null;
-                double originalValue = double.NaN;
-                _testResults.Clear();
-                foreach (var testValue in _testValues)
+                object? restoreValueObject = null;
+                double comparisonValue = double.NaN;
+                testResults.Clear();
+                foreach (var testValue in testValues)
                 {
-                    _keyTestValues.Clear();
-                    _keyTestValues.Add(nameLower, Invariant($"{testValue}"));
-                    try { Game.UpdateWorldRates([], _keyTestValues); }
+                    keyTestValues.Clear();
+                    keyTestValues.Add(nameLower, Invariant($"{testValue}"));
+                    try { Game.UpdateWorldRates([], keyTestValues); }
                     catch (NullReferenceException) { } /// expect in <see cref="Game.UpdateNoMap"/>
                     double value = double.NaN;
                     if (field is null)
                     {
-                        (field, orignalValueObject, originalValue, value, var idx) = fields.Select((x, i) => (x.Field, x.OriginalValueObject, x.OriginalValue, Value: TryGetAsDouble(x.Field), i)).FirstOrDefault(x => x.OriginalValue != x.Value);
+                        (field, restoreValueObject, comparisonValue, value, var idx) = fields
+                            .Select((x, i) => (x.Field, x.RestoreValueObject, x.ComparisonValue, Value: TryGetAsDouble(x.Field), i))
+                            .FirstOrDefault(x => x.ComparisonValue != x.Value);
                         if (field is not null)
                             fields.RemoveAt(idx);
                     }
                     else
                     {
                         value = TryGetAsDouble(field);
-                        if (value == originalValue)
+                        if (value == comparisonValue)
                             value = double.NaN;
                     }
 
                     if (!double.IsNaN(value))
-                        _testResults.Add((testValue, value));
+                        testResults.Add((testValue, value));
                 }
 
-                if (_testResults is { Count: > 0 } && field is not null)
+                if (testResults is { Count: > 0 } && field is not null)
                 {
-                    var min = _testResults.Min(x => x.Value);
-                    var max = _testResults.Max(x => x.Value);
-                    var inRange = _testResults.Where(x => x.Value is not 0 && x.Value > min && x.Value < max);
+                    var min = testResults.Min(x => x.Value);
+                    var max = testResults.Max(x => x.Value);
+                    var inRange = testResults.Where(x => x.Value is not 0 && x.Value > min && x.Value < max);
                     var multiplier = inRange.Any() ? inRange.Average(x => x.TestValue / x.Value) : 1;
                     min *= multiplier;
                     max *= multiplier;
-                    originalValue *= multiplier;
+                    comparisonValue *= multiplier;
 
                     AcceptableValueBase? range = null;
                     if (min > float.MinValue && max < float.MaxValue && min < max)
                         range = (AcceptableValueBase)Activator.CreateInstance(typeof(AcceptableValueRange<>).MakeGenericType(field.FieldType), Convert.ChangeType(min, field.FieldType), Convert.ChangeType(max, field.FieldType));
                     var desc = new ConfigDescription(string.Format(descriptionFormat, name), range);
-                    _bindDefinition ??= new Func<string, string, bool, ConfigDescription, ConfigEntry<bool>>(cfg.Bind).Method.GetGenericMethodDefinition();
-                    var entry = (ConfigEntryBase)_bindDefinition.MakeGenericMethod(field.FieldType).Invoke(cfg, [section, name, Convert.ChangeType(originalValue, field.FieldType), desc]);
+                    bindDefinition ??= new Func<string, string, bool, ConfigDescription, ConfigEntry<bool>>(cfg.Bind).Method.GetGenericMethodDefinition();
+                    var entry = (ConfigEntryBase)bindDefinition.MakeGenericMethod(field.FieldType).Invoke(cfg, [section, name, Convert.ChangeType(comparisonValue, field.FieldType), desc]);
                     result.Add(key, entry);
                 }
                 else
@@ -390,8 +404,11 @@ sealed class ModConfig(ConfigFile cfg)
                     result.Add(key, cfg.Bind(section, name, false, string.Format(descriptionFormat, name)));
                 }
 
-                field?.SetValue(null, orignalValueObject);
+                field?.SetValue(null, restoreValueObject);
             }
+
+            foreach (var field in fields)
+                field.Field.SetValue(null, field.RestoreValueObject);
 
             return result;
         }
