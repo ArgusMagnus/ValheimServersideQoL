@@ -26,6 +26,7 @@ public sealed partial class Main : BaseUnityPlugin
     ///   which cannot be modified via ZDO fields. We would have to somehow detect when a stakewall is destroyed and spawn the resources ourselves.
     /// - <see cref="Chat"/> <see cref="Humanoid"/> <see cref="Character"/> <see cref="InventoryGui.SortMethod"/> <see cref="Player"/>
     /// - <see cref="SpawnArea"/>
+    /// - Stack player inventory into chests <see cref="Container.RPC_RequestStack"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

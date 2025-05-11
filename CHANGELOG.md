@@ -1,7 +1,7 @@
 ### v0.2.22
 - New features:
     - Modify the ore/fuel capacity of smelters
-    - Allow unlocking of crypt doors if Elder has been defeated [#50](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/50)
+    - Allow unlocking of crypt doors without the key if the Elder has been defeated [#50](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/50)
 - Chest auto pickup/smelter feeding range is now configurable via chest sign text
 - Changed trophy spawners to spawn creatures farther away
 - Fix for issues with setting global keys via config [#54](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/54)

@@ -9,6 +9,7 @@ sealed class TrophyProcessor : Processor
     readonly Dictionary<ExtendedZDO, TrophyState> _stateByTrophy = [];
     readonly TimeSpan _textDuration = TimeSpan.FromSeconds(DamageText.instance.m_textDuration * 2);
     readonly List<ZDO> _sectorZdos = [];
+    //readonly Vector3 _dropOffset = new(0, -1000, 0);
 
     sealed class TrophyState(ExtendedZDO trophy, Character trophyCharacter)
     {
@@ -37,15 +38,17 @@ sealed class TrophyProcessor : Processor
 
     bool ShouldAttemptSpawn(TrophyState state)
     {
-        var lastSpawned = state.LastSpawned;
-        state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(10); // retry after 10 seconds
-
         // skip one attempt if it's the first time this trophy is processed
-        if (lastSpawned == default)
+        if (state.LastSpawned == default)
+        {
+            state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(10); // retry after 10 seconds
+            return false;
+        }
+
+        if (DateTimeOffset.UtcNow - state.LastSpawned < _respawnDelay)
             return false;
 
-        if (DateTimeOffset.UtcNow - lastSpawned < _respawnDelay)
-            return false;
+        state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(10); // retry after 10 seconds
 
         var zone = ZoneSystem.GetZone(state.Trophy.GetPosition());
         _sectorZdos.Clear();
@@ -61,7 +64,7 @@ sealed class TrophyProcessor : Processor
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         var itemDrop = zdo.PrefabInfo.ItemDrop?.ItemDrop;
-        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.name, out var trophyCharacter))
+        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || Character.InInterior(zdo.GetPosition()) || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.name, out var trophyCharacter))
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -124,30 +127,36 @@ sealed class TrophyProcessor : Processor
 
                 var spawn = true;
 
-                // Check pos not in base (todo: optimize)
-                _sectorZdos.Clear();
-                ZDOMan.instance.FindSectorObjects(dstZone, 1, 0, _sectorZdos);
-                foreach (var sectorZdo in _sectorZdos.Cast<ExtendedZDO>())
+                pos.y = ZoneSystem.instance.GetGroundHeight(pos) + 12;
+                if (pos.y < ZoneSystem.c_WaterLevel && !trophyCharacter.m_canSwim && !trophyCharacter.m_flying)
+                    spawn = false;
+                else
                 {
-                    if (sectorZdo.PrefabInfo.EffectArea is null || !sectorZdo.PrefabInfo.EffectArea.m_type.HasFlag(EffectArea.Type.PlayerBase))
-                        continue;
-
-                    // throws NRE
-                    //var radius = sectorZdo.PrefabInfo.EffectArea.GetRadius();
-                    const float radius = 20f;
-                    if (Utils.DistanceXZ(sectorZdo.GetPosition(), pos) < radius)
+                    // Check pos not in base (todo: optimize)
+                    _sectorZdos.Clear();
+                    ZDOMan.instance.FindSectorObjects(dstZone, 1, 0, _sectorZdos);
+                    foreach (var sectorZdo in _sectorZdos.Cast<ExtendedZDO>())
                     {
-                        Logger.DevLog($"{nameof(TrophyProcessor)}: Finding spawning position failed", BepInEx.Logging.LogLevel.Warning);
-                        spawn = false;
-                        break;
+                        if (sectorZdo.PrefabInfo.EffectArea is null || !sectorZdo.PrefabInfo.EffectArea.m_type.HasFlag(EffectArea.Type.PlayerBase))
+                            continue;
+
+                        // throws NRE
+                        //var radius = sectorZdo.PrefabInfo.EffectArea.GetRadius();
+                        const float radius = 20f;
+                        if (Utils.DistanceXZ(sectorZdo.GetPosition(), pos) < radius)
+                        {
+                            spawn = false;
+                            break;
+                        }
                     }
+                    _sectorZdos.Clear();
                 }
-                _sectorZdos.Clear();
 
                 if (!spawn)
+                {
+                    Logger.DevLog($"{nameof(TrophyProcessor)}: Finding spawning position failed", BepInEx.Logging.LogLevel.Warning);
                     continue;
-
-                pos.y = ZoneSystem.instance.GetGroundHeight(pos) + 12;
+                }
 
                 Logger.DevLog($"{nameof(TrophyProcessor)}: Spawning {trophyCharacter.name} at {pos} ({Mathf.Round(Vector3.Distance(pos, zdo.GetPosition()))}m away)");
                 var mob = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, state.CharacterPrefab);
@@ -160,6 +169,10 @@ sealed class TrophyProcessor : Processor
                 mob.Vars.SetSpawnPoint(zdo.GetPosition());
                 //mob.Vars.SetPatrolPoint(zdo.GetPosition());
                 //mob.Vars.SetPatrol(true);
+
+                // Disabling drops like that doesn't work, since most mobs spawn a ragdoll (separate prefab created via m_deathEffects) which then spawn the drops
+                //mob.Fields<CharacterDrop>().Set(x => x.m_spawnOffset, _dropOffset);
+
                 zdo.Vars.SetLastSpawnedTime(state.LastSpawned = DateTimeOffset.UtcNow);
                 break;
             }

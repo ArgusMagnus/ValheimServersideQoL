@@ -337,6 +337,9 @@ sealed class ExtendedZDO : ZDO
         public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, int>> fieldExpression, int value)
             => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
 
+        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, Vector3>> fieldExpression, Vector3 value)
+            => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveVec3(hash), static (zdo, hash, value) => zdo.Set(hash, value));
+
         public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, string>> fieldExpression, string value)
             => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value));
 
