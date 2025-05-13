@@ -221,6 +221,8 @@ sealed class ExtendedZDO : ZDO
         public void SetPatrolPoint(Vector3 value) => _zdo.Set(ZDOVars.s_patrolPoint, value);
         public Vector3 GetSpawnPoint(Vector3 defaultValue = default) => _zdo.GetVec3(ZDOVars.s_spawnPoint, defaultValue);
         public void SetSpawnPoint(Vector3 value) => _zdo.Set(ZDOVars.s_spawnPoint, value);
+        public int GetEmoteID(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_emoteID, defaultValue);
+        public Emotes GetEmote(Emotes defaultValue = ModConfig.PlayersConfig.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(ZDOVars.s_emote), true, out var e) ? e : defaultValue;
 
 
         static int __lastSpawnedTime = $"{Main.PluginGuid}.LastSpawnedTime".GetStableHashCode();

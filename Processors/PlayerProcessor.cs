@@ -4,6 +4,13 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor : Processor
 {
+    sealed class PlayerState
+    {
+        public int LastEmoteId { get; set; } = -1;
+    }
+
+    readonly Dictionary<ExtendedZDO, PlayerState> _playerStates = [];
+
     readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
     public IReadOnlyDictionary<ZDOID, ExtendedZDO> Players => _players;
     public event Action<ExtendedZDO>? PlayerDestroyed;
@@ -15,10 +22,13 @@ sealed class PlayerProcessor : Processor
         UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger,
             (Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value || Config.Players.InfiniteWoodCuttingStamina.Value)
             && Game.m_staminaRate > 0);
+
+        //UpdateRpcSubscription("Say", OnTalkerSay, true);
     }
 
     void OnZdoDestroyed(ExtendedZDO zdo)
     {
+        _playerStates.Remove(zdo);
         if (_players.Remove(zdo.m_uid))
             PlayerDestroyed?.Invoke(zdo);
     }
@@ -29,9 +39,7 @@ sealed class PlayerProcessor : Processor
         if (!_players.TryGetValue(data.m_targetZDO, out var zdo))
             return;
 
-#if DEBUG
-        Logger.LogInfo($"ZDO {data.m_targetZDO}: SetTrigger: {name}");
-#endif
+        Logger.DevLog($"ZDO {data.m_targetZDO}: SetTrigger: {name}");
 
         static bool CheckStamina(string triggerName, ModConfig.PlayersConfig cfg)
         {
@@ -62,6 +70,12 @@ sealed class PlayerProcessor : Processor
             RPC.UseStamina(zdo, -requiredStamina);
     }
 
+    /// <see cref="Talker.Say(Talker.Type, string)"/>
+    //void OnTalkerSay(ZRoutedRpc.RoutedRPCData data, int ctype, UserInfo user, string text)
+    //{
+    //    var type = (Talker.Type)ctype;
+    //}
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo.Player is null)
@@ -69,6 +83,37 @@ sealed class PlayerProcessor : Processor
 
         if (_players.TryAdd(zdo.m_uid, zdo))
             zdo.Destroyed += OnZdoDestroyed;
+
+        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
+        {
+            if (!_playerStates.TryGetValue(zdo, out var state))
+                _playerStates.Add(zdo, state = new());
+            /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
+            if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
+            {
+                state.LastEmoteId = emoteId;
+                var emote = zdo.Vars.GetEmote();
+                if (emote == Config.Players.StackInventoryIntoContainersEmote.Value)
+                {
+                    foreach (var containerZdo in Instance<ContainerProcessor>().Containers)
+                    {
+                        //if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
+                        //    continue; // in use or player to close
+
+                        var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
+                        pickupRangeSqr *= pickupRangeSqr;
+
+                        if (pickupRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > pickupRangeSqr)
+                            continue;
+
+                        if (containerZdo.PrefabInfo.Container!.Value.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != zdo.Vars.GetPlayerID())
+                            continue; // private container
+
+                        RPC.RequestStack(containerZdo, zdo);
+                    }
+                }
+            }
+        }
 
         if (!Config.Tames.TeleportFollow.Value)
             return false;

@@ -1,7 +1,12 @@
 ﻿using BepInEx.Logging;
+using Mono.Cecil.Cil;
+using MonoMod.Cil;
+using MonoMod.Utils;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using RoutedRPCData = ZRoutedRpc.RoutedRPCData;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -278,6 +283,62 @@ abstract class Processor
         {
             /// <see cref="SEMan.AddStatusEffect"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_AddStatusEffect", [nameHash, resetTime, itemLevel, skillLevel]);
+        }
+
+        public static void RequestStack(ExtendedZDO container, ExtendedZDO player, long playerID = 0)
+        {
+            /// <see cref="Container.RPC_RequestStack"/>
+            if (playerID is 0)
+                playerID = player.Vars.GetPlayerID();
+            InvokeRoutedRPCAsSender(player.GetOwner(), container.GetOwner(), container.m_uid, "RPC_RequestStack", [playerID]);
+        }
+
+        static Action<ZRoutedRpc, long, ZDOID, string, object[], long>? __invokeRouteRPCAsSender;
+        
+        static void InvokeRoutedRPCAsSender(long senderPeerId, long targetPeerID, ZDOID targetZDO, string methodName, object[] parameters)
+        {
+            __invokeRouteRPCAsSender ??= GetDelegate();
+            __invokeRouteRPCAsSender(ZRoutedRpc.instance, targetPeerID, targetZDO, methodName, parameters, senderPeerId);
+
+            static Action<ZRoutedRpc, long, ZDOID, string, object[], long> GetDelegate()
+            {
+                var senderPeerIDField = GetField(static (RoutedRPCData x) => x.m_senderPeerID);
+                var idField = typeof(ZRoutedRpc).GetField("m_id", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                var original = new Action<long, ZDOID, string, object[]>(ZRoutedRpc.instance.InvokeRoutedRPC).Method;
+                var method = new DynamicMethodDefinition(original) { Name = "InvokeRoutedRPC_InjectSender" };
+                typeof(DynamicMethodDefinition).GetProperty(nameof(DynamicMethodDefinition.OriginalMethod)).SetValue(method, null);
+                method.Definition.Parameters.Add(new("senderPeerID", Mono.Cecil.ParameterAttributes.None, method.Module.ImportReference(typeof(long))));
+                var instructions = method.Definition.Body.Instructions;
+
+                var success = false;
+                for (var i = 2; i < instructions.Count; i++)
+                {
+                    if (instructions[i].MatchStfld(senderPeerIDField) && instructions[i - 1].MatchLdfld(idField) && instructions[i - 2].OpCode == OpCodes.Ldarg_0)
+                    {
+                        instructions[i - 1] = method.GetILProcessor().Create(OpCodes.Ldarg, method.Definition.Parameters.Count - 1);
+                        instructions.RemoveAt(i - 2);
+                        success = true;
+                        break;
+                    }
+                }
+
+                if (!success)
+                    throw new Exception("Failed");
+
+                //foreach (var instruction in method.Definition.Body.Instructions)
+                //    Main.Instance.Logger.DevLog($"{instruction.OpCode.Name}: {instruction.Operand}", LogLevel.Warning);
+
+                var mi = method.Generate();
+                return mi.CreateDelegate<Action<ZRoutedRpc, long, ZDOID, string, object[], long>>();
+
+                static FieldInfo GetField<T, TField>(Expression<Func<T, TField>> expression)
+                {
+                    if (expression.Body is MemberExpression member)
+                        return (FieldInfo)member.Member;
+                    throw new ArgumentException();
+                }
+            }
         }
     }
 }

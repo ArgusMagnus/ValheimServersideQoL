@@ -409,23 +409,6 @@ public sealed partial class Main : BaseUnityPlugin
 
         LogProcessingTime();
 
-        // roughly once per minute
-        if (_executeCounter % (ulong)(60 * Config.General.Frequency.Value) is 0)
-        {
-            foreach (var (key, set) in Processor.Instance<ContainerProcessor>().ContainersByItemName.Select(x => (x.Key, x.Value)))
-            {
-                foreach (var zdo in set)
-                {
-                    if (!zdo.IsValid() || zdo.PrefabInfo.Container is null)
-                        set.Remove(zdo);
-                }
-                if (set is { Count: 0 })
-                    Processor.Instance<ContainerProcessor>().ContainersByItemName.TryRemove(key, out _);
-            }
-        }
-
-        LogProcessingTime();
-
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
         foreach (var peer in peers)
         {

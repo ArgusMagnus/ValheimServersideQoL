@@ -12,6 +12,13 @@ sealed class ContainerProcessor : Processor
 
     public event Action<ExtendedZDO>? ContainerChanged;
 
+    sealed class ContainerState
+    {
+        public HashSet<SharedItemDataKey> Items { get; } = [];
+    }
+
+    readonly Dictionary<ExtendedZDO, ContainerState> _containers = [];
+    public IReadOnlyCollection<ExtendedZDO> Containers => _containers.Keys;
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
     public IReadOnlyDictionary<ExtendedZDO, ExtendedZDO> ChestsBySigns => _chestsBySigns;
 
@@ -27,6 +34,18 @@ sealed class ContainerProcessor : Processor
 
     void OnChestDestroyed(ExtendedZDO zdo)
     {
+        if (_containers.Remove(zdo, out var state))
+        {
+            foreach (var key in state.Items)
+            {
+                if (ContainersByItemName.TryGetValue(key, out var set))
+                {
+                    set.Remove(zdo);
+                    if (set.Count is 0)
+                        ContainersByItemName.TryRemove(key, out _);
+                }
+            }
+        }
         if (_signsByChests.Remove(zdo, out var signs))
         {
             foreach (var sign in signs)
@@ -56,6 +75,12 @@ sealed class ContainerProcessor : Processor
         {
             UnregisterZdoProcessor = true;
             return false;
+        }
+
+        if (!_containers.TryGetValue(zdo, out var state))
+        {
+            _containers.Add(zdo, state = new());
+            zdo.Destroyed += OnChestDestroyed;
         }
 
         var (signOffset, signOptions) = GetSignOptions(zdo.GetPrefab());
@@ -100,8 +125,6 @@ sealed class ContainerProcessor : Processor
                 _chestsBySigns.Add(sign, zdo);
             }
             _signsByChests.Add(zdo, signs);
-            zdo.Destroyed -= OnChestDestroyed;
-            zdo.Destroyed += OnChestDestroyed;
         }
 
         var fields = zdo.Fields<Container>();
@@ -176,6 +199,7 @@ sealed class ContainerProcessor : Processor
             .ThenBy(x => x.m_shared.m_name)
             .ThenByDescending(x => x.m_stack))
         {
+            state.Items.Add(item.m_shared);
             if (zdo.PrefabInfo.Container.Value.Container.m_privacy is not Container.PrivacySetting.Private)
             {
                 var set = ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());

@@ -1,4 +1,7 @@
 ### v0.2.22
+- New feature: stack items from player inventories into containers (config: `StackInventoryIntoContainersEmote`) [#44](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/44)
+
+### v0.2.22
 - New features:
     - Modify the ore/fuel capacity of smelters
     - Allow unlocking of crypt doors without the key if the Elder has been defeated [#50](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/50)
