@@ -228,6 +228,10 @@ sealed class ExtendedZDO : ZDO
         static int __lastSpawnedTime = $"{Main.PluginGuid}.LastSpawnedTime".GetStableHashCode();
         public DateTimeOffset GetLastSpawnedTime(DateTimeOffset defaultValue = default) => new(_zdo.GetLong(__lastSpawnedTime, defaultValue.Ticks), default);
         public void SetLastSpawnedTime(DateTimeOffset value) => _zdo.Set(__lastSpawnedTime, value.Ticks - value.Offset.Ticks);
+
+        static int __portalHubId = $"{Main.PluginGuid}.PortalHubId".GetStableHashCode();
+        public int GetPortalHubId(int defaultValue = default) => _zdo.GetInt(__portalHubId, defaultValue);
+        public void SetPortalHubId(int value) => _zdo.Set(__portalHubId, value);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)

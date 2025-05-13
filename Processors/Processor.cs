@@ -203,6 +203,10 @@ abstract class Processor
         public static int BlackmetalChest { get; } = "piece_chest_blackmetal".GetStableHashCode();
         public static int ReinforcedChest { get; } = "piece_chest".GetStableHashCode();
         public static int WoodChest { get; } = "piece_chest_wood".GetStableHashCode();
+        public static int StandingIronTorch { get; } = "piece_groundtorch".GetStableHashCode();
+        public static int StandingIronTorchGreen { get; } = "piece_groundtorch_green".GetStableHashCode();
+        public static int StandingIronTorchBlue { get; } = "piece_groundtorch_blue".GetStableHashCode();
+        //public static IReadOnlyList<int> Banners { get; } = [.. Enumerable.Range(1, 10).Select(static x => $"piece_banner{x:D2}".GetStableHashCode())];
     }
 
     protected static class RPC

@@ -1,6 +1,9 @@
 ﻿using BepInEx.Logging;
+using System;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using static UnityEngine.Random;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -9,7 +12,14 @@ sealed class PortalProcessor : Processor
     bool _destroyNewPortals;
     readonly HashSet<ExtendedZDO> _initialPortals = [];
 
-    readonly Dictionary<ExtendedZDO, string> _knownPortals = [];
+    sealed class PortalState
+    {
+        public required string Tag { get; set; }
+        public required int HubId { get; set; }
+    }
+
+    readonly Dictionary<ExtendedZDO, PortalState> _knownPortals = [];
+    readonly IReadOnlyList<int> _torchPrefabs = [Prefabs.StandingIronTorch, Prefabs.StandingIronTorchBlue, Prefabs.StandingIronTorchGreen];
     bool _hubEnabled;
     float _hubRadius = 0;
     bool _updateHub;
@@ -46,7 +56,14 @@ sealed class PortalProcessor : Processor
             {
                 string? tag = null;
                 if (zdo.Vars.GetCreator() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
-                    _knownPortals.Add(zdo, tag);
+                    _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId() });
+            }
+            var hubIds = _knownPortals.Values.Select(x => x.HubId).ToHashSet();
+            int id = 0;
+            foreach (var (zdo, state) in _knownPortals.Where(x => x.Value.HubId is 0).OrderBy(x => x.Value.Tag))
+            {
+                while (!hubIds.Add(++id)) ;
+                zdo.Vars.SetPortalHubId(state.HubId = id);
             }
         }
 
@@ -126,8 +143,9 @@ sealed class PortalProcessor : Processor
         else
         {
             var tag = zdo.Vars.GetTag();
-            _knownPortals.TryGetValue(zdo, out var oldTag);
-            if (_autoTag && oldTag is null && string.IsNullOrEmpty(tag))
+            _knownPortals.TryGetValue(zdo, out var state);
+
+            if (_autoTag && state is null && string.IsNullOrEmpty(tag))
             {
                 var biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
                 var biomeText = Localization.instance.Localize($"$biome_{biome.ToString().ToLowerInvariant()}");
@@ -143,11 +161,29 @@ sealed class PortalProcessor : Processor
                 }
             }
 
-            if (CheckFilter(zdo, tag) && oldTag != tag)
+            if (!CheckFilter(zdo, tag))
             {
-                if (oldTag == default)
+                if (_knownPortals.Remove(zdo))
+                    _updateHub = true;
+                zdo.Destroyed -= OnKnownPortalDestroyed;
+            }
+            else if (state?.Tag != tag)
+            {
+                if (state is not null)
+                    state.Tag = tag;
+                else
+                {
+                    _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId() });
                     zdo.Destroyed += OnKnownPortalDestroyed;
-                _knownPortals[zdo] = tag;
+
+                    if (state.HubId is 0)
+                    {
+                        var hubIds = _knownPortals.Values.Select(x => x.HubId).ToHashSet();
+                        int id = 0;
+                        while (!hubIds.Add(++id)) ;
+                        zdo.Vars.SetPortalHubId(state.HubId = id);
+                    }
+                }
                 _updateHub = true;
             }
             return true;
@@ -163,18 +199,18 @@ sealed class PortalProcessor : Processor
         if (!_hubEnabled)
             return;
 
-        IReadOnlyList<string> tags = [.. _knownPortals.Values
-            .GroupBy(x => x)
+        IReadOnlyList<PortalState> states = [.. _knownPortals.Values
+            .GroupBy(x => x.Tag)
             .Where(x => x.Count() % 2 is not 0)
-            .Select(x => x.Key)
-            .Concat(Config.General.InWorldConfigRoom.Value ? [InGameConfigProcessor.PortalHubTag] : [])
-            .OrderBy(x => x)];
+            .Select(x => x.First())
+            .Concat(Config.General.InWorldConfigRoom.Value ? [new PortalState() { Tag = InGameConfigProcessor.PortalHubTag, HubId = 0 }] : [])
+            .OrderBy(x => x.Tag)];
 
-        if (tags.Count is 0)
+        if (states.Count is 0)
             return;
 
         // 4*(width-1) = count -> width = count/4 + 1
-        var width = Math.Max(3, (int)Math.Ceiling(tags.Count / 4f + 1));
+        var width = Math.Max(3, (int)Math.Ceiling(states.Count / 4f + 1));
         _hubRadius = (width + 1) * 4f * Mathf.Sqrt(2);
 
         PlacePiece(_offset with { y = _offset.y - 2 }, Prefabs.DvergerGuardstone, 0)
@@ -198,23 +234,48 @@ sealed class PortalProcessor : Processor
             }
         }
 
-        var tagsEnumerator = tags.GetEnumerator();
+        var statesEnumerator = states.GetEnumerator();
         for (int k = 0; k < width; k++)
-            PlacePortalAndWalls(0, k, width, tagsEnumerator, (_, k) => k < width - 1);
+            PlacePortalAndWalls(0, k, width, statesEnumerator, (_, k) => k < width - 1);
         for (int i = 0; i < width; i++)
-            PlacePortalAndWalls(i, width - 1, width, tagsEnumerator, (i, _) => i < width - 1);
+            PlacePortalAndWalls(i, width - 1, width, statesEnumerator, (i, _) => i < width - 1);
         for (int k = width - 1; k >= 0; k--)
-            PlacePortalAndWalls(width - 1, k, width, tagsEnumerator, (_, k) => k > 0);
+            PlacePortalAndWalls(width - 1, k, width, statesEnumerator, (_, k) => k > 0);
         for (int i = width - 1; i >= 0; i--)
-            PlacePortalAndWalls(i, 0, width, tagsEnumerator, (i, _) => i > 0);
+            PlacePortalAndWalls(i, 0, width, statesEnumerator, (i, _) => i > 0);
 
-        if (tagsEnumerator.MoveNext())
+        if (statesEnumerator.MoveNext())
             throw new Exception("Algorithm failed to place all portals");
 
         ZDOMan.instance.ConvertPortals();
     }
 
-    void PlacePortalAndWalls(int i, int k, int width, IEnumerator<string> tagsEnumerator, Func<int, int, bool> placePortal)
+    IReadOnlyList<int> GetTorches(int hubId)
+    {
+        if (hubId is 0)
+            return [];
+        List<int> torches = [0];
+        for (int i = 0; i < hubId; i++)
+        {
+            torches[0]++;
+            for (int k = 0; k < torches.Count; k++)
+            {
+                if (torches[k] < 3)
+                    continue;
+                torches[k] = 0;
+                if (k == torches.Count - 1)
+                    torches.Add(1);
+                else
+                    torches[k + 1]++;
+            }
+        }
+
+        for (int k = 0; k < torches.Count; k++)
+            torches[k] = _torchPrefabs[torches[k]];
+        return torches;
+    }
+
+    void PlacePortalAndWalls(int i, int k, int width, IEnumerator<PortalState> statesEnumerator, Func<int, int, bool> placePortal)
     {
         var x = (i - width / 2f) * 4;
         var z = (k - width / 2f) * 4;
@@ -258,12 +319,12 @@ sealed class PortalProcessor : Processor
         else if (!kIsEdge)
             pos.x += i is 0 ? -1.5f : 1.5f;
 
-        if (placePortal(i, k) && tagsEnumerator.MoveNext())
+        if (placePortal(i, k) && statesEnumerator.MoveNext())
         {
-            var tag = tagsEnumerator.Current;
+            var state = statesEnumerator.Current;
             var zdo = PlacePiece(pos, Prefabs.PortalWood, rot);
             zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
-            zdo.Vars.SetTag(tag);
+            zdo.Vars.SetTag(state.Tag);
 
             if (iIsEdge && kIsEdge)
             {
@@ -274,9 +335,34 @@ sealed class PortalProcessor : Processor
                 pos.z += k is 0 ? -0.25f : 0.25f;
             else if (!kIsEdge)
                 pos.x += i is 0 ? -0.25f : 0.25f;
-            pos.y += 2;
+
+            pos.y += 2f;
             var sign = PlacePiece(pos, Prefabs.Sign, rot);
-            sign.Vars.SetText($"<color=white>{tag}");
+            sign.Vars.SetText($"<color=white>{state.Tag}");
+
+            var torches = GetTorches(state.HubId);
+            if (torches.Count > 0)
+            {
+                pos.y -= 1.5f;
+                var p = pos;
+                var d = iIsEdge && kIsEdge ? 0.25f / Mathf.Sqrt(2) : 0.25f;
+                for (var j = 0; j < torches.Count; j++)
+                {
+                    pos = p;
+                    var dx = (j - (torches.Count - 1) / 2f) * d;
+                    if (iIsEdge && kIsEdge)
+                    {
+                        pos.x += k is 0 ? dx : -dx;
+                        pos.z += i is 0 ? -dx : dx;
+                    }
+                    else if (!iIsEdge)
+                        pos.x += k is 0 ? dx : -dx;
+                    else if (!kIsEdge)
+                        pos.z += i is 0 ? -dx : dx;
+                    PlacePiece(pos, torches[j], rot)
+                        .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                }
+            }
         }
 
         if (iIsEdge)
@@ -291,11 +377,11 @@ sealed class PortalProcessor : Processor
             pos.y += 2;
             PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
 
-            rot -= 90;
-            pos.x += i is 0 ? 0.25f : -0.25f;
-            pos.y += 0.5f;
-            PlacePiece(pos, Prefabs.Sconce, rot)
-                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+            //rot -= 90;
+            //pos.x += i is 0 ? 0.25f : -0.25f;
+            //pos.y += 0.5f;
+            //PlacePiece(pos, Prefabs.Sconce, rot)
+            //    .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
         }
         if (kIsEdge)
         {
@@ -309,11 +395,11 @@ sealed class PortalProcessor : Processor
             pos.y += 2;
             PlacePiece(pos, Prefabs.GraustenWall4x2, rot);
 
-            rot -= 90;
-            pos.z += k is 0 ? 0.25f : -0.25f;
-            pos.y += 0.5f;
-            PlacePiece(pos, Prefabs.Sconce, rot)
-                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+            //rot -= 90;
+            //pos.z += k is 0 ? 0.25f : -0.25f;
+            //pos.y += 0.5f;
+            //PlacePiece(pos, Prefabs.Sconce, rot)
+            //    .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
         }
     }
 }
