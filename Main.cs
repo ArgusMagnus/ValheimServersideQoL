@@ -38,9 +38,8 @@ public sealed partial class Main : BaseUnityPlugin
     internal static Harmony HarmonyInstance { get; } = new Harmony(PluginGuid);
     internal new ManualLogSource Logger { get; } = BepInEx.Logging.Logger.CreateLogSource(PluginName);
     ModConfig? _mainConfig;
-    ModConfig MainConfig => _mainConfig ??= new(base.Config);
     ModConfig? _worldConfig;
-    internal new ModConfig Config => _worldConfig ?? MainConfig;
+    internal new ModConfig Config => _worldConfig ?? (_mainConfig ??= new(base.Config));
 
     readonly Stopwatch _watch = new();
 
@@ -90,85 +89,8 @@ public sealed partial class Main : BaseUnityPlugin
     const uint ExpectedWorldVersion = 35;
     internal const string DummyConfigSection = "Z - Dummy";
 
-    sealed class DummySocket : ISocket
-    {
-        public ISocket Accept()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Close() { }
-
-        public void Dispose() { }
-
-        public bool Flush()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetAndResetStats(out int totalSent, out int totalRecv)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetConnectionQuality(out float localQuality, out float remoteQuality, out int ping, out float outByteSec, out float inByteSec)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetCurrentSendRate()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetEndPointString()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetHostName() => "";
-
-        public int GetHostPort()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetSendQueueSize()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool GotNewData()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsConnected() => true;
-
-        public bool IsHost()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ZPackage Recv()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Send(ZPackage pkg)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void VersionMatch()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
     void Start()
     {
-
         StartCoroutine(CallExecute());
 
         IEnumerator<YieldInstruction> CallExecute()
@@ -203,7 +125,8 @@ public sealed partial class Main : BaseUnityPlugin
                     localPeer = new(new DummySocket(), true)
                     {
                         m_uid = ZDOMan.GetSessionID(),
-                        m_characterID = Player.m_localPlayer.GetZDOID()
+                        m_characterID = Player.m_localPlayer.GetZDOID(),
+                        m_server = true
                     };
                 }
                 var peers = new PeersEnumerable(localPeer);
@@ -227,37 +150,6 @@ public sealed partial class Main : BaseUnityPlugin
         }
     }
 
-    sealed class MyTerminal : Terminal
-    {
-        protected override Terminal m_terminalInstance => throw new NotImplementedException();
-
-        //public static IReadOnlyDictionary<string, ConsoleCommand> Commands => commands;
-
-        public static void ExecuteCommand(string command, params string[] args)
-        {
-            var cmd = commands[command];
-            // var action = typeof(ConsoleCommand).GetField("action", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd)
-            //     ?? typeof(ConsoleCommand).GetField("actionFailable", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(cmd);
-            if (cmd.GetAction() is { } consoleEvent)
-                consoleEvent(new MyConsoleEventArgs(command, args));
-            else if (cmd.GetActionFailable() is { } consoleEventFailable)
-            {
-                var result = consoleEventFailable(new MyConsoleEventArgs(command, args));
-                if (result is not bool b || !b)
-                    throw new Exception(result.ToString());
-            }
-            else
-                throw new ArgumentException(nameof(command));
-        }
-
-        sealed class MyConsoleEventArgs : ConsoleEventArgs
-        {
-            public MyConsoleEventArgs(string command, params string[] args)
-                : base("", null)
-                => Args = [command, .. args];
-        }
-    }
-
     bool Initialize()
     {
         if (_mainConfig is not null)
@@ -274,7 +166,7 @@ public sealed partial class Main : BaseUnityPlugin
             if (!File.Exists(path) && File.Exists(base.Config.ConfigFilePath))
                 File.Copy(base.Config.ConfigFilePath, path);
             Logger.LogInfo("Using world config file");
-            _worldConfig = new(new(path, true, new(PluginGuid, PluginName, PluginVersion)));
+            _worldConfig = new(new(path, saveOnInit: false, new(PluginGuid, PluginName, PluginVersion)));
         }
 
         if (!Config.General.Enabled.Value)
@@ -376,7 +268,7 @@ public sealed partial class Main : BaseUnityPlugin
                     }
                 }
             }
-
+            
             foreach (var processor in Processor.DefaultProcessors)
                 processor.Initialize(_executeCounter is 1);
 
@@ -406,8 +298,6 @@ public sealed partial class Main : BaseUnityPlugin
         peers.Update();
         if (peers.Count is 0)
             return;
-
-        LogProcessingTime();
 
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
         foreach (var peer in peers)
@@ -450,8 +340,6 @@ public sealed partial class Main : BaseUnityPlugin
         }
         _playerSectorsOld.Clear();
 
-        LogProcessingTime();
-
         var playerSectors = _playerSectors.AsEnumerable();
         if (_unfinishedProcessingInRow > 10)
         {
@@ -470,12 +358,8 @@ public sealed partial class Main : BaseUnityPlugin
             playerSectors = playerSectors.OrderBy(x => x.Value.InverseWeight);
         }
 
-        LogProcessingTime();
-
         foreach (var processor in Processor.DefaultProcessors)
             processor.PreProcess();
-
-        LogProcessingTime();
 
         int processedSectors = 0;
         int processedZdos = 0;
@@ -560,14 +444,6 @@ public sealed partial class Main : BaseUnityPlugin
 
         Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(x => x.ProcessingTime.Ticks > 0).OrderByDescending(x => x.ProcessingTime.Ticks).Select(x => Invariant($"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms")))}"));
         //Logger.LogDebug(string.Join(Invariant(.$"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => Invariant(.$"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
-    }
-
-    [Conditional("DEBUG")]
-    void LogProcessingTime([CallerLineNumber]int lineNo = default)
-    {
-        if (_unfinishedProcessingInRow < 20)
-            return;
-        Logger.LogInfo($"Line {lineNo}: {_watch.ElapsedMilliseconds} ms");
     }
 
 #if DEBUG
@@ -774,5 +650,110 @@ public sealed partial class Main : BaseUnityPlugin
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
+
+    sealed class MyTerminal : Terminal
+    {
+        protected override Terminal m_terminalInstance => throw new NotImplementedException();
+
+        //public static IReadOnlyDictionary<string, ConsoleCommand> Commands => commands;
+
+        public static void ExecuteCommand(string command, params string[] args)
+        {
+            var cmd = commands[command];
+            if (cmd.GetAction() is { } consoleEvent)
+                consoleEvent(new MyConsoleEventArgs(command, args));
+            else if (cmd.GetActionFailable() is { } consoleEventFailable)
+            {
+                var result = consoleEventFailable(new MyConsoleEventArgs(command, args));
+                if (result is not bool b || !b)
+                    throw new Exception(result.ToString());
+            }
+            else
+                throw new ArgumentException(nameof(command));
+        }
+
+        sealed class MyConsoleEventArgs : ConsoleEventArgs
+        {
+            public MyConsoleEventArgs(string command, params string[] args)
+                : base("", null)
+                => Args = [command, .. args];
+        }
+    }
+
+    sealed class DummySocket : ISocket
+    {
+        public ISocket Accept()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Close() { }
+
+        public void Dispose() { }
+
+        public bool Flush()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetAndResetStats(out int totalSent, out int totalRecv)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetConnectionQuality(out float localQuality, out float remoteQuality, out int ping, out float outByteSec, out float inByteSec)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetCurrentSendRate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetEndPointString()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetHostName() => "";
+
+        public int GetHostPort()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetSendQueueSize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool GotNewData()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsConnected() => true;
+
+        public bool IsHost()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ZPackage Recv()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Send(ZPackage pkg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void VersionMatch()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

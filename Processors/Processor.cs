@@ -167,7 +167,7 @@ abstract class Processor
     sealed record RpcMethod(string Name, List<Delegate> Delegates);
     static readonly Dictionary<int, RpcMethod> __methods = [];
     static readonly MethodInfo __handleRoutedRPCMethod = typeof(ZRoutedRpc).GetMethod("HandleRoutedRPC", BindingFlags.NonPublic | BindingFlags.Instance);
-    static readonly MethodInfo __handleRoutedRPCPrefix = new Action<ZRoutedRpc.RoutedRPCData>(HandleRoutedRPCPrefix).Method;
+    static readonly MethodInfo __handleRoutedRPCPrefix = new Action<RoutedRPCData>(HandleRoutedRPCPrefix).Method;
 
     protected static void UpdateRpcSubscription(string methodName, Delegate handler, bool subscribe)
     {

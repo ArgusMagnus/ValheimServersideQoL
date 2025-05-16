@@ -84,6 +84,11 @@ sealed class PlayerProcessor : Processor
         if (_players.TryAdd(zdo.m_uid, zdo))
             zdo.Destroyed += OnZdoDestroyed;
 
+        if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
+        {
+            RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_encumberedStaminaDrain);
+        }
+
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
         {
             if (!_playerStates.TryGetValue(zdo, out var state))

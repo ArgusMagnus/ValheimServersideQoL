@@ -181,6 +181,8 @@ sealed class ModConfig(ConfigFile cfg)
             Invariant($"True to give players infinite stamina when mining. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
         public ConfigEntry<bool> InfiniteWoodCuttingStamina { get; } = cfg.Bind(section, nameof(InfiniteWoodCuttingStamina), false,
             Invariant($"True to give players infinite stamina when cutting wood. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
+        public ConfigEntry<bool> InfiniteEncumberedStamina { get; } = cfg.Bind(section, nameof(InfiniteEncumberedStamina), false,
+            Invariant($"True to give players infinite stamina when encumbered. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
 
         public const Emotes DisabledEmote = (Emotes)(-1);
         public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = cfg.Bind(section, nameof(StackInventoryIntoContainersEmote), DisabledEmote,

@@ -1,5 +1,7 @@
-### v0.2.22
-- New feature: stack items from player inventories into containers (config: `StackInventoryIntoContainersEmote`) [#44](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/44)
+### v0.2.23
+- New features:
+    - Stack items from player inventories into containers (config: `StackInventoryIntoContainersEmote`) [#44](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/44)
+    - Infinite stamina when encumbered
 - Portal hub: visualize portal ID with colored torches to facilitate portal identication even if the position in the hub changes
 
 ### v0.2.22
