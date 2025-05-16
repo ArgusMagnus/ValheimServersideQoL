@@ -130,12 +130,12 @@ sealed class PlayerProcessor : Processor
         var playerName = zdo.Vars.GetPlayerName();
         var playerZone = ZoneSystem.GetZone(zdo.GetPosition());
 
-        foreach (var tameZdo in Instance<TameableProcessor>().Tames)
+        foreach (var tameState in Instance<TameableProcessor>().Tames)
         {
-            if (tameZdo.Vars.GetFollow() != playerName)
+            if (!tameState.IsTamed || tameState.ZDO.Vars.GetFollow() != playerName)
                 continue;
 
-            var tameZone = ZoneSystem.GetZone(tameZdo.GetPosition());
+            var tameZone = ZoneSystem.GetZone(tameState.ZDO.GetPosition());
             if (ZNetScene.InActiveArea(tameZone, playerZone))
                 continue;
 
@@ -144,10 +144,10 @@ sealed class PlayerProcessor : Processor
             direction = Quaternion.Euler(0, UnityEngine.Random.Range(-45f, 45f), 0) * direction * UnityEngine.Random.Range(1f, 4f);
             var targetPos = zdo.GetPosition() + direction;
             targetPos.y += UnityEngine.Random.Range(1, 3);
-            var owner = tameZdo.GetOwner();
-            tameZdo.ClaimOwnershipInternal();
-            tameZdo.SetPosition(targetPos);
-            tameZdo.SetOwnerInternal(owner);
+            var owner = tameState.ZDO.GetOwner();
+            tameState.ZDO.ClaimOwnershipInternal();
+            tameState.ZDO.SetPosition(targetPos);
+            tameState.ZDO.SetOwnerInternal(owner);
         }
 
         return false;

@@ -71,18 +71,26 @@ sealed class ItemDropProcessor : Processor
 
         if (Config.Containers.AutoPickupExcludeFodder.Value)
         {
-            foreach (var tameZdo in Instance<TameableProcessor>().Tames)
+            foreach (var tameState in Instance<TameableProcessor>().Tames)
             {
-                if (tameZdo.PrefabInfo.Tameable is null)
+                if (tameState.ZDO.PrefabInfo.Tameable is null)
                     continue;
 
                 /// <see cref="MonsterAI.CanConsume(ItemDrop.ItemData)"/>
-                if (!tameZdo.PrefabInfo.Tameable.Value.MonsterAI.m_consumeItems.Any(x => x.m_itemData.m_shared.m_name == shared.m_name))
+                if (!tameState.ZDO.PrefabInfo.Tameable.Value.MonsterAI.m_consumeItems.Any(x => x.m_itemData.m_shared.m_name == shared.m_name))
                     continue;
-                var rangeSqr = tameZdo.PrefabInfo.Tameable.Value.MonsterAI.m_consumeSearchRange;
+                var rangeSqr = tameState.ZDO.PrefabInfo.Tameable.Value.MonsterAI.m_consumeSearchRange;
                 rangeSqr *= rangeSqr;
-                if (Utils.DistanceSqr(zdo.GetPosition(), tameZdo.GetPosition()) < rangeSqr)
+                if (Utils.DistanceSqr(zdo.GetPosition(), tameState.ZDO.GetPosition()) < rangeSqr)
+                {
+                    UnregisterZdoProcessor = true;
+                    var fields = zdo.Fields<ItemDrop>();
+                    if (fields.SetIfChanged(x => x.m_autoPickup, false))
+                        RecreateZdo = true;
+                    if (fields.SetIfChanged(x => x.m_autoDestroy, false))
+                        RecreateZdo = true;
                     return false;
+                }
             }
         }
 

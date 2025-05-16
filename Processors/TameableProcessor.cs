@@ -1,14 +1,23 @@
-﻿using BepInEx.Logging;
-using System.Collections.Concurrent;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class TameableProcessor : Processor
 {
-    readonly Dictionary<ExtendedZDO, DateTimeOffset> _lastMessage = new();
-    readonly List<ExtendedZDO> _tames = new();
-    public IReadOnlyList<ExtendedZDO> Tames => _tames;
+    public interface ITameableState
+    {
+        ExtendedZDO ZDO { get; }
+        bool IsTamed { get; }
+    }
+
+    sealed record TameableState(ExtendedZDO ZDO) : ITameableState
+    {
+        public bool IsTamed { get; set; }
+        public DateTimeOffset LastMessage { get; set; }
+    }
+
+    readonly Dictionary<ExtendedZDO, TameableState> _states = [];
+    public IReadOnlyCollection<ITameableState> Tames => _states.Values;
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
@@ -43,8 +52,12 @@ sealed class TameableProcessor : Processor
 
             if (!RecreateZdo)
             {
-                _tames.Add(zdo);
-                zdo.Destroyed += x => _tames.Remove(x);
+                if (!_states.TryGetValue(zdo, out var state))
+                {
+                    _states.Add(zdo, state = new(zdo));
+                    zdo.Destroyed += x => _states.Remove(x);
+                }
+                state.IsTamed = true;
             }
         }
         else if (Config.Tames.ShowTamingProgress.Value)
@@ -56,11 +69,15 @@ sealed class TameableProcessor : Processor
             var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
             if (tameTimeLeft < tameTime)
             {
-                if (!_lastMessage.TryGetValue(zdo, out var lastMessage) || (DateTimeOffset.UtcNow - lastMessage) > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
+                if (!_states.TryGetValue(zdo, out var state))
                 {
-                    if (lastMessage == default)
-                        zdo.Destroyed += x => _lastMessage.Remove(x);
-                    _lastMessage[zdo] = DateTimeOffset.UtcNow;
+                    _states.Add(zdo, state = new(zdo));
+                    zdo.Destroyed += x => _states.Remove(x);
+                }
+
+                if ((DateTimeOffset.UtcNow - state.LastMessage) > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
+                {
+                    state.LastMessage = DateTimeOffset.UtcNow;
                     var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
                     RPC.ShowInWorldText(peers, DamageText.TextType.Normal, zdo.GetPosition(), $"$hud_tameness {tameness:P0}");
                 }
