@@ -39,7 +39,7 @@ sealed class PlayerProcessor : Processor
         if (!_players.TryGetValue(data.m_targetZDO, out var zdo))
             return;
 
-        Logger.DevLog($"ZDO {data.m_targetZDO}: SetTrigger: {name}");
+        //Logger.DevLog($"ZDO {data.m_targetZDO}: SetTrigger: {name}");
 
         static bool CheckStamina(string triggerName, ModConfig.PlayersConfig cfg)
         {
@@ -109,6 +109,7 @@ sealed class PlayerProcessor : Processor
                         if (containerZdo.PrefabInfo.Container!.Value.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != zdo.Vars.GetPlayerID())
                             continue; // private container
 
+                        containerZdo.Inventory.LockedUntil = DateTimeOffset.UtcNow.AddSeconds(2);
                         RPC.RequestStack(containerZdo, zdo);
                     }
                 }

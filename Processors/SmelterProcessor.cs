@@ -85,7 +85,7 @@ sealed class SmelterProcessor : Processor
                                 continue;
                             }
 
-                            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
+                            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo) || containerZdo.Inventory.LockedUntil > DateTimeOffset.UtcNow)
                                 continue; // in use or player to close
 
                             var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
@@ -183,7 +183,7 @@ sealed class SmelterProcessor : Processor
                                 continue;
                             }
 
-                            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
+                            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo) || containerZdo.Inventory.LockedUntil > DateTimeOffset.UtcNow)
                                 continue; // in use or player to close
 
                             var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;

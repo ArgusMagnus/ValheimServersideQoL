@@ -97,7 +97,7 @@ sealed class ItemDropProcessor : Processor
                 continue;
             }
 
-            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
+            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo) || containerZdo.Inventory.LockedUntil > DateTimeOffset.UtcNow)
                 continue; // in use or player to close
 
             var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
