@@ -16,7 +16,7 @@ sealed class ContainerProcessor : Processor
     sealed class ContainerState
     {
         public HashSet<SharedItemDataKey> Items { get; } = [];
-        public bool OwnershipRequested { get; set; }
+        public DateTimeOffset LastOwnershipRequest { get; set; }
         public bool WaitingForResponse { get; set; }
     }
 
@@ -76,19 +76,12 @@ sealed class ContainerProcessor : Processor
 
     public override bool ClaimExclusive(ExtendedZDO zdo) => false;
 
-    protected override void PreProcessCore()
-    {
-        base.PreProcessCore();
-        foreach (var state in _containers.Values)
-            state.OwnershipRequested = false;
-    }
-
     public void RequestOwnership(ExtendedZDO zdo, long playerID)
         => RequestOwnership(zdo, playerID, _containers[zdo]);
 
     void RequestOwnership(ExtendedZDO zdo, long playerID, ContainerState state)
     {
-        if (state.OwnershipRequested)
+        if (DateTimeOffset.UtcNow - state.LastOwnershipRequest < TimeSpan.FromSeconds(2))
             return;
 
         if (!_openResponseRegistered)
@@ -97,8 +90,8 @@ sealed class ContainerProcessor : Processor
             UpdateRpcSubscription("OpenRespons", RPC_OpenResponse, true);
         }
 
-        Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
-        state.OwnershipRequested = true;
+        //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
+        state.LastOwnershipRequest = DateTimeOffset.UtcNow;
         state.WaitingForResponse = true;
         RPC.RequestOwn(zdo, playerID);
     }
@@ -111,7 +104,7 @@ sealed class ContainerProcessor : Processor
         if (!_containers.TryGetValue(zdo, out var state) || !state.WaitingForResponse)
             return true;
 
-        Logger.DevLog($"Container {data.m_targetZDO}: OpenResponse: {granted}");
+        //Logger.DevLog($"Container {data.m_targetZDO}: OpenResponse: {granted}");
         state.WaitingForResponse = false;
         return false;
     }

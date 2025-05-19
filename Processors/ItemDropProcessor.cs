@@ -161,9 +161,10 @@ sealed class ItemDropProcessor : Processor
                     Instance<ContainerProcessor>().ContainersByItemName.TryRemove(item.m_shared, out _);
                 continue;
             }
-            else if (!containerZdo.IsOwner())
+            else if (requestOwn)
             {
-                Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
+                if (!containerZdo.IsOwner())
+                    Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
                 continue;
             }
 
@@ -193,7 +194,6 @@ sealed class ItemDropProcessor : Processor
             {
                 containerZdo.Inventory.Save();
                 (item.m_stack, stack) = (stack, item.m_stack);
-                zdo.ClaimOwnershipInternal();
                 ItemDrop.SaveToZDO(item, zdo);
                 RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{containerZdo.PrefabInfo.Container.Value.Piece.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
             }

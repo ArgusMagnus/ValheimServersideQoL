@@ -148,7 +148,7 @@ abstract class Processor
                         {
                             if (del.DynamicInvoke(args) is bool success && !success)
                             {
-                                Main.Instance.Logger.DevLog($"Invokation of {rpcMethod.Name} cancelled");
+                                //Main.Instance.Logger.DevLog($"Invokation of {rpcMethod.Name} cancelled");
                                 return false;
                             }
                         }
