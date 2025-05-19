@@ -123,7 +123,7 @@ abstract class Processor
         return $"(?i)^{searchPattern}$";
     }
 
-    static void HandleRoutedRPCPrefix(ZRoutedRpc.RoutedRPCData data)
+    static bool HandleRoutedRPCPrefix(RoutedRPCData data)
     {
         if (__methods.TryGetValue(data.m_methodHash, out var rpcMethod))
         {
@@ -144,7 +144,14 @@ abstract class Processor
                     catch (Exception ex) { exception = ex; }
                     if (exception is null)
                     {
-                        try { del.DynamicInvoke(args); }
+                        try
+                        {
+                            if (del.DynamicInvoke(args) is bool success && !success)
+                            {
+                                Main.Instance.Logger.DevLog($"Invokation of {rpcMethod.Name} cancelled");
+                                return false;
+                            }
+                        }
                         catch (Exception ex) /*when (ex is TargetParameterCountException or TargetInvocationException or ArgumentException)*/ { exception = ex; }
                     }
                 }
@@ -162,12 +169,13 @@ abstract class Processor
                 }
             }
         }
+        return true;
     }
 
     sealed record RpcMethod(string Name, List<Delegate> Delegates);
     static readonly Dictionary<int, RpcMethod> __methods = [];
     static readonly MethodInfo __handleRoutedRPCMethod = typeof(ZRoutedRpc).GetMethod("HandleRoutedRPC", BindingFlags.NonPublic | BindingFlags.Instance);
-    static readonly MethodInfo __handleRoutedRPCPrefix = new Action<RoutedRPCData>(HandleRoutedRPCPrefix).Method;
+    static readonly MethodInfo __handleRoutedRPCPrefix = new Func<RoutedRPCData, bool>(HandleRoutedRPCPrefix).Method;
 
     protected static void UpdateRpcSubscription(string methodName, Delegate handler, bool subscribe)
     {
@@ -231,6 +239,7 @@ abstract class Processor
 
         public static void UseStamina(ExtendedZDO playerZdo, float value)
         {
+            playerZdo.AssertIs<Player>();
             /// <see cref="Player.UseStamina(float)"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(playerZdo.GetOwner(), playerZdo.m_uid, "UseStamina", value);
         }
@@ -273,29 +282,50 @@ abstract class Processor
 
         public static void TeleportPlayer(ExtendedZDO player, Vector3 pos, Quaternion rot, bool distantTeleport)
         {
+            player.AssertIs<Player>();
             /// <see cref="Player.TeleportTo(Vector3, Quaternion, bool)"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(player.GetOwner(), player.m_uid, "RPC_TeleportTo", pos, rot, distantTeleport);
         }
 
         public static void Remove(ExtendedZDO piece, bool blockDrop = false)
         {
+            piece.AssertIs<Piece>();
             /// <see cref="WearNTear.RPC_Remove"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(piece.GetOwner(), piece.m_uid, "RPC_Remove", false);
         }
 
         public static void AddStatusEffect(ExtendedZDO character, int nameHash, bool resetTime = false, int itemLevel = 0, float skillLevel = 0f)
         {
+            character.AssertIs<Character>();
             /// <see cref="SEMan.AddStatusEffect"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_AddStatusEffect", [nameHash, resetTime, itemLevel, skillLevel]);
         }
 
         public static void RequestStack(ExtendedZDO container, ExtendedZDO player, long playerID = 0)
         {
+            container.AssertIs<Container>();
+            player.AssertIs<Player>();
+
             /// <see cref="Container.RPC_RequestStack"/>
             if (playerID is 0)
                 playerID = player.Vars.GetPlayerID();
             InvokeRoutedRPCAsSender(player.GetOwner(), container.GetOwner(), container.m_uid, "RPC_RequestStack", [playerID]);
         }
+
+        public static void RequestOwn(ExtendedZDO itemDrop)
+        {
+            itemDrop.AssertIs<ItemDrop>();
+            /// <see cref="ItemDrop.RequestOwn"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(itemDrop.GetOwner(), itemDrop.m_uid, "RPC_RequestOwn");
+        }
+
+        public static void RequestOwn(ExtendedZDO container, long playerID)
+        {
+            container.AssertIs<Container>();
+            /// <see cref="Container.RPC_RequestOpen"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "RequestOpen", [playerID]);
+        }
+
 
         static Action<ZRoutedRpc, long, ZDOID, string, object[], long>? __invokeRouteRPCAsSender;
         

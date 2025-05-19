@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using UnityEngine;
+using static ZRoutedRpc;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -15,12 +16,15 @@ sealed class ContainerProcessor : Processor
     sealed class ContainerState
     {
         public HashSet<SharedItemDataKey> Items { get; } = [];
+        public bool OwnershipRequested { get; set; }
+        public bool WaitingForResponse { get; set; }
     }
 
     readonly Dictionary<ExtendedZDO, ContainerState> _containers = [];
     public IReadOnlyCollection<ExtendedZDO> Containers => _containers.Keys;
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
     public IReadOnlyDictionary<ExtendedZDO, ExtendedZDO> ChestsBySigns => _chestsBySigns;
+    bool _openResponseRegistered;
 
     public override void Initialize(bool firstTime)
     {
@@ -30,6 +34,9 @@ sealed class ContainerProcessor : Processor
             zdo.Destroy();
         _signsByChests.Clear();
         _chestsBySigns.Clear();
+
+        UpdateRpcSubscription("OpenRespons", RPC_OpenResponse, false);
+        _openResponseRegistered = false;
     }
 
     void OnChestDestroyed(ExtendedZDO zdo)
@@ -68,6 +75,46 @@ sealed class ContainerProcessor : Processor
     }
 
     public override bool ClaimExclusive(ExtendedZDO zdo) => false;
+
+    protected override void PreProcessCore()
+    {
+        base.PreProcessCore();
+        foreach (var state in _containers.Values)
+            state.OwnershipRequested = false;
+    }
+
+    public void RequestOwnership(ExtendedZDO zdo, long playerID)
+        => RequestOwnership(zdo, playerID, _containers[zdo]);
+
+    void RequestOwnership(ExtendedZDO zdo, long playerID, ContainerState state)
+    {
+        if (state.OwnershipRequested)
+            return;
+
+        if (!_openResponseRegistered)
+        {
+            _openResponseRegistered = true;
+            UpdateRpcSubscription("OpenRespons", RPC_OpenResponse, true);
+        }
+
+        Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
+        state.OwnershipRequested = true;
+        state.WaitingForResponse = true;
+        RPC.RequestOwn(zdo, playerID);
+    }
+
+    bool RPC_OpenResponse(RoutedRPCData data, bool granted)
+    {
+        if (ZDOMan.instance.GetExtendedZDO(data.m_targetZDO) is not { } zdo)
+            return true;
+
+        if (!_containers.TryGetValue(zdo, out var state) || !state.WaitingForResponse)
+            return true;
+
+        Logger.DevLog($"Container {data.m_targetZDO}: OpenResponse: {granted}");
+        state.WaitingForResponse = false;
+        return false;
+    }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
@@ -137,11 +184,13 @@ sealed class ContainerProcessor : Processor
             && int.TryParse(parts[1], out var desiredHeight)
             && (width, height) != (desiredWidth, desiredHeight))
         {
-            if (zdo.Inventory is { Items: { Count: 0 } })
+            if (zdo.Inventory is { Items.Count: 0 })
             {
                 fields.Set(x => x.m_width, width = desiredWidth);
                 fields.Set(x => x.m_height, height = desiredHeight);
                 RecreateZdo = true;
+                if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
+                    zdo.SetOwnerInternal(0); // required for physics to work again
                 return false;
             }
         }
@@ -151,13 +200,13 @@ sealed class ContainerProcessor : Processor
             desiredHeight = height;
         }
 
-        if (!CheckMinDistance(peers, zdo))
-            return false;
+        //if (!CheckMinDistance(peers, zdo))
+        //    return false;
 
         if (zdo.Vars.GetInUse())
             return true; // in use or player to close
 
-        if (inventory is { Items: { Count: 0 } })
+        if (inventory is { Items.Count: 0 })
         {
             ContainerChanged?.Invoke(zdo);
             return true;
@@ -202,7 +251,7 @@ sealed class ContainerProcessor : Processor
             state.Items.Add(item.m_shared);
             if (zdo.PrefabInfo.Container.Value.Container.m_privacy is not Container.PrivacySetting.Private)
             {
-                var set = ContainersByItemName.GetOrAdd(item.m_shared, static _ => new());
+                var set = ContainersByItemName.GetOrAdd(item.m_shared, static _ => []);
                 set.Add(zdo);
             }
             if (!Config.Containers.AutoSort.Value && !RecreateZdo)
@@ -210,10 +259,15 @@ sealed class ContainerProcessor : Processor
 
             if (lastPartialSlot is not null && new ItemKey(item) == lastPartialSlot)
             {
-                var diff = Math.Min(item.m_stack, lastPartialSlot.m_shared.m_maxStackSize - lastPartialSlot.m_stack);
-                lastPartialSlot.m_stack += diff;
-                item.m_stack -= diff;
                 changed = true;
+                if (!zdo.IsOwner())
+                    break;
+                else
+                {
+                    var diff = Math.Min(item.m_stack, lastPartialSlot.m_shared.m_maxStackSize - lastPartialSlot.m_stack);
+                    lastPartialSlot.m_stack += diff;
+                    item.m_stack -= diff;
+                }
             }
 
             if (item.m_stack is 0)
@@ -227,7 +281,7 @@ sealed class ContainerProcessor : Processor
                 lastPartialSlot = item;
         }
 
-        if (changed)
+        if (changed && zdo.IsOwner())
         {
             for (int i = inventory.Items.Count - 1; i >= 0; i--)
             {
@@ -255,9 +309,12 @@ sealed class ContainerProcessor : Processor
                     }
                     if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                     {
-                        item.m_gridPos.x = x;
-                        item.m_gridPos.y = y;
                         changed = true;
+                        if (zdo.IsOwner())
+                        {
+                            item.m_gridPos.x = x;
+                            item.m_gridPos.y = y;
+                        }
                     }
                     lastKey = item;
                 }
@@ -279,9 +336,12 @@ sealed class ContainerProcessor : Processor
                     }
                     if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                     {
-                        item.m_gridPos.x = x;
-                        item.m_gridPos.y = y;
                         changed = true;
+                        if (zdo.IsOwner())
+                        {
+                            item.m_gridPos.x = x;
+                            item.m_gridPos.y = y;
+                        }
                     }
                     lastKey = item;
                 }
@@ -297,9 +357,12 @@ sealed class ContainerProcessor : Processor
                 {
                     if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                     {
-                        item.m_gridPos.x = x;
-                        item.m_gridPos.y = y;
                         changed = true;
+                        if (zdo.IsOwner())
+                        {
+                            item.m_gridPos.x = x;
+                            item.m_gridPos.y = y;
+                        }
                     }
                     if (++x >= width)
                     {
@@ -312,11 +375,20 @@ sealed class ContainerProcessor : Processor
 
         if (changed)
         {
-            inventory.Save();
-            RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Container.Value.Piece.m_name} sorted");
+            if (!zdo.IsOwner())
+                RequestOwnership(zdo, zdo.Vars.GetCreator(), state);
+            else
+            {
+                inventory.Save();
+                RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Container.Value.Piece.m_name} sorted");
+            }
         }
 
-        ContainerChanged?.Invoke(zdo);
+        if (!RecreateZdo)
+            ContainerChanged?.Invoke(zdo);
+        else if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
+            zdo.SetOwner(0); // required for physics to work again
+
         return true;
     }
 }

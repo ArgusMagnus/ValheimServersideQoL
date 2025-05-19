@@ -1,5 +1,4 @@
-﻿using BepInEx.Logging;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -93,18 +92,24 @@ sealed class TurretProcessor : Processor
                 if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Turrets.LoadFromContainersRange.Value)
                     continue;
 
-                if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
+                if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                     continue; // in use or player to close
 
                 removeSlots?.Clear();
                 var addAmmo = 0;
                 var found = false;
+                var requestOwn = false;
                 foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == ammoItem.m_itemData).OrderBy(x => x.m_stack))
                 {
                     found = found || slot is { m_stack: > 0 };
                     var take = Math.Min(maxAdd, slot.m_stack);
                     if (take is 0)
                         continue;
+                    else if (!containerZdo.IsOwner())
+                    {
+                        requestOwn = true;
+                        break;
+                    }
 
                     allowedAmmoDropPrefabName = ammoItem.name;
                     allowedAmmo = ammoItem.m_itemData;
@@ -117,6 +122,12 @@ sealed class TurretProcessor : Processor
                     maxAdd -= take;
                     if (maxAdd is 0)
                         break;
+                }
+
+                if (requestOwn)
+                {
+                    Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
+                    continue;
                 }
 
                 if (addAmmo is 0)

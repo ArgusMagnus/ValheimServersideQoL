@@ -13,7 +13,6 @@ interface IZDOInventory
     void Save();
     int? PickupRange { get; set; }
     int? FeedRange { get; set; }
-    DateTimeOffset LockedUntil { get; set; }
 }
 
 sealed class ExtendedZDO : ZDO
@@ -90,14 +89,14 @@ sealed class ExtendedZDO : ZDO
     public void ReregisterAllProcessors() => _addData?.ReregisterAll();
 
     public void UpdateProcessorDataRevision(Processor processor)
-        => (AddData.ProcessorDataRevisions ??= new())[processor] = DataRevision;
+        => (AddData.ProcessorDataRevisions ??= new())[processor] = (DataRevision, OwnerRevision);
 
     public void ResetProcessorDataRevision(Processor processor)
         => AddData.ProcessorDataRevisions?.Remove(processor);
 
     public bool CheckProcessorDataRevisionChanged(Processor processor)
     {
-        if (AddData.ProcessorDataRevisions is null || !AddData.ProcessorDataRevisions.TryGetValue(processor, out var dataRevision) || dataRevision != DataRevision)
+        if (AddData.ProcessorDataRevisions is null || !AddData.ProcessorDataRevisions.TryGetValue(processor, out var dataRevision) || dataRevision != (DataRevision, OwnerRevision))
             return true;
         return false;
     }
@@ -241,7 +240,7 @@ sealed class ExtendedZDO : ZDO
         public IReadOnlyList<Processor> Processors { get; private set; } = Processor.DefaultProcessors;
         public PrefabInfo PrefabInfo { get; } = prefabInfo;
         public ConcurrentDictionary<Type, object>? ComponentFieldAccessors { get; set; }
-        public Dictionary<Processor, uint>? ProcessorDataRevisions { get; set; }
+        public Dictionary<Processor, (uint Data, uint Owner)>? ProcessorDataRevisions { get; set; }
         public ZDOInventory? Inventory { get; set; }
         public bool? HasFields { get; set; }
         public RecreateHandler? Recreated { get; set; }
@@ -497,7 +496,6 @@ sealed class ExtendedZDO : ZDO
         public ExtendedZDO ZDO { get; private set; } = zdo;
         public int? PickupRange { get; set; }
         public int? FeedRange { get; set; }
-        public DateTimeOffset LockedUntil { get; set; }
 
         IList<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;
@@ -560,7 +558,7 @@ sealed class ExtendedZDO : ZDO
             {
                 // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.
                 // Not sure about the increment value though...
-                if (ZDO.PrefabInfo.Container is { ZSyncTransform: { Value: not null } })
+                if (ZDO.PrefabInfo.Container is { ZSyncTransform.Value: not null })
                     ZDO.DataRevision += 120;
             }
 

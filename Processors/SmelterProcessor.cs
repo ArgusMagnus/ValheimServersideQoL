@@ -85,7 +85,7 @@ sealed class SmelterProcessor : Processor
                                 continue;
                             }
 
-                            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo) || containerZdo.Inventory.LockedUntil > DateTimeOffset.UtcNow)
+                            if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
 
                             var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
@@ -97,6 +97,7 @@ sealed class SmelterProcessor : Processor
                             var addFuel = 0;
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
                             var found = false;
+                            var requestOwn = false;
                             foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
@@ -106,6 +107,11 @@ sealed class SmelterProcessor : Processor
                                 take -= leaveDiff;
                                 if (take is 0)
                                     continue;
+                                else if (!containerZdo.IsOwner())
+                                {
+                                    requestOwn = true;
+                                    break;
+                                }
 
                                 addFuel += take;
                                 slot.m_stack -= take;
@@ -115,6 +121,12 @@ sealed class SmelterProcessor : Processor
                                 maxFuelAdd -= take;
                                 if (maxFuelAdd is 0)
                                     break;
+                            }
+
+                            if (requestOwn)
+                            {
+                                Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
+                                continue;
                             }
 
                             if (addFuel is 0)
@@ -183,7 +195,7 @@ sealed class SmelterProcessor : Processor
                                 continue;
                             }
 
-                            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo) || containerZdo.Inventory.LockedUntil > DateTimeOffset.UtcNow)
+                            if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
 
                             var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
@@ -195,6 +207,7 @@ sealed class SmelterProcessor : Processor
                             int addOre = 0;
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastOre.Value;
                             var found = false;
+                            var requestOwn = false;
                             foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
@@ -204,6 +217,11 @@ sealed class SmelterProcessor : Processor
                                 take -= leaveDiff;
                                 if (take is 0)
                                     continue;
+                                else if (!containerZdo.IsOwner())
+                                {
+                                    requestOwn = true;
+                                    break;
+                                }
 
                                 addOre += take;
                                 slot.m_stack -= take;
@@ -213,6 +231,12 @@ sealed class SmelterProcessor : Processor
                                 maxOreAdd -= take;
                                 if (maxOreAdd is 0)
                                     break;
+                            }
+
+                            if (requestOwn)
+                            {
+                                Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
+                                continue;
                             }
 
                             if (addOre is 0)

@@ -20,4 +20,13 @@ static class ExtensionMethods
         logger.Log(logLevel, text);
 #endif
     }
+
+    [Conditional("DEBUG")]
+    public static void AssertIs<T>(this ExtendedZDO zdo) where T : MonoBehaviour
+    {
+#if DEBUG
+        if (zdo.PrefabInfo.Prefab.GetComponentInChildren<T>() is null)
+            throw new ArgumentException();
+#endif
+    }
 }

@@ -114,7 +114,6 @@ sealed class PlayerProcessor : Processor
                         if (containerZdo.PrefabInfo.Container!.Value.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != zdo.Vars.GetPlayerID())
                             continue; // private container
 
-                        containerZdo.Inventory.LockedUntil = DateTimeOffset.UtcNow.AddSeconds(2);
                         RPC.RequestStack(containerZdo, zdo);
                     }
                 }

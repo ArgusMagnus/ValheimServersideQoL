@@ -43,7 +43,10 @@ sealed class ItemDropProcessor : Processor
         }
 
         if (zdo.PrefabInfo.ItemDrop.Value.Piece.Value is not null && zdo.Vars.GetPiece())
-            return true; // ignore placed items (such as feasts)
+        {
+            UnregisterZdoProcessor = true;
+            return false; // ignore placed items (such as feasts)
+        }
 
         if (zdo.PrefabInfo.EggGrow is not null)
         {
@@ -58,8 +61,8 @@ sealed class ItemDropProcessor : Processor
             }
             if (DateTimeOffset.UtcNow - dropTime < TimeSpan.FromSeconds(2 * zdo.PrefabInfo.EggGrow.m_updateInterval + 2))
                 return false;
-            _eggDropTime.Remove(zdo);
-            zdo.Destroyed -= OnEggDropDestroyed;
+            if (_eggDropTime.Remove(zdo))
+                zdo.Destroyed -= OnEggDropDestroyed;
         }
 
         if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
@@ -96,6 +99,7 @@ sealed class ItemDropProcessor : Processor
 
         HashSet<Vector2i>? usedSlots = null;
         ItemDrop.ItemData? item = null;
+        var requestOwn = false;
 
         foreach (var containerZdo in containers)
         {
@@ -105,7 +109,7 @@ sealed class ItemDropProcessor : Processor
                 continue;
             }
 
-            if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo) || containerZdo.Inventory.LockedUntil > DateTimeOffset.UtcNow)
+            if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                 continue; // in use or player to close
 
             var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
@@ -121,7 +125,7 @@ sealed class ItemDropProcessor : Processor
             }
 
             var stack = item.m_stack;
-            usedSlots ??= new();
+            usedSlots ??= [];
             usedSlots.Clear();
 
             ItemDrop.ItemData? containerItem = null;
@@ -137,6 +141,12 @@ sealed class ItemDropProcessor : Processor
                 if (maxAmount <= 0)
                     continue;
 
+                if (!zdo.IsOwner() || !containerZdo.IsOwner())
+                {
+                    requestOwn = true;
+                    break;
+                }
+
                 var amount = Math.Min(stack, maxAmount);
                 slot.m_stack += amount;
                 stack -= amount;
@@ -149,6 +159,11 @@ sealed class ItemDropProcessor : Processor
                 containers.Remove(containerZdo);
                 if (containers is { Count: 0 })
                     Instance<ContainerProcessor>().ContainersByItemName.TryRemove(item.m_shared, out _);
+                continue;
+            }
+            else if (!containerZdo.IsOwner())
+            {
+                Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
                 continue;
             }
 
@@ -193,6 +208,12 @@ sealed class ItemDropProcessor : Processor
         {
             _itemDrops.Add(zdo);
             zdo.Destroyed += x => _itemDrops.Remove(x);
+        }
+
+        if (requestOwn)
+        {
+            RPC.RequestOwn(zdo);
+            //return false;
         }
 
         return true;

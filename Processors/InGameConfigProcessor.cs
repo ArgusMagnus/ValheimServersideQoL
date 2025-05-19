@@ -1,6 +1,4 @@
 ﻿using BepInEx.Configuration;
-using BepInEx.Logging;
-using System.Collections.Concurrent;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -348,9 +346,8 @@ sealed class InGameConfigProcessor : Processor
                     }
 
                     var sign = PlacePiece(pos, Prefabs.Sign, rot + 90);
-                    sign.Vars.SetText(GetSignText(values[i], entry.SettingType, Color.Silver));
-
                     var configState = new ConfigState(entry, values[i], sign);
+                    Color color = Color.Silver;
                     if (entry.SettingType.IsEnum && EnumUtils.OfType(entry.SettingType) is { IsBitSet: true } enumUtils)
                     {
                         var value = enumUtils.EnumToUInt64(entry.BoxedValue);
@@ -361,6 +358,9 @@ sealed class InGameConfigProcessor : Processor
                     {
                         configState.CandleState = Equals(entry.BoxedValue, values[i]);
                     }
+
+                    sign.Vars.SetText(GetSignText(values[i], entry.SettingType, color));
+
                     pos.y -= 0.55f;
                     var candle = PlacePiece(pos, Prefabs.Sconce, rot);
                     candle.Fields<Fireplace>()
@@ -481,12 +481,15 @@ sealed class InGameConfigProcessor : Processor
                             color = Color.Silver;
                         }
                         configState.Entry.BoxedValue = enumUtils.UInt64ToEnum(value);
-                        text = GetSignText(configState.Entry, color);
+                        text = GetSignText(configState.Value, configState.Entry.SettingType, color);
+                        //text = GetSignText(configState.Entry, color);
                     }
                     else
                     {
                         configState.Entry.BoxedValue = configState.Value;
-                        text = GetSignText(configState.Entry);
+                        var color = Equals(configState.Value, configState.Entry.DefaultValue) ? Color.White : Color.Lime;
+                        text = GetSignText(configState.Value, configState.Entry.SettingType, color);
+                        //text = GetSignText(configState.Entry);
                     }
                 }
                 else
