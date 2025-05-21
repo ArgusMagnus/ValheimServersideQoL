@@ -2,8 +2,10 @@
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using MonoMod.Utils;
+using System;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using RoutedRPCData = ZRoutedRpc.RoutedRPCData;
@@ -123,56 +125,59 @@ abstract class Processor
         return $"(?i)^{searchPattern}$";
     }
 
+    static List<object?> __args = [];
     static bool HandleRoutedRPCPrefix(RoutedRPCData data)
     {
         if (__methods.TryGetValue(data.m_methodHash, out var rpcMethod))
         {
-            object[]? args = null;
+            ExtendedZDO? zdo = null;
             for (int i = 0; i < rpcMethod.Delegates.Count; i++)
             {
                 var del = rpcMethod.Delegates[i];
-                Exception? exception = null;
-                if (args is null)
+                try
                 {
-                    try
+                    __args.Clear();
+                    ZRpc.Deserialize(del.Parameters, data.m_parameters, ref __args);
+                    data.m_parameters.SetPos(0);
+                    if (del.DataParameterIndex > -1)
+                        __args.Insert(del.DataParameterIndex, data);
+                    if (del.ZdoParameterIndex > -1)
+                        __args.Insert(del.ZdoParameterIndex + ((del.DataParameterIndex > -1 && del.DataParameterIndex < del.ZdoParameterIndex) ? 1 : 0), zdo ??= ZDOMan.instance.GetExtendedZDO(data.m_targetZDO));
+
+                    if (del.Delegate.DynamicInvoke([.. __args!]) is bool success && !success)
                     {
-                        List<object> parameters = [];
-                        ZRpc.Deserialize(del.Method.GetParameters(), data.m_parameters, ref parameters);
-                        data.m_parameters.SetPos(0);
-                        args = [data, .. parameters];
-                    }
-                    catch (Exception ex) { exception = ex; }
-                    if (exception is null)
-                    {
-                        try
-                        {
-                            if (del.DynamicInvoke(args) is bool success && !success)
-                            {
-                                //Main.Instance.Logger.DevLog($"Invokation of {rpcMethod.Name} cancelled");
-                                return false;
-                            }
-                        }
-                        catch (Exception ex) /*when (ex is TargetParameterCountException or TargetInvocationException or ArgumentException)*/ { exception = ex; }
+                        //Main.Instance.Logger.DevLog($"Invokation of {rpcMethod.Name} cancelled");
+                        return false;
                     }
                 }
-
-                if (exception is not null)
+                catch (Exception ex)
                 {
-                    Main.Instance.Logger.LogError($"{rpcMethod.Name}: {del.Method.DeclaringType.Name}.{del.Method.Name}: {exception}");
-                    args = null;
+                    Main.Instance.Logger.LogError($"{rpcMethod.Name}: {del.Delegate.Method.DeclaringType.Name}.{del.Delegate.Method.Name}: {ex}");
                     rpcMethod.Delegates.RemoveAt(i--);
-                    if (rpcMethod.Delegates.Count is 0)
-                    {
-                        if (__methods.Remove(data.m_methodHash) && __methods.Count is 0)
-                            Main.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
-                    }
+                    if (rpcMethod.Delegates.Count is 0 && __methods.Remove(data.m_methodHash) && __methods.Count is 0)
+                        Main.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
                 }
             }
         }
         return true;
     }
 
-    sealed record RpcMethod(string Name, List<Delegate> Delegates);
+    sealed class RpcDelegate
+    {
+        public Delegate Delegate { get; }
+        public ParameterInfo[] Parameters { get; }
+        public int DataParameterIndex { get; }
+        public int ZdoParameterIndex { get; }
+        public RpcDelegate(Delegate del)
+        {
+            Delegate = del;
+            Parameters = del.Method.GetParameters();
+            var pars = Parameters.Select(x => x.ParameterType).ToList();
+            DataParameterIndex = pars.IndexOf(typeof(RoutedRPCData));
+            ZdoParameterIndex = pars.IndexOf(typeof(ExtendedZDO));
+        }
+    }
+    sealed record RpcMethod(string Name, List<RpcDelegate> Delegates);
     static readonly Dictionary<int, RpcMethod> __methods = [];
     static readonly MethodInfo __handleRoutedRPCMethod = typeof(ZRoutedRpc).GetMethod("HandleRoutedRPC", BindingFlags.NonPublic | BindingFlags.Instance);
     static readonly MethodInfo __handleRoutedRPCPrefix = new Func<RoutedRPCData, bool>(HandleRoutedRPCPrefix).Method;
@@ -184,14 +189,18 @@ abstract class Processor
             __methods.Add(methodHash, rpcMethod = new(methodName, []));
         if (subscribe)
         {
-            if (!rpcMethod.Delegates.Contains(handler))
-                rpcMethod.Delegates.Add(handler);
+            if (!rpcMethod.Delegates.Any(x => x.Delegate == handler))
+                rpcMethod.Delegates.Add(new(handler));
         }
         else if (rpcMethod is not null)
         {
-            rpcMethod.Delegates.Remove(handler);
-            if (rpcMethod.Delegates.Count is 0)
-                __methods.Remove(methodHash);
+            var idx = rpcMethod.Delegates.FindIndex(x => x.Delegate == handler);
+            if (idx > -1)
+            {
+                rpcMethod.Delegates.RemoveAt(idx);
+                if (rpcMethod.Delegates.Count is 0)
+                    __methods.Remove(methodHash);
+            }
         }
 
         Main.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);

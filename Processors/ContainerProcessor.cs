@@ -84,9 +84,10 @@ sealed class ContainerProcessor : Processor
         if (DateTimeOffset.UtcNow - state.LastOwnershipRequest < TimeSpan.FromSeconds(2))
             return;
 
-        if (!_openResponseRegistered)
+        if (!_openResponseRegistered && Player.m_localPlayer is not null)
         {
             _openResponseRegistered = true;
+            /// <see cref="Container.RPC_OpenRespons"/>
             UpdateRpcSubscription("OpenRespons", RPC_OpenResponse, true);
         }
 
@@ -96,12 +97,9 @@ sealed class ContainerProcessor : Processor
         RPC.RequestOwn(zdo, playerID);
     }
 
-    bool RPC_OpenResponse(RoutedRPCData data, bool granted)
+    bool RPC_OpenResponse(ExtendedZDO? zdo, bool granted)
     {
-        if (ZDOMan.instance.GetExtendedZDO(data.m_targetZDO) is not { } zdo)
-            return true;
-
-        if (!_containers.TryGetValue(zdo, out var state) || !state.WaitingForResponse)
+        if (zdo is null || !_containers.TryGetValue(zdo, out var state) || !state.WaitingForResponse)
             return true;
 
         //Logger.DevLog($"Container {data.m_targetZDO}: OpenResponse: {granted}");
