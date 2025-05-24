@@ -168,9 +168,9 @@ sealed class TurretProcessor : Processor
         }
 
         if (addedAmmo is not 0)
-            RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Turret.Value.Piece.m_name}: $msg_added {allowedAmmo!.m_shared.m_name} {addedAmmo}x");
-        //else
-        //    RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_noturretammo");
+            ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Turret.Value.Piece.m_name}: $msg_added {allowedAmmo!.m_shared.m_name} {addedAmmo}x", Config.Turrets.AmmoAddedMessageType.Value);
+        else
+            ShowMessage(peers, zdo, "<color=red>$msg_noturretammo", Config.Turrets.NoAmmoMessageType.Value);
 
         if (!_turrets.Contains(zdo))
         {

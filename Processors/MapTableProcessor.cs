@@ -130,7 +130,7 @@ sealed class MapTableProcessor : Processor
 
         zdo.Vars.SetData(Utils.Compress(pkg.GetArray()));
 
-        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, "$msg_mapsaved");
+        ShowMessage(peers, zdo, "$msg_mapsaved", Config.MapTables.UpdatedMessageType.Value);
 
         return false;
     }

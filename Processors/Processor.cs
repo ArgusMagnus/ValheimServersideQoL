@@ -226,6 +226,38 @@ abstract class Processor
         //public static IReadOnlyList<int> Banners { get; } = [.. Enumerable.Range(1, 10).Select(static x => $"piece_banner{x:D2}".GetStableHashCode())];
     }
 
+    protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type)
+    {
+        switch (type)
+        {
+            case MessageTypes.TopLeftNear:
+            case MessageTypes.CenterNear:
+            case MessageTypes.InWorld:
+                peers = peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance);
+                break;
+
+            case MessageTypes.TopLeftFar:
+            case MessageTypes.CenterFar:
+                peers = peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= Main.Instance.Config.General.FarMessageRange.Value);
+                break;
+
+            default:
+                return;
+        }
+
+        if (type is MessageTypes.InWorld)
+            RPC.ShowInWorldText(peers.Select(static x => x.m_uid), DamageText.TextType.Normal, pos, message);
+        else
+        {
+            var msgType = type is MessageTypes.TopLeftNear or MessageTypes.TopLeftFar ? MessageHud.MessageType.TopLeft : MessageHud.MessageType.Center;
+            foreach (var peer in peers)
+                RPC.ShowMessage(peer.m_uid, msgType, message);
+        }
+    }
+
+    protected static void ShowMessage(IEnumerable<Peer> peers, ExtendedZDO zdo, string message, MessageTypes type)
+        => ShowMessage(peers, zdo.GetPosition(), message, type);
+
     protected static class RPC
     {
         public static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
@@ -234,8 +266,8 @@ abstract class Processor
             ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, "ShowMessage", (int)type, message);
         }
 
-        public static void ShowMessage(MessageHud.MessageType type, string message)
-            => ShowMessage(ZRoutedRpc.Everybody, type, message);
+        //public static void ShowMessage(MessageHud.MessageType type, string message)
+        //    => ShowMessage(ZRoutedRpc.Everybody, type, message);
 
         public static void ShowMessage(Peer peer, MessageHud.MessageType type, string message)
             => ShowMessage(peer.m_uid, type, message);
@@ -259,7 +291,7 @@ abstract class Processor
             ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "GlobalKeys", keys);
         }
 
-        static void ShowInWorldText(IEnumerable<long> targetPeerIds, DamageText.TextType type, Vector3 pos, string text)
+        public static void ShowInWorldText(IEnumerable<long> targetPeerIds, DamageText.TextType type, Vector3 pos, string text)
         {
             /// <see cref="DamageText.ShowText(DamageText.TextType, Vector3, string, bool)"/>
             ZPackage zPackage = new ZPackage();
@@ -271,14 +303,14 @@ abstract class Processor
                 ZRoutedRpc.instance.InvokeRoutedRPC(peer, "RPC_DamageText", zPackage);
         }
 
-        public static void ShowInWorldText(IEnumerable<Peer> peers, DamageText.TextType type, Vector3 pos, string text)
-            => ShowInWorldText(peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance).Select(x => x.m_uid), type, pos, text);
+        //public static void ShowInWorldText(IEnumerable<Peer> peers, DamageText.TextType type, Vector3 pos, string text)
+        //    => ShowInWorldText(peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance).Select(x => x.m_uid), type, pos, text);
 
-        public static void ShowInWorldText(DamageText.TextType type, Vector3 pos, string text)
-            => ShowInWorldText([ZRoutedRpc.Everybody], type, pos, text);
+        //public static void ShowInWorldText(DamageText.TextType type, Vector3 pos, string text)
+        //    => ShowInWorldText([ZRoutedRpc.Everybody], type, pos, text);
 
-        public static void ShowInWorldText(Peer peer, DamageText.TextType type, Vector3 pos, string text)
-            => ShowInWorldText([peer.m_uid], type, pos, text);
+        //public static void ShowInWorldText(Peer peer, DamageText.TextType type, Vector3 pos, string text)
+        //    => ShowInWorldText([peer.m_uid], type, pos, text);
 
         static void TeleportPlayer(long targetPeerID, Vector3 pos, Quaternion rot, bool distantTeleport)
         {

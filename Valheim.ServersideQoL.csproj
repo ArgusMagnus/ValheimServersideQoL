@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="SoftReferenceableAssets">
+      <HintPath>..\..\..\Games\valheim\valheim_server_Data\Managed\SoftReferenceableAssets.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <RequiredReference Include="assembly_utils">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_utils.dll</HintPath>
     <Private>False</Private>

@@ -371,7 +371,7 @@ sealed class ContainerProcessor : Processor
             else
             {
                 inventory.Save();
-                RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Container.Value.Piece.m_name} sorted");
+                ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Container.Value.Piece.m_name} sorted", Config.Containers.SortedMessageType.Value);
             }
         }
 

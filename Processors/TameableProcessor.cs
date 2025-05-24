@@ -60,7 +60,7 @@ sealed class TameableProcessor : Processor
                 state.IsTamed = true;
             }
         }
-        else if (Config.Tames.ShowTamingProgress.Value)
+        else if (Config.Tames.TamingProgressMessageType.Value is not MessageTypes.None)
         {
             UnregisterZdoProcessor = false;
 
@@ -79,7 +79,7 @@ sealed class TameableProcessor : Processor
                 {
                     state.LastMessage = DateTimeOffset.UtcNow;
                     var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
-                    RPC.ShowInWorldText(peers, DamageText.TextType.Normal, zdo.GetPosition(), $"$hud_tameness {tameness:P0}");
+                    ShowMessage(peers, zdo, $"$hud_tameness {tameness:P0}", Config.Tames.TamingProgressMessageType.Value);
                 }
             }
         }

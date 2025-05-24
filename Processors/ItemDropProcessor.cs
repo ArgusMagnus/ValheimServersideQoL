@@ -195,7 +195,7 @@ sealed class ItemDropProcessor : Processor
                 containerZdo.Inventory.Save();
                 (item.m_stack, stack) = (stack, item.m_stack);
                 ItemDrop.SaveToZDO(item, zdo);
-                RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{containerZdo.PrefabInfo.Container.Value.Piece.m_name}: $msg_added {item.m_shared.m_name} {stack}x");
+                ShowMessage(peers, containerZdo, $"{containerZdo.PrefabInfo.Container.Value.Piece.m_name}: $msg_added {item.m_shared.m_name} {stack}x", Config.Containers.PickedUpMessageType.Value);
             }
 
             if (item.m_stack is 0)

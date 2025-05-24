@@ -37,6 +37,9 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> ConfigPerWorld { get; } = cfg.Bind(section, nameof(ConfigPerWorld), false, "Use one config file per world. The file is saved next to the world file");
         public ConfigEntry<bool> InWorldConfigRoom { get; } = cfg.Bind(section, nameof(InWorldConfigRoom), false,
             "True to generate an in-world room which admins can enter to configure this mod by editing signs. A portal is placed at the start location");
+        public ConfigEntry<float> FarMessageRange { get; } = cfg.Bind(section, nameof(FarMessageRange), ZoneSystem.c_ZoneSize,
+            $"Max distance a player can have to a modified object to receive messages of type {MessageTypes.TopLeftFar} or {MessageTypes.CenterFar}");
+
         public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.Bind(section, nameof(DiagnosticLogs), false, "Enables/disables diagnostic logs");
         public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f,
             new ConfigDescription("How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
@@ -62,6 +65,8 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<string> AutoUpdatePortalsInclude { get; } = cfg.Bind(section, nameof(AutoUpdatePortalsInclude), "*", "Only portals with a tag that matches this filter are added to map tables");
 
         public ConfigEntry<bool> AutoUpdateShips { get; } = cfg.Bind(section, nameof(AutoUpdateShips), false, "True to update map tables with ship pins");
+        public ConfigEntry<MessageTypes> UpdatedMessageType { get; } = cfg.Bind(section, nameof(UpdatedMessageType), MessageTypes.None,
+            new ConfigDescription("Type of message to show when a map table is updated", AcceptableEnum<MessageTypes>.Default));
     }
 
     public sealed class TamesConfig(ConfigFile cfg, string section)
@@ -69,8 +74,10 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> MakeCommandable { get; } = cfg.Bind(section, nameof(MakeCommandable), false, "True to make all tames commandable (like wolves)");
         //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to feed tames from containers");
 
-        public ConfigEntry<bool> ShowTamingProgress { get; } = cfg.Bind(section, nameof(ShowTamingProgress), false, "True to show taming progress to nearby players");
-        public ConfigEntry<bool> ShowGrowingProgress { get; } = cfg.Bind(section, nameof(ShowGrowingProgress), false, "True to show growing progress to nearby players");
+        public ConfigEntry<MessageTypes> TamingProgressMessageType { get; } = cfg.Bind(section, nameof(TamingProgressMessageType), MessageTypes.None,
+            new ConfigDescription("Type of taming progress messages to show", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<MessageTypes> GrowingProgressMessageType { get; } = cfg.Bind(section, nameof(GrowingProgressMessageType), MessageTypes.None,
+            new ConfigDescription("Type of growing progress messages to show", AcceptableEnum<MessageTypes>.Default));
         public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
 
         public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), false, "True to teleport following tames to the players location if the player gets too far away from them");
@@ -82,7 +89,7 @@ sealed class ModConfig(ConfigFile cfg)
             "True to show stars for higher level creatures (> 2 stars). The intended use is with other mods, which spawn higher level creatures");
 
         public ConfigEntry<ShowHigherLevelAuraOptions> ShowHigherLevelAura { get; } = cfg.Bind(section, nameof(ShowHigherLevelAura), ShowHigherLevelAuraOptions.Never,
-            new ConfigDescription("Show an aura for higher level creatures (> 2 stars)", new AcceptableEnum<ShowHigherLevelAuraOptions>()));
+            new ConfigDescription("Show an aura for higher level creatures (> 2 stars)", AcceptableEnum<ShowHigherLevelAuraOptions>.Default));
 
         [Flags]
         public enum ShowHigherLevelAuraOptions
@@ -98,7 +105,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> MakeToggleable { get; } = cfg.Bind(section, nameof(MakeToggleable), false, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
         public ConfigEntry<bool> InfiniteFuel { get; } = cfg.Bind(section, nameof(InfiniteFuel), false, "True to make all fireplaces have infinite fuel");
         public ConfigEntry<IgnoreRainOptions> IgnoreRain { get; } = cfg.Bind(section, nameof(IgnoreRain), IgnoreRainOptions.Never,
-            new ConfigDescription("Options to make all fireplaces ignore rain", new AcceptableEnum<IgnoreRainOptions>()));
+            new ConfigDescription("Options to make all fireplaces ignore rain", AcceptableEnum<IgnoreRainOptions>.Default));
 
         public enum IgnoreRainOptions
         {
@@ -111,19 +118,23 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), false, "True to auto sort container inventories");
+        public ConfigEntry<MessageTypes> SortedMessageType { get; } = cfg.Bind(section, nameof(SortedMessageType), MessageTypes.None,
+            new ConfigDescription("Type of message to show when a container was sorted", AcceptableEnum<MessageTypes>.Default));
 
         public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), false, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize,
             $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 4f, "Min distance all player must have to a dropped item for it to be picked up");
         public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = cfg.Bind(section, nameof(AutoPickupExcludeFodder), true, "True to exclude food items for tames when tames are within search range");
+        public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = cfg.Bind(section, nameof(PickedUpMessageType), MessageTypes.None,
+            new ConfigDescription("Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default));
 
         public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on wood chests", new AcceptableEnum<SignOptions>()));
+            new ConfigDescription("Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.Bind(section, nameof(ReinforcedChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on reinforced chests", new AcceptableEnum<SignOptions>()));
+            new ConfigDescription("Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = cfg.Bind(section, nameof(BlackmetalChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on blackmetal chests", new AcceptableEnum<SignOptions>()));
+            new ConfigDescription("Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), "<color=white>...", "Default text for chest signs");
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
@@ -151,6 +162,8 @@ sealed class ModConfig(ConfigFile cfg)
             $"Required proxmity of a container to a smelter to be used as feeding source. Can be overriden per chest by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastFuel), 1, "Minimum amout of fuel to leave in a container");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastOre), 1, "Minimum amout of ore to leave in a container");
+        public ConfigEntry<MessageTypes> OreOrFuelAddedMessageType { get; } = cfg.Bind(section, nameof(OreOrFuelAddedMessageType), MessageTypes.None,
+            new ConfigDescription("Type of message to show when ore or fuel is added to a smelter", AcceptableEnum<MessageTypes>.Default));
         public ConfigEntry<float> CapacityMultiplier { get; } = cfg.Bind(section, nameof(CapacityMultiplier), 1f, "Multiply a smelter's ore/fuel capacity by this factor");
     }
 
@@ -195,6 +208,10 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> DontTargetTames { get; } = cfg.Bind(section, nameof(DontTargetTames), false, "True to stop ballistas from targeting tames");
         public ConfigEntry<bool> LoadFromContainers { get; } = cfg.Bind(section, nameof(LoadFromContainers), false, "True to automatically load ballistas from containers");
         public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.Bind(section, nameof(LoadFromContainersRange), 4f, "Required proxmity of a container to a ballista to be used as ammo source");
+        public ConfigEntry<MessageTypes> AmmoAddedMessageType { get; } = cfg.Bind(section, nameof(AmmoAddedMessageType), MessageTypes.None,
+            new ConfigDescription("Type of message to show when ammo is added to a turret", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<MessageTypes> NoAmmoMessageType { get; } = cfg.Bind(section, nameof(NoAmmoMessageType), MessageTypes.None,
+            new ConfigDescription("Type of message to show when there is no ammo to add to a turret", AcceptableEnum<MessageTypes>.Default));
     }
 
     public sealed class WearNTearConfig(ConfigFile cfg, string section)
@@ -202,7 +219,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> DisableRainDamage { get; } = cfg.Bind(section, nameof(DisableRainDamage), false, "True to prevent rain from damaging build pieces");
 
         public ConfigEntry<DisableSupportRequirementsOptions> DisableSupportRequirements { get; } = cfg.Bind(section, nameof(DisableSupportRequirements), DisableSupportRequirementsOptions.None,
-            new ConfigDescription("Ignore support requirements on build pieces", new AcceptableEnum<DisableSupportRequirementsOptions>()));
+            new ConfigDescription("Ignore support requirements on build pieces", AcceptableEnum<DisableSupportRequirementsOptions>.Default));
 
         [Flags]
         public enum DisableSupportRequirementsOptions
@@ -245,7 +262,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class WorldConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.Bind(section, nameof(RemoveMistlandsMist), RemoveMistlandsMistOptions.Never,
-            new ConfigDescription("Condition to remove the mist from the mistlands", new AcceptableEnum<RemoveMistlandsMistOptions>()));
+            new ConfigDescription("Condition to remove the mist from the mistlands", AcceptableEnum<RemoveMistlandsMistOptions>.Default));
 
         public ConfigEntry<bool> UnlockSunkenCryptsAfterElder { get; } = cfg.Bind(section, nameof(UnlockSunkenCryptsAfterElder), false, "True to unlock sunken crypts after the Elder has been defeated");
 
@@ -270,6 +287,8 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription("Level up chance override for spawned mobs. If < 0, world default is used", new AcceptableValueRange<int>(-1, 100)));
         public ConfigEntry<int> SpawnLimit { get; } = cfg.Bind(section, nameof(SpawnLimit), 20,
             new ConfigDescription("Maximum number of mobs of the trophy's type in the active area", new AcceptableValueRange<int>(1, 10000)));
+        public ConfigEntry<MessageTypes> MessageType { get; } = cfg.Bind(section, nameof(MessageType), MessageTypes.InWorld,
+            new ConfigDescription("Type of message to show when a trophy is attracting mobs", AcceptableEnum<MessageTypes>.Default));
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)
@@ -475,10 +494,12 @@ sealed class ModConfig(ConfigFile cfg)
     internal sealed class AcceptableEnum<T> : AcceptableValueBase
         where T : unmanaged, Enum
     {
+        public static AcceptableEnum<T> Default { get; } = new();
+
         public IReadOnlyList<T> AcceptableValues { get; }
         readonly T _default;
 
-        public AcceptableEnum()
+        AcceptableEnum()
             : this((T[])Enum.GetValues(typeof(T))) { }
 
         public AcceptableEnum(IEnumerable<T> values)

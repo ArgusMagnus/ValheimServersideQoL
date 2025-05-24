@@ -82,7 +82,7 @@ sealed class TrophyProcessor : Processor
             if (DateTimeOffset.UtcNow - state.LastMessage > _textDuration)
             {
                 state.LastMessage = DateTimeOffset.UtcNow;
-                RPC.ShowInWorldText(peers, DamageText.TextType.Normal, zdo.GetPosition(), $"Attracting {trophyCharacter.m_name}... {progress:P0}");
+                ShowMessage(peers, zdo, $"Attracting {trophyCharacter.m_name}... {progress:P0}", Config.TrophySpawner.MessageType.Value);
             }
             return false;
         }
@@ -181,7 +181,7 @@ sealed class TrophyProcessor : Processor
         if (DateTimeOffset.UtcNow - state.LastMessage > _textDuration)
         {
             state.LastMessage = DateTimeOffset.UtcNow;
-            RPC.ShowInWorldText(peers, DamageText.TextType.Weak, zdo.GetPosition(), $"Attracting {trophyCharacter.m_name}");
+            ShowMessage(peers, zdo, $"<color=yellow>Attracting {trophyCharacter.m_name}", Config.TrophySpawner.MessageType.Value);
         }
 
         return false;

@@ -167,7 +167,7 @@ sealed class SmelterProcessor : Processor
                             break;
                     }
                     if (addedFuel is not 0)
-                        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Smelter?.m_name ?? zdo.PrefabInfo.ShieldGenerator!.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x");
+                        ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Smelter?.m_name ?? zdo.PrefabInfo.ShieldGenerator!.m_name}: $msg_added {fuelItem.m_shared.m_name} {addedFuel}x", Config.Smelters.OreOrFuelAddedMessageType.Value);
                 }
             }
         }
@@ -279,7 +279,7 @@ sealed class SmelterProcessor : Processor
                     }
 
                     if (addedOre is not 0)
-                        RPC.ShowMessage(peers, MessageHud.MessageType.TopLeft, $"{zdo.PrefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x");
+                        ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Smelter.m_name}: $msg_added {oreItem.m_shared.m_name} {addedOre}x", Config.Smelters.OreOrFuelAddedMessageType.Value);
                 }
             }
         }

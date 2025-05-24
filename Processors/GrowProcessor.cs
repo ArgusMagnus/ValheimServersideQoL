@@ -17,7 +17,7 @@ sealed class GrowProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
-        if (zdo.PrefabInfo is not { EggGrow: not null } and not { Growup: not null } || !Config.Tames.ShowGrowingProgress.Value)
+        if (zdo.PrefabInfo is not { EggGrow: not null } and not { Growup: not null } || Config.Tames.GrowingProgressMessageType.Value is MessageTypes.None)
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -44,7 +44,7 @@ sealed class GrowProcessor : Processor
         lastMessage.Timestamp = DateTimeOffset.UtcNow;
         lastMessage.Progress = progress;
 
-        RPC.ShowInWorldText(peers, DamageText.TextType.Normal, zdo.GetPosition(), $"$caption_growing {progress}%");
+        ShowMessage(peers, zdo, $"$caption_growing {progress}%", Config.Tames.GrowingProgressMessageType.Value);
         return false;
     }
 }

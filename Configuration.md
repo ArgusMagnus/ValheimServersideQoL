@@ -3,6 +3,7 @@
 |General|Enabled|True|True/False|Enables/disables the entire mode|
 |General|ConfigPerWorld|False|True/False|Use one config file per world. The file is saved next to the world file|
 |General|InWorldConfigRoom|False|True/False|True to generate an in-world room which admins can enter to configure this mod by editing signs. A portal is placed at the start location|
+|General|FarMessageRange|64||Max distance a player can have to a modified object to receive messages of type TopLeftFar or CenterFar|
 |General|DiagnosticLogs|False|True/False|Enables/disables diagnostic logs|
 |General|Frequency|5|From 0 to Infinity|How many times per second the mod processes the world|
 |General|MaxProcessingTime|20||Max processing time (in ms) per update|
@@ -16,10 +17,12 @@
 |Build Pieces|DisableSupportRequirements|None|None or combination of PlayerBuilt, World|Ignore support requirements on build pieces|
 |Carts|ContentMassMultiplier|1|From 0 to Infinity|Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
 |Containers|AutoSort|False|True/False|True to auto sort container inventories|
+|Containers|SortedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a container was sorted|
 |Containers|AutoPickup|False|True/False|True to automatically put dropped items into containers if they already contain said item|
 |Containers|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '🧲<Range>' on a chest sign|
 |Containers|AutoPickupMinPlayerDistance|4||Min distance all player must have to a dropped item for it to be picked up|
 |Containers|AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
+|Containers|PickedUpMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a dropped item is added to a container|
 |Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on wood chests|
 |Containers|ReinforcedChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on reinforced chests|
 |Containers|BlackmetalChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on blackmetal chests|
@@ -50,6 +53,7 @@
 |Map Tables|AutoUpdatePortalsExclude|||Portals with a tag that matches this filter are not added to map tables|
 |Map Tables|AutoUpdatePortalsInclude|*||Only portals with a tag that matches this filter are added to map tables|
 |Map Tables|AutoUpdateShips|False|True/False|True to update map tables with ship pins|
+|Map Tables|UpdatedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a map table is updated|
 |Plants|GrowTimeMultiplier|1|From 0 to Infinity|Multiply plant grow time by this factor. 0 to make them grow almost instantly.|
 |Plants|SpaceRequirementMultiplier|1|From 0 to Infinity|Multiply plant space requirement by this factor. 0 to disable space requirements.|
 |Plants|DontDestroyIfCantGrow|False|True/False|True to keep plants which can't grow alive|
@@ -69,12 +73,13 @@
 |Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source. Can be overriden per chest by putting '↔️<Range>' on a chest sign|
 |Smelters|FeedFromContainersLeaveAtLeastFuel|1||Minimum amout of fuel to leave in a container|
 |Smelters|FeedFromContainersLeaveAtLeastOre|1||Minimum amout of ore to leave in a container|
+|Smelters|OreOrFuelAddedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when ore or fuel is added to a smelter|
 |Smelters|CapacityMultiplier|1||Multiply a smelter's ore/fuel capacity by this factor|
 |Summons|UnsummonDistanceMultiplier|1|From 0 to Infinity|Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning|
 |Summons|UnsummonLogoutTimeMultiplier|1|From 0 to Infinity|Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning|
 |Tames|MakeCommandable|False|True/False|True to make all tames commandable (like wolves)|
-|Tames|ShowTamingProgress|False|True/False|True to show taming progress to nearby players|
-|Tames|ShowGrowingProgress|False|True/False|True to show growing progress to nearby players|
+|Tames|TamingProgressMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of taming progress messages to show|
+|Tames|GrowingProgressMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of growing progress messages to show|
 |Tames|AlwaysFed|False|True/False|True to make tames always fed (not hungry)|
 |Tames|TeleportFollow|False|True/False|True to teleport following tames to the players location if the player gets too far away from them|
 |Traders|AlwaysUnlockBogWitchScytheHandle|False|True/False|Remove the progression requirements for buying Scythe Handle from |
@@ -128,10 +133,13 @@
 |Trophy Spawner|MaxLevel|3|From 1 to 9|Maximum level of spawned mobs|
 |Trophy Spawner|LevelUpChanceOverride|-1|From -1 to 100|Level up chance override for spawned mobs. If < 0, world default is used|
 |Trophy Spawner|SpawnLimit|20|From 1 to 10000|Maximum number of mobs of the trophy's type in the active area|
+|Trophy Spawner|MessageType|InWorld|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a trophy is attracting mobs|
 |Turrets|DontTargetPlayers|False|True/False|True to stop ballistas from targeting players|
 |Turrets|DontTargetTames|False|True/False|True to stop ballistas from targeting tames|
 |Turrets|LoadFromContainers|False|True/False|True to automatically load ballistas from containers|
 |Turrets|LoadFromContainersRange|4||Required proxmity of a container to a ballista to be used as ammo source|
+|Turrets|AmmoAddedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when ammo is added to a turret|
+|Turrets|NoAmmoMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when there is no ammo to add to a turret|
 |Windmills|IgnoreWind|False|True/False|True to make windmills ignore wind (Cover still decreases operating efficiency though)|
 |World|RemoveMistlandsMist|Never|Never, Always, AfterQueenKilled, InsideShield|Condition to remove the mist from the mistlands|
 |World|UnlockSunkenCryptsAfterElder|False|True/False|True to unlock sunken crypts after the Elder has been defeated|
