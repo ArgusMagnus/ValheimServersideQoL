@@ -574,6 +574,7 @@ public sealed partial class Main : BaseUnityPlugin
 
         WriteLocalizationsFile(docsPath, "Localization.md");
         WriteEventsFile(docsPath, "RandomEvents.md");
+        WriteRpcFile(docsPath, "RPC.md");
 
         return;
 
@@ -622,6 +623,26 @@ public sealed partial class Main : BaseUnityPlugin
                 var altRequiredPlayerKeysAny = string.Join("<br>", ev.m_altRequiredPlayerKeysAny.Select(x => $"- {x}"));
                 var altRequiredPlayerKeysAll = string.Join("<br>", ev.m_altRequiredPlayerKeysAll.Select(x => $"- {x}"));
                 writer.WriteLine(Invariant($"|{ev.m_name}|{altRequiredNotKnownItems}|{altNotRequiredPlayerKeys}|{altRequiredKnownItems}|{altRequiredPlayerKeysAny}|{altRequiredPlayerKeysAll}|"));
+            }
+        }
+
+        static void WriteRpcFile(string path, string filename)
+        {
+            using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
+            writer.WriteLine("# RPC");
+            writer.WriteLine();
+            writer.WriteLine("|Type|Method|Parameters|");
+            writer.WriteLine("|----|------|----------|");
+
+            foreach (var type in typeof(ZNet).Assembly.ExportedTypes.OrderBy(x => x.Name))
+            {
+                foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static).OrderBy(x => x.Name))
+                {
+                    if (!method.Name.StartsWith("RPC_"))
+                        continue;
+                    var parameters = string.Join(", ", method.GetParameters().Select(x => $"{x.ParameterType.Name} {x.Name}"));
+                    writer.WriteLine($"|{type.Name}|{method.Name}|{parameters}|");
+                }
             }
         }
     }
