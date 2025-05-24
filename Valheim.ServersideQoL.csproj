@@ -17,12 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="SoftReferenceableAssets">
-      <HintPath>..\..\..\Games\valheim\valheim_server_Data\Managed\SoftReferenceableAssets.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <RequiredReference Include="assembly_utils">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_utils.dll</HintPath>
     <Private>False</Private>
@@ -51,6 +45,14 @@
       <HintPath>$(ValheimDir)BepInEx\core\0Harmony.dll</HintPath>
       <Private>False</Private>
     </RequiredReference>
+    <RequiredReference Include="Mono.Cecil">
+      <HintPath>$(ValheimDir)BepInEx\core\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </RequiredReference>
+    <RequiredReference Include="MonoMod.Utils">
+      <HintPath>$(ValheimDir)BepInEx\core\MonoMod.Utils.dll</HintPath>
+      <Private>False</Private>
+    </RequiredReference>
   </ItemGroup>
   
   <ItemGroup Condition="'$(Configuration)' != 'Debug'">
@@ -71,10 +73,6 @@
       <HintPath>$(ValheimDir)BepInEx\core\HarmonyXInterop.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>$(ValheimDir)BepInEx\core\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Mono.Cecil.Mdb">
       <HintPath>$(ValheimDir)BepInEx\core\Mono.Cecil.Mdb.dll</HintPath>
       <Private>False</Private>
@@ -91,14 +89,14 @@
       <HintPath>$(ValheimDir)BepInEx\core\MonoMod.RuntimeDetour.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MonoMod.Utils">
-      <HintPath>$(ValheimDir)BepInEx\core\MonoMod.Utils.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    <Private>False</Private>
-  </Reference>
+      <Private>False</Private>
+	</Reference>
+    <Reference Include="SoftReferenceableAssets">
+      <HintPath>$(ValheimDir)valheim_server_Data\Managed\SoftReferenceableAssets.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
