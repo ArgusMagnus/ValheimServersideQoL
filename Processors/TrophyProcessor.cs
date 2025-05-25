@@ -11,7 +11,7 @@ sealed class TrophyProcessor : Processor
     readonly TimeSpan _textDuration = TimeSpan.FromSeconds(DamageText.instance.m_textDuration * 2);
     readonly List<ZDO> _sectorZdos = [];
     readonly Vector3 _dropOffset = new(0, -1000, 0);
-    const float MaxRagdollDistance = 10f;
+    const float MaxRagdollDistance = ZoneSystem.c_ZoneHalfSize;
 
     sealed class TrophyState(ExtendedZDO trophy, Humanoid trophyCharacter)
     {
@@ -72,7 +72,7 @@ sealed class TrophyProcessor : Processor
 
             if (GetClosestRagdoll(_sectorZdos, prefab, zdo.GetPosition()) is not { } ragdoll)
             {
-                Logger.DevLog($"Ragdoll {effectPrefab.m_prefab.name} not found", BepInEx.Logging.LogLevel.Error);
+                //Logger.DevLog($"Ragdoll {effectPrefab.m_prefab.name} not found", BepInEx.Logging.LogLevel.Error);
                 var discardAfter = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(ragdollComponent.m_ttl);
                 var i = _expectedRagdolls.FindLastIndex(x => x.Zone == zone);
                 if (i < 0)
@@ -82,8 +82,10 @@ sealed class TrophyProcessor : Processor
             }
             else
             {
-                Logger.DevLog($"Ragdoll {effectPrefab.m_prefab.name} found", BepInEx.Logging.LogLevel.Warning);
-                ragdoll.Set(ZDOVars.s_drops, 0);
+                //Logger.DevLog($"Ragdoll {effectPrefab.m_prefab.name} found", BepInEx.Logging.LogLevel.Warning);
+                //ragdoll.Set(ZDOVars.s_drops, 0);
+                //ragdoll.DataRevision += 120;
+                ragdoll.Destroy();
             }
             _sectorZdos.Clear();
             break;
@@ -121,12 +123,14 @@ sealed class TrophyProcessor : Processor
             {
                 lastZone = zone;
                 _sectorZdos.Clear();
-                ZDOMan.instance.FindSectorObjects(zone, 0, 0, _sectorZdos);
+                ZDOMan.instance.FindSectorObjects(zone, 1, 0, _sectorZdos);
             }
             if (GetClosestRagdoll(_sectorZdos, prefab, pos) is { } ragdoll)
             {
-                Logger.DevLog($"Found expected ragdoll {prefab} at {ragdoll.GetPosition()}", BepInEx.Logging.LogLevel.Warning);
-                ragdoll.Set(ZDOVars.s_drops, 0);
+                //Logger.DevLog($"Found expected ragdoll {prefab} at {ragdoll.GetPosition()}", BepInEx.Logging.LogLevel.Warning);
+                //ragdoll.Set(ZDOVars.s_drops, 0);
+                //ragdoll.DataRevision += 120;
+                ragdoll.Destroy();
                 _expectedRagdolls.RemoveAt(i);
                 _sectorZdos.Remove(ragdoll);
             }
@@ -285,7 +289,7 @@ sealed class TrophyProcessor : Processor
         if (DateTimeOffset.UtcNow - state.LastMessage > _textDuration)
         {
             state.LastMessage = DateTimeOffset.UtcNow;
-            ShowMessage(peers, zdo, $"Attracting {trophyCharacter.m_name}", Config.TrophySpawner.MessageType.Value);
+            ShowMessage(peers, zdo, $"Attracting {trophyCharacter.m_name}", Config.TrophySpawner.MessageType.Value, DamageText.TextType.Weak);
         }
 
         return false;

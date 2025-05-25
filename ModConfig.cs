@@ -289,7 +289,8 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription("Level up chance override for spawned mobs. If < 0, world default is used", new AcceptableValueRange<int>(-1, 100)));
         public ConfigEntry<int> SpawnLimit { get; } = cfg.Bind(section, nameof(SpawnLimit), 20,
             new ConfigDescription("Maximum number of mobs of the trophy's type in the active area", new AcceptableValueRange<int>(1, 10000)));
-        public ConfigEntry<bool> SuppressDrops { get; } = cfg.Bind(section, nameof(SuppressDrops), true, "True to suppress drops from mobs spawned by trophies");
+        public ConfigEntry<bool> SuppressDrops { get; } = cfg.Bind(section, nameof(SuppressDrops), true,
+            "True to suppress drops from mobs spawned by trophies. Does not work reliably (yet)");
         public ConfigEntry<MessageTypes> MessageType { get; } = cfg.Bind(section, nameof(MessageType), MessageTypes.InWorld,
             new ConfigDescription("Type of message to show when a trophy is attracting mobs", AcceptableEnum<MessageTypes>.Default));
     }

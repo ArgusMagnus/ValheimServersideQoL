@@ -134,7 +134,7 @@
 |Trophy Spawner|MaxLevel|3|From 1 to 9|Maximum level of spawned mobs|
 |Trophy Spawner|LevelUpChanceOverride|-1|From -1 to 100|Level up chance override for spawned mobs. If < 0, world default is used|
 |Trophy Spawner|SpawnLimit|20|From 1 to 10000|Maximum number of mobs of the trophy's type in the active area|
-|Trophy Spawner|SuppressDrops|True|True/False|True to suppress drops from mobs spawned by trophies|
+|Trophy Spawner|SuppressDrops|True|True/False|True to suppress drops from mobs spawned by trophies. Does not work reliably (yet)|
 |Trophy Spawner|MessageType|InWorld|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a trophy is attracting mobs|
 |Turrets|DontTargetPlayers|False|True/False|True to stop ballistas from targeting players|
 |Turrets|DontTargetTames|False|True/False|True to stop ballistas from targeting tames|

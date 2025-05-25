@@ -224,7 +224,7 @@ abstract class Processor
         //public static IReadOnlyList<int> Banners { get; } = [.. Enumerable.Range(1, 10).Select(static x => $"piece_banner{x:D2}".GetStableHashCode())];
     }
 
-    protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type)
+    protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
     {
         switch (type)
         {
@@ -244,7 +244,7 @@ abstract class Processor
         }
 
         if (type is MessageTypes.InWorld)
-            RPC.ShowInWorldText(peers.Select(static x => x.m_uid), DamageText.TextType.Normal, pos, message);
+            RPC.ShowInWorldText(peers.Select(static x => x.m_uid), inWorldTextType, pos, message.RemoveRichTextTags());
         else
         {
             var msgType = type is MessageTypes.TopLeftNear or MessageTypes.TopLeftFar ? MessageHud.MessageType.TopLeft : MessageHud.MessageType.Center;
@@ -253,8 +253,8 @@ abstract class Processor
         }
     }
 
-    protected static void ShowMessage(IEnumerable<Peer> peers, ExtendedZDO zdo, string message, MessageTypes type)
-        => ShowMessage(peers, zdo.GetPosition(), message, type);
+    protected static void ShowMessage(IEnumerable<Peer> peers, ExtendedZDO zdo, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
+        => ShowMessage(peers, zdo.GetPosition(), message, type, inWorldTextType);
 
     protected static class RPC
     {
