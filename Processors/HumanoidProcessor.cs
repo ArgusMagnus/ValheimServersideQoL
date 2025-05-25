@@ -37,7 +37,7 @@ sealed class HumanoidProcessor : Processor
             var fields = zdo.Fields<Humanoid>();
             if (!Config.Creatures.ShowHigherLevelStars.Value)
                 fields.Reset(x => x.m_name);
-            else if (fields.SetIfChanged(x => x.m_name, $"<line-height=150%><voffset=-2em>{zdo.PrefabInfo.Humanoid.m_name}<size=70%><br><color=yellow>{string.Concat(Enumerable.Repeat("⭐", level - 1))}</color></size></voffset></line-height>"))
+            else if (fields.SetIfChanged(x => x.m_name, $"<line-height=150%><voffset=-2em>{zdo.PrefabInfo.Humanoid.Value.Humanoid.m_name}<size=70%><br><color=yellow>{string.Concat(Enumerable.Repeat("⭐", level - 1))}</color></size></voffset></line-height>"))
                 RecreateZdo = true;
 
             if (!RecreateZdo)

@@ -7,14 +7,16 @@ sealed class TrophyProcessor : Processor
     TimeSpan _activationDelay;
     TimeSpan _respawnDelay;
     readonly Dictionary<ExtendedZDO, TrophyState> _stateByTrophy = [];
+    readonly List<(int Prefab, Vector3 Pos, Vector2i Zone, DateTimeOffset DiscardAfter)> _expectedRagdolls = [];
     readonly TimeSpan _textDuration = TimeSpan.FromSeconds(DamageText.instance.m_textDuration * 2);
     readonly List<ZDO> _sectorZdos = [];
-    //readonly Vector3 _dropOffset = new(0, -1000, 0);
+    readonly Vector3 _dropOffset = new(0, -1000, 0);
+    const float MaxRagdollDistance = 10f;
 
-    sealed class TrophyState(ExtendedZDO trophy, Character trophyCharacter)
+    sealed class TrophyState(ExtendedZDO trophy, Humanoid trophyCharacter)
     {
         public ExtendedZDO Trophy { get; } = trophy;
-        public Character TrophyCharacter { get; } = trophyCharacter;
+        public Humanoid TrophyCharacter { get; } = trophyCharacter;
         public int CharacterPrefab { get; } = trophyCharacter.name.GetStableHashCode();
         public DateTimeOffset TrophySpawnTime { get; } = trophy.Vars.GetSpawnTime();
         public DateTimeOffset LastMessage { get; set; }
@@ -24,6 +26,20 @@ sealed class TrophyProcessor : Processor
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
+
+        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
+        {
+            if (zdo.Vars.GetSpawnedByTrophy())
+            {
+                zdo.Destroyed -= OnSpawnedDestroyed;
+                if (Config.TrophySpawner.SuppressDrops.Value)
+                    zdo.Destroyed += OnSpawnedDestroyed;
+            }
+        }
+
+        if (!firstTime)
+            return;
+
         _activationDelay = TimeSpan.FromSeconds(Config.TrophySpawner.ActivationDelay.Value);
         _respawnDelay = TimeSpan.FromSeconds(Config.TrophySpawner.RespawnDelay.Value);
     }
@@ -34,6 +50,87 @@ sealed class TrophyProcessor : Processor
     void OnTrophyDestroyed(ExtendedZDO zdo)
     {
         _stateByTrophy.Remove(zdo);
+    }
+
+    void OnSpawnedDestroyed(ExtendedZDO zdo)
+    {
+#if DEBUG
+        if (zdo.PrefabInfo.Humanoid is null)
+            return;
+#endif
+
+        foreach (var effectPrefab in zdo.PrefabInfo.Humanoid!.Value.Humanoid.m_deathEffects.m_effectPrefabs)
+        {
+            if (!effectPrefab.m_enabled || effectPrefab.m_prefab.GetComponent<Ragdoll>() is not { } ragdollComponent)
+                continue;
+
+            var prefab = effectPrefab.m_prefab.name.GetStableHashCode();
+
+            var zone = ZoneSystem.GetZone(zdo.GetPosition());
+            _sectorZdos.Clear();
+            ZDOMan.instance.FindSectorObjects(zone, 0, 0, _sectorZdos);
+
+            if (GetClosestRagdoll(_sectorZdos, prefab, zdo.GetPosition()) is not { } ragdoll)
+            {
+                Logger.DevLog($"Ragdoll {effectPrefab.m_prefab.name} not found", BepInEx.Logging.LogLevel.Error);
+                var discardAfter = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(ragdollComponent.m_ttl);
+                var i = _expectedRagdolls.FindLastIndex(x => x.Zone == zone);
+                if (i < 0)
+                    _expectedRagdolls.Add((prefab, zdo.GetPosition(), zone, discardAfter));
+                else
+                    _expectedRagdolls.Insert(i + 1, (prefab, zdo.GetPosition(), zone, discardAfter));
+            }
+            else
+            {
+                Logger.DevLog($"Ragdoll {effectPrefab.m_prefab.name} found", BepInEx.Logging.LogLevel.Warning);
+                ragdoll.Set(ZDOVars.s_drops, 0);
+            }
+            _sectorZdos.Clear();
+            break;
+        }
+    }
+
+    static ExtendedZDO? GetClosestRagdoll(IReadOnlyList<ZDO> zdos, int prefab, Vector3 pos)
+    {
+        return zdos.Cast<ExtendedZDO>()
+                .Where(x => x.GetPrefab() == prefab)
+                .Select(x => (ZDO: x, Distance: Utils.DistanceXZ(x.GetPosition(), pos)))
+                .Where(static x => x.Distance <= MaxRagdollDistance)
+                .OrderBy(static x => x.Distance)
+                .FirstOrDefault().ZDO;
+    }
+
+    protected override void PreProcessCore()
+    {
+        base.PreProcessCore();
+        if (_expectedRagdolls.Count is 0)
+            return;
+
+        Vector2i lastZone = new(int.MaxValue, int.MaxValue);
+        for (int i = _expectedRagdolls.Count - 1; i >= 0; i--)
+        {
+            var (prefab, pos, zone, discardAfter) = _expectedRagdolls[i];
+            if (discardAfter < DateTimeOffset.UtcNow)
+            {
+                Logger.DevLog($"Discarding expected ragdoll {prefab} at {pos} in zone {zone}", BepInEx.Logging.LogLevel.Error);
+                _expectedRagdolls.RemoveAt(i);
+                continue;
+            }
+
+            if (zone != lastZone)
+            {
+                lastZone = zone;
+                _sectorZdos.Clear();
+                ZDOMan.instance.FindSectorObjects(zone, 0, 0, _sectorZdos);
+            }
+            if (GetClosestRagdoll(_sectorZdos, prefab, pos) is { } ragdoll)
+            {
+                Logger.DevLog($"Found expected ragdoll {prefab} at {ragdoll.GetPosition()}", BepInEx.Logging.LogLevel.Warning);
+                ragdoll.Set(ZDOVars.s_drops, 0);
+                _expectedRagdolls.RemoveAt(i);
+                _sectorZdos.Remove(ragdoll);
+            }
+        }
     }
 
     bool ShouldAttemptSpawn(TrophyState state)
@@ -53,7 +150,7 @@ sealed class TrophyProcessor : Processor
         var zone = ZoneSystem.GetZone(state.Trophy.GetPosition());
         _sectorZdos.Clear();
         ZDOMan.instance.FindSectorObjects(zone, ZoneSystem.instance.GetLoadedArea(), 0, _sectorZdos);
-        var spawnLimitReached = _sectorZdos.Count(x => x.GetPrefab() == state.CharacterPrefab);
+        var spawnLimitReached = _sectorZdos.Cast<ExtendedZDO>().Count(x => x.GetPrefab() == state.CharacterPrefab && x.Vars.GetSpawnedByTrophy());
         _sectorZdos.Clear();
         if (spawnLimitReached < Config.TrophySpawner.SpawnLimit.Value)
             return true;
@@ -64,7 +161,7 @@ sealed class TrophyProcessor : Processor
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         var itemDrop = zdo.PrefabInfo.ItemDrop?.ItemDrop;
-        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || Character.InInterior(zdo.GetPosition()) || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.name, out var trophyCharacter))
+        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || Character.InInterior(zdo.GetPosition()) || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.name, out var trophyCharacter) || trophyCharacter is not Humanoid)
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -72,7 +169,7 @@ sealed class TrophyProcessor : Processor
 
         if (!_stateByTrophy.TryGetValue(zdo, out var state))
         {
-            _stateByTrophy.Add(zdo, state = new(zdo, trophyCharacter));
+            _stateByTrophy.Add(zdo, state = new(zdo, (Humanoid)trophyCharacter));
             zdo.Destroyed += OnTrophyDestroyed;
         }
 
@@ -167,11 +264,18 @@ sealed class TrophyProcessor : Processor
                 mob.Vars.SetLevel(level);
                 /// <see cref="BaseAI.IdleMovement"/>
                 mob.Vars.SetSpawnPoint(zdo.GetPosition());
+                mob.Vars.SetSpawnedByTrophy(true);
                 //mob.Vars.SetPatrolPoint(zdo.GetPosition());
                 //mob.Vars.SetPatrol(true);
 
                 // Disabling drops like that doesn't work, since most mobs spawn a ragdoll (separate prefab created via m_deathEffects) which then spawn the drops
-                //mob.Fields<CharacterDrop>().Set(x => x.m_spawnOffset, _dropOffset);
+
+                if (Config.TrophySpawner.SuppressDrops.Value)
+                {
+                    if (mob.PrefabInfo.Humanoid is { CharacterDrop.Value: not null })
+                        mob.Fields<CharacterDrop>().Set(x => x.m_spawnOffset, _dropOffset);
+                    mob.Destroyed += OnSpawnedDestroyed;
+                }
 
                 zdo.Vars.SetLastSpawnedTime(state.LastSpawned = DateTimeOffset.UtcNow);
                 break;
@@ -181,7 +285,7 @@ sealed class TrophyProcessor : Processor
         if (DateTimeOffset.UtcNow - state.LastMessage > _textDuration)
         {
             state.LastMessage = DateTimeOffset.UtcNow;
-            ShowMessage(peers, zdo, $"<color=yellow>Attracting {trophyCharacter.m_name}", Config.TrophySpawner.MessageType.Value);
+            ShowMessage(peers, zdo, $"Attracting {trophyCharacter.m_name}", Config.TrophySpawner.MessageType.Value);
         }
 
         return false;

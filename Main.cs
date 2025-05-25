@@ -583,15 +583,18 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine("# Prefabs");
             writer.WriteLine();
             writer.WriteLine("|Prefab|Components|");
-            writer.WriteLine("|------|------|");
+            writer.WriteLine("|------|----------|");
             foreach (var (prefab, name, components) in prefabs.OrderBy(x => x.Prefab))
             {
-                if (name is null)
-                    writer.WriteLine(Invariant($"|{prefab}|{components}|"));
-                else if (Localization.instance.Localize(name) is { } localized && localized != name)
-                    writer.WriteLine(Invariant($"|{prefab}<small><br>- Name: {name}<br>- English Name: {localized}</small>|{components}|"));
-                else
-                    writer.WriteLine(Invariant($"|{prefab}<small><br>- Name: {name}</small>|{components}|"));
+                var str = $"{prefab}<small><br>- Hash: {prefab.GetStableHashCode()}";
+                if (name is not null)
+                {
+                    str += $"<br>- Name: {name}";
+                    if (Localization.instance.Localize(name) is { } localized && localized != name)
+                        str += $"<br>- English Name: {localized}";
+                }
+                str += "</small>";
+                writer.WriteLine(Invariant($"|{str}|{components}|"));
             }
         }
 

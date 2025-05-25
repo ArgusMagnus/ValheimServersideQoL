@@ -32,7 +32,7 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
     public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = GetTuple<(Aoe, Piece, PieceTable, Optional<Trap>)>(components);
     public Mister? Mister { get; } = Get<Mister>(components);
     //public CreatureSpawner? CreatureSpawner { get; } = Get<CreatureSpawner>(components);
-    public Humanoid? Humanoid { get; } = Get<Humanoid>(components);
+    public (Humanoid Humanoid, Optional<CharacterDrop> CharacterDrop)? Humanoid { get; } = GetTuple<(Humanoid, Optional<CharacterDrop>)>(components);
     public EffectArea? EffectArea { get; } = Get<EffectArea>(components);
     //public ItemStand? ItemStand { get; } = Get<ItemStand>(components);
 
