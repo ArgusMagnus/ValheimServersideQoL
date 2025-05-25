@@ -19,6 +19,17 @@ sealed class WearNTearProcessor : Processor
                 fields.Reset(x => x.m_noRoofWear);
             else if (fields.SetIfChanged(x => x.m_noRoofWear, false))
                 RecreateZdo = true;
+
+            if (!Config.WearNTear.MakeIndestructible.Value)
+            {
+                if (fields.ResetIfChanged(x => x.m_health))
+                    zdo.Vars.RemoveHealth();
+            }
+            else if (fields.SetIfChanged(x => x.m_health, -1))
+            {
+                zdo.Vars.SetHealth(-1);
+                RecreateZdo = true;
+            }
         }
 
         var disableSupport = Config.WearNTear.DisableSupportRequirements.Value is DisableSupportRequirementsOptions.None ? false : (

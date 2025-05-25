@@ -211,6 +211,7 @@ sealed class ExtendedZDO : ZDO
         public void SetSpawnTime(DateTime value) => _zdo.Set(ZDOVars.s_spawnTime, value.Ticks);
         public float GetHealth(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_health, defaultValue);
         public void SetHealth(float value) => _zdo.Set(ZDOVars.s_health, value);
+        public void RemoveHealth() => _zdo.RemoveFloat(ZDOVars.s_health);
         public int GetPermitted(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_permitted, defaultValue);
         public void SetPermitted(int value) => _zdo.Set(ZDOVars.s_permitted, value);
         public int GetLevel(int defaultValue = 1) => _zdo.GetInt(ZDOVars.s_level, defaultValue);

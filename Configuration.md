@@ -15,6 +15,7 @@
 |General|IgnoreWorldVersionCheck|False|True/False|True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption|
 |Build Pieces|DisableRainDamage|False|True/False|True to prevent rain from damaging build pieces|
 |Build Pieces|DisableSupportRequirements|None|None or combination of PlayerBuilt, World|Ignore support requirements on build pieces|
+|Build Pieces|MakeIndestructible|False|True/False|True to make player-built pieces indestructible|
 |Carts|ContentMassMultiplier|1|From 0 to Infinity|Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
 |Containers|AutoSort|False|True/False|True to auto sort container inventories|
 |Containers|SortedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a container was sorted|

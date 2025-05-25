@@ -221,6 +221,8 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<DisableSupportRequirementsOptions> DisableSupportRequirements { get; } = cfg.Bind(section, nameof(DisableSupportRequirements), DisableSupportRequirementsOptions.None,
             new ConfigDescription("Ignore support requirements on build pieces", AcceptableEnum<DisableSupportRequirementsOptions>.Default));
 
+        public ConfigEntry<bool> MakeIndestructible { get; } = cfg.Bind(section, nameof(MakeIndestructible), false, "True to make player-built pieces indestructible");
+
         [Flags]
         public enum DisableSupportRequirementsOptions
         {
