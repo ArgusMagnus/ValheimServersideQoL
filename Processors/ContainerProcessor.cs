@@ -1,12 +1,10 @@
 ﻿using System.Collections.Concurrent;
 using UnityEngine;
-using static ZRoutedRpc;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor : Processor
 {
-    public const string RangeConfigPrefix = "🧲";
     readonly Dictionary<ItemKey, int> _stackPerItem = new();
     readonly Dictionary<ExtendedZDO, List<ExtendedZDO>> _signsByChests = [];
     readonly Dictionary<ExtendedZDO, ExtendedZDO> _chestsBySigns = [];
@@ -26,6 +24,13 @@ sealed class ContainerProcessor : Processor
     public IReadOnlyDictionary<ExtendedZDO, ExtendedZDO> ChestsBySigns => _chestsBySigns;
     bool _openResponseRegistered;
 
+    sealed record SwapContentRequest(long SenderPeerID, ExtendedZDO From, ExtendedZDO? To)
+    {
+        public required DateTimeOffset SwapAfter { get; set; }
+    }
+
+    readonly List<SwapContentRequest> _swapContentRequests = [];
+
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
@@ -36,6 +41,8 @@ sealed class ContainerProcessor : Processor
         _chestsBySigns.Clear();
 
         UpdateRpcSubscription("OpenRespons", RPC_OpenResponse, false);
+        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Containers.ObliteratorItemTeleporter.Value);
+        UpdateRpcSubscription("RPC_AnimateLeverReturn", RPC_AnimateLeverReturn, Config.Containers.ObliteratorItemTeleporter.Value);
         _openResponseRegistered = false;
     }
 
@@ -71,6 +78,8 @@ sealed class ContainerProcessor : Processor
             return (new(0.85f, 0.5f, 0.5f), Config.Containers.ReinforcedChestSigns.Value);
         if (prefab == Prefabs.BlackmetalChest)
             return (new(0.95f, 0.5f, 0.6f), Config.Containers.BlackmetalChestSigns.Value);
+        if (prefab == Prefabs.Incinerator)
+            return (new(0f, 1.5f, 0.1f), Config.Containers.ObliteratorSigns.Value);
         return default;
     }
 
@@ -81,7 +90,7 @@ sealed class ContainerProcessor : Processor
 
     void RequestOwnership(ExtendedZDO zdo, long playerID, ContainerState state)
     {
-        if (DateTimeOffset.UtcNow - state.LastOwnershipRequest < TimeSpan.FromSeconds(2))
+        if (zdo.IsOwner() || (DateTimeOffset.UtcNow - state.LastOwnershipRequest < TimeSpan.FromSeconds(2)))
             return;
 
         if (!_openResponseRegistered && Player.m_localPlayer is not null)
@@ -105,6 +114,63 @@ sealed class ContainerProcessor : Processor
         //Logger.DevLog($"Container {data.m_targetZDO}: OpenResponse: {granted}");
         state.WaitingForResponse = false;
         return false;
+    }
+
+    void RPC_AnimateLever(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data)
+    {
+        if (zdo is not { PrefabInfo.Container.Incinerator.Value: not null } || zdo.Inventory.TeleportTag is null || zdo.Inventory.Items.Count is 0)
+            return;
+
+        zdo.ClaimOwnership(); /// cancel obliteration of items <see cref="Incinerator.Incinerate(long)"/>
+
+        var other = _containers.Keys.FirstOrDefault(x => !ReferenceEquals(x, zdo) && x.Inventory.TeleportTag == zdo.Inventory.TeleportTag);
+        other?.ClaimOwnership();
+
+        _swapContentRequests.Add(new(data.m_senderPeerID, zdo, other) { SwapAfter = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(zdo.PrefabInfo.Container.Value.Incinerator.Value!.m_effectDelayMax) });
+    }
+
+    void RPC_AnimateLeverReturn(ExtendedZDO zdo)
+    {
+        for (int i = 0; i < _swapContentRequests.Count; i++)
+        {
+            var request = _swapContentRequests[i];
+            if (ReferenceEquals(request.From, zdo))
+                request.SwapAfter = default;
+        }
+    }
+
+    protected override void PreProcessCore()
+    {
+        base.PreProcessCore();
+        for (int i = _swapContentRequests.Count - 1; i >= 0; i--)
+        {
+            var request = _swapContentRequests[i];
+            if (!request.From.IsOwner() || request.To?.IsOwner() is false)
+            {
+                request.From.ClaimOwnership();
+                request.To?.ClaimOwnership();
+            }
+            else if (request.SwapAfter <= DateTimeOffset.UtcNow)
+            {
+                if (request.To is null)
+                    RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, $"No target with tag {request.From.Inventory.TeleportTag} found");
+                else
+                {
+                    var fromItems = request.From.Inventory.Items.ToList();
+                    var toItems = request.To.Inventory.Items.ToList();
+                    request.From.Inventory.Items.Clear();
+                    request.To.Inventory.Items.Clear();
+                    foreach (var item in fromItems)
+                        request.To.Inventory.Items.Add(item);
+                    foreach (var item in toItems)
+                        request.From.Inventory.Items.Add(item);
+                    request.To.Inventory.Save();
+                    request.From.Inventory.Save();
+                    RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, "Items teleported");
+                }
+                _swapContentRequests.RemoveAt(i);
+            }
+        }
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)

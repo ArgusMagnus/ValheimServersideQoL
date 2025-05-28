@@ -26,6 +26,7 @@ It's designed and tested for **dedicated servers** with **vanilla clients** (e.g
     - Automatically sort inventories
     - Configure inventory sizes
     - Automatically put signs on chests
+    - Use obliterator to teleport items
 - Item drops: Automatically put dropped items into chests
 - Smelters (including windmills/hot-tubs/shield generators/etc.)
     - Feed/refuel smelters from nearby containers

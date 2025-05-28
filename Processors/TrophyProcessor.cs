@@ -149,7 +149,7 @@ sealed class TrophyProcessor : Processor
         if (DateTimeOffset.UtcNow - state.LastSpawned < _respawnDelay)
             return false;
 
-        state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(10); // retry after 10 seconds
+        state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(Math.Min(10, _respawnDelay.TotalSeconds)); // retry after 10 seconds
 
         var zone = ZoneSystem.GetZone(state.Trophy.GetPosition());
         _sectorZdos.Clear();
@@ -269,13 +269,10 @@ sealed class TrophyProcessor : Processor
                 /// <see cref="BaseAI.IdleMovement"/>
                 mob.Vars.SetSpawnPoint(zdo.GetPosition());
                 mob.Vars.SetSpawnedByTrophy(true);
-                //mob.Vars.SetPatrolPoint(zdo.GetPosition());
-                //mob.Vars.SetPatrol(true);
-
-                // Disabling drops like that doesn't work, since most mobs spawn a ragdoll (separate prefab created via m_deathEffects) which then spawn the drops
 
                 if (Config.TrophySpawner.SuppressDrops.Value)
                 {
+                    // Disabling drops like that doesn't work, since most mobs spawn a ragdoll (separate prefab created via m_deathEffects) which then spawn the drops
                     if (mob.PrefabInfo.Humanoid is { CharacterDrop.Value: not null })
                         mob.Fields<CharacterDrop>().Set(x => x.m_spawnOffset, _dropOffset);
                     mob.Destroyed += OnSpawnedDestroyed;

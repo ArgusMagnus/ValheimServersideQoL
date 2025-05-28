@@ -24,10 +24,12 @@
 |Containers|AutoPickupMinPlayerDistance|4||Min distance all player must have to a dropped item for it to be picked up|
 |Containers|AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
 |Containers|PickedUpMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a dropped item is added to a container|
+|Containers|ChestSignsDefaultText|<color=white>...||Default text for chest signs|
 |Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on wood chests|
 |Containers|ReinforcedChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on reinforced chests|
 |Containers|BlackmetalChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on blackmetal chests|
-|Containers|ChestSignsDefaultText|<color=white>...||Default text for chest signs|
+|Containers|ObliteratorSigns|None|None or combination of Front|Options to automatically put signs on obliterators|
+|Containers|ObliteratorItemTeleporter|False|True/False|True to enable obliterators to teleport items. Requires 'ObliteratorSigns' and two obliterators with matching tags. The tag is set by putting '🔗<Tag>' on the sign|
 |Containers|InventorySize_Cart|6x3||Inventory size for 'Cart'|
 |Containers|InventorySize_incinerator|7x3||Inventory size for 'Obliterator'|
 |Containers|InventorySize_Karve|2x2||Inventory size for 'Karve'|

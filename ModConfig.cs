@@ -129,13 +129,17 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = cfg.Bind(section, nameof(PickedUpMessageType), MessageTypes.None,
             new ConfigDescription("Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default));
 
+        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), "<color=white>...", "Default text for chest signs");
         public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
             new ConfigDescription("Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.Bind(section, nameof(ReinforcedChestSigns), SignOptions.None,
             new ConfigDescription("Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = cfg.Bind(section, nameof(BlackmetalChestSigns), SignOptions.None,
             new ConfigDescription("Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default));
-        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), "<color=white>...", "Default text for chest signs");
+        public ConfigEntry<SignOptions> ObliteratorSigns { get; } = cfg.Bind(section, nameof(ObliteratorSigns), SignOptions.None,
+            new ConfigDescription("Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front])));
+        public ConfigEntry<bool> ObliteratorItemTeleporter { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporter), false,
+            $"True to enable obliterators to teleport items. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign");
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
             .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))

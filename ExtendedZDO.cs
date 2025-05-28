@@ -13,6 +13,7 @@ interface IZDOInventory
     void Save();
     int? PickupRange { get; set; }
     int? FeedRange { get; set; }
+    string? TeleportTag { get; set; }
 }
 
 sealed class ExtendedZDO : ZDO
@@ -501,6 +502,7 @@ sealed class ExtendedZDO : ZDO
         public ExtendedZDO ZDO { get; private set; } = zdo;
         public int? PickupRange { get; set; }
         public int? FeedRange { get; set; }
+        public string? TeleportTag { get; set; }
 
         IList<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;

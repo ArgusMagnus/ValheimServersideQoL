@@ -138,7 +138,7 @@ abstract class Processor
                     ZRpc.Deserialize(del.Parameters, data.m_parameters, ref __args);
                     data.m_parameters.SetPos(0);
                     if (del.DataParameterIndex > -1)
-                        __args.Insert(del.DataParameterIndex, data);
+                        __args.Insert(Math.Min(del.DataParameterIndex, __args.Count), data);
                     if (del.ZdoParameterIndex > -1)
                         __args.Insert(del.ZdoParameterIndex + ((del.DataParameterIndex > -1 && del.DataParameterIndex < del.ZdoParameterIndex) ? 1 : 0), zdo ??= ZDOMan.instance.GetExtendedZDO(data.m_targetZDO));
 
@@ -218,6 +218,7 @@ abstract class Processor
         public static int BlackmetalChest { get; } = "piece_chest_blackmetal".GetStableHashCode();
         public static int ReinforcedChest { get; } = "piece_chest".GetStableHashCode();
         public static int WoodChest { get; } = "piece_chest_wood".GetStableHashCode();
+        public static int Incinerator { get; } = "incinerator".GetStableHashCode();
         public static int StandingIronTorch { get; } = "piece_groundtorch".GetStableHashCode();
         public static int StandingIronTorchGreen { get; } = "piece_groundtorch_green".GetStableHashCode();
         public static int StandingIronTorchBlue { get; } = "piece_groundtorch_blue".GetStableHashCode();

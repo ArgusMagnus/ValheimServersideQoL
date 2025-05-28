@@ -3,6 +3,7 @@
     - Stack items from player inventories into containers (config: `StackInventoryIntoContainersEmote`) [#44](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/44)
     - Infinite stamina when encumbered
     - Make player-built pieces indestructible [#59](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/59)
+    - Use obliterator to teleport items
 - Portal hub: visualize portal ID with colored torches to facilitate portal identication even if the position in the hub changes
 - Types of shown messages (e.g. container sorted, taming progress, etc.) are now configurable [#18](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/18)
 

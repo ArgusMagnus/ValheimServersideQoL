@@ -10,6 +10,9 @@ sealed class SignProcessor : Processor
 
     internal const string LeftRightArrowEmoji = "↔️";
     readonly Regex _chestFeedRangeRegex = new($@"{Regex.Escape(LeftRightArrowEmoji)}\s*(?<R>\d+)");
+    
+    internal const string LinkEmoji = "🔗";
+    readonly Regex _incineratorTagRegex = new($@"{Regex.Escape(LinkEmoji)}\s*(?<T>\w+)");
 
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
@@ -72,6 +75,13 @@ sealed class SignProcessor : Processor
                     chest.Inventory.FeedRange = int.Parse(match.Groups["R"].Value);
                 else
                     chest.Inventory.FeedRange = null;
+            }
+            if (Config.Containers.ObliteratorItemTeleporter.Value && chest.PrefabInfo.Container is { Incinerator.Value: not null })
+            {
+                if (_incineratorTagRegex.Match(text) is { Success: true } match)
+                    chest.Inventory.TeleportTag = match.Groups["T"].Value;
+                else
+                    chest.Inventory.TeleportTag = null;
             }
         }
 
