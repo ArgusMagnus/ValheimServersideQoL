@@ -138,8 +138,10 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription("Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ObliteratorSigns { get; } = cfg.Bind(section, nameof(ObliteratorSigns), SignOptions.None,
             new ConfigDescription("Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front])));
-        public ConfigEntry<bool> ObliteratorItemTeleporter { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporter), false,
-            $"True to enable obliterators to teleport items. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign");
+        public ConfigEntry<ObliteratorItemTeleporterOptions> ObliteratorItemTeleporter { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporter), ObliteratorItemTeleporterOptions.Disabled,
+            new ConfigDescription(
+                $"Options to enable obliterators to teleport items. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign",
+                AcceptableEnum<ObliteratorItemTeleporterOptions>.Default));
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
             .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
@@ -148,6 +150,14 @@ sealed class ModConfig(ConfigFile cfg)
             .ToDictionary(x => x.Name.GetStableHashCode(), x => cfg
                 .Bind(section, Invariant($"InventorySize_{x.Name}"), Invariant($"{x.Container.m_width}x{x.Container.m_height}"), Invariant($"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'")));
         
+        public enum ObliteratorItemTeleporterOptions
+        {
+            Disabled,
+            TeleportableItems,
+            AllItems,
+            SameItemsAsPortal
+        }
+
         [Flags]
         public enum SignOptions
         {

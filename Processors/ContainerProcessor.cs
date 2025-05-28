@@ -41,8 +41,8 @@ sealed class ContainerProcessor : Processor
         _chestsBySigns.Clear();
 
         UpdateRpcSubscription("OpenRespons", RPC_OpenResponse, false);
-        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Containers.ObliteratorItemTeleporter.Value);
-        UpdateRpcSubscription("RPC_AnimateLeverReturn", RPC_AnimateLeverReturn, Config.Containers.ObliteratorItemTeleporter.Value);
+        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled);
+        UpdateRpcSubscription("RPC_AnimateLeverReturn", RPC_AnimateLeverReturn, Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled);
         _openResponseRegistered = false;
     }
 
@@ -139,6 +139,31 @@ sealed class ContainerProcessor : Processor
         }
     }
 
+    bool CheckForbiddenItems(ExtendedZDO from, ExtendedZDO to)
+    {
+        switch (Config.Containers.ObliteratorItemTeleporter.Value)
+        {
+            case ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.AllItems:
+                return false;
+            case ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.SameItemsAsPortal:
+                if (ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
+                    return false;
+                break;
+        }
+
+        static bool HasNonTeleportableItems(ExtendedZDO zdo)
+        {
+            foreach (var item in zdo.Inventory.Items)
+            {
+                if (!item.m_shared.m_teleportable)
+                    return true;
+            }
+            return false;
+        }
+
+        return HasNonTeleportableItems(from) || HasNonTeleportableItems(to);
+    }
+
     protected override void PreProcessCore()
     {
         base.PreProcessCore();
@@ -154,6 +179,8 @@ sealed class ContainerProcessor : Processor
             {
                 if (request.To is null)
                     RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, $"No target with tag {request.From.Inventory.TeleportTag} found");
+                else if (CheckForbiddenItems(request.From, request.To))
+                    RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, "An item prevents the teleportation");
                 else
                 {
                     var fromItems = request.From.Inventory.Items.ToList();

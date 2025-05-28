@@ -76,7 +76,8 @@ sealed class SignProcessor : Processor
                 else
                     chest.Inventory.FeedRange = null;
             }
-            if (Config.Containers.ObliteratorItemTeleporter.Value && chest.PrefabInfo.Container is { Incinerator.Value: not null })
+            if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled
+                && chest.PrefabInfo.Container is { Incinerator.Value: not null })
             {
                 if (_incineratorTagRegex.Match(text) is { Success: true } match)
                     chest.Inventory.TeleportTag = match.Groups["T"].Value;
