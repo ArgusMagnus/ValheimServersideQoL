@@ -2,6 +2,7 @@
 - New feature:
     - Players can permanently gain the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator
     - Players can permanently gain the ability to sense hidden objects by sacrificing a wishbone in an obliterator
+    - Players can permanently gain a wisp companion by sacrificing a torn spirit in an obliterator
 - Removed feature which allowed players to open sunken crypt doors after defeating the elder
 
 ### v0.2.24

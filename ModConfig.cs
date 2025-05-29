@@ -223,6 +223,8 @@ sealed class ModConfig(ConfigFile cfg)
             "If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator");
         public ConfigEntry<bool> CanSacrificeWishbone { get; } = cfg.Bind(section, nameof(CanSacrificeWishbone), false,
             "If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator");
+        public ConfigEntry<bool> CanSacrificeTornSpirit { get; } = cfg.Bind(section, nameof(CanSacrificeTornSpirit), false,
+            "If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator");
     }
 
     public sealed class TurretsConfig(ConfigFile cfg, string section)

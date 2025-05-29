@@ -30,7 +30,10 @@ sealed class PlayerProcessor : Processor
             && Game.m_staminaRate > 0);
 
         //UpdateRpcSubscription("Say", OnTalkerSay, true);
-        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Players.CanSacrificeCryptKey.Value || Config.Players.CanSacrificeWishbone.Value);
+        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever,
+            Config.Players.CanSacrificeCryptKey.Value ||
+            Config.Players.CanSacrificeWishbone.Value ||
+            Config.Players.CanSacrificeTornSpirit.Value);
     }
 
     void OnZdoDestroyed(ExtendedZDO zdo)
@@ -112,6 +115,18 @@ sealed class PlayerProcessor : Processor
                 RPC.AddStatusEffect(player, StatusEffects.Wishbone);
             }
         }
+        if (Config.Players.CanSacrificeTornSpirit.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
+        {
+            player ??= GetPeerCharacter(data.m_senderPeerID);
+            if (player is null)
+                Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+            else
+            {
+                DataZDO.Vars.SetSacrifiedTornSpirit(player.Vars.GetPlayerID(), true);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted a wisp companion");
+                RPC.AddStatusEffect(player, StatusEffects.Demister);
+            }
+        }
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
@@ -122,8 +137,11 @@ sealed class PlayerProcessor : Processor
         if (_players.TryAdd(zdo.m_uid, zdo))
         {
             zdo.Destroyed += OnZdoDestroyed;
-            if (DataZDO.Vars.GetSacrifiedWishbone(zdo.Vars.GetPlayerID()))
+            var playerID = zdo.Vars.GetPlayerID();
+            if (Config.Players.CanSacrificeWishbone.Value && DataZDO.Vars.GetSacrifiedWishbone(playerID))
                 RPC.AddStatusEffect(zdo, StatusEffects.Wishbone);
+            if (Config.Players.CanSacrificeTornSpirit.Value && DataZDO.Vars.GetSacrifiedTornSpirit(playerID))
+                RPC.AddStatusEffect(zdo, StatusEffects.Demister);
         }
 
         if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)

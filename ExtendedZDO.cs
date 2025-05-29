@@ -244,6 +244,8 @@ sealed class ExtendedZDO : ZDO
         public void SetSacrifiedCryptKey(long playerID, bool value) => _zdo.Set($"player{playerID}_SacrifiedCryptKey", value);
         public bool GetSacrifiedWishbone(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedWishbone", defaultValue);
         public void SetSacrifiedWishbone(long playerID, bool value) => _zdo.Set($"player{playerID}_SacrifiedWishbone", value);
+        public bool GetSacrifiedTornSpirit(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedTornSpirit", defaultValue);
+        public void SetSacrifiedTornSpirit(long playerID, bool value) => _zdo.Set($"player{playerID}_SacrifiedTornSpirit", value);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
