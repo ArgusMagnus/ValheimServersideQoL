@@ -196,6 +196,7 @@ sealed class ContainerProcessor : Processor
                     request.From.Inventory.Save();
                     RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, "Items teleported");
                 }
+                request.From.SetOwner(request.SenderPeerID);
                 _swapContentRequests.RemoveAt(i);
             }
         }
