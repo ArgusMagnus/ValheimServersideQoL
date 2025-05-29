@@ -121,10 +121,11 @@ sealed class ContainerProcessor : Processor
         if (zdo is not { PrefabInfo.Container.Incinerator.Value: not null } || zdo.Inventory.TeleportTag is null || zdo.Inventory.Items.Count is 0)
             return;
 
-        zdo.ClaimOwnership(); /// cancel obliteration of items <see cref="Incinerator.Incinerate(long)"/>
 
         var other = _containers.Keys.FirstOrDefault(x => !ReferenceEquals(x, zdo) && x.Inventory.TeleportTag == zdo.Inventory.TeleportTag);
-        other?.ClaimOwnership();
+
+        zdo.SetOwner(0); /// cancel obliteration of items <see cref="Incinerator.Incinerate(long)"/>
+        other?.SetOwner(0);
 
         _swapContentRequests.Add(new(data.m_senderPeerID, zdo, other) { SwapAfter = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(zdo.PrefabInfo.Container.Value.Incinerator.Value!.m_effectDelayMax) });
     }
@@ -143,9 +144,9 @@ sealed class ContainerProcessor : Processor
     {
         switch (Config.Containers.ObliteratorItemTeleporter.Value)
         {
-            case ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.AllItems:
+            case ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.EnabledAllItems:
                 return false;
-            case ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.SameItemsAsPortal:
+            case ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Enabled:
                 if (ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
                     return false;
                 break;
@@ -170,10 +171,10 @@ sealed class ContainerProcessor : Processor
         for (int i = _swapContentRequests.Count - 1; i >= 0; i--)
         {
             var request = _swapContentRequests[i];
-            if (!request.From.IsOwner() || request.To?.IsOwner() is false)
+            if (request.From.GetOwner() is not 0 || request.To?.GetOwner() is not null and not 0)
             {
-                request.From.ClaimOwnership();
-                request.To?.ClaimOwnership();
+                request.From.SetOwner(0);
+                request.To?.SetOwner(0);
             }
             else if (request.SwapAfter <= DateTimeOffset.UtcNow)
             {

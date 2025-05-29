@@ -140,7 +140,7 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription("Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front])));
         public ConfigEntry<ObliteratorItemTeleporterOptions> ObliteratorItemTeleporter { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporter), ObliteratorItemTeleporterOptions.Disabled,
             new ConfigDescription(
-                $"Options to enable obliterators to teleport items. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign",
+                $"Options to enable obliterators to teleport items instead of obliterating them when the lever is pulled. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign",
                 AcceptableEnum<ObliteratorItemTeleporterOptions>.Default));
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
@@ -153,9 +153,13 @@ sealed class ModConfig(ConfigFile cfg)
         public enum ObliteratorItemTeleporterOptions
         {
             Disabled,
-            TeleportableItems,
-            AllItems,
-            SameItemsAsPortal
+            Enabled,
+            EnabledAllItems,
+
+            [Obsolete]
+            False = Disabled,
+            [Obsolete]
+            True = Enabled
         }
 
         [Flags]
@@ -512,13 +516,21 @@ sealed class ModConfig(ConfigFile cfg)
     internal sealed class AcceptableEnum<T> : AcceptableValueBase
         where T : unmanaged, Enum
     {
-        public static AcceptableEnum<T> Default { get; } = new();
+        public static AcceptableEnum<T> Default { get; } = new(GetDefaultValues());
 
         public IReadOnlyList<T> AcceptableValues { get; }
         readonly T _default;
 
-        AcceptableEnum()
-            : this((T[])Enum.GetValues(typeof(T))) { }
+        static IEnumerable<T> GetDefaultValues()
+        {
+            var added = new HashSet<T>();
+            foreach (var value in (T[])Enum.GetValues(typeof(T)))
+            {
+                // Filter out duplicate (obsolete) values
+                if (added.Add(value))
+                    yield return value;
+            }
+        }
 
         public AcceptableEnum(IEnumerable<T> values)
             : base (typeof(T))

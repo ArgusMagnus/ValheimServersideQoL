@@ -1,3 +1,6 @@
+### v0.2.24
+- Obliterator item teleporter: add option to allow the teleportation of all items and changed the default to only teleport teleportable items
+
 ### v0.2.23
 - New features:
     - Stack items from player inventories into containers (config: `StackInventoryIntoContainersEmote`) [#44](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/44)
