@@ -228,6 +228,7 @@ abstract class Processor
     protected static class PrefabNames
     {
         public const string CryptKey = "CryptKey";
+        public const string Wishbone = "Wishbone";
     }
 
     protected static class Prefabs
@@ -247,6 +248,11 @@ abstract class Processor
         public static int StandingIronTorchGreen { get; } = "piece_groundtorch_green".GetStableHashCode();
         public static int StandingIronTorchBlue { get; } = "piece_groundtorch_blue".GetStableHashCode();
         //public static IReadOnlyList<int> Banners { get; } = [.. Enumerable.Range(1, 10).Select(static x => $"piece_banner{x:D2}".GetStableHashCode())];
+    }
+
+    protected static class StatusEffects
+    {
+        public static int Wishbone { get; } = "Wishbone".GetStableHashCode();
     }
 
     protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)

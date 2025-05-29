@@ -1,6 +1,7 @@
 ### v0.2.25
 - New feature:
     - Players can permanently gain the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator
+    - Players can permanently gain the ability to sense hidden objects by sacrificing a wishbone in an obliterator
 - Removed feature which allowed players to open sunken crypt doors after defeating the elder
 
 ### v0.2.24

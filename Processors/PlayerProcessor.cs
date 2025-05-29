@@ -30,7 +30,7 @@ sealed class PlayerProcessor : Processor
             && Game.m_staminaRate > 0);
 
         //UpdateRpcSubscription("Say", OnTalkerSay, true);
-        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Players.CanSacrificeCryptKey.Value);
+        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Players.CanSacrificeCryptKey.Value || Config.Players.CanSacrificeWishbone.Value);
     }
 
     void OnZdoDestroyed(ExtendedZDO zdo)
@@ -88,17 +88,28 @@ sealed class PlayerProcessor : Processor
         if (zdo.PrefabInfo.Container is not { Incinerator.Value: not null } || zdo.Inventory.TeleportTag is not null)
             return;
 
-        if (Config.Players.CanSacrificeCryptKey.Value)
+        ExtendedZDO? player = null;
+        if (Config.Players.CanSacrificeCryptKey.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
         {
-            if (zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
+            player ??= GetPeerCharacter(data.m_senderPeerID);
+            if (player is null)
+                Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+            else
             {
-                if (GetPeerCharacter(data.m_senderPeerID) is not { } player)
-                    Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
-                else
-                {
-                    DataZDO.Vars.SetSacrifiedCryptKey(player.Vars.GetPlayerID(), true);
-                    RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to open sunken crypt doors");
-                }
+                DataZDO.Vars.SetSacrifiedCryptKey(player.Vars.GetPlayerID(), true);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to open sunken crypt doors");
+            }
+        }
+        if (Config.Players.CanSacrificeWishbone.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
+        {
+            player ??= GetPeerCharacter(data.m_senderPeerID);
+            if (player is null)
+                Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+            else
+            {
+                DataZDO.Vars.SetSacrifiedWishbone(player.Vars.GetPlayerID(), true);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to sense hidden objects");
+                RPC.AddStatusEffect(player, StatusEffects.Wishbone);
             }
         }
     }
@@ -109,7 +120,11 @@ sealed class PlayerProcessor : Processor
             return false;
 
         if (_players.TryAdd(zdo.m_uid, zdo))
+        {
             zdo.Destroyed += OnZdoDestroyed;
+            if (DataZDO.Vars.GetSacrifiedWishbone(zdo.Vars.GetPlayerID()))
+                RPC.AddStatusEffect(zdo, StatusEffects.Wishbone);
+        }
 
         if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
         {

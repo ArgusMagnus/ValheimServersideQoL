@@ -67,6 +67,7 @@
 |Players|InfiniteEncumberedStamina|False|True/False|True to give players infinite stamina when encumbered. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|StackInventoryIntoContainersEmote|-1|-1, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Count|Emote to stack inventory into containers. -1 to disable this feature|
 |Players|CanSacrificeCryptKey|False|True/False|If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator|
+|Players|CanSacrificeWishbone|False|True/False|If true, players can permanently unlock the ability to sense hidden things by sacrificing a wishbone in an obliterator|
 |Portal Hub|Enable|False|True/False|True to automatically generate a portal hub|
 |Portal Hub|Exclude|||Portals with a tag that matches this filter are not added to the portal hub|
 |Portal Hub|Include|*||Only portals with a tag that matches this filter are added to the portal hub|
