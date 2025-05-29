@@ -239,6 +239,9 @@ sealed class ExtendedZDO : ZDO
         static int __portalHubId = $"{Main.PluginGuid}.PortalHubId".GetStableHashCode();
         public int GetPortalHubId(int defaultValue = default) => _zdo.GetInt(__portalHubId, defaultValue);
         public void SetPortalHubId(int value) => _zdo.Set(__portalHubId, value);
+
+        public bool GetSacrifiedCryptKey(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedCryptKey", defaultValue);
+        public void SetSacrifiedCryptKey(long playerID, bool value) => _zdo.Set($"player{playerID}_SacrifiedCryptKey", value);
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)

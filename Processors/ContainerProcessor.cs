@@ -179,7 +179,7 @@ sealed class ContainerProcessor : Processor
             else if (request.SwapAfter <= DateTimeOffset.UtcNow)
             {
                 if (request.To is null)
-                    RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, $"No target with tag {request.From.Inventory.TeleportTag} found");
+                    RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, $"No target with tag '{request.From.Inventory.TeleportTag}' found");
                 else if (CheckForbiddenItems(request.From, request.To))
                     RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, "An item prevents the teleportation");
                 else

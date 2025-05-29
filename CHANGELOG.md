@@ -1,3 +1,8 @@
+### v0.2.25
+- New feature:
+    - Players can permanently gain the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator
+- Removed feature which allowed players to open sunken crypt doors after defeating the elder
+
 ### v0.2.24
 - Obliterator item teleporter: separate options for teleporting all items and just teleportable items (according to world settings)
 

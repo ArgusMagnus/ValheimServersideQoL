@@ -31,8 +31,10 @@ abstract class Processor
     public bool UnregisterZdoProcessor { get; protected set; }
 
     readonly System.Diagnostics.Stopwatch _watch = new();
-    protected HashSet<ExtendedZDO> PlacedPieces { get; } = new();
+    protected HashSet<ExtendedZDO> PlacedPieces { get; } = [];
     static bool __initialized;
+    static readonly long _dataZdoCreator = (long)Main.PluginGuidHash | (1L << 32);
+    static ExtendedZDO? _dataZDO;
 
     public TimeSpan ProcessingTime => _watch.Elapsed;
     long _totalProcessingTimeTicks;
@@ -44,18 +46,35 @@ abstract class Processor
             return;
         __initialized = true;
 
-        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.Vars.GetCreator() == Main.PluginGuidHash))
-            zdo.Destroy();
+        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
+        {
+            var creator = zdo.Vars.GetCreator();
+            if (creator == Main.PluginGuidHash)
+                zdo.Destroy();
+            else if (creator == _dataZdoCreator)
+                _dataZDO = zdo;
+        }
     }
 
-    //protected void RegisterZdoDestroyed()
-    //{
-    //    void OnDestroyed(ZDO zdo) => OnZdoDestroyed((ExtendedZDO)zdo);
-    //    ZDOMan.instance.m_onZDODestroyed -= OnDestroyed;
-    //    ZDOMan.instance.m_onZDODestroyed += OnDestroyed;
-    //}
-
-    //protected virtual void OnZdoDestroyed(ExtendedZDO zdo) { }
+    protected static ExtendedZDO DataZDO
+    {
+        get
+        {
+            if (_dataZDO is null)
+            {
+                _dataZDO = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(new(WorldGenerator.waterEdge * 10, -1000f, WorldGenerator.waterEdge * 10), Prefabs.Sconce);
+                _dataZDO.SetPrefab(Prefabs.Sconce);
+                _dataZDO.Persistent = true;
+                _dataZDO.Distant = false;
+                _dataZDO.Type = ZDO.ObjectType.Default;
+                _dataZDO.Vars.SetCreator(_dataZdoCreator);
+                _dataZDO.Vars.SetHealth(-1);
+                _dataZDO.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
+                _dataZDO.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false).Set(x => x.m_health, -1);
+            }
+            return _dataZDO;
+        }
+    }
 
     public void PreProcess()
     {
@@ -204,6 +223,11 @@ abstract class Processor
         Main.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
         if (__methods.Count > 0)
             Main.HarmonyInstance.Patch(__handleRoutedRPCMethod, prefix: new(__handleRoutedRPCPrefix));
+    }
+
+    protected static class PrefabNames
+    {
+        public const string CryptKey = "CryptKey";
     }
 
     protected static class Prefabs

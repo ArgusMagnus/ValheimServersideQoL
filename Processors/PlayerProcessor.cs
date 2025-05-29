@@ -15,6 +15,12 @@ sealed class PlayerProcessor : Processor
     public IReadOnlyDictionary<ZDOID, ExtendedZDO> Players => _players;
     public event Action<ExtendedZDO>? PlayerDestroyed;
 
+    public ExtendedZDO? GetPeerCharacter(long peerID)
+    {
+        var id = peerID == ZDOMan.GetSessionID() ? Player.m_localPlayer?.GetZDOID() : ZNet.instance.GetPeer(peerID)?.m_characterID;
+        return id is not null && _players.TryGetValue(id.Value, out var zdo) ? zdo : null;
+    }
+
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
@@ -24,6 +30,7 @@ sealed class PlayerProcessor : Processor
             && Game.m_staminaRate > 0);
 
         //UpdateRpcSubscription("Say", OnTalkerSay, true);
+        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Players.CanSacrificeCryptKey.Value);
     }
 
     void OnZdoDestroyed(ExtendedZDO zdo)
@@ -75,6 +82,26 @@ sealed class PlayerProcessor : Processor
     //{
     //    var type = (Talker.Type)ctype;
     //}
+
+    void RPC_AnimateLever(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data)
+    {
+        if (zdo.PrefabInfo.Container is not { Incinerator.Value: not null } || zdo.Inventory.TeleportTag is not null)
+            return;
+
+        if (Config.Players.CanSacrificeCryptKey.Value)
+        {
+            if (zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
+            {
+                if (GetPeerCharacter(data.m_senderPeerID) is not { } player)
+                    Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+                else
+                {
+                    DataZDO.Vars.SetSacrifiedCryptKey(player.Vars.GetPlayerID(), true);
+                    RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to open sunken crypt doors");
+                }
+            }
+        }
+    }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {

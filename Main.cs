@@ -167,7 +167,7 @@ public sealed partial class Main : BaseUnityPlugin
             Logger.LogInfo("Using world config file");
             _worldConfig = new(new(path, saveOnInit: false, new(PluginGuid, PluginName, PluginVersion)));
         }
-
+        
         if (!Config.General.Enabled.Value)
             return false;
 

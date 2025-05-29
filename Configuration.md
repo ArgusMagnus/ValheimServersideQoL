@@ -66,6 +66,7 @@
 |Players|InfiniteWoodCuttingStamina|False|True/False|True to give players infinite stamina when cutting wood. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|InfiniteEncumberedStamina|False|True/False|True to give players infinite stamina when encumbered. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|StackInventoryIntoContainersEmote|-1|-1, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Count|Emote to stack inventory into containers. -1 to disable this feature|
+|Players|CanSacrificeCryptKey|False|True/False|If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator|
 |Portal Hub|Enable|False|True/False|True to automatically generate a portal hub|
 |Portal Hub|Exclude|||Portals with a tag that matches this filter are not added to the portal hub|
 |Portal Hub|Include|*||Only portals with a tag that matches this filter are added to the portal hub|
@@ -146,7 +147,6 @@
 |Turrets|NoAmmoMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when there is no ammo to add to a turret|
 |Windmills|IgnoreWind|False|True/False|True to make windmills ignore wind (Cover still decreases operating efficiency though)|
 |World|RemoveMistlandsMist|Never|Never, Always, AfterQueenKilled, InsideShield|Condition to remove the mist from the mistlands|
-|World|UnlockSunkenCryptsAfterElder|False|True/False|True to unlock sunken crypts after the Elder has been defeated|
 |World Modifiers|SetPresetFromConfig|False|True/False|True to set the world preset according to the 'Preset' config entry|
 |World Modifiers|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|
 |World Modifiers|SetModifiersFromConfig|False|True/False|True to set world modifiers according to the following configuration entries|

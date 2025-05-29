@@ -25,10 +25,10 @@ sealed class DoorProcessor : Processor
         if (zdo.PrefabInfo.Door is null)
             return false;
 
-        if (zdo.PrefabInfo.Door.m_keyItem is { name: "CryptKey" } && zdo.Vars.GetState() is StateClosed)
+        if (zdo.PrefabInfo.Door.m_keyItem is { name: PrefabNames.CryptKey } && zdo.Vars.GetState() is StateClosed)
         {
             var fields = zdo.Fields<Door>();
-            if (!Config.World.UnlockSunkenCryptsAfterElder.Value)
+            if (!Config.Players.CanSacrificeCryptKey.Value)
                 fields.Reset(x => x.m_keyItem);
             else
             {
@@ -40,16 +40,9 @@ sealed class DoorProcessor : Processor
                 {
                     foreach (var peer in peers)
                     {
-                        static bool ElderDefeated(string possibleEvents)
-                        {
-                            if (possibleEvents.Contains("army_theelder"))
-                                return false;
-                            return possibleEvents.Contains("foresttrolls");
-                        }
-
-                        if (Vector3.Distance(peer.m_refPos, zdo.GetPosition()) > ZoneSystem.c_ZoneHalfSize / 2 || !ElderDefeated(peer.m_serverSyncedPlayerData["possibleEvents"]))
+                        if (Vector3.Distance(peer.m_refPos, zdo.GetPosition()) > ZoneSystem.c_ZoneHalfSize / 2)
                             continue;
-                        if (Instance<PlayerProcessor>().Players.TryGetValue(peer.m_characterID, out var player))
+                        if (Instance<PlayerProcessor>().Players.TryGetValue(peer.m_characterID, out var player) && DataZDO.Vars.GetSacrifiedCryptKey(player.Vars.GetPlayerID()))
                             _allowedPlayers.Add(player);
                     }
                 }

@@ -218,6 +218,9 @@ sealed class ModConfig(ConfigFile cfg)
         public const Emotes DisabledEmote = (Emotes)(-1);
         public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = cfg.Bind(section, nameof(StackInventoryIntoContainersEmote), DisabledEmote,
             new ConfigDescription($"Emote to stack inventory into containers. {DisabledEmote} to disable this feature", new AcceptableEnum<Emotes>([DisabledEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()])));
+
+        public ConfigEntry<bool> CanSacrificeCryptKey { get; } = cfg.Bind(section, nameof(CanSacrificeCryptKey), false,
+            "If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator");
     }
 
     public sealed class TurretsConfig(ConfigFile cfg, string section)
@@ -284,7 +287,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.Bind(section, nameof(RemoveMistlandsMist), RemoveMistlandsMistOptions.Never,
             new ConfigDescription("Condition to remove the mist from the mistlands", AcceptableEnum<RemoveMistlandsMistOptions>.Default));
 
-        public ConfigEntry<bool> UnlockSunkenCryptsAfterElder { get; } = cfg.Bind(section, nameof(UnlockSunkenCryptsAfterElder), false, "True to unlock sunken crypts after the Elder has been defeated");
+        //public ConfigEntry<bool> UnlockSunkenCryptsAfterElder { get; } = cfg.Bind(section, nameof(UnlockSunkenCryptsAfterElder), false, "True to unlock sunken crypts after the Elder has been defeated");
 
         public enum RemoveMistlandsMistOptions
         {
