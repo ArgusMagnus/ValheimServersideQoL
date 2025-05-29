@@ -1,5 +1,5 @@
 ### v0.2.24
-- Obliterator item teleporter: add option to allow the teleportation of all items and changed the default to only teleport teleportable items
+- Obliterator item teleporter: separate options for teleporting all items and just teleportable items (according to world settings)
 
 ### v0.2.23
 - New features:
