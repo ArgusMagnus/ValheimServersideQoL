@@ -16,6 +16,7 @@ sealed class ContainerProcessor : Processor
         public HashSet<SharedItemDataKey> Items { get; } = [];
         public DateTimeOffset LastOwnershipRequest { get; set; }
         public bool WaitingForResponse { get; set; }
+        public long PreviousOwner { get; set; }
     }
 
     readonly Dictionary<ExtendedZDO, ContainerState> _containers = [];
@@ -103,6 +104,7 @@ sealed class ContainerProcessor : Processor
         //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
         state.LastOwnershipRequest = DateTimeOffset.UtcNow;
         state.WaitingForResponse = true;
+        state.PreviousOwner = zdo.GetOwner();
         RPC.RequestOwn(zdo, playerID);
     }
 
@@ -476,5 +478,19 @@ sealed class ContainerProcessor : Processor
             zdo.SetOwner(0); // required for physics to work again
 
         return true;
+    }
+
+    protected override void PostProcessCore()
+    {
+        if (!ZNet.instance.IsDedicated())
+            return;
+
+        foreach (var (zdo, state) in _containers)
+        {
+            if (!zdo.IsOwner() || _swapContentRequests.Any(x => ReferenceEquals(zdo, x.From) || ReferenceEquals(zdo, x.To)))
+                continue;
+            //Logger.DevLog($"Setting owner for {zdo.m_uid} to {state.PreviousOwner}");
+            zdo.SetOwner(state.PreviousOwner);
+        }
     }
 }

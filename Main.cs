@@ -423,6 +423,9 @@ public sealed partial class Main : BaseUnityPlugin
             }
         }
 
+        foreach (var processor in Processor.DefaultProcessors)
+            processor.PostProcess();
+
         if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
             _unfinishedProcessingInRow++;
         else

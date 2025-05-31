@@ -86,6 +86,15 @@ abstract class Processor
 
     protected virtual void PreProcessCore() { }
 
+    public virtual void PostProcess()
+    {
+        _watch.Start();
+        PostProcessCore();
+        _watch.Stop();
+    }
+
+    protected virtual void PostProcessCore() { }
+
     public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo);
 
     protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers);

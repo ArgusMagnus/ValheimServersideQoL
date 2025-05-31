@@ -216,8 +216,9 @@ sealed class ModConfig(ConfigFile cfg)
             Invariant($"True to give players infinite stamina when encumbered. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
 
         public const Emotes DisabledEmote = (Emotes)(-1);
+        public const Emotes AnyEmote = (Emotes)(-2);
         public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = cfg.Bind(section, nameof(StackInventoryIntoContainersEmote), DisabledEmote,
-            new ConfigDescription($"Emote to stack inventory into containers. {DisabledEmote} to disable this feature", new AcceptableEnum<Emotes>([DisabledEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()])));
+            new ConfigDescription($"Emote to stack inventory into containers. {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger", new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()])));
 
         public ConfigEntry<bool> CanSacrificeCryptKey { get; } = cfg.Bind(section, nameof(CanSacrificeCryptKey), false,
             "If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator");

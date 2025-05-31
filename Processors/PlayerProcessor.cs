@@ -157,8 +157,7 @@ sealed class PlayerProcessor : Processor
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
             {
                 state.LastEmoteId = emoteId;
-                var emote = zdo.Vars.GetEmote();
-                if (emote == Config.Players.StackInventoryIntoContainersEmote.Value)
+                if (Config.Players.StackInventoryIntoContainersEmote.Value is ModConfig.PlayersConfig.AnyEmote || zdo.Vars.GetEmote() == Config.Players.StackInventoryIntoContainersEmote.Value)
                 {
                     foreach (var containerZdo in Instance<ContainerProcessor>().Containers)
                     {
@@ -173,7 +172,7 @@ sealed class PlayerProcessor : Processor
 
                         if (containerZdo.PrefabInfo.Container!.Value.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != zdo.Vars.GetPlayerID())
                             continue; // private container
-
+                        
                         RPC.RequestStack(containerZdo, zdo);
                     }
                 }
