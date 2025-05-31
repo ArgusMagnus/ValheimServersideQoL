@@ -31,6 +31,7 @@ sealed class PlayerProcessor : Processor
 
         //UpdateRpcSubscription("Say", OnTalkerSay, true);
         UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever,
+            Config.Players.CanSacrificeMegingjord.Value ||
             Config.Players.CanSacrificeCryptKey.Value ||
             Config.Players.CanSacrificeWishbone.Value ||
             Config.Players.CanSacrificeTornSpirit.Value);
@@ -92,6 +93,18 @@ sealed class PlayerProcessor : Processor
             return;
 
         ExtendedZDO? player = null;
+        if (Config.Players.CanSacrificeMegingjord.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.Megingjord))
+        {
+            player ??= GetPeerCharacter(data.m_senderPeerID);
+            if (player is null)
+                Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+            else
+            {
+                DataZDO.Vars.SetSacrifiedMegingjord(player.Vars.GetPlayerID(), true);
+                RPC.AddStatusEffect(player, StatusEffects.Megingjord);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted increased carrying weight");
+            }
+        }
         if (Config.Players.CanSacrificeCryptKey.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
         {
             player ??= GetPeerCharacter(data.m_senderPeerID);
@@ -111,8 +124,8 @@ sealed class PlayerProcessor : Processor
             else
             {
                 DataZDO.Vars.SetSacrifiedWishbone(player.Vars.GetPlayerID(), true);
-                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to sense hidden objects");
                 RPC.AddStatusEffect(player, StatusEffects.Wishbone);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to sense hidden objects");
             }
         }
         if (Config.Players.CanSacrificeTornSpirit.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
@@ -123,8 +136,8 @@ sealed class PlayerProcessor : Processor
             else
             {
                 DataZDO.Vars.SetSacrifiedTornSpirit(player.Vars.GetPlayerID(), true);
-                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted a wisp companion");
                 RPC.AddStatusEffect(player, StatusEffects.Demister);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted a wisp companion");
             }
         }
     }
@@ -138,6 +151,8 @@ sealed class PlayerProcessor : Processor
         {
             zdo.Destroyed += OnZdoDestroyed;
             var playerID = zdo.Vars.GetPlayerID();
+            if (Config.Players.CanSacrificeMegingjord.Value && DataZDO.Vars.GetSacrifiedMegingjord(playerID))
+                RPC.AddStatusEffect(zdo, StatusEffects.Megingjord);
             if (Config.Players.CanSacrificeWishbone.Value && DataZDO.Vars.GetSacrifiedWishbone(playerID))
                 RPC.AddStatusEffect(zdo, StatusEffects.Wishbone);
             if (Config.Players.CanSacrificeTornSpirit.Value && DataZDO.Vars.GetSacrifiedTornSpirit(playerID))

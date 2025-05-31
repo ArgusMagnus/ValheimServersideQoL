@@ -66,6 +66,7 @@
 |Players|InfiniteWoodCuttingStamina|False|True/False|True to give players infinite stamina when cutting wood. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|InfiniteEncumberedStamina|False|True/False|True to give players infinite stamina when encumbered. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
 |Players|StackInventoryIntoContainersEmote|-1|-1, -2, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Count|Emote to stack inventory into containers. -1 to disable this feature, -2 to use any emote as trigger|
+|Players|CanSacrificeMegingjord|False|True/False|If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator|
 |Players|CanSacrificeCryptKey|False|True/False|If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator|
 |Players|CanSacrificeWishbone|False|True/False|If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator|
 |Players|CanSacrificeTornSpirit|False|True/False|If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator|

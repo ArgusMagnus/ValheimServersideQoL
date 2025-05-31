@@ -236,6 +236,7 @@ abstract class Processor
 
     protected static class PrefabNames
     {
+        public const string Megingjord = "BeltStrength";
         public const string CryptKey = "CryptKey";
         public const string Wishbone = "Wishbone";
         public const string TornSpirit = "YagluthDrop";
@@ -264,6 +265,7 @@ abstract class Processor
     {
         public static int Wishbone { get; } = "Wishbone".GetStableHashCode();
         public static int Demister { get; } = "Demister".GetStableHashCode();
+        public static int Megingjord { get; } = "BeltStrength".GetStableHashCode();
     }
 
     protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)

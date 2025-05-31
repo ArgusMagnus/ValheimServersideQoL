@@ -1,5 +1,6 @@
 ### v0.2.25
 - New feature:
+    - Players can permanently gain increased carrying weight by sacrificing a megingjord in an obliterator
     - Players can permanently gain the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator
     - Players can permanently gain the ability to sense hidden objects by sacrificing a wishbone in an obliterator
     - Players can permanently gain a wisp companion by sacrificing a torn spirit in an obliterator

@@ -240,6 +240,8 @@ sealed class ExtendedZDO : ZDO
         public int GetPortalHubId(int defaultValue = default) => _zdo.GetInt(__portalHubId, defaultValue);
         public void SetPortalHubId(int value) => _zdo.Set(__portalHubId, value);
 
+        public bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);
+        public void SetSacrifiedMegingjord(long playerID, bool value) => _zdo.Set($"player{playerID}_SacrifiedMegingjord", value);
         public bool GetSacrifiedCryptKey(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedCryptKey", defaultValue);
         public void SetSacrifiedCryptKey(long playerID, bool value) => _zdo.Set($"player{playerID}_SacrifiedCryptKey", value);
         public bool GetSacrifiedWishbone(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedWishbone", defaultValue);
