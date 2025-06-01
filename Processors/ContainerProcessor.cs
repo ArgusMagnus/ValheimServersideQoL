@@ -123,7 +123,6 @@ sealed class ContainerProcessor : Processor
         if (zdo is not { PrefabInfo.Container.Incinerator.Value: not null } || zdo.Inventory.TeleportTag is null || zdo.Inventory.Items.Count is 0)
             return;
 
-
         var other = _containers.Keys.FirstOrDefault(x => !ReferenceEquals(x, zdo) && x.Inventory.TeleportTag == zdo.Inventory.TeleportTag);
 
         zdo.SetOwner(0); /// cancel obliteration of items <see cref="Incinerator.Incinerate(long)"/>

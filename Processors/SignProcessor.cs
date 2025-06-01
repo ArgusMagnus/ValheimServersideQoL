@@ -25,6 +25,9 @@ sealed class SignProcessor : Processor
         _timeText = null;
     }
 
+    public override bool ClaimExclusive(ExtendedZDO zdo)
+        => base.ClaimExclusive(zdo) || Instance<ContainerProcessor>().ChestsBySigns.ContainsKey(zdo);
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         if (zdo.PrefabInfo.Sign is null)
