@@ -142,6 +142,8 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription(
                 $"Options to enable obliterators to teleport items instead of obliterating them when the lever is pulled. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign",
                 AcceptableEnum<ObliteratorItemTeleporterOptions>.Default));
+        public ConfigEntry<MessageTypes> ObliteratorItemTeleporterMessageType { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporterMessageType), MessageTypes.InWorld,
+            new ConfigDescription("Type of message to show for obliterator item teleporters", AcceptableEnum<MessageTypes>.Default));
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
             .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
@@ -227,7 +229,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> CanSacrificeWishbone { get; } = cfg.Bind(section, nameof(CanSacrificeWishbone), false,
             "If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator");
         public ConfigEntry<bool> CanSacrificeTornSpirit { get; } = cfg.Bind(section, nameof(CanSacrificeTornSpirit), false,
-            "If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator");
+            "If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator. WARNING: Wisp companion cannot be unsummoned and will stay as long as this setting is enabled.");
     }
 
     public sealed class TurretsConfig(ConfigFile cfg, string section)

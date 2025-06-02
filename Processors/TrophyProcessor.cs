@@ -102,9 +102,8 @@ sealed class TrophyProcessor : Processor
                 .FirstOrDefault().ZDO;
     }
 
-    protected override void PreProcessCore()
+    protected override void PreProcessCore(IEnumerable<Peer> peers)
     {
-        base.PreProcessCore();
         if (_expectedRagdolls.Count is 0)
             return;
 

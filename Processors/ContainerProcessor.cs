@@ -17,6 +17,7 @@ sealed class ContainerProcessor : Processor
         public DateTimeOffset LastOwnershipRequest { get; set; }
         public bool WaitingForResponse { get; set; }
         public long PreviousOwner { get; set; }
+        public SwapContentRequest? SwapContentRequest { get; set; }
     }
 
     readonly Dictionary<ExtendedZDO, ContainerState> _containers = [];
@@ -28,6 +29,7 @@ sealed class ContainerProcessor : Processor
     sealed record SwapContentRequest(long SenderPeerID, ExtendedZDO From, ExtendedZDO? To)
     {
         public required DateTimeOffset SwapAfter { get; set; }
+        public IReadOnlyList<ItemDrop.ItemData> FromItems { get; } = [.. From.Inventory.Items];
     }
 
     readonly List<SwapContentRequest> _swapContentRequests = [];
@@ -123,12 +125,22 @@ sealed class ContainerProcessor : Processor
         if (zdo is not { PrefabInfo.Container.Incinerator.Value: not null } || zdo.Inventory.TeleportTag is null || zdo.Inventory.Items.Count is 0)
             return;
 
-        var other = _containers.Keys.FirstOrDefault(x => !ReferenceEquals(x, zdo) && x.Inventory.TeleportTag == zdo.Inventory.TeleportTag);
+        if (!_containers.TryGetValue(zdo, out var state))
+        {
+            _containers.Add(zdo, state = new());
+            zdo.Destroyed += OnChestDestroyed;
+        }
+
+        var (other, otherState) = _containers.FirstOrDefault(x => !ReferenceEquals(x.Key, zdo) && x.Key.Inventory.TeleportTag == zdo.Inventory.TeleportTag);
 
         zdo.SetOwner(0); /// cancel obliteration of items <see cref="Incinerator.Incinerate(long)"/>
         other?.SetOwner(0);
 
-        _swapContentRequests.Add(new(data.m_senderPeerID, zdo, other) { SwapAfter = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(zdo.PrefabInfo.Container.Value.Incinerator.Value!.m_effectDelayMax) });
+        var request = new SwapContentRequest(data.m_senderPeerID, zdo, other) { SwapAfter = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(zdo.PrefabInfo.Container.Value.Incinerator.Value!.m_effectDelayMax + 0.2) };
+        _swapContentRequests.Add(request);
+        state.SwapContentRequest = request;
+        if (otherState is not null)
+            otherState.SwapContentRequest = request;
     }
 
     void RPC_AnimateLeverReturn(ExtendedZDO zdo)
@@ -137,11 +149,11 @@ sealed class ContainerProcessor : Processor
         {
             var request = _swapContentRequests[i];
             if (ReferenceEquals(request.From, zdo))
-                request.SwapAfter = default;
+                request.SwapAfter = DateTimeOffset.UtcNow.AddMilliseconds(200);
         }
     }
 
-    bool CheckForbiddenItems(ExtendedZDO from, ExtendedZDO to)
+    bool CheckForbiddenItems(IEnumerable<ItemDrop.ItemData> from, IEnumerable<ItemDrop.ItemData> to)
     {
         switch (Config.Containers.ObliteratorItemTeleporter.Value)
         {
@@ -153,9 +165,9 @@ sealed class ContainerProcessor : Processor
                 break;
         }
 
-        static bool HasNonTeleportableItems(ExtendedZDO zdo)
+        static bool HasNonTeleportableItems(IEnumerable<ItemDrop.ItemData> items)
         {
-            foreach (var item in zdo.Inventory.Items)
+            foreach (var item in items)
             {
                 if (!item.m_shared.m_teleportable)
                     return true;
@@ -166,9 +178,8 @@ sealed class ContainerProcessor : Processor
         return HasNonTeleportableItems(from) || HasNonTeleportableItems(to);
     }
 
-    protected override void PreProcessCore()
+    protected override void PreProcessCore(IEnumerable<Peer> peers)
     {
-        base.PreProcessCore();
         for (int i = _swapContentRequests.Count - 1; i >= 0; i--)
         {
             var request = _swapContentRequests[i];
@@ -180,22 +191,22 @@ sealed class ContainerProcessor : Processor
             else if (request.SwapAfter <= DateTimeOffset.UtcNow)
             {
                 if (request.To is null)
-                    RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, $"No target with tag '{request.From.Inventory.TeleportTag}' found");
-                else if (CheckForbiddenItems(request.From, request.To))
-                    RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, "An item prevents the teleportation");
+                    ShowMessage(peers, request.From, $"No target with tag '{request.From.Inventory.TeleportTag}' found", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
+                else if (CheckForbiddenItems(request.FromItems, request.To.Inventory.Items))
+                    ShowMessage(peers, request.From, "An item prevents the teleportation", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
                 else
                 {
-                    var fromItems = request.From.Inventory.Items.ToList();
                     var toItems = request.To.Inventory.Items.ToList();
                     request.From.Inventory.Items.Clear();
                     request.To.Inventory.Items.Clear();
-                    foreach (var item in fromItems)
+                    foreach (var item in request.FromItems)
                         request.To.Inventory.Items.Add(item);
                     foreach (var item in toItems)
                         request.From.Inventory.Items.Add(item);
                     request.To.Inventory.Save();
                     request.From.Inventory.Save();
-                    RPC.ShowMessage(request.SenderPeerID, MessageHud.MessageType.Center, "Items teleported");
+                    ShowMessage(peers, request.From, "Items teleported", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Weak);
+                    ShowMessage(peers, request.To, "Items teleported", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Weak);
                 }
                 request.From.SetOwner(request.SenderPeerID);
                 _swapContentRequests.RemoveAt(i);
@@ -215,6 +226,14 @@ sealed class ContainerProcessor : Processor
         {
             _containers.Add(zdo, state = new());
             zdo.Destroyed += OnChestDestroyed;
+        }
+
+        if (state.SwapContentRequest is not null)
+        {
+            if (state.SwapContentRequest.SwapAfter < DateTimeOffset.UtcNow)
+                state.SwapContentRequest = null;
+            else
+                return false;
         }
 
         var (signOffset, signOptions) = GetSignOptions(zdo.GetPrefab());

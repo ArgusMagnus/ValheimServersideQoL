@@ -5,6 +5,8 @@
     - Players can permanently gain the ability to sense hidden objects by sacrificing a wishbone in an obliterator
     - Players can permanently gain a wisp companion by sacrificing a torn spirit in an obliterator
 - Removed feature which allowed players to open sunken crypt doors after defeating the elder
+- Slight adjustments to obliterator item teleporter
+- Fixed issue with dissappearing chest/obliterator signs
 
 ### v0.2.24
 - Obliterator item teleporter: separate options for teleporting all items and just teleportable items (according to world settings)

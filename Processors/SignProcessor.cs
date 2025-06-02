@@ -19,9 +19,8 @@ sealed class SignProcessor : Processor
 
     string? _timeText;
 
-    protected override void PreProcessCore()
+    protected override void PreProcessCore(IEnumerable<Peer> peers)
     {
-        base.PreProcessCore();
         _timeText = null;
     }
 

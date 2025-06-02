@@ -25,9 +25,8 @@ sealed class MapTableProcessor : Processor
         _excludePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
     }
 
-    protected override void PreProcessCore()
+    protected override void PreProcessCore(IEnumerable<Peer> peers)
     {
-        base.PreProcessCore();
         _pins.Clear();
         _oldPinsHash = 0;
     }

@@ -30,6 +30,7 @@
 |Containers|BlackmetalChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on blackmetal chests|
 |Containers|ObliteratorSigns|None|None or combination of Front|Options to automatically put signs on obliterators|
 |Containers|ObliteratorItemTeleporter|Disabled|Disabled, Enabled, EnabledAllItems|Options to enable obliterators to teleport items instead of obliterating them when the lever is pulled. Requires 'ObliteratorSigns' and two obliterators with matching tags. The tag is set by putting '🔗<Tag>' on the sign|
+|Containers|ObliteratorItemTeleporterMessageType|InWorld|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show for obliterator item teleporters|
 |Containers|InventorySize_Cart|6x3||Inventory size for 'Cart'|
 |Containers|InventorySize_incinerator|7x3||Inventory size for 'Obliterator'|
 |Containers|InventorySize_Karve|2x2||Inventory size for 'Karve'|
@@ -69,7 +70,7 @@
 |Players|CanSacrificeMegingjord|False|True/False|If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator|
 |Players|CanSacrificeCryptKey|False|True/False|If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator|
 |Players|CanSacrificeWishbone|False|True/False|If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator|
-|Players|CanSacrificeTornSpirit|False|True/False|If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator|
+|Players|CanSacrificeTornSpirit|False|True/False|If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator. WARNING: Wisp companion cannot be unsummoned and will stay as long as this setting is enabled.|
 |Portal Hub|Enable|False|True/False|True to automatically generate a portal hub|
 |Portal Hub|Exclude|||Portals with a tag that matches this filter are not added to the portal hub|
 |Portal Hub|Include|*||Only portals with a tag that matches this filter are added to the portal hub|

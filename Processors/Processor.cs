@@ -76,15 +76,15 @@ abstract class Processor
         }
     }
 
-    public void PreProcess()
+    public void PreProcess(IEnumerable<Peer> peers)
     {
         _totalProcessingTimeTicks += _watch.ElapsedTicks;
         _watch.Restart();
-        PreProcessCore();
+        PreProcessCore(peers);
         _watch.Stop();
     }
 
-    protected virtual void PreProcessCore() { }
+    protected virtual void PreProcessCore(IEnumerable<Peer> peers) { }
 
     public virtual void PostProcess()
     {

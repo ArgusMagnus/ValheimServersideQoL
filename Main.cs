@@ -358,7 +358,7 @@ public sealed partial class Main : BaseUnityPlugin
         }
 
         foreach (var processor in Processor.DefaultProcessors)
-            processor.PreProcess();
+            processor.PreProcess(peers);
 
         int processedSectors = 0;
         int processedZdos = 0;
