@@ -6,7 +6,7 @@ sealed class PlayerProcessor : Processor
 {
     sealed class PlayerState
     {
-        public int LastEmoteId { get; set; } = -1;
+        public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
     }
 
     readonly Dictionary<ExtendedZDO, PlayerState> _playerStates = [];
