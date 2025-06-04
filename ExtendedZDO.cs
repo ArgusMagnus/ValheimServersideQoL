@@ -90,14 +90,14 @@ sealed class ExtendedZDO : ZDO
     public void ReregisterAllProcessors() => _addData?.ReregisterAll();
 
     public void UpdateProcessorDataRevision(Processor processor)
-        => (AddData.ProcessorDataRevisions ??= new())[processor] = (DataRevision, OwnerRevision);
+        => (AddData.ProcessorDataRevisions ??= [])[processor] = (DataRevision, OwnerRevision);
 
     public void ResetProcessorDataRevision(Processor processor)
         => AddData.ProcessorDataRevisions?.Remove(processor);
 
     public bool CheckProcessorDataRevisionChanged(Processor processor)
     {
-        if (AddData.ProcessorDataRevisions is null || !AddData.ProcessorDataRevisions.TryGetValue(processor, out var dataRevision) || dataRevision != (DataRevision, OwnerRevision))
+        if (AddData.ProcessorDataRevisions is null || !AddData.ProcessorDataRevisions.TryGetValue(processor, out var revision) || revision != (DataRevision, OwnerRevision))
             return true;
         return false;
     }

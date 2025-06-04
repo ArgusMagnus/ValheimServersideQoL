@@ -1,3 +1,6 @@
+### v0.2.26
+- Fix eggs not being picked up by container auto-pickup [#67](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/67)
+
 ### v0.2.25
 - New feature:
     - Players can permanently gain increased carrying weight by sacrificing a megingjord in an obliterator

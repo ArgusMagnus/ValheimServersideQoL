@@ -17,11 +17,6 @@ sealed class ItemDropProcessor : Processor
         Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
     }
 
-    void OnEggDropDestroyed(ExtendedZDO zdo)
-    {
-        _eggDropTime.Remove(zdo);
-    }
-
     void OnContainerChanged(ExtendedZDO containerZdo)
     {
         if (containerZdo.Inventory.Items.Count is 0)
@@ -56,13 +51,11 @@ sealed class ItemDropProcessor : Processor
             if (!_eggDropTime.TryGetValue(zdo, out var dropTime))
             {
                 _eggDropTime.Add(zdo, DateTimeOffset.UtcNow);
-                zdo.Destroyed += OnEggDropDestroyed;
+                zdo.Destroyed += x => _eggDropTime.Remove(x);
                 return false;
             }
             if (DateTimeOffset.UtcNow - dropTime < TimeSpan.FromSeconds(2 * zdo.PrefabInfo.EggGrow.m_updateInterval + 2))
                 return false;
-            if (_eggDropTime.Remove(zdo))
-                zdo.Destroyed -= OnEggDropDestroyed;
         }
 
         if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
@@ -211,10 +204,7 @@ sealed class ItemDropProcessor : Processor
         }
 
         if (requestOwn)
-        {
             RPC.RequestOwn(zdo);
-            //return false;
-        }
 
         return true;
     }
