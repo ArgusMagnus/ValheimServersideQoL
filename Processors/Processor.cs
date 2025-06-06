@@ -2,6 +2,7 @@
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using MonoMod.Utils;
+using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -299,6 +300,15 @@ abstract class Processor
 
     protected static void ShowMessage(IEnumerable<Peer> peers, ExtendedZDO zdo, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
         => ShowMessage(peers, zdo.GetPosition(), message, type, inWorldTextType);
+
+
+    [Conditional("DEBUG")]
+    protected static void DevShowMessage(ZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal)
+    {
+#if DEBUG
+        RPC.ShowInWorldText([0], type, zdo.GetPosition(), message);
+#endif
+    }
 
     protected static class RPC
     {

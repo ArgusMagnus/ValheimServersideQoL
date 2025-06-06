@@ -149,6 +149,8 @@ sealed class ExtendedZDO : ZDO
     public void ClaimOwnership() => SetOwner(ZDOMan.GetSessionID());
     public void ClaimOwnershipInternal() => SetOwnerInternal(ZDOMan.GetSessionID());
 
+    public bool IsOwnerOrUnassigned() => !HasOwner() || IsOwner();
+
     public TimeSpan GetTimeSinceSpawned() => ZNet.instance.GetTime() - Vars.GetSpawnTime();
 
     public ComponentFieldAccessor<TComponent> Fields<TComponent>(bool getUnknownComponent = false) where TComponent : MonoBehaviour

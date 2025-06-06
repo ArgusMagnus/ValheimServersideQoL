@@ -124,8 +124,10 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), false, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize,
             $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign");
-        public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 4f, "Min distance all player must have to a dropped item for it to be picked up");
+        public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 8f, "Min distance all player must have to a dropped item for it to be picked up");
         public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = cfg.Bind(section, nameof(AutoPickupExcludeFodder), true, "True to exclude food items for tames when tames are within search range");
+        public ConfigEntry<bool> AutoPickupRequestOwnership { get; } = cfg.Bind(section, nameof(AutoPickupRequestOwnership), false,
+            "True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance");
         public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = cfg.Bind(section, nameof(PickedUpMessageType), MessageTypes.None,
             new ConfigDescription("Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default));
 

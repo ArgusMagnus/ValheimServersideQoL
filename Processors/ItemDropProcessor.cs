@@ -121,6 +121,8 @@ sealed class ItemDropProcessor : Processor
             usedSlots ??= [];
             usedSlots.Clear();
 
+            var requestContainerOwn = false;
+
             ItemDrop.ItemData? containerItem = null;
             foreach (var slot in containerZdo.Inventory.Items)
             {
@@ -134,11 +136,12 @@ sealed class ItemDropProcessor : Processor
                 if (maxAmount <= 0)
                     continue;
 
-                if (!zdo.IsOwner() || !containerZdo.IsOwner())
-                {
+                if (Config.Containers.AutoPickupRequestOwnership.Value && !zdo.IsOwnerOrUnassigned())
                     requestOwn = true;
+                if (!containerZdo.IsOwnerOrUnassigned())
+                    requestContainerOwn = true;
+                if (requestOwn || requestContainerOwn)
                     break;
-                }
 
                 var amount = Math.Min(stack, maxAmount);
                 slot.m_stack += amount;
@@ -154,15 +157,16 @@ sealed class ItemDropProcessor : Processor
                     Instance<ContainerProcessor>().ContainersByItemName.TryRemove(item.m_shared, out _);
                 continue;
             }
-            else if (requestOwn)
-            {
-                if (!containerZdo.IsOwner())
-                    Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
-                continue;
-            }
 
             for (var emptySlots = containerZdo.Inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
             {
+                if (Config.Containers.AutoPickupRequestOwnership.Value && !zdo.IsOwnerOrUnassigned())
+                    requestOwn = true;
+                if (!containerZdo.IsOwnerOrUnassigned())
+                    requestContainerOwn = true;
+                if (requestOwn || requestContainerOwn)
+                    break;
+
                 var amount = Math.Min(stack, item.m_shared.m_maxStackSize);
 
                 var slot = containerItem.Clone();
@@ -181,6 +185,13 @@ sealed class ItemDropProcessor : Processor
                 }
                 containerZdo.Inventory.Items.Add(slot);
                 stack -= amount;
+            }
+
+            if (requestOwn || requestContainerOwn)
+            {
+                if (requestContainerOwn)
+                    Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
+                continue;
             }
 
             if (stack != item.m_stack)

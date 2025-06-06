@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -88,12 +89,12 @@ sealed class ContainerProcessor : Processor
 
     public override bool ClaimExclusive(ExtendedZDO zdo) => false;
 
-    public void RequestOwnership(ExtendedZDO zdo, long playerID)
-        => RequestOwnership(zdo, playerID, _containers[zdo]);
+    public void RequestOwnership(ExtendedZDO zdo, long playerID, [CallerFilePath]string caller = default!, [CallerLineNumber] int callerLineNo = default)
+        => RequestOwnership(zdo, playerID, _containers[zdo], caller, callerLineNo);
 
-    void RequestOwnership(ExtendedZDO zdo, long playerID, ContainerState state)
+    void RequestOwnership(ExtendedZDO zdo, long playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
     {
-        if (zdo.IsOwner() || (DateTimeOffset.UtcNow - state.LastOwnershipRequest < TimeSpan.FromSeconds(2)))
+        if (zdo.IsOwnerOrUnassigned() || (DateTimeOffset.UtcNow - state.LastOwnershipRequest < TimeSpan.FromSeconds(1)))
             return;
 
         if (!_openResponseRegistered && Player.m_localPlayer is not null)
@@ -107,6 +108,8 @@ sealed class ContainerProcessor : Processor
         state.LastOwnershipRequest = DateTimeOffset.UtcNow;
         state.WaitingForResponse = true;
         state.PreviousOwner = zdo.GetOwner();
+
+        DevShowMessage(zdo, $"Requesting ownership: {Path.GetFileNameWithoutExtension(caller)} L{callerLineNo}");
         RPC.RequestOwn(zdo, playerID);
     }
 
@@ -366,7 +369,7 @@ sealed class ContainerProcessor : Processor
             if (lastPartialSlot is not null && new ItemKey(item) == lastPartialSlot)
             {
                 changed = true;
-                if (!zdo.IsOwner())
+                if (!zdo.IsOwnerOrUnassigned())
                     break;
                 else
                 {
@@ -387,7 +390,7 @@ sealed class ContainerProcessor : Processor
                 lastPartialSlot = item;
         }
 
-        if (changed && zdo.IsOwner())
+        if (changed && zdo.IsOwnerOrUnassigned())
         {
             for (int i = inventory.Items.Count - 1; i >= 0; i--)
             {
@@ -416,7 +419,7 @@ sealed class ContainerProcessor : Processor
                     if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                     {
                         changed = true;
-                        if (zdo.IsOwner())
+                        if (zdo.IsOwnerOrUnassigned())
                         {
                             item.m_gridPos.x = x;
                             item.m_gridPos.y = y;
@@ -443,7 +446,7 @@ sealed class ContainerProcessor : Processor
                     if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                     {
                         changed = true;
-                        if (zdo.IsOwner())
+                        if (zdo.IsOwnerOrUnassigned())
                         {
                             item.m_gridPos.x = x;
                             item.m_gridPos.y = y;
@@ -464,7 +467,7 @@ sealed class ContainerProcessor : Processor
                     if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                     {
                         changed = true;
-                        if (zdo.IsOwner())
+                        if (zdo.IsOwnerOrUnassigned())
                         {
                             item.m_gridPos.x = x;
                             item.m_gridPos.y = y;
@@ -481,7 +484,7 @@ sealed class ContainerProcessor : Processor
 
         if (changed)
         {
-            if (!zdo.IsOwner())
+            if (!zdo.IsOwnerOrUnassigned())
                 RequestOwnership(zdo, zdo.Vars.GetCreator(), state);
             else
             {
@@ -500,15 +503,16 @@ sealed class ContainerProcessor : Processor
 
     protected override void PostProcessCore()
     {
-        if (!ZNet.instance.IsDedicated())
-            return;
+        //if (!ZNet.instance.IsDedicated())
+        //    return;
 
-        foreach (var (zdo, state) in _containers)
-        {
-            if (!zdo.IsOwner() || _swapContentRequests.Any(x => ReferenceEquals(zdo, x.From) || ReferenceEquals(zdo, x.To)))
-                continue;
-            //Logger.DevLog($"Setting owner for {zdo.m_uid} to {state.PreviousOwner}");
-            zdo.SetOwner(state.PreviousOwner);
-        }
+        //foreach (var (zdo, state) in _containers)
+        //{
+        //    if (!zdo.IsOwner() || _swapContentRequests.Any(x => ReferenceEquals(zdo, x.From) || ReferenceEquals(zdo, x.To)))
+        //        continue;
+        //    //Logger.DevLog($"Setting owner for {zdo.m_uid} to {state.PreviousOwner}");
+        //    //zdo.SetOwner(state.PreviousOwner);
+        //    zdo.SetOwner(0);
+        //}
     }
 }

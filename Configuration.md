@@ -21,8 +21,9 @@
 |Containers|SortedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a container was sorted|
 |Containers|AutoPickup|False|True/False|True to automatically put dropped items into containers if they already contain said item|
 |Containers|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '🧲<Range>' on a chest sign|
-|Containers|AutoPickupMinPlayerDistance|4||Min distance all player must have to a dropped item for it to be picked up|
+|Containers|AutoPickupMinPlayerDistance|8||Min distance all player must have to a dropped item for it to be picked up|
 |Containers|AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
+|Containers|AutoPickupRequestOwnership|False|True/False|True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance|
 |Containers|PickedUpMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a dropped item is added to a container|
 |Containers|ChestSignsDefaultText|<color=white>...||Default text for chest signs|
 |Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on wood chests|
