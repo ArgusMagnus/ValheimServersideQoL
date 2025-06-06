@@ -405,6 +405,14 @@ abstract class Processor
             InvokeRoutedRPCAsSender(player.GetOwner(), container.GetOwner(), container.m_uid, "RPC_RequestStack", [playerID]);
         }
 
+        public static void RequestStateChange(ExtendedZDO trap, int state)
+        {
+            trap.AssertIs<Trap>();
+
+            /// <see cref="Trap.RPC_RequestStateChange"/>"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(trap.GetOwner(), trap.m_uid, "RPC_RequestStateChange", [state]);
+        }
+
         public static void RequestOwn(ExtendedZDO itemDrop)
         {
             itemDrop.AssertIs<ItemDrop>();

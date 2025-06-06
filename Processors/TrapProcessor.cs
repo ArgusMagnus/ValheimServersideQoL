@@ -1,9 +1,38 @@
-﻿using BepInEx.Logging;
-
-namespace Valheim.ServersideQoL.Processors;
+﻿namespace Valheim.ServersideQoL.Processors;
 
 sealed class TrapProcessor : Processor
 {
+    readonly List<(ExtendedZDO ZDO, DateTimeOffset RearmAfter)> _rearmAfter = [];
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+
+        UpdateRpcSubscription("RPC_OnStateChanged", RPC_OnStateChanged, Config.Traps.AutoRearm.Value);
+    }
+
+    void RPC_OnStateChanged(ExtendedZDO zdo, int state, long idOfClientModifyingState)
+    {
+        if (state is not 0) /// <see cref="Trap.TrapState.Unarmed"/>
+            return;
+        if (zdo.PrefabInfo.Trap is not { Trap.Value: not null })
+            return;
+        _rearmAfter.Add((zdo, DateTimeOffset.UtcNow.AddSeconds(zdo.PrefabInfo.Trap.Value.Trap.Value!.m_rearmCooldown)));
+    }
+
+    protected override void PreProcessCore(IEnumerable<Peer> peers)
+    {
+        for (int i = _rearmAfter.Count - 1; i >= 0; i--)
+        {
+            var (zdo, rearmAfter) = _rearmAfter[i];
+            if (DateTimeOffset.UtcNow > rearmAfter)
+            {
+                RPC.RequestStateChange(zdo, 1); /// <see cref="Trap.TrapState.Armed"/>
+                _rearmAfter.RemoveAt(i);
+            }
+        }
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
     {
         UnregisterZdoProcessor = true;

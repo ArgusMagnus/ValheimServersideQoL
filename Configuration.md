@@ -21,9 +21,9 @@
 |Containers|SortedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a container was sorted|
 |Containers|AutoPickup|False|True/False|True to automatically put dropped items into containers if they already contain said item|
 |Containers|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '🧲<Range>' on a chest sign|
-|Containers|AutoPickupMinPlayerDistance|8||Min distance all player must have to a dropped item for it to be picked up|
+|Containers|AutoPickupMinPlayerDistance|4||Min distance all player must have to a dropped item for it to be picked up|
 |Containers|AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
-|Containers|AutoPickupRequestOwnership|False|True/False|True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance|
+|Containers|AutoPickupRequestOwnership|True|True/False|True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance|
 |Containers|PickedUpMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a dropped item is added to a container|
 |Containers|ChestSignsDefaultText|...||Default text for chest signs|
 |Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on wood chests|
@@ -137,6 +137,7 @@
 |Traps|DisableTriggeredByPlayers|False|True/False|True to stop traps from being triggered by players|
 |Traps|DisableFriendlyFire|False|True/False|True to stop traps from damaging players and tames|
 |Traps|SelfDamageMultiplier|1|From 0 to Infinity|Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage|
+|Traps|AutoRearm|False|True/False|True to automatically rearm traps when they are triggered|
 |Trophy Spawner|Enable|False|True/False|True to make dropped trophies attract mobs|
 |Trophy Spawner|ActivationDelay|3600||Time in seconds before trophies start attracting mobs|
 |Trophy Spawner|RespawnDelay|12||Respawn delay in seconds|
