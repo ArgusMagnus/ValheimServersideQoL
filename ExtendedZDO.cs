@@ -148,6 +148,8 @@ sealed class ExtendedZDO : ZDO
 
     public void ClaimOwnership() => SetOwner(ZDOMan.GetSessionID());
     public void ClaimOwnershipInternal() => SetOwnerInternal(ZDOMan.GetSessionID());
+    public void ReleaseOwnership() => SetOwner(0);
+    public void ReleaseOwnershipInternal() => SetOwnerInternal(0);
 
     public bool IsOwnerOrUnassigned() => !HasOwner() || IsOwner();
 

@@ -107,7 +107,7 @@ sealed class SmelterProcessor : Processor
                                 take -= leaveDiff;
                                 if (take is 0)
                                     continue;
-                                else if (!containerZdo.IsOwner())
+                                else if (!containerZdo.IsOwnerOrUnassigned())
                                 {
                                     requestOwn = true;
                                     break;
@@ -153,7 +153,7 @@ sealed class SmelterProcessor : Processor
                                 }
                             }
 
-                            zdo.ClaimOwnership();
+                            zdo.ReleaseOwnership();
                             currentFuel += addFuel;
                             zdo.Vars.SetFuel(currentFuel);
                             containerZdo.Inventory.Save();
@@ -217,7 +217,7 @@ sealed class SmelterProcessor : Processor
                                 take -= leaveDiff;
                                 if (take is 0)
                                     continue;
-                                else if (!containerZdo.IsOwner())
+                                else if (!containerZdo.IsOwnerOrUnassigned())
                                 {
                                     requestOwn = true;
                                     break;
@@ -263,7 +263,7 @@ sealed class SmelterProcessor : Processor
                                 }
                             }
 
-                            zdo.ClaimOwnership();
+                            zdo.ReleaseOwnership();
                             for (int i = 0; i < addOre; i++)
                                 zdo.Vars.SetItem(currentOre + i, conversion.m_from.gameObject.name);
                             currentOre += addOre;

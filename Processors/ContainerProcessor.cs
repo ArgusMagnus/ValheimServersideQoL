@@ -136,8 +136,8 @@ sealed class ContainerProcessor : Processor
 
         var (other, otherState) = _containers.FirstOrDefault(x => !ReferenceEquals(x.Key, zdo) && x.Key.Inventory.TeleportTag == zdo.Inventory.TeleportTag);
 
-        zdo.SetOwner(0); /// cancel obliteration of items <see cref="Incinerator.Incinerate(long)"/>
-        other?.SetOwner(0);
+        zdo.ReleaseOwnership(); /// cancel obliteration of items <see cref="Incinerator.Incinerate(long)"/>
+        other?.ReleaseOwnership();
 
         var request = new SwapContentRequest(data.m_senderPeerID, zdo, other) { SwapAfter = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(zdo.PrefabInfo.Container.Value.Incinerator.Value!.m_effectDelayMax + 0.2) };
         _swapContentRequests.Add(request);
@@ -188,8 +188,8 @@ sealed class ContainerProcessor : Processor
             var request = _swapContentRequests[i];
             if (request.From.GetOwner() is not 0 || request.To?.GetOwner() is not null and not 0)
             {
-                request.From.SetOwner(0);
-                request.To?.SetOwner(0);
+                request.From.ReleaseOwnership();
+                request.To?.ReleaseOwnership();
             }
             else if (request.SwapAfter <= DateTimeOffset.UtcNow)
             {
@@ -299,7 +299,7 @@ sealed class ContainerProcessor : Processor
                 fields.Set(x => x.m_height, height = desiredHeight);
                 RecreateZdo = true;
                 if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
-                    zdo.SetOwnerInternal(0); // required for physics to work again
+                    zdo.ReleaseOwnershipInternal(); // required for physics to work again
                 return false;
             }
         }
@@ -496,7 +496,7 @@ sealed class ContainerProcessor : Processor
         if (!RecreateZdo)
             ContainerChanged?.Invoke(zdo);
         else if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
-            zdo.SetOwner(0); // required for physics to work again
+            zdo.ReleaseOwnership(); // required for physics to work again
 
         return true;
     }
