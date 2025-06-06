@@ -105,7 +105,7 @@ sealed class TurretProcessor : Processor
                     var take = Math.Min(maxAdd, slot.m_stack);
                     if (take is 0)
                         continue;
-                    else if (!containerZdo.IsOwner())
+                    else if (!containerZdo.IsOwnerOrUnassigned())
                     {
                         requestOwn = true;
                         break;

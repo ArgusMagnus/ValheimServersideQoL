@@ -25,7 +25,7 @@
 |Containers|AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
 |Containers|AutoPickupRequestOwnership|False|True/False|True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance|
 |Containers|PickedUpMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a dropped item is added to a container|
-|Containers|ChestSignsDefaultText|<color=white>...||Default text for chest signs|
+|Containers|ChestSignsDefaultText|...||Default text for chest signs|
 |Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on wood chests|
 |Containers|ReinforcedChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on reinforced chests|
 |Containers|BlackmetalChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on blackmetal chests|
@@ -77,6 +77,7 @@
 |Portal Hub|Include|*||Only portals with a tag that matches this filter are added to the portal hub|
 |Portal Hub|AutoNameNewPortals|False|True/False|True to automatically name new portals. Has no effect if 'Enable' is false|
 |Portal Hub|AutoNameNewPortalsFormat|{0} {1:D2}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer|
+|Signs|DefaultColor|||Default color for signs. Can be a color name or hex code (e.g. #FF0000 or #F00 for red)|
 |Signs|TimeSigns|False|True/False|True to update sign texts which contain time emojis (any of 🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦) with the in-game time|
 |Smelters|FeedFromContainers|False|True/False|True to automatically feed smelters from nearby containers|
 |Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source. Can be overriden per chest by putting '↔️<Range>' on a chest sign|

@@ -1,6 +1,7 @@
 ### v0.2.26
 - Fix eggs not being picked up by container auto-pickup [#67](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/67)
 - Fix general issues with containers and auto-pickup
+- New feature: set default text color for signs
 
 ### v0.2.25
 - New feature:

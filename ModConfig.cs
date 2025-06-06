@@ -54,6 +54,7 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class SignsConfig(ConfigFile cfg, string section)
     {
+        public ConfigEntry<string> DefaultColor { get; } = cfg.Bind(section, nameof(DefaultColor), "", "Default color for signs. Can be a color name or hex code (e.g. #FF0000 or #F00 for red)");
         public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), false,
             Invariant($"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time"));
     }
@@ -131,7 +132,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = cfg.Bind(section, nameof(PickedUpMessageType), MessageTypes.None,
             new ConfigDescription("Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default));
 
-        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), "<color=white>...", "Default text for chest signs");
+        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), "...", "Default text for chest signs");
         public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
             new ConfigDescription("Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.Bind(section, nameof(ReinforcedChestSigns), SignOptions.None,

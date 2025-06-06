@@ -17,6 +17,8 @@ sealed class SignProcessor : Processor
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
+    readonly Regex _defaultColorRegex = new(@"<color=#?(?<V>\w+)>");
+
     string? _timeText;
 
     protected override void PreProcessCore(IEnumerable<Peer> peers)
@@ -36,10 +38,9 @@ sealed class SignProcessor : Processor
         }
 
         var isTimeSign = false;
-        string? text = null;
+        var text = zdo.Vars.GetText();
         if (Config.Signs.TimeSigns.Value)
         {
-            text = zdo.Vars.GetText();
             var newText = _clockRegex.Replace(text, _ =>
             {
                 isTimeSign = true;
@@ -54,16 +55,42 @@ sealed class SignProcessor : Processor
             });
             if (newText != text)
             {
-                zdo.Vars.SetText(newText);
+                zdo.Vars.SetText(text = newText);
                 //zdo.Set(ZDOVars.s_author, );
+            }
+        }
+
+        var defaultColorSet = false;
+        {
+            var found = false;
+            var newText = _defaultColorRegex.Replace(text, match =>
+            {
+                found = true;
+                var value = match.Groups["V"].Value;
+                if (!string.Equals(value, zdo.Vars.GetDefaultColor(), StringComparison.OrdinalIgnoreCase))
+                    return match.Value;
+                if (string.IsNullOrEmpty(Config.Signs.DefaultColor.Value))
+                    return "";
+                return $"<color={Config.Signs.DefaultColor.Value}>";
+            });
+
+            if (!found && !string.IsNullOrEmpty(Config.Signs.DefaultColor.Value))
+                newText = $"<color={Config.Signs.DefaultColor.Value}>{text}";
+
+            if (newText != text)
+            {
+                zdo.Vars.SetText(text = newText);
+                zdo.Vars.SetDefaultColor(Config.Signs.DefaultColor.Value);
+                defaultColorSet = true;
             }
         }
 
         if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
         {
-            text ??= zdo.Vars.GetText();
             //Logger.LogWarning($"Set chest text: {text} / {zdo.DataRevision}");
             chest.Vars.SetText(text);
+            if (defaultColorSet)
+                chest.Vars.SetDefaultColor(Config.Signs.DefaultColor.Value);
             if (Config.Containers.AutoPickup.Value)
             {
                 if (_chestPickupRangeRegex.Match(text) is { Success: true } match)
@@ -87,7 +114,7 @@ sealed class SignProcessor : Processor
                     chest.Inventory.TeleportTag = null;
             }
         }
-
+        
         if (isTimeSign)
             return false;
 
