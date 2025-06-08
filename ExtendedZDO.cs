@@ -127,7 +127,7 @@ sealed class ExtendedZDO : ZDO
     //    return zdo;
     //}
 
-    public ExtendedZDO Recreate()
+    public ExtendedZDO CreateClone()
     {
         var prefab = GetPrefab();
         var pos = GetPosition();
@@ -138,6 +138,12 @@ sealed class ExtendedZDO : ZDO
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.Deserialize(new(pkg.GetArray()));
         zdo.SetOwnerInternal(owner);
+        return zdo;
+    }
+
+    public ExtendedZDO Recreate()
+    {
+        var zdo = CreateClone();
 
         // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
         _addData?.Recreated?.Invoke(this, zdo);
@@ -156,14 +162,26 @@ sealed class ExtendedZDO : ZDO
     public TimeSpan GetTimeSinceSpawned() => ZNet.instance.GetTime() - Vars.GetSpawnTime();
 
     public ComponentFieldAccessor<TComponent> Fields<TComponent>(bool getUnknownComponent = false) where TComponent : MonoBehaviour
-        => (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key =>
+    {
+        if (!ReferenceEquals(AddData, AdditionalData_.Dummy))
         {
-            if (!PrefabInfo.Components.TryGetValue(key, out var component) && getUnknownComponent)
-                component = PrefabInfo.Prefab.GetComponentInChildren<TComponent>();
-            if (component is null)
+            return (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key =>
+            {
+                if (!PrefabInfo.Components.TryGetValue(key, out var component) && getUnknownComponent)
+                        component = PrefabInfo.Prefab.GetComponentInChildren<TComponent>();
+                if (component is null)
+                    throw new KeyNotFoundException();
+                return new ComponentFieldAccessor<TComponent>(this, (TComponent)component);
+            });            
+        }
+        else if (getUnknownComponent)
+        {
+            if (ZNetScene.instance.GetPrefab(GetPrefab())?.GetComponentInChildren<TComponent>() is not { } component)
                 throw new KeyNotFoundException();
-            return new ComponentFieldAccessor<TComponent>(this, (TComponent)component);
-        });
+            return new ComponentFieldAccessor<TComponent>(this, component);
+        }
+        throw new InvalidOperationException();
+    }
 
     public readonly struct ZDOVars_(ExtendedZDO zdo)
     {

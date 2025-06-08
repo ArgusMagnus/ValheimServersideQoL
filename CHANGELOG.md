@@ -1,6 +1,7 @@
 ### v0.2.26
-- Fix eggs not being picked up by container auto-pickup [#67](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/67)
-- Fix general issues with containers and auto-pickup
+- Fixed eggs not being picked up by container auto-pickup [#67](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/67)
+- Fixed general issues with containers and auto-pickup
+- Fixed issue with stacking from player inventories (via emote) which could lead to items being lost
 - New features:
     - Set default text color for signs
     - Auto rearm traps after they are triggered

@@ -138,6 +138,14 @@ abstract class Processor
         return zdo;
     }
 
+    protected ExtendedZDO RecreatePiece(ExtendedZDO zdo)
+    {
+        if (!PlacedPieces.Remove(zdo))
+            throw new ArgumentException();
+        PlacedPieces.Add(zdo = zdo.Recreate());
+        return zdo;
+    }
+
     protected void DestroyPiece(ExtendedZDO zdo)
     {
         if (!PlacedPieces.Remove(zdo))
@@ -403,6 +411,21 @@ abstract class Processor
             if (playerID is 0)
                 playerID = player.Vars.GetPlayerID();
             InvokeRoutedRPCAsSender(player.GetOwner(), container.GetOwner(), container.m_uid, "RPC_RequestStack", [playerID]);
+        }
+
+        public static void StackResponse(ExtendedZDO container, bool granted)
+        {
+            container.AssertIs<Container>();
+
+            /// <see cref="Container.RPC_StackResponse"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "RPC_StackResponse", [granted]);
+        }
+
+        public static void TakeAllResponse(ExtendedZDO container, bool granted)
+        {
+            container.AssertIs<Container>();
+            /// <see cref="Container.RPC_TakeAllRespons"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "TakeAllRespons", [granted]);
         }
 
         public static void RequestStateChange(ExtendedZDO trap, int state)
