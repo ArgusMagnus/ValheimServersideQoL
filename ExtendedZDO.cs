@@ -584,6 +584,8 @@ sealed class ExtendedZDO : ZDO
                 // Not sure about the increment value though...
                 if (ZDO.PrefabInfo.Container is { ZSyncTransform.Value: not null })
                     ZDO.DataRevision += 120;
+
+                ZDOMan.instance.ForceSendZDO(ZDO.m_uid);
             }
 
             _dataRevision = ZDO.DataRevision;
