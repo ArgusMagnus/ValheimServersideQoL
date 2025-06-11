@@ -18,8 +18,31 @@ sealed class SignProcessor : Processor
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
     readonly Regex _defaultColorRegex = new(@"<color=#?(?<V>\w+)>");
+    Regex _contentListRegex = default!;
 
     string? _timeText;
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        var bullet = Regex.Escape(Config.Containers.ChestSignsContentListBullet.Value);
+        var separator = Regex.Escape(Config.Containers.ChestSignsContentListSeparator.Value);
+        var rest = Regex.Escape(Config.Containers.ChestSignsContentListNameRest.Value);
+        _contentListRegex = new($@"(?:{bullet}(?:[\w\s]+ \d+(?:{separator})?)?)+(?:{rest} \d+)?");
+
+        if (!firstTime)
+            return;
+
+        Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
+    }
+
+    void OnContainerChanged(ExtendedZDO zdo)
+    {
+        if (!Instance<ContainerProcessor>().SignsByChests.TryGetValue(zdo, out var signs))
+            return;
+        foreach (var sign in signs)
+            sign.ResetProcessorDataRevision(this);
+    }
 
     protected override void PreProcessCore(IEnumerable<Peer> peers)
     {
@@ -72,7 +95,7 @@ sealed class SignProcessor : Processor
                 if (string.IsNullOrEmpty(Config.Signs.DefaultColor.Value))
                     return "";
                 return $"<color={Config.Signs.DefaultColor.Value}>";
-            });
+            }, 1);
 
             if (!found && !string.IsNullOrEmpty(Config.Signs.DefaultColor.Value))
                 newText = $"<color={Config.Signs.DefaultColor.Value}>{text}";
@@ -87,10 +110,45 @@ sealed class SignProcessor : Processor
 
         if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
         {
-            //Logger.LogWarning($"Set chest text: {text} / {zdo.DataRevision}");
-            chest.Vars.SetText(text);
             if (defaultColorSet)
                 chest.Vars.SetDefaultColor(Config.Signs.DefaultColor.Value);
+
+#if DEBUG
+            if (text.Length > 200)
+                zdo.Vars.SetText(text = Config.Containers.ChestSignsDefaultText.Value);
+#endif
+
+            //Logger.LogWarning($"Set chest text: {text} / {zdo.DataRevision}");
+
+            var newText = _contentListRegex.Replace(text, match =>
+            {
+                if (Config.Containers.ChestSignsContentListMaxCount.Value <= 0)
+                    return Config.Containers.ChestSignsContentListBullet.Value;
+
+                var list = chest.InventoryReadOnly.Items
+                    .GroupBy(x => x.m_shared.m_name, (k, g) => (Name: Localization.instance.Localize(k), Count: g.Sum(x => x.m_stack)))
+                    .OrderByDescending(x => x.Count)
+                    .ToList();
+
+                var items = list.AsEnumerable();
+                if (list.Count > Config.Containers.ChestSignsContentListMaxCount.Value)
+                {
+                    items = list
+                        .Take(Config.Containers.ChestSignsContentListMaxCount.Value - 1)
+                        .Append((Config.Containers.ChestSignsContentListNameRest.Value, list.Skip(Config.Containers.ChestSignsContentListMaxCount.Value - 1).Sum(x => x.Count)));
+                }
+
+                return string.Join(Config.Containers.ChestSignsContentListSeparator.Value, items
+                    .Select(x => $"{Config.Containers.ChestSignsContentListBullet.Value}{x.Name} {x.Count}"));
+            }, count: 1);
+
+            if (newText != text)
+            {
+                Logger.DevLog(newText, LogLevel.Warning);
+                zdo.Vars.SetText(text = newText);
+            }
+
+            chest.Vars.SetText(text);
             if (Config.Containers.AutoPickup.Value)
             {
                 if (_chestPickupRangeRegex.Match(text) is { Success: true } match)

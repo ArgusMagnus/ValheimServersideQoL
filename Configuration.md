@@ -25,7 +25,11 @@
 |Containers|AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
 |Containers|AutoPickupRequestOwnership|True|True/False|True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance|
 |Containers|PickedUpMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a dropped item is added to a container|
-|Containers|ChestSignsDefaultText|...||Default text for chest signs|
+|Containers|ChestSignsDefaultText|•||Default text for chest signs|
+|Containers|ChestSignsContentListMaxCount|3||Max number of entries to show in the content list on chest signs.|
+|Containers|ChestSignsContentListBullet|•||Bullet to use for content lists on chest signs|
+|Containers|ChestSignsContentListSeparator|<br>||Separator to use for content lists on chest signs|
+|Containers|ChestSignsContentListNameRest|Other||Text to show for the entry summarizing the rest of the items|
 |Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on wood chests|
 |Containers|ReinforcedChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on reinforced chests|
 |Containers|BlackmetalChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on blackmetal chests|

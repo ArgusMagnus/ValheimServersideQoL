@@ -6,6 +6,11 @@ using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
+interface IZDOInventoryReadOnly
+{
+    IReadOnlyList<ItemDrop.ItemData> Items { get; }
+}
+
 interface IZDOInventory
 {
     Inventory Inventory { get; }
@@ -41,6 +46,7 @@ sealed class ExtendedZDO : ZDO
 
     public PrefabInfo PrefabInfo => AddData.PrefabInfo;
     public IZDOInventory Inventory => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
+    public IZDOInventoryReadOnly InventoryReadOnly => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException()));
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
     public bool HasFields => AddData.HasFields ??= GetBool(__hasFieldsHash);
@@ -531,7 +537,7 @@ sealed class ExtendedZDO : ZDO
             => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
     }
 
-    sealed class ZDOInventory(ExtendedZDO zdo) : IZDOInventory
+    sealed class ZDOInventory(ExtendedZDO zdo) : IZDOInventory, IZDOInventoryReadOnly
     {
         public Inventory Inventory { get; private set; } = default!;
         public ExtendedZDO ZDO { get; private set; } = zdo;
@@ -539,11 +545,11 @@ sealed class ExtendedZDO : ZDO
         public int? FeedRange { get; set; }
         public string? TeleportTag { get; set; }
 
-        IList<ItemDrop.ItemData>? _items;
+        List<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;
         string? _lastData;
 
-        public IList<ItemDrop.ItemData> Items
+        List<ItemDrop.ItemData> Items
         {
             get
             {
@@ -554,6 +560,9 @@ sealed class ExtendedZDO : ZDO
                 return _items;
             }
         }
+
+        IList<ItemDrop.ItemData> IZDOInventory.Items => Items;
+        IReadOnlyList<ItemDrop.ItemData> IZDOInventoryReadOnly.Items => Items;
 
         public ZDOInventory Update()
         {

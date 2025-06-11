@@ -25,6 +25,7 @@ sealed class ContainerProcessor : Processor
     public IReadOnlyCollection<ExtendedZDO> Containers => _containers.Keys;
     public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
     public IReadOnlyDictionary<ExtendedZDO, ExtendedZDO> ChestsBySigns => _chestsBySigns;
+    public IReadOnlyDictionary<ExtendedZDO, List<ExtendedZDO>> SignsByChests => _signsByChests;
     bool _openResponseRegistered;
 
     sealed record SwapContentRequest(long SenderPeerID, ExtendedZDO From, ExtendedZDO? To)

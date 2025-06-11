@@ -134,7 +134,13 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = cfg.Bind(section, nameof(PickedUpMessageType), MessageTypes.None,
             new ConfigDescription("Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default));
 
-        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), "...", "Default text for chest signs");
+        const string DefaultBulletString = "•";
+        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), DefaultBulletString, "Default text for chest signs");
+        public ConfigEntry<int> ChestSignsContentListMaxCount { get; } = cfg.Bind(section, nameof(ChestSignsContentListMaxCount), 3, "Max number of entries to show in the content list on chest signs.");
+        public ConfigEntry<string> ChestSignsContentListBullet { get; } = cfg.Bind(section, nameof(ChestSignsContentListBullet), DefaultBulletString, "Bullet to use for content lists on chest signs");
+        public ConfigEntry<string> ChestSignsContentListSeparator { get; } = cfg.Bind(section, nameof(ChestSignsContentListSeparator), "<br>", "Separator to use for content lists on chest signs");
+        public ConfigEntry<string> ChestSignsContentListNameRest { get; } = cfg.Bind(section, nameof(ChestSignsContentListNameRest), "Other", "Text to show for the entry summarizing the rest of the items");
+
         public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
             new ConfigDescription("Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.Bind(section, nameof(ReinforcedChestSigns), SignOptions.None,

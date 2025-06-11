@@ -1,5 +1,7 @@
 ### v0.2.27
-- New feature: Modify range and max extension distance of crafting stations
+- New features:
+    - Modify range and max extension distance of crafting stations
+    - Show content on chest signs [#68](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/68)
 
 ### v0.2.26
 - Fixed eggs not being picked up by container auto-pickup [#67](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/67)
