@@ -48,6 +48,23 @@
 |Containers|InventorySize_piece_pot3|1x1||Inventory size for 'Small Green Pot'|
 |Containers|InventorySize_VikingShip|6x3||Inventory size for 'Longship'|
 |Containers|InventorySize_VikingShip_Ashlands|8x4||Inventory size for 'Drakkar'|
+|Crafting Stations|ArtisanstationBuildRange|40||Build range of Artisan Table|
+|Crafting Stations|ArtisanstationExtraBuildRangePerLevel|0||Additional build range per level of Artisan Table|
+|Crafting Stations|ArtisanstationMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Artisan Table to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Artisan Table to be able to place the extension.|
+|Crafting Stations|BlackforgeBuildRange|20||Build range of Black Forge|
+|Crafting Stations|BlackforgeExtraBuildRangePerLevel|0||Additional build range per level of Black Forge|
+|Crafting Stations|BlackforgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Black Forge to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Black Forge to be able to place the extension.|
+|Crafting Stations|CauldronMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Cauldron to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Cauldron to be able to place the extension.|
+|Crafting Stations|ForgeBuildRange|20||Build range of Forge|
+|Crafting Stations|ForgeExtraBuildRangePerLevel|3||Additional build range per level of Forge|
+|Crafting Stations|ForgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Forge to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Forge to be able to place the extension.|
+|Crafting Stations|MagetableBuildRange|20||Build range of Galdr Table|
+|Crafting Stations|MagetableExtraBuildRangePerLevel|0||Additional build range per level of Galdr Table|
+|Crafting Stations|MagetableMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Galdr Table to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Galdr Table to be able to place the extension.|
+|Crafting Stations|StonecutterBuildRange|20||Build range of Stonecutter|
+|Crafting Stations|WorkbenchBuildRange|20||Build range of Workbench|
+|Crafting Stations|WorkbenchExtraBuildRangePerLevel|4||Additional build range per level of Workbench|
+|Crafting Stations|WorkbenchMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Workbench to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Workbench to be able to place the extension.|
 |Creatures|ShowHigherLevelStars|False|True/False|True to show stars for higher level creatures (> 2 stars). The intended use is with other mods, which spawn higher level creatures|
 |Creatures|ShowHigherLevelAura|Never|Never or combination of Wild, Tamed|Show an aura for higher level creatures (> 2 stars)|
 |Doors|AutoCloseMinPlayerDistance|NaN||Min distance all players must have to the door before it is closed. NaN to disable this feature|

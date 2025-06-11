@@ -25,6 +25,8 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
     public Door? Door { get; } = Get<Door>(components);
     public (Turret Turret, Piece Piece, PieceTable PieceTable)? Turret { get; } = GetTuple<(Turret, Piece, PieceTable)>(components);
     public (WearNTear WearNTear, Optional<Piece> Piece, Optional<PieceTable> PieceTable)? WearNTear { get; } = GetTuple<(WearNTear, Optional<Piece>, Optional<PieceTable>)>(components);
+    public CraftingStation? CraftingStation { get; } = Get<CraftingStation>(components);
+    public StationExtension? StationExtension { get; } = Get<StationExtension>(components);
     public Trader? Trader { get; } = Get<Trader>(components);
     public Plant? Plant { get; } = Get<Plant>(components);
     public EggGrow? EggGrow { get; } = Get<EggGrow>(components);

@@ -18,14 +18,12 @@ public sealed partial class Main : BaseUnityPlugin
 {
     /// <Ideas>
     /// - Prevent <see cref="Catapult"/> from accepting equipment as ammo. Test what <see cref="Catapult.m_onlyUseIncludedProjectiles"/> does
-    /// - Add status effects to players <see cref="SEMan.RPC_AddStatusEffect"/>, read status effects <see cref="ZDOVars.s_seAttrib"/> <see cref="SEMan.HaveStatusAttribute"/> <see cref="StatusEffect.StatusAttribute"/>
     /// - <see cref="Pathfinding"/> <see cref="SapCollector"/> <see cref="ResourceRoot"/>
     /// - Make sharp stakes drop their resources when destroyed <see cref="Piece.DropResources(HitData)"/> <see cref="WearNTear.Remove(bool)"/>
     ///   Not easily possible: Responsible code in <see cref="Piece.DropResources(HitData)"/> uses <see cref="Piece.m_resources"/> / <see cref="Piece.Requirement.m_recover"/>
     ///   which cannot be modified via ZDO fields. We would have to somehow detect when a stakewall is destroyed and spawn the resources ourselves.
     /// - <see cref="Chat"/> <see cref="Humanoid"/> <see cref="Character"/> <see cref="InventoryGui.SortMethod"/> <see cref="Player"/>
     /// - <see cref="SpawnArea"/>
-    /// - Stack player inventory into chests <see cref="Container.RPC_RequestStack"/>
     /// </Ideas>
 
     internal const string PluginName = "ServersideQoL";

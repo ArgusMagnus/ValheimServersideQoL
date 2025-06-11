@@ -22,12 +22,14 @@ sealed class ModConfig(ConfigFile cfg)
     public PlayersConfig Players { get; } = new(cfg, "B - Players");
     public TurretsConfig Turrets { get; } = new(cfg, "B - Turrets");
     public WearNTearConfig WearNTear { get; } = new(cfg, "B - Build Pieces");
+    public CraftingStationsConfig CraftingStations { get; } = new(cfg, "B - Crafting Stations");
     public TradersConfig Traders { get; } = new(cfg, "B - Traders");
     public PlantsConfig Plants { get; } = new(cfg, "B - Plants");
     public TrapsConfig Traps { get; } = new(cfg, "B - Traps");
     public PortalHubConfig PortalHub { get; } = new(cfg, "B - Portal Hub");
     public WorldConfig World { get; } = new(cfg, "B - World");
     public TrophySpawnerConfig TrophySpawner { get; } = new(cfg, "B - Trophy Spawner");
+
     public WorldModifiersConfig WorldModifiers { get; } = new(cfg, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(cfg, "D - Global Keys");
 
@@ -262,6 +264,47 @@ sealed class ModConfig(ConfigFile cfg)
             None,
             PlayerBuilt = (1 << 0),
             World = (1 << 1)
+        }
+    }
+
+    public sealed class CraftingStationsConfig(ConfigFile cfg, string section)
+    {
+        public IReadOnlyDictionary<CraftingStation, StationCfg> StationConfig { get; } = new Func<IReadOnlyDictionary<CraftingStation, StationCfg>>(() =>
+        {
+            Dictionary<CraftingStation, bool> dict = [];
+            foreach (var prefab in ZNetScene.instance.m_prefabs)
+            {
+                if (prefab.GetComponent<CraftingStation>() is { } station)
+                {
+                    if (station.m_areaMarker is not null && !dict.ContainsKey(station))
+                        dict.Add(station, false);
+                }
+                else if (prefab.GetComponent<StationExtension>() is { } extension)
+                {
+                    station = extension.m_craftingStation;
+                    dict[station] = true;
+                }
+            }
+            return dict.ToDictionary(x => x.Key, x => new StationCfg(cfg, section, NormalizeName(x.Key.name), x.Key, x.Value));
+        }).Invoke();
+    
+        public sealed class StationCfg(ConfigFile cfg, string section, string prefix, CraftingStation station, bool hasExtensions)
+        {
+            public ConfigEntry<float>? BuildRange { get; } = station.m_areaMarker is null ? null :
+                cfg.Bind(section, $"{prefix}{nameof(BuildRange)}", station.m_rangeBuild, $"Build range of {Localization.instance.Localize(station.m_name)}");
+            public ConfigEntry<float>? ExtraBuildRangePerLevel { get; } = station.m_areaMarker is null || !hasExtensions ? null :
+                cfg.Bind(section, $"{prefix}{nameof(ExtraBuildRangePerLevel)}", station.m_extraRangePerLevel, $"Additional build range per level of {Localization.instance.Localize(station.m_name)}");
+            public ConfigEntry<float>? MaxExtensionDistance { get; } = !hasExtensions ? null :
+                cfg.Bind(section, $"{prefix}{nameof(MaxExtensionDistance)}", float.NaN,
+                Invariant($"Max distance an extension can have to the corresponding {Localization.instance.Localize(station.m_name)} to increase its level. {float.NaN} to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional {Localization.instance.Localize(station.m_name)} to be able to place the extension."));
+        }
+
+        static string NormalizeName(string name)
+        {
+            if (char.IsUpper(name[0]))
+                return name;
+            name = name.Replace("piece_", "");
+            return $"{char.ToUpperInvariant(name[0])}{name[1..]}";
         }
     }
 

@@ -7,7 +7,10 @@ It's designed and tested for **dedicated servers** with **vanilla clients** (e.g
 **All of these features are disabled by default and must be enabled in the configuration first**
 - Generated in-world room where admins can change the mod's configuration by editing signs and toggling candles
 - Automatically generated portal hub to connect all portals
-- Time Signs: Signs which show the ingame time
+- Crafting Stations: New feature: Modify range and max extension distance of crafting stations
+- Signs:
+    - Set the default text color of signs
+    - Signs which show the ingame time
 - Map Tables: Automatically add pins for portals and ships to map tables
 - Tames
     - Commandable: Make all tames commandable (like wolves)

@@ -314,7 +314,7 @@ abstract class Processor
     protected static void DevShowMessage(ZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal)
     {
 #if DEBUG
-        RPC.ShowInWorldText([0], type, zdo.GetPosition(), message);
+        //RPC.ShowInWorldText([0], type, zdo.GetPosition(), message);
 #endif
     }
 

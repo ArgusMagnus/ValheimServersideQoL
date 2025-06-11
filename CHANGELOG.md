@@ -1,3 +1,6 @@
+### v0.2.27
+- New feature: Modify range and max extension distance of crafting stations
+
 ### v0.2.26
 - Fixed eggs not being picked up by container auto-pickup [#67](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/67)
 - Fixed general issues with containers and auto-pickup
