@@ -174,6 +174,7 @@
 |Turrets|AmmoAddedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when ammo is added to a turret|
 |Turrets|NoAmmoMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when there is no ammo to add to a turret|
 |Windmills|IgnoreWind|False|True/False|True to make windmills ignore wind (Cover still decreases operating efficiency though)|
+|World|AssignInteractableOwnershipToClosestPeer|False|True/False|True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest peer. This should help avoiding the loss of ore, etc. due to networking issues.|
 |World|RemoveMistlandsMist|Never|Never, Always, AfterQueenKilled, InsideShield|Condition to remove the mist from the mistlands|
 |World Modifiers|SetPresetFromConfig|False|True/False|True to set the world preset according to the 'Preset' config entry|
 |World Modifiers|Preset|Default|Easy, Hard, Hardcore, Casual, Hammer, Immersive, Default|World preset. Enable 'SetPresetFromConfig' for this to have an effect|

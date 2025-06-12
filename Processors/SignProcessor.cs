@@ -28,7 +28,8 @@ sealed class SignProcessor : Processor
         var bullet = Regex.Escape(Config.Containers.ChestSignsContentListBullet.Value);
         var separator = Regex.Escape(Config.Containers.ChestSignsContentListSeparator.Value);
         var rest = Regex.Escape(Config.Containers.ChestSignsContentListNameRest.Value);
-        _contentListRegex = new($@"(?:{bullet}(?:[\w\s]+ \d+(?:{separator})?)?)+(?:{rest} \d+)?");
+        var entry = $@"(?:(?:[A-Za-z\s]+)|(?:{rest})) \d+";
+        _contentListRegex = new($@"(?:{bullet}{entry}{separator})*{bullet}(?:{entry})?");
 
         if (!firstTime)
             return;
@@ -117,7 +118,7 @@ sealed class SignProcessor : Processor
 
             var newText = _contentListRegex.Replace(text, match =>
             {
-                if (Config.Containers.ChestSignsContentListMaxCount.Value <= 0)
+                if (Config.Containers.ChestSignsContentListMaxCount.Value <= 0 || chest.InventoryReadOnly.Items.Count is 0)
                     return Config.Containers.ChestSignsContentListBullet.Value;
 
                 var list = chest.InventoryReadOnly.Items
