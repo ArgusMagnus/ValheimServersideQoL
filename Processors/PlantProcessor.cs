@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlantProcessor : Processor
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Plant is null || (Config.Plants.GrowTimeMultiplier.Value is 1f && Config.Plants.SpaceRequirementMultiplier.Value is 1f))

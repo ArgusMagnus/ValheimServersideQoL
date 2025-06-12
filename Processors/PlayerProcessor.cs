@@ -270,7 +270,7 @@ sealed class PlayerProcessor : Processor
             zdo.Inventory.Save();
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (_stackContainers.TryGetValue(zdo, out var stackContainerState))
         {

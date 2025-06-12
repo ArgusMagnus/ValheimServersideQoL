@@ -31,7 +31,7 @@ sealed class MapTableProcessor : Processor
         _oldPinsHash = 0;
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (zdo.PrefabInfo.MapTable is null || !(Config.MapTables.AutoUpdatePortals.Value || Config.MapTables.AutoUpdateShips.Value))
         {

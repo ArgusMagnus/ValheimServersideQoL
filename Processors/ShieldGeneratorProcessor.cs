@@ -19,7 +19,7 @@ sealed class ShieldGeneratorProcessor : Processor
             _info = null;
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (zdo.PrefabInfo.ShieldGenerator is null)
         {

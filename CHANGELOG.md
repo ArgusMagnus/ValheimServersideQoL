@@ -2,6 +2,7 @@
 - New features:
     - Modify range and max extension distance of crafting stations
     - Show content on chest signs [#68](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/68)
+    - Assign ownership of some interactable objects (smelters, cooking stations, etc.) to the nearest player to help avoid the loss of ore/etc. on bad connections/crossplay
 
 ### v0.2.26
 - Fixed eggs not being picked up by container auto-pickup [#67](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/67)

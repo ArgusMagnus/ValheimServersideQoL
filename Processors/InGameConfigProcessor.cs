@@ -402,7 +402,7 @@ sealed class InGameConfigProcessor : Processor
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (!Config.General.InWorldConfigRoom.Value)
         {

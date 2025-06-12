@@ -1,42 +1,42 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL;
 
-sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehaviour> components)
+sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehaviour> Components)
 {
-    public GameObject Prefab { get; } = prefab;
     public string PrefabName => Prefab?.name ?? "";
-    public IReadOnlyDictionary<Type, MonoBehaviour> Components { get; } = components;
+    public bool HasSwitch { get; } = GetHasSwitch(Components.Values);
 
-    public Sign? Sign { get; } = Get<Sign>(components);
-    public MapTable? MapTable { get; } = Get<MapTable>(components);
-    public (Tameable Tameable, MonsterAI MonsterAI)? Tameable { get; } = GetTuple<(Tameable, MonsterAI)>(components);
-    public Fireplace? Fireplace { get; } = Get<Fireplace>(components);
-    public (Container Container, Piece Piece, PieceTable PieceTable, Optional<Incinerator> Incinerator, Optional<ZSyncTransform> ZSyncTransform)? Container { get; } = GetTuple<(Container, Piece, PieceTable, Optional<Incinerator>, Optional<ZSyncTransform>)>(components);
-    public (Ship Ship, Piece Piece)? Ship { get; } = GetTuple<(Ship, Piece)>(components);
-    public (ItemDrop ItemDrop, Optional<Piece> Piece)? ItemDrop { get; } = GetTuple<(ItemDrop, Optional<Piece>)>(components);
-    public Smelter? Smelter { get; } = Get<Smelter>(components);
-    public ShieldGenerator? ShieldGenerator { get; } = Get<ShieldGenerator>(components);
-    public Windmill? Windmill { get; } = Get<Windmill>(components);
-    public Vagon? Vagon { get; } = Get<Vagon>(components);
-    public Player? Player { get; } = Get<Player>(components);
-    public TeleportWorld? TeleportWorld { get; } = Get<TeleportWorld>(components);
-    public Door? Door { get; } = Get<Door>(components);
-    public (Turret Turret, Piece Piece, PieceTable PieceTable)? Turret { get; } = GetTuple<(Turret, Piece, PieceTable)>(components);
-    public (WearNTear WearNTear, Optional<Piece> Piece, Optional<PieceTable> PieceTable)? WearNTear { get; } = GetTuple<(WearNTear, Optional<Piece>, Optional<PieceTable>)>(components);
-    public CraftingStation? CraftingStation { get; } = Get<CraftingStation>(components);
-    public StationExtension? StationExtension { get; } = Get<StationExtension>(components);
-    public Trader? Trader { get; } = Get<Trader>(components);
-    public Plant? Plant { get; } = Get<Plant>(components);
-    public EggGrow? EggGrow { get; } = Get<EggGrow>(components);
-    public Growup? Growup { get; } = Get<Growup>(components);
-    public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = GetTuple<(Aoe, Piece, PieceTable, Optional<Trap>)>(components);
-    public Mister? Mister { get; } = Get<Mister>(components);
-    //public CreatureSpawner? CreatureSpawner { get; } = Get<CreatureSpawner>(components);
-    public (Humanoid Humanoid, Optional<CharacterDrop> CharacterDrop)? Humanoid { get; } = GetTuple<(Humanoid, Optional<CharacterDrop>)>(components);
-    public EffectArea? EffectArea { get; } = Get<EffectArea>(components);
-    //public ItemStand? ItemStand { get; } = Get<ItemStand>(components);
+    public Sign? Sign { get; } = Get<Sign>(Components);
+    public MapTable? MapTable { get; } = Get<MapTable>(Components);
+    public (Tameable Tameable, MonsterAI MonsterAI)? Tameable { get; } = GetTuple<(Tameable, MonsterAI)>(Components);
+    public Fireplace? Fireplace { get; } = Get<Fireplace>(Components);
+    public (Container Container, Piece Piece, PieceTable PieceTable, Optional<Incinerator> Incinerator, Optional<ZSyncTransform> ZSyncTransform)? Container { get; } = GetTuple<(Container, Piece, PieceTable, Optional<Incinerator>, Optional<ZSyncTransform>)>(Components);
+    public (Ship Ship, Piece Piece)? Ship { get; } = GetTuple<(Ship, Piece)>(Components);
+    public (ItemDrop ItemDrop, Optional<Piece> Piece)? ItemDrop { get; } = GetTuple<(ItemDrop, Optional<Piece>)>(Components);
+    public Smelter? Smelter { get; } = Get<Smelter>(Components);
+    public ShieldGenerator? ShieldGenerator { get; } = Get<ShieldGenerator>(Components);
+    public Windmill? Windmill { get; } = Get<Windmill>(Components);
+    public Vagon? Vagon { get; } = Get<Vagon>(Components);
+    public Player? Player { get; } = Get<Player>(Components);
+    public TeleportWorld? TeleportWorld { get; } = Get<TeleportWorld>(Components);
+    public Door? Door { get; } = Get<Door>(Components);
+    public (Turret Turret, Piece Piece, PieceTable PieceTable)? Turret { get; } = GetTuple<(Turret, Piece, PieceTable)>(Components);
+    public (WearNTear WearNTear, Optional<Piece> Piece, Optional<PieceTable> PieceTable)? WearNTear { get; } = GetTuple<(WearNTear, Optional<Piece>, Optional<PieceTable>)>(Components);
+    public CraftingStation? CraftingStation { get; } = Get<CraftingStation>(Components);
+    public StationExtension? StationExtension { get; } = Get<StationExtension>(Components);
+    public Trader? Trader { get; } = Get<Trader>(Components);
+    public Plant? Plant { get; } = Get<Plant>(Components);
+    public EggGrow? EggGrow { get; } = Get<EggGrow>(Components);
+    public Growup? Growup { get; } = Get<Growup>(Components);
+    public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = GetTuple<(Aoe, Piece, PieceTable, Optional<Trap>)>(Components);
+    public Mister? Mister { get; } = Get<Mister>(Components);
+    //public CreatureSpawner? CreatureSpawner { get; } = Get<CreatureSpawner>(Components);
+    public (Humanoid Humanoid, Optional<CharacterDrop> CharacterDrop)? Humanoid { get; } = GetTuple<(Humanoid, Optional<CharacterDrop>)>(Components);
+    public EffectArea? EffectArea { get; } = Get<EffectArea>(Components);
+    //public ItemStand? ItemStand { get; } = Get<ItemStand>(Components);
 
     public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
 
@@ -68,4 +68,17 @@ sealed class PrefabInfo(GameObject prefab, IReadOnlyDictionary<Type, MonoBehavio
     }
 
     public record struct Optional<T>(T? Value) where T : MonoBehaviour;
+
+    static bool GetHasSwitch(IEnumerable<MonoBehaviour> components)
+    {
+        foreach (var component in components)
+        {
+            foreach (var field in component.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance))
+            {
+                if (field.FieldType == typeof(Switch) && field.GetValue(component) is not null)
+                    return true;
+            }
+        }
+        return false;
+    }
 }

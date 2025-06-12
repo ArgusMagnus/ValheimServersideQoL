@@ -19,7 +19,7 @@ sealed class TameableProcessor : Processor
     readonly Dictionary<ExtendedZDO, TameableState> _states = [];
     public IReadOnlyCollection<ITameableState> Tames => _states.Values;
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Tameable is null)

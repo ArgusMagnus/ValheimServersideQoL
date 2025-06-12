@@ -17,7 +17,7 @@ sealed class DoorProcessor : Processor
         _openSince.Remove(zdo);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         const int StateClosed = 0;
 

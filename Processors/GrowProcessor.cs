@@ -15,7 +15,7 @@ sealed class GrowProcessor : Processor
         public int Progress { get; set; }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (zdo.PrefabInfo is not { EggGrow: not null } and not { Growup: not null } || Config.Tames.GrowingProgressMessageType.Value is MessageTypes.None)
         {

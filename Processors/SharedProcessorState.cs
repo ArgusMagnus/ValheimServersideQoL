@@ -124,7 +124,7 @@ static class SharedProcessorState
             {
                 var component = GetComponent(prefab, componentType, availableComponents);
                 if (component is not null)
-                    (components ??= new()).Add(componentType, component);
+                    (components ??= []).Add(componentType, component);
             }
             foreach (var componentTypeCombinations in __componentTypeCombinations)
             {
@@ -133,7 +133,7 @@ static class SharedProcessorState
                     .ToList();
                 if (componentCombinations.Count > 0 && !componentCombinations.Any(x => x.Component is null && !x.Optional))
                 {
-                    components ??= new();
+                    components ??= [];
                     foreach (var (type, _, component) in componentCombinations)
                     {
                         if (component is not null && !components.ContainsKey(type))

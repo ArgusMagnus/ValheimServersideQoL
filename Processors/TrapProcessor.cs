@@ -27,13 +27,14 @@ sealed class TrapProcessor : Processor
             var (zdo, rearmAfter) = _rearmAfter[i];
             if (DateTimeOffset.UtcNow > rearmAfter)
             {
-                RPC.RequestStateChange(zdo, 1); /// <see cref="Trap.TrapState.Armed"/>
+                if (zdo.IsValid() && zdo.PrefabInfo.Trap is { Trap.Value: not null })
+                    RPC.RequestStateChange(zdo, 1); /// <see cref="Trap.TrapState.Armed"/>
                 _rearmAfter.RemoveAt(i);
             }
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Trap is null || zdo.Vars.GetCreator() is 0)

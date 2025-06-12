@@ -1,8 +1,9 @@
-﻿namespace Valheim.ServersideQoL.Processors;
+﻿
+namespace Valheim.ServersideQoL.Processors;
 
 sealed class CraftingStationProcessor : Processor
 {
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.CraftingStation is not null)

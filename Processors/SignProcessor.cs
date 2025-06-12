@@ -52,7 +52,7 @@ sealed class SignProcessor : Processor
     public override bool ClaimExclusive(ExtendedZDO zdo)
         => base.ClaimExclusive(zdo) || Instance<ContainerProcessor>().ChestsBySigns.ContainsKey(zdo);
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (zdo.PrefabInfo.Sign is null)
         {
@@ -138,10 +138,7 @@ sealed class SignProcessor : Processor
             }, count: 1);
 
             if (newText != text)
-            {
-                Logger.DevLog(newText, LogLevel.Warning);
                 zdo.Vars.SetText(text = newText);
-            }
 
             chest.Vars.SetText(text);
             if (Config.Containers.AutoPickup.Value)

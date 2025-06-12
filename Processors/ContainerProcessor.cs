@@ -218,7 +218,7 @@ sealed class ContainerProcessor : Processor
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (zdo.PrefabInfo.Container is null || zdo.Vars.GetCreator() is 0)
         {

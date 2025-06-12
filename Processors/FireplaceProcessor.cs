@@ -1,6 +1,4 @@
-﻿using BepInEx.Logging;
-using System.Collections.Concurrent;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -36,7 +34,7 @@ sealed class FireplaceProcessor : Processor
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Fireplace is null)

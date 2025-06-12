@@ -345,6 +345,7 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class WorldConfig(ConfigFile cfg, string section)
     {
+        public ConfigEntry<bool> AssignInteractableOwnershipToClosestPeer { get; } = cfg.Bind(section, nameof(AssignInteractableOwnershipToClosestPeer), false, "True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest peer. This should help avoiding the loss of ore, etc. due to networking issues.");
         public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.Bind(section, nameof(RemoveMistlandsMist), RemoveMistlandsMistOptions.Never,
             new ConfigDescription("Condition to remove the mist from the mistlands", AcceptableEnum<RemoveMistlandsMistOptions>.Default));
 

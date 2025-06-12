@@ -98,8 +98,8 @@ abstract class Processor
 
     public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo);
 
-    protected abstract bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers);
-    public void Process(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected abstract bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers);
+    public void Process(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         _watch.Start();
 
@@ -120,7 +120,15 @@ abstract class Processor
         => CheckMinDistance(peers, zdo, Config.General.MinPlayerDistance.Value);
 
     protected static bool CheckMinDistance(IEnumerable<Peer> peers, ZDO zdo, float minDistance)
-        => peers.Min(x => Utils.DistanceSqr(x.m_refPos, zdo.GetPosition())) >= minDistance * minDistance;
+    {
+        minDistance *= minDistance;
+        foreach (var peer in peers)
+        {
+            if (Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistance)
+                return false;
+        }
+        return true;
+    }
 
     protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot)
     {

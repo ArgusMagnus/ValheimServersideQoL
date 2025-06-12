@@ -24,7 +24,7 @@ sealed class TraderProcessor : Processor
         Instance<PlayerProcessor>().PlayerDestroyed += zdo => _reset.Remove(zdo.m_uid);
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (zdo.PrefabInfo.Trader is null || !_globalKeysToSet.TryGetValue(zdo.PrefabInfo.Trader, out var globalKeysToSet))
         {

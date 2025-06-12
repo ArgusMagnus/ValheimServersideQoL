@@ -27,8 +27,8 @@ sealed class SmelterProcessor : Processor
         }
     }
 
-    protected override bool ProcessCore(ExtendedZDO zdo, IEnumerable<Peer> peers)
-	{
+    protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
+    {
         if (zdo.PrefabInfo is not { Smelter: not null } and not { ShieldGenerator: not null})
         {
             UnregisterZdoProcessor = true;
