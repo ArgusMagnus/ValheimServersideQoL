@@ -113,11 +113,6 @@ sealed class SignProcessor : Processor
             if (defaultColorSet)
                 chest.Vars.SetDefaultColor(Config.Signs.DefaultColor.Value);
 
-#if DEBUG
-            if (text.Length > 200)
-                zdo.Vars.SetText(text = Config.Containers.ChestSignsDefaultText.Value);
-#endif
-
             //Logger.LogWarning($"Set chest text: {text} / {zdo.DataRevision}");
 
             var newText = _contentListRegex.Replace(text, match =>
