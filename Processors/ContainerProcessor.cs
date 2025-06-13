@@ -82,7 +82,7 @@ sealed class ContainerProcessor : Processor
         if (prefab == Prefabs.ReinforcedChest)
             return (new(0.85f, 0.5f, 0.5f), Config.Containers.ReinforcedChestSigns.Value);
         if (prefab == Prefabs.BlackmetalChest)
-            return (new(0.95f, 0.5f, 0.6f), Config.Containers.BlackmetalChestSigns.Value);
+            return (new(0.95f, 0.5f, 0.7f), Config.Containers.BlackmetalChestSigns.Value);
         if (prefab == Prefabs.Incinerator)
             return (new(0f, 1.5f, 0.1f), Config.Containers.ObliteratorSigns.Value);
         return default;
