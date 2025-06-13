@@ -197,7 +197,7 @@ sealed class ExtendedZDO : ZDO
         [Conditional("DEBUG")]
         void ValidateOwnership()
         {
-            if (_zdo.PrefabInfo.Container is not null && !_zdo.IsOwnerOrUnassigned())
+            if (_zdo.PrefabInfo.Container is not null && !_zdo.IsOwnerOrUnassigned() && _zdo.Vars.GetCreator() != Main.PluginGuidHash)
                 throw new InvalidOperationException("Container must not be modified while it is owned by a client");
         }
 
