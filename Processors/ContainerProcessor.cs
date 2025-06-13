@@ -430,10 +430,7 @@ sealed class ContainerProcessor : Processor
                     {
                         changed = true;
                         if (zdo.IsOwnerOrUnassigned())
-                        {
-                            item.m_gridPos.x = x;
-                            item.m_gridPos.y = y;
-                        }
+                            item.m_gridPos = new(x, y);
                     }
                     lastKey = item;
                 }
@@ -457,10 +454,7 @@ sealed class ContainerProcessor : Processor
                     {
                         changed = true;
                         if (zdo.IsOwnerOrUnassigned())
-                        {
-                            item.m_gridPos.x = x;
-                            item.m_gridPos.y = y;
-                        }
+                            item.m_gridPos = new(x, y);
                     }
                     lastKey = item;
                 }
@@ -478,10 +472,7 @@ sealed class ContainerProcessor : Processor
                     {
                         changed = true;
                         if (zdo.IsOwnerOrUnassigned())
-                        {
-                            item.m_gridPos.x = x;
-                            item.m_gridPos.y = y;
-                        }
+                            item.m_gridPos = new(x, y);
                     }
                     if (++x >= width)
                     {

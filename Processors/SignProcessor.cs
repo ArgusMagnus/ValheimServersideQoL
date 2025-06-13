@@ -84,7 +84,6 @@ sealed class SignProcessor : Processor
             }
         }
 
-        var defaultColorSet = false;
         {
             var found = false;
             var newText = _defaultColorRegex.Replace(text, match =>
@@ -105,16 +104,33 @@ sealed class SignProcessor : Processor
             {
                 zdo.Vars.SetText(text = newText);
                 zdo.Vars.SetDefaultColor(Config.Signs.DefaultColor.Value);
-                defaultColorSet = true;
             }
         }
 
         if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
         {
-            if (defaultColorSet)
-                chest.Vars.SetDefaultColor(Config.Signs.DefaultColor.Value);
-
-            //Logger.LogWarning($"Set chest text: {text} / {zdo.DataRevision}");
+            if (Config.Containers.AutoPickup.Value)
+            {
+                if (_chestPickupRangeRegex.Match(text) is { Success: true } match)
+                    chest.Inventory.PickupRange = int.Parse(match.Groups["R"].Value);
+                else
+                    chest.Inventory.PickupRange = null;
+            }
+            if (Config.Smelters.FeedFromContainers.Value)
+            {
+                if (_chestFeedRangeRegex.Match(text) is { Success: true } match)
+                    chest.Inventory.FeedRange = int.Parse(match.Groups["R"].Value);
+                else
+                    chest.Inventory.FeedRange = null;
+            }
+            if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled
+                && chest.PrefabInfo.Container is { Incinerator.Value: not null })
+            {
+                if (_incineratorTagRegex.Match(text) is { Success: true } match)
+                    chest.Inventory.TeleportTag = match.Groups["T"].Value;
+                else
+                    chest.Inventory.TeleportTag = null;
+            }
 
             var newText = _contentListRegex.Replace(text, match =>
             {
@@ -141,28 +157,17 @@ sealed class SignProcessor : Processor
             if (newText != text)
                 zdo.Vars.SetText(text = newText);
 
-            chest.Vars.SetText(text);
-            if (Config.Containers.AutoPickup.Value)
+            var defaultColor = zdo.Vars.GetDefaultColor();
+            if (text != chest.Vars.GetText() || defaultColor != chest.Vars.GetDefaultColor())
             {
-                if (_chestPickupRangeRegex.Match(text) is { Success: true } match)
-                    chest.Inventory.PickupRange = int.Parse(match.Groups["R"].Value);
-                else
-                    chest.Inventory.PickupRange = null;
-            }
-            if (Config.Smelters.FeedFromContainers.Value)
-            {
-                if (_chestFeedRangeRegex.Match(text) is { Success: true } match)
-                    chest.Inventory.FeedRange = int.Parse(match.Groups["R"].Value);
-                else
-                    chest.Inventory.FeedRange = null;
-            }
-            if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled
-                && chest.PrefabInfo.Container is { Incinerator.Value: not null })
-            {
-                if (_incineratorTagRegex.Match(text) is { Success: true } match)
-                    chest.Inventory.TeleportTag = match.Groups["T"].Value;
-                else
-                    chest.Inventory.TeleportTag = null;
+                if (!chest.IsOwnerOrUnassigned())
+                {
+                    Instance<ContainerProcessor>().RequestOwnership(chest, 0);
+                    return false;
+                }
+
+                chest.Vars.SetText(text);
+                chest.Vars.SetDefaultColor(defaultColor);
             }
         }
         
