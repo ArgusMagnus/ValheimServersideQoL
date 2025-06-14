@@ -1,3 +1,6 @@
 [submodule "Dependencies"]
 	path = ValheimServersideQoL/Dependencies
 	url = https://github.com/ArgusMagnus/ValheimServersideQoL.Dependencies.git
+[submodule "ValheimServersideQoL.YamlDotNet"]
+	path = ValheimServersideQoL.YamlDotNet
+	url = https://github.com/ArgusMagnus/YamlDotNet.git

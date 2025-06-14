@@ -6,14 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>embedded</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
 	<MinVerTagPrefix>v</MinVerTagPrefix>
     <ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
   </PropertyGroup>
 
   <ItemGroup>
 	<PackageReference Include="MinVer" Version="6.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ValheimServersideQoL.YamlDotNet\YamlDotNet\Valheim.ServersideQoL.YamlDotNet.csproj" />
   </ItemGroup>
 
   <ItemGroup>
