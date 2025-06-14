@@ -1,3 +1,3 @@
 [submodule "Dependencies"]
-	path = Dependencies
+	path = ValheimServersideQoL/Dependencies
 	url = https://github.com/ArgusMagnus/ValheimServersideQoL.Dependencies.git
