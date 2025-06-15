@@ -9,8 +9,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class InGameConfigProcessor : Processor
 {
-    const string SignFormatWhite = "<color=white>";
-    const string SignFormatGreen = "<color=#00FF00>";
+    const string SignFormatWhite = "<color=\"white\" x><noparse x>";
+    const string SignFormatGreen = "<color=#00FF00 x><noparse x>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";
     internal const string PortalHubTag = $"{Main.PluginName} Portal Hub";
     const float FloorOffset = 5;
@@ -22,9 +22,11 @@ sealed class InGameConfigProcessor : Processor
         public bool CandleState { get; set; }
     }
 
-    readonly List<(ExtendedZDO Sign, string Text, IReadOnlyList<ConfigEntryBase> Entries)> _portalSigns = new();
-    readonly Dictionary<ZDOID, ConfigState> _candleToggles = new();
-    readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = new();
+    readonly List<(ExtendedZDO Sign, string Text, IReadOnlyList<ConfigEntryBase> Entries)> _portalSigns = [];
+    readonly Dictionary<ZDOID, ConfigState> _candleToggles = [];
+    readonly Dictionary<ZDOID, ConfigEntryBase> _configBySign = [];
+
+    readonly Regex _removeFormatRegex = new(@"<[^>]+ x>");
 
     /// <see cref="Game.FindSpawnPoint">
     readonly (Vector3 WorldSpawn, Vector3 Room) _offset = new Func<(Vector3, Vector3)>(static () =>
@@ -37,7 +39,7 @@ sealed class InGameConfigProcessor : Processor
     }).Invoke();
 
     static string GetSignText(object? value, Type type, Color c)
-        => Invariant($"<color=#{c.R:X2}{c.G:X2}{c.B:X2}>{TomlTypeConverter.ConvertToString(value, type)}");
+        => Invariant($"<color=#{c.R:X2}{c.G:X2}{c.B:X2} x><noparse x>{TomlTypeConverter.ConvertToString(value, type)}");
     static string GetSignText(ConfigEntryBase entry, Color? color = null)
         => GetSignText(entry.BoxedValue, entry.SettingType, color ?? (Equals(entry.BoxedValue, entry.DefaultValue) ? Color.White : Color.Lime));
 
@@ -550,7 +552,7 @@ sealed class InGameConfigProcessor : Processor
 
             if (zdo.PrefabInfo.Sign is not null && _configBySign.TryGetValue(zdo.m_uid, out var entry))
             {
-                var text = zdo.Vars.GetText().RemoveRichTextTags();
+                var text = _removeFormatRegex.Replace(zdo.Vars.GetText(), "");
 
                 try { entry.BoxedValue = TomlTypeConverter.ConvertToValue(text, entry.SettingType); }
                 catch (Exception)
