@@ -1,12 +1,14 @@
 ﻿using BepInEx.Configuration;
 using System.Reflection;
 using Valheim.ServersideQoL.Processors;
+using YamlDotNet.Serialization;
 
 namespace Valheim.ServersideQoL;
 
 sealed class ModConfig(ConfigFile cfg)
 {
     public ConfigFile ConfigFile { get; } = cfg;
+
     public GeneralConfig General { get; } = new(cfg, "A - General");
     public SignsConfig Signs { get; } = new(cfg, "B - Signs");
     public MapTableConfig MapTables { get; } = new(cfg, "B - Map Tables");
@@ -184,6 +186,46 @@ sealed class ModConfig(ConfigFile cfg)
             Front = (1 << 2),
             Back = (1 << 3)
         }
+
+        public IReadOnlyDictionary<string, string> ItemNames { get; } = new Func<IReadOnlyDictionary<string, string>>(() =>
+        {
+            const string FileName = "ChestSignItemNames.yml";
+            var configDir = Main.Instance.ConfigDirectory;
+            var itemNamesCfg = Path.Combine(configDir, FileName);
+            Dictionary<string, string> items;
+            if (!File.Exists(itemNamesCfg))
+                items = new(ObjectDB.instance.m_items.Count);
+            else
+            {
+                try
+                {
+                    using var stream = new StreamReader(File.OpenRead(itemNamesCfg));
+                    items = new DeserializerBuilder().Build().Deserialize<Dictionary<string, string>>(stream);
+                }
+                catch (Exception ex)
+                {
+                    Main.Instance.Logger.LogWarning($"{FileName}: {ex.GetType().Name}: {ex.Message}");
+                    items = new(ObjectDB.instance.m_items.Count);
+                }
+            }
+
+            foreach (var entry in ObjectDB.instance.m_items)
+            {
+                if (entry.GetComponent<ItemDrop>() is not { m_itemData.m_shared.m_icons.Length: > 0 } itemDrop)
+                    continue;
+                if (!items.ContainsKey(itemDrop.name))
+                    items.Add(itemDrop.name, Localization.instance.Localize(itemDrop.m_itemData.m_shared.m_name));
+            }
+
+            if (!File.Exists(itemNamesCfg))
+            {
+                Directory.CreateDirectory(configDir);
+                using var stream = new StreamWriter(File.OpenWrite(itemNamesCfg));
+                new SerializerBuilder().Build().Serialize(stream, items);
+            }
+
+            return items;
+        }).Invoke();
     }
 
     public sealed class SmeltersConfig(ConfigFile cfg, string section)

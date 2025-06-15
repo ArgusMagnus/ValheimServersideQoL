@@ -28,7 +28,9 @@ sealed class SignProcessor : Processor
         var bullet = Regex.Escape(Config.Containers.ChestSignsContentListBullet.Value);
         var separator = Regex.Escape(Config.Containers.ChestSignsContentListSeparator.Value);
         var rest = Regex.Escape(Config.Containers.ChestSignsContentListNameRest.Value);
-        var entry = $@"(?:(?:[A-Za-z\s]+)|(?:{rest})) \d+";
+        //var entry = $@"(?:(?:[A-Za-z\s]+)|(?:{rest})) \d+";
+        var names = Config.Containers.ItemNames.Values.Append(Config.Containers.ChestSignsContentListNameRest.Value).ToHashSet();
+        var entry = $@"(?:{string.Join('|', names.Select(x => $"(?:{Regex.Escape(x)})"))}) +\d+";
         _contentListRegex = new($@"(?:{bullet}{entry}{separator})*{bullet}(?:{entry})?");
 
         if (!firstTime)
@@ -109,6 +111,10 @@ sealed class SignProcessor : Processor
 
         if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
         {
+#if DEBUG
+            if (text.Length > 200)
+                zdo.Vars.SetText(text = "");
+#endif
             if (Config.Containers.AutoPickup.Value)
             {
                 if (_chestPickupRangeRegex.Match(text) is { Success: true } match)
@@ -138,7 +144,7 @@ sealed class SignProcessor : Processor
                     return Config.Containers.ChestSignsContentListBullet.Value;
 
                 var list = chest.InventoryReadOnly.Items
-                    .GroupBy(x => x.m_shared.m_name, (k, g) => (Name: Localization.instance.Localize(k), Count: g.Sum(x => x.m_stack)))
+                    .GroupBy(x => x.m_dropPrefab.name, (k, g) => (Name: Config.Containers.ItemNames[k], Count: g.Sum(x => x.m_stack)))
                     .OrderByDescending(x => x.Count)
                     .ToList();
 

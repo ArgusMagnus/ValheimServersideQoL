@@ -37,6 +37,7 @@ public sealed partial class Main : BaseUnityPlugin
     ModConfig? _mainConfig;
     ModConfig? _worldConfig;
     internal new ModConfig Config => _worldConfig ?? (_mainConfig ??= new(base.Config));
+    internal string ConfigDirectory => Path.Combine(Path.GetDirectoryName(base.Config.ConfigFilePath), PluginGuid);
 
     readonly Stopwatch _watch = new();
 
