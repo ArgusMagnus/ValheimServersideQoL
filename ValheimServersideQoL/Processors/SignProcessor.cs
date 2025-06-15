@@ -30,7 +30,7 @@ sealed class SignProcessor : Processor
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
-        _contentListRegex2 = new(Regex.Escape(Config.Containers.ChestSignsContentListBullet.Value));
+        _contentListRegex2 = new(Regex.Escape(Config.Containers.ChestSignsContentListPlaceholder.Value));
 
         _defaultColor = Config.Signs.DefaultColor.Value.StartsWith('#') ? Config.Signs.DefaultColor.Value :
             string.IsNullOrEmpty(Config.Signs.DefaultColor.Value) ? "" : $"\"{Config.Signs.DefaultColor.Value}\"";
@@ -141,7 +141,7 @@ sealed class SignProcessor : Processor
             {
                 found = true;
                 if (Config.Containers.ChestSignsContentListMaxCount.Value <= 0 || chest.InventoryReadOnly.Items.Count is 0)
-                    return Config.Containers.ChestSignsContentListBullet.Value;
+                    return Config.Containers.ChestSignsContentListPlaceholder.Value;
 
                 var list = chest.InventoryReadOnly.Items
                     .GroupBy(x => x.m_dropPrefab.name, (k, g) => (Name: Config.Containers.ItemNames[k], Count: g.Sum(x => x.m_stack)))
@@ -157,7 +157,7 @@ sealed class SignProcessor : Processor
                 }
 
                 var listStr = string.Join(Config.Containers.ChestSignsContentListSeparator.Value, items
-                    .Select(x => $"{Config.Containers.ChestSignsContentListBullet.Value}{x.Name} {x.Count}"));
+                    .Select(x => string.Format(Config.Containers.ChestSignsContentListEntryFormat.Value, x.Name, x.Count)));
 
                 return $"{ContentListStart}{listStr}{ContentListEnd}";
             }

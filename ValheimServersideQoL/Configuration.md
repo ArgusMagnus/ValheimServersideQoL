@@ -27,9 +27,10 @@
 |Containers|PickedUpMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a dropped item is added to a container|
 |Containers|ChestSignsDefaultText|•||Default text for chest signs|
 |Containers|ChestSignsContentListMaxCount|3||Max number of entries to show in the content list on chest signs.|
-|Containers|ChestSignsContentListBullet|•||Bullet to use for content lists on chest signs|
+|Containers|ChestSignsContentListPlaceholder|•||Bullet to use for content lists on chest signs|
 |Containers|ChestSignsContentListSeparator|<br>||Separator to use for content lists on chest signs|
 |Containers|ChestSignsContentListNameRest|Other||Text to show for the entry summarizing the rest of the items|
+|Containers|ChestSignsContentListEntryFormat|{0} {1}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item. The item names can be configured further by editing ChestSignItemNames.yml|
 |Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on wood chests|
 |Containers|ReinforcedChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on reinforced chests|
 |Containers|BlackmetalChestSigns|None|None or combination of Left, Right, Front, Back|Options to automatically put signs on blackmetal chests|
@@ -98,7 +99,7 @@
 |Portal Hub|Include|*||Only portals with a tag that matches this filter are added to the portal hub|
 |Portal Hub|AutoNameNewPortals|False|True/False|True to automatically name new portals. Has no effect if 'Enable' is false|
 |Portal Hub|AutoNameNewPortalsFormat|{0} {1:D2}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer|
-|Signs|DefaultColor|||Default color for signs. Can be a color name or hex code (e.g. #FF0000 or #F00 for red)|
+|Signs|DefaultColor|||Default color for signs. Can be a color name or hex code (e.g. #FF0000 for red)|
 |Signs|TimeSigns|False|True/False|True to update sign texts which contain time emojis (any of 🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦) with the in-game time|
 |Smelters|FeedFromContainers|False|True/False|True to automatically feed smelters from nearby containers|
 |Smelters|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source. Can be overriden per chest by putting '↔️<Range>' on a chest sign|

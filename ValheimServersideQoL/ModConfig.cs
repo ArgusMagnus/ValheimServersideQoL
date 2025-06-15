@@ -122,6 +122,8 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {
+        const string ChestSignItemNamesFileName = "ChestSignItemNames.yml";
+
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), false, "True to auto sort container inventories");
         public ConfigEntry<MessageTypes> SortedMessageType { get; } = cfg.Bind(section, nameof(SortedMessageType), MessageTypes.None,
             new ConfigDescription("Type of message to show when a container was sorted", AcceptableEnum<MessageTypes>.Default));
@@ -136,12 +138,15 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = cfg.Bind(section, nameof(PickedUpMessageType), MessageTypes.None,
             new ConfigDescription("Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default));
 
-        const string DefaultBulletString = "•";
-        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), DefaultBulletString, "Default text for chest signs");
+        const string DefaultPlaceholderString = "•";
+        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), DefaultPlaceholderString, "Default text for chest signs");
         public ConfigEntry<int> ChestSignsContentListMaxCount { get; } = cfg.Bind(section, nameof(ChestSignsContentListMaxCount), 3, "Max number of entries to show in the content list on chest signs.");
-        public ConfigEntry<string> ChestSignsContentListBullet { get; } = cfg.Bind(section, nameof(ChestSignsContentListBullet), DefaultBulletString, "Bullet to use for content lists on chest signs");
+        public ConfigEntry<string> ChestSignsContentListPlaceholder { get; } = cfg.Bind(section, nameof(ChestSignsContentListPlaceholder), DefaultPlaceholderString, "Bullet to use for content lists on chest signs");
         public ConfigEntry<string> ChestSignsContentListSeparator { get; } = cfg.Bind(section, nameof(ChestSignsContentListSeparator), "<br>", "Separator to use for content lists on chest signs");
         public ConfigEntry<string> ChestSignsContentListNameRest { get; } = cfg.Bind(section, nameof(ChestSignsContentListNameRest), "Other", "Text to show for the entry summarizing the rest of the items");
+        
+        public ConfigEntry<string> ChestSignsContentListEntryFormat { get; } = cfg.Bind(section, nameof(ChestSignsContentListEntryFormat), "{0} {1}",
+            new ConfigDescription($"Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item. The item names can be configured further by editing {ChestSignItemNamesFileName}", new AcceptableFormatString(["Test", 0])));
 
         public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
             new ConfigDescription("Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default));
@@ -189,9 +194,8 @@ sealed class ModConfig(ConfigFile cfg)
 
         public IReadOnlyDictionary<string, string> ItemNames { get; } = new Func<IReadOnlyDictionary<string, string>>(() =>
         {
-            const string FileName = "ChestSignItemNames.yml";
             var configDir = Main.Instance.ConfigDirectory;
-            var itemNamesCfg = Path.Combine(configDir, FileName);
+            var itemNamesCfg = Path.Combine(configDir, ChestSignItemNamesFileName);
             Dictionary<string, string> items;
             if (!File.Exists(itemNamesCfg))
                 items = new(ObjectDB.instance.m_items.Count);
@@ -204,7 +208,7 @@ sealed class ModConfig(ConfigFile cfg)
                 }
                 catch (Exception ex)
                 {
-                    Main.Instance.Logger.LogWarning($"{FileName}: {ex.GetType().Name}: {ex.Message}");
+                    Main.Instance.Logger.LogWarning($"{ChestSignItemNamesFileName}: {ex.GetType().Name}: {ex.Message}");
                     items = new(ObjectDB.instance.m_items.Count);
                 }
             }
@@ -364,25 +368,7 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> AutoNameNewPortals { get; } = cfg.Bind(section, nameof(AutoNameNewPortals), false, $"True to automatically name new portals. Has no effect if '{nameof(Enable)}' is false");
         public ConfigEntry<string> AutoNameNewPortalsFormat { get; } = cfg.Bind(section, nameof(AutoNameNewPortalsFormat), "{0} {1:D2}",
             new ConfigDescription("Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer",
-                new AcceptablePortalNameFormat(["Test", 0])));
-
-        sealed class AcceptablePortalNameFormat(object[] testArgs) : AcceptableValueBase(typeof(string))
-        {
-            public override bool IsValid(object value)
-            {
-                if (value is not string format)
-                    return false;
-
-                try { string.Format(format, testArgs); }
-                catch (FormatException) { return false; }
-                return true;
-            }
-
-            public override object Clamp(object value) => value;
-
-            public override string ToDescriptionString()
-                => $"# Acceptable values: .NET Format strings for two arguments ({string.Join(", ", testArgs.Select(x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method";
-        }
+                new AcceptableFormatString(["Test", 0])));
     }
 
     public sealed class WorldConfig(ConfigFile cfg, string section)
@@ -687,5 +673,23 @@ sealed class ModConfig(ConfigFile cfg)
             else
                 return Invariant($"# Acceptable values: {string.Join(", ", AcceptableValues)}");
         }
+    }
+
+    sealed class AcceptableFormatString(object[] testArgs) : AcceptableValueBase(typeof(string))
+    {
+        public override bool IsValid(object value)
+        {
+            if (value is not string format)
+                return false;
+
+            try { string.Format(format, testArgs); }
+            catch (FormatException) { return false; }
+            return true;
+        }
+
+        public override object Clamp(object value) => value;
+
+        public override string ToDescriptionString()
+            => $"# Acceptable values: .NET Format strings for two arguments ({string.Join(", ", testArgs.Select(x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method";
     }
 }
