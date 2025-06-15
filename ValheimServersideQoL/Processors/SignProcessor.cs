@@ -19,20 +19,18 @@ sealed class SignProcessor : Processor
 
     readonly Regex _defaultColorRegex = new(@"<color=[^>]+ d>");
     string _defaultColor = "";
-    Regex _contentListRegex = default!;
+
+    const string ContentListStart = "<i ls></i>";
+    const string ContentListEnd = "<i le></i>";
+    readonly Regex _contentListRegex = new($@"{ContentListStart}.*?{ContentListEnd}");
+    Regex _contentListRegex2 = default!;
 
     string? _timeText;
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
-        var bullet = Regex.Escape(Config.Containers.ChestSignsContentListBullet.Value);
-        var separator = Regex.Escape(Config.Containers.ChestSignsContentListSeparator.Value);
-        var rest = Regex.Escape(Config.Containers.ChestSignsContentListNameRest.Value);
-        //var entry = $@"(?:(?:[A-Za-z\s]+)|(?:{rest})) \d+";
-        var names = Config.Containers.ItemNames.Values.Append(Config.Containers.ChestSignsContentListNameRest.Value).ToHashSet();
-        var entry = $@"(?:{string.Join('|', names.Select(x => $"(?:{Regex.Escape(x)})"))}) +\d+";
-        _contentListRegex = new($@"(?:{bullet}{entry}{separator})*{bullet}(?:{entry})?");
+        _contentListRegex2 = new(Regex.Escape(Config.Containers.ChestSignsContentListBullet.Value));
 
         _defaultColor = Config.Signs.DefaultColor.Value.StartsWith('#') ? Config.Signs.DefaultColor.Value :
             string.IsNullOrEmpty(Config.Signs.DefaultColor.Value) ? "" : $"\"{Config.Signs.DefaultColor.Value}\"";
@@ -134,8 +132,10 @@ sealed class SignProcessor : Processor
                     chest.Inventory.TeleportTag = null;
             }
 
-            var newText = _contentListRegex.Replace(text, match =>
+            var found = false;
+            string EvaluateMatch(Match match)
             {
+                found = true;
                 if (Config.Containers.ChestSignsContentListMaxCount.Value <= 0 || chest.InventoryReadOnly.Items.Count is 0)
                     return Config.Containers.ChestSignsContentListBullet.Value;
 
@@ -152,9 +152,15 @@ sealed class SignProcessor : Processor
                         .Append((Config.Containers.ChestSignsContentListNameRest.Value, list.Skip(Config.Containers.ChestSignsContentListMaxCount.Value - 1).Sum(x => x.Count)));
                 }
 
-                return string.Join(Config.Containers.ChestSignsContentListSeparator.Value, items
+                var listStr = string.Join(Config.Containers.ChestSignsContentListSeparator.Value, items
                     .Select(x => $"{Config.Containers.ChestSignsContentListBullet.Value}{x.Name} {x.Count}"));
-            }, count: 1);
+
+                return $"{ContentListStart}{listStr}{ContentListEnd}";
+            }
+
+            var newText = _contentListRegex.Replace(text, EvaluateMatch, 1);
+            if (!found)
+                newText = _contentListRegex2.Replace(newText, EvaluateMatch, 1);
 
             if (newText != text)
                 zdo.Vars.SetText(text = newText);
