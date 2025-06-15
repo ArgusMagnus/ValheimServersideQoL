@@ -17,7 +17,8 @@ sealed class SignProcessor : Processor
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
-    readonly Regex _defaultColorRegex = new(@"<color=#?(?<V>\w+)>");
+    readonly Regex _defaultColorRegex = new(@"<color=[^>]+ d>");
+    string _defaultColor = "";
     Regex _contentListRegex = default!;
 
     string? _timeText;
@@ -32,6 +33,9 @@ sealed class SignProcessor : Processor
         var names = Config.Containers.ItemNames.Values.Append(Config.Containers.ChestSignsContentListNameRest.Value).ToHashSet();
         var entry = $@"(?:{string.Join('|', names.Select(x => $"(?:{Regex.Escape(x)})"))}) +\d+";
         _contentListRegex = new($@"(?:{bullet}{entry}{separator})*{bullet}(?:{entry})?");
+
+        _defaultColor = Config.Signs.DefaultColor.Value.StartsWith('#') ? Config.Signs.DefaultColor.Value :
+            string.IsNullOrEmpty(Config.Signs.DefaultColor.Value) ? "" : $"\"{Config.Signs.DefaultColor.Value}\"";
 
         if (!firstTime)
             return;
@@ -91,22 +95,14 @@ sealed class SignProcessor : Processor
             var newText = _defaultColorRegex.Replace(text, match =>
             {
                 found = true;
-                var value = match.Groups["V"].Value;
-                if (!string.Equals(value, zdo.Vars.GetDefaultColor(), StringComparison.OrdinalIgnoreCase))
-                    return match.Value;
-                if (string.IsNullOrEmpty(Config.Signs.DefaultColor.Value))
-                    return "";
-                return $"<color={Config.Signs.DefaultColor.Value}>";
+                return $"<color={_defaultColor} d>";
             }, 1);
 
-            if (!found && !string.IsNullOrEmpty(Config.Signs.DefaultColor.Value))
-                newText = $"<color={Config.Signs.DefaultColor.Value}>{text}";
+            if (!found && !string.IsNullOrEmpty(_defaultColor))
+                newText = $"<color={_defaultColor} d>{text}";
 
             if (newText != text)
-            {
                 zdo.Vars.SetText(text = newText);
-                zdo.Vars.SetDefaultColor(Config.Signs.DefaultColor.Value);
-            }
         }
 
         if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
@@ -163,8 +159,7 @@ sealed class SignProcessor : Processor
             if (newText != text)
                 zdo.Vars.SetText(text = newText);
 
-            var defaultColor = zdo.Vars.GetDefaultColor();
-            if (text != chest.Vars.GetText() || defaultColor != chest.Vars.GetDefaultColor())
+            if (text != chest.Vars.GetText())
             {
                 if (!chest.IsOwnerOrUnassigned())
                 {
@@ -173,7 +168,6 @@ sealed class SignProcessor : Processor
                 }
 
                 chest.Vars.SetText(text);
-                chest.Vars.SetDefaultColor(defaultColor);
             }
         }
         

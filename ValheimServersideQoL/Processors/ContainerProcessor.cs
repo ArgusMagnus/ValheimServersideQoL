@@ -252,14 +252,11 @@ sealed class ContainerProcessor : Processor
             var text = zdo.Vars.GetText();
             if (string.IsNullOrEmpty(text))
                 text = Config.Containers.ChestSignsDefaultText.Value;
-            var defaultColor = zdo.Vars.GetDefaultColor();
             ExtendedZDO sign;
             if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Left))
             {
                 sign = PlacePiece(p + r * Vector3.right * signOffset.x, Prefabs.Sign, rot);
                 sign.Vars.SetText(text);
-                if (!string.IsNullOrEmpty(defaultColor))
-                    sign.Vars.SetDefaultColor(defaultColor);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
@@ -267,8 +264,6 @@ sealed class ContainerProcessor : Processor
             {
                 sign = PlacePiece(p + r * Vector3.left * signOffset.x, Prefabs.Sign, rot + 180);
                 sign.Vars.SetText(text);
-                if (!string.IsNullOrEmpty(defaultColor))
-                    sign.Vars.SetDefaultColor(defaultColor);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
@@ -276,8 +271,6 @@ sealed class ContainerProcessor : Processor
             {
                 sign = PlacePiece(p + r * Vector3.forward * signOffset.z, Prefabs.Sign, rot + 270);
                 sign.Vars.SetText(text);
-                if (!string.IsNullOrEmpty(defaultColor))
-                    sign.Vars.SetDefaultColor(defaultColor);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
@@ -285,8 +278,6 @@ sealed class ContainerProcessor : Processor
             {
                 sign = PlacePiece(p + r * Vector3.back * signOffset.z, Prefabs.Sign, rot + 90);
                 sign.Vars.SetText(text);
-                if (!string.IsNullOrEmpty(defaultColor))
-                    sign.Vars.SetDefaultColor(defaultColor);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }

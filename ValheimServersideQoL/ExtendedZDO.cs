@@ -279,10 +279,6 @@ sealed class ExtendedZDO : ZDO
         public int GetPortalHubId(int defaultValue = default) => _zdo.GetInt(__portalHubId, defaultValue);
         public void SetPortalHubId(int value) { ValidateOwnership(); _zdo.Set(__portalHubId, value); }
 
-        static int __defaultColor = $"{Main.PluginGuid}.DefaultColor".GetStableHashCode();
-        public string GetDefaultColor(string defaultValue = "") => _zdo.GetString(__defaultColor, defaultValue);
-        public void SetDefaultColor(string value) { ValidateOwnership(); _zdo.Set(__defaultColor, value); }
-
         public bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);
         public void SetSacrifiedMegingjord(long playerID, bool value) { ValidateOwnership(); _zdo.Set($"player{playerID}_SacrifiedMegingjord", value); }
         public bool GetSacrifiedCryptKey(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedCryptKey", defaultValue);
