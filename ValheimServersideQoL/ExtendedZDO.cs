@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
-using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 
@@ -194,74 +194,80 @@ sealed class ExtendedZDO : ZDO
     {
         readonly ExtendedZDO _zdo = zdo;
 
-        [Conditional("DEBUG")]
-        void ValidateOwnership()
+        void ValidateOwnership(string filePath, int lineNo)
         {
+#if !DEBUG
+            if (!Main.Instance.Config.General.DiagnosticLogs.Value)
+                return;
+#endif
+            if (_zdo.PrefabInfo.Container is null || _zdo.IsOwnerOrUnassigned() || _zdo.Vars.GetCreator() == Main.PluginGuidHash)
+                return;
+
+            Main.Instance.Logger.LogWarning($"{Path.GetFileName(filePath)} L{lineNo}: Container was modified while it is owned by a client, which can lead to the loss of items.");
 #if DEBUG
-            if (_zdo.PrefabInfo.Container is not null && !_zdo.IsOwnerOrUnassigned() && _zdo.Vars.GetCreator() != Main.PluginGuidHash)
-                throw new InvalidOperationException("Container must not be modified while it is owned by a client");
+            throw new InvalidOperationException("Container must not be modified while it is owned by a client");
 #endif
         }
 
         public int GetState(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_state, defaultValue);
-        public void SetState(int value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_state, value); }
+        public void SetState(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_state, value); }
         public long GetCreator(long defaultValue = default) => _zdo.GetLong(ZDOVars.s_creator, defaultValue);
-        public void SetCreator(long value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_creator, value); }
+        public void SetCreator(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_creator, value); }
         public bool GetInUse(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_inUse, defaultValue);
-        public void SetInUse(bool value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_inUse, value); }
+        public void SetInUse(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_inUse, value); }
         public float GetFuel(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_fuel, defaultValue);
-        public void SetFuel(float value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_fuel, value); }
+        public void SetFuel(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_fuel, value); }
         public bool GetPiece(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_piece, defaultValue);
-        public void SetPiece(bool value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_piece, value); }
+        public void SetPiece(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_piece, value); }
         public string GetItems(string defaultValue = "") => _zdo.GetString(ZDOVars.s_items, defaultValue);
-        public void SetItems(string value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_items, value); }
+        public void SetItems(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_items, value); }
         public string GetTag(string defaultValue = "") => _zdo.GetString(ZDOVars.s_tag, defaultValue);
-        public void SetTag(string value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_tag, value); }
+        public void SetTag(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_tag, value); }
         public byte[]? GetData(byte[]? defaultValue = null) => _zdo.GetByteArray(ZDOVars.s_data, defaultValue);
-        public void SetData(byte[]? value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_data, value); }
+        public void SetData(byte[]? value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_data, value); }
         public float GetStamina(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_stamina, defaultValue);
-        public void SetStamina(float value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_stamina, value); }
+        public void SetStamina(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_stamina, value); }
         public long GetPlayerID(long defaultValue = default) => _zdo.GetLong(ZDOVars.s_playerID, defaultValue);
-        public void SetPlayerID(long value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_playerID, value); }
+        public void SetPlayerID(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_playerID, value); }
         public string GetPlayerName(string defaultValue = "") => _zdo.GetString(ZDOVars.s_playerName, defaultValue);
-        public void SetPlayerName(string value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_playerName, value); }
+        public void SetPlayerName(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_playerName, value); }
         public string GetFollow(string defaultValue = "") => _zdo.GetString(ZDOVars.s_follow, defaultValue);
-        public void SetFollow(string value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_follow, value); }
+        public void SetFollow(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_follow, value); }
         public int GetRightItem(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_rightItem, defaultValue);
-        public void SetRightItem(int value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_rightItem, value); }
+        public void SetRightItem(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_rightItem, value); }
         public string GetText(string defaultValue = "") => _zdo.GetString(ZDOVars.s_text, defaultValue);
-        public void SetText(string value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_text, value); }
+        public void SetText(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_text, value); }
         public string GetItem(string defaultValue = "") => _zdo.GetString(ZDOVars.s_item, defaultValue);
-        public void SetItem(string value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_item, value); }
+        public void SetItem(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_item, value); }
         public string GetItem(int idx, string defaultValue = "") => _zdo.GetString(Invariant($"item{idx}"), defaultValue);
-        public void SetItem(int idx, string value) { ValidateOwnership(); _zdo.Set(Invariant($"item{idx}"), value); }
+        public void SetItem(int idx, string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(Invariant($"item{idx}"), value); }
         public int GetQueued(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_queued, defaultValue);
-        public void SetQueued(int value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_queued, value); }
+        public void SetQueued(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_queued, value); }
         public bool GetTamed(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_tamed, defaultValue);
-        public void SetTamed(bool value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_tamed, value); }
+        public void SetTamed(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_tamed, value); }
         public float GetTameTimeLeft(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_tameTimeLeft, defaultValue);
-        public void SetTameTimeLeft(float value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_tameTimeLeft, value); }
+        public void SetTameTimeLeft(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_tameTimeLeft, value); }
         public int GetAmmo(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_ammo, defaultValue);
-        public void SetAmmo(int value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_ammo, value); }
+        public void SetAmmo(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_ammo, value); }
         public string GetAmmoType(string defaultValue = "") => _zdo.GetString(ZDOVars.s_ammoType, defaultValue);
-        public void SetAmmoType(string value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_ammoType, value); }
+        public void SetAmmoType(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_ammoType, value); }
         public float GetGrowStart(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_growStart, defaultValue);
-        public void SetGrowStart(float value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_growStart, value); }
+        public void SetGrowStart(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_growStart, value); }
         public DateTime GetSpawnTime(DateTime defaultValue = default) => new(_zdo.GetLong(ZDOVars.s_spawnTime, defaultValue.Ticks));
-        public void SetSpawnTime(DateTime value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_spawnTime, value.Ticks); }
+        public void SetSpawnTime(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_spawnTime, value.Ticks); }
         public float GetHealth(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_health, defaultValue);
-        public void SetHealth(float value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_health, value); }
+        public void SetHealth(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_health, value); }
         public void RemoveHealth() => _zdo.RemoveFloat(ZDOVars.s_health);
         public int GetPermitted(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_permitted, defaultValue);
-        public void SetPermitted(int value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_permitted, value); }
+        public void SetPermitted(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_permitted, value); }
         public int GetLevel(int defaultValue = 1) => _zdo.GetInt(ZDOVars.s_level, defaultValue);
-        public void SetLevel(int value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_level, value); }
+        public void SetLevel(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_level, value); }
         public bool GetPatrol(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_patrol, defaultValue);
-        public void SetPatrol(bool value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_patrol, value); }
+        public void SetPatrol(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_patrol, value); }
         public Vector3 GetPatrolPoint(Vector3 defaultValue = default) => _zdo.GetVec3(ZDOVars.s_patrolPoint, defaultValue);
-        public void SetPatrolPoint(Vector3 value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_patrolPoint, value); }
+        public void SetPatrolPoint(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_patrolPoint, value); }
         public Vector3 GetSpawnPoint(Vector3 defaultValue = default) => _zdo.GetVec3(ZDOVars.s_spawnPoint, defaultValue);
-        public void SetSpawnPoint(Vector3 value) { ValidateOwnership(); _zdo.Set(ZDOVars.s_spawnPoint, value); }
+        public void SetSpawnPoint(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_spawnPoint, value); }
         public int GetEmoteID(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_emoteID, defaultValue);
         public Emotes GetEmote(Emotes defaultValue = ModConfig.PlayersConfig.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(ZDOVars.s_emote), true, out var e) ? e : defaultValue;
         public bool GetIsEncumbered(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashEncumbered, defaultValue);
@@ -269,24 +275,24 @@ sealed class ExtendedZDO : ZDO
 
         static int __lastSpawnedTime = $"{Main.PluginGuid}.LastSpawnedTime".GetStableHashCode();
         public DateTimeOffset GetLastSpawnedTime(DateTimeOffset defaultValue = default) => new(_zdo.GetLong(__lastSpawnedTime, defaultValue.Ticks), default);
-        public void SetLastSpawnedTime(DateTimeOffset value) { ValidateOwnership(); _zdo.Set(__lastSpawnedTime, value.Ticks - value.Offset.Ticks); }
+        public void SetLastSpawnedTime(DateTimeOffset value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__lastSpawnedTime, value.Ticks - value.Offset.Ticks); }
 
         static int __spawnedByTrophy = $"{Main.PluginGuid}.SpawnedByTrophy".GetStableHashCode();
         public bool GetSpawnedByTrophy(bool defaultValue = default) => _zdo.GetBool(__spawnedByTrophy, defaultValue);
-        public void SetSpawnedByTrophy(bool value) { ValidateOwnership(); _zdo.Set(__spawnedByTrophy, value); }
+        public void SetSpawnedByTrophy(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__spawnedByTrophy, value); }
 
         static int __portalHubId = $"{Main.PluginGuid}.PortalHubId".GetStableHashCode();
         public int GetPortalHubId(int defaultValue = default) => _zdo.GetInt(__portalHubId, defaultValue);
-        public void SetPortalHubId(int value) { ValidateOwnership(); _zdo.Set(__portalHubId, value); }
+        public void SetPortalHubId(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__portalHubId, value); }
 
         public bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);
-        public void SetSacrifiedMegingjord(long playerID, bool value) { ValidateOwnership(); _zdo.Set($"player{playerID}_SacrifiedMegingjord", value); }
+        public void SetSacrifiedMegingjord(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedMegingjord", value); }
         public bool GetSacrifiedCryptKey(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedCryptKey", defaultValue);
-        public void SetSacrifiedCryptKey(long playerID, bool value) { ValidateOwnership(); _zdo.Set($"player{playerID}_SacrifiedCryptKey", value); }
+        public void SetSacrifiedCryptKey(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedCryptKey", value); }
         public bool GetSacrifiedWishbone(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedWishbone", defaultValue);
-        public void SetSacrifiedWishbone(long playerID, bool value) { ValidateOwnership(); _zdo.Set($"player{playerID}_SacrifiedWishbone", value); }
+        public void SetSacrifiedWishbone(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedWishbone", value); }
         public bool GetSacrifiedTornSpirit(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedTornSpirit", defaultValue);
-        public void SetSacrifiedTornSpirit(long playerID, bool value) { ValidateOwnership(); _zdo.Set($"player{playerID}_SacrifiedTornSpirit", value); }
+        public void SetSacrifiedTornSpirit(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedTornSpirit", value); }
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
