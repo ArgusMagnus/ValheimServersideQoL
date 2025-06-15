@@ -45,8 +45,12 @@ sealed class SignProcessor : Processor
     {
         if (!Instance<ContainerProcessor>().SignsByChests.TryGetValue(zdo, out var signs))
             return;
+        var text = zdo.Vars.GetText();
         foreach (var sign in signs)
+        {
+            sign.Vars.SetText(text);
             sign.ResetProcessorDataRevision(this);
+        }
     }
 
     protected override void PreProcessCore(IEnumerable<Peer> peers)
