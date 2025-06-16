@@ -189,7 +189,9 @@ sealed class ModConfig(ConfigFile cfg)
             Left = (1 << 0),
             Right = (1 << 1),
             Front = (1 << 2),
-            Back = (1 << 3)
+            Back = (1 << 3),
+            TopLongitudinal = (1 << 4),
+            TopLateral = (1 << 5)
         }
 
         public IReadOnlyDictionary<string, string> ItemNames { get; } = new Func<IReadOnlyDictionary<string, string>>(() =>

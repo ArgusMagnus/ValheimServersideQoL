@@ -131,13 +131,17 @@ abstract class Processor
     }
 
     protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot)
+        => PlacePiece(pos, prefab, Quaternion.Euler(0, rot, 0));
+    
+
+    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot)
     {
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.SetPrefab(prefab);
         zdo.Persistent = true;
         zdo.Distant = false;
         zdo.Type = ZDO.ObjectType.Default;
-        zdo.SetRotation(Quaternion.Euler(0, rot, 0));
+        zdo.SetRotation(rot);
         zdo.Vars.SetCreator(Main.PluginGuidHash);
         zdo.Vars.SetHealth(-1);
         PlacedPieces.Add(zdo);
