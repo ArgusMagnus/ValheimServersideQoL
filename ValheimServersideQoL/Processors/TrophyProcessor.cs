@@ -210,24 +210,39 @@ sealed class TrophyProcessor : Processor
             for (int i = 0; i < 10; i++)
             {
                 // Search for farthest away position in the active area. Could be done with math, but this is good enough for now
-                var step = Quaternion.Euler(0, UnityEngine.Random.Range(0f, 360f), 0) * (Vector3.forward * ZoneSystem.c_ZoneSize * ZoneSystem.instance.GetActiveArea());
-                var pos = zdo.GetPosition() + step;
-                step /= 8 * ZoneSystem.instance.GetActiveArea();
-                var dstZone = ZoneSystem.GetZone(pos);
-                while (true)
+                var minStep = Mathf.Min(
+                    Config.TrophySpawner.MinSpawnDistance.Value,
+                    ZoneSystem.c_ZoneSize * ZoneSystem.instance.GetActiveArea());
+
+                var dir = Quaternion.Euler(0, UnityEngine.Random.Range(0f, 360f), 0) * Vector3.forward;
+
+                var minPos = zdo.GetPosition() + (dir * minStep);
+                var pos = minPos;
+
+                const float step = ZoneSystem.c_ZoneSize / 32;
+                var maxStepCount = Mathf.CeilToInt((Config.TrophySpawner.MaxSpawnDistance.Value - minStep) / step);
+                int stepCount;
+                for (stepCount = 0; stepCount < maxStepCount; stepCount++)
                 {
-                    var next = pos + step;
+                    var next = pos + (dir * step);
                     var z = ZoneSystem.GetZone(next);
                     if (!ZNetScene.InActiveArea(z, zone))
+                    {
+                        stepCount--;
                         break;
+                    }
                     pos = next;
-                    dstZone = z;
                 }
+
+                if (Config.TrophySpawner.MinSpawnDistance.Value < Config.TrophySpawner.MaxSpawnDistance.Value)
+                    pos = minPos + dir * step * UnityEngine.Random.Range(0f, stepCount);
+
+                var dstZone = ZoneSystem.GetZone(pos);
                 Logger.DevLog($"Trophy zone: {zone}, spawned zone: {dstZone}");
 
                 var spawn = true;
 
-                pos.y = ZoneSystem.instance.GetGroundHeight(pos) + 12;
+                pos.y = ZoneSystem.instance.GetGroundHeight(pos) + 8;
                 if (pos.y < ZoneSystem.c_WaterLevel && !trophyCharacter.m_canSwim && !trophyCharacter.m_flying)
                     spawn = false;
                 else
@@ -258,7 +273,7 @@ sealed class TrophyProcessor : Processor
                     continue;
                 }
 
-                Logger.DevLog($"{nameof(TrophyProcessor)}: Spawning {trophyCharacter.name} at {pos} ({Mathf.Round(Vector3.Distance(pos, zdo.GetPosition()))}m away)");
+                Logger.DevLog($"{nameof(TrophyProcessor)}: Spawning {trophyCharacter.name} at {pos} ({Mathf.Round(Utils.DistanceXZ(pos, zdo.GetPosition()))}m away)");
                 var mob = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, state.CharacterPrefab);
                 mob.SetPrefab(state.CharacterPrefab);
                 mob.Persistent = true;

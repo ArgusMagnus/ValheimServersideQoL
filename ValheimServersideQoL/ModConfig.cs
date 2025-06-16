@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using System.Reflection;
+using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 using YamlDotNet.Serialization;
 
@@ -395,6 +396,11 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to make dropped trophies attract mobs");
         public ConfigEntry<int> ActivationDelay { get; } = cfg.Bind(section, nameof(ActivationDelay), 3600, "Time in seconds before trophies start attracting mobs");
         public ConfigEntry<int> RespawnDelay { get; } = cfg.Bind(section, nameof(RespawnDelay), 12, "Respawn delay in seconds");
+        static float MaxDistance => Mathf.Round(Mathf.Sqrt(2) * ZoneSystem.instance.m_activeArea * ZoneSystem.c_ZoneSize);
+        public ConfigEntry<float> MinSpawnDistance { get; } = cfg.Bind(section, nameof(MinSpawnDistance), MaxDistance,
+            new ConfigDescription("Min distance from the trophy mobs can spawn", new AcceptableValueRange<float>(0, MaxDistance)));
+        public ConfigEntry<float> MaxSpawnDistance { get; } = cfg.Bind(section, nameof(MaxSpawnDistance), MaxDistance,
+            new ConfigDescription("Max distance from the trophy mobs can spawn", new AcceptableValueRange<float>(0, MaxDistance)));
         public ConfigEntry<int> MaxLevel { get; } = cfg.Bind(section, nameof(MaxLevel), 3,
             new ConfigDescription("Maximum level of spawned mobs",
                 new AcceptableValueRange<int>(1, 9)));

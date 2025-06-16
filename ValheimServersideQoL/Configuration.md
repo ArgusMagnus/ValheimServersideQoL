@@ -163,6 +163,8 @@
 |Trophy Spawner|Enable|False|True/False|True to make dropped trophies attract mobs|
 |Trophy Spawner|ActivationDelay|3600||Time in seconds before trophies start attracting mobs|
 |Trophy Spawner|RespawnDelay|12||Respawn delay in seconds|
+|Trophy Spawner|MinSpawnDistance|181|From 0 to 181|Min distance from the trophy mobs can spawn|
+|Trophy Spawner|MaxSpawnDistance|181|From 0 to 181|Max distance from the trophy mobs can spawn|
 |Trophy Spawner|MaxLevel|3|From 1 to 9|Maximum level of spawned mobs|
 |Trophy Spawner|LevelUpChanceOverride|-1|From -1 to 100|Level up chance override for spawned mobs. If < 0, world default is used|
 |Trophy Spawner|SpawnLimit|20|From 1 to 10000|Maximum number of mobs of the trophy's type in the active area|

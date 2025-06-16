@@ -4,7 +4,8 @@
     - Show content on chest signs [#68](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/68)
     - Assign ownership of some interactable objects (smelters, cooking stations, etc.) to the nearest player to help avoid the loss of ore/etc. on bad connections/crossplay
 - New chest sign options: `TopLongitudinal` and `TopLateral` to show the chest content on the top of the chest [#74](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/74)
-- Fixed: Tags disappear when edited in In-world room [71](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/71)
+- Trophy spawner: make spawn distance to trophy configurable [#73](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/73)
+- Fixed: Tags disappear when edited in In-world room [#71](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/71)
 
 ### v0.2.26
 - Fixed eggs not being picked up by container auto-pickup [#67](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/67)
