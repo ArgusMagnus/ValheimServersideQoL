@@ -7,7 +7,6 @@ namespace Valheim.ServersideQoL;
 sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehaviour> Components)
 {
     public string PrefabName => Prefab?.name ?? "";
-    public bool HasSwitch { get; } = GetHasSwitch(Components.Values);
 
     public Sign? Sign { get; } = Get<Sign>(Components);
     public MapTable? MapTable { get; } = Get<MapTable>(Components);
@@ -37,6 +36,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public (Humanoid Humanoid, Optional<CharacterDrop> CharacterDrop)? Humanoid { get; } = GetTuple<(Humanoid, Optional<CharacterDrop>)>(Components);
     public EffectArea? EffectArea { get; } = Get<EffectArea>(Components);
     //public ItemStand? ItemStand { get; } = Get<ItemStand>(Components);
+    public CookingStation? CookingStation { get; } = Get<CookingStation>(Components);
 
     public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
 
@@ -68,17 +68,4 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     }
 
     public record struct Optional<T>(T? Value) where T : MonoBehaviour;
-
-    static bool GetHasSwitch(IEnumerable<MonoBehaviour> components)
-    {
-        foreach (var component in components)
-        {
-            foreach (var field in component.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance))
-            {
-                if (field.FieldType == typeof(Switch) && field.GetValue(component) is not null)
-                    return true;
-            }
-        }
-        return false;
-    }
 }

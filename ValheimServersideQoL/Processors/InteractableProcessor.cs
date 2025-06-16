@@ -5,13 +5,13 @@ sealed class InteractableProcessor : Processor
 {
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        if (!zdo.PrefabInfo.HasSwitch || zdo.PrefabInfo.Container is not null)
+        if (!Config.World.AssignInteractableOwnershipToClosestPeer.Value || zdo.PrefabInfo is not { Smelter: not null } and not { CookingStation: not null })
         {
             UnregisterZdoProcessor = true;
             return false;
         }
 
-        if (!Config.World.AssignInteractableOwnershipToClosestPeer.Value || peers.Count <= 1)
+        if (peers.Count <= 1)
             return false;
 
         Peer closestPeer = default;
