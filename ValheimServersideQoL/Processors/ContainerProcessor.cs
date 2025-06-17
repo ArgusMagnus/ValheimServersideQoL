@@ -240,8 +240,33 @@ sealed class ContainerProcessor : Processor
                 return false;
         }
 
-        var signOptions = GetSignOptions(zdo.GetPrefab());
+        var fields = zdo.Fields<Container>();
+        var inventory = zdo.Inventory!;
+        var width = inventory.Inventory.GetWidth();
+        var height = inventory.Inventory.GetHeight();
+        if (Config.Containers.ContainerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg)
+            && sizeCfg.Value.Split(['x'], 2) is { Length: 2 } parts
+            && int.TryParse(parts[0], out var desiredWidth)
+            && int.TryParse(parts[1], out var desiredHeight)
+            && (width, height) != (desiredWidth, desiredHeight))
+        {
+            if (zdo.Inventory is { Items.Count: 0 })
+            {
+                fields.Set(x => x.m_width, width = desiredWidth);
+                fields.Set(x => x.m_height, height = desiredHeight);
+                RecreateZdo = true;
+                if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
+                    zdo.ReleaseOwnershipInternal(); // required for physics to work again
+                return false;
+            }
+        }
+        else
+        {
+            desiredWidth = width;
+            desiredHeight = height;
+        }
 
+        var signOptions = GetSignOptions(zdo.GetPrefab());
         if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo) && Config.Containers.ChestSignOffsets.TryGetValue(zdo.GetPrefab(), out var signOffset))
         {
             var p = zdo.GetPosition();
@@ -250,7 +275,14 @@ sealed class ContainerProcessor : Processor
             var signs = new List<ExtendedZDO>(4);
             var text = zdo.Vars.GetText();
             if (string.IsNullOrEmpty(text))
-                text = Config.Containers.ChestSignsDefaultText.Value;
+            {
+                if (!zdo.IsOwnerOrUnassigned())
+                {
+                    RequestOwnership(zdo, 0);
+                    return false;
+                }
+                zdo.Vars.SetText(text = Config.Containers.ChestSignsDefaultText.Value);
+            }
             ExtendedZDO sign;
             p.y += signOffset.Top / 2;
             if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Left))
@@ -298,32 +330,6 @@ sealed class ContainerProcessor : Processor
                 _chestsBySigns.Add(sign, zdo);
             }
             _signsByChests.Add(zdo, signs);
-        }
-
-        var fields = zdo.Fields<Container>();
-        var inventory = zdo.Inventory!;
-        var width = inventory.Inventory.GetWidth();
-        var height = inventory.Inventory.GetHeight();
-        if (Config.Containers.ContainerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg)
-            && sizeCfg.Value.Split(['x'], 2) is { Length: 2 } parts
-            && int.TryParse(parts[0], out var desiredWidth)
-            && int.TryParse(parts[1], out var desiredHeight)
-            && (width, height) != (desiredWidth, desiredHeight))
-        {
-            if (zdo.Inventory is { Items.Count: 0 })
-            {
-                fields.Set(x => x.m_width, width = desiredWidth);
-                fields.Set(x => x.m_height, height = desiredHeight);
-                RecreateZdo = true;
-                if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
-                    zdo.ReleaseOwnershipInternal(); // required for physics to work again
-                return false;
-            }
-        }
-        else
-        {
-            desiredWidth = width;
-            desiredHeight = height;
         }
 
         //if (!CheckMinDistance(peers, zdo))
