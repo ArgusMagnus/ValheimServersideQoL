@@ -124,6 +124,7 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {
         const string ChestSignItemNamesFileName = "ChestSignItemNames.yml";
+        const string ChestSignOffsetsFileName = "ChestSignOffsets.yml";
 
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), false, "True to auto sort container inventories");
         public ConfigEntry<MessageTypes> SortedMessageType { get; } = cfg.Bind(section, nameof(SortedMessageType), MessageTypes.None,
@@ -150,13 +151,13 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription($"Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item. The item names can be configured further by editing {ChestSignItemNamesFileName}", new AcceptableFormatString(["Test", 0])));
 
         public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default));
+            new ConfigDescription($"Options to automatically put signs on wood chests. Exact positions can be configured in {ChestSignOffsetsFileName}", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.Bind(section, nameof(ReinforcedChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default));
+            new ConfigDescription($"Options to automatically put signs on reinforced chests. Exact positions can be configured in {ChestSignOffsetsFileName}", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = cfg.Bind(section, nameof(BlackmetalChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default));
+            new ConfigDescription($"Options to automatically put signs on blackmetal chests. Exact positions can be configured in {ChestSignOffsetsFileName}", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ObliteratorSigns { get; } = cfg.Bind(section, nameof(ObliteratorSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front])));
+            new ConfigDescription($"Options to automatically put signs on obliterators. Exact positions can be configured in {ChestSignOffsetsFileName}", new AcceptableEnum<SignOptions>([SignOptions.Front])));
         public ConfigEntry<ObliteratorItemTeleporterOptions> ObliteratorItemTeleporter { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporter), ObliteratorItemTeleporterOptions.Disabled,
             new ConfigDescription(
                 $"Options to enable obliterators to teleport items instead of obliterating them when the lever is pulled. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign",
@@ -211,7 +212,7 @@ sealed class ModConfig(ConfigFile cfg)
                 }
                 catch (Exception ex)
                 {
-                    Main.Instance.Logger.LogWarning($"{ChestSignItemNamesFileName}: {ex.GetType().Name}: {ex.Message}");
+                    Main.Instance.Logger.LogWarning($"{ChestSignItemNamesFileName}: {ex}");
                     items = new(ObjectDB.instance.m_items.Count);
                 }
             }
@@ -232,6 +233,52 @@ sealed class ModConfig(ConfigFile cfg)
             }
 
             return items;
+        }).Invoke();
+
+        public sealed record ChestSignOffset(float Left, float Right, float Front, float Back, float Top)
+        {
+            ChestSignOffset() : this(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN) { }
+        }
+
+        public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets { get; } = new Func<IReadOnlyDictionary<int, ChestSignOffset>>(static () =>
+        {
+            const int TotalCount = 4;
+            var configDir = Main.Instance.ConfigDirectory;
+            var cfgPath = Path.Combine(configDir, ChestSignOffsetsFileName);
+            Dictionary<string, ChestSignOffset> dict;
+            if (!File.Exists(cfgPath))
+                dict = new(TotalCount);
+            else
+            {
+                try
+                {
+                    using var stream = new StreamReader(File.OpenRead(cfgPath));
+                    dict = new DeserializerBuilder().EnablePrivateConstructors().Build().Deserialize<Dictionary<string, ChestSignOffset>>(stream);
+                }
+                catch (Exception ex)
+                {
+                    Main.Instance.Logger.LogWarning($"{ChestSignOffsetsFileName}: {ex}");
+                    dict = new(TotalCount);
+                }
+            }
+
+            if (!dict.ContainsKey(Processor.PrefabNames.WoodChest))
+                dict.Add(Processor.PrefabNames.WoodChest, new(0.8f, 0.8f, 0.4f, 0.4f, 0.8f));
+            if (!dict.ContainsKey(Processor.PrefabNames.ReinforcedChest))
+                dict.Add(Processor.PrefabNames.ReinforcedChest, new(0.85f, 0.85f, 0.5f, 0.5f, 1.1f));
+            if (!dict.ContainsKey(Processor.PrefabNames.BlackmetalChest))
+                dict.Add(Processor.PrefabNames.BlackmetalChest, new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f));
+            if (!dict.ContainsKey(Processor.PrefabNames.Incinerator))
+                dict.Add(Processor.PrefabNames.Incinerator, new(float.NaN, float.NaN, 0.1f, float.NaN, 3f));
+
+            if (!File.Exists(cfgPath))
+            {
+                Directory.CreateDirectory(configDir);
+                using var stream = new StreamWriter(File.OpenWrite(cfgPath));
+                new SerializerBuilder().Build().Serialize(stream, dict);
+            }
+
+            return dict.ToDictionary(x => x.Key.GetStableHashCode(), x => x.Value);
         }).Invoke();
     }
 

@@ -75,16 +75,16 @@ sealed class ContainerProcessor : Processor
         }
     }
 
-    (Vector3 Offset, float Height, ModConfig.ContainersConfig.SignOptions Options) GetSignOptions(int prefab)
+    ModConfig.ContainersConfig.SignOptions GetSignOptions(int prefab)
     {
         if (prefab == Prefabs.WoodChest)
-            return (new(0.8f, 0.5f, 0.4f), 0.8f, Config.Containers.WoodChestSigns.Value);
+            return Config.Containers.WoodChestSigns.Value;
         if (prefab == Prefabs.ReinforcedChest)
-            return (new(0.85f, 0.5f, 0.5f), 1.1f, Config.Containers.ReinforcedChestSigns.Value);
+            return Config.Containers.ReinforcedChestSigns.Value;
         if (prefab == Prefabs.BlackmetalChest)
-            return (new(0.95f, 0.5f, 0.7f), 0.95f, Config.Containers.BlackmetalChestSigns.Value);
+            return Config.Containers.BlackmetalChestSigns.Value;
         if (prefab == Prefabs.Incinerator)
-            return (new(0f, 1.5f, 0.1f), 1f, Config.Containers.ObliteratorSigns.Value);
+            return Config.Containers.ObliteratorSigns.Value;
         return default;
     }
 
@@ -240,12 +240,11 @@ sealed class ContainerProcessor : Processor
                 return false;
         }
 
-        var (signOffset, chestHeight, signOptions) = GetSignOptions(zdo.GetPrefab());
+        var signOptions = GetSignOptions(zdo.GetPrefab());
 
-        if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo))
+        if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo) && Config.Containers.ChestSignOffsets.TryGetValue(zdo.GetPrefab(), out var signOffset))
         {
             var p = zdo.GetPosition();
-            p.y += signOffset.y;
             var r = zdo.GetRotation();
             var rot = r.eulerAngles.y + 90;
             var signs = new List<ExtendedZDO>(4);
@@ -253,36 +252,37 @@ sealed class ContainerProcessor : Processor
             if (string.IsNullOrEmpty(text))
                 text = Config.Containers.ChestSignsDefaultText.Value;
             ExtendedZDO sign;
+            p.y += signOffset.Top / 2;
             if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Left))
             {
-                sign = PlacePiece(p + r * Vector3.right * signOffset.x, Prefabs.Sign, rot);
+                sign = PlacePiece(p + r * Vector3.right * signOffset.Left, Prefabs.Sign, rot);
                 sign.Vars.SetText(text);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
             if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Right))
             {
-                sign = PlacePiece(p + r * Vector3.left * signOffset.x, Prefabs.Sign, rot + 180);
+                sign = PlacePiece(p + r * Vector3.left * signOffset.Right, Prefabs.Sign, rot + 180);
                 sign.Vars.SetText(text);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
             if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Front))
             {
-                sign = PlacePiece(p + r * Vector3.forward * signOffset.z, Prefabs.Sign, rot + 270);
+                sign = PlacePiece(p + r * Vector3.forward * signOffset.Front, Prefabs.Sign, rot + 270);
                 sign.Vars.SetText(text);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
             if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Back))
             {
-                sign = PlacePiece(p + r * Vector3.back * signOffset.z, Prefabs.Sign, rot + 90);
+                sign = PlacePiece(p + r * Vector3.back * signOffset.Back, Prefabs.Sign, rot + 90);
                 sign.Vars.SetText(text);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
             p = zdo.GetPosition();
-            p.y += chestHeight;
+            p.y += signOffset.Top;
             if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.TopLongitudinal))
             {
                 sign = PlacePiece(p, Prefabs.Sign, Quaternion.Euler(-90, rot - 90, 0));
