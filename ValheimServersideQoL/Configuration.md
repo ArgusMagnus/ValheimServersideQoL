@@ -31,10 +31,10 @@
 |Containers|ChestSignsContentListSeparator|<br>||Separator to use for content lists on chest signs|
 |Containers|ChestSignsContentListNameRest|Other||Text to show for the entry summarizing the rest of the items|
 |Containers|ChestSignsContentListEntryFormat|{0} {1}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item. The item names can be configured further by editing ChestSignItemNames.yml|
-|Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back, TopLongitudinal, TopLateral|Options to automatically put signs on wood chests|
-|Containers|ReinforcedChestSigns|None|None or combination of Left, Right, Front, Back, TopLongitudinal, TopLateral|Options to automatically put signs on reinforced chests|
-|Containers|BlackmetalChestSigns|None|None or combination of Left, Right, Front, Back, TopLongitudinal, TopLateral|Options to automatically put signs on blackmetal chests|
-|Containers|ObliteratorSigns|None|None or combination of Front|Options to automatically put signs on obliterators|
+|Containers|WoodChestSigns|None|None or combination of Left, Right, Front, Back, TopLongitudinal, TopLateral|Options to automatically put signs on wood chests. Exact positions can be configured in ChestSignOffsets.yml|
+|Containers|ReinforcedChestSigns|None|None or combination of Left, Right, Front, Back, TopLongitudinal, TopLateral|Options to automatically put signs on reinforced chests. Exact positions can be configured in ChestSignOffsets.yml|
+|Containers|BlackmetalChestSigns|None|None or combination of Left, Right, Front, Back, TopLongitudinal, TopLateral|Options to automatically put signs on blackmetal chests. Exact positions can be configured in ChestSignOffsets.yml|
+|Containers|ObliteratorSigns|None|None or combination of Front|Options to automatically put signs on obliterators. Exact positions can be configured in ChestSignOffsets.yml|
 |Containers|ObliteratorItemTeleporter|Disabled|Disabled, Enabled, EnabledAllItems|Options to enable obliterators to teleport items instead of obliterating them when the lever is pulled. Requires 'ObliteratorSigns' and two obliterators with matching tags. The tag is set by putting '🔗<Tag>' on the sign|
 |Containers|ObliteratorItemTeleporterMessageType|InWorld|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show for obliterator item teleporters|
 |Containers|InventorySize_Cart|6x3||Inventory size for 'Cart'|

@@ -37,7 +37,6 @@ public sealed partial class Main : BaseUnityPlugin
     ModConfig? _mainConfig;
     ModConfig? _worldConfig;
     internal new ModConfig Config => _worldConfig ?? (_mainConfig ??= new(base.Config));
-    internal string ConfigDirectory => Path.Combine(Path.GetDirectoryName(base.Config.ConfigFilePath), PluginGuid);
 
     readonly Stopwatch _watch = new();
 
@@ -163,6 +162,20 @@ public sealed partial class Main : BaseUnityPlugin
             path = $"{path}.{PluginName}.cfg";
             if (!File.Exists(path) && File.Exists(base.Config.ConfigFilePath))
                 File.Copy(base.Config.ConfigFilePath, path);
+
+            var srcDir = Path.Combine(Path.GetDirectoryName(base.Config.ConfigFilePath), Path.GetFileNameWithoutExtension(base.Config.ConfigFilePath));
+            if (Directory.Exists(srcDir))
+            {
+                var dstDir = Path.Combine(Path.GetDirectoryName(path), Path.GetFileNameWithoutExtension(path));
+                Directory.CreateDirectory(dstDir);
+                foreach (var file in Directory.EnumerateFiles(srcDir))
+                {
+                    var dstFile = Path.Combine(dstDir, Path.GetFileName(file));
+                    if (!File.Exists(dstFile))
+                        File.Copy(file, dstFile);
+                }
+            }
+
             Logger.LogInfo("Using world config file");
             _worldConfig = new(new(path, saveOnInit: false, new(PluginGuid, PluginName, PluginVersion)));
         }

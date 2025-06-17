@@ -198,7 +198,7 @@ sealed class ModConfig(ConfigFile cfg)
 
         public IReadOnlyDictionary<string, string> ItemNames { get; } = new Func<IReadOnlyDictionary<string, string>>(() =>
         {
-            var configDir = Main.Instance.ConfigDirectory;
+            var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
             var itemNamesCfg = Path.Combine(configDir, ChestSignItemNamesFileName);
             Dictionary<string, string> items;
             if (!File.Exists(itemNamesCfg))
@@ -240,10 +240,10 @@ sealed class ModConfig(ConfigFile cfg)
             ChestSignOffset() : this(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN) { }
         }
 
-        public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets { get; } = new Func<IReadOnlyDictionary<int, ChestSignOffset>>(static () =>
+        public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets { get; } = new Func<IReadOnlyDictionary<int, ChestSignOffset>>(() =>
         {
             const int TotalCount = 4;
-            var configDir = Main.Instance.ConfigDirectory;
+            var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
             var cfgPath = Path.Combine(configDir, ChestSignOffsetsFileName);
             Dictionary<string, ChestSignOffset> dict;
             if (!File.Exists(cfgPath))
