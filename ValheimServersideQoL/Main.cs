@@ -181,7 +181,7 @@ public sealed partial class Main : BaseUnityPlugin
         }
 
         Logger.LogInfo(Invariant($"Enabled: {Config.General.Enabled.Value}, DiagnosticLogs: {Config.General.DiagnosticLogs.Value}"));
-        
+      
         if (!Config.General.Enabled.Value)
             return false;
 
@@ -232,7 +232,12 @@ public sealed partial class Main : BaseUnityPlugin
         return true;
     }
 
-    void OnConfigChanged(object sender, EventArgs e) => _configChanged = true;
+    void OnConfigChanged(object sender, SettingChangedEventArgs e)
+    {
+        _configChanged = true;
+        if (Config.General.DiagnosticLogs.Value || ReferenceEquals(e.ChangedSetting, Config.General.DiagnosticLogs))
+            Logger.LogInfo($"Config changed: [{e.ChangedSetting.Definition.Section}].[{e.ChangedSetting.Definition.Key}] = {e.ChangedSetting.BoxedValue}");
+    }
 
     void Execute(PeersEnumerable peers)
     {
