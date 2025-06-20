@@ -1,3 +1,5 @@
+### v0.2.28
+
 ### v0.2.27
 - New features:
     - Modify range and max extension distance of crafting stations [#14](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/14)

@@ -179,9 +179,14 @@ public sealed partial class Main : BaseUnityPlugin
             Logger.LogInfo("Using world config file");
             _worldConfig = new(new(path, saveOnInit: false, new(PluginGuid, PluginName, PluginVersion)));
         }
+
+        Logger.LogInfo(Invariant($"Enabled: {Config.General.Enabled.Value}, DiagnosticLogs: {Config.General.DiagnosticLogs.Value}"));
         
         if (!Config.General.Enabled.Value)
             return false;
+
+        if (Config.General.DiagnosticLogs.Value)
+            Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
 
         var failed = false;
         var abort = false;
