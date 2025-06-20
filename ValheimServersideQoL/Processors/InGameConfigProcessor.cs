@@ -266,8 +266,6 @@ sealed class InGameConfigProcessor : Processor
             }
         }
 
-        ZDOMan.instance.ConvertPortals();
-
         Config.ConfigFile.SettingChanged -= OnSettingsChanged;
         Config.ConfigFile.SettingChanged += OnSettingsChanged;
     }

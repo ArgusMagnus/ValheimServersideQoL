@@ -1,9 +1,5 @@
-﻿using BepInEx.Logging;
-using System;
-using System.Reflection;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using UnityEngine;
-using static UnityEngine.Random;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -246,8 +242,6 @@ sealed class PortalProcessor : Processor
 
         if (statesEnumerator.MoveNext())
             throw new Exception("Algorithm failed to place all portals");
-
-        ZDOMan.instance.ConvertPortals();
     }
 
     IReadOnlyList<int> GetTorches(int hubId)
