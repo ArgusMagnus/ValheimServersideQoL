@@ -269,10 +269,6 @@ sealed class ContainerProcessor : Processor
         var signOptions = GetSignOptions(zdo.GetPrefab());
         if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo) && Config.Containers.ChestSignOffsets.TryGetValue(zdo.GetPrefab(), out var signOffset))
         {
-            var p = zdo.GetPosition();
-            var r = zdo.GetRotation();
-            var rot = r.eulerAngles.y + 90;
-            var signs = new List<ExtendedZDO>(4);
             var text = zdo.Vars.GetText();
             if (string.IsNullOrEmpty(text))
             {
@@ -283,6 +279,10 @@ sealed class ContainerProcessor : Processor
                 }
                 zdo.Vars.SetText(text = Config.Containers.ChestSignsDefaultText.Value);
             }
+            var p = zdo.GetPosition();
+            var r = zdo.GetRotation();
+            var rot = r.eulerAngles.y + 90;
+            var signs = new List<ExtendedZDO>();
             ExtendedZDO sign;
             p.y += signOffset.Top / 2;
             if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Left))
