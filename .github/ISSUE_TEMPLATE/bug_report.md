@@ -7,5 +7,5 @@ assignees: ''
 
 ---
 
-*Please attach the mod's config file, found in `$(ValheimDir)/BepInEx/config/argusmagnus.ServersideQoL.cfg`*
-*Please attach the log, found in `$(ValheimDir)/BepInEx/LogOutput.log`*
+*Please set `DiagnosticLogs = true` in the config and attach the resulting log.*
+*The log file can be found in `$(ValheimDir)/BepInEx/LogOutput.log`*
