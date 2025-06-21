@@ -1,4 +1,5 @@
 ### v0.2.28
+- Fixed: Chest signs disappear after config changes [#83](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/83)
 
 ### v0.2.27
 - New features:

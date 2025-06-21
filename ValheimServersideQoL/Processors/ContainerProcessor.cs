@@ -42,6 +42,8 @@ sealed class ContainerProcessor : Processor
 
         foreach (var zdo in _chestsBySigns.Keys)
             zdo.Destroy();
+        foreach (var zdo in _signsByChests.Keys)
+            zdo.ResetProcessorDataRevision(this);
         _signsByChests.Clear();
         _chestsBySigns.Clear();
 
@@ -269,8 +271,8 @@ sealed class ContainerProcessor : Processor
         var signOptions = GetSignOptions(zdo.GetPrefab());
         if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo) && Config.Containers.ChestSignOffsets.TryGetValue(zdo.GetPrefab(), out var signOffset))
         {
-            var text = zdo.Vars.GetText();
-            if (string.IsNullOrEmpty(text))
+            var text = zdo.Vars.GetText(null!);
+            if (text is null)
             {
                 if (!zdo.IsOwnerOrUnassigned())
                 {
