@@ -353,8 +353,9 @@ sealed class PortalProcessor : Processor
                         pos.x += k is 0 ? dx : -dx;
                     else if (!kIsEdge)
                         pos.z += i is 0 ? -dx : dx;
-                    PlacePiece(pos, torches[j], rot)
-                        .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                    PlacePiece(pos, torches[j], rot).Fields<Fireplace>()
+                        .Set(x => x.m_infiniteFuel, true)
+                        .Set(x => x.m_disableCoverCheck, true);
                 }
             }
         }

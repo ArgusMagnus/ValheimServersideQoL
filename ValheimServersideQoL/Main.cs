@@ -237,6 +237,8 @@ public sealed partial class Main : BaseUnityPlugin
         _configChanged = true;
         if (Config.General.DiagnosticLogs.Value || ReferenceEquals(e.ChangedSetting, Config.General.DiagnosticLogs))
             Logger.LogInfo($"Config changed: [{e.ChangedSetting.Definition.Section}].[{e.ChangedSetting.Definition.Key}] = {e.ChangedSetting.BoxedValue}");
+        if (ReferenceEquals(e.ChangedSetting, Config.General.DiagnosticLogs) && Config.General.DiagnosticLogs.Value)
+            Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
     }
 
     void Execute(PeersEnumerable peers)

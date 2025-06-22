@@ -924,7 +924,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-73716780|
+|m_hash|System.Int32|-646712673|
 
 ## fermenter: SFX
 
@@ -952,7 +952,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-646712673|
+|m_hash|System.Int32|-73716780|
 
 ## Fire: sfx_fire_loop
 
