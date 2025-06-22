@@ -14,7 +14,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public Fireplace? Fireplace { get; } = Get<Fireplace>(Components);
     public (Container Container, Piece Piece, PieceTable PieceTable, Optional<Incinerator> Incinerator, Optional<ZSyncTransform> ZSyncTransform)? Container { get; } = GetTuple<(Container, Piece, PieceTable, Optional<Incinerator>, Optional<ZSyncTransform>)>(Components);
     public (Ship Ship, Piece Piece)? Ship { get; } = GetTuple<(Ship, Piece)>(Components);
-    public (ItemDrop ItemDrop, Optional<Piece> Piece)? ItemDrop { get; } = GetTuple<(ItemDrop, Optional<Piece>)>(Components);
+    public (ItemDrop ItemDrop, Optional<ZSyncTransform> ZSyncTransform, Optional<Piece> Piece)? ItemDrop { get; } = GetTuple<(ItemDrop, Optional<ZSyncTransform>, Optional<Piece>)>(Components);
     public Smelter? Smelter { get; } = Get<Smelter>(Components);
     public ShieldGenerator? ShieldGenerator { get; } = Get<ShieldGenerator>(Components);
     public Windmill? Windmill { get; } = Get<Windmill>(Components);

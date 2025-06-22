@@ -79,12 +79,17 @@ sealed class ItemDropProcessor : Processor
                 rangeSqr *= rangeSqr;
                 if (Utils.DistanceSqr(zdo.GetPosition(), tameState.ZDO.GetPosition()) < rangeSqr)
                 {
+                    if (zdo.PrefabInfo.ItemDrop is { ZSyncTransform.Value: not null } && zdo.GetTimeSinceSpawned() < TimeSpan.FromSeconds(10))
+                        return false;
+
                     UnregisterZdoProcessor = true;
                     var fields = zdo.Fields<ItemDrop>();
                     if (fields.SetIfChanged(x => x.m_autoPickup, false))
                         RecreateZdo = true;
                     if (fields.SetIfChanged(x => x.m_autoDestroy, false))
                         RecreateZdo = true;
+                    if (RecreateZdo)
+                        zdo.ReleaseOwnershipInternal();
                     return false;
                 }
             }

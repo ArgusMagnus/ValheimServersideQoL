@@ -1,5 +1,6 @@
 ### v0.2.28
 - Fixed: Chest signs disappear after config changes [#83](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/83)
+- Fixed: Dropped food items freezing in the air [#75](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/75)
 
 ### v0.2.27
 - New features:

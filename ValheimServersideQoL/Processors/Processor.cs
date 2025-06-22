@@ -5,6 +5,7 @@ using MonoMod.Utils;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using RoutedRPCData = ZRoutedRpc.RoutedRPCData;
@@ -327,10 +328,10 @@ abstract class Processor
 
 
     [Conditional("DEBUG")]
-    protected static void DevShowMessage(ZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal)
+    protected static void DevShowMessage(ZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
     {
 #if DEBUG
-        //RPC.ShowInWorldText([0], type, zdo.GetPosition(), message);
+        RPC.ShowInWorldText([0], type, zdo.GetPosition(), $"{Path.GetFileNameWithoutExtension(callerFile)} L{callerLineNo}: {message}");
 #endif
     }
 
@@ -452,9 +453,10 @@ abstract class Processor
             ZRoutedRpc.instance.InvokeRoutedRPC(trap.GetOwner(), trap.m_uid, "RPC_RequestStateChange", [state]);
         }
 
-        public static void RequestOwn(ExtendedZDO itemDrop)
+        public static void RequestOwn(ExtendedZDO itemDrop, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
         {
             itemDrop.AssertIs<ItemDrop>();
+            //DevShowMessage(itemDrop, "Ownership requested", DamageText.TextType.Normal, callerFile, callerLineNo);
             /// <see cref="ItemDrop.RequestOwn"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(itemDrop.GetOwner(), itemDrop.m_uid, "RPC_RequestOwn");
         }

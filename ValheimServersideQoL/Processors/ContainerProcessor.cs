@@ -112,7 +112,7 @@ sealed class ContainerProcessor : Processor
         state.WaitingForResponse = true;
         state.PreviousOwner = zdo.GetOwner();
 
-        DevShowMessage(zdo, $"Requesting ownership: {Path.GetFileNameWithoutExtension(caller)} L{callerLineNo}");
+        //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
         RPC.RequestOwn(zdo, playerID);
     }
 
