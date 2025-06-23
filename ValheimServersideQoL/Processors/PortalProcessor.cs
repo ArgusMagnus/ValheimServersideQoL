@@ -53,7 +53,10 @@ sealed class PortalProcessor : Processor
             {
                 string? tag = null;
                 if (zdo.Vars.GetCreator() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
+                {
                     _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(x => x.m_allowAllItems) });
+                    zdo.Destroyed += OnKnownPortalDestroyed;
+                }
             }
             var hubIds = _knownPortals.Values.Where(x => !x.AllowAllItems).Select(x => x.HubId).ToHashSet();
             var hubIdsAllItems = _knownPortals.Values.Where(x => x.AllowAllItems).Select(x => x.HubId).ToHashSet();
@@ -92,7 +95,7 @@ sealed class PortalProcessor : Processor
 
     void OnKnownPortalDestroyed(ExtendedZDO zdo)
     {
-        if (_hubEnabled && _knownPortals.Remove(zdo))
+        if (_knownPortals.Remove(zdo) && _hubEnabled)
             _updateHub = true;
     }
 
