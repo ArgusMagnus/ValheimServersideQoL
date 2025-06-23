@@ -3,6 +3,7 @@
 - Fixed: Chest signs disappear after config changes [#83](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/83)
 - Fixed: Dropped food items freezing in the air [#75](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/75)
 - Fixed some issues with unlinked portals in the portal hub [#81](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/81) [#84](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/84) [#86](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/86)
+- Fixed: Obliterator teleporters are unlinked until their respective zones have been visited by players [#85](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/85)
 
 ### v0.2.27
 - New features:

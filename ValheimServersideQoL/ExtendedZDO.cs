@@ -19,7 +19,6 @@ interface IZDOInventory
     void Save();
     int? PickupRange { get; set; }
     int? FeedRange { get; set; }
-    string? TeleportTag { get; set; }
 }
 
 sealed class ExtendedZDO : ZDO
@@ -258,7 +257,7 @@ sealed class ExtendedZDO : ZDO
         public void SetSpawnTime(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_spawnTime, value.Ticks); }
         public float GetHealth(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_health, defaultValue);
         public void SetHealth(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_health, value); }
-        public void RemoveHealth() => _zdo.RemoveFloat(ZDOVars.s_health);
+        public void RemoveHealth([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveFloat(ZDOVars.s_health); }
         public int GetPermitted(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_permitted, defaultValue);
         public void SetPermitted(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_permitted, value); }
         public int GetLevel(int defaultValue = 1) => _zdo.GetInt(ZDOVars.s_level, defaultValue);
@@ -274,6 +273,11 @@ sealed class ExtendedZDO : ZDO
         public bool GetIsEncumbered(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashEncumbered, defaultValue);
         public DateTime GetTameLastFeeding(DateTime defaultValue = default) => new(_zdo.GetLong(ZDOVars.s_tameLastFeeding, defaultValue.Ticks));
         public void SetTameLastFeeding(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_tameLastFeeding, value.Ticks); }
+
+        static int __intTag = $"{Main.PluginGuid}.IntTag".GetStableHashCode();
+        public int GetIntTag(int defaultValue = default) => _zdo.GetInt(__intTag, defaultValue);
+        public void SetIntTag(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__intTag, value); }
+        public void RemoveIntTag([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__intTag); }
 
 
         static int __lastSpawnedTime = $"{Main.PluginGuid}.LastSpawnedTime".GetStableHashCode();
@@ -560,7 +564,6 @@ sealed class ExtendedZDO : ZDO
         public ExtendedZDO ZDO { get; private set; } = zdo;
         public int? PickupRange { get; set; }
         public int? FeedRange { get; set; }
-        public string? TeleportTag { get; set; }
 
         List<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;

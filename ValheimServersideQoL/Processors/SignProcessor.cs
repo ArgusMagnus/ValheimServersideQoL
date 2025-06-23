@@ -127,13 +127,13 @@ sealed class SignProcessor : Processor
                 else
                     chest.Inventory.FeedRange = null;
             }
+
+            int tag = 0;
             if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled
                 && chest.PrefabInfo.Container is { Incinerator.Value: not null })
             {
                 if (_incineratorTagRegex.Match(text) is { Success: true } match)
-                    chest.Inventory.TeleportTag = match.Groups["T"].Value;
-                else
-                    chest.Inventory.TeleportTag = null;
+                    tag = match.Groups["T"].Value.GetStableHashCode();
             }
 
             var found = false;
@@ -169,7 +169,7 @@ sealed class SignProcessor : Processor
             if (newText != text)
                 zdo.Vars.SetText(text = newText);
 
-            if (text != chest.Vars.GetText())
+            if (text != chest.Vars.GetText() ||tag != chest.Vars.GetIntTag())
             {
                 if (!chest.IsOwnerOrUnassigned())
                 {
@@ -178,6 +178,10 @@ sealed class SignProcessor : Processor
                 }
 
                 chest.Vars.SetText(text);
+                if (tag is 0)
+                    chest.Vars.RemoveIntTag();
+                else
+                    chest.Vars.SetIntTag(tag);
             }
         }
         

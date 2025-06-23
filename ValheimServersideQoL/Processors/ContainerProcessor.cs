@@ -51,6 +51,20 @@ sealed class ContainerProcessor : Processor
         UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled);
         UpdateRpcSubscription("RPC_AnimateLeverReturn", RPC_AnimateLeverReturn, Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled);
         _openResponseRegistered = false;
+
+        if (!firstTime)
+            return;
+
+        if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled)
+        {
+            foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
+            {
+                if (zdo.GetPrefab() != Prefabs.Incinerator || zdo.Vars.GetCreator() is 0)
+                    continue;
+                _containers.Add(zdo, new());
+                zdo.Destroyed += OnChestDestroyed;
+            }
+        }
     }
 
     void OnChestDestroyed(ExtendedZDO zdo)
@@ -128,7 +142,11 @@ sealed class ContainerProcessor : Processor
 
     void RPC_AnimateLever(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data)
     {
-        if (zdo is not { PrefabInfo.Container.Incinerator.Value: not null } || zdo.Inventory.TeleportTag is null || zdo.Inventory.Items.Count is 0)
+        if (zdo is not { PrefabInfo.Container.Incinerator.Value: not null })
+            return;
+
+        var tag = zdo.Vars.GetIntTag();
+        if (tag is 0 || zdo.Inventory.Items.Count is 0)
             return;
 
         if (!_containers.TryGetValue(zdo, out var state))
@@ -137,7 +155,7 @@ sealed class ContainerProcessor : Processor
             zdo.Destroyed += OnChestDestroyed;
         }
 
-        var (other, otherState) = _containers.FirstOrDefault(x => !ReferenceEquals(x.Key, zdo) && x.Key.Inventory.TeleportTag == zdo.Inventory.TeleportTag);
+        var (other, otherState) = _containers.FirstOrDefault(x => !ReferenceEquals(x.Key, zdo) && x.Key.Vars.GetIntTag() == tag);
 
         zdo.ReleaseOwnership(); /// cancel obliteration of items <see cref="Incinerator.Incinerate(long)"/>
         other?.ReleaseOwnership();
@@ -197,7 +215,7 @@ sealed class ContainerProcessor : Processor
             else if (request.SwapAfter <= DateTimeOffset.UtcNow)
             {
                 if (request.To is null)
-                    ShowMessage(peers, request.From, $"No target with tag '{request.From.Inventory.TeleportTag}' found", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
+                    ShowMessage(peers, request.From, "No target with corresponding tag found", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
                 else if (CheckForbiddenItems(request.FromItems, request.To.Inventory.Items))
                     ShowMessage(peers, request.From, "An item prevents the teleportation", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
                 else

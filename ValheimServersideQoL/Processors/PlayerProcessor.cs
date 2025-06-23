@@ -97,7 +97,7 @@ sealed class PlayerProcessor : Processor
 
     void RPC_AnimateLever(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data)
     {
-        if (zdo.PrefabInfo.Container is not { Incinerator.Value: not null } || zdo.Inventory.TeleportTag is not null)
+        if (zdo.PrefabInfo.Container is not { Incinerator.Value: not null } || zdo.Vars.GetIntTag() is not 0)
             return;
 
         ExtendedZDO? player = null;
