@@ -3,12 +3,14 @@ This mod adds some QoL features as a serverside-only mod.
 
 It's designed and tested for **dedicated servers** with **vanilla clients** (e.g. xbox users).
 
+If you'd like to support me, [buy me a coffee](coff.ee/argusmagnus).
+
 ## Features
 **All of these features are disabled by default and must be enabled in the configuration first**
 - Generated in-world room where admins can change the mod's configuration by editing signs and toggling candles
 - Assign ownership of some interactable objects (smelters, cooking stations, etc.) to the nearest player to help avoid the loss of ore/etc. on bad connections/crossplay
 - Automatically generated portal hub to connect all portals
-- Crafting Stations: New feature: Modify range and max extension distance of crafting stations
+- Crafting Stations: Modify range and max extension distance of crafting stations
 - Signs:
     - Set the default text color of signs
     - Signs which show the ingame time
