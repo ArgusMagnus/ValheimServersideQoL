@@ -8,7 +8,7 @@ sealed class WearNTearProcessor : Processor
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
-        if (zdo.PrefabInfo.WearNTear is null)
+        if (zdo.PrefabInfo.WearNTear is null || zdo.PrefabInfo.TeleportWorld is not null)
             return false;
 
         var fields = zdo.Fields<WearNTear>();
