@@ -93,6 +93,7 @@ sealed class ExtendedZDO : ZDO
 
     public IReadOnlyList<Processor> Processors => AddData.Processors;
     public void UnregisterProcessors(IEnumerable<Processor> processors) => AddData.Ungregister(processors);
+    public void UnregisterAllProcessors() => AddData.UnregisterAll();
 
     public void ReregisterAllProcessors() => _addData?.ReregisterAll();
 
@@ -322,6 +323,7 @@ sealed class ExtendedZDO : ZDO
                 ProcessorDataRevisions?.Remove(processor);
         }
 
+        public void UnregisterAll() => Processors = [];
         public void ReregisterAll() => Processors = Processor.DefaultProcessors;
 
         public static AdditionalData_ Dummy { get; } = new(PrefabInfo.Dummy);

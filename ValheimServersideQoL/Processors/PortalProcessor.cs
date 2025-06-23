@@ -12,6 +12,7 @@ sealed class PortalProcessor : Processor
     {
         public required string Tag { get; set; }
         public required int HubId { get; set; }
+        public required bool AllowAllItems { get; init; }
     }
 
     readonly Dictionary<ExtendedZDO, PortalState> _knownPortals = [];
@@ -52,13 +53,15 @@ sealed class PortalProcessor : Processor
             {
                 string? tag = null;
                 if (zdo.Vars.GetCreator() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
-                    _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId() });
+                    _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(x => x.m_allowAllItems) });
             }
-            var hubIds = _knownPortals.Values.Select(x => x.HubId).ToHashSet();
+            var hubIds = _knownPortals.Values.Where(x => !x.AllowAllItems).Select(x => x.HubId).ToHashSet();
+            var hubIdsAllItems = _knownPortals.Values.Where(x => x.AllowAllItems).Select(x => x.HubId).ToHashSet();
             int id = 0;
             foreach (var (zdo, state) in _knownPortals.Where(x => x.Value.HubId is 0).OrderBy(x => x.Value.Tag))
             {
-                while (!hubIds.Add(++id)) ;
+                var ids = state.AllowAllItems ? hubIdsAllItems : hubIds;
+                while (!ids.Add(++id)) ;
                 zdo.Vars.SetPortalHubId(state.HubId = id);
             }
         }
@@ -169,12 +172,12 @@ sealed class PortalProcessor : Processor
                     state.Tag = tag;
                 else
                 {
-                    _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId() });
+                    _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(x => x.m_allowAllItems) });
                     zdo.Destroyed += OnKnownPortalDestroyed;
 
                     if (state.HubId is 0)
                     {
-                        var hubIds = _knownPortals.Values.Select(x => x.HubId).ToHashSet();
+                        var hubIds = _knownPortals.Values.Where(x => x.AllowAllItems == state.AllowAllItems).Select(x => x.HubId).ToHashSet();
                         int id = 0;
                         while (!hubIds.Add(++id)) ;
                         zdo.Vars.SetPortalHubId(state.HubId = id);
@@ -199,7 +202,7 @@ sealed class PortalProcessor : Processor
             .GroupBy(x => x.Tag)
             .Where(x => x.Count() % 2 is not 0)
             .Select(x => x.First())
-            .Concat(Config.General.InWorldConfigRoom.Value ? [new PortalState() { Tag = InGameConfigProcessor.PortalHubTag, HubId = 0 }] : [])
+            .Concat(Config.General.InWorldConfigRoom.Value ? [new PortalState() { Tag = InGameConfigProcessor.PortalHubTag, HubId = 0, AllowAllItems = true }] : [])
             .OrderBy(x => x.Tag)];
 
         if (states.Count is 0)
@@ -316,9 +319,13 @@ sealed class PortalProcessor : Processor
         if (placePortal(i, k) && statesEnumerator.MoveNext())
         {
             var state = statesEnumerator.Current;
-            var zdo = PlacePiece(pos, Prefabs.PortalWood, rot);
+            var ofsY = state.AllowAllItems ? -0.25f : 0f;
+            pos.y += ofsY;
+            var zdo = PlacePiece(pos, state.AllowAllItems ? Prefabs.Portal : Prefabs.PortalWood, rot);
+            pos.y -= ofsY;
             zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
             zdo.Vars.SetTag(state.Tag);
+            zdo.UnregisterAllProcessors();
 
             if (iIsEdge && kIsEdge)
             {
@@ -334,8 +341,7 @@ sealed class PortalProcessor : Processor
             var sign = PlacePiece(pos, Prefabs.Sign, rot);
             sign.Vars.SetText($"<color=white>{state.Tag}");
 
-            var torches = GetTorches(state.HubId);
-            if (torches.Count > 0)
+            if (GetTorches(state.HubId) is { Count: > 0 } torches)
             {
                 pos.y -= 1.5f;
                 var p = pos;
