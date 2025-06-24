@@ -1,4 +1,4 @@
-### v0.2.28
+### v1.0.0
 - Portal Hub: Distinguish between portals that are connected to regular portals and those that are connected to stone portals
 - Fixed: Chest signs disappear after config changes [#83](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/83)
 - Fixed: Dropped food items freezing in the air [#75](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/75)
