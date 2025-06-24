@@ -3,7 +3,7 @@ This mod adds some QoL features as a serverside-only mod.
 
 It's designed and tested for **dedicated servers** with **vanilla clients** (e.g. xbox users).
 
-If you'd like to support me, [buy me a coffee](coff.ee/argusmagnus).
+If you'd like to support me, [buy me a coffee](https://coff.ee/argusmagnus).
 
 ## Features
 **All of these features are disabled by default and must be enabled in the configuration first**
