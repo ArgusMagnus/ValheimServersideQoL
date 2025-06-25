@@ -454,6 +454,14 @@ abstract class Processor
             ZRoutedRpc.instance.InvokeRoutedRPC(trap.GetOwner(), trap.m_uid, "RPC_RequestStateChange", [state]);
         }
 
+        public static void SetTamed(ExtendedZDO character, bool tamed)
+        {
+            character.AssertIsAny<Humanoid, Character>();
+
+            /// <see cref="Character.SetTamed(bool)"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_SetTamed", [tamed]);
+        }
+
         public static void RequestOwn(ExtendedZDO itemDrop, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
         {
             itemDrop.AssertIs<ItemDrop>();

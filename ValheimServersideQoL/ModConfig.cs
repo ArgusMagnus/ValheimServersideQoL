@@ -656,6 +656,7 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription("Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f,
             new ConfigDescription("Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+        public ConfigEntry<bool> MakeFriendly { get; } = cfg.Bind(section, nameof(MakeFriendly), false, "True to make all summoned creatures (such as summoned trolls) friendly");
     }
 
     public sealed class TrapsConfig(ConfigFile cfg, string section)
