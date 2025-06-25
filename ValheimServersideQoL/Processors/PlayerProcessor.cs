@@ -385,10 +385,7 @@ sealed class PlayerProcessor : Processor
             }
         }
 
-        if (!Config.Tames.TeleportFollow.Value)
-            return false;
-
-        if (Character.InInterior(zdo.GetPosition()))
+        if (!Config.Tames.TeleportFollow.Value && !Config.Summons.TakeIntoDungeons.Value)
             return false;
 
         var playerName = zdo.Vars.GetPlayerName();
@@ -400,19 +397,31 @@ sealed class PlayerProcessor : Processor
                 continue;
 
             var tameZone = ZoneSystem.GetZone(tameState.ZDO.GetPosition());
-            if (ZNetScene.InActiveArea(tameZone, playerZone))
+            if (!ShouldTeleport(playerZone, tameZone, zdo, tameState.ZDO))
                 continue;
 
             /// <see cref="TeleportWorld.Teleport"/>
             var direction = zdo.GetRotation() * Vector3.forward;
             direction = Quaternion.Euler(0, UnityEngine.Random.Range(-45f, 45f), 0) * direction * UnityEngine.Random.Range(1f, 4f);
             var targetPos = zdo.GetPosition() + direction;
-            targetPos.y += UnityEngine.Random.Range(1, 3);
+            targetPos.y += UnityEngine.Random.Range(2, 4);
             var owner = tameState.ZDO.GetOwner();
             tameState.ZDO.ClaimOwnershipInternal();
             tameState.ZDO.SetPosition(targetPos);
             tameState.ZDO.SetOwnerInternal(owner);
         }
+
+        return false; 
+    }
+
+    bool ShouldTeleport(in Vector2i playerZone, in Vector2i tameZone, ExtendedZDO player, ExtendedZDO tame)
+    {
+        if (Config.Summons.TakeIntoDungeons.Value && tame.PrefabInfo.Tameable is { Tameable.m_levelUpOwnerSkill: not Skills.SkillType.None }
+            && Character.InInterior(player.GetPosition()) != Character.InInterior(tame.GetPosition()))
+            return true;
+
+        if (Config.Tames.TeleportFollow.Value && !Character.InInterior(player.GetPosition()))
+            return !ZNetScene.InActiveArea(tameZone, playerZone);
 
         return false;
     }
