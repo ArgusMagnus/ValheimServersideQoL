@@ -1,8 +1,6 @@
-﻿using BepInEx.Logging;
+﻿namespace Valheim.ServersideQoL.Processors;
 
-namespace Valheim.ServersideQoL.Processors;
-
-sealed class HumanoidProcessor : Processor
+sealed class HumanoidLevelProcessor : Processor
 {
     readonly IReadOnlyList<int> _statusEffects = [
         //SEMan.s_statusEffectBurning, SEMan.s_statusEffectLightning, SEMan.s_statusEffectPoison,
