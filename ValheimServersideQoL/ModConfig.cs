@@ -133,6 +133,8 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), false, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize,
             $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign");
+        public ConfigEntry<int> AutoPickupMaxRange { get; } = cfg.Bind(section, nameof(AutoPickupMaxRange), (int)ZoneSystem.c_ZoneSize,
+            $"Max auto pickup range players can set per chest (by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign)");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 4f, "Min distance all player must have to a dropped item for it to be picked up");
         public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = cfg.Bind(section, nameof(AutoPickupExcludeFodder), true, "True to exclude food items for tames when tames are within search range");
         public ConfigEntry<bool> AutoPickupRequestOwnership { get; } = cfg.Bind(section, nameof(AutoPickupRequestOwnership), true,
@@ -287,6 +289,8 @@ sealed class ModConfig(ConfigFile cfg)
         public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to automatically feed smelters from nearby containers");
         public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.Bind(section, nameof(FeedFromContainersRange), 4f,
             $"Required proxmity of a container to a smelter to be used as feeding source. Can be overriden per chest by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign");
+        public ConfigEntry<int> FeedFromContainersMaxRange { get; } = cfg.Bind(section, nameof(FeedFromContainersMaxRange), (int)ZoneSystem.c_ZoneSize,
+            $"Max feeding range players can set per chest (by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign)");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastFuel), 1, "Minimum amout of fuel to leave in a container");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastOre), 1, "Minimum amout of ore to leave in a container");
         public ConfigEntry<MessageTypes> OreOrFuelAddedMessageType { get; } = cfg.Bind(section, nameof(OreOrFuelAddedMessageType), MessageTypes.None,

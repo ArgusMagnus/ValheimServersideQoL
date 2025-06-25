@@ -109,30 +109,47 @@ sealed class SignProcessor : Processor
 
         if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
         {
-#if DEBUG
-            if (text.Length > 200)
-                zdo.Vars.SetText(text = "");
-#endif
+            var newText = text;
             if (Config.Containers.AutoPickup.Value)
             {
-                if (_chestPickupRangeRegex.Match(text) is { Success: true } match)
-                    chest.Inventory.PickupRange = int.Parse(match.Groups["R"].Value);
-                else
-                    chest.Inventory.PickupRange = null;
+                chest.Inventory.PickupRange = null;
+                newText = _chestPickupRangeRegex.Replace(newText, match =>
+                {
+                    var result = match.Value;
+                    var range = int.Parse(match.Groups["R"].Value);
+                    if (range > Config.Containers.AutoPickupMaxRange.Value)
+                    {
+                        range = Config.Containers.AutoPickupMaxRange.Value;
+                        result = Invariant($"{MagnetEmoji}{range}");
+                    }
+                    chest.Inventory.PickupRange = range;
+                    DevShowMessage(chest, $"PickupRange = {range}");
+                    return result;
+                });
             }
             if (Config.Smelters.FeedFromContainers.Value)
             {
-                if (_chestFeedRangeRegex.Match(text) is { Success: true } match)
-                    chest.Inventory.FeedRange = int.Parse(match.Groups["R"].Value);
-                else
-                    chest.Inventory.FeedRange = null;
+                chest.Inventory.FeedRange = null;
+                newText = _chestFeedRangeRegex.Replace(newText, match =>
+                {
+                    var result = match.Value;
+                    var range = int.Parse(match.Groups["R"].Value);
+                    if (range > Config.Smelters.FeedFromContainersMaxRange.Value)
+                    {
+                        range = Config.Smelters.FeedFromContainersMaxRange.Value;
+                        result = Invariant($"{LeftRightArrowEmoji}{range}");
+                    }
+                    chest.Inventory.FeedRange = range;
+                    DevShowMessage(chest, $"FeedRange = {range}");
+                    return result;
+                });
             }
 
             int tag = 0;
             if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled
                 && chest.PrefabInfo.Container is { Incinerator.Value: not null })
             {
-                if (_incineratorTagRegex.Match(text) is { Success: true } match)
+                if (_incineratorTagRegex.Match(newText) is { Success: true } match)
                     tag = match.Groups["T"].Value.GetStableHashCode();
             }
 
@@ -162,7 +179,7 @@ sealed class SignProcessor : Processor
                 return $"{ContentListStart}{listStr}{ContentListEnd}";
             }
 
-            var newText = _contentListRegex.Replace(text, EvaluateMatch, 1);
+            newText = _contentListRegex.Replace(newText, EvaluateMatch, 1);
             if (!found)
                 newText = _contentListRegex2.Replace(newText, EvaluateMatch, 1);
 
