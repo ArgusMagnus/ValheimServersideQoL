@@ -123,7 +123,6 @@ sealed class SignProcessor : Processor
                         result = Invariant($"{MagnetEmoji}{range}");
                     }
                     chest.Inventory.PickupRange = range;
-                    DevShowMessage(chest, $"PickupRange = {range}");
                     return result;
                 });
             }
@@ -140,7 +139,6 @@ sealed class SignProcessor : Processor
                         result = Invariant($"{LeftRightArrowEmoji}{range}");
                     }
                     chest.Inventory.FeedRange = range;
-                    DevShowMessage(chest, $"FeedRange = {range}");
                     return result;
                 });
             }
