@@ -287,7 +287,7 @@ sealed class ContainerProcessor : Processor
         }
 
         var signOptions = GetSignOptions(zdo.GetPrefab());
-        if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo) && Config.Containers.ChestSignOffsets.TryGetValue(zdo.GetPrefab(), out var signOffset))
+        if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo) && Config.Advanced.Containers.ChestSignOffsets.TryGetValue(zdo.GetPrefab(), out var signOffset))
         {
             var text = zdo.Vars.GetText(null!);
             if (text is null)

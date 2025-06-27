@@ -1,44 +1,43 @@
 ﻿using BepInEx.Configuration;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.ObjectFactories;
+using YamlDotNet.Serialization.TypeInspectors;
 
 namespace Valheim.ServersideQoL;
 
-sealed class ModConfig(ConfigFile cfg)
+sealed record ModConfig(ConfigFile ConfigFile)
 {
-#pragma warning disable CS9124 // Parameter is captured into the state of the enclosing type and its value is also used to initialize a field, property, or event.
-    public ConfigFile ConfigFile { get; } = cfg;
-#pragma warning restore CS9124 // Parameter is captured into the state of the enclosing type and its value is also used to initialize a field, property, or event.
+    public GeneralConfig General { get; } = new(ConfigFile, "A - General");
+    public SignsConfig Signs { get; } = new(ConfigFile, "B - Signs");
+    public MapTableConfig MapTables { get; } = new(ConfigFile, "B - Map Tables");
+    public TamesConfig Tames { get; } = new(ConfigFile, "B - Tames");
+    public CreaturesConfig Creatures { get; } = new(ConfigFile, "B - Creatures");
+    public SummonsConfig Summons { get; } = new(ConfigFile, "B - Summons");
+    public FireplacesConfig Fireplaces { get; } = new(ConfigFile, "B - Fireplaces");
+    public ContainersConfig Containers { get; } = new(ConfigFile, "B - Containers");
+    public SmeltersConfig Smelters { get; } = new(ConfigFile, "B - Smelters");
+    public WindmillsConfig Windmills { get; } = new(ConfigFile, "B - Windmills");
+    public CartsConfig Carts { get; } = new(ConfigFile, "B - Carts");
+    public DoorsConfig Doors { get; } = new(ConfigFile, "B - Doors");
+    public PlayersConfig Players { get; } = new(ConfigFile, "B - Players");
+    public TurretsConfig Turrets { get; } = new(ConfigFile, "B - Turrets");
+    public WearNTearConfig WearNTear { get; } = new(ConfigFile, "B - Build Pieces");
+    public CraftingStationsConfig CraftingStations { get; } = new(ConfigFile, "B - Crafting Stations");
+    public TradersConfig Traders { get; } = new(ConfigFile, "B - Traders");
+    public PlantsConfig Plants { get; } = new(ConfigFile, "B - Plants");
+    public TrapsConfig Traps { get; } = new(ConfigFile, "B - Traps");
+    public PortalHubConfig PortalHub { get; } = new(ConfigFile, "B - Portal Hub");
+    public WorldConfig World { get; } = new(ConfigFile, "B - World");
+    public TrophySpawnerConfig TrophySpawner { get; } = new(ConfigFile, "B - Trophy Spawner");
 
-    public GeneralConfig General { get; } = new(cfg, "A - General");
-    public SignsConfig Signs { get; } = new(cfg, "B - Signs");
-    public MapTableConfig MapTables { get; } = new(cfg, "B - Map Tables");
-    public TamesConfig Tames { get; } = new(cfg, "B - Tames");
-    public CreaturesConfig Creatures { get; } = new(cfg, "B - Creatures");
-    public SummonsConfig Summons { get; } = new(cfg, "B - Summons");
-    public FireplacesConfig Fireplaces { get; } = new(cfg, "B - Fireplaces");
-    public ContainersConfig Containers { get; } = new(cfg, "B - Containers");
-    public SmeltersConfig Smelters { get; } = new(cfg, "B - Smelters");
-    public WindmillsConfig Windmills { get; } = new(cfg, "B - Windmills");
-    public CartsConfig Carts { get; } = new(cfg, "B - Carts");
-    public DoorsConfig Doors { get; } = new(cfg, "B - Doors");
-    public PlayersConfig Players { get; } = new(cfg, "B - Players");
-    public TurretsConfig Turrets { get; } = new(cfg, "B - Turrets");
-    public WearNTearConfig WearNTear { get; } = new(cfg, "B - Build Pieces");
-    public CraftingStationsConfig CraftingStations { get; } = new(cfg, "B - Crafting Stations");
-    public TradersConfig Traders { get; } = new(cfg, "B - Traders");
-    public PlantsConfig Plants { get; } = new(cfg, "B - Plants");
-    public TrapsConfig Traps { get; } = new(cfg, "B - Traps");
-    public PortalHubConfig PortalHub { get; } = new(cfg, "B - Portal Hub");
-    public WorldConfig World { get; } = new(cfg, "B - World");
-    public TrophySpawnerConfig TrophySpawner { get; } = new(cfg, "B - Trophy Spawner");
+    public WorldModifiersConfig WorldModifiers { get; } = new(ConfigFile, "C - World Modifiers");
+    public GlobalsKeysConfig GlobalsKeys { get; } = new(ConfigFile, "D - Global Keys");
 
-    public WorldModifiersConfig WorldModifiers { get; } = new(cfg, "C - World Modifiers");
-    public GlobalsKeysConfig GlobalsKeys { get; } = new(cfg, "D - Global Keys");
-
-    public AdvancedConfig Advanced { get; } = InitializeAdvancedConfig(cfg);
+    public AdvancedConfig Advanced { get; } = InitializeAdvancedConfig(ConfigFile);
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -128,7 +127,6 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {
         const string ChestSignItemNamesFileName = "ChestSignItemNames.yml";
-        const string ChestSignOffsetsFileName = "ChestSignOffsets.yml";
 
         public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), false, "True to auto sort container inventories");
         public ConfigEntry<MessageTypes> SortedMessageType { get; } = cfg.Bind(section, nameof(SortedMessageType), MessageTypes.None,
@@ -157,13 +155,13 @@ sealed class ModConfig(ConfigFile cfg)
             new ConfigDescription($"Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item. The item names can be configured further by editing {ChestSignItemNamesFileName}", new AcceptableFormatString(["Test", 0])));
 
         public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
-            new ConfigDescription($"Options to automatically put signs on wood chests. Exact positions can be configured in {ChestSignOffsetsFileName}", AcceptableEnum<SignOptions>.Default));
+            new ConfigDescription("Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.Bind(section, nameof(ReinforcedChestSigns), SignOptions.None,
-            new ConfigDescription($"Options to automatically put signs on reinforced chests. Exact positions can be configured in {ChestSignOffsetsFileName}", AcceptableEnum<SignOptions>.Default));
+            new ConfigDescription("Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = cfg.Bind(section, nameof(BlackmetalChestSigns), SignOptions.None,
-            new ConfigDescription($"Options to automatically put signs on blackmetal chests. Exact positions can be configured in {ChestSignOffsetsFileName}", AcceptableEnum<SignOptions>.Default));
+            new ConfigDescription("Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default));
         public ConfigEntry<SignOptions> ObliteratorSigns { get; } = cfg.Bind(section, nameof(ObliteratorSigns), SignOptions.None,
-            new ConfigDescription($"Options to automatically put signs on obliterators. Exact positions can be configured in {ChestSignOffsetsFileName}", new AcceptableEnum<SignOptions>([SignOptions.Front])));
+            new ConfigDescription("Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front])));
         public ConfigEntry<ObliteratorItemTeleporterOptions> ObliteratorItemTeleporter { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporter), ObliteratorItemTeleporterOptions.Disabled,
             new ConfigDescription(
                 $"Options to enable obliterators to teleport items instead of obliterating them when the lever is pulled. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign",
@@ -240,53 +238,6 @@ sealed class ModConfig(ConfigFile cfg)
             }
 
             return items;
-        }).Invoke();
-
-        public sealed record ChestSignOffset(float Left, float Right, float Front, float Back, float Top)
-        {
-            ChestSignOffset() : this(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN) { }
-        }
-
-        public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets { get; } = new Func<IReadOnlyDictionary<int, ChestSignOffset>>(() =>
-        {
-            const int TotalCount = 4;
-            var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
-            var cfgPath = Path.Combine(configDir, ChestSignOffsetsFileName);
-            Dictionary<string, ChestSignOffset> dict;
-            if (!File.Exists(cfgPath))
-                dict = new(TotalCount);
-            else
-            {
-                try
-                {
-                    using var stream = new StreamReader(File.OpenRead(cfgPath));
-                    dict = new DeserializerBuilder().EnablePrivateConstructors().Build().Deserialize<Dictionary<string, ChestSignOffset>>(stream);
-                }
-                catch (Exception ex)
-                {
-                    Main.Instance.Logger.LogWarning($"{ChestSignOffsetsFileName}: {ex}");
-                    dict = new(TotalCount);
-                }
-            }
-
-            if (!dict.ContainsKey(Processor.PrefabNames.WoodChest))
-                dict.Add(Processor.PrefabNames.WoodChest, new(0.8f, 0.8f, 0.4f, 0.4f, 0.8f));
-            if (!dict.ContainsKey(Processor.PrefabNames.ReinforcedChest))
-                dict.Add(Processor.PrefabNames.ReinforcedChest, new(0.85f, 0.85f, 0.5f, 0.5f, 1.1f));
-            if (!dict.ContainsKey(Processor.PrefabNames.BlackmetalChest))
-                dict.Add(Processor.PrefabNames.BlackmetalChest, new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f));
-            if (!dict.ContainsKey(Processor.PrefabNames.Incinerator))
-                dict.Add(Processor.PrefabNames.Incinerator, new(float.NaN, float.NaN, 0.1f, float.NaN, 3f));
-
-            if (!File.Exists(cfgPath))
-            {
-                Directory.CreateDirectory(configDir);
-                using var stream = new StreamWriter(File.OpenWrite(cfgPath));
-                WriteYamlHeader(stream);
-                new SerializerBuilder().Build().Serialize(stream, dict);
-            }
-
-            return dict.ToDictionary(x => x.Key.GetStableHashCode(), x => x.Value);
         }).Invoke();
     }
 
@@ -763,11 +714,31 @@ sealed class ModConfig(ConfigFile cfg)
     public sealed class AdvancedConfig
     {
         public TamesConfig Tames { get; init; } = new();
+        public ContainerConfig Containers { get; init; } = new();
 
         public sealed class TamesConfig
         {
             public sealed record TeleportFollowPositioningConfig(float MinDistXZ, float MaxDistXZ, float MinOffsetY, float MaxOffsetY) { TeleportFollowPositioningConfig() : this(default, default, default, default) { } }
             public TeleportFollowPositioningConfig TeleportFollowPositioning { get; init; } = new(2, 4, 0, 1);
+        }
+
+        public sealed class ContainerConfig
+        {
+            public sealed record ChestSignOffset(float Left, float Right, float Front, float Back, float Top) { ChestSignOffset() : this(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN) { } }
+
+            [YamlMember(Alias = nameof(ChestSignOffsets))]
+            Dictionary<string, ChestSignOffset> ChestSignOffsetsYaml { get; init; } = new()
+            {
+                [Processor.PrefabNames.WoodChest] = new(0.8f, 0.8f, 0.4f, 0.4f, 0.8f),
+                [Processor.PrefabNames.ReinforcedChest] = new(0.85f, 0.85f, 0.5f, 0.5f, 1.1f),
+                [Processor.PrefabNames.BlackmetalChest] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f),
+                [Processor.PrefabNames.Incinerator] = new(float.NaN, float.NaN, 0.1f, float.NaN, 3f)
+            };
+
+            IReadOnlyDictionary<int, ChestSignOffset>? _chestSignOffsets;
+
+            [YamlIgnore]
+            public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets => _chestSignOffsets ??= ChestSignOffsetsYaml.ToDictionary(x => x.Key.GetStableHashCode(), x => x.Value);
         }
     }
 
@@ -778,6 +749,11 @@ sealed class ModConfig(ConfigFile cfg)
 
         var result = new AdvancedConfig();
 
+        var serializer = new SerializerBuilder()
+            .IncludeNonPublicProperties()
+            .WithTypeInspector(static x => new MyTypeInspector(x))
+            .Build();
+
         {
             Directory.CreateDirectory(configDir);
             var defaultConfigPath = Path.ChangeExtension(configPath, "default.yml");
@@ -786,7 +762,7 @@ sealed class ModConfig(ConfigFile cfg)
             file.WriteLine($"# Rename it to {Path.GetFileName(configPath)} if you want to change values.");
             file.WriteLine();
             WriteYamlHeader(file);
-            new SerializerBuilder().Build().Serialize(file, result);
+            serializer.Serialize(file, result);
         }
 
         if (File.Exists(configPath))
@@ -794,8 +770,13 @@ sealed class ModConfig(ConfigFile cfg)
             try
             {
                 using var stream = new StreamReader(configPath);
-                result = new DeserializerBuilder().EnablePrivateConstructors().Build().Deserialize<AdvancedConfig>(stream);
-                Main.Instance.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}:{Environment.NewLine}{new SerializerBuilder().Build().Serialize(result)}");
+                result = new DeserializerBuilder()
+                    .IncludeNonPublicProperties()
+                    .EnablePrivateConstructors()
+                    //.WithObjectFactory(new MyObjectFactory())
+                    .WithTypeInspector(static x => new MyTypeInspector(x))
+                    .Build().Deserialize<AdvancedConfig>(stream);
+                Main.Instance.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}:{Environment.NewLine}{serializer.Serialize(result)}");
             }
             catch (Exception ex)
             {
@@ -812,5 +793,33 @@ sealed class ModConfig(ConfigFile cfg)
         writer.WriteLine($"#   This file is for advanced tweaks. You are expected to be familiar with YAML and its pitfalls if you decide to edit it.");
         writer.WriteLine($"#   Check the log for warnings related to this file and DO NOT open issues asking for help on how to format this file.");
         writer.WriteLine();
+    }
+
+    //sealed class MyObjectFactory() : DefaultObjectFactory(new Dictionary<Type, Type>(), new() { AllowPrivateConstructors = true })
+    //{
+    //    public override object Create(Type type)
+    //    {
+    //        if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IReadOnlyDictionary<,>))
+    //            type = typeof(Dictionary<,>).MakeGenericType(type.GetGenericArguments());
+    //        return base.Create(type);
+    //    }
+    //}
+
+    sealed class MyTypeInspector(ITypeInspector inner) : TypeInspectorSkeleton
+    {
+        readonly ITypeInspector _inner = inner;
+
+        public override string GetEnumName(Type enumType, string name) => _inner.GetEnumName(enumType, name);
+        public override string GetEnumValue(object enumValue) => _inner.GetEnumValue(enumValue);
+
+        public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object? container)
+        {
+            foreach (var prop in _inner.GetProperties(type, container))
+            {
+                if (prop.Type == typeof(Type) && prop.Name is "EqualityContract")
+                    continue;
+                yield return prop;
+            }
+        }
     }
 }
