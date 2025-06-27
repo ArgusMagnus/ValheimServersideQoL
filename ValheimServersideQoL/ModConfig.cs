@@ -235,6 +235,7 @@ sealed class ModConfig(ConfigFile cfg)
             {
                 Directory.CreateDirectory(configDir);
                 using var stream = new StreamWriter(File.OpenWrite(itemNamesCfg));
+                WriteYamlHeader(stream);
                 new SerializerBuilder().Build().Serialize(stream, items);
             }
 
@@ -281,6 +282,7 @@ sealed class ModConfig(ConfigFile cfg)
             {
                 Directory.CreateDirectory(configDir);
                 using var stream = new StreamWriter(File.OpenWrite(cfgPath));
+                WriteYamlHeader(stream);
                 new SerializerBuilder().Build().Serialize(stream, dict);
             }
 
@@ -782,6 +784,8 @@ sealed class ModConfig(ConfigFile cfg)
             using var file = new StreamWriter(defaultConfigPath, append: false);
             file.WriteLine($"# {Path.GetFileName(defaultConfigPath)} contains the default values and is overwritten regularly.");
             file.WriteLine($"# Rename it to {Path.GetFileName(configPath)} if you want to change values.");
+            file.WriteLine();
+            WriteYamlHeader(file);
             new SerializerBuilder().Build().Serialize(file, result);
         }
 
@@ -800,5 +804,13 @@ sealed class ModConfig(ConfigFile cfg)
         }
 
         return result;
+    }
+
+    static void WriteYamlHeader(StreamWriter writer)
+    {
+        writer.WriteLine($"# IMPORTANT:");
+        writer.WriteLine($"#   This file is for advanced tweaks. You are expected to be familiar with YAML and its pitfalls if you decide to edit it.");
+        writer.WriteLine($"#   Check the log for warnings related to this file and DO NOT open issues asking for help on how to format this file.");
+        writer.WriteLine();
     }
 }
