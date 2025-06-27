@@ -242,11 +242,13 @@ sealed class TrophyProcessor : Processor
 
                 var spawn = true;
 
-                pos.y = ZoneSystem.instance.GetGroundHeight(pos) + 8;
+                pos.y = ZoneSystem.instance.GetGroundHeight(pos);
                 if (pos.y < ZoneSystem.c_WaterLevel && !trophyCharacter.m_canSwim && !trophyCharacter.m_flying)
                     spawn = false;
                 else
                 {
+                    pos.y += 8;
+
                     // Check pos not in base (todo: optimize)
                     _sectorZdos.Clear();
                     ZDOMan.instance.FindSectorObjects(dstZone, 1, 0, _sectorZdos);
