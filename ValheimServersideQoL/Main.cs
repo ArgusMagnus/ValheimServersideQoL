@@ -16,16 +16,6 @@ namespace Valheim.ServersideQoL;
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 public sealed partial class Main : BaseUnityPlugin
 {
-    /// <Ideas>
-    /// - Prevent <see cref="Catapult"/> from accepting equipment as ammo. Test what <see cref="Catapult.m_onlyUseIncludedProjectiles"/> does
-    /// - <see cref="Pathfinding"/> <see cref="SapCollector"/> <see cref="ResourceRoot"/>
-    /// - Make sharp stakes drop their resources when destroyed <see cref="Piece.DropResources(HitData)"/> <see cref="WearNTear.Remove(bool)"/>
-    ///   Not easily possible: Responsible code in <see cref="Piece.DropResources(HitData)"/> uses <see cref="Piece.m_resources"/> / <see cref="Piece.Requirement.m_recover"/>
-    ///   which cannot be modified via ZDO fields. We would have to somehow detect when a stakewall is destroyed and spawn the resources ourselves.
-    /// - <see cref="Chat"/> <see cref="Humanoid"/> <see cref="Character"/> <see cref="InventoryGui.SortMethod"/> <see cref="Player"/>
-    /// - <see cref="SpawnArea"/>
-    /// </Ideas>
-
     internal const string PluginName = "ServersideQoL";
     internal const string PluginGuid = $"argusmagnus.{PluginName}";
     internal static int PluginGuidHash { get; } = PluginGuid.GetStableHashCode();
@@ -60,21 +50,6 @@ public sealed partial class Main : BaseUnityPlugin
 
     void Awake()
     {
-//#if DEBUG
-//        foreach (var type in typeof(Game).Assembly.ExportedTypes.Where(x => !x.IsEnum))
-//        {
-//            foreach (var field in type.GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static)
-//                .Where(x => x.IsLiteral && !x.IsInitOnly))
-//            {
-//                var value = field.GetRawConstantValue();
-//                if (Equals(value, 3000f))
-//                    Logger.LogError($"{type.Name}.{field.Name}: {value} ({field.FieldType.Name})");
-//                else
-//                    Logger.LogWarning($"{type.Name}.{field.Name}: {value} ({field.FieldType.Name})");
-//            }
-//        }
-//#endif
-
         if (PluginVersion != PluginInformationalVersion)
             Logger.LogWarning($"You are running a pre-release version: {PluginInformationalVersion}");
         HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());

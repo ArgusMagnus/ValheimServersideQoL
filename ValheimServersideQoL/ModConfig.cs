@@ -651,7 +651,7 @@ sealed class ModConfig(ConfigFile cfg)
 
     public sealed class SummonsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> TakeIntoDungeons { get; } = cfg.Bind(section, nameof(TakeIntoDungeons), false, "True to take your summons into (and out of) dungeons with you.");
+        public ConfigEntry<bool> TakeIntoDungeons { get; } = cfg.Bind(section, nameof(TakeIntoDungeons), false, $"True to take your summons into (and out of) dungeons with you. This only affects summons that are friendly by default ('{nameof(MakeFriendly)}' has on effect on this setting)");
         public ConfigEntry<float> UnsummonDistanceMultiplier { get; } = cfg.Bind(section, nameof(UnsummonDistanceMultiplier), 1f,
             new ConfigDescription("Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f,
