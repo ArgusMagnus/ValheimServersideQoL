@@ -8,7 +8,9 @@ namespace Valheim.ServersideQoL;
 
 sealed class ModConfig(ConfigFile cfg)
 {
+#pragma warning disable CS9124 // Parameter is captured into the state of the enclosing type and its value is also used to initialize a field, property, or event.
     public ConfigFile ConfigFile { get; } = cfg;
+#pragma warning restore CS9124 // Parameter is captured into the state of the enclosing type and its value is also used to initialize a field, property, or event.
 
     public GeneralConfig General { get; } = new(cfg, "A - General");
     public SignsConfig Signs { get; } = new(cfg, "B - Signs");
@@ -35,6 +37,8 @@ sealed class ModConfig(ConfigFile cfg)
 
     public WorldModifiersConfig WorldModifiers { get; } = new(cfg, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(cfg, "D - Global Keys");
+
+    public AdvancedConfig Advanced { get; } = InitializeAdvancedConfig(cfg);
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
@@ -752,5 +756,49 @@ sealed class ModConfig(ConfigFile cfg)
 
         public override string ToDescriptionString()
             => $"# Acceptable values: .NET Format strings for two arguments ({string.Join(", ", testArgs.Select(x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method";
+    }
+
+    public sealed class AdvancedConfig
+    {
+        public TamesConfig Tames { get; init; } = new();
+
+        public sealed class TamesConfig
+        {
+            public sealed record TeleportFollowPositioningConfig(float MinDistXZ, float MaxDistXZ, float MinOffsetY, float MaxOffsetY) { TeleportFollowPositioningConfig() : this(default, default, default, default) { } }
+            public TeleportFollowPositioningConfig TeleportFollowPositioning { get; init; } = new(2, 4, 0, 1);
+        }
+    }
+
+    static AdvancedConfig InitializeAdvancedConfig(ConfigFile cfg)
+    {
+        var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
+        var configPath = Path.Combine(configDir, "Advanced.yml");
+
+        var result = new AdvancedConfig();
+
+        {
+            Directory.CreateDirectory(configDir);
+            var defaultConfigPath = Path.ChangeExtension(configPath, "default.yml");
+            using var file = new StreamWriter(defaultConfigPath, append: false);
+            file.WriteLine($"# {Path.GetFileName(defaultConfigPath)} contains the default values and is overwritten regularly.");
+            file.WriteLine($"# Rename it to {Path.GetFileName(configPath)} if you want to change values.");
+            new SerializerBuilder().Build().Serialize(file, result);
+        }
+
+        if (File.Exists(configPath))
+        {
+            try
+            {
+                using var stream = new StreamReader(configPath);
+                result = new DeserializerBuilder().EnablePrivateConstructors().Build().Deserialize<AdvancedConfig>(stream);
+                Main.Instance.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}:{Environment.NewLine}{new SerializerBuilder().Build().Serialize(result)}");
+            }
+            catch (Exception ex)
+            {
+                Main.Instance.Logger.LogWarning($"{Path.GetFileName(configPath)}: {ex}");
+            }
+        }
+
+        return result;
     }
 }

@@ -402,9 +402,10 @@ sealed class PlayerProcessor : Processor
 
             /// <see cref="TeleportWorld.Teleport"/>
             var direction = zdo.GetRotation() * Vector3.forward;
-            direction = Quaternion.Euler(0, UnityEngine.Random.Range(-45f, 45f), 0) * direction * UnityEngine.Random.Range(2f, 4f);
+            var p = Config.Advanced.Tames.TeleportFollowPositioning;
+            direction = Quaternion.Euler(0, UnityEngine.Random.Range(-45f, 45f), 0) * direction * UnityEngine.Random.Range(p.MinDistXZ, p.MaxDistXZ);
             var targetPos = zdo.GetPosition() + direction;
-            targetPos.y += UnityEngine.Random.Range(0, 1);
+            targetPos.y += UnityEngine.Random.Range(p.MinOffsetY, p.MaxOffsetY);
             var owner = tameState.ZDO.GetOwner();
             tameState.ZDO.ClaimOwnershipInternal();
             tameState.ZDO.SetPosition(targetPos);
