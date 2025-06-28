@@ -614,6 +614,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f,
             new ConfigDescription("Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<bool> MakeFriendly { get; } = cfg.Bind(section, nameof(MakeFriendly), false, "True to make all summoned creatures (such as summoned trolls) friendly");
+        public ConfigEntry<bool> AllowReplacementSummon { get; } = cfg.Bind(section, nameof(AllowReplacementSummon), false, "True to allow the summoning of new summoned creatures (such as summoned trolls) to replace older ones when the limit exceeded");
     }
 
     public sealed class TrapsConfig(ConfigFile cfg, string section)

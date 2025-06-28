@@ -462,6 +462,14 @@ abstract class Processor
             ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_SetTamed", [tamed]);
         }
 
+        public static void Damage(ExtendedZDO character, HitData hitData)
+        {
+            character.AssertIs<Character>();
+
+            /// <see cref="Character.Damage(HitData)"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_Damage", [hitData]);
+        }
+
         public static void RequestOwn(ExtendedZDO itemDrop, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
         {
             itemDrop.AssertIs<ItemDrop>();

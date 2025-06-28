@@ -321,6 +321,10 @@ sealed class PlayerProcessor : Processor
         {
             _playerStates.Add(zdo, state = new());
             zdo.Destroyed += x => _playerStates.Remove(x);
+
+#if DEBUG
+            RPC.AddStatusEffect(zdo, "Rested".GetStableHashCode());
+#endif
         }
 
         if (_players.TryAdd(zdo.m_uid, zdo))

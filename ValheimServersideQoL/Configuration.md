@@ -112,6 +112,7 @@
 |Summons|UnsummonDistanceMultiplier|1|From 0 to Infinity|Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning|
 |Summons|UnsummonLogoutTimeMultiplier|1|From 0 to Infinity|Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning|
 |Summons|MakeFriendly|False|True/False|True to make all summoned creatures (such as summoned trolls) friendly|
+|Summons|AllowReplacementSummon|False|True/False|True to allow the summoning of new summoned creatures (such as summoned trolls) to replace older ones when the limit exceeded|
 |Tames|MakeCommandable|False|True/False|True to make all tames commandable (like wolves)|
 |Tames|TamingProgressMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of taming progress messages to show|
 |Tames|GrowingProgressMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of growing progress messages to show|
