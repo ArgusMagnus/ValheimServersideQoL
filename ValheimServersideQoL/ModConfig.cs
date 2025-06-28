@@ -17,6 +17,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public TamesConfig Tames { get; } = new(ConfigFile, "B - Tames");
     public CreaturesConfig Creatures { get; } = new(ConfigFile, "B - Creatures");
     public SummonsConfig Summons { get; } = new(ConfigFile, "B - Summons");
+    public HostileSummonsConfig HostileSummons { get; } = new(ConfigFile, "B - Hostile Summons");
     public FireplacesConfig Fireplaces { get; } = new(ConfigFile, "B - Fireplaces");
     public ContainersConfig Containers { get; } = new(ConfigFile, "B - Containers");
     public SmeltersConfig Smelters { get; } = new(ConfigFile, "B - Smelters");
@@ -613,8 +614,13 @@ sealed record ModConfig(ConfigFile ConfigFile)
             new ConfigDescription("Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f,
             new ConfigDescription("Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
-        public ConfigEntry<bool> MakeFriendly { get; } = cfg.Bind(section, nameof(MakeFriendly), false, "True to make all summoned creatures (such as summoned trolls) friendly");
-        public ConfigEntry<bool> AllowReplacementSummon { get; } = cfg.Bind(section, nameof(AllowReplacementSummon), false, "True to allow the summoning of new summoned creatures (such as summoned trolls) to replace older ones when the limit exceeded");
+    }
+
+    public sealed class HostileSummonsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> AllowReplacementSummon { get; } = cfg.Bind(section, nameof(AllowReplacementSummon), false, "True to allow the summoning of new hostile summons (such as summoned trolls) to replace older ones when the limit exceeded");
+        public ConfigEntry<bool> MakeFriendly { get; } = cfg.Bind(section, nameof(MakeFriendly), false, "True to make all hostile summons (such as summoned trolls) friendly");
+        public ConfigEntry<bool> FollowSummoner { get; } = cfg.Bind(section, nameof(FollowSummoner), false, "True to make summoned creatures follow the summoner");
     }
 
     public sealed class TrapsConfig(ConfigFile cfg, string section)
@@ -715,6 +721,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public sealed class AdvancedConfig
     {
         public TamesConfig Tames { get; init; } = new();
+        public HostileSummonsConfig HostileSummons { get; init; } = new();
         public ContainerConfig Containers { get; init; } = new();
 
         public sealed class TamesConfig
@@ -748,6 +755,13 @@ sealed record ModConfig(ConfigFile ConfigFile)
                     //TakeIntoDungeon.Add(prefab.name, baseAI.m_pathAgentType is not Pathfinding.AgentType.TrollSize);
                 }
             }
+        }
+
+        public sealed class HostileSummonsConfig
+        {
+            public sealed record FollowSummonerConfig(float MoveInterval, float MaxDistance) { FollowSummonerConfig() : this(default, default) { } }
+
+            public FollowSummonerConfig FollowSummoners { get; init; } = new(2, 10);
         }
 
         public sealed class ContainerConfig
