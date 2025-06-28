@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Concurrent;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -16,8 +17,8 @@ sealed class TameableProcessor : Processor
         public DateTimeOffset LastMessage { get; set; }
     }
 
-    readonly Dictionary<ExtendedZDO, TameableState> _states = [];
-    public IReadOnlyCollection<ITameableState> Tames => _states.Values;
+    readonly ConcurrentDictionary<ExtendedZDO, TameableState> _states = [];
+    public IReadOnlyCollection<ITameableState> Tames => (IReadOnlyCollection<ITameableState>)_states.Values;
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
@@ -54,8 +55,8 @@ sealed class TameableProcessor : Processor
             {
                 if (!_states.TryGetValue(zdo, out var state))
                 {
-                    _states.Add(zdo, state = new(zdo));
-                    zdo.Destroyed += x => _states.Remove(x);
+                    _states.TryAdd(zdo, state = new(zdo));
+                    zdo.Destroyed += x => _states.Remove(x, out _);
                 }
                 state.IsTamed = true;
             }
@@ -71,8 +72,8 @@ sealed class TameableProcessor : Processor
             {
                 if (!_states.TryGetValue(zdo, out var state))
                 {
-                    _states.Add(zdo, state = new(zdo));
-                    zdo.Destroyed += x => _states.Remove(x);
+                    _states.TryAdd(zdo, state = new(zdo));
+                    zdo.Destroyed += x => _states.Remove(x, out _);
                 }
 
                 if ((DateTimeOffset.UtcNow - state.LastMessage) > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))

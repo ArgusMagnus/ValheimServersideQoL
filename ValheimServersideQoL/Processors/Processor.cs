@@ -456,7 +456,7 @@ abstract class Processor
 
         public static void SetTamed(ExtendedZDO character, bool tamed)
         {
-            character.AssertIsAny<Humanoid, Character>();
+            character.AssertIs<Character>();
 
             /// <see cref="Character.SetTamed(bool)"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_SetTamed", [tamed]);

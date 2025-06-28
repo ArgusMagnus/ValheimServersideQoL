@@ -7,6 +7,7 @@ sealed class PlayerProcessor : Processor
     sealed class PlayerState
     {
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
+        public Vector3? InitialInInteriorPosition { get; set; }
     }
 
     readonly Dictionary<ExtendedZDO, PlayerState> _playerStates = [];
@@ -316,6 +317,12 @@ sealed class PlayerProcessor : Processor
             return false;
         }
 
+        if (!_playerStates.TryGetValue(zdo, out var state))
+        {
+            _playerStates.Add(zdo, state = new());
+            zdo.Destroyed += x => _playerStates.Remove(x);
+        }
+
         if (_players.TryAdd(zdo.m_uid, zdo))
         {
             zdo.Destroyed += OnZdoDestroyed;
@@ -335,8 +342,6 @@ sealed class PlayerProcessor : Processor
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
         {
-            if (!_playerStates.TryGetValue(zdo, out var state))
-                _playerStates.Add(zdo, state = new());
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
             {
@@ -388,6 +393,11 @@ sealed class PlayerProcessor : Processor
         if (!Config.Tames.TeleportFollow.Value && !Config.Summons.TakeIntoDungeons.Value)
             return false;
 
+        if (!Character.InInterior(zdo.GetPosition()))
+            state.InitialInInteriorPosition = null;
+        else if (state.InitialInInteriorPosition is null)
+            state.InitialInInteriorPosition = zdo.GetPosition();
+
         var playerName = zdo.Vars.GetPlayerName();
         var playerZone = ZoneSystem.GetZone(zdo.GetPosition());
 
@@ -397,29 +407,34 @@ sealed class PlayerProcessor : Processor
                 continue;
 
             var tameZone = ZoneSystem.GetZone(tameState.ZDO.GetPosition());
-            if (!ShouldTeleport(playerZone, tameZone, zdo, tameState.ZDO))
+            if (!ShouldTeleport(playerZone, tameZone, zdo, tameState.ZDO, state))
                 continue;
 
             /// <see cref="TeleportWorld.Teleport"/>
+            var targetPos = zdo.GetPosition();
             var direction = zdo.GetRotation() * Vector3.forward;
             var p = Config.Advanced.Tames.TeleportFollowPositioning;
-            direction = Quaternion.Euler(0, UnityEngine.Random.Range(-45f, 45f), 0) * direction * UnityEngine.Random.Range(p.MinDistXZ, p.MaxDistXZ);
-            var targetPos = zdo.GetPosition() + direction;
+            targetPos += Quaternion.Euler(0, UnityEngine.Random.Range(-p.HalfArcXZ, p.HalfArcXZ), 0) * direction * UnityEngine.Random.Range(p.MinDistXZ, p.MaxDistXZ);
             targetPos.y += UnityEngine.Random.Range(p.MinOffsetY, p.MaxOffsetY);
-            var owner = tameState.ZDO.GetOwner();
-            tameState.ZDO.ClaimOwnershipInternal();
             tameState.ZDO.SetPosition(targetPos);
-            tameState.ZDO.SetOwnerInternal(owner);
+            tameState.ZDO.Recreate();
         }
 
         return false; 
     }
 
-    bool ShouldTeleport(in Vector2i playerZone, in Vector2i tameZone, ExtendedZDO player, ExtendedZDO tame)
+    bool ShouldTeleport(in Vector2i playerZone, in Vector2i tameZone, ExtendedZDO player, ExtendedZDO tame, PlayerState state)
     {
         if (Config.Summons.TakeIntoDungeons.Value && tame.PrefabInfo.Tameable is { Tameable.m_levelUpOwnerSkill: not Skills.SkillType.None }
             && Character.InInterior(player.GetPosition()) != Character.InInterior(tame.GetPosition()))
-            return true;
+        {
+            if (state.InitialInInteriorPosition is null)
+                return true;
+            // Workaround because the player position/rotation is not correctly updated until the player moves a bit after entering a dungeon
+            if (Utils.DistanceXZ(state.InitialInInteriorPosition.Value, player.GetPosition()) > 0.5f)
+                return true;
+            return false;
+        }
 
         if (Config.Tames.TeleportFollow.Value && !Character.InInterior(player.GetPosition()))
             return !ZNetScene.InActiveArea(tameZone, playerZone);

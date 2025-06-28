@@ -29,13 +29,4 @@ static class ExtensionMethods
             throw new ArgumentException();
 #endif
     }
-
-    [Conditional("DEBUG")]
-    public static void AssertIsAny<T1, T2>(this ExtendedZDO zdo) where T1 : MonoBehaviour where T2 : MonoBehaviour
-    {
-#if DEBUG
-        if (zdo.PrefabInfo.Prefab.GetComponentInChildren<T1>() is null && zdo.PrefabInfo.Prefab.GetComponentInChildren<T2>() is null)
-            throw new ArgumentException();
-#endif
-    }
 }

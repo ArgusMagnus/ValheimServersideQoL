@@ -718,8 +718,11 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
         public sealed class TamesConfig
         {
-            public sealed record TeleportFollowPositioningConfig(float MinDistXZ, float MaxDistXZ, float MinOffsetY, float MaxOffsetY) { TeleportFollowPositioningConfig() : this(default, default, default, default) { } }
-            public TeleportFollowPositioningConfig TeleportFollowPositioning { get; init; } = new(2, 4, 0, 1);
+            public TeleportFollowPositioningConfig TeleportFollowPositioning { get; init; } = new(2, 4, 0, 1, 45);
+
+            public sealed record TeleportFollowPositioningConfig(
+                float MinDistXZ, float MaxDistXZ, float MinOffsetY, float MaxOffsetY, float HalfArcXZ)
+            { TeleportFollowPositioningConfig() : this(default, default, default, default, default) { } }
         }
 
         public sealed class ContainerConfig
