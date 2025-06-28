@@ -109,7 +109,6 @@
 |Smelters|FeedFromContainersLeaveAtLeastOre|1||Minimum amout of ore to leave in a container|
 |Smelters|OreOrFuelAddedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when ore or fuel is added to a smelter|
 |Smelters|CapacityMultiplier|1||Multiply a smelter's ore/fuel capacity by this factor|
-|Summons|TakeIntoDungeons|False|True/False|True to take your summons into (and out of) dungeons with you. This only affects summons that are friendly by default ('MakeFriendly' has on effect on this setting)|
 |Summons|UnsummonDistanceMultiplier|1|From 0 to Infinity|Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning|
 |Summons|UnsummonLogoutTimeMultiplier|1|From 0 to Infinity|Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning|
 |Summons|MakeFriendly|False|True/False|True to make all summoned creatures (such as summoned trolls) friendly|
@@ -118,6 +117,7 @@
 |Tames|GrowingProgressMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of growing progress messages to show|
 |Tames|AlwaysFed|False|True/False|True to make tames always fed (not hungry)|
 |Tames|TeleportFollow|False|True/False|True to teleport following tames to the players location if the player gets too far away from them|
+|Tames|TakeIntoDungeons|False|True/False|True to take following tames into (and out of) dungeons with you|
 |Traders|AlwaysUnlockBogWitchScytheHandle|False|True/False|Remove the progression requirements for buying Scythe Handle from |
 |Traders|AlwaysUnlockBogWitchMushroomBzerker|False|True/False|Remove the progression requirements for buying Toadstool from |
 |Traders|AlwaysUnlockBogWitchFragrantBundle|False|True/False|Remove the progression requirements for buying Fragrant Bundle from |

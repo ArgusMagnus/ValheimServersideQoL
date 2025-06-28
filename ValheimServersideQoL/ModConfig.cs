@@ -90,6 +90,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
 
         public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), false, "True to teleport following tames to the players location if the player gets too far away from them");
+        public ConfigEntry<bool> TakeIntoDungeons { get; } = cfg.Bind(section, nameof(TakeIntoDungeons), false, $"True to take following tames into (and out of) dungeons with you");
     }
 
     public sealed class CreaturesConfig(ConfigFile cfg, string section)
@@ -608,7 +609,6 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class SummonsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> TakeIntoDungeons { get; } = cfg.Bind(section, nameof(TakeIntoDungeons), false, $"True to take your summons into (and out of) dungeons with you. This only affects summons that are friendly by default ('{nameof(MakeFriendly)}' has on effect on this setting)");
         public ConfigEntry<float> UnsummonDistanceMultiplier { get; } = cfg.Bind(section, nameof(UnsummonDistanceMultiplier), 1f,
             new ConfigDescription("Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f,
@@ -719,10 +719,34 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public sealed class TamesConfig
         {
             public TeleportFollowPositioningConfig TeleportFollowPositioning { get; init; } = new(2, 4, 0, 1, 45);
-
             public sealed record TeleportFollowPositioningConfig(
                 float MinDistXZ, float MaxDistXZ, float MinOffsetY, float MaxOffsetY, float HalfArcXZ)
             { TeleportFollowPositioningConfig() : this(default, default, default, default, default) { } }
+
+            Dictionary<string, bool> TeleportFollow { get; init; } = [];
+            IReadOnlyList<int>? _teleportFollowExcluded;
+            [YamlIgnore]
+            public IReadOnlyList<int> TeleportFollowExcluded => _teleportFollowExcluded ??= [.. TeleportFollow
+                .Where(x => !x.Value).Select(x => x.Key.GetStableHashCode())];
+
+            Dictionary<string, bool> TakeIntoDungeon { get; init; } = [];
+            IReadOnlyList<int>? _takeIntoDungeonExcluded;
+            [YamlIgnore]
+            public IReadOnlyList<int> TakeIntoDungeonExcluded => _takeIntoDungeonExcluded ??= [.. TakeIntoDungeon
+                .Where(x => !x.Value).Select(x => x.Key.GetStableHashCode())];
+
+            public TamesConfig()
+            {
+                foreach (var prefab in ZNetScene.instance.m_prefabs)
+                {
+                    if (prefab.GetComponent<Tameable>() is not { } || prefab.GetComponent<BaseAI>() is not { } /*baseAI*/)
+                        continue;
+
+                    TeleportFollow.Add(prefab.name, true);
+                    TakeIntoDungeon.Add(prefab.name, true);
+                    //TakeIntoDungeon.Add(prefab.name, baseAI.m_pathAgentType is not Pathfinding.AgentType.TrollSize);
+                }
+            }
         }
 
         public sealed class ContainerConfig

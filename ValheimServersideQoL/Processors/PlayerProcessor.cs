@@ -390,7 +390,7 @@ sealed class PlayerProcessor : Processor
             }
         }
 
-        if (!Config.Tames.TeleportFollow.Value && !Config.Summons.TakeIntoDungeons.Value)
+        if (!Config.Tames.TeleportFollow.Value && !Config.Tames.TakeIntoDungeons.Value)
             return false;
 
         if (!Character.InInterior(zdo.GetPosition()))
@@ -425,9 +425,11 @@ sealed class PlayerProcessor : Processor
 
     bool ShouldTeleport(in Vector2i playerZone, in Vector2i tameZone, ExtendedZDO player, ExtendedZDO tame, PlayerState state)
     {
-        if (Config.Summons.TakeIntoDungeons.Value && tame.PrefabInfo.Tameable is { Tameable.m_levelUpOwnerSkill: not Skills.SkillType.None }
-            && Character.InInterior(player.GetPosition()) != Character.InInterior(tame.GetPosition()))
+        if (Config.Tames.TakeIntoDungeons.Value && Character.InInterior(player.GetPosition()) != Character.InInterior(tame.GetPosition()))
         {
+            if (Config.Advanced.Tames.TakeIntoDungeonExcluded.Contains(tame.GetPrefab()))
+                return false;
+
             if (state.InitialInInteriorPosition is null)
                 return true;
             // Workaround because the player position/rotation is not correctly updated until the player moves a bit after entering a dungeon
@@ -436,8 +438,12 @@ sealed class PlayerProcessor : Processor
             return false;
         }
 
-        if (Config.Tames.TeleportFollow.Value && !Character.InInterior(player.GetPosition()))
-            return !ZNetScene.InActiveArea(tameZone, playerZone);
+        if (Config.Tames.TeleportFollow.Value && !Character.InInterior(player.GetPosition()) && !ZNetScene.InActiveArea(tameZone, playerZone))
+        {
+            if (Config.Advanced.Tames.TeleportFollowExcluded.Contains(tame.GetPrefab()))
+                return false;
+            return true;
+        }
 
         return false;
     }
