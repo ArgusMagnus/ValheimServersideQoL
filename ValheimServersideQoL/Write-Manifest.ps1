@@ -5,6 +5,14 @@ param (
     [Parameter(Mandatory=$true)][string]$Version
 )
 
+if ($VersionNumber -ne $Version) {
+    $versionParts = $VersionNumber.Split('.')
+    $patch = $versionParts[2]
+    $beta = ($Version -split '-beta.0.')[1].PadLeft(3, '0')
+    $versionParts[2] = "$patch$beta"
+    $VersionNumber = $versionParts -join '.'
+}
+
 $manifest = @{
     name = 'ServersideQoL'
     version_number = $VersionNumber

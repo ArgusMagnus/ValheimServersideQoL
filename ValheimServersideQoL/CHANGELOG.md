@@ -1,4 +1,4 @@
-### v1.1.0 (BETA)
+### v1.1.0 (BETA 1)
 - New features:
     - Add config option to limit max container pickup range configured by chest sign [#76](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/76)
     - Take tamed creatures into dungeons [#95](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/95)
