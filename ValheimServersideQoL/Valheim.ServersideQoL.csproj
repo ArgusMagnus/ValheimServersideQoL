@@ -9,6 +9,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
 	<MinVerTagPrefix>v</MinVerTagPrefix>
+	<MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
     <ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
   </PropertyGroup>
 	
@@ -112,9 +113,6 @@
     <None Update="icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="manifest.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="README.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -158,7 +156,7 @@ partial class Main
 
   <Target Name="CreatePackage" AfterTargets="AfterBuild">	
 	<Exec Command="powershell -ExecutionPolicy ByPass -Command &quot;Add-Content -LiteralPath '$(OutDir)README.md' -Encoding UTF8 -Value (Get-Content Configuration.md -Encoding UTF8)&quot;" />	  
-    <Exec Command="powershell -ExecutionPolicy ByPass -File Update-Manifest.ps1 -Path $(OutDir)manifest.json -Version $(Version) -VersionNumber $(VersionNumber)" />
+    <Exec Command="powershell -ExecutionPolicy ByPass -File Write-Manifest.ps1 -Path $(OutDir)manifest.json -Version $(Version) -VersionNumber $(VersionNumber)" />
     <ZipDirectory SourceDirectory="$(OutDir)" DestinationFile="$(OutDir)..\$(TargetName).zip" Overwrite="true" />
   </Target>
 
