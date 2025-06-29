@@ -7,7 +7,7 @@ sealed class PlayerSpawnedProcessor : Processor
     readonly Dictionary<string, SpawnInfo> _spawnInfo = [];
     readonly Dictionary<int, List<ExtendedZDO>> _spawnedByPrefab = [];
     readonly Dictionary<ExtendedZDO, SpawnedState> _spawnedStates = [];
-    ZDOID _lastSummoningPlayer = ZDOID.None;
+    ExtendedZDO? _lastSummoningPlayer;
 
     sealed class SpawnedState
     {
@@ -50,6 +50,9 @@ sealed class PlayerSpawnedProcessor : Processor
                     list.Add(zdo);
                     zdo.Destroyed += x => list.Remove(x);
                 }
+
+                foreach (var list in _spawnedByPrefab.Values)
+                    SortBySpawnTime(list);
             }
         }
 
@@ -57,13 +60,16 @@ sealed class PlayerSpawnedProcessor : Processor
             Config.HostileSummons.AllowReplacementSummon.Value || Config.HostileSummons.FollowSummoner.Value);
     }
 
+    static void SortBySpawnTime(List<ExtendedZDO> list)
+    {
+        list.Sort(static (a, b) => (int)(a.Vars.GetSpawnTime().Ticks - b.Vars.GetSpawnTime().Ticks));
+    }
+
     /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
     void OnZSyncAnimationSetTrigger(ZRoutedRpc.RoutedRPCData data, string name)
     {
-        if (!_spawnInfo.TryGetValue(name, out var spawnInfo))
+        if (!_spawnInfo.TryGetValue(name, out var spawnInfo) || !Instance<PlayerProcessor>().Players.TryGetValue(data.m_targetZDO, out _lastSummoningPlayer))
             return;
-
-        _lastSummoningPlayer = data.m_targetZDO;
 
         if (!Config.HostileSummons.AllowReplacementSummon.Value)
             return;
@@ -73,10 +79,15 @@ sealed class PlayerSpawnedProcessor : Processor
             if (list.Count < spawnInfo.MaxSpawned)
                 continue;
 
-            if (list[0].GetOwner() == data.m_senderPeerID)
-                RPC.Damage(list[0], new(float.MaxValue) { m_attacker = _lastSummoningPlayer });
+            if (list[0].GetOwner() == data.m_senderPeerID &&
+                ZNetScene.InActiveArea(ZoneSystem.GetZone(list[0].GetPosition()), ZoneSystem.GetZone(_lastSummoningPlayer.GetPosition())))
+            {
+                RPC.Damage(list[0], new(float.MaxValue) { m_attacker = _lastSummoningPlayer.m_uid });
+            }
             else
+            {
                 list[0].Destroy(); // does not show death animation, but is faster and therefore more reliable
+            }
             RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, spawnInfo.MaxSummonReached);
         }
     }
@@ -99,6 +110,7 @@ sealed class PlayerSpawnedProcessor : Processor
                 if (!list.Contains(zdo))
                 {
                     list.Add(zdo);
+                    SortBySpawnTime(list);
                     zdo.Destroyed += x => list.Remove(x);
                 }
             }
@@ -109,7 +121,7 @@ sealed class PlayerSpawnedProcessor : Processor
             var playerName = zdo.Vars.GetFollow();
             if (!string.IsNullOrEmpty(playerName))
                 state.FollowTarget = Instance<PlayerProcessor>().Players.Values.FirstOrDefault(x => x.Vars.GetPlayerName() == playerName);
-            state.FollowTarget ??= Instance<PlayerProcessor>().Players.TryGetValue(_lastSummoningPlayer, out var player) ? player : null;
+            state.FollowTarget ??= _lastSummoningPlayer;
             if (state.FollowTarget is not null && string.IsNullOrEmpty(playerName))
                 zdo.Vars.SetFollow(playerName = state.FollowTarget.Vars.GetPlayerName());
         }
@@ -134,8 +146,8 @@ sealed class PlayerSpawnedProcessor : Processor
 
             UnregisterZdoProcessor = false;
             if (state.FollowTarget is not null &&
-                (DateTimeOffset.UtcNow - state.LastPatrolPointUpdate) > TimeSpan.FromSeconds(cfg.MoveInterval) &&
-                Utils.DistanceXZ(zdo.GetPosition(), state.FollowTarget.GetPosition()) > cfg.MaxDistance)
+                (DateTimeOffset.UtcNow - state.LastPatrolPointUpdate) > TimeSpan.FromSeconds(cfg.MoveInterval / 2) &&
+                Utils.DistanceXZ(zdo.GetPosition(), state.FollowTarget.GetPosition()) > cfg.MaxDistance / 2)
             {
                 state.LastPatrolPointUpdate = DateTimeOffset.UtcNow;
                 var rev = zdo.DataRevision;

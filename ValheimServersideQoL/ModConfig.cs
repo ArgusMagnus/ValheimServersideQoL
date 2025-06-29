@@ -761,7 +761,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         {
             public sealed record FollowSummonerConfig(float MoveInterval, float MaxDistance) { FollowSummonerConfig() : this(default, default) { } }
 
-            public FollowSummonerConfig FollowSummoners { get; init; } = new(2, 10);
+            public FollowSummonerConfig FollowSummoners { get; init; } = new(4, 20);
         }
 
         public sealed class ContainerConfig
