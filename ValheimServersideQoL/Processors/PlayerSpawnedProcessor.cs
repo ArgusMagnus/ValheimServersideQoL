@@ -73,7 +73,10 @@ sealed class PlayerSpawnedProcessor : Processor
             if (list.Count < spawnInfo.MaxSpawned)
                 continue;
 
-            RPC.Damage(list[0], new(float.MaxValue) { m_attacker = _lastSummoningPlayer });
+            if (list[0].GetOwner() == data.m_senderPeerID)
+                RPC.Damage(list[0], new(float.MaxValue) { m_attacker = _lastSummoningPlayer });
+            else
+                list[0].Destroy(); // does not show death animation, but is faster and therefore more reliable
             RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, spawnInfo.MaxSummonReached);
         }
     }

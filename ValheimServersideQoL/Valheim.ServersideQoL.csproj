@@ -11,6 +11,11 @@
 	<MinVerTagPrefix>v</MinVerTagPrefix>
     <ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
   </PropertyGroup>
+	
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>	  
+  </PropertyGroup>
 
   <ItemGroup>
 	<PackageReference Include="MinVer" Version="6.0.0" PrivateAssets="All" />
