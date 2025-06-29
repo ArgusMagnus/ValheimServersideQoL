@@ -1,3 +1,11 @@
+### v1.1.0 (BETA)
+- New features:
+    - Add config option to limit max container pickup range configured by chest sign [#76](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/76)
+    - Take tamed creatures into dungeons [#95](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/95)
+    - Make all hostile summoned creatures friendly [#92](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/92)
+    - Unsummon the oldest troll when hitting the limit with Trollstav (behaves more like Dead Raiser) [#96](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/96)
+    - Make hostile summons (like summoned troll) follow the summoner [#97](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/97)
+
 ### v1.0.0
 - Portal Hub: Distinguish between portals that are connected to regular portals and those that are connected to stone portals
 - Fixed: Chest signs disappear after config changes [#83](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/83)
