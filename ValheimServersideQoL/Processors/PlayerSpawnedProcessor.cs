@@ -84,7 +84,7 @@ sealed class PlayerSpawnedProcessor : Processor
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
-        if (zdo.PrefabInfo.Humanoid is not { Humanoid.m_faction: Character.Faction.PlayerSpawned })
+        if (zdo.PrefabInfo.Humanoid is not { Humanoid.m_faction: Character.Faction.PlayerSpawned } || zdo.PrefabInfo.Tameable is { Tameable.m_startsTamed: true })
             return false;
 
         if (!_spawnedStates.TryGetValue(zdo, out var state))
@@ -121,7 +121,7 @@ sealed class PlayerSpawnedProcessor : Processor
             return true;
         }
 
-        if (Config.HostileSummons.FollowSummoner.Value)
+        if (Config.HostileSummons.FollowSummoner.Value && zdo.PrefabInfo.Tameable is null)
         {
             var cfg = Config.Advanced.HostileSummons.FollowSummoners;
             var fields = zdo.Fields<MonsterAI>();
