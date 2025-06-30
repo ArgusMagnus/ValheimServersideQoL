@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-sealed class PortalProcessor : Processor
+sealed class PortalHubProcessor : Processor
 {
     bool _destroyNewPortals;
     readonly HashSet<ExtendedZDO> _initialPortals = [];
