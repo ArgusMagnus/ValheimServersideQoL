@@ -1,10 +1,8 @@
 ﻿using BepInEx.Configuration;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.ObjectFactories;
 using YamlDotNet.Serialization.TypeInspectors;
 
 namespace Valheim.ServersideQoL;
@@ -34,6 +32,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public PortalHubConfig PortalHub { get; } = new(ConfigFile, "B - Portal Hub");
     public WorldConfig World { get; } = new(ConfigFile, "B - World");
     public TrophySpawnerConfig TrophySpawner { get; } = new(ConfigFile, "B - Trophy Spawner");
+    public NonTeleportableItemsConfig NonTeleportableItems { get; } = new(ConfigFile, "B - Non-teleportable Items");
 
     public WorldModifiersConfig WorldModifiers { get; } = new(ConfigFile, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(ConfigFile, "D - Global Keys");
@@ -630,6 +629,37 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<float> SelfDamageMultiplier { get; } = cfg.Bind(section, nameof(SelfDamageMultiplier), 1f,
             new ConfigDescription("Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
         public ConfigEntry<bool> AutoRearm { get; } = cfg.Bind(section, nameof(AutoRearm), false, "True to automatically rearm traps when they are triggered");
+    }
+
+    public sealed class NonTeleportableItemsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<float> PortalRange { get; } = cfg.Bind(section, nameof(PortalRange), 4f, "When a player enters this range around a portal, non-teleportable items (for which you set boss keys below) might temporarily be taken from their inventory.");
+
+        public sealed record Entry(ItemDrop ItemDrop, ConfigEntry<string> Config);
+
+        public IReadOnlyList<Entry> Entries { get; } = new Func<IReadOnlyList<Entry>>(() =>
+        {
+            HashSet<string> keys = [""];
+            foreach (var prefab in ZNetScene.instance.m_prefabs)
+            {
+                if (prefab.GetComponent<Character>() is { m_boss: true, m_defeatSetGlobalKey.Length: > 0 } character)
+                    keys.Add(character.m_defeatSetGlobalKey);
+            }
+
+            var acceptableValues = new AcceptableValueList<string>([.. keys]);
+
+            List<Entry> result = [];
+            foreach (var item in ObjectDB.instance.m_items)
+            {
+                if (item.GetComponent<ItemDrop>() is not { m_itemData.m_shared.m_teleportable: false } itemDrop)
+                    continue;
+
+                result.Add(new(itemDrop, cfg.Bind(section, item.name, "", new ConfigDescription(
+                    $"Key of the boss that will allow '{Localization.instance.Localize(itemDrop.m_itemData.m_shared.m_name)}' to be teleported when defeated",
+                    acceptableValues))));
+            }
+            return result;
+        }).Invoke();
     }
 
     internal sealed class AcceptableEnum<T> : AcceptableValueBase

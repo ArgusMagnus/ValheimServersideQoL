@@ -4,6 +4,7 @@ sealed class PortalProcessor : Processor
 {
     bool _destroyNewPortals;
     readonly HashSet<ExtendedZDO> _initialPortals = [];
+    readonly List<ItemDrop> _teleportableItems = [];
 
     public override void Initialize(bool firstTime)
     {
@@ -21,6 +22,19 @@ sealed class PortalProcessor : Processor
             {
                 _initialPortals.Add(zdo);
                 zdo.Destroyed += OnInitialPortalDestroyed;
+            }
+        }
+
+        _teleportableItems.Clear();
+        if (!ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
+        {
+            foreach (var entry in Config.NonTeleportableItems.Entries)
+            {
+                if (string.IsNullOrEmpty(entry.Config.Value))
+                    continue;
+
+                if (ZoneSystem.instance.GetGlobalKey(entry.ItemDrop.name))
+                    _teleportableItems.Add(entry.ItemDrop);
             }
         }
     }
@@ -47,6 +61,19 @@ sealed class PortalProcessor : Processor
 
             UnregisterZdoProcessor = false;
             return false;
+        }
+
+        if (_teleportableItems.Count is 0 || zdo.Fields<TeleportWorld>().GetBool(x => x.m_allowAllItems))
+            return false;
+
+        var rangeSqr = Config.NonTeleportableItems.PortalRange.Value;
+        rangeSqr *= rangeSqr;
+        foreach (var peer in peers)
+        {
+            if (Utils.DistanceSqr(zdo.GetPosition(), peer.m_refPos) > rangeSqr)
+                continue;
+
+            // todo: take items in _teleportableItems from inventory and give back after the peer leaves the range
         }
 
         return false;
