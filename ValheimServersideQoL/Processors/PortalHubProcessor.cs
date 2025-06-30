@@ -5,9 +5,6 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PortalHubProcessor : Processor
 {
-    bool _destroyNewPortals;
-    readonly HashSet<ExtendedZDO> _initialPortals = [];
-
     sealed class PortalState
     {
         public required string Tag { get; set; }
@@ -71,26 +68,6 @@ sealed class PortalHubProcessor : Processor
 
         if (changed || !_hubEnabled)
             UpdatePortalHub();
-
-        foreach (var zdo in _initialPortals)
-            zdo.Destroyed -= OnInitialPortalDestroyed;
-        _initialPortals.Clear();
-
-        _destroyNewPortals = Config.GlobalsKeys.NoPortalsPreventsContruction.Value && ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoPortals);
-        if (_destroyNewPortals)
-        {
-            ZoneSystem.instance.RemoveGlobalKey(GlobalKeys.NoPortals);
-            foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
-            {
-                _initialPortals.Add(zdo);
-                zdo.Destroyed += OnInitialPortalDestroyed;
-            }
-        }
-    }
-
-    void OnInitialPortalDestroyed(ExtendedZDO zdo)
-    {
-        _initialPortals.Remove(zdo);
     }
 
     void OnKnownPortalDestroyed(ExtendedZDO zdo)
@@ -109,20 +86,6 @@ sealed class PortalHubProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        long? creator = null;
-        if (_destroyNewPortals && zdo.PrefabInfo.TeleportWorld is not null && !_initialPortals.Contains(zdo) && (creator = zdo.Vars.GetCreator()) != Main.PluginGuidHash)
-        {
-            RPC.Remove(zdo);
-
-            /// <see cref="Player.TryPlacePiece(Piece)"/>
-            var owner = zdo.GetOwner();
-            if (owner is not 0)
-                RPC.ShowMessage(owner, MessageHud.MessageType.Center, "$msg_nobuildzone");
-
-            UnregisterZdoProcessor = true;
-            return false;
-        }
-
         if (!_hubEnabled)
         {
             UnregisterZdoProcessor = true;
@@ -137,7 +100,7 @@ sealed class PortalHubProcessor : Processor
             }
             return false;
         }
-        else if (zdo.PrefabInfo.TeleportWorld is null || (creator ??= zdo.Vars.GetCreator()) == Main.PluginGuidHash)
+        else if (zdo.PrefabInfo.TeleportWorld is null || zdo.Vars.GetCreator() == Main.PluginGuidHash)
         {
             UnregisterZdoProcessor = true;
             return false;
