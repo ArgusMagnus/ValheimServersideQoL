@@ -282,6 +282,7 @@ abstract class Processor
         public static int ReinforcedChest { get; } = PrefabNames.ReinforcedChest.GetStableHashCode();
         public static int WoodChest { get; } = PrefabNames.WoodChest.GetStableHashCode();
         public static int Incinerator { get; } = PrefabNames.Incinerator.GetStableHashCode();
+        public static int PrivateChest { get; } = "piece_chest_private".GetStableHashCode();
         public static int StandingIronTorch { get; } = "piece_groundtorch".GetStableHashCode();
         public static int StandingIronTorchGreen { get; } = "piece_groundtorch_green".GetStableHashCode();
         public static int StandingIronTorchBlue { get; } = "piece_groundtorch_blue".GetStableHashCode();

@@ -1,3 +1,6 @@
+### v1.1.0 (BETA 2)
+- New features: Added options to allow the teleportation of non-teleportable items after bosses have been defeated [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99)
+
 ### v1.1.0 (BETA 1)
 - New features:
     - Add config option to limit max container pickup range configured by chest sign [#76](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/76)

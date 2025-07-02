@@ -271,6 +271,8 @@ sealed class PlayerProcessor : Processor
             zdo.Inventory.Save();
     }
 
+    void OnStackContainerDestroyed(ExtendedZDO zdo) => _stackContainers.Remove(zdo);
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (_stackContainers.TryGetValue(zdo, out var stackContainerState))
@@ -297,8 +299,10 @@ sealed class PlayerProcessor : Processor
                 }
                 zdo.Inventory.Save();
                 stackContainerState.Stacked = true;
+                zdo.Destroyed -= OnStackContainerDestroyed;
                 _stackContainers.Remove(zdo);
-                _stackContainers.Add(RecreatePiece(zdo), stackContainerState);
+                _stackContainers.Add(zdo = RecreatePiece(zdo), stackContainerState);
+                zdo.Destroyed += OnStackContainerDestroyed;
             }
             else if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
             {
@@ -375,7 +379,7 @@ sealed class PlayerProcessor : Processor
                     {
                         var container = PlacePiece(zdo.GetPosition() with { y = -1000 }, Prefabs.WoodChest, 0);
                         var h = Math.Max(4, items.Count);
-                        container.Fields<Container>(true).Set(x => x.m_width, 8).Set(x => x.m_height, h);
+                        container.Fields<Container>().Set(x => x.m_width, 8).Set(x => x.m_height, h);
                         int y = 0;
                         foreach (var item in items.Values)
                         {
@@ -387,7 +391,7 @@ sealed class PlayerProcessor : Processor
                         container.Inventory.Save();
                         container.SetOwner(zdo.GetOwner());
                         _stackContainers.Add(container, new(zdo));
-                        container.Destroyed += x => _stackContainers.Remove(x);
+                        container.Destroyed += OnStackContainerDestroyed;
                         RPC.StackResponse(container, true);
                     }
                 }

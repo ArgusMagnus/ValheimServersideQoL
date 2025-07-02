@@ -14,7 +14,7 @@ static class ExtensionMethods
     public static int GetLoadedArea(this ZoneSystem instance) => instance.m_activeArea;
 
     [Conditional("DEBUG")]
-    public static void DevLog(this ManualLogSource logger, string text, LogLevel logLevel = LogLevel.Info)
+    public static void DevLog(this ManualLogSource logger, string text, LogLevel logLevel = LogLevel.Warning)
     {
 #if DEBUG
         logger.Log(logLevel, text);
