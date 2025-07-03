@@ -87,6 +87,7 @@
 |Map Tables|UpdatedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a map table is updated|
 |Non-teleportable Items|Enable|False|True/False|True to enable the non-teleportable items feature|
 |Non-teleportable Items|PortalRange|4||When a player enters this range around a portal, non-teleportable items (for which you set boss keys below) might temporarily be taken from their inventory|
+|Non-teleportable Items|MessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a non-teleportable item is taken from/returned to a player's inventory|
 |Non-teleportable Items|BlackMetal|defeated_goblinking|, defeated_bonemass, defeated_dragon, defeated_eikthyr, defeated_fader, defeated_gdking, defeated_goblinking, defeated_hive, defeated_queen|Key of the boss that will allow 'Black Metal' to be teleported when defeated|
 |Non-teleportable Items|BlackMetalScrap|defeated_goblinking|, defeated_bonemass, defeated_dragon, defeated_eikthyr, defeated_fader, defeated_gdking, defeated_goblinking, defeated_hive, defeated_queen|Key of the boss that will allow 'Black Metal Scrap' to be teleported when defeated|
 |Non-teleportable Items|Bronze|defeated_gdking|, defeated_bonemass, defeated_dragon, defeated_eikthyr, defeated_fader, defeated_gdking, defeated_goblinking, defeated_hive, defeated_queen|Key of the boss that will allow 'Bronze' to be teleported when defeated|

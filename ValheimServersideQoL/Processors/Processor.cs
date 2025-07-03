@@ -298,6 +298,7 @@ abstract class Processor
 
     protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
     {
+        Main.Instance.Logger.DevLog($"ShowMessage: {message}", LogLevel.Info);
         switch (type)
         {
             case MessageTypes.TopLeftNear:

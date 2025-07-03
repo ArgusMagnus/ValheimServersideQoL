@@ -636,6 +636,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
     {
         public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to enable the non-teleportable items feature");
         public ConfigEntry<float> PortalRange { get; } = cfg.Bind(section, nameof(PortalRange), 4f, "When a player enters this range around a portal, non-teleportable items (for which you set boss keys below) might temporarily be taken from their inventory");
+        public ConfigEntry<MessageTypes> MessageType { get; } = cfg.Bind(section, nameof(MessageType), MessageTypes.None,
+            new ConfigDescription("Type of message to show when a non-teleportable item is taken from/returned to a player's inventory", AcceptableEnum<MessageTypes>.Default));
 
         public sealed record Entry(ItemDrop ItemDrop, ConfigEntry<string> Config);
 

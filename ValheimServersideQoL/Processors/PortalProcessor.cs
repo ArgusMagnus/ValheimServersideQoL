@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static UnityEngine.Random;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -10,14 +11,16 @@ sealed class PortalProcessor : Processor
     readonly List<ItemDrop> _teleportableItems = [];
     readonly List<ContainerState> _containers = [];
 
-    sealed class ContainerState(ExtendedZDO container, ExtendedZDO player, ExtendedZDO portal)
+    sealed class ContainerState(ExtendedZDO container, Peer peer, ExtendedZDO player, ExtendedZDO portal)
     {
+        public Peer Peer { get; } = peer;
         public ExtendedZDO Container { get; set; } = container;
         public ExtendedZDO Player { get; } = player;
         public Vector3 InitialPosition { get; } = player.GetPosition();
         public long PlayerID { get; } = player.Vars.GetPlayerID();
         public Vector3 PortalPosition { get; } = portal.GetPosition();
         public bool Stacked { get; set; }
+        public DateTimeOffset LastMessageTime { get; set; }
     }
 
     public override void Initialize(bool firstTime)
@@ -102,7 +105,11 @@ sealed class PortalProcessor : Processor
                         ZNetScene.InActiveArea(ZoneSystem.GetZone(state.Container.GetPosition()), ZoneSystem.GetZone(state.Player.GetPosition())))
                     {
                         RPC.TakeAllResponse(state.Container, true);
-                        RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "Portal returned your items");
+                        if (DateTimeOffset.UtcNow - state.LastMessageTime > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
+                        {
+                            state.LastMessageTime = DateTimeOffset.UtcNow;
+                            ShowMessage([state.Peer], state.PortalPosition, "Portal returned your items", Config.NonTeleportableItems.MessageType.Value);
+                        }
                     }
                     else
                     {
@@ -131,7 +138,9 @@ sealed class PortalProcessor : Processor
                 state.Container.Destroyed -= OnContainerDestroyed;
                 state.Container = RecreatePiece(state.Container);
                 state.Container.Destroyed += OnContainerDestroyed;
-                RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, $"Portal took {count} items");
+                if (Config.NonTeleportableItems.MessageType.Value is not MessageTypes.CenterNear and not MessageTypes.CenterFar)
+                    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
+                ShowMessage([state.Peer], state.PortalPosition, $"Portal took {count} items", Config.NonTeleportableItems.MessageType.Value);
             }
             else if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) <= _rangeSqr)
             {
@@ -139,7 +148,7 @@ sealed class PortalProcessor : Processor
                     ZNetScene.InActiveArea(ZoneSystem.GetZone(state.Container.GetPosition()), ZoneSystem.GetZone(state.Player.GetPosition())))
                 {
                     RPC.StackResponse(state.Container, true);
-                    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "Portal is taking items for teleportation");
+                    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
                 }
                 else
                 {
@@ -182,10 +191,11 @@ sealed class PortalProcessor : Processor
         
         foreach (var peer in peers)
         {
-            if (Utils.DistanceSqr(zdo.GetPosition(), peer.m_refPos) > _rangeSqr || Instance<PlayerProcessor>().GetPeerCharacter(peer.m_uid) is not { } player)
+            if (Instance<PlayerProcessor>().GetPeerCharacter(peer.m_uid) is not { } player)
                 continue;
-
             if (_containers.Any(x => x.Player == player))
+                continue;
+            if (Utils.DistanceSqr(zdo.GetPosition(), player.GetPosition()) > _rangeSqr)
                 continue;
 
             var container = PlacePiece(player.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
@@ -202,10 +212,10 @@ sealed class PortalProcessor : Processor
             }
             container.Inventory.Save();
             container.SetOwner(peer.m_uid);
-            _containers.Add(new(container, player, zdo));
+            _containers.Add(new(container, peer, player, zdo));
             container.Destroyed += OnContainerDestroyed;
             RPC.StackResponse(container, true);
-            RPC.ShowMessage(peer, MessageHud.MessageType.Center, "Portal is taking items for teleportation");
+            RPC.ShowMessage(player.GetOwner(), MessageHud.MessageType.Center, "");
         }
 
         return false;
