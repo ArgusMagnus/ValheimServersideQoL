@@ -1,7 +1,12 @@
-### v1.1.0 (BETA 2)
-- New features: Added options to allow the teleportation of non-teleportable items after bosses have been defeated [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99)
+### v1.0.1025 (BETA)
+- Adjusted teleportation of non-teleportable items [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99):
+    - Add sensible default values to the config options and add a general `Enable` option
+    - Show messages when the items are taken/returned from/to the player
 
-### v1.1.0 (BETA 1)
+### v1.0.1024 (BETA)
+- New feature: Added options to allow the teleportation of non-teleportable items after bosses have been defeated [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99)
+
+### v1.0.1020 (BETA)
 - New features:
     - Add config option to limit max container pickup range configured by chest sign [#76](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/76)
     - Take tamed creatures into dungeons [#95](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/95)

@@ -40,7 +40,7 @@ sealed class PortalProcessor : Processor
         }
 
         _teleportableItems.Clear();
-        if (!ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
+        if (Config.NonTeleportableItems.Enable.Value && !ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
         {
             foreach (var entry in Config.NonTeleportableItems.Entries)
             {
@@ -51,8 +51,6 @@ sealed class PortalProcessor : Processor
                     _teleportableItems.Add(entry.ItemDrop);
             }
         }
-
-        Logger.DevLog($"Count: {_teleportableItems.Count}");
 
         _rangeSqr = Config.NonTeleportableItems.PortalRange.Value;
         _rangeSqr *= _rangeSqr;
@@ -103,8 +101,8 @@ sealed class PortalProcessor : Processor
                     if (state.Container.GetOwner() == state.Player.GetOwner() &&
                         ZNetScene.InActiveArea(ZoneSystem.GetZone(state.Container.GetPosition()), ZoneSystem.GetZone(state.Player.GetPosition())))
                     {
-                        Logger.DevLog($"Take all: {state.Container.GetPosition()} / {state.Player.GetPosition()}");
                         RPC.TakeAllResponse(state.Container, true);
+                        RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "Portal returned your items");
                     }
                     else
                     {
@@ -118,6 +116,7 @@ sealed class PortalProcessor : Processor
             }
             else if (state.Container.Inventory.Items.Any(x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
             {
+                int count = 0;
                 for (int k = state.Container.Inventory.Items.Count - 1; k >= 0; k--)
                 {
                     var item = state.Container.Inventory.Items[k];
@@ -125,12 +124,14 @@ sealed class PortalProcessor : Processor
                         continue;
                     if (--item.m_stack is 0)
                         state.Container.Inventory.Items.RemoveAt(k);
+                    count += item.m_stack;
                 }
                 state.Container.Inventory.Save();
                 state.Stacked = true;
                 state.Container.Destroyed -= OnContainerDestroyed;
                 state.Container = RecreatePiece(state.Container);
                 state.Container.Destroyed += OnContainerDestroyed;
+                RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, $"Portal took {count} items");
             }
             else if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) <= _rangeSqr)
             {
@@ -138,6 +139,7 @@ sealed class PortalProcessor : Processor
                     ZNetScene.InActiveArea(ZoneSystem.GetZone(state.Container.GetPosition()), ZoneSystem.GetZone(state.Player.GetPosition())))
                 {
                     RPC.StackResponse(state.Container, true);
+                    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "Portal is taking items for teleportation");
                 }
                 else
                 {
@@ -186,7 +188,6 @@ sealed class PortalProcessor : Processor
             if (_containers.Any(x => x.Player == player))
                 continue;
 
-            Logger.DevLog("Chest built");
             var container = PlacePiece(player.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
             var h = Math.Max(4, _teleportableItems.Count);
             container.Fields<Container>().Set(x => x.m_width, 8).Set(x => x.m_height, h);
@@ -204,6 +205,7 @@ sealed class PortalProcessor : Processor
             _containers.Add(new(container, player, zdo));
             container.Destroyed += OnContainerDestroyed;
             RPC.StackResponse(container, true);
+            RPC.ShowMessage(peer, MessageHud.MessageType.Center, "Portal is taking items for teleportation");
         }
 
         return false;

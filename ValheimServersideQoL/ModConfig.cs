@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 using YamlDotNet.Serialization;
@@ -633,7 +634,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class NonTeleportableItemsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> PortalRange { get; } = cfg.Bind(section, nameof(PortalRange), 4f, "When a player enters this range around a portal, non-teleportable items (for which you set boss keys below) might temporarily be taken from their inventory.");
+        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to enable the non-teleportable items feature");
+        public ConfigEntry<float> PortalRange { get; } = cfg.Bind(section, nameof(PortalRange), 4f, "When a player enters this range around a portal, non-teleportable items (for which you set boss keys below) might temporarily be taken from their inventory");
 
         public sealed record Entry(ItemDrop ItemDrop, ConfigEntry<string> Config);
 
@@ -654,7 +656,21 @@ sealed record ModConfig(ConfigFile ConfigFile)
                 if (item.GetComponent<ItemDrop>() is not { m_itemData.m_shared.m_teleportable: false } itemDrop)
                     continue;
 
-                result.Add(new(itemDrop, cfg.Bind(section, item.name, "", new ConfigDescription(
+                var defaultValue = "";
+                if (Regex.IsMatch(item.name, @"copper|tin|bronze", RegexOptions.IgnoreCase))
+                    defaultValue = "defeated_gdking";
+                else if (item.name.Contains("iron", StringComparison.OrdinalIgnoreCase))
+                    defaultValue = "defeated_bonemass";
+                else if (Regex.IsMatch(item.name, @"silver|DragonEgg", RegexOptions.IgnoreCase))
+                    defaultValue = "defeated_dragon";
+                else if (item.name.Contains("blackmetal", StringComparison.OrdinalIgnoreCase))
+                    defaultValue = "defeated_goblinking";
+                else if (Regex.IsMatch(item.name, @"DvergrNeedle|MechanicalSpring", RegexOptions.IgnoreCase))
+                    defaultValue = "defeated_queen";
+                else if (Regex.IsMatch(item.name, @"flametal|CharredCogwheel", RegexOptions.IgnoreCase))
+                    defaultValue = "defeated_fader";
+
+                result.Add(new(itemDrop, cfg.Bind(section, item.name, defaultValue, new ConfigDescription(
                     $"Key of the boss that will allow '{Localization.instance.Localize(itemDrop.m_itemData.m_shared.m_name)}' to be teleported when defeated",
                     acceptableValues))));
             }
