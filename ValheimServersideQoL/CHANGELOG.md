@@ -1,3 +1,8 @@
+### v1.0.1027 (BETA)
+- Adjusted teleportation of non-teleportable items [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99):
+    - Made type of shown message configurable
+    - Reduced risk of item loss when a player logs out in proximity of a portal
+
 ### v1.0.1025 (BETA)
 - Adjusted teleportation of non-teleportable items [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99):
     - Add sensible default values to the config options and add a general `Enable` option

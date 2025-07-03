@@ -204,9 +204,6 @@ sealed class ExtendedZDO : ZDO
                 return;
 
             Main.Instance.Logger.LogWarning($"{Path.GetFileName(filePath)} L{lineNo}: Container was modified while it is owned by a client, which can lead to the loss of items.");
-#if DEBUG
-            throw new InvalidOperationException("Container must not be modified while it is owned by a client");
-#endif
         }
 
         public int GetState(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_state, defaultValue);

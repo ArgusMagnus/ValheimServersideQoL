@@ -68,8 +68,34 @@ sealed class PortalProcessor : Processor
     {
         for (int i = 0; i < _containers.Count; i++)
         {
-            if (_containers[i].Container == zdo)
+            var state = _containers[i];
+            if (state.Container == zdo)
             {
+                state.Player.Destroyed -= OnPlayerDestroyed;
+                _containers.RemoveAt(i);
+                return;
+            }
+        }
+    }
+
+    void OnPlayerDestroyed(ExtendedZDO zdo)
+    {
+        for (int i = 0; i < _containers.Count; i++)
+        {
+            var state = _containers[i];
+            if (state.Player == zdo)
+            {
+                state.Container.Destroyed -= OnContainerDestroyed;
+                Logger.DevLog("Player ZDO destroyed");
+                if (!state.Stacked)
+                    DestroyPiece(state.Container);
+                else
+                {
+                    state.Container.ReleaseOwnership();
+                    state.Container.SetPosition(state.InitialPosition);
+                    state.Container.Vars.SetCreator(state.PlayerID);
+                    state.Container.Fields<Container>().Set(x => x.m_autoDestroyEmpty, true);
+                }
                 _containers.RemoveAt(i);
                 return;
             }
@@ -84,19 +110,6 @@ sealed class PortalProcessor : Processor
 
             if (state.Container.Inventory.Items.Count is 0)
                 DestroyPiece(state.Container);
-            else if (!state.Player.IsValid() || state.Player.PrefabInfo.Player is null)
-            {
-                if (!state.Stacked)
-                    DestroyPiece(state.Container);
-                else
-                {
-                    state.Container.ReleaseOwnership();
-                    state.Container.SetPosition(state.InitialPosition);
-                    state.Container.Vars.SetCreator(state.PlayerID);
-                    state.Container.Fields<Container>().Set(x => x.m_autoDestroyEmpty, true);
-                    _containers.RemoveAt(i);
-                }
-            }
             else if (state.Stacked)
             {
                 if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) > _rangeSqr)
@@ -214,6 +227,7 @@ sealed class PortalProcessor : Processor
             container.SetOwner(peer.m_uid);
             _containers.Add(new(container, peer, player, zdo));
             container.Destroyed += OnContainerDestroyed;
+            player.Destroyed += OnPlayerDestroyed;
             RPC.StackResponse(container, true);
             RPC.ShowMessage(player.GetOwner(), MessageHud.MessageType.Center, "");
         }
