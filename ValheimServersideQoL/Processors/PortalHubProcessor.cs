@@ -49,7 +49,7 @@ sealed class PortalHubProcessor : Processor
             foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
             {
                 string? tag = null;
-                if (zdo.Vars.GetCreator() != Main.PluginGuidHash && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
+                if (!zdo.IsModCreator() && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
                 {
                     _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(x => x.m_allowAllItems) });
                     zdo.Destroyed += OnKnownPortalDestroyed;
@@ -100,7 +100,7 @@ sealed class PortalHubProcessor : Processor
             }
             return false;
         }
-        else if (zdo.PrefabInfo.TeleportWorld is null || zdo.Vars.GetCreator() == Main.PluginGuidHash)
+        else if (zdo.PrefabInfo.TeleportWorld is null || zdo.IsModCreator())
         {
             UnregisterZdoProcessor = true;
             return false;

@@ -44,6 +44,17 @@ sealed class ExtendedZDO : ZDO
         }
     }
 
+    public void SetModAsCreator(Processor.CreatorMarkers marker = Processor.CreatorMarkers.None) => Vars.SetCreator((long)Main.PluginGuidHash | (long)((ulong)marker << 32));
+    public bool IsModCreator(out Processor.CreatorMarkers marker)
+    {
+        marker = Processor.CreatorMarkers.None;
+        if ((int)Vars.GetCreator() != Main.PluginGuidHash)
+            return false;
+        marker = (Processor.CreatorMarkers)((ulong)Vars.GetCreator() >> 32);
+        return true;
+    }
+    public bool IsModCreator() => IsModCreator(out _);
+
     public PrefabInfo PrefabInfo => AddData.PrefabInfo;
     public IZDOInventory Inventory => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
     public IZDOInventoryReadOnly InventoryReadOnly => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException()));
@@ -200,7 +211,7 @@ sealed class ExtendedZDO : ZDO
             if (!Main.Instance.Config.General.DiagnosticLogs.Value)
                 return;
 #endif
-            if (_zdo.PrefabInfo.Container is null || _zdo.IsOwnerOrUnassigned() || _zdo.Vars.GetCreator() == Main.PluginGuidHash)
+            if (_zdo.PrefabInfo.Container is null || _zdo.IsOwnerOrUnassigned() || _zdo.IsModCreator())
                 return;
 
             Main.Instance.Logger.LogWarning($"{Path.GetFileName(filePath)} L{lineNo}: Container was modified while it is owned by a client, which can lead to the loss of items.");

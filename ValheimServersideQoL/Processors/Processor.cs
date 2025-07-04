@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using static Valheim.ServersideQoL.Processors.Processor;
 using RoutedRPCData = ZRoutedRpc.RoutedRPCData;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -32,10 +33,9 @@ abstract class Processor
     public bool RecreateZdo { get; protected set; }
     public bool UnregisterZdoProcessor { get; protected set; }
 
-    readonly System.Diagnostics.Stopwatch _watch = new();
+    readonly Stopwatch _watch = new();
     protected HashSet<ExtendedZDO> PlacedPieces { get; } = [];
     static bool __initialized;
-    static readonly long _dataZdoCreator = (long)Main.PluginGuidHash | (1L << 32);
     static ExtendedZDO? _dataZDO;
 
     public TimeSpan ProcessingTime => _watch.Elapsed;
@@ -50,11 +50,18 @@ abstract class Processor
 
         foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
         {
-            var creator = zdo.Vars.GetCreator();
-            if (creator == Main.PluginGuidHash)
-                zdo.Destroy();
-            else if (creator == _dataZdoCreator)
-                _dataZDO = zdo;
+            if (zdo.IsModCreator(out var marker))
+            {
+                if (marker is not CreatorMarkers.DataZDO)
+                    zdo.Destroy();
+                else if (_dataZDO is null)
+                    _dataZDO = zdo;
+                else
+                {
+                    Logger.LogError("More then one DataZDO found, destroying the second one");
+                    zdo.Destroy();
+                }                    
+            }
         }
     }
 
@@ -69,10 +76,11 @@ abstract class Processor
                 _dataZDO.Persistent = true;
                 _dataZDO.Distant = false;
                 _dataZDO.Type = ZDO.ObjectType.Default;
-                _dataZDO.Vars.SetCreator(_dataZdoCreator);
+                _dataZDO.SetModAsCreator(CreatorMarkers.DataZDO);
                 _dataZDO.Vars.SetHealth(-1);
                 _dataZDO.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
                 _dataZDO.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false).Set(x => x.m_health, -1);
+                _dataZDO.UnregisterAllProcessors();
             }
             return _dataZDO;
         }
@@ -131,11 +139,10 @@ abstract class Processor
         return true;
     }
 
-    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot)
-        => PlacePiece(pos, prefab, Quaternion.Euler(0, rot, 0));
-    
+    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
+        => PlacePiece(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
 
-    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot)
+    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
     {
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.SetPrefab(prefab);
@@ -143,7 +150,7 @@ abstract class Processor
         zdo.Distant = false;
         zdo.Type = ZDO.ObjectType.Default;
         zdo.SetRotation(rot);
-        zdo.Vars.SetCreator(Main.PluginGuidHash);
+        zdo.SetModAsCreator(marker);
         zdo.Vars.SetHealth(-1);
         PlacedPieces.Add(zdo);
         zdo.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
@@ -254,6 +261,13 @@ abstract class Processor
         Main.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
         if (__methods.Count > 0)
             Main.HarmonyInstance.Patch(__handleRoutedRPCMethod, prefix: new(__handleRoutedRPCPrefix));
+    }
+
+    [Flags]
+    public enum CreatorMarkers : uint
+    {
+        None = 0,
+        DataZDO = (1u << 0)
     }
 
     public static class PrefabNames

@@ -45,7 +45,7 @@ sealed class MapTableProcessor : Processor
             if (Config.MapTables.AutoUpdatePortals.Value)
             {
                 pins = [.. pins, .. ZDOMan.instance.GetPortals().Cast<ExtendedZDO>()
-                    .Where(x => x.Vars.GetCreator() != Main.PluginGuidHash) // exclude map room portals
+                    .Where(x => !x.IsModCreator()) // exclude map room portals
                     .Select(x => new Pin(Main.PluginGuidHash, x.Vars.GetTag(), x.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid))];
                 if ((_includePortalRegex ?? _excludePortalRegex) is not null)
                     pins = pins.Where(x => _includePortalRegex?.IsMatch(x.Tag) is not false && _excludePortalRegex?.IsMatch(x.Tag) is not true);

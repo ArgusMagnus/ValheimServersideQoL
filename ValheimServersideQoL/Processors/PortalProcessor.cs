@@ -133,6 +133,7 @@ sealed class PortalProcessor : Processor
                         state.Container.SetPosition(pos);
                         state.Container.Destroyed -= OnContainerDestroyed;
                         state.Container = RecreatePiece(state.Container);
+                        state.Container.UnregisterAllProcessors();
                         state.Container.Destroyed += OnContainerDestroyed;
                     }
                 }
@@ -158,6 +159,7 @@ sealed class PortalProcessor : Processor
                 state.Stacked = true;
                 state.Container.Destroyed -= OnContainerDestroyed;
                 state.Container = RecreatePiece(state.Container);
+                state.Container.UnregisterAllProcessors();
                 state.Container.Destroyed += OnContainerDestroyed;
                 if (Config.NonTeleportableItems.MessageType.Value is not MessageTypes.CenterNear and not MessageTypes.CenterFar)
                     RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
@@ -177,6 +179,7 @@ sealed class PortalProcessor : Processor
                     state.Container.SetPosition(state.Player.GetPosition() with { y = -1000 });
                     state.Container.Destroyed -= OnContainerDestroyed;
                     state.Container = RecreatePiece(state.Container);
+                    state.Container.UnregisterAllProcessors();
                     state.Container.Destroyed += OnContainerDestroyed;
                 }
             }
@@ -195,7 +198,7 @@ sealed class PortalProcessor : Processor
             return false;
         }
 
-        if (_destroyNewPortals && !_initialPortals.Contains(zdo) && zdo.Vars.GetCreator() != Main.PluginGuidHash)
+        if (_destroyNewPortals && !_initialPortals.Contains(zdo) && !zdo.IsModCreator())
         {
             RPC.Remove(zdo);
 
@@ -220,6 +223,7 @@ sealed class PortalProcessor : Processor
                 continue;
 
             var container = PlacePiece(player.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
+            container.UnregisterAllProcessors();
             var h = Math.Max(4, _teleportableItems.Count);
             container.Fields<Container>().Set(x => x.m_width, 8).Set(x => x.m_height, h);
             int y = 0;
