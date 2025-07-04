@@ -127,7 +127,10 @@ sealed class PortalProcessor : Processor
                     else
                     {
                         state.Container.SetOwner(state.Player.GetOwner());
-                        state.Container.SetPosition(state.Player.GetPosition());
+                        var pos = state.Player.GetPosition();
+                        if (!state.Peer.IsServer)
+                            pos.y = -1000;
+                        state.Container.SetPosition(pos);
                         state.Container.Destroyed -= OnContainerDestroyed;
                         state.Container = RecreatePiece(state.Container);
                         state.Container.Destroyed += OnContainerDestroyed;
@@ -147,6 +150,11 @@ sealed class PortalProcessor : Processor
                     count += item.m_stack;
                 }
                 state.Container.Inventory.Save();
+                if (state.Peer.IsServer)
+                {
+                    state.Container.SetPosition(state.Player.GetPosition());
+                    state.Container.Vars.SetCreator(state.PlayerID);
+                }
                 state.Stacked = true;
                 state.Container.Destroyed -= OnContainerDestroyed;
                 state.Container = RecreatePiece(state.Container);
@@ -166,7 +174,7 @@ sealed class PortalProcessor : Processor
                 else
                 {
                     state.Container.SetOwner(state.Player.GetOwner());
-                    state.Container.SetPosition(state.Player.GetPosition());
+                    state.Container.SetPosition(state.Player.GetPosition() with { y = -1000 });
                     state.Container.Destroyed -= OnContainerDestroyed;
                     state.Container = RecreatePiece(state.Container);
                     state.Container.Destroyed += OnContainerDestroyed;
@@ -206,9 +214,9 @@ sealed class PortalProcessor : Processor
         {
             if (Instance<PlayerProcessor>().GetPeerCharacter(peer.m_uid) is not { } player)
                 continue;
-            if (_containers.Any(x => x.Player == player))
-                continue;
             if (Utils.DistanceSqr(zdo.GetPosition(), player.GetPosition()) > _rangeSqr)
+                continue;
+            if (_containers.Any(x => x.Player == player))
                 continue;
 
             var container = PlacePiece(player.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
@@ -227,7 +235,8 @@ sealed class PortalProcessor : Processor
             container.SetOwner(peer.m_uid);
             _containers.Add(new(container, peer, player, zdo));
             container.Destroyed += OnContainerDestroyed;
-            player.Destroyed += OnPlayerDestroyed;
+            if (!peer.IsServer)
+                player.Destroyed += OnPlayerDestroyed;
             RPC.StackResponse(container, true);
             RPC.ShowMessage(player.GetOwner(), MessageHud.MessageType.Center, "");
         }
