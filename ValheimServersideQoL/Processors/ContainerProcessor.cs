@@ -240,9 +240,24 @@ sealed class ContainerProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        if (zdo.PrefabInfo.Container is null || zdo.Vars.GetCreator() is 0)
+        long? creator;
+        if (zdo.PrefabInfo.Container is null || (creator = zdo.Vars.GetCreator()) is 0)
         {
             UnregisterZdoProcessor = true;
+            return false;
+        }
+
+        if (zdo.Vars.GetReturnContentToCreator())
+        {
+            if (Instance<PlayerProcessor>().PlayersByID.TryGetValue(creator.Value, out var player))
+            {
+                if (zdo.Inventory.Items.Count is 0)
+                    DestroyZdo = true;
+                else if (zdo.GetOwner() != player.GetOwner())
+                    zdo.SetOwner(player.GetOwner());
+                else
+                    RPC.TakeAllResponse(zdo, true);
+            }
             return false;
         }
 

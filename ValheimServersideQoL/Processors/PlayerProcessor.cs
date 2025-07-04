@@ -14,6 +14,8 @@ sealed class PlayerProcessor : Processor
 
     readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
     public IReadOnlyDictionary<ZDOID, ExtendedZDO> Players => _players;
+    readonly Dictionary<long, ExtendedZDO> _playersByID = [];
+    public IReadOnlyDictionary<long, ExtendedZDO> PlayersByID => _playersByID;
     public event Action<ExtendedZDO>? PlayerDestroyed;
 
     sealed record StackContainerState(ExtendedZDO PlayerZDO)
@@ -50,7 +52,10 @@ sealed class PlayerProcessor : Processor
     {
         _playerStates.Remove(zdo);
         if (_players.Remove(zdo.m_uid))
+        {
+            _playersByID.Remove(zdo.Vars.GetPlayerID());
             PlayerDestroyed?.Invoke(zdo);
+        }
     }
 
     /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
@@ -333,8 +338,9 @@ sealed class PlayerProcessor : Processor
 
         if (_players.TryAdd(zdo.m_uid, zdo))
         {
-            zdo.Destroyed += OnZdoDestroyed;
             var playerID = zdo.Vars.GetPlayerID();
+            _playersByID.Add(playerID, zdo);
+            zdo.Destroyed += OnZdoDestroyed;
             if (Config.Players.CanSacrificeMegingjord.Value && DataZDO.Vars.GetSacrifiedMegingjord(playerID))
                 RPC.AddStatusEffect(zdo, StatusEffects.Megingjord);
             if (Config.Players.CanSacrificeWishbone.Value && DataZDO.Vars.GetSacrifiedWishbone(playerID))

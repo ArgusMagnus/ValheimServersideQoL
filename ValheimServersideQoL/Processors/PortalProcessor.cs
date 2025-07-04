@@ -91,10 +91,11 @@ sealed class PortalProcessor : Processor
                     DestroyPiece(state.Container);
                 else
                 {
-                    state.Container.ReleaseOwnership();
-                    state.Container.SetPosition(state.InitialPosition);
-                    state.Container.Vars.SetCreator(state.PlayerID);
+                    state.Container.ReleaseOwnershipInternal();
+                    state.Container.SetPosition(state.InitialPosition with { y = -1000 });
                     state.Container.Fields<Container>().Set(x => x.m_autoDestroyEmpty, true);
+                    state.Container.CreateClone();
+                    DestroyPiece(state.Container); // release exclusive claim
                 }
                 _containers.RemoveAt(i);
                 return;
@@ -126,7 +127,7 @@ sealed class PortalProcessor : Processor
                     }
                     else
                     {
-                        state.Container.SetOwner(state.Player.GetOwner());
+                        state.Container.SetOwnerInternal(state.Player.GetOwner());
                         var pos = state.Player.GetPosition();
                         if (!state.Peer.IsServer)
                             pos.y = -1000;
@@ -151,11 +152,8 @@ sealed class PortalProcessor : Processor
                     count += item.m_stack;
                 }
                 state.Container.Inventory.Save();
-                if (state.Peer.IsServer)
-                {
-                    state.Container.SetPosition(state.Player.GetPosition());
-                    state.Container.Vars.SetCreator(state.PlayerID);
-                }
+                state.Container.Vars.SetReturnContentToCreator(true);
+                state.Container.Vars.SetCreator(state.PlayerID);
                 state.Stacked = true;
                 state.Container.Destroyed -= OnContainerDestroyed;
                 state.Container = RecreatePiece(state.Container);
@@ -175,7 +173,7 @@ sealed class PortalProcessor : Processor
                 }
                 else
                 {
-                    state.Container.SetOwner(state.Player.GetOwner());
+                    state.Container.SetOwnerInternal(state.Player.GetOwner());
                     state.Container.SetPosition(state.Player.GetPosition() with { y = -1000 });
                     state.Container.Destroyed -= OnContainerDestroyed;
                     state.Container = RecreatePiece(state.Container);
