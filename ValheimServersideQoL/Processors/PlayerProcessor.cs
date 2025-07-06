@@ -46,6 +46,13 @@ sealed class PlayerProcessor : Processor
             Config.Players.CanSacrificeCryptKey.Value ||
             Config.Players.CanSacrificeWishbone.Value ||
             Config.Players.CanSacrificeTornSpirit.Value);
+
+        if (!firstTime)
+            return;
+
+        _players.Clear();
+        _playersByID.Clear();
+        _playerStates.Clear();
     }
 
     void OnZdoDestroyed(ExtendedZDO zdo)
@@ -339,7 +346,7 @@ sealed class PlayerProcessor : Processor
         if (_players.TryAdd(zdo.m_uid, zdo))
         {
             var playerID = zdo.Vars.GetPlayerID();
-            _playersByID.Add(playerID, zdo);
+            _playersByID[playerID] = zdo;
             zdo.Destroyed += OnZdoDestroyed;
             if (Config.Players.CanSacrificeMegingjord.Value && DataZDO.Vars.GetSacrifiedMegingjord(playerID))
                 RPC.AddStatusEffect(zdo, StatusEffects.Megingjord);

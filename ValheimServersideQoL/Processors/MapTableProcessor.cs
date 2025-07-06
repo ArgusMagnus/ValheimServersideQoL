@@ -23,6 +23,12 @@ sealed class MapTableProcessor : Processor
         _includePortalRegex = string.IsNullOrEmpty(filter.Trim(['*'])) ? null : new(ConvertToRegexPattern(filter));
         filter = Config.MapTables.AutoUpdatePortalsExclude.Value.Trim();
         _excludePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
+
+        if (!firstTime)
+            return;
+
+        _pins.Clear();
+        _existingPins.Clear();
     }
 
     protected override void PreProcessCore(IEnumerable<Peer> peers)
@@ -52,16 +58,7 @@ sealed class MapTableProcessor : Processor
             }
             if (Config.MapTables.AutoUpdateShips.Value)
             {
-                pins = [.. pins, .. SharedProcessorState.Ships
-                    .Select(x =>
-                    {
-                        if (!x.IsValid() || x.PrefabInfo.Ship is null)
-                        {
-                            SharedProcessorState.Ships.Remove(x);
-                            return null;
-                        }
-                        return x;
-                    })
+                pins = [.. pins, .. Instance<ShipProcessor>().Ships
                     .Where(x => x is not null)
                     .Select(x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Ship!.Value.Piece.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid))];
             }

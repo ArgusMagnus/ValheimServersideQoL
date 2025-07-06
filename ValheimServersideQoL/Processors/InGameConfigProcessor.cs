@@ -50,6 +50,11 @@ sealed class InGameConfigProcessor : Processor
         if (!firstTime)
             return;
 
+        _isAdmin.Clear();
+        _portalSigns.Clear();
+        _candleToggles.Clear();
+        _configBySign.Clear();
+
         if (!Config.General.InWorldConfigRoom.Value)
             return;
 

@@ -42,6 +42,9 @@ sealed class TrophyProcessor : Processor
 
         _activationDelay = TimeSpan.FromSeconds(Config.TrophySpawner.ActivationDelay.Value);
         _respawnDelay = TimeSpan.FromSeconds(Config.TrophySpawner.RespawnDelay.Value);
+        _stateByTrophy.Clear();
+        _expectedRagdolls.Clear();
+        _sectorZdos.Clear();
     }
 
     public bool IsAttracting(ExtendedZDO zdo)

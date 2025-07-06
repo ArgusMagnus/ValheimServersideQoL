@@ -12,6 +12,18 @@ sealed class DoorProcessor : Processor
     readonly IEnumerable<int> _visEquipmentVars = [ZDOVars.s_helmetItem, ZDOVars.s_chestItem, ZDOVars.s_legItem, ZDOVars.s_shoulderItem, ZDOVars.s_utilityItem,
         ZDOVars.s_leftItem, ZDOVars.s_rightItem, ZDOVars.s_leftBackItem, ZDOVars.s_rightBackItem];
 
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+
+        if (!firstTime)
+            return;
+
+        _openSince.Clear();
+        _allowedPlayers.Clear();
+        _keyItemWeightByHash.Clear();
+    }
+
     void OnDoorDestroyed(ExtendedZDO zdo)
     {
         _openSince.Remove(zdo);

@@ -12,6 +12,8 @@ sealed class SmelterProcessor : Processor
         if (!firstTime)
             return;
 
+        _smelters.Clear();
+        Instance<ContainerProcessor>().ContainerChanged -= OnContainerChanged;
         Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
     }
 

@@ -12,6 +12,8 @@ sealed class TurretProcessor : Processor
         if (!firstTime)
             return;
 
+        _turrets.Clear();
+        Instance<ContainerProcessor>().ContainerChanged -= OnContainerChanged;
         Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
     }
 

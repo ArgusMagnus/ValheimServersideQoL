@@ -21,9 +21,6 @@ static class SharedProcessorState
     public static IReadOnlyCollection<PieceTable> PieceTables => (__pieceTables ??= GetPieceTableInfo()).PieceTables;
     public static IReadOnlyDictionary<string, PieceTable> PieceTablesByPiece => (__pieceTables ??= GetPieceTableInfo()).PieceTablesByName;
 
-    static ConcurrentHashSet<ExtendedZDO>? __ships;
-    public static ConcurrentHashSet<ExtendedZDO> Ships => __ships ??= GetShips();
-
     static readonly Dictionary<int, PrefabInfo?> __prefabInfo = [];
 
     static readonly IReadOnlyList<Type> __componentTypes = [.. typeof(PrefabInfo).GetProperties()
@@ -91,14 +88,6 @@ static class SharedProcessorState
             }
         }
         return result;
-    }
-
-    static ConcurrentHashSet<ExtendedZDO> GetShips()
-    {
-        var ships = new ConcurrentHashSet<ExtendedZDO>();
-        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
-            ships.Add(zdo);
-        return ships;
     }
 
     public static PrefabInfo? GetPrefabInfo(int hash)

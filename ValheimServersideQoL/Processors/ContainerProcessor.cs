@@ -55,6 +55,11 @@ sealed class ContainerProcessor : Processor
         if (!firstTime)
             return;
 
+        _stackPerItem.Clear();
+        _containers.Clear();
+        ContainersByItemName.Clear();
+        _swapContentRequests.Clear();
+
         if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled)
         {
             foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())

@@ -20,6 +20,15 @@ sealed class TameableProcessor : Processor
     readonly ConcurrentDictionary<ExtendedZDO, TameableState> _states = [];
     public IReadOnlyCollection<ITameableState> Tames => (IReadOnlyCollection<ITameableState>)_states.Values;
 
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        if (!firstTime)
+            return;
+
+        _states.Clear();
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;

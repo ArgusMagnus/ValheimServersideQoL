@@ -1,6 +1,4 @@
-﻿using BepInEx.Logging;
-
-namespace Valheim.ServersideQoL.Processors;
+﻿namespace Valheim.ServersideQoL.Processors;
 
 sealed class ShieldGeneratorProcessor : Processor
 {
@@ -12,6 +10,16 @@ sealed class ShieldGeneratorProcessor : Processor
 
     public delegate void ShieldGeneratorChangedHandler(ExtendedZDO shieldGenerator, bool hasFuel);
     public event ShieldGeneratorChangedHandler? ShieldGeneratorChanged;
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        if (!firstTime)
+            return;
+
+        _shieldGenerators.Clear();
+        _info = null;
+    }
 
     void OnShieldGeneratorDestroyed(ExtendedZDO zdo)
     {

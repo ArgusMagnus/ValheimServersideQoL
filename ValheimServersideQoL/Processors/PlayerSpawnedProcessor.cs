@@ -19,6 +19,12 @@ sealed class PlayerSpawnedProcessor : Processor
     {
         base.Initialize(firstTime);
 
+        if (firstTime)
+        {
+            foreach (var list in _spawnedByPrefab.Values)
+                list.Clear();
+        }
+
         if (_spawnInfo.Count is 0)
         {
             if (Config.HostileSummons.AllowReplacementSummon.Value || Config.HostileSummons.FollowSummoner.Value)
@@ -58,6 +64,12 @@ sealed class PlayerSpawnedProcessor : Processor
 
         UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger,
             Config.HostileSummons.AllowReplacementSummon.Value || Config.HostileSummons.FollowSummoner.Value);
+
+        if (!firstTime)
+            return;
+
+        _spawnedStates.Clear();
+        _lastSummoningPlayer = null;
     }
 
     static void SortBySpawnTime(List<ExtendedZDO> list)

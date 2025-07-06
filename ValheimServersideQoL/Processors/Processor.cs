@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
-using static Valheim.ServersideQoL.Processors.Processor;
 using RoutedRPCData = ZRoutedRpc.RoutedRPCData;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -44,9 +43,16 @@ abstract class Processor
 
     public virtual void Initialize(bool firstTime)
     {
+        if (!firstTime)
+        {
+            __initialized = false;
+            return;
+        }
+
         if (__initialized)
             return;
         __initialized = true;
+        _dataZDO = null;
 
         foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
         {

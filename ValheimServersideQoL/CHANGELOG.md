@@ -1,3 +1,6 @@
+### v1.0.1031 (BETA)
+- Fixed issues due to stale cached data on non-dedicated servers
+
 ### v1.0.1030 (BETA)
 - Adjusted teleportation of non-teleportable items [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99):
    - Return items to players that logged out in proximity of a portal when they log back in

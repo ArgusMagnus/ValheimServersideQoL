@@ -57,6 +57,11 @@ sealed class PortalProcessor : Processor
 
         _rangeSqr = Config.NonTeleportableItems.PortalRange.Value;
         _rangeSqr *= _rangeSqr;
+
+        if (!firstTime)
+            return;
+
+        _containers.Clear();
     }
 
     void OnInitialPortalDestroyed(ExtendedZDO zdo)
@@ -86,7 +91,6 @@ sealed class PortalProcessor : Processor
             if (state.Player == zdo)
             {
                 state.Container.Destroyed -= OnContainerDestroyed;
-                Logger.DevLog("Player ZDO destroyed");
                 if (!state.Stacked)
                     DestroyPiece(state.Container);
                 else
@@ -128,10 +132,7 @@ sealed class PortalProcessor : Processor
                     else
                     {
                         state.Container.SetOwnerInternal(state.Player.GetOwner());
-                        var pos = state.Player.GetPosition();
-                        if (!state.Peer.IsServer)
-                            pos.y = -1000;
-                        state.Container.SetPosition(pos);
+                        state.Container.SetPosition(state.Player.GetPosition() with { y = -1000 });
                         state.Container.Destroyed -= OnContainerDestroyed;
                         state.Container = RecreatePiece(state.Container);
                         state.Container.UnregisterAllProcessors();

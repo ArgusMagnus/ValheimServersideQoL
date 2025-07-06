@@ -9,6 +9,11 @@ sealed class TrapProcessor : Processor
         base.Initialize(firstTime);
 
         UpdateRpcSubscription("RPC_OnStateChanged", RPC_OnStateChanged, Config.Traps.AutoRearm.Value);
+
+        if (!firstTime)
+            return;
+
+        _rearmAfter.Clear();
     }
 
     void RPC_OnStateChanged(ExtendedZDO zdo, int state, long idOfClientModifyingState)

@@ -4,7 +4,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class FireplaceProcessor : Processor
 {
-    readonly Dictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = new();
+    readonly Dictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = [];
     readonly List<ExtendedZDO> _fireplaces = [];
 
     public override void Initialize(bool firstTime)
@@ -13,6 +13,10 @@ sealed class FireplaceProcessor : Processor
         if (!firstTime)
             return;
 
+        _enclosure.Clear();
+        _fireplaces.Clear();
+
+        Instance<ShieldGeneratorProcessor>().ShieldGeneratorChanged -= OnShieldGeneratorChanged;
         Instance<ShieldGeneratorProcessor>().ShieldGeneratorChanged += OnShieldGeneratorChanged;
     }
 

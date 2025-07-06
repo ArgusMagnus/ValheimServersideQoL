@@ -5,7 +5,7 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ItemDropProcessor : Processor
 {
-    readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = new();
+    readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = [];
     readonly List<ExtendedZDO> _itemDrops = [];
 
     public override void Initialize(bool firstTime)
@@ -14,6 +14,9 @@ sealed class ItemDropProcessor : Processor
         if (!firstTime)
             return;
 
+        _eggDropTime.Clear();
+        _itemDrops.Clear();
+        Instance<ContainerProcessor>().ContainerChanged -= OnContainerChanged;
         Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
     }
 

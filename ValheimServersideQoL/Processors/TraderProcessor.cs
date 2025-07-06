@@ -21,8 +21,12 @@ sealed class TraderProcessor : Processor
         if (!firstTime)
             return;
 
-        Instance<PlayerProcessor>().PlayerDestroyed += zdo => _reset.Remove(zdo.m_uid);
+        _reset.Clear();
+        Instance<PlayerProcessor>().PlayerDestroyed -= OnPlayerDestroyed;
+        Instance<PlayerProcessor>().PlayerDestroyed += OnPlayerDestroyed;
     }
+
+    void OnPlayerDestroyed(ExtendedZDO zdo) => _reset.Remove(zdo.m_uid);
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {

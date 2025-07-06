@@ -38,6 +38,7 @@ sealed class SignProcessor : Processor
         if (!firstTime)
             return;
 
+        Instance<ContainerProcessor>().ContainerChanged -= OnContainerChanged;
         Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
     }
 
