@@ -101,7 +101,7 @@ sealed class TurretProcessor : Processor
                 var addAmmo = 0;
                 var found = false;
                 var requestOwn = false;
-                foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == ammoItem.m_itemData).OrderBy(static x => x.m_stack))
+                foreach (var slot in containerZdo.Inventory.Items.Where(x => new ItemKey(x) == ammoItem.m_itemData).OrderBy(static x => x.m_stack))
                 {
                     found = found || slot is { m_stack: > 0 };
                     var take = Math.Min(maxAdd, slot.m_stack);
@@ -172,7 +172,7 @@ sealed class TurretProcessor : Processor
         if (addedAmmo is not 0)
             ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Turret.Value.Piece.m_name}: $msg_added {allowedAmmo!.m_shared.m_name} {addedAmmo}x", Config.Turrets.AmmoAddedMessageType.Value);
         else
-            ShowMessage(peers, zdo, "<color=red>$msg_noturretammo", Config.Turrets.NoAmmoMessageType.Value);
+            ShowMessage(peers, zdo, "<color=red>$msg_noturretammo", Config.Turrets.NoAmmoMessageType.Value, DamageText.TextType.Bonus);
 
         if (!_turrets.Contains(zdo))
         {
