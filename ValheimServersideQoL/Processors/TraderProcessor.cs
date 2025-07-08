@@ -11,9 +11,9 @@ sealed class TraderProcessor : Processor
     {
         base.Initialize(firstTime);
         _globalKeysToSet.Clear();
-        foreach(var (trader, cfgList) in Config.Traders.AlwaysUnlock.Select(x => (x.Key, x.Value)))
+        foreach(var (trader, cfgList) in Config.Traders.AlwaysUnlock.Select(static x => (x.Key, x.Value)))
         {
-            var list = cfgList.Where(x => x.ConfigEntry.Value).Select(x => x.GlobalKey).ToList();
+            var list = cfgList.Where(static x => x.ConfigEntry.Value).Select(static x => x.GlobalKey).ToList();
             if (list.Count > 0)
                 _globalKeysToSet.Add(trader, list);
         }

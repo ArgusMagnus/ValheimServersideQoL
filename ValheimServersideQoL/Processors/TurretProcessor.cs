@@ -39,18 +39,18 @@ sealed class TurretProcessor : Processor
 
         var fields = zdo.Fields<Turret>();
         if (!Config.Turrets.DontTargetPlayers.Value)
-            fields.Reset(x => x.m_targetPlayers);
-        else if (fields.SetIfChanged(x => x.m_targetPlayers, false))
+            fields.Reset(static x => x.m_targetPlayers);
+        else if (fields.SetIfChanged(static x => x.m_targetPlayers, false))
             RecreateZdo = true;
 
         if (!Config.Turrets.DontTargetTames.Value)
-            fields.Reset(x => x.m_targetTamed);
-        else if (fields.SetIfChanged(x => x.m_targetTamed, false))
+            fields.Reset(static x => x.m_targetTamed);
+        else if (fields.SetIfChanged(static x => x.m_targetTamed, false))
             RecreateZdo = true;
 
         if (!Config.Turrets.DontTargetTames.Value)
-            fields.Reset(x => x.m_targetTamedConfig);
-        else if (fields.SetIfChanged(x => x.m_targetTamedConfig, false))
+            fields.Reset(static x => x.m_targetTamedConfig);
+        else if (fields.SetIfChanged(static x => x.m_targetTamedConfig, false))
             RecreateZdo = true;
 
         /// <see cref="Turret.RPC_AddAmmo"/>
@@ -63,7 +63,7 @@ sealed class TurretProcessor : Processor
         if (!CheckMinDistance(peers, zdo))
             return false;
 
-        var maxLoaded = fields.GetInt(x => x.m_maxAmmo);
+        var maxLoaded = fields.GetInt(static x => x.m_maxAmmo);
         var currentAmmo = zdo.Vars.GetAmmo();
         var maxAdd = maxLoaded - currentAmmo;
         if (maxAdd < maxLoaded / 2)
@@ -74,7 +74,7 @@ sealed class TurretProcessor : Processor
 
         var addedAmmo = 0;
         
-        foreach (var ammoItem in zdo.PrefabInfo.Turret.Value.Turret.m_allowedAmmo.Select(x => x.m_ammo))
+        foreach (var ammoItem in zdo.PrefabInfo.Turret.Value.Turret.m_allowedAmmo.Select(static x => x.m_ammo))
         {
             if (!string.IsNullOrEmpty(allowedAmmoDropPrefabName) && ammoItem.name != allowedAmmoDropPrefabName)
                 continue;
@@ -101,7 +101,7 @@ sealed class TurretProcessor : Processor
                 var addAmmo = 0;
                 var found = false;
                 var requestOwn = false;
-                foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == ammoItem.m_itemData).OrderBy(x => x.m_stack))
+                foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == ammoItem.m_itemData).OrderBy(static x => x.m_stack))
                 {
                     found = found || slot is { m_stack: > 0 };
                     var take = Math.Min(maxAdd, slot.m_stack);

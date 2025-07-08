@@ -14,7 +14,7 @@ sealed class ShipProcessor : Processor
             return;
 
         _ships.Clear();
-        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(x => x.PrefabInfo.Ship is not null))
+        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>().Where(static x => x.PrefabInfo.Ship is not null))
         {
             _ships.Add(zdo);
             zdo.Destroyed += OnShipDestroyed;

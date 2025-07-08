@@ -29,7 +29,7 @@ sealed class PlayerSpawnedProcessor : Processor
         {
             if (Config.HostileSummons.AllowReplacementSummon.Value || Config.HostileSummons.FollowSummoner.Value)
             {
-                foreach (var item in ObjectDB.instance.m_items.Select(x => x.GetComponent<ItemDrop>()))
+                foreach (var item in ObjectDB.instance.m_items.Select(static x => x.GetComponent<ItemDrop>()))
                 {
                     var attack = item.m_itemData.m_shared.m_attack;
                     if (attack.m_attackProjectile?.GetComponent<SpawnAbility>() is not { } spawnAbility)
@@ -149,9 +149,9 @@ sealed class PlayerSpawnedProcessor : Processor
         {
             var cfg = Config.Advanced.HostileSummons.FollowSummoners;
             var fields = zdo.Fields<MonsterAI>();
-            if (fields.SetIfChanged(x => x.m_randomMoveInterval, cfg.MoveInterval))
+            if (fields.SetIfChanged(static x => x.m_randomMoveInterval, cfg.MoveInterval))
                 RecreateZdo = true;
-            if (fields.SetIfChanged(x => x.m_randomMoveRange, cfg.MaxDistance))
+            if (fields.SetIfChanged(static x => x.m_randomMoveRange, cfg.MaxDistance))
                 RecreateZdo = true;
             if (RecreateZdo)
                 return false;

@@ -292,8 +292,8 @@ sealed class ContainerProcessor : Processor
         {
             if (zdo.Inventory is { Items.Count: 0 })
             {
-                fields.Set(x => x.m_width, width = desiredWidth);
-                fields.Set(x => x.m_height, height = desiredHeight);
+                fields.Set(static x => x.m_width, width = desiredWidth);
+                fields.Set(static x => x.m_height, height = desiredHeight);
                 RecreateZdo = true;
                 if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
                     zdo.ReleaseOwnershipInternal(); // required for physics to work again
@@ -407,8 +407,8 @@ sealed class ContainerProcessor : Processor
             }
             if (RecreateZdo)
             {
-                fields.Set(x => x.m_width, width = desiredWidth);
-                fields.Set(x => x.m_height, height = desiredHeight);
+                fields.Set(static x => x.m_width, width = desiredWidth);
+                fields.Set(static x => x.m_height, height = desiredHeight);
             }
         }
 
@@ -416,9 +416,9 @@ sealed class ContainerProcessor : Processor
         ItemDrop.ItemData? lastPartialSlot = null;
         _stackPerItem.Clear();
         foreach (var item in inventory.Items
-            .OrderBy(x => x.IsEquipable() ? 0 : 1)
-            .ThenBy(x => x.m_shared.m_name)
-            .ThenByDescending(x => x.m_stack))
+            .OrderBy(static x => x.IsEquipable() ? 0 : 1)
+            .ThenBy(static x => x.m_shared.m_name)
+            .ThenByDescending(static x => x.m_stack))
         {
             state.Items.Add(item.m_shared);
             if (zdo.PrefabInfo.Container.Value.Container.m_privacy is not Container.PrivacySetting.Private)
@@ -470,9 +470,9 @@ sealed class ContainerProcessor : Processor
                 var y = 0;
                 ItemKey? lastKey = null;
                 foreach (var item in inventory.Items
-                    .OrderBy(x => x.IsEquipable() ? 0 : 1)
-                    .ThenBy(x => x.m_shared.m_name)
-                    .ThenByDescending(x => x.m_stack))
+                    .OrderBy(static x => x.IsEquipable() ? 0 : 1)
+                    .ThenBy(static x => x.m_shared.m_name)
+                    .ThenByDescending(static x => x.m_stack))
                 {
                     if (++x >= width || (lastKey.HasValue && lastKey != item))
                     {
@@ -494,9 +494,9 @@ sealed class ContainerProcessor : Processor
                 var y = height;
                 ItemKey? lastKey = null;
                 foreach (var item in inventory.Items
-                    .OrderBy(x => x.IsEquipable() ? 0 : 1)
-                    .ThenBy(x => x.m_shared.m_name)
-                    .ThenByDescending(x => x.m_stack))
+                    .OrderBy(static x => x.IsEquipable() ? 0 : 1)
+                    .ThenBy(static x => x.m_shared.m_name)
+                    .ThenByDescending(static x => x.m_stack))
                 {
                     if (--y < 0 || (lastKey.HasValue && lastKey != item))
                     {
@@ -517,9 +517,9 @@ sealed class ContainerProcessor : Processor
                 var x = 0;
                 var y = 0;
                 foreach (var item in inventory.Items
-                    .OrderBy(x => x.IsEquipable() ? 0 : 1)
-                    .ThenBy(x => x.m_shared.m_name)
-                    .ThenByDescending(x => x.m_stack))
+                    .OrderBy(static x => x.IsEquipable() ? 0 : 1)
+                    .ThenBy(static x => x.m_shared.m_name)
+                    .ThenByDescending(static x => x.m_stack))
                 {
                     if (item.m_gridPos.x != x || item.m_gridPos.y != y)
                     {
@@ -562,7 +562,7 @@ sealed class ContainerProcessor : Processor
 
         //foreach (var (zdo, state) in _containers)
         //{
-        //    if (!zdo.IsOwner() || _swapContentRequests.Any(x => ReferenceEquals(zdo, x.From) || ReferenceEquals(zdo, x.To)))
+        //    if (!zdo.IsOwner() || _swapContentRequests.Any(static x => ReferenceEquals(zdo, x.From) || ReferenceEquals(zdo, x.To)))
         //        continue;
         //    //Logger.DevLog($"Setting owner for {zdo.m_uid} to {state.PreviousOwner}");
         //    //zdo.SetOwner(state.PreviousOwner);

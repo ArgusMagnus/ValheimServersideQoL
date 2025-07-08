@@ -51,14 +51,14 @@ sealed class PortalHubProcessor : Processor
                 string? tag = null;
                 if (!zdo.IsModCreator() && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
                 {
-                    _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(x => x.m_allowAllItems) });
+                    _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static x => x.m_allowAllItems) });
                     zdo.Destroyed += OnKnownPortalDestroyed;
                 }
             }
-            var hubIds = _knownPortals.Values.Where(x => !x.AllowAllItems).Select(x => x.HubId).ToHashSet();
-            var hubIdsAllItems = _knownPortals.Values.Where(x => x.AllowAllItems).Select(x => x.HubId).ToHashSet();
+            var hubIds = _knownPortals.Values.Where(static x => !x.AllowAllItems).Select(static x => x.HubId).ToHashSet();
+            var hubIdsAllItems = _knownPortals.Values.Where(static x => x.AllowAllItems).Select(static x => x.HubId).ToHashSet();
             int id = 0;
-            foreach (var (zdo, state) in _knownPortals.Where(x => x.Value.HubId is 0).OrderBy(x => x.Value.Tag))
+            foreach (var (zdo, state) in _knownPortals.Where(static x => x.Value.HubId is 0).OrderBy(static x => x.Value.Tag))
             {
                 var ids = state.AllowAllItems ? hubIdsAllItems : hubIds;
                 while (!ids.Add(++id)) ;
@@ -114,7 +114,7 @@ sealed class PortalHubProcessor : Processor
             {
                 var biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
                 var biomeText = Localization.instance.Localize($"$biome_{biome.ToString().ToLowerInvariant()}");
-                var knownTags = ZDOMan.instance.GetPortals().Cast<ExtendedZDO>().Select(x => x.Vars.GetTag()).ToHashSet();
+                var knownTags = ZDOMan.instance.GetPortals().Cast<ExtendedZDO>().Select(static x => x.Vars.GetTag()).ToHashSet();
                 foreach (var i in Enumerable.Range(1, 1000))
                 {
                     var newTag = string.Format(Config.PortalHub.AutoNameNewPortalsFormat.Value, biomeText, i);
@@ -138,12 +138,12 @@ sealed class PortalHubProcessor : Processor
                     state.Tag = tag;
                 else
                 {
-                    _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(x => x.m_allowAllItems) });
+                    _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static x => x.m_allowAllItems) });
                     zdo.Destroyed += OnKnownPortalDestroyed;
 
                     if (state.HubId is 0)
                     {
-                        var hubIds = _knownPortals.Values.Where(x => x.AllowAllItems == state.AllowAllItems).Select(x => x.HubId).ToHashSet();
+                        var hubIds = _knownPortals.Values.Where(x => x.AllowAllItems == state.AllowAllItems).Select(static x => x.HubId).ToHashSet();
                         int id = 0;
                         while (!hubIds.Add(++id)) ;
                         zdo.Vars.SetPortalHubId(state.HubId = id);
@@ -165,11 +165,11 @@ sealed class PortalHubProcessor : Processor
             return;
 
         IReadOnlyList<PortalState> states = [.. _knownPortals.Values
-            .GroupBy(x => x.Tag)
-            .Where(x => x.Count() % 2 is not 0)
-            .Select(x => x.First())
+            .GroupBy(static x => x.Tag)
+            .Where(static x => x.Count() % 2 is not 0)
+            .Select(static x => x.First())
             .Concat(Config.General.InWorldConfigRoom.Value ? [new PortalState() { Tag = InGameConfigProcessor.PortalHubTag, HubId = 0, AllowAllItems = true }] : [])
-            .OrderBy(x => x.Tag)];
+            .OrderBy(static x => x.Tag)];
 
         if (states.Count is 0)
             return;
@@ -179,7 +179,7 @@ sealed class PortalHubProcessor : Processor
         _hubRadius = (width + 1) * 4f * Mathf.Sqrt(2);
 
         PlacePiece(_offset with { y = _offset.y - 2 }, Prefabs.DvergerGuardstone, 0)
-            .Fields<PrivateArea>(true).Set(x => x.m_radius, _hubRadius);
+            .Fields<PrivateArea>(true).Set(static x => x.m_radius, _hubRadius);
 
         for (int i = 0; i < width; i++)
         {
@@ -289,7 +289,7 @@ sealed class PortalHubProcessor : Processor
             pos.y += ofsY;
             var zdo = PlacePiece(pos, state.AllowAllItems ? Prefabs.Portal : Prefabs.PortalWood, rot);
             pos.y -= ofsY;
-            zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+            zdo.Fields<TeleportWorld>().Set(static x => x.m_allowAllItems, true);
             zdo.Vars.SetTag(state.Tag);
             zdo.UnregisterAllProcessors();
 
@@ -326,8 +326,8 @@ sealed class PortalHubProcessor : Processor
                     else if (!kIsEdge)
                         pos.z += i is 0 ? -dx : dx;
                     PlacePiece(pos, torches[j], rot).Fields<Fireplace>()
-                        .Set(x => x.m_infiniteFuel, true)
-                        .Set(x => x.m_disableCoverCheck, true);
+                        .Set(static x => x.m_infiniteFuel, true)
+                        .Set(static x => x.m_disableCoverCheck, true);
                 }
             }
         }
@@ -348,7 +348,7 @@ sealed class PortalHubProcessor : Processor
             //pos.x += i is 0 ? 0.25f : -0.25f;
             //pos.y += 0.5f;
             //PlacePiece(pos, Prefabs.Sconce, rot)
-            //    .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+            //    .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
         }
         if (kIsEdge)
         {
@@ -366,7 +366,7 @@ sealed class PortalHubProcessor : Processor
             //pos.z += k is 0 ? 0.25f : -0.25f;
             //pos.y += 0.5f;
             //PlacePiece(pos, Prefabs.Sconce, rot)
-            //    .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+            //    .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
         }
     }
 }

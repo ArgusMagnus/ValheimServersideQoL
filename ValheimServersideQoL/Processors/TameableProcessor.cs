@@ -41,23 +41,23 @@ sealed class TameableProcessor : Processor
         if (zdo.Vars.GetTamed())
         {
             if (!Config.Tames.MakeCommandable.Value)
-                fields.Reset(x => x.m_commandable);
-            else if (fields.SetIfChanged(x => x.m_commandable, true))
+                fields.Reset(static x => x.m_commandable);
+            else if (fields.SetIfChanged(static x => x.m_commandable, true))
                 RecreateZdo = true;
 
             if (!Config.Tames.AlwaysFed.Value)
-                fields.Reset(x => x.m_fedDuration);
-            else if (fields.SetIfChanged(x => x.m_fedDuration, float.MaxValue))
+                fields.Reset(static x => x.m_fedDuration);
+            else if (fields.SetIfChanged(static x => x.m_fedDuration, float.MaxValue))
                 RecreateZdo = true;
 
             if (Config.Summons.UnsummonDistanceMultiplier.Value is 1f)
-                fields.Reset(x => x.m_unsummonDistance);
-            else if (fields.SetIfChanged(x => x.m_unsummonDistance, tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
+                fields.Reset(static x => x.m_unsummonDistance);
+            else if (fields.SetIfChanged(static x => x.m_unsummonDistance, tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
                 RecreateZdo = true;
 
             if (Config.Summons.UnsummonLogoutTimeMultiplier.Value is 1f)
-                fields.Reset(x => x.m_unsummonOnOwnerLogoutSeconds);
-            else if (fields.SetIfChanged(x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
+                fields.Reset(static x => x.m_unsummonOnOwnerLogoutSeconds);
+            else if (fields.SetIfChanged(static x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
                 RecreateZdo = true;
 
             if (!RecreateZdo)
@@ -75,7 +75,7 @@ sealed class TameableProcessor : Processor
             UnregisterZdoProcessor = false;
 
             /// <see cref="Tameable.GetRemainingTime()"/>
-            var tameTime = fields.GetFloat(x => x.m_tamingTime);
+            var tameTime = fields.GetFloat(static x => x.m_tamingTime);
             var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
             if (tameTimeLeft < tameTime)
             {
@@ -93,7 +93,7 @@ sealed class TameableProcessor : Processor
                     var message = $"$hud_tameness {tameness:P0}";
 
                     /// <see cref="Tameable.IsHungry()"/>
-                    if ((ZNet.instance.GetTime() - zdo.Vars.GetTameLastFeeding()).TotalSeconds > fields.GetFloat(x => x.m_fedDuration))
+                    if ((ZNet.instance.GetTime() - zdo.Vars.GetTameLastFeeding()).TotalSeconds > fields.GetFloat(static x => x.m_fedDuration))
                         message += ", $hud_tamehungry";
 
                     ShowMessage(peers, zdo, message, Config.Tames.TamingProgressMessageType.Value);

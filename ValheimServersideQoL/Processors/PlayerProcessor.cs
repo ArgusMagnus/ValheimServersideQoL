@@ -114,7 +114,7 @@ sealed class PlayerProcessor : Processor
             return;
 
         ExtendedZDO? player = null;
-        if (Config.Players.CanSacrificeMegingjord.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.Megingjord))
+        if (Config.Players.CanSacrificeMegingjord.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Megingjord))
         {
             player ??= GetPeerCharacter(data.m_senderPeerID);
             if (player is null)
@@ -126,7 +126,7 @@ sealed class PlayerProcessor : Processor
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted increased carrying weight");
             }
         }
-        if (Config.Players.CanSacrificeCryptKey.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
+        if (Config.Players.CanSacrificeCryptKey.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
         {
             player ??= GetPeerCharacter(data.m_senderPeerID);
             if (player is null)
@@ -137,7 +137,7 @@ sealed class PlayerProcessor : Processor
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to open sunken crypt doors");
             }
         }
-        if (Config.Players.CanSacrificeWishbone.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
+        if (Config.Players.CanSacrificeWishbone.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
         {
             player ??= GetPeerCharacter(data.m_senderPeerID);
             if (player is null)
@@ -149,7 +149,7 @@ sealed class PlayerProcessor : Processor
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to sense hidden objects");
             }
         }
-        if (Config.Players.CanSacrificeTornSpirit.Value && zdo.Inventory.Items.Any(x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
+        if (Config.Players.CanSacrificeTornSpirit.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
         {
             player ??= GetPeerCharacter(data.m_senderPeerID);
             if (player is null)
@@ -299,7 +299,7 @@ sealed class PlayerProcessor : Processor
                     MoveItems(zdo, stackContainerState, peers);
                 return false;
             }
-            else if (zdo.Inventory.Items.Any(x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
+            else if (zdo.Inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
             {
                 for (int i = zdo.Inventory.Items.Count - 1; i >= 0; i--)
                 {
@@ -392,7 +392,7 @@ sealed class PlayerProcessor : Processor
                     {
                         var container = PlacePiece(zdo.GetPosition() with { y = -1000 }, Prefabs.WoodChest, 0);
                         var h = Math.Max(4, items.Count);
-                        container.Fields<Container>().Set(x => x.m_width, 8).Set(x => x.m_height, h);
+                        container.Fields<Container>().Set(static x => x.m_width, 8).Set(static x => x.m_height, h);
                         int y = 0;
                         foreach (var item in items.Values)
                         {

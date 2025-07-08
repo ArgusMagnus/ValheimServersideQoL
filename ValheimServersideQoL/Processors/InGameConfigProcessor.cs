@@ -71,13 +71,13 @@ sealed class InGameConfigProcessor : Processor
                 .Vars.SetTag(MainPortalTag);
             pos.y -= 3;
             PlacePiece(pos, Prefabs.DvergerGuardstone, 0)
-                .Fields<PrivateArea>(true).Set(x => x.m_radius, 3).Set(x => x.m_enabledByDefault, true);
+                .Fields<PrivateArea>(true).Set(static x => x.m_radius, 3).Set(static x => x.m_enabledByDefault, true);
         }
 
         var configSections = Config.ConfigFile
-            .Where(x => x.Key.Section != Main.DummyConfigSection && !x.Key.Section.StartsWith("A - "))
-            .GroupBy(x => x.Key.Section, x => x.Value)
-            .OrderBy(x => x.Key)
+            .Where(static x => x.Key.Section != Main.DummyConfigSection && !x.Key.Section.StartsWith("A - "))
+            .GroupBy(static x => x.Key.Section, static x => x.Value)
+            .OrderBy(static x => x.Key)
             .ToList();
 
         var sectionEnumerator = configSections.GetEnumerator();
@@ -138,9 +138,9 @@ sealed class InGameConfigProcessor : Processor
                 {
                     var section = Regex.Replace(sectionEnumerator.Current.Key, @"^[A-Z] - ", "");
                     IReadOnlyList<ConfigEntryBase> entries = [.. sectionEnumerator.Current];
-                    var hasNonDefault = entries.Any(x => !Equals(x.BoxedValue, x.DefaultValue));
+                    var hasNonDefault = entries.Any(static x => !Equals(x.BoxedValue, x.DefaultValue));
                     var zdo = PlacePiece(pos, Prefabs.PortalWood, rot);
-                    zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+                    zdo.Fields<TeleportWorld>().Set(static x => x.m_allowAllItems, true);
                     zdo.Vars.SetTag($"Config: {section}");
 
                     if (iIsEdge && kIsEdge)
@@ -174,7 +174,7 @@ sealed class InGameConfigProcessor : Processor
                     pos.x += i is 0 ? 0.25f : -0.25f;
                     pos.y += 0.5f;
                     PlacePiece(pos, Prefabs.Sconce, rot)
-                        .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                        .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
                 }
                 if (kIsEdge)
                 {
@@ -192,7 +192,7 @@ sealed class InGameConfigProcessor : Processor
                     pos.z += k is 0 ? 0.25f : -0.25f;
                     pos.y += 0.5f;
                     PlacePiece(pos, Prefabs.Sconce, rot)
-                        .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                        .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
                 }
             }
         }
@@ -209,14 +209,14 @@ sealed class InGameConfigProcessor : Processor
             {
                 pos.z -= 0.5f;
                 var zdo = PlacePiece(pos, Prefabs.PortalWood, 180f);
-                zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+                zdo.Fields<TeleportWorld>().Set(static x => x.m_allowAllItems, true);
                 zdo.Vars.SetTag(PortalHubTag);
                 pos.z += 1;
             }
 
             {
                 var zdo = PlacePiece(pos, Prefabs.PortalWood, 0f);
-                zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+                zdo.Fields<TeleportWorld>().Set(static x => x.m_allowAllItems, true);
                 zdo.Vars.SetTag(MainPortalTag);
             }
         }
@@ -265,7 +265,7 @@ sealed class InGameConfigProcessor : Processor
                 pos.x -= 2;
                 pos.z -= 2;
                 var zdo = PlacePiece(pos, Prefabs.PortalWood, 0f);
-                zdo.Fields<TeleportWorld>().Set(x => x.m_allowAllItems, true);
+                zdo.Fields<TeleportWorld>().Set(static x => x.m_allowAllItems, true);
                 zdo.Vars.SetTag($"Config: {section}");
 
             }
@@ -279,7 +279,7 @@ sealed class InGameConfigProcessor : Processor
     {
         foreach (var (sign, text, entries) in _portalSigns)
         {
-            var hasNonDefault = entries.Any(x => !Equals(x.BoxedValue, x.DefaultValue));
+            var hasNonDefault = entries.Any(static x => !Equals(x.BoxedValue, x.DefaultValue));
             sign.Vars.SetText($"{(hasNonDefault ? SignFormatGreen : SignFormatWhite)}{text}");
         }
     }
@@ -311,10 +311,10 @@ sealed class InGameConfigProcessor : Processor
             pos.y -= 0.25f;
             x -= 1;
             PlacePiece(pos, Prefabs.Sconce, rot)
-                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
             x += 2;
             PlacePiece(pos, Prefabs.Sconce, rot)
-                .Fields<Fireplace>().Set(x => x.m_infiniteFuel, true).Set(x => x.m_disableCoverCheck, true);
+                .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
             x -= 1;
             pos.y += 0.25f;
 
@@ -369,10 +369,10 @@ sealed class InGameConfigProcessor : Processor
                     pos.y -= 0.55f;
                     var candle = PlacePiece(pos, Prefabs.Sconce, rot);
                     candle.Fields<Fireplace>()
-                        .Set(x => x.m_secPerFuel, 0)
-                        .Set(x => x.m_canRefill, false)
-                        .Set(x => x.m_canTurnOff, true)
-                        .Set(x => x.m_disableCoverCheck, true);
+                        .Set(static x => x.m_secPerFuel, 0)
+                        .Set(static x => x.m_canRefill, false)
+                        .Set(static x => x.m_canTurnOff, true)
+                        .Set(static x => x.m_disableCoverCheck, true);
                     candle.Vars.SetFuel(candle.PrefabInfo.Fireplace!.m_maxFuel);
                     candle.Vars.SetState(configState.CandleState ? 1 : 2);
                     _candleToggles.Add(candle.m_uid, configState);
@@ -394,10 +394,10 @@ sealed class InGameConfigProcessor : Processor
                     pos.y -= 0.55f;
                     var candle = PlacePiece(pos, Prefabs.Sconce, rot);
                     candle.Fields<Fireplace>()
-                        .Set(x => x.m_secPerFuel, 0)
-                        .Set(x => x.m_canRefill, false)
-                        .Set(x => x.m_canTurnOff, true)
-                        .Set(x => x.m_disableCoverCheck, true);
+                        .Set(static x => x.m_secPerFuel, 0)
+                        .Set(static x => x.m_canRefill, false)
+                        .Set(static x => x.m_canTurnOff, true)
+                        .Set(static x => x.m_disableCoverCheck, true);
                     candle.Vars.SetState(configState.CandleState ? 1 : 2);
                     candle.Vars.SetFuel(candle.PrefabInfo.Fireplace!.m_maxFuel);
                     _candleToggles.Add(candle.m_uid, configState);
@@ -450,7 +450,7 @@ sealed class InGameConfigProcessor : Processor
             return false;
         }
 
-        var maxPeerY = peers.Max(x => x.m_refPos.y);
+        var maxPeerY = peers.Max(static x => x.m_refPos.y);
 
         if (maxPeerY > _offset.Room.y)
         {

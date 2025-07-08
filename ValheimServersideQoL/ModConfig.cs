@@ -172,10 +172,10 @@ sealed record ModConfig(ConfigFile ConfigFile)
             new ConfigDescription("Type of message to show for obliterator item teleporters", AcceptableEnum<MessageTypes>.Default));
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
-            .Where(x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
-            .Select(x => (Name: x.name, Container: x.GetComponent<Container>() ?? x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
-            .Where(x => x is { Container: not null, Piece: not null })
-            .ToDictionary(x => x.Name.GetStableHashCode(), x => cfg
+            .Where(static x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
+            .Select(static x => (Name: x.name, Container: x.GetComponent<Container>() ?? x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
+            .Where(static x => x is { Container: not null, Piece: not null })
+            .ToDictionary(static x => x.Name.GetStableHashCode(), x => cfg
                 .Bind(section, Invariant($"InventorySize_{x.Name}"), Invariant($"{x.Container.m_width}x{x.Container.m_height}"), Invariant($"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'")));
         
         public enum ObliteratorItemTeleporterOptions
@@ -350,7 +350,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
                     dict[station] = true;
                 }
             }
-            return dict.ToDictionary(x => x.Key, x => new StationCfg(cfg, section, NormalizeName(x.Key.name), x.Key, x.Value));
+            return dict.ToDictionary(static x => x.Key, x => new StationCfg(cfg, section, NormalizeName(x.Key.name), x.Key, x.Value));
         }).Invoke();
     
         public sealed class StationCfg(ConfigFile cfg, string section, string prefix, CraftingStation station, bool hasExtensions)
@@ -439,7 +439,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
             var presets = PrivateAccessor.GetServerOptionsGUIPresets();
             return cfg.Bind(section, nameof(Preset), WorldPresets.Default, new ConfigDescription(Invariant($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect"),
-                new AcceptableEnum<WorldPresets>(presets.Select(x => x.m_preset))));
+                new AcceptableEnum<WorldPresets>(presets.Select(static x => x.m_preset))));
         }
 
         static IReadOnlyDictionary<WorldModifiers, ConfigEntry<WorldModifierOption>> GetModifiers(ConfigFile cfg, string section)
@@ -449,8 +449,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
                 .OfType<KeySlider>()
                 .Select(keySlider => (Key: keySlider.m_modifier, Cfg: cfg.Bind(section, Invariant($"{keySlider.m_modifier}"), WorldModifierOption.Default,
                     new ConfigDescription(Invariant($"World modifier '{keySlider.m_modifier}'. Enable '{nameof(SetModifiersFromConfig)}' for this to have an effect"),
-                        new AcceptableEnum<WorldModifierOption>(keySlider.m_settings.Select(x => x.m_modifierValue))))))
-                .ToDictionary(x => x.Key, x => x.Cfg);
+                        new AcceptableEnum<WorldModifierOption>(keySlider.m_settings.Select(static x => x.m_modifierValue))))))
+                .ToDictionary(static x => x.Key, static x => x.Cfg);
             return modifiers;
         }
     }
@@ -483,13 +483,13 @@ sealed record ModConfig(ConfigFile ConfigFile)
             where TKey : unmanaged, Enum
         {
             List<(double TestValue, double Value)> testResults = [];
-            IEnumerable<double> testValues = [float.MinValue, int.MinValue, .. Enumerable.Range(-100, 100).Select(x => (double)x), int.MaxValue, float.MaxValue];
+            IEnumerable<double> testValues = [float.MinValue, int.MinValue, .. Enumerable.Range(-100, 100).Select(static x => (double)x), int.MaxValue, float.MaxValue];
             Dictionary<string, string> keyTestValues = [];
 
             List<FieldInfoEx> fields = [.. typeof(Game).GetFields(BindingFlags.Public | BindingFlags.Static)
-                .Where(x => !x.IsLiteral && !x.IsInitOnly)
-                .Select(x => new FieldInfoEx(x, x.GetValue(null), TryGetAsDouble(x)))
-                .Where(x => !double.IsNaN(x.RestoreValue))];
+                .Where(static x => !x.IsLiteral && !x.IsInitOnly)
+                .Select(static x => new FieldInfoEx(x, x.GetValue(null), TryGetAsDouble(x)))
+                .Where(static x => !double.IsNaN(x.RestoreValue))];
 
             MethodInfo? bindDefinition = null;
 
@@ -524,7 +524,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
                     {
                         (field, restoreValueObject, comparisonValue, value, var idx) = fields
                             .Select((x, i) => (x.Field, x.RestoreValueObject, x.ComparisonValue, Value: TryGetAsDouble(x.Field), i))
-                            .FirstOrDefault(x => x.ComparisonValue != x.Value);
+                            .FirstOrDefault(static x => x.ComparisonValue != x.Value);
                         if (field is not null)
                             fields.RemoveAt(idx);
                     }
@@ -541,10 +541,10 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
                 if (testResults is { Count: > 0 } && field is not null)
                 {
-                    var min = testResults.Min(x => x.Value);
-                    var max = testResults.Max(x => x.Value);
+                    var min = testResults.Min(static x => x.Value);
+                    var max = testResults.Max(static x => x.Value);
                     var inRange = testResults.Where(x => x.Value is not 0 && x.Value > min && x.Value < max);
-                    var multiplier = inRange.Any() ? inRange.Average(x => x.TestValue / x.Value) : 1;
+                    var multiplier = inRange.Any() ? inRange.Average(static x => x.TestValue / x.Value) : 1;
                     min *= multiplier;
                     max *= multiplier;
                     comparisonValue *= multiplier;
@@ -588,14 +588,14 @@ sealed record ModConfig(ConfigFile ConfigFile)
             if (!ZNet.instance.IsServer() || !ZNet.instance.IsDedicated())
                 return new Dictionary<Trader, IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>>();
 
-            return ZNetScene.instance.m_prefabs.Select(x => x.GetComponent<Trader>()).Where(x => x is not null)
+            return ZNetScene.instance.m_prefabs.Select(static x => x.GetComponent<Trader>()).Where(static x => x is not null)
                 .Select(trader => (Trader: trader, Entries: (IReadOnlyList<(string GlobalKey, ConfigEntry<bool> ConfigEntry)>)trader.m_items
-                    .Where(x => !string.IsNullOrEmpty(x.m_requiredGlobalKey))
+                    .Where(static x => !string.IsNullOrEmpty(x.m_requiredGlobalKey))
                     .Select(item => (item.m_requiredGlobalKey, cfg.Bind(section, Invariant($"{nameof(AlwaysUnlock)}{trader.name}{item.m_prefab.name}"), false,
                         Invariant($"Remove the progression requirements for buying {Localization.instance.Localize(item.m_prefab.m_itemData.m_shared.m_name)} from {Localization.instance.Localize(trader.m_name)}"))))
                     .ToList()))
-                .Where(x => x.Entries.Any())
-                .ToDictionary(x => x.Trader, x => x.Entries);
+                .Where(static x => x.Entries.Any())
+                .ToDictionary(static x => x.Trader, static x => x.Entries);
         }
     }
 
@@ -704,7 +704,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         {
             if (EnumUtils.IsBitSet<T>())
             {
-                AcceptableValues = [.. values.Where(x => !x.Equals(default(T)))];
+                AcceptableValues = [.. values.Where(static x => !x.Equals(default(T)))];
                 _default = default;
             }
             else
@@ -723,7 +723,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             {
                 var val = e.ToUInt64();
                 ulong result = 0;
-                foreach (var flag in AcceptableValues.Select(x => x.ToUInt64()).Where(x => (val & x) == x))
+                foreach (var flag in AcceptableValues.Select(static x => x.ToUInt64()).Where(x => (val & x) == x))
                     result |= flag;
                 return EnumUtils.ToEnum<T>(result);
             }
@@ -763,7 +763,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public override object Clamp(object value) => value;
 
         public override string ToDescriptionString()
-            => $"# Acceptable values: .NET Format strings for two arguments ({string.Join(", ", testArgs.Select(x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method";
+            => $"# Acceptable values: .NET Format strings for two arguments ({string.Join(", ", testArgs.Select(static x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method";
     }
 
     public sealed class AdvancedConfig
@@ -783,13 +783,13 @@ sealed record ModConfig(ConfigFile ConfigFile)
             IReadOnlyList<int>? _teleportFollowExcluded;
             [YamlIgnore]
             public IReadOnlyList<int> TeleportFollowExcluded => _teleportFollowExcluded ??= [.. TeleportFollow
-                .Where(x => !x.Value).Select(x => x.Key.GetStableHashCode())];
+                .Where(static x => !x.Value).Select(static x => x.Key.GetStableHashCode())];
 
             Dictionary<string, bool> TakeIntoDungeon { get; init; } = [];
             IReadOnlyList<int>? _takeIntoDungeonExcluded;
             [YamlIgnore]
             public IReadOnlyList<int> TakeIntoDungeonExcluded => _takeIntoDungeonExcluded ??= [.. TakeIntoDungeon
-                .Where(x => !x.Value).Select(x => x.Key.GetStableHashCode())];
+                .Where(static x => !x.Value).Select(static x => x.Key.GetStableHashCode())];
 
             public TamesConfig()
             {
@@ -828,7 +828,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             IReadOnlyDictionary<int, ChestSignOffset>? _chestSignOffsets;
 
             [YamlIgnore]
-            public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets => _chestSignOffsets ??= ChestSignOffsetsYaml.ToDictionary(x => x.Key.GetStableHashCode(), x => x.Value);
+            public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets => _chestSignOffsets ??= ChestSignOffsetsYaml.ToDictionary(static x => x.Key.GetStableHashCode(), static x => x.Value);
         }
     }
 
