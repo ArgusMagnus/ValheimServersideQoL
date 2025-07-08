@@ -23,8 +23,8 @@ sealed record RuntimeInformation(string ModVersion, GameVersion GameVersion, uin
             worldVersion = default;
 
         //var mods = Chainloader.PluginInfos.Values
-        //    .Where(x => !ReferenceEquals(x.Instance, Main.Instance))
-        //    .Select(x => new Mod(x.Metadata.GUID, x.Metadata.Name, Invariant($"{x.Metadata.Version}")));
+        //    .Where(static x => !ReferenceEquals(x.Instance, Main.Instance))
+        //    .Select(static x => new Mod(x.Metadata.GUID, x.Metadata.Name, Invariant($"{x.Metadata.Version}")));
 
         //var modsStr = Invariant($"{{ {string.Join(", ", mods)} }}");
         var modsStr = "";

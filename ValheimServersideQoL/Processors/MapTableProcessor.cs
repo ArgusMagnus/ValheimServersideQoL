@@ -51,16 +51,16 @@ sealed class MapTableProcessor : Processor
             if (Config.MapTables.AutoUpdatePortals.Value)
             {
                 pins = [.. pins, .. ZDOMan.instance.GetPortals().Cast<ExtendedZDO>()
-                    .Where(x => !x.IsModCreator()) // exclude map room portals
-                    .Select(x => new Pin(Main.PluginGuidHash, x.Vars.GetTag(), x.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid))];
+                    .Where(static x => !x.IsModCreator()) // exclude map room portals
+                    .Select(static x => new Pin(Main.PluginGuidHash, x.Vars.GetTag(), x.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid))];
                 if ((_includePortalRegex ?? _excludePortalRegex) is not null)
                     pins = pins.Where(x => _includePortalRegex?.IsMatch(x.Tag) is not false && _excludePortalRegex?.IsMatch(x.Tag) is not true);
             }
             if (Config.MapTables.AutoUpdateShips.Value)
             {
                 pins = [.. pins, .. Instance<ShipProcessor>().Ships
-                    .Where(x => x is not null)
-                    .Select(x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Ship!.Value.Piece.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid))];
+                    .Where(static x => x is not null)
+                    .Select(static x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Ship!.Value.Piece.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid))];
             }
 
             foreach (var pin in pins)

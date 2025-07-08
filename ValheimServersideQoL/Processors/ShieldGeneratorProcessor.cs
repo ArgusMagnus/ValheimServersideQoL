@@ -6,7 +6,7 @@ sealed class ShieldGeneratorProcessor : Processor
 
     public readonly record struct ShieldGeneratorInfo(ExtendedZDO ShieldGenerator, bool HasFuel);
     IReadOnlyList<ShieldGeneratorInfo>? _info;
-    public IReadOnlyList<ShieldGeneratorInfo> ShieldGenerators => _info ??= [.. _shieldGenerators.Select(x => new ShieldGeneratorInfo(x.Key, x.Value))];
+    public IReadOnlyList<ShieldGeneratorInfo> ShieldGenerators => _info ??= [.. _shieldGenerators.Select(static x => new ShieldGeneratorInfo(x.Key, x.Value))];
 
     public delegate void ShieldGeneratorChangedHandler(ExtendedZDO shieldGenerator, bool hasFuel);
     public event ShieldGeneratorChangedHandler? ShieldGeneratorChanged;

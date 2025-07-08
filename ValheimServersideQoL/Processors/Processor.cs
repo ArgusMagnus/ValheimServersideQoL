@@ -16,8 +16,8 @@ abstract class Processor
 {
     static IReadOnlyList<Processor>? _defaultProcessors;
     public static IReadOnlyList<Processor> DefaultProcessors => _defaultProcessors ??= [.. typeof(Processor).Assembly.GetTypes()
-        .Where(x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
-        .Select(x => (Processor)Activator.CreateInstance(x))];
+        .Where(static x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
+        .Select(static x => (Processor)Activator.CreateInstance(x))];
 
     static class InstanceCache<T> where T : Processor
     {
@@ -84,8 +84,8 @@ abstract class Processor
                 _dataZDO.Type = ZDO.ObjectType.Default;
                 _dataZDO.SetModAsCreator(CreatorMarkers.DataZDO);
                 _dataZDO.Vars.SetHealth(-1);
-                _dataZDO.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
-                _dataZDO.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false).Set(x => x.m_health, -1);
+                _dataZDO.Fields<Piece>().Set(static x => x.m_canBeRemoved, false);
+                _dataZDO.Fields<WearNTear>().Set(static x => x.m_noRoofWear, false).Set(static x => x.m_noSupportWear, false).Set(static x => x.m_health, -1);
                 _dataZDO.UnregisterAllProcessors();
             }
             return _dataZDO;
@@ -159,8 +159,8 @@ abstract class Processor
         zdo.SetModAsCreator(marker);
         zdo.Vars.SetHealth(-1);
         PlacedPieces.Add(zdo);
-        zdo.Fields<Piece>().Set(x => x.m_canBeRemoved, false);
-        zdo.Fields<WearNTear>().Set(x => x.m_noRoofWear, false).Set(x => x.m_noSupportWear, false).Set(x => x.m_health, -1);
+        zdo.Fields<Piece>().Set(static x => x.m_canBeRemoved, false);
+        zdo.Fields<WearNTear>().Set(static x => x.m_noRoofWear, false).Set(static x => x.m_noSupportWear, false).Set(static x => x.m_health, -1);
         return zdo;
     }
 
@@ -233,7 +233,7 @@ abstract class Processor
         {
             Delegate = del;
             Parameters = del.Method.GetParameters();
-            var pars = Parameters.Select(x => x.ParameterType).ToList();
+            var pars = Parameters.Select(static x => x.ParameterType).ToList();
             DataParameterIndex = pars.IndexOf(typeof(RoutedRPCData));
             ZdoParameterIndex = pars.IndexOf(typeof(ExtendedZDO));
         }
@@ -404,7 +404,7 @@ abstract class Processor
         }
 
         //public static void ShowInWorldText(IEnumerable<Peer> peers, DamageText.TextType type, Vector3 pos, string text)
-        //    => ShowInWorldText(peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance).Select(x => x.m_uid), type, pos, text);
+        //    => ShowInWorldText(peers.Where(static x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance).Select(static x => x.m_uid), type, pos, text);
 
         //public static void ShowInWorldText(DamageText.TextType type, Vector3 pos, string text)
         //    => ShowInWorldText([ZRoutedRpc.Everybody], type, pos, text);

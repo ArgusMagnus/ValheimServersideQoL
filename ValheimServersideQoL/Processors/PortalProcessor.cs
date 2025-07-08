@@ -97,7 +97,7 @@ sealed class PortalProcessor : Processor
                 {
                     state.Container.ReleaseOwnershipInternal();
                     state.Container.SetPosition(state.InitialPosition with { y = -1000 });
-                    state.Container.Fields<Container>().Set(x => x.m_autoDestroyEmpty, true);
+                    state.Container.Fields<Container>().Set(static x => x.m_autoDestroyEmpty, true);
                     state.Container.CreateClone();
                     DestroyPiece(state.Container); // release exclusive claim
                 }
@@ -140,7 +140,7 @@ sealed class PortalProcessor : Processor
                     }
                 }
             }
-            else if (state.Container.Inventory.Items.Any(x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
+            else if (state.Container.Inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
             {
                 int count = 0;
                 for (int k = state.Container.Inventory.Items.Count - 1; k >= 0; k--)
@@ -209,7 +209,7 @@ sealed class PortalProcessor : Processor
             return false;
         }
 
-        if (_teleportableItems.Count is 0 || zdo.Fields<TeleportWorld>().GetBool(x => x.m_allowAllItems))
+        if (_teleportableItems.Count is 0 || zdo.Fields<TeleportWorld>().GetBool(static x => x.m_allowAllItems))
             return false;
         
         foreach (var peer in peers)
@@ -224,7 +224,7 @@ sealed class PortalProcessor : Processor
             var container = PlacePiece(player.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
             container.UnregisterAllProcessors();
             var h = Math.Max(4, _teleportableItems.Count);
-            container.Fields<Container>().Set(x => x.m_width, 8).Set(x => x.m_height, h);
+            container.Fields<Container>().Set(static x => x.m_width, 8).Set(static x => x.m_height, h);
             int y = 0;
             foreach (var item in _teleportableItems)
             {

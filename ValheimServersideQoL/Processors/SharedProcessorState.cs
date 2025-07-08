@@ -24,14 +24,14 @@ static class SharedProcessorState
     static readonly Dictionary<int, PrefabInfo?> __prefabInfo = [];
 
     static readonly IReadOnlyList<Type> __componentTypes = [.. typeof(PrefabInfo).GetProperties()
-        .Select(x => x.PropertyType).Where(x => typeof(MonoBehaviour).IsAssignableFrom(x))];
+        .Select(static x => x.PropertyType).Where(static x => typeof(MonoBehaviour).IsAssignableFrom(x))];
 
     static readonly IReadOnlyList<IReadOnlyList<(Type Type, bool Optional)>> __componentTypeCombinations = [.. typeof(PrefabInfo).GetProperties()
-        .Select(x => x.PropertyType)
-        .Where(x => x.IsConstructedGenericType && x.GetGenericTypeDefinition() == typeof(Nullable<>) && x.GenericTypeArguments[0].IsConstructedGenericType)
-        .Select(x => x.GenericTypeArguments[0])
-        .Where(x => x.IsConstructedGenericType && typeof(ITuple).IsAssignableFrom(x))
-        .Select(x =>
+        .Select(static x => x.PropertyType)
+        .Where(static x => x.IsConstructedGenericType && x.GetGenericTypeDefinition() == typeof(Nullable<>) && x.GenericTypeArguments[0].IsConstructedGenericType)
+        .Select(static x => x.GenericTypeArguments[0])
+        .Where(static x => x.IsConstructedGenericType && typeof(ITuple).IsAssignableFrom(x))
+        .Select(static x =>
         {
             List<(Type Type, bool Optional)>? list = new(x.GenericTypeArguments.Length);
             foreach (var type in x.GenericTypeArguments)
@@ -48,7 +48,7 @@ static class SharedProcessorState
             }
             return list!;
         })
-        .Where(x => x is not null)];
+        .Where(static x => x is not null)];
 
     static IReadOnlyDictionary<string, Character>? __characterByTrophy;
     public static IReadOnlyDictionary<string, Character> CharacterByTrophy => __characterByTrophy ??= new Func<IReadOnlyDictionary<string, Character>>(static () =>
@@ -59,7 +59,7 @@ static class SharedProcessorState
             if (prefab.GetComponent<Character>() is not { m_boss: false } character || prefab.GetComponent<CharacterDrop>() is not { } characterDrop)
                 continue;
 
-            var drop = characterDrop.m_drops.Select(x => x.m_prefab?.GetComponent<ItemDrop>()).FirstOrDefault(x => x is { m_itemData: { m_shared: { m_itemType: ItemDrop.ItemData.ItemType.Trophy } } });
+            var drop = characterDrop.m_drops.Select(static x => x.m_prefab?.GetComponent<ItemDrop>()).FirstOrDefault(static x => x is { m_itemData: { m_shared: { m_itemType: ItemDrop.ItemData.ItemType.Trophy } } });
             if (drop is null)
                 continue;
 
@@ -120,7 +120,7 @@ static class SharedProcessorState
                 var componentCombinations = componentTypeCombinations
                     .Select(x => (x.Type, x.Optional, Component: (components?.TryGetValue(x.Type, out var c) ?? false) ? c : GetComponent(prefab, x.Type, availableComponents)))
                     .ToList();
-                if (componentCombinations.Count > 0 && !componentCombinations.Any(x => x.Component is null && !x.Optional))
+                if (componentCombinations.Count > 0 && !componentCombinations.Any(static x => x.Component is null && !x.Optional))
                 {
                     components ??= [];
                     foreach (var (type, _, component) in componentCombinations)

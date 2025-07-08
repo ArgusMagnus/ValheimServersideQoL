@@ -40,19 +40,19 @@ sealed class SmelterProcessor : Processor
         if (Config.Smelters.CapacityMultiplier.Value is 1f)
         {
             if (zdo.PrefabInfo.Smelter is not null)
-                zdo.Fields<Smelter>().Reset(x => x.m_maxFuel).Reset(x => x.m_maxOre);
+                zdo.Fields<Smelter>().Reset(static x => x.m_maxFuel).Reset(static x => x.m_maxOre);
             else
-                zdo.Fields<ShieldGenerator>().Reset(x => x.m_maxFuel);
+                zdo.Fields<ShieldGenerator>().Reset(static x => x.m_maxFuel);
         }
         else
         {
             if (zdo.PrefabInfo.Smelter is null)
-                RecreateZdo = zdo.Fields<ShieldGenerator>().SetIfChanged(x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.ShieldGenerator!.m_maxFuel));
+                RecreateZdo = zdo.Fields<ShieldGenerator>().SetIfChanged(static x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.ShieldGenerator!.m_maxFuel));
             else
             {
-                if (zdo.Fields<Smelter>().SetIfChanged(x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxFuel)))
+                if (zdo.Fields<Smelter>().SetIfChanged(static x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxFuel)))
                     RecreateZdo = true;
-                if (zdo.Fields<Smelter>().SetIfChanged(x => x.m_maxOre, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxOre)))
+                if (zdo.Fields<Smelter>().SetIfChanged(static x => x.m_maxOre, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxOre)))
                     RecreateZdo = true;
             }
         }
@@ -68,12 +68,12 @@ sealed class SmelterProcessor : Processor
 
 		/// <see cref="Smelter.OnAddFuel"/>
 		{
-            var maxFuel = zdo.PrefabInfo.Smelter is not null ? zdo.Fields<Smelter>().GetInt(x => x.m_maxFuel) : zdo.Fields<ShieldGenerator>().GetInt(x => x.m_maxFuel);
+            var maxFuel = zdo.PrefabInfo.Smelter is not null ? zdo.Fields<Smelter>().GetInt(static x => x.m_maxFuel) : zdo.Fields<ShieldGenerator>().GetInt(static x => x.m_maxFuel);
             var currentFuel = zdo.Vars.GetFuel();
             var maxFuelAdd = (int)(maxFuel - currentFuel);
             if (maxFuelAdd > maxFuel / 2)
             {
-                foreach (var fuelItem in zdo.PrefabInfo.ShieldGenerator?.m_fuelItems.Select(x => x.m_itemData) ?? [zdo.PrefabInfo.Smelter!.m_fuelItem.m_itemData])
+                foreach (var fuelItem in zdo.PrefabInfo.ShieldGenerator?.m_fuelItems.Select(static x => x.m_itemData) ?? [zdo.PrefabInfo.Smelter!.m_fuelItem.m_itemData])
                 {
                     var addedFuel = 0;
                     if (Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
@@ -100,7 +100,7 @@ sealed class SmelterProcessor : Processor
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
                             var found = false;
                             var requestOwn = false;
-                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(x => x.m_stack))
+                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(static x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxFuelAdd, slot.m_stack);
@@ -177,7 +177,7 @@ sealed class SmelterProcessor : Processor
         /// <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
         if (zdo.PrefabInfo.Smelter is not null)
         {
-            int maxOre = zdo.Fields<Smelter>().GetInt(x => x.m_maxOre);
+            int maxOre = zdo.Fields<Smelter>().GetInt(static x => x.m_maxOre);
             var currentOre = zdo.Vars.GetQueued();
             var maxOreAdd = maxOre - currentOre;
             if (maxOreAdd > maxOre / 2)
@@ -210,7 +210,7 @@ sealed class SmelterProcessor : Processor
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastOre.Value;
                             var found = false;
                             var requestOwn = false;
-                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == oreItem).OrderBy(x => x.m_stack))
+                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == oreItem).OrderBy(static x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxOreAdd, slot.m_stack);

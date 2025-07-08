@@ -13,8 +13,8 @@ sealed class VagonProcesser : Processor
         /// <see cref="Vagon.UpdateMass()"/>
         var fields = zdo.Fields<Vagon>();
         if (Config.Carts.ContentMassMultiplier.Value is 1f || float.IsNaN(Config.Carts.ContentMassMultiplier.Value))
-            fields.Reset(x => x.m_itemWeightMassFactor);
-        else if (fields.SetIfChanged(x => x.m_itemWeightMassFactor, zdo.PrefabInfo.Vagon.m_itemWeightMassFactor * Config.Carts.ContentMassMultiplier.Value))
+            fields.Reset(static x => x.m_itemWeightMassFactor);
+        else if (fields.SetIfChanged(static x => x.m_itemWeightMassFactor, zdo.PrefabInfo.Vagon.m_itemWeightMassFactor * Config.Carts.ContentMassMultiplier.Value))
             RecreateZdo = true;
 
         return true;

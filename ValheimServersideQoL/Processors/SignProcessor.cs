@@ -160,8 +160,8 @@ sealed class SignProcessor : Processor
                     return Config.Containers.ChestSignsContentListPlaceholder.Value;
 
                 var list = chest.InventoryReadOnly.Items
-                    .GroupBy(x => x.m_dropPrefab.name, (k, g) => (Name: Config.Containers.ItemNames[k], Count: g.Sum(x => x.m_stack)))
-                    .OrderByDescending(x => x.Count)
+                    .GroupBy(static x => x.m_dropPrefab.name, (k, g) => (Name: Config.Containers.ItemNames[k], Count: g.Sum(static x => x.m_stack)))
+                    .OrderByDescending(static x => x.Count)
                     .ToList();
 
                 var items = list.AsEnumerable();
@@ -169,7 +169,7 @@ sealed class SignProcessor : Processor
                 {
                     items = list
                         .Take(Config.Containers.ChestSignsContentListMaxCount.Value - 1)
-                        .Append((Config.Containers.ChestSignsContentListNameRest.Value, list.Skip(Config.Containers.ChestSignsContentListMaxCount.Value - 1).Sum(x => x.Count)));
+                        .Append((Config.Containers.ChestSignsContentListNameRest.Value, list.Skip(Config.Containers.ChestSignsContentListMaxCount.Value - 1).Sum(static x => x.Count)));
                 }
 
                 var listStr = string.Join(Config.Containers.ChestSignsContentListSeparator.Value, items

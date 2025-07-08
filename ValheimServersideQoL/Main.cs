@@ -161,7 +161,7 @@ public sealed partial class Main : BaseUnityPlugin
             return false;
 
         if (Config.General.DiagnosticLogs.Value)
-            Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
+            Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
 
         var failed = false;
         var abort = false;
@@ -213,7 +213,7 @@ public sealed partial class Main : BaseUnityPlugin
         if (Config.General.DiagnosticLogs.Value || ReferenceEquals(e.ChangedSetting, Config.General.DiagnosticLogs))
             Logger.LogInfo($"Config changed: [{e.ChangedSetting.Definition.Section}].[{e.ChangedSetting.Definition.Key}] = {e.ChangedSetting.BoxedValue}");
         if (ReferenceEquals(e.ChangedSetting, Config.General.DiagnosticLogs) && Config.General.DiagnosticLogs.Value)
-            Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
+            Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
     }
 
     void Execute(PeersEnumerable peers)
@@ -234,7 +234,7 @@ public sealed partial class Main : BaseUnityPlugin
 
             if (Config.WorldModifiers.SetModifiersFromConfig.Value)
             {
-                foreach (var (modifier, value) in Config.WorldModifiers.Modifiers.Select(x => (x.Key, x.Value.Value)))
+                foreach (var (modifier, value) in Config.WorldModifiers.Modifiers.Select(static x => (x.Key, x.Value.Value)))
                 {
                     try { MyTerminal.ExecuteCommand("setworldmodifier", Invariant($"{modifier}"), Invariant($"{value}")); }
                     catch (Exception ex) { Logger.LogError(ex); }
@@ -244,7 +244,7 @@ public sealed partial class Main : BaseUnityPlugin
             if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
             {
                 /// <see cref="FejdStartup.ParseServerArguments"/>
-                foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Where(x => !Equals(x.Value.BoxedValue, x.Value.DefaultValue)))
+                foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Where(static x => !Equals(x.Value.BoxedValue, x.Value.DefaultValue)))
                 {
                     if (entry.BoxedValue is bool boolValue)
                     {
@@ -345,14 +345,14 @@ public sealed partial class Main : BaseUnityPlugin
             foreach (var peer in peers)
             {
                 var playerSector = ZoneSystem.GetZone(peer.m_refPos);
-                foreach (var (sector, sectorInfo) in _playerSectors.Select(x => (x.Key, x.Value)))
+                foreach (var (sector, sectorInfo) in _playerSectors.Select(static x => (x.Key, x.Value)))
                 {
                     var dx = sector.x - playerSector.x;
                     var dy = sector.y - playerSector.y;
                     sectorInfo.InverseWeight += dx * dx + dy * dy;
                 }
             }
-            playerSectors = playerSectors.OrderBy(x => x.Value.InverseWeight);
+            playerSectors = playerSectors.OrderBy(static x => x.Value.InverseWeight);
         }
 
         foreach (var processor in Processor.DefaultProcessors)
@@ -442,8 +442,8 @@ public sealed partial class Main : BaseUnityPlugin
         Logger.Log(logLevel,
             Invariant($"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
 
-        Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(x => x.ProcessingTime.Ticks > 0).OrderByDescending(x => x.ProcessingTime.Ticks).Select(x => Invariant($"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms")))}"));
-        //Logger.LogDebug(string.Join(Invariant(.$"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(x => Invariant(.$"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
+        Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(static x => x.ProcessingTime.Ticks > 0).OrderByDescending(static x => x.ProcessingTime.Ticks).Select(static x => Invariant($"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms")))}"));
+        //Logger.LogDebug(string.Join(Invariant(.$"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(static x => Invariant(.$"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
 
 #if DEBUG
@@ -453,7 +453,7 @@ public sealed partial class Main : BaseUnityPlugin
         writer.WriteLine("|Category|Key|Default Value|Acceptable Values|Description|");
         writer.WriteLine("|--------|---|-------------|-----------------|-----------|");
 
-        foreach (var (def, entry) in cfg.OrderBy(x => x.Key.Section).Select(x => (x.Key, x.Value)))
+        foreach (var (def, entry) in cfg.OrderBy(static x => x.Key.Section).Select(static x => (x.Key, x.Value)))
         {
             //if (def.Section == DummyConfigSection)
             //    continue;
@@ -496,7 +496,7 @@ public sealed partial class Main : BaseUnityPlugin
         Parallel.ForEach(ZNetScene.instance.m_prefabs, prefab =>
         {
             var components = prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>()
-                .Where(x => x is not ZNetView)
+                .Where(static x => x is not ZNetView)
                 .ToList();
 
             if (components is not { Count: > 0})
@@ -535,12 +535,12 @@ public sealed partial class Main : BaseUnityPlugin
 
             // markdown link: ' ' -> '-', remove non-alphanumeric characters
             bag.Add((prefab.name, name, string.Join(", ", components
-                    .Select(x => (Type: x.GetType().Name, Name: x.name))
-                    .OrderBy(x => x.Type).ThenBy(x => x.Name)
+                    .Select(static x => (Type: x.GetType().Name, Name: x.name))
+                    .OrderBy(static x => x.Type).ThenBy(static x => x.Name)
                     .Select(x => Invariant($"[{x.Type} ({x.Name})](Components/{x.Type}.md#{prefab.name.ToLowerInvariant().Replace(' ', '-')}-{x.Name.ToLowerInvariant().Replace(' ', '-')})")))));
         });
 
-        Parallel.ForEach(componentsBag.GroupBy(x => x.Key.GetType()), group =>
+        Parallel.ForEach(componentsBag.GroupBy(static x => x.Key.GetType()), group =>
         {
             var componentType = group.Key;
             var fields = componentFields[componentType];
@@ -550,7 +550,7 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine();
             writer.WriteLine("The following section headers are in the format `Prefab.name: Component.name`.");
             writer.WriteLine();
-            foreach (var (component, header) in group.Select(x => (x.Key, Invariant($"## {x.Value}: {x.Key.name}"))).OrderBy(x => x.Item2))
+            foreach (var (component, header) in group.Select(static x => (x.Key, Invariant($"## {x.Value}: {x.Key.name}"))).OrderBy(static x => x.Item2))
             {
                 writer.WriteLine(header);
                 writer.WriteLine();
@@ -585,7 +585,7 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine();
             writer.WriteLine("|Prefab|Components|");
             writer.WriteLine("|------|----------|");
-            foreach (var (prefab, name, components) in prefabs.OrderBy(x => x.Prefab))
+            foreach (var (prefab, name, components) in prefabs.OrderBy(static x => x.Prefab))
             {
                 var str = $"{prefab}<small><br>- Hash: {prefab.GetStableHashCode()}";
                 if (name is not null)
@@ -606,7 +606,7 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine();
             writer.WriteLine("|Key|English|");
             writer.WriteLine("|---|-------|");
-            foreach (var (key, value) in Localization.instance.GetStrings().Select(x => (x.Key, x.Value)).OrderBy(x => x.Key))
+            foreach (var (key, value) in Localization.instance.GetStrings().Select(static x => (x.Key, x.Value)).OrderBy(static x => x.Key))
                 writer.WriteLine(Invariant($"|{key}|{value?.Replace("\n", "<br>") ?? "*null*"}|"));
         }
 
@@ -617,14 +617,14 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine();
             writer.WriteLine("|Name|Player: required **not** known items (all)|Player: required **not** set keys (all)|Player: required known items (any)|Player: required keys (any)|Player: required keys (all)|");
             writer.WriteLine("|----|------------------------------------------|---------------------------------------|----------------------------------|---------------------------|---------------------------|");
-            foreach (var ev in RandEventSystem.instance.m_events.Where(x => x.m_enabled && x.m_random).OrderBy(x => x.m_name))
+            foreach (var ev in RandEventSystem.instance.m_events.Where(static x => x.m_enabled && x.m_random).OrderBy(static x => x.m_name))
             {
                 /// <see cref="RandEventSystem.PlayerIsReadyForEvent(Player, RandomEvent)"/>
-                var altRequiredNotKnownItems = string.Join("<br>", ev.m_altRequiredNotKnownItems.Select(x => $"- {x.name}"));
-                var altNotRequiredPlayerKeys = string.Join("<br>", ev.m_altNotRequiredPlayerKeys.Select(x => $"- {x}"));
-                var altRequiredKnownItems = string.Join("<br>", ev.m_altRequiredKnownItems.Select(x => $"- {x.name}"));
-                var altRequiredPlayerKeysAny = string.Join("<br>", ev.m_altRequiredPlayerKeysAny.Select(x => $"- {x}"));
-                var altRequiredPlayerKeysAll = string.Join("<br>", ev.m_altRequiredPlayerKeysAll.Select(x => $"- {x}"));
+                var altRequiredNotKnownItems = string.Join("<br>", ev.m_altRequiredNotKnownItems.Select(static x => $"- {x.name}"));
+                var altNotRequiredPlayerKeys = string.Join("<br>", ev.m_altNotRequiredPlayerKeys.Select(static x => $"- {x}"));
+                var altRequiredKnownItems = string.Join("<br>", ev.m_altRequiredKnownItems.Select(static x => $"- {x.name}"));
+                var altRequiredPlayerKeysAny = string.Join("<br>", ev.m_altRequiredPlayerKeysAny.Select(static x => $"- {x}"));
+                var altRequiredPlayerKeysAll = string.Join("<br>", ev.m_altRequiredPlayerKeysAll.Select(static x => $"- {x}"));
                 writer.WriteLine(Invariant($"|{ev.m_name}|{altRequiredNotKnownItems}|{altNotRequiredPlayerKeys}|{altRequiredKnownItems}|{altRequiredPlayerKeysAny}|{altRequiredPlayerKeysAll}|"));
             }
         }
@@ -637,13 +637,13 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine("|Type|Method|Parameters|");
             writer.WriteLine("|----|------|----------|");
 
-            foreach (var type in typeof(ZNet).Assembly.ExportedTypes.OrderBy(x => x.Name))
+            foreach (var type in typeof(ZNet).Assembly.ExportedTypes.OrderBy(static x => x.Name))
             {
-                foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static).OrderBy(x => x.Name))
+                foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static).OrderBy(static x => x.Name))
                 {
                     if (!method.Name.StartsWith("RPC_"))
                         continue;
-                    var parameters = string.Join(", ", method.GetParameters().Select(x => $"{x.ParameterType.Name} {x.Name}"));
+                    var parameters = string.Join(", ", method.GetParameters().Select(static x => $"{x.ParameterType.Name} {x.Name}"));
                     writer.WriteLine($"|{type.Name}|{method.Name}|{parameters}|");
                 }
             }

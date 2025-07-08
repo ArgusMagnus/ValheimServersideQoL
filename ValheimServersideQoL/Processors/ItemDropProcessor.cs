@@ -87,9 +87,9 @@ sealed class ItemDropProcessor : Processor
 
                     UnregisterZdoProcessor = true;
                     var fields = zdo.Fields<ItemDrop>();
-                    if (fields.SetIfChanged(x => x.m_autoPickup, false))
+                    if (fields.SetIfChanged(static x => x.m_autoPickup, false))
                         RecreateZdo = true;
-                    if (fields.SetIfChanged(x => x.m_autoDestroy, false))
+                    if (fields.SetIfChanged(static x => x.m_autoDestroy, false))
                         RecreateZdo = true;
                     if (RecreateZdo)
                         zdo.ReleaseOwnershipInternal();

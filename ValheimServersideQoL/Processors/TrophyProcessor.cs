@@ -190,7 +190,7 @@ sealed class TrophyProcessor : Processor
             return false;
         }
 
-        if (zdo.Fields<ItemDrop>().SetIfChanged(x => x.m_autoPickup, false))
+        if (zdo.Fields<ItemDrop>().SetIfChanged(static x => x.m_autoPickup, false))
         {
             RecreateZdo = true;
             return false;
@@ -293,7 +293,7 @@ sealed class TrophyProcessor : Processor
                 {
                     // Disabling drops like that doesn't work, since most mobs spawn a ragdoll (separate prefab created via m_deathEffects) which then spawn the drops
                     if (mob.PrefabInfo.Humanoid is { CharacterDrop.Value: not null })
-                        mob.Fields<CharacterDrop>().Set(x => x.m_spawnOffset, _dropOffset);
+                        mob.Fields<CharacterDrop>().Set(static x => x.m_spawnOffset, _dropOffset);
                     mob.Destroyed += OnSpawnedDestroyed;
                 }
 
