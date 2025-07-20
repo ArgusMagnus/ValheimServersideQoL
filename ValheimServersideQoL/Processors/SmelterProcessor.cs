@@ -57,6 +57,14 @@ sealed class SmelterProcessor : Processor
             }
         }
 
+        if (zdo.PrefabInfo.Smelter?.m_conversion.Any(static x => x.m_to is not null) is true)
+        {
+            if (Config.Smelters.TimePerProductMultiplier.Value is 1f)
+                zdo.Fields<Smelter>().Reset(static x => x.m_secPerProduct);
+            else if (zdo.Fields<Smelter>().SetIfChanged(static x => x.m_secPerProduct, Mathf.Max(1f, zdo.PrefabInfo.Smelter.m_secPerProduct * Config.Smelters.TimePerProductMultiplier.Value)))
+                RecreateZdo = true;
+        }
+
         if (!Config.Smelters.FeedFromContainers.Value)
         {
             UnregisterZdoProcessor = true;

@@ -255,6 +255,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<MessageTypes> OreOrFuelAddedMessageType { get; } = cfg.Bind(section, nameof(OreOrFuelAddedMessageType), MessageTypes.None,
             new ConfigDescription("Type of message to show when ore or fuel is added to a smelter", AcceptableEnum<MessageTypes>.Default));
         public ConfigEntry<float> CapacityMultiplier { get; } = cfg.Bind(section, nameof(CapacityMultiplier), 1f, "Multiply a smelter's ore/fuel capacity by this factor");
+        public ConfigEntry<float> TimePerProductMultiplier { get; } = cfg.Bind(section, nameof(TimePerProductMultiplier), 1f,
+            "Multiply the time it takes to produce one product by this factor (will not go below 1 second per product).");
     }
 
     public sealed class WindmillsConfig(ConfigFile cfg, string section)
