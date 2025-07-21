@@ -1,30 +1,12 @@
-### v1.0.1031 (BETA)
+### v1.1.0
 - Fixed issues due to stale cached data on non-dedicated servers
-
-### v1.0.1030 (BETA)
-- Adjusted teleportation of non-teleportable items [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99):
-   - Return items to players that logged out in proximity of a portal when they log back in
-
-### v1.0.1027 (BETA)
-- Adjusted teleportation of non-teleportable items [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99):
-    - Made type of shown message configurable
-    - Reduced risk of item loss when a player logs out in proximity of a portal
-
-### v1.0.1025 (BETA)
-- Adjusted teleportation of non-teleportable items [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99):
-    - Add sensible default values to the config options and add a general `Enable` option
-    - Show messages when the items are taken/returned from/to the player
-
-### v1.0.1024 (BETA)
-- New feature: Added options to allow the teleportation of non-teleportable items after bosses have been defeated [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99)
-
-### v1.0.1020 (BETA)
 - New features:
     - Add config option to limit max container pickup range configured by chest sign [#76](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/76)
     - Take tamed creatures into dungeons [#95](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/95)
     - Make all hostile summoned creatures friendly [#92](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/92)
     - Unsummon the oldest troll when hitting the limit with Trollstav (behaves more like Dead Raiser) [#96](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/96)
     - Make hostile summons (like summoned troll) follow the summoner [#97](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/97)
+    - Added options to allow the teleportation of non-teleportable items after bosses have been defeated [#99](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/99)
 
 ### v1.0.0
 - Portal Hub: Distinguish between portals that are connected to regular portals and those that are connected to stone portals
