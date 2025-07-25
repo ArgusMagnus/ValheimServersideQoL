@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -70,6 +71,42 @@ static class SharedProcessorState
                 result[drop.name] = character;
         }
         return result;
+    }).Invoke();
+
+    static IReadOnlyDictionary<Heightmap.Biome, Character>? __bossesByBiome;
+    public static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => __bossesByBiome ??= new Func<IReadOnlyDictionary<Heightmap.Biome, Character>>(static () =>
+    {
+        var watch = Stopwatch.StartNew();
+        var bosses = new Dictionary<Heightmap.Biome, Character>();
+        foreach (var includeDungeons in (IEnumerable<bool>)[false, true])
+        {
+            foreach (var location in ZoneSystem.instance.m_locations)
+            {
+                if (!location.m_enable || !location.m_prioritized || location.m_biomeArea is not Heightmap.BiomeArea.Median || location.m_biome is Heightmap.Biome.None or Heightmap.Biome.All or Heightmap.Biome.Ocean)
+                    continue;
+
+                if (bosses.ContainsKey(location.m_biome))
+                    continue;
+
+                location.m_prefab.Load();
+                var bowl = location.m_prefab.Asset.GetComponentInChildren<OfferingBowl>();
+                if (includeDungeons && bowl is null && location.m_prefab.Asset.GetComponentInChildren<DungeonGenerator>() is { } dungeonGen)
+                {
+                    foreach (var roomRef in dungeonGen.GetAvailableRoomPrefabs())
+                    {
+                        roomRef.Load();
+                        var room = roomRef.Asset.GetComponent<Room>();
+                        bowl = room.GetComponentInChildren<OfferingBowl>();
+                        if (bowl is not null)
+                            break;
+                    }
+                }
+                if (bowl is not null)
+                    bosses.Add(location.m_biome, bowl.m_bossPrefab.GetComponent<Character>());
+            }
+        }
+        //Main.Instance.Logger.DevLog($"Elapsed: {watch.Elapsed}");
+        return bosses;
     }).Invoke();
 
     static PieceTableInfo GetPieceTableInfo()

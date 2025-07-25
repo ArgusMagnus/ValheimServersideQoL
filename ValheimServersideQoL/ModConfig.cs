@@ -645,14 +645,9 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
         public IReadOnlyList<Entry> Entries { get; } = new Func<IReadOnlyList<Entry>>(() =>
         {
-            HashSet<string> keys = [""];
-            foreach (var prefab in ZNetScene.instance.m_prefabs)
-            {
-                if (prefab.GetComponent<Character>() is { m_boss: true, m_defeatSetGlobalKey.Length: > 0 } character)
-                    keys.Add(character.m_defeatSetGlobalKey);
-            }
-
-            var acceptableValues = new AcceptableValueList<string>([.. keys]);
+            var acceptableValues = new AcceptableValueList<string>([.. SharedProcessorState.BossesByBiome.Values
+                .OrderBy(static x => x.m_health)
+                .Select(static x => x.m_defeatSetGlobalKey)]);
 
             List<Entry> result = [];
             foreach (var item in ObjectDB.instance.m_items)
@@ -662,17 +657,17 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
                 var defaultValue = "";
                 if (Regex.IsMatch(item.name, @"copper|tin|bronze", RegexOptions.IgnoreCase))
-                    defaultValue = "defeated_gdking";
+                    defaultValue = SharedProcessorState.BossesByBiome[Heightmap.Biome.BlackForest].m_defeatSetGlobalKey;
                 else if (item.name.Contains("iron", StringComparison.OrdinalIgnoreCase))
-                    defaultValue = "defeated_bonemass";
+                    defaultValue = SharedProcessorState.BossesByBiome[Heightmap.Biome.Swamp].m_defeatSetGlobalKey;
                 else if (Regex.IsMatch(item.name, @"silver|DragonEgg", RegexOptions.IgnoreCase))
-                    defaultValue = "defeated_dragon";
+                    defaultValue = SharedProcessorState.BossesByBiome[Heightmap.Biome.Mountain].m_defeatSetGlobalKey;
                 else if (item.name.Contains("blackmetal", StringComparison.OrdinalIgnoreCase))
-                    defaultValue = "defeated_goblinking";
+                    defaultValue = SharedProcessorState.BossesByBiome[Heightmap.Biome.Plains].m_defeatSetGlobalKey;
                 else if (Regex.IsMatch(item.name, @"DvergrNeedle|MechanicalSpring", RegexOptions.IgnoreCase))
-                    defaultValue = "defeated_queen";
+                    defaultValue = SharedProcessorState.BossesByBiome[Heightmap.Biome.Mistlands].m_defeatSetGlobalKey;
                 else if (Regex.IsMatch(item.name, @"flametal|CharredCogwheel", RegexOptions.IgnoreCase))
-                    defaultValue = "defeated_fader";
+                    defaultValue = SharedProcessorState.BossesByBiome[Heightmap.Biome.AshLands].m_defeatSetGlobalKey;
 
                 result.Add(new(itemDrop, cfg.Bind(section, item.name, defaultValue, new ConfigDescription(
                     $"Key of the boss that will allow '{Localization.instance.Localize(itemDrop.m_itemData.m_shared.m_name)}' to be teleported when defeated",
