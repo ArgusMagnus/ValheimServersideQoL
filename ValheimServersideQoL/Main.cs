@@ -275,6 +275,9 @@ public sealed partial class Main : BaseUnityPlugin
 #if DEBUG
                 GenerateDefaultConfigMarkdown(base.Config);
                 GenerateDocs();
+
+                foreach (var (biome, boss) in GetBosses().OrderBy(static x => x.Value.m_health))
+                    Logger.DevLog($"{biome}: {boss.name} - {boss.m_health} HP");
 #endif
 
                 //base.Config.Bind(DummyConfigSection, "Dummy", "", Invariant($"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}"));
@@ -447,6 +450,46 @@ public sealed partial class Main : BaseUnityPlugin
     }
 
 #if DEBUG
+    static IReadOnlyDictionary<Heightmap.Biome, Character> GetBosses()
+    {
+        var bosses = new Dictionary<Heightmap.Biome, Character>();
+
+        foreach (var location in ZoneSystem.instance.m_locations)
+        {
+            if (!location.m_enable || !location.m_prioritized || location.m_biomeArea is not Heightmap.BiomeArea.Median)
+                continue;
+
+            if (bosses.ContainsKey(location.m_biome))
+                continue;
+
+            location.m_prefab.Load();
+            if (location.m_prefab.Asset.GetComponentInChildren<OfferingBowl>() is not { } bowl)
+            {
+                bowl = null;
+                foreach (var znetView in location.m_prefab.Asset.GetComponentsInChildren<ZNetView>())
+                {
+                    if (znetView.GetComponentInChildren<DungeonGenerator>() is not { } dungeonGen)
+                        continue;
+                    foreach (var roomRef in dungeonGen.GetAvailableRoomPrefabs())
+                    {
+                        roomRef.Load();
+                        var room = roomRef.Asset.GetComponent<Room>();
+                        bowl = room.GetComponentInChildren<OfferingBowl>();
+                        if (bowl is not null)
+                            break;
+                    }
+                }
+
+            }
+            if (bowl is not null)
+            {
+                //Logger.DevLog($"{location.m_biome}: {bowl.m_bossPrefab.name}");
+                bosses.Add(location.m_biome, bowl.m_bossPrefab.GetComponent<Character>());
+            }
+        }
+        return bosses;
+    }
+
     static void GenerateDefaultConfigMarkdown(ConfigFile cfg)
     {
         using var writer = new StreamWriter(ConfigMarkdownPath, false, new UTF8Encoding(false));
