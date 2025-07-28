@@ -97,10 +97,23 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public sealed class CreaturesConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> ShowHigherLevelStars { get; } = cfg.Bind(section, nameof(ShowHigherLevelStars), false,
-            "True to show stars for higher level creatures (> 2 stars). The intended use is with other mods, which spawn higher level creatures");
+            "True to show stars for higher level creatures (> 2 stars)");
 
         public ConfigEntry<ShowHigherLevelAuraOptions> ShowHigherLevelAura { get; } = cfg.Bind(section, nameof(ShowHigherLevelAura), ShowHigherLevelAuraOptions.Never,
             new ConfigDescription("Show an aura for higher level creatures (> 2 stars)", AcceptableEnum<ShowHigherLevelAuraOptions>.Default));
+
+        public ConfigEntry<int> MaxLevelIncrease { get; } = cfg.Bind(section, nameof(MaxLevelIncrease), 0,
+            "Amount the max level of creatures is incremented throughout the world");
+
+        public ConfigEntry<int> MaxLevelChance { get; } = cfg.Bind(section, nameof(MaxLevelChance), 0,
+            new ConfigDescription("Chance for a creature to have the max level. 0 to use default level up chance.", new AcceptableValueRange<int>(0, 100)));
+
+        public ConfigEntry<int> MaxLevelIncreasePerDefeatedBoss { get; } = cfg.Bind(section, nameof(MaxLevelIncreasePerDefeatedBoss), 0,
+            "Amount the max level of creatures is incremented per defeated boss");
+
+        public ConfigEntry<bool> LevelUpBosses { get; } = cfg.Bind(section, nameof(LevelUpBosses), false, "True to also level up bosses");
+
+        public ConfigEntry<float> RespawnOneTimeSpawnsAfter { get; } = cfg.Bind(section, nameof(RespawnOneTimeSpawnsAfter), 0f, "Time after one-time spawns are respawned in minutes");
 
         [Flags]
         public enum ShowHigherLevelAuraOptions
