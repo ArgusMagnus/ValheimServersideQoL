@@ -74,8 +74,7 @@
 |Creatures|ShowHigherLevelStars|False|True/False|True to show stars for higher level creatures (> 2 stars)|
 |Creatures|ShowHigherLevelAura|Never|Never or combination of Wild, Tamed|Show an aura for higher level creatures (> 2 stars)|
 |Creatures|MaxLevelIncrease|0||Amount the max level of creatures is incremented throughout the world|
-|Creatures|MaxLevelChance|0|From 0 to 100|Chance for a creature to have the max level. 0 to use default level up chance.|
-|Creatures|MaxLevelIncreasePerDefeatedBoss|0||Amount the max level of creatures is incremented per defeated boss|
+|Creatures|MaxLevelIncreasePerDefeatedBoss|0||Amount the max level of creatures is incremented per defeated boss. The respective boss's biome and previous biomes are affected.|
 |Creatures|TreatOceanAs|BlackForest|None or combination of Meadows, Swamp, Mountain, BlackForest, Plains, AshLands, DeepNorth, Mistlands|Biome to treat the ocean as for the purpose of leveling up creatures|
 |Creatures|LevelUpBosses|False|True/False|True to also level up bosses|
 |Creatures|RespawnOneTimeSpawnsAfter|0||Time after one-time spawns are respawned in minutes|

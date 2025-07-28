@@ -24,6 +24,7 @@ If you'd like to support me, [subscribe as a test user](https://github.com/Argus
 - Creatures
     - Show stars for higher level creatures (> 2 stars)
     - Show aura for higher level creatures (> 2 stars)
+    - Adjust creature max level, optionally dependent on defeated bosses
 - Fireplaces (including torches/sconces/braziers/etc.)
     - Toggleable: Make all fireplaces toggleable (you can turn them on/off)
     - Infinite fuel: Make all fireplaces have infinite fuel

@@ -105,11 +105,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<int> MaxLevelIncrease { get; } = cfg.Bind(section, nameof(MaxLevelIncrease), 0,
             "Amount the max level of creatures is incremented throughout the world");
 
-        public ConfigEntry<int> MaxLevelChance { get; } = cfg.Bind(section, nameof(MaxLevelChance), 0,
-            new ConfigDescription("Chance for a creature to have the max level. 0 to use default level up chance.", new AcceptableValueRange<int>(0, 100)));
-
         public ConfigEntry<int> MaxLevelIncreasePerDefeatedBoss { get; } = cfg.Bind(section, nameof(MaxLevelIncreasePerDefeatedBoss), 0,
-            "Amount the max level of creatures is incremented per defeated boss");
+            "Amount the max level of creatures is incremented per defeated boss. The respective boss's biome and previous biomes are affected.");
 
         public ConfigEntry<Heightmap.Biome> TreatOceanAs { get; } = cfg.Bind(section, nameof(TreatOceanAs), Heightmap.Biome.BlackForest,
             new ConfigDescription("Biome to treat the ocean as for the purpose of leveling up creatures", new AcceptableEnum<Heightmap.Biome>(AcceptableEnum<Heightmap.Biome>.Default.AcceptableValues.Where(static x => x is not Heightmap.Biome.Ocean))));

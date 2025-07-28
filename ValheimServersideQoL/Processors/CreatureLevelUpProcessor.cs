@@ -29,7 +29,7 @@ sealed class CreatureLevelUpProcessor : Processor
     {
         base.Initialize(firstTime);
         ZoneSystemSendGlobalKeys.GlobalKeysChanged -= InitializeData;
-        if (Config.Creatures.MaxLevelChance.Value > 0 || Config.Creatures.MaxLevelIncrease.Value > 0 || Config.Creatures.MaxLevelIncreasePerDefeatedBoss.Value > 0)
+        if (Config.Creatures.MaxLevelIncrease.Value > 0 || Config.Creatures.MaxLevelIncreasePerDefeatedBoss.Value > 0)
         {
             InitializeData();
             ZoneSystemSendGlobalKeys.GlobalKeysChanged += InitializeData;
@@ -164,19 +164,15 @@ sealed class CreatureLevelUpProcessor : Processor
             RecreateZdo = true;
 
         var steps = maxLevel - zdo.PrefabInfo.CreatureSpawner.m_minLevel;
-        if (Config.Creatures.MaxLevelChance.Value is 0 || steps is 0)
-        {
-            if (fields.ResetIfChanged(static x => x.m_levelupChance))
-                RecreateZdo = true;
-        }
-        else
-        {
-            var chance = Config.Creatures.MaxLevelChance.Value / 100.0;
-            chance = Math.Pow(chance, 1.0 / steps);
-            chance *= 100.0;
-            if (fields.SetIfChanged(static x => x.m_levelupChance, (float)chance))
-                RecreateZdo = true;
-        }
+        if (steps is 0)
+            return;
+
+        var chance = zdo.PrefabInfo.CreatureSpawner.m_levelupChance / 100f;
+        if (zdo.PrefabInfo.CreatureSpawner.m_maxLevel > zdo.PrefabInfo.CreatureSpawner.m_minLevel)
+            chance = Mathf.Pow(chance, zdo.PrefabInfo.CreatureSpawner.m_maxLevel - zdo.PrefabInfo.CreatureSpawner.m_minLevel);
+        chance = Mathf.Pow(chance, 1f / steps) * 100f;
+        if (fields.SetIfChanged(static x => x.m_levelupChance, chance))
+            RecreateZdo = true;
     }
 
     void LevelUpHumanoid(ExtendedZDO zdo)
@@ -238,15 +234,15 @@ sealed class CreatureLevelUpProcessor : Processor
                 increase += value;
         }
 
-        var chance = SpawnSystem.GetLevelUpChance(spawnData.LevelUpChance);
         var maxLevel = spawnData.MaxLevel + increase;
+        var chance = SpawnSystem.GetLevelUpChance(spawnData.LevelUpChance);
         var steps = maxLevel - spawnData.MinLevel;
-        if (Config.Creatures.MaxLevelChance.Value > 0 && steps > 0)
+        if (steps is not 0)
         {
-            var c = Config.Creatures.MaxLevelChance.Value / 100.0;
-            c = Math.Pow(c, 1.0 / steps);
-            c *= 100.0;
-            chance = (float)c;
+            chance /= 100f;
+            if (spawnData.MaxLevel > spawnData.MinLevel)
+                chance = Mathf.Pow(chance, spawnData.MaxLevel - spawnData.MinLevel);
+            chance = Mathf.Pow(chance, 1f / steps) * 100f;
         }
 
         var level = spawnData.MinLevel;
@@ -256,6 +252,7 @@ sealed class CreatureLevelUpProcessor : Processor
         if (level == initialLevel)
             return;
 
+        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Set level {initialLevel} -> {level} (max: {maxLevel}, chance: {chance:F2}%)");
         zdo.Vars.SetLevel(level);
         RecreateZdo = true;
     }
