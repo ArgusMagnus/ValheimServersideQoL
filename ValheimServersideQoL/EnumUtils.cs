@@ -28,6 +28,20 @@ static class EnumUtils
     public static long ToInt64<T>(this T value) where T : unmanaged, Enum => Generic<T>.EnumToInt64(value);
     public static T ToEnum<T>(long value) where T : unmanaged, Enum => Generic<T>.Int64ToEnum(value);
 
+    public static bool ExactlyOneBitSet<T>(this T value) where T : unmanaged, Enum
+    {
+        var set = false;
+        var n = value.ToUInt64();
+        while (n is not 0)
+        {
+            if (set)
+                return false;
+            set = true;
+            n &= (n - 1); // Clears the lowest set bit
+        }
+        return set;
+    }
+
     public sealed class ObjectEnumUtils(Type enumType)
     {
         public bool IsBitSet { get; } = enumType.GetCustomAttribute<FlagsAttribute>() is not null;

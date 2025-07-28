@@ -1,3 +1,8 @@
+### v1.1.1007 (BETA)
+- New features:
+    - Modify the processing speed of smelters/windmills/etc. [#43](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/43)
+    - Modfiy the max level and level up chance of creatures [#106](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/106)
+
 ### v1.1.0
 - Fixed issues due to stale cached data on non-dedicated servers
 - New features:

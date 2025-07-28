@@ -33,6 +33,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = GetTuple<(Aoe, Piece, PieceTable, Optional<Trap>)>(Components);
     public Mister? Mister { get; } = Get<Mister>(Components);
     public CreatureSpawner? CreatureSpawner { get; } = Get<CreatureSpawner>(Components);
+    public SpawnArea? SpawnArea { get; } = Get<SpawnArea>(Components);
     public (Humanoid Humanoid, Optional<MonsterAI> MonsterAI, Optional<CharacterDrop> CharacterDrop)? Humanoid { get; } = GetTuple<(Humanoid, Optional<MonsterAI>, Optional<CharacterDrop>)>(Components);
     public EffectArea? EffectArea { get; } = Get<EffectArea>(Components);
     //public ItemStand? ItemStand { get; } = Get<ItemStand>(Components);

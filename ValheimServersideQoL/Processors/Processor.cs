@@ -14,9 +14,16 @@ namespace Valheim.ServersideQoL.Processors;
 
 abstract class Processor
 {
+    [AttributeUsage(AttributeTargets.Class)]
+    public sealed class ProcessorAttribute : Attribute
+    {
+        public required int Priority { get; init; }
+    }
+
     static IReadOnlyList<Processor>? _defaultProcessors;
     public static IReadOnlyList<Processor> DefaultProcessors => _defaultProcessors ??= [.. typeof(Processor).Assembly.GetTypes()
-        .Where(static x => x is { IsClass: true, IsAbstract: false } && typeof(Processor).IsAssignableFrom(x))
+        .Where(static x => x is { IsClass: true, IsAbstract: false } && x.IsSubclassOf(typeof(Processor)))
+        .OrderByDescending(static x => x.GetCustomAttribute<ProcessorAttribute>()?.Priority ?? 0)
         .Select(static x => (Processor)Activator.CreateInstance(x))];
 
     static class InstanceCache<T> where T : Processor

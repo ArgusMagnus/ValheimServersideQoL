@@ -111,6 +111,9 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<int> MaxLevelIncreasePerDefeatedBoss { get; } = cfg.Bind(section, nameof(MaxLevelIncreasePerDefeatedBoss), 0,
             "Amount the max level of creatures is incremented per defeated boss");
 
+        public ConfigEntry<Heightmap.Biome> TreatOceanAs { get; } = cfg.Bind(section, nameof(TreatOceanAs), Heightmap.Biome.BlackForest,
+            new ConfigDescription("Biome to treat the ocean as for the purpose of leveling up creatures", new AcceptableEnum<Heightmap.Biome>(AcceptableEnum<Heightmap.Biome>.Default.AcceptableValues.Where(static x => x is not Heightmap.Biome.Ocean))));
+
         public ConfigEntry<bool> LevelUpBosses { get; } = cfg.Bind(section, nameof(LevelUpBosses), false, "True to also level up bosses");
 
         public ConfigEntry<float> RespawnOneTimeSpawnsAfter { get; } = cfg.Bind(section, nameof(RespawnOneTimeSpawnsAfter), 0f, "Time after one-time spawns are respawned in minutes");
@@ -714,7 +717,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         {
             if (EnumUtils.IsBitSet<T>())
             {
-                AcceptableValues = [.. values.Where(static x => !x.Equals(default(T)))];
+                AcceptableValues = [.. values.Where(static x => x.ExactlyOneBitSet())];
                 _default = default;
             }
             else
