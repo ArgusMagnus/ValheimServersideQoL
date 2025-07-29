@@ -248,7 +248,7 @@ sealed class CreatureLevelUpProcessor : Processor
             if (!_spawnData.TryGetValue((biome, biomeArea, zdo.GetPrefab(), EnvMan.IsNight()), out var spawnDataList) ||
                 spawnDataList.FirstOrDefault(x => IsValidSpawnData(x, distanceFromCenter ??= Utils.LengthXZ(zdo.GetPosition()))) is not { } spawnSystemData)
             {
-                // TODO: check for random event spawners
+                /// TODO: check for random event spawners <see cref="RandEventSystem.GetCurrentSpawners"/>
                 Logger.LogWarning($"{zdo.PrefabInfo.PrefabName}: Spawn source not found");
                 return;
             }

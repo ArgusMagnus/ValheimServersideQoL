@@ -76,13 +76,12 @@ static class SharedProcessorState
     static IReadOnlyDictionary<Heightmap.Biome, Character>? __bossesByBiome;
     public static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => __bossesByBiome ??= new Func<IReadOnlyDictionary<Heightmap.Biome, Character>>(static () =>
     {
-        var watch = Stopwatch.StartNew();
         var bosses = new Dictionary<Heightmap.Biome, Character>();
         foreach (var includeDungeons in (IEnumerable<bool>)[false, true])
         {
             foreach (var location in ZoneSystem.instance.m_locations)
             {
-                if (!location.m_enable || !location.m_prioritized || location.m_biomeArea is not Heightmap.BiomeArea.Median || location.m_biome is Heightmap.Biome.None or Heightmap.Biome.All or Heightmap.Biome.Ocean)
+                if (!location.m_enable || !location.m_prioritized || location.m_biome is Heightmap.Biome.None or Heightmap.Biome.All or Heightmap.Biome.Ocean)
                     continue;
 
                 if (bosses.ContainsKey(location.m_biome))
@@ -105,7 +104,8 @@ static class SharedProcessorState
                     bosses.Add(location.m_biome, bowl.m_bossPrefab.GetComponent<Character>());
             }
         }
-        //Main.Instance.Logger.DevLog($"Elapsed: {watch.Elapsed}");
+        foreach (var (biome, boss) in bosses)
+            Main.Instance.Logger.DevLog($"Biome: {biome}, Boss: {boss.name}");
         return bosses;
     }).Invoke();
 

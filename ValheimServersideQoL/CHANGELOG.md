@@ -1,3 +1,6 @@
+### v1.1.1011 (BETA)
+- Fix issue with mapping bosses to biomes which could lead to a crash for some worlds
+
 ### v1.1.1009 (BETA)
 - New features:
     - Modify the processing speed of smelters/windmills/etc. [#43](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/43)
