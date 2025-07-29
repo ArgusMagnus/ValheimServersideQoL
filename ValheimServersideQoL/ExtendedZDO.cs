@@ -307,6 +307,7 @@ sealed class ExtendedZDO : ZDO
         static int __initialLevel = $"{Main.PluginGuid}.PortalHubId".GetStableHashCode();
         public int GetInitialLevel(int defaultValue = default) => _zdo.GetInt(__initialLevel, defaultValue);
         public void SetInitialLevel(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__initialLevel, value); }
+        public void RemoveInitialLevel([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__initialLevel); }
 
         public bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);
         public void SetSacrifiedMegingjord(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedMegingjord", value); }

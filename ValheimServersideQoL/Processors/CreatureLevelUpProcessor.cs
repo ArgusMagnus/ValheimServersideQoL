@@ -10,9 +10,9 @@ sealed class CreatureLevelUpProcessor : Processor
 {
     readonly Dictionary<Biome, int> _levelIncreasePerBiome = [];
     readonly Dictionary<Vector2i, SectorState> _sectorStates = [];
-    readonly Dictionary<(Biome, BiomeArea, int Prefab), List<SpawnSystemData>> _spawnData = [];
+    readonly Dictionary<(Biome, BiomeArea, int Prefab, bool IsNight), List<SpawnSystemData>> _spawnData = [];
 
-    abstract record SpawnData(int MinLevel, int MaxLevel, float LevelUpChance);
+    record SpawnData(int MinLevel, int MaxLevel, float LevelUpChance);
 
     sealed record SpawnSystemData(SpawnSystem.SpawnData Data) : SpawnData(Data.m_minLevel, Data.m_maxLevel, Data.m_overrideLevelupChance);
 
@@ -77,12 +77,24 @@ sealed class CreatureLevelUpProcessor : Processor
                         continue;
 
                     var prefab = spawner.m_prefab.name.GetStableHashCode();
-                    if (!_spawnData.TryGetValue((biome, biomeArea, prefab), out var list))
-                        _spawnData.Add((biome, biomeArea, prefab), list = []);
-                    list.Add(new(spawner));
+                    if (spawner.m_spawnAtDay)
+                    {
+                        if (!_spawnData.TryGetValue((biome, biomeArea, prefab, false), out var list))
+                            _spawnData.Add((biome, biomeArea, prefab, false), list = []);
+                        list.Add(new(spawner));
+                    }
+                    if (spawner.m_spawnAtNight)
+                    {
+                        if (!_spawnData.TryGetValue((biome, biomeArea, prefab, true), out var list))
+                            _spawnData.Add((biome, biomeArea, prefab, true), list = []);
+                        list.Add(new(spawner));
+                    }
                 }
             }
         }
+
+        foreach (var list in _spawnData.Values)
+            list.Sort(static (a, b) => a.MaxLevel - b.MaxLevel);
     }
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
@@ -181,9 +193,15 @@ sealed class CreatureLevelUpProcessor : Processor
         if (initialLevel is not 0)
         {
             if (initialLevel > 0 && Config.Creatures.MaxLevelIncrease.Value is 0 && Config.Creatures.MaxLevelIncreasePerDefeatedBoss.Value is 0)
+            {
                 zdo.Vars.SetLevel(initialLevel);
+                zdo.Vars.RemoveInitialLevel();
+            }
             return;
         }
+
+        if (Config.Creatures.MaxLevelIncrease.Value is 0 && Config.Creatures.MaxLevelIncreasePerDefeatedBoss.Value is 0)
+            return;
 
         if (zdo.Vars.GetTamed() || zdo.Vars.GetSpawnedByTrophy())
             return;
@@ -204,13 +222,18 @@ sealed class CreatureLevelUpProcessor : Processor
         if (initialLevel <= 0)
             return;
 
-        if (zdo.PrefabInfo.Humanoid is { Humanoid.m_boss: true } && !Config.Creatures.LevelUpBosses.Value)
-            return;
-
         var increase = Config.Creatures.MaxLevelIncrease.Value;
         SpawnData spawnData;
 
-        if (state is not null && state.SpawnAreasBySpawned.TryGetValue(zdo.GetPrefab(), out var spawnAreas) &&
+        if (zdo.PrefabInfo.Humanoid is { Humanoid.m_boss: true })
+        {
+            if (!Config.Creatures.LevelUpBosses.Value)
+                return;
+            spawnData = new(1, 1, 0);
+            if (_levelIncreasePerBiome.TryGetValue(WorldGenerator.instance.GetBiome(zdo.GetPosition()), out var value))
+                increase += value;
+        }
+        else if (state is not null && state.SpawnAreasBySpawned.TryGetValue(zdo.GetPrefab(), out var spawnAreas) &&
             spawnAreas.FirstOrDefault(x => Vector3.Distance(x.Position, zdo.GetPosition()) <= x.Radius) is { } spawnAreaData)
         {
             spawnData = spawnAreaData;
@@ -222,9 +245,10 @@ sealed class CreatureLevelUpProcessor : Processor
             var biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
             var biomeArea = WorldGenerator.instance.GetBiomeArea(zdo.GetPosition());
             float? distanceFromCenter = null;
-            if (!_spawnData.TryGetValue((biome, biomeArea, zdo.GetPrefab()), out var spawnDataList) ||
+            if (!_spawnData.TryGetValue((biome, biomeArea, zdo.GetPrefab(), EnvMan.IsNight()), out var spawnDataList) ||
                 spawnDataList.FirstOrDefault(x => IsValidSpawnData(x, distanceFromCenter ??= Utils.LengthXZ(zdo.GetPosition()))) is not { } spawnSystemData)
             {
+                // TODO: check for random event spawners
                 Logger.LogWarning($"{zdo.PrefabInfo.PrefabName}: Spawn source not found");
                 return;
             }
@@ -263,10 +287,6 @@ sealed class CreatureLevelUpProcessor : Processor
             return false;
         if (data.Data.m_maxDistanceFromCenter > 0 && data.Data.m_maxDistanceFromCenter < distanceFromCenter)
             return false;
-        if (data.Data.m_spawnAtDay && EnvMan.IsDay())
-            return true;
-        if (data.Data.m_spawnAtNight && EnvMan.IsNight())
-            return true;
-        return false;
+        return true;
     }
 }
