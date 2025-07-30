@@ -104,8 +104,6 @@ static class SharedProcessorState
                     bosses.Add(location.m_biome, bowl.m_bossPrefab.GetComponent<Character>());
             }
         }
-        foreach (var (biome, boss) in bosses)
-            Main.Instance.Logger.DevLog($"Biome: {biome}, Boss: {boss.name}");
         return bosses;
     }).Invoke();
 

@@ -450,15 +450,24 @@ public sealed partial class Main : BaseUnityPlugin
     static void GenerateDefaultConfigMarkdown(ConfigFile cfg)
     {
         using var writer = new StreamWriter(ConfigMarkdownPath, false, new UTF8Encoding(false));
-        writer.WriteLine("|Category|Key|Default Value|Acceptable Values|Description|");
-        writer.WriteLine("|--------|---|-------------|-----------------|-----------|");
 
-        foreach (var (def, entry) in cfg.OrderBy(static x => x.Key.Section).Select(static x => (x.Key, x.Value)))
+        var prevSection = "";
+
+        foreach (var (def, entry) in cfg.OrderBy(static x => x.Key.Section))
         {
             //if (def.Section == DummyConfigSection)
             //    continue;
 
-            var section = Regex.Replace(def.Section, @"^[A-Z] - ", "");
+            if (def.Section != prevSection)
+            {
+                if (!string.IsNullOrEmpty(prevSection))
+                    writer.WriteLine("</details>");
+                writer.WriteLine($"<details><summary>{Regex.Replace(def.Section, @"^[A-Z] - ", "")}</summary>");
+                writer.WriteLine();
+                writer.WriteLine("|Option|Default Value|Acceptable Values|Description|");
+                writer.WriteLine("|------|-------------|-----------------|-----------|");
+                prevSection = def.Section;
+            }
 
             var accetableValues = entry.Description.AcceptableValues?.ToDescriptionString();
             if (accetableValues is not null)
@@ -473,7 +482,7 @@ public sealed partial class Main : BaseUnityPlugin
                     accetableValues = Invariant($"Combination of {string.Join(", ", Enum.GetNames(entry.SettingType))}");
             }
 
-            writer.WriteLine(Invariant($"|{section}|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description}|"));
+            writer.WriteLine(Invariant($"|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description}|"));
         }
     }
 

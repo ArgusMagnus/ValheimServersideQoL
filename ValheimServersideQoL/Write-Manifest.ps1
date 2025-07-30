@@ -18,7 +18,7 @@ $manifest = @{
     version_number = $VersionNumber
     version = $Version
     website_url = 'https://github.com/ArgusMagnus/ValheimServersideQoL'
-    description = 'Serverside-only QoL mod, compatible with vanilla (e.g. XBox) clients. Stack from player inventories into nearby chests, auto-sort chests, auto-close doors, refuel smelters from containers, disable rain damage, infinite building/farming stamina and more.'
+    description = 'Serverside-only QoL mod, compatible with vanilla (e.g. XBox) clients. Stack from player inventories into nearby chests, generated portal hub, auto-sort chests, refuel smelters from containers, disable rain damage, infinite building/farming stamina and more'
     dependencies = @('denikson-BepInExPack_Valheim-5.4.2202')
 }
 
