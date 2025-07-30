@@ -628,6 +628,7 @@ public sealed partial class Main : BaseUnityPlugin
             writer.WriteLine("|----|------------------------------------------|---------------------------------------|----------------------------------|---------------------------|---------------------------|");
             foreach (var ev in RandEventSystem.instance.m_events.Where(static x => x.m_enabled && x.m_random).OrderBy(static x => x.m_name))
             {
+                //Instance.Logger.DevLog($"{ev.m_name}: {string.Join(", ", ev.m_notRequiredGlobalKeys)} / {string.Join(", ", ev.m_requiredGlobalKeys)}");
                 /// <see cref="RandEventSystem.PlayerIsReadyForEvent(Player, RandomEvent)"/>
                 var altRequiredNotKnownItems = string.Join("<br>", ev.m_altRequiredNotKnownItems.Select(static x => $"- {x.name}"));
                 var altNotRequiredPlayerKeys = string.Join("<br>", ev.m_altNotRequiredPlayerKeys.Select(static x => $"- {x}"));

@@ -59,7 +59,7 @@ static class PrivateAccessor
     public static RandomEvent? GetCurrentEvent(this RandEventSystem instance) => (__getCurrentEvent ??= Expression.Lambda<Func<RandEventSystem, RandomEvent>>(
         Expression.Field(
             Expression.Parameter(typeof(RandEventSystem)) is var par1 ? par1 : throw new Exception(),
-            typeof(Localization).GetField("m_randomEvent", BindingFlags.NonPublic | BindingFlags.Instance)),
+            typeof(RandEventSystem).GetField("m_randomEvent", BindingFlags.NonPublic | BindingFlags.Instance)),
         par1).Compile()).Invoke(instance);
 
     public static int ZSyncAnimationZDOSalt { get; } = (int)typeof(ZSyncAnimation).GetField("c_ZDOSalt", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static).GetRawConstantValue();

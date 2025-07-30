@@ -163,7 +163,7 @@ sealed class PlayerProcessor : Processor
         }
     }
 
-    void MoveItems(ExtendedZDO zdo, StackContainerState state, IEnumerable<Peer> peers)
+    bool MoveItems(ExtendedZDO zdo, StackContainerState state, IEnumerable<Peer> peers)
     {
         var changed = false;
         HashSet<Vector2i>? usedSlots = null;
@@ -281,6 +281,7 @@ sealed class PlayerProcessor : Processor
 
         if (changed)
             zdo.Inventory.Save();
+        return changed;
     }
 
     void OnStackContainerDestroyed(ExtendedZDO zdo) => _stackContainers.Remove(zdo);
@@ -295,8 +296,18 @@ sealed class PlayerProcessor : Processor
             {
                 if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
                     RPC.TakeAllResponse(zdo, true);
-                else
-                    MoveItems(zdo, stackContainerState, peers);
+                else if(MoveItems(zdo, stackContainerState, peers))
+                {
+                    zdo.Destroyed -= OnStackContainerDestroyed;
+                    _stackContainers.Remove(zdo);
+                    if (zdo.Inventory.Items.Count is 0)
+                        DestroyPiece(zdo);
+                    else
+                    {
+                        _stackContainers.Add(zdo = RecreatePiece(zdo), stackContainerState);
+                        zdo.Destroyed += OnStackContainerDestroyed;
+                    }
+                }
                 return false;
             }
             else if (zdo.Inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))

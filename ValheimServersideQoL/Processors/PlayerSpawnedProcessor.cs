@@ -74,7 +74,7 @@ sealed class PlayerSpawnedProcessor : Processor
 
     static void SortBySpawnTime(List<ExtendedZDO> list)
     {
-        list.Sort(static (a, b) => (int)(a.Vars.GetSpawnTime().Ticks - b.Vars.GetSpawnTime().Ticks));
+        list.Sort(static (a, b) => Math.Sign(a.Vars.GetSpawnTime().Ticks - b.Vars.GetSpawnTime().Ticks));
     }
 
     /// <see cref="ZSyncAnimation.SetTrigger(string)"/>

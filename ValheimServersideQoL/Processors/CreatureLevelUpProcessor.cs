@@ -142,7 +142,15 @@ sealed class CreatureLevelUpProcessor : Processor
                     GetEventInfo(currentEvent, out var eventInfo) &&
                     eventInfo.SpawnAreas.Contains(zdo.GetPrefab()))
                 {
-                    biome = eventInfo.Biome;
+                    var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange));
+                    var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange));
+                    var zone = ZoneSystem.GetZone(zdo.GetPosition());
+                    if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
+                        zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
+                    {
+                        biome = eventInfo.Biome;
+                        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Event spawner: {biome}");
+                    }
                 }
 
                 for (var x = minZone.x; x <= maxZone.x; x++)
@@ -286,7 +294,6 @@ sealed class CreatureLevelUpProcessor : Processor
             if (!_spawnData.TryGetValue((biome, biomeArea, zdo.GetPrefab(), EnvMan.IsNight()), out var spawnDataList) ||
                 spawnDataList.FirstOrDefault(x => IsValidSpawnData(x, distanceFromCenter ??= Utils.LengthXZ(zdo.GetPosition()))) is not { } spawnSystemData)
             {
-                /// TODO: check for random event spawners <see cref="RandEventSystem.GetCurrentSpawners"/>
                 Logger.LogWarning($"{zdo.PrefabInfo.PrefabName}: Spawn source not found");
                 return;
             }
@@ -317,7 +324,7 @@ sealed class CreatureLevelUpProcessor : Processor
         if (level == initialLevel)
             return;
 
-        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Set level {initialLevel} -> {level} (max: {maxLevel}, chance: {chance:F2}%)");
+        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Set level {initialLevel} -> {level} (max: {maxLevel} (+{increase}), chance: {chance:F2}%)");
         zdo.Vars.SetLevel(level);
         RecreateZdo = true;
     }
@@ -335,7 +342,9 @@ sealed class CreatureLevelUpProcessor : Processor
     {
         if (!_spawnDataByEvent.TryGetValue(currentEvent.m_name, out eventInfo))
         {
-            var biome = SharedProcessorState.BossesByBiome.FirstOrDefault(x => currentEvent.m_requiredGlobalKeys.Contains(x.Value.m_defeatSetGlobalKey)).Key;
+            var biome = SharedProcessorState.BossesByBiome.FirstOrDefault(x => currentEvent.m_notRequiredGlobalKeys.Contains(x.Value.m_defeatSetGlobalKey)).Key;
+            if (biome == default)
+                biome = SharedProcessorState.BossesByBiome.FirstOrDefault(x => currentEvent.m_requiredGlobalKeys.Contains(x.Value.m_defeatSetGlobalKey)).Key;
             if (biome == default)
             {
                 Logger.LogWarning($"Associated boss for event {currentEvent.m_name} not found");
