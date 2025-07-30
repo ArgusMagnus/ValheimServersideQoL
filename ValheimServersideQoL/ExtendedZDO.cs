@@ -281,6 +281,8 @@ sealed class ExtendedZDO : ZDO
         public bool GetIsEncumbered(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashEncumbered, defaultValue);
         public DateTime GetTameLastFeeding(DateTime defaultValue = default) => new(_zdo.GetLong(ZDOVars.s_tameLastFeeding, defaultValue.Ticks));
         public void SetTameLastFeeding(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_tameLastFeeding, value.Ticks); }
+        public bool GetEventCreature(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_eventCreature, defaultValue);
+
 
         static int __intTag = $"{Main.PluginGuid}.IntTag".GetStableHashCode();
         public int GetIntTag(int defaultValue = default) => _zdo.GetInt(__intTag, defaultValue);

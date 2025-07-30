@@ -1,3 +1,6 @@
+### v1.1.1014 (BETA)
+- Seperately process event creatures when determing creature max level [#106](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/106)
+
 ### v1.1.1011 (BETA)
 - Fix issue with mapping bosses to biomes which could lead to a crash for some worlds
 

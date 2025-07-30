@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics.CodeAnalysis;
+using UnityEngine;
 using Valheim.ServersideQoL.HarmonyPatches;
 using static Heightmap;
 
@@ -11,6 +12,7 @@ sealed class CreatureLevelUpProcessor : Processor
     readonly Dictionary<Biome, int> _levelIncreasePerBiome = [];
     readonly Dictionary<Vector2i, SectorState> _sectorStates = [];
     readonly Dictionary<(Biome, BiomeArea, int Prefab, bool IsNight), List<SpawnSystemData>> _spawnData = [];
+    readonly Dictionary<string, EventInfo> _spawnDataByEvent = [];
 
     record SpawnData(int MinLevel, int MaxLevel, float LevelUpChance);
 
@@ -21,8 +23,14 @@ sealed class CreatureLevelUpProcessor : Processor
         public Dictionary<int, List<ExtendedZDO>> CreatureSpawnersBySpawned { get; } = [];
         public Dictionary<int, List<SpawnAreaData>> SpawnAreasBySpawned { get; } = [];
 
-        public sealed record SpawnAreaData(ZDOID ID, Vector3 Position, float Radius, int MinLevel, int MaxLevel, float LevelUpChance)
+        public sealed record SpawnAreaData(ZDOID ID, Vector3 Position, Biome Biome, float Radius, int MinLevel, int MaxLevel, float LevelUpChance)
             : SpawnData(MinLevel, MaxLevel, LevelUpChance);
+    }
+
+    sealed record EventInfo(Biome Biome)
+    {
+        public Dictionary<int, SpawnSystemData> SpawnData { get; } = [];
+        public HashSet<int> SpawnAreas { get; } = [];
     }
 
     public override void Initialize(bool firstTime)
@@ -39,6 +47,7 @@ sealed class CreatureLevelUpProcessor : Processor
             return;
 
         _sectorStates.Clear();
+        _spawnData.Clear();
     }
 
     void InitializeData()
@@ -60,7 +69,7 @@ sealed class CreatureLevelUpProcessor : Processor
         _spawnData.Clear();
         foreach (var spawner in ZoneSystem.instance.m_zoneCtrlPrefab.GetComponent<SpawnSystem>().m_spawnLists.SelectMany(static x => x.m_spawners))
         {
-            if (!spawner.m_enabled)
+            if (!spawner.m_enabled || spawner.m_prefab.GetComponent<Character>() is null)
                 continue;
 
             if (!string.IsNullOrEmpty(spawner.m_requiredGlobalKey) && !ZoneSystem.instance.GetGlobalKey(spawner.m_requiredGlobalKey))
@@ -128,6 +137,14 @@ sealed class CreatureLevelUpProcessor : Processor
             case { SpawnArea: not null }:
                 var minZone = ZoneSystem.GetZone(zdo.GetPosition() - new Vector3(zdo.PrefabInfo.SpawnArea.m_spawnRadius, 0, zdo.PrefabInfo.SpawnArea.m_spawnRadius));
                 var maxZone = ZoneSystem.GetZone(zdo.GetPosition() + new Vector3(zdo.PrefabInfo.SpawnArea.m_spawnRadius, 0, zdo.PrefabInfo.SpawnArea.m_spawnRadius));
+                var biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
+                if (RandEventSystem.instance.GetCurrentEvent() is { } currentEvent &&
+                    GetEventInfo(currentEvent, out var eventInfo) &&
+                    eventInfo.SpawnAreas.Contains(zdo.GetPrefab()))
+                {
+                    biome = eventInfo.Biome;
+                }
+
                 for (var x = minZone.x; x <= maxZone.x; x++)
                 {
                     for (var y = minZone.y; y <= maxZone.y; y++)
@@ -141,7 +158,7 @@ sealed class CreatureLevelUpProcessor : Processor
                             var prefab = data.m_prefab.name.GetStableHashCode();
                             if (!state.SpawnAreasBySpawned.TryGetValue(prefab, out var list))
                                 state.SpawnAreasBySpawned.Add(prefab, list = []);
-                            list.Add(new(zdo.m_uid, zdo.GetPosition(), zdo.PrefabInfo.SpawnArea.m_spawnRadius, data.m_minLevel, data.m_maxLevel, zdo.PrefabInfo.SpawnArea.m_levelupChance));
+                            list.Add(new(zdo.m_uid, zdo.GetPosition(), biome, zdo.PrefabInfo.SpawnArea.m_spawnRadius, data.m_minLevel, data.m_maxLevel, zdo.PrefabInfo.SpawnArea.m_levelupChance));
                             zdo.Destroyed += x => list.RemoveAll(y => y.ID == x.m_uid);
                         }
                     }
@@ -233,11 +250,32 @@ sealed class CreatureLevelUpProcessor : Processor
             if (_levelIncreasePerBiome.TryGetValue(WorldGenerator.instance.GetBiome(zdo.GetPosition()), out var value))
                 increase += value;
         }
+        else if (zdo.Vars.GetEventCreature())
+        {
+            if (RandEventSystem.instance.GetCurrentEvent() is not { } currentEvent)
+            {
+                Logger.LogWarning($"{zdo.PrefabInfo.PrefabName} is an event creature, but no active event was found");
+                return;
+            }
+
+            if (!GetEventInfo(currentEvent, out var eventInfo))
+                return;
+
+            if (!eventInfo.SpawnData.TryGetValue(zdo.GetPrefab(), out var spawnSystemData))
+            {
+                Logger.LogWarning($"{zdo.PrefabInfo.PrefabName}: Spawn source not found in event {currentEvent.m_name}");
+                return;
+            }
+
+            spawnData = spawnSystemData;
+            if (_levelIncreasePerBiome.TryGetValue(eventInfo.Biome, out var value))
+                increase += value;
+        }
         else if (state is not null && state.SpawnAreasBySpawned.TryGetValue(zdo.GetPrefab(), out var spawnAreas) &&
             spawnAreas.FirstOrDefault(x => Vector3.Distance(x.Position, zdo.GetPosition()) <= x.Radius) is { } spawnAreaData)
         {
             spawnData = spawnAreaData;
-            if (_levelIncreasePerBiome.TryGetValue(WorldGenerator.instance.GetBiome(spawnAreaData.Position), out var value))
+            if (_levelIncreasePerBiome.TryGetValue(spawnAreaData.Biome, out var value))
                 increase += value;
         }
         else
@@ -257,6 +295,9 @@ sealed class CreatureLevelUpProcessor : Processor
             if (_levelIncreasePerBiome.TryGetValue(biome, out var value))
                 increase += value;
         }
+
+        if (increase <= 0)
+            return;
 
         var maxLevel = spawnData.MaxLevel + increase;
         var chance = SpawnSystem.GetLevelUpChance(spawnData.LevelUpChance);
@@ -287,6 +328,30 @@ sealed class CreatureLevelUpProcessor : Processor
             return false;
         if (data.Data.m_maxDistanceFromCenter > 0 && data.Data.m_maxDistanceFromCenter < distanceFromCenter)
             return false;
+        return true;
+    }
+
+    bool GetEventInfo(RandomEvent currentEvent, [NotNullWhen(true)] out EventInfo? eventInfo)
+    {
+        if (!_spawnDataByEvent.TryGetValue(currentEvent.m_name, out eventInfo))
+        {
+            var biome = SharedProcessorState.BossesByBiome.FirstOrDefault(x => currentEvent.m_requiredGlobalKeys.Contains(x.Value.m_defeatSetGlobalKey)).Key;
+            if (biome == default)
+            {
+                Logger.LogWarning($"Associated boss for event {currentEvent.m_name} not found");
+                return false;
+            }
+            Logger.DevLog($"Event {currentEvent.m_name}: {biome}");
+            eventInfo = new(biome);
+            _spawnDataByEvent.Add(currentEvent.m_name, eventInfo);
+            foreach (var data in currentEvent.m_spawn)
+            {
+                if (data.m_prefab.GetComponent<Character>() is not null)
+                    eventInfo.SpawnData.Add(data.m_prefab.name.GetStableHashCode(), new(data));
+                else if (data.m_prefab.GetComponent<SpawnArea>() is not null)
+                    eventInfo.SpawnAreas.Add(data.m_prefab.name.GetStableHashCode());
+            }
+        }
         return true;
     }
 }
