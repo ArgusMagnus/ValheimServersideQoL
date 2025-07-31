@@ -137,19 +137,24 @@ sealed class CreatureLevelUpProcessor : Processor
             case { SpawnArea: not null }:
                 var minZone = ZoneSystem.GetZone(zdo.GetPosition() - new Vector3(zdo.PrefabInfo.SpawnArea.m_spawnRadius, 0, zdo.PrefabInfo.SpawnArea.m_spawnRadius));
                 var maxZone = ZoneSystem.GetZone(zdo.GetPosition() + new Vector3(zdo.PrefabInfo.SpawnArea.m_spawnRadius, 0, zdo.PrefabInfo.SpawnArea.m_spawnRadius));
-                var biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
-                if (RandEventSystem.instance.GetCurrentEvent() is { } currentEvent &&
-                    GetEventInfo(currentEvent, out var eventInfo) &&
-                    eventInfo.SpawnAreas.Contains(zdo.GetPrefab()))
+                var biome = (Biome)zdo.Vars.GetLevel();
+                if (biome is 0)
                 {
-                    var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange));
-                    var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange));
-                    var zone = ZoneSystem.GetZone(zdo.GetPosition());
-                    if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
-                        zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
+                    biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
+                    if (RandEventSystem.instance.GetCurrentEvent() is { } currentEvent &&
+                        GetEventInfo(currentEvent, out var eventInfo) &&
+                        eventInfo.SpawnAreas.Contains(zdo.GetPrefab()))
                     {
-                        biome = eventInfo.Biome;
-                        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Event spawner: {biome}");
+                        var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) - new Vector2i(1, 1);
+                        var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) + new Vector2i(1, 1);
+                        var zone = ZoneSystem.GetZone(zdo.GetPosition());
+                        if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
+                            zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
+                        {
+                            biome = eventInfo.Biome;
+                            zdo.Vars.SetLevel((int)biome);
+                            Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Event spawner: {biome}");
+                        }
                     }
                 }
 
