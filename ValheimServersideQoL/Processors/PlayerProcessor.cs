@@ -20,7 +20,7 @@ sealed class PlayerProcessor : Processor
 
     sealed record StackContainerState(ExtendedZDO PlayerZDO)
     {
-        public DateTimeOffset RemoveAfter { get; } = DateTimeOffset.UtcNow.AddSeconds(2);
+        public DateTimeOffset RemoveAfter { get; set; } = DateTimeOffset.UtcNow.AddSeconds(20);
         public bool Stacked { get; set; }
     }
 
@@ -306,6 +306,7 @@ sealed class PlayerProcessor : Processor
                     {
                         _stackContainers.Add(zdo = RecreatePiece(zdo), stackContainerState);
                         zdo.Destroyed += OnStackContainerDestroyed;
+                        // stackContainerState.RemoveAfter = DateTimeOffset.UtcNow;
                     }
                 }
                 return false;
@@ -322,6 +323,7 @@ sealed class PlayerProcessor : Processor
                 }
                 zdo.Inventory.Save();
                 stackContainerState.Stacked = true;
+                stackContainerState.RemoveAfter = DateTimeOffset.UtcNow.AddSeconds(Config.Players.StackInventoryIntoContainersReturnDelay.Value);
                 zdo.Destroyed -= OnStackContainerDestroyed;
                 _stackContainers.Remove(zdo);
                 _stackContainers.Add(zdo = RecreatePiece(zdo), stackContainerState);

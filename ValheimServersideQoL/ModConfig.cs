@@ -307,6 +307,9 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = cfg.Bind(section, nameof(StackInventoryIntoContainersEmote), DisabledEmote,
             new ConfigDescription($"Emote to stack inventory into containers. {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger", new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()])));
 
+        public ConfigEntry<float> StackInventoryIntoContainersReturnDelay { get; } = cfg.Bind(section, nameof(StackInventoryIntoContainersReturnDelay), 1f,
+            new ConfigDescription("Time in seconds after which items which could not be stacked into containers are returned to the player. Increasing this value can help with bad connections", new AcceptableValueRange<float>(1f, 10f)));
+
         public ConfigEntry<bool> CanSacrificeMegingjord { get; } = cfg.Bind(section, nameof(CanSacrificeMegingjord), false,
             "If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator");
         public ConfigEntry<bool> CanSacrificeCryptKey { get; } = cfg.Bind(section, nameof(CanSacrificeCryptKey), false,

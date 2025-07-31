@@ -1,3 +1,6 @@
+### v1.1.1017 (BETA)
+- Added configurable delay (`StackInventoryIntoContainersReturnDelay`) after which items which could not be stacked into containers are returned to the player
+
 ### v1.1.1015 (BETA)
 - Seperately process event creatures when determing creature max level [#106](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/106)
 - Fixed issue where summoned trolls where not always unsummoned in the correct order
