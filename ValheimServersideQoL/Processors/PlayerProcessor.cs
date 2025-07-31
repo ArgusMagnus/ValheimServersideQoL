@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Reflection;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -32,6 +33,9 @@ sealed class PlayerProcessor : Processor
         return id is not null && _players.TryGetValue(id.Value, out var zdo) ? zdo : null;
     }
 
+    static readonly MethodInfo __everybodyIsTryingToSleepMethod = typeof(Game).GetMethod("EverybodyIsTryingToSleep", BindingFlags.NonPublic | BindingFlags.Instance);
+    static readonly MethodInfo __everybodyIsTryingToSleepPrefix = typeof(PlayerProcessor).GetMethod(nameof(EverybodyIsTryingToSleepPrefix), BindingFlags.NonPublic | BindingFlags.Static);
+
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
@@ -46,6 +50,10 @@ sealed class PlayerProcessor : Processor
             Config.Players.CanSacrificeCryptKey.Value ||
             Config.Players.CanSacrificeWishbone.Value ||
             Config.Players.CanSacrificeTornSpirit.Value);
+
+        Main.HarmonyInstance.Unpatch(__everybodyIsTryingToSleepMethod, __everybodyIsTryingToSleepPrefix);
+        if (Config.Sleeping.MinPlayersInBed.Value > 0)
+            Main.HarmonyInstance.Patch(__everybodyIsTryingToSleepMethod, prefix: new(__everybodyIsTryingToSleepPrefix));
 
         if (!firstTime)
             return;
@@ -478,6 +486,44 @@ sealed class PlayerProcessor : Processor
                 return false;
             return true;
         }
+
+        return false;
+    }
+
+    static bool EverybodyIsTryingToSleepPrefix(ref bool __result)
+    {
+        var instance = Instance<PlayerProcessor>();
+        __result = instance.EverybodyIsTryingToSleep();
+        instance.Logger.DevLog($"{nameof(EverybodyIsTryingToSleep)}: {__result}");
+        return false;
+    }
+
+    bool EverybodyIsTryingToSleep()
+    {
+        if (_playerStates.Count is 0)
+            return false;
+
+        var inBed = 0;
+        var sitting = 0;
+        foreach (var player in _playerStates.Keys)
+        {
+            if (player.Vars.GetInBed())
+                inBed++;
+            else if (player.Vars.GetEmote() is Emotes.Sit)
+                sitting++;
+        }
+
+        if (inBed == _playerStates.Count)
+            return true;
+        if (inBed < Config.Sleeping.MinPlayersInBed.Value)
+            return false;
+
+        var total = inBed + sitting;
+        if (total * 100 / _playerStates.Count >= Config.Sleeping.RequiredPlayerPercentage.Value)
+            return true;
+
+        RPC.ShowMessage(ZRoutedRpc.Everybody, Config.Sleeping.SleepPromptMessageType.Value,
+            $"{total} of {_playerStates.Count} players want to sleep.<br>Sit down if you want to sleep as well");
 
         return false;
     }

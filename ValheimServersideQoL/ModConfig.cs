@@ -34,6 +34,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public WorldConfig World { get; } = new(ConfigFile, "B - World");
     public TrophySpawnerConfig TrophySpawner { get; } = new(ConfigFile, "B - Trophy Spawner");
     public NonTeleportableItemsConfig NonTeleportableItems { get; } = new(ConfigFile, "B - Non-teleportable Items");
+    public SleepingConfig Sleeping { get; } = new(ConfigFile, "B - Sleeping");
 
     public WorldModifiersConfig WorldModifiers { get; } = new(ConfigFile, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(ConfigFile, "D - Global Keys");
@@ -471,6 +472,16 @@ sealed record ModConfig(ConfigFile ConfigFile)
                 .ToDictionary(static x => x.Key, static x => x.Cfg);
             return modifiers;
         }
+    }
+
+    public sealed class SleepingConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<int> MinPlayersInBed { get; } = cfg.Bind(section, nameof(MinPlayersInBed), 0,
+            "Minimum number of players in bed to show the sleep prompt to the other players. 0 to require all players to be in bed (default behavior)");
+        public ConfigEntry<int> RequiredPlayerPercentage { get; } = cfg.Bind(section, nameof(RequiredPlayerPercentage), 100,
+            new ConfigDescription("Percentage of players that must be in bed or sitting to skip the night", new AcceptableValueRange<int>(0, 100)));
+        public ConfigEntry<MessageHud.MessageType> SleepPromptMessageType { get; } = cfg.Bind(section, nameof(SleepPromptMessageType), MessageHud.MessageType.Center,
+            new ConfigDescription("Type of message to show for the sleep prompt", AcceptableEnum<MessageHud.MessageType>.Default));
     }
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section, object? tmp = null)

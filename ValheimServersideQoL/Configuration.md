@@ -213,6 +213,14 @@
 |DefaultColor|||Default color for signs. Can be a color name or hex code (e.g. #FF0000 for red)|
 |TimeSigns|False|True/False|True to update sign texts which contain time emojis (any of 🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦) with the in-game time|
 </details>
+<details><summary>Sleeping</summary>
+
+|Option|Default Value|Acceptable Values|Description|
+|------|-------------|-----------------|-----------|
+|MinPlayersInBed|0||Minimum number of players in bed to show the sleep prompt to the other players. 0 to require all players to be in bed (default behavior)|
+|RequiredPlayerPercentage|100|From 0 to 100|Percentage of players that must be in bed or sitting to skip the night|
+|SleepPromptMessageType|Center|TopLeft, Center|Type of message to show for the sleep prompt|
+</details>
 <details><summary>Smelters</summary>
 
 |Option|Default Value|Acceptable Values|Description|

@@ -1,5 +1,6 @@
-### v1.1.1017 (BETA)
+### v1.1.1018 (BETA)
 - Added configurable delay (`StackInventoryIntoContainersReturnDelay`) after which items which could not be stacked into containers are returned to the player
+- New feature: Allow sleeping when not all players are in bed
 
 ### v1.1.1015 (BETA)
 - Seperately process event creatures when determing creature max level [#106](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/106)
