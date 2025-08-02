@@ -14,6 +14,7 @@ using Valheim.ServersideQoL.Processors;
 namespace Valheim.ServersideQoL;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+//[BepInIncompatibility("org.bepinex.plugins.dedicatedserver")]
 public sealed partial class Main : BaseUnityPlugin
 {
     internal const string PluginName = "ServersideQoL";
