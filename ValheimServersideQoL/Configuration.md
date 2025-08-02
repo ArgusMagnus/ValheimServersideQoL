@@ -312,7 +312,7 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enable|False|True/False|True to make dropped trophies attract mobs|
+|Enable|False|True/False|True to make dropped trophies attract mobs. Does not work for passive mobs (such as deer or rabbits).|
 |ActivationDelay|3600||Time in seconds before trophies start attracting mobs|
 |RespawnDelay|12||Respawn delay in seconds|
 |MinSpawnDistance|181|From 0 to 181|Min distance from the trophy mobs can spawn|

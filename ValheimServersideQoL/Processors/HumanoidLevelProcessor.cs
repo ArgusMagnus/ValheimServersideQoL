@@ -22,7 +22,7 @@ sealed class HumanoidLevelProcessor : Processor
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
-        if (zdo.PrefabInfo.Humanoid is null)
+        if (zdo.PrefabInfo is { Humanoid: null } and { Character: null })
             return false;
 
         var level = zdo.Vars.GetLevel();
@@ -32,11 +32,10 @@ sealed class HumanoidLevelProcessor : Processor
         UnregisterZdoProcessor = false;
         if (!_states.TryGetValue(zdo, out var state))
         {
-            var fields = zdo.Fields<Humanoid>();
-            if (!Config.Creatures.ShowHigherLevelStars.Value)
-                fields.Reset(static x => x.m_name);
-            else if (fields.SetIfChanged(static x => x.m_name, $"<line-height=150%><voffset=-2em>{zdo.PrefabInfo.Humanoid.Value.Humanoid.m_name}<size=70%><br><color=yellow>{string.Concat(Enumerable.Repeat("⭐", level - 1))}</color></size></voffset></line-height>"))
-                RecreateZdo = true;
+            if (zdo.PrefabInfo.Humanoid is not null)
+                SetFields<Humanoid>(zdo, level);
+            else
+                SetFields<Character>(zdo,level);
 
             if (!RecreateZdo)
             {
@@ -63,5 +62,14 @@ sealed class HumanoidLevelProcessor : Processor
         }
 
         return false;
+    }
+
+    void SetFields<T>(ExtendedZDO zdo, int level) where T : Character
+    {
+        var fields = zdo.Fields<T>();
+        if (!Config.Creatures.ShowHigherLevelStars.Value)
+            fields.Reset(static x => x.m_name);
+        else if (fields.SetIfChanged(static x => x.m_name, $"<line-height=150%><voffset=-2em>{(zdo.PrefabInfo.Humanoid?.Humanoid ?? zdo.PrefabInfo.Character!).m_name}<size=70%><br><color=yellow>{string.Concat(Enumerable.Repeat("⭐", level - 1))}</color></size></voffset></line-height>"))
+            RecreateZdo = true;
     }
 }

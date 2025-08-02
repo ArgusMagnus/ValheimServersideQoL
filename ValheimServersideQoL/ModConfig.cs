@@ -422,7 +422,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class TrophySpawnerConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to make dropped trophies attract mobs");
+        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to make dropped trophies attract mobs. Does not work for passive mobs (such as deer or rabbits).");
         public ConfigEntry<int> ActivationDelay { get; } = cfg.Bind(section, nameof(ActivationDelay), 3600, "Time in seconds before trophies start attracting mobs");
         public ConfigEntry<int> RespawnDelay { get; } = cfg.Bind(section, nameof(RespawnDelay), 12, "Respawn delay in seconds");
         static float MaxDistance => Mathf.Round(Mathf.Sqrt(2) * ZoneSystem.instance.m_activeArea * ZoneSystem.c_ZoneSize);

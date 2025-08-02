@@ -109,8 +109,6 @@ sealed class CreatureLevelUpProcessor : Processor
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;
-        if (zdo.PrefabInfo is { CreatureSpawner: null } and { SpawnArea: null } and { Humanoid: null } or { Humanoid.Humanoid.m_faction: Character.Faction.PlayerSpawned })
-            return false;
 
         switch (zdo.PrefabInfo)
         {
@@ -178,8 +176,12 @@ sealed class CreatureLevelUpProcessor : Processor
                 }
                 break;
 
-            case { Humanoid: not null }:
-                LevelUpHumanoid(zdo);
+            case { Humanoid: not null and { Humanoid.m_faction: not Character.Faction.PlayerSpawned } }:
+                LevelUpCharacter<Humanoid>(zdo);
+                break;
+
+            case { Character: not null and { m_faction: not Character.Faction.PlayerSpawned } }:
+                LevelUpCharacter<Character>(zdo);
                 break;
         }
 
@@ -217,7 +219,7 @@ sealed class CreatureLevelUpProcessor : Processor
             RecreateZdo = true;
     }
 
-    void LevelUpHumanoid(ExtendedZDO zdo)
+    void LevelUpCharacter<T>(ExtendedZDO zdo) where T : Character
     {
         var initialLevel = zdo.Vars.GetInitialLevel();
         if (initialLevel is not 0)

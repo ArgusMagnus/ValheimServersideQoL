@@ -494,7 +494,7 @@ sealed class PlayerProcessor : Processor
     {
         var instance = Instance<PlayerProcessor>();
         __result = instance.EverybodyIsTryingToSleep();
-        instance.Logger.DevLog($"{nameof(EverybodyIsTryingToSleep)}: {__result}");
+        //instance.Logger.DevLog($"{nameof(EverybodyIsTryingToSleep)}: {__result}");
         return false;
     }
 
