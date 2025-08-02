@@ -433,7 +433,7 @@ sealed class InGameConfigProcessor : Processor
             }
 
             if (!isAdmin && Character.InInterior(zdo.GetPosition()) &&
-                ZoneSystem.GetZone(zdo.GetPosition()) == ZoneSystem.GetZone(_offset.WorldSpawn))
+                zdo.GetSector() == ZoneSystem.GetZone(_offset.WorldSpawn))
             {
                 if (peer.IsDefault)
                     peer = peers.First(x => x.m_characterID == zdo.m_uid);

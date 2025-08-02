@@ -92,7 +92,7 @@ sealed class PlayerSpawnedProcessor : Processor
                 continue;
 
             if (list[0].GetOwner() == data.m_senderPeerID &&
-                ZNetScene.InActiveArea(ZoneSystem.GetZone(list[0].GetPosition()), ZoneSystem.GetZone(_lastSummoningPlayer.GetPosition())))
+                ZNetScene.InActiveArea(list[0].GetSector(), _lastSummoningPlayer.GetSector()))
             {
                 RPC.Damage(list[0], new(float.MaxValue) { m_attacker = _lastSummoningPlayer.m_uid });
             }

@@ -441,14 +441,14 @@ sealed class PlayerProcessor : Processor
             state.InitialInInteriorPosition = zdo.GetPosition();
 
         var playerName = zdo.Vars.GetPlayerName();
-        var playerZone = ZoneSystem.GetZone(zdo.GetPosition());
+        var playerZone = zdo.GetSector();
 
         foreach (var tameState in Instance<TameableProcessor>().Tames)
         {
             if (!tameState.IsTamed || tameState.ZDO.Vars.GetFollow() != playerName)
                 continue;
 
-            var tameZone = ZoneSystem.GetZone(tameState.ZDO.GetPosition());
+            var tameZone = tameState.ZDO.GetSector();
             if (!ShouldTeleport(playerZone, tameZone, zdo, tameState.ZDO, state))
                 continue;
 

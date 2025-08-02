@@ -69,7 +69,7 @@ sealed class TrophyProcessor : Processor
 
             var prefab = effectPrefab.m_prefab.name.GetStableHashCode();
 
-            var zone = ZoneSystem.GetZone(zdo.GetPosition());
+            var zone = zdo.GetSector();
             _sectorZdos.Clear();
             ZDOMan.instance.FindSectorObjects(zone, 0, 0, _sectorZdos);
 
@@ -153,7 +153,7 @@ sealed class TrophyProcessor : Processor
 
         state.LastSpawned = DateTimeOffset.UtcNow - _respawnDelay + TimeSpan.FromSeconds(Math.Min(10, _respawnDelay.TotalSeconds)); // retry after 10 seconds
 
-        var zone = ZoneSystem.GetZone(state.Trophy.GetPosition());
+        var zone = state.Trophy.GetSector();
         _sectorZdos.Clear();
         ZDOMan.instance.FindSectorObjects(zone, ZoneSystem.instance.GetLoadedArea(), 0, _sectorZdos);
         var spawnLimitReached = _sectorZdos.Cast<ExtendedZDO>().Count(x => x.GetPrefab() == state.CharacterPrefab && x.Vars.GetSpawnedByTrophy());
@@ -209,7 +209,7 @@ sealed class TrophyProcessor : Processor
                 }
             }
 
-            var zone = ZoneSystem.GetZone(zdo.GetPosition());
+            var zone = zdo.GetSector();
             for (int i = 0; i < 10; i++)
             {
                 // Search for farthest away position in the active area. Could be done with math, but this is good enough for now

@@ -118,7 +118,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 LevelUpSpawner(zdo);
                 if (!RecreateZdo)
                 {
-                    var sector = ZoneSystem.GetZone(zdo.GetPosition());
+                    var sector = zdo.GetSector();
                     if (!_sectorStates.TryGetValue(sector, out var state))
                         _sectorStates.Add(sector, state = new());
 
@@ -147,7 +147,7 @@ sealed class CreatureLevelUpProcessor : Processor
                     {
                         var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) - new Vector2i(1, 1);
                         var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) + new Vector2i(1, 1);
-                        var zone = ZoneSystem.GetZone(zdo.GetPosition());
+                        var zone = zdo.GetSector();
                         if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
                             zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
                         {
@@ -236,7 +236,7 @@ sealed class CreatureLevelUpProcessor : Processor
         if (zdo.Vars.GetTamed() || zdo.Vars.GetSpawnedByTrophy())
             return;
 
-        if (_sectorStates.TryGetValue(ZoneSystem.GetZone(zdo.GetPosition()), out var state) &&
+        if (_sectorStates.TryGetValue(zdo.GetSector(), out var state) &&
             state.CreatureSpawnersBySpawned.TryGetValue(zdo.GetPrefab(), out var list) &&
             list.Any(x => x.GetConnectionZDOID(ZDOExtraData.ConnectionType.Spawned) == zdo.m_uid))
         {

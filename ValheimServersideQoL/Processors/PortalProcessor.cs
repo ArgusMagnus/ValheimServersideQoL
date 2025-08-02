@@ -120,7 +120,7 @@ sealed class PortalProcessor : Processor
                 if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) > _rangeSqr)
                 {
                     if (state.Container.GetOwner() == state.Player.GetOwner() &&
-                        ZNetScene.InActiveArea(ZoneSystem.GetZone(state.Container.GetPosition()), ZoneSystem.GetZone(state.Player.GetPosition())))
+                        ZNetScene.InActiveArea(state.Container.GetSector(), state.Player.GetSector()))
                     {
                         RPC.TakeAllResponse(state.Container, true);
                         if (DateTimeOffset.UtcNow - state.LastMessageTime > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
@@ -167,7 +167,7 @@ sealed class PortalProcessor : Processor
             else if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) <= _rangeSqr)
             {
                 if (state.Container.GetOwner() == state.Player.GetOwner() &&
-                    ZNetScene.InActiveArea(ZoneSystem.GetZone(state.Container.GetPosition()), ZoneSystem.GetZone(state.Player.GetPosition())))
+                    ZNetScene.InActiveArea(state.Container.GetSector(), state.Player.GetSector()))
                 {
                     RPC.StackResponse(state.Container, true);
                     RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
