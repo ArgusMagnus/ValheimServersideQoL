@@ -1,3 +1,7 @@
+### v1.1.1022 (BETA)
+- Fixed trophy spawners to also work for passive mobs (such as deer or rabbits)
+- Fixed raising the max level of creatures to also work for passive mobs
+
 ### v1.1.1018 (BETA)
 - Added configurable delay (`StackInventoryIntoContainersReturnDelay`) after which items which could not be stacked into containers are returned to the player
 - New feature: Allow sleeping when not all players are in bed

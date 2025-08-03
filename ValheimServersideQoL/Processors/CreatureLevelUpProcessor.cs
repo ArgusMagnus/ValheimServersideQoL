@@ -180,7 +180,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 LevelUpCharacter<Humanoid>(zdo);
                 break;
 
-            case { Character: not null and { m_faction: not Character.Faction.PlayerSpawned } }:
+            case { Character: not null and { Character.m_faction: not Character.Faction.PlayerSpawned } }:
                 LevelUpCharacter<Character>(zdo);
                 break;
         }

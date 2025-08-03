@@ -13,10 +13,10 @@ sealed class TrophyProcessor : Processor
     readonly Vector3 _dropOffset = new(0, -1000, 0);
     const float MaxRagdollDistance = ZoneSystem.c_ZoneHalfSize;
 
-    sealed class TrophyState(ExtendedZDO trophy, Humanoid trophyCharacter)
+    sealed class TrophyState(ExtendedZDO trophy, Character trophyCharacter)
     {
         public ExtendedZDO Trophy { get; } = trophy;
-        public Humanoid TrophyCharacter { get; } = trophyCharacter;
+        public Character TrophyCharacter { get; } = trophyCharacter;
         public int CharacterPrefab { get; } = trophyCharacter.name.GetStableHashCode();
         public DateTimeOffset TrophySpawnTime { get; } = trophy.Vars.GetSpawnTime();
         public DateTimeOffset LastMessage { get; set; }
@@ -57,12 +57,9 @@ sealed class TrophyProcessor : Processor
 
     void OnSpawnedDestroyed(ExtendedZDO zdo)
     {
-#if DEBUG
-        if (zdo.PrefabInfo.Humanoid is null)
-            return;
-#endif
+        var effectPrefabs = (zdo.PrefabInfo.Humanoid?.Humanoid ?? zdo.PrefabInfo.Character?.Character!).m_deathEffects.m_effectPrefabs;
 
-        foreach (var effectPrefab in zdo.PrefabInfo.Humanoid!.Value.Humanoid.m_deathEffects.m_effectPrefabs)
+        foreach (var effectPrefab in effectPrefabs)
         {
             if (!effectPrefab.m_enabled || effectPrefab.m_prefab.GetComponent<Ragdoll>() is not { } ragdollComponent)
                 continue;
@@ -167,7 +164,7 @@ sealed class TrophyProcessor : Processor
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         var itemDrop = zdo.PrefabInfo.ItemDrop?.ItemDrop;
-        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || Character.InInterior(zdo.GetPosition()) || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.name, out var trophyCharacter) || trophyCharacter is not Humanoid)
+        if (!Config.TrophySpawner.Enable.Value || itemDrop is null || Character.InInterior(zdo.GetPosition()) || !SharedProcessorState.CharacterByTrophy.TryGetValue(itemDrop.name, out var trophyCharacter))
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -175,7 +172,7 @@ sealed class TrophyProcessor : Processor
 
         if (!_stateByTrophy.TryGetValue(zdo, out var state))
         {
-            _stateByTrophy.Add(zdo, state = new(zdo, (Humanoid)trophyCharacter));
+            _stateByTrophy.Add(zdo, state = new(zdo, trophyCharacter));
             zdo.Destroyed += OnTrophyDestroyed;
         }
 
@@ -292,7 +289,7 @@ sealed class TrophyProcessor : Processor
                 if (Config.TrophySpawner.SuppressDrops.Value)
                 {
                     // Disabling drops like that doesn't work, since most mobs spawn a ragdoll (separate prefab created via m_deathEffects) which then spawn the drops
-                    if (mob.PrefabInfo.Humanoid is { CharacterDrop.Value: not null })
+                    if (mob.PrefabInfo is { Humanoid.CharacterDrop.Value: not null } or { Character.CharacterDrop.Value: not null } )
                         mob.Fields<CharacterDrop>().Set(static x => x.m_spawnOffset, _dropOffset);
                     mob.Destroyed += OnSpawnedDestroyed;
                 }
