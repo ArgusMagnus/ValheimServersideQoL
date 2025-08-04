@@ -483,7 +483,7 @@ public sealed partial class Main : BaseUnityPlugin
                     accetableValues = Invariant($"Combination of {string.Join(", ", Enum.GetNames(entry.SettingType))}");
             }
 
-            writer.WriteLine(Invariant($"|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description}|"));
+            writer.WriteLine(Invariant($"|{def.Key}|{entry.DefaultValue}|{accetableValues}|{entry.Description.Description.Replace(Environment.NewLine, "<br>")}|"));
         }
     }
 

@@ -43,78 +43,79 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> Enabled { get; } = cfg.Bind(section, nameof(Enabled), true, "Enables/disables the entire mode");
-        public ConfigEntry<bool> ConfigPerWorld { get; } = cfg.Bind(section, nameof(ConfigPerWorld), false, "Use one config file per world. The file is saved next to the world file");
-        public ConfigEntry<bool> InWorldConfigRoom { get; } = cfg.Bind(section, nameof(InWorldConfigRoom), false,
+        public ConfigEntry<bool> Enabled { get; } = cfg.BindEx(section, true, "Enables/disables the entire mode");
+        public ConfigEntry<bool> ConfigPerWorld { get; } = cfg.BindEx(section, false, "Use one config file per world. The file is saved next to the world file");
+        public ConfigEntry<bool> InWorldConfigRoom { get; } = cfg.BindEx(section, false,
             "True to generate an in-world room which admins can enter to configure this mod by editing signs. A portal is placed at the start location");
-        public ConfigEntry<float> FarMessageRange { get; } = cfg.Bind(section, nameof(FarMessageRange), ZoneSystem.c_ZoneSize,
+        public ConfigEntry<float> FarMessageRange { get; } = cfg.BindEx(section, ZoneSystem.c_ZoneSize,
             $"Max distance a player can have to a modified object to receive messages of type {MessageTypes.TopLeftFar} or {MessageTypes.CenterFar}");
 
-        public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.Bind(section, nameof(DiagnosticLogs), false, "Enables/disables diagnostic logs");
-        public ConfigEntry<float> Frequency { get; } = cfg.Bind(section, nameof(Frequency), 5f,
-            new ConfigDescription("How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
-        public ConfigEntry<int> MaxProcessingTime { get; } = cfg.Bind(section, nameof(MaxProcessingTime), 20, "Max processing time (in ms) per update");
-        public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.Bind(section, nameof(ZonesAroundPlayers), 1, "Zones to process around each player");
-        public ConfigEntry<float> MinPlayerDistance { get; } = cfg.Bind(section, nameof(MinPlayerDistance), 4f, "Min distance all players must have to a ZDO for it to be modified");
-        public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreGameVersionCheck), true, "True to ignore the game version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
-        public ConfigEntry<bool> IgnoreNetworkVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreNetworkVersionCheck), false, "True to ignore the network version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
-        public ConfigEntry<bool> IgnoreItemDataVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreItemDataVersionCheck), false, "True to ignore the item data version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
-        public ConfigEntry<bool> IgnoreWorldVersionCheck { get; } = cfg.Bind(section, nameof(IgnoreWorldVersionCheck), false, "True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
+        public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.BindEx(section, false, "Enables/disables diagnostic logs");
+        public ConfigEntry<float> Frequency { get; } = cfg.BindEx(section, 5f,
+            "How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+        public ConfigEntry<int> MaxProcessingTime { get; } = cfg.BindEx(section, 20, "Max processing time (in ms) per update");
+        public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.BindEx(section, 1, "Zones to process around each player");
+        public ConfigEntry<float> MinPlayerDistance { get; } = cfg.BindEx(section, 4f, "Min distance all players must have to a ZDO for it to be modified");
+        public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = cfg.BindEx(section, true, "True to ignore the game version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
+        public ConfigEntry<bool> IgnoreNetworkVersionCheck { get; } = cfg.BindEx(section, false, "True to ignore the network version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
+        public ConfigEntry<bool> IgnoreItemDataVersionCheck { get; } = cfg.BindEx(section, false, "True to ignore the item data version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
+        public ConfigEntry<bool> IgnoreWorldVersionCheck { get; } = cfg.BindEx(section, false, "True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
     }
 
     public sealed class SignsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<string> DefaultColor { get; } = cfg.Bind(section, nameof(DefaultColor), "", "Default color for signs. Can be a color name or hex code (e.g. #FF0000 for red)");
-        public ConfigEntry<bool> TimeSigns { get; }= cfg.Bind(section, nameof(TimeSigns), false,
+        public ConfigEntry<string> DefaultColor { get; } = cfg.BindEx(section, "", "Default color for signs. Can be a color name or hex code (e.g. #FF0000 for red)");
+        public ConfigEntry<bool> TimeSigns { get; }= cfg.BindEx(section, false,
             Invariant($"True to update sign texts which contain time emojis (any of {string.Concat(SignProcessor.ClockEmojis)}) with the in-game time"));
     }
 
     public sealed class MapTableConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> AutoUpdatePortals { get; } = cfg.Bind(section, nameof(AutoUpdatePortals), false, "True to update map tables with portal pins");
-        public ConfigEntry<string> AutoUpdatePortalsExclude { get; } = cfg.Bind(section, nameof(AutoUpdatePortalsExclude), "", "Portals with a tag that matches this filter are not added to map tables");
-        public ConfigEntry<string> AutoUpdatePortalsInclude { get; } = cfg.Bind(section, nameof(AutoUpdatePortalsInclude), "*", "Only portals with a tag that matches this filter are added to map tables");
+        public ConfigEntry<bool> AutoUpdatePortals { get; } = cfg.BindEx(section, false, "True to update map tables with portal pins");
+        public ConfigEntry<string> AutoUpdatePortalsExclude { get; } = cfg.BindEx(section, "", "Portals with a tag that matches this filter are not added to map tables");
+        public ConfigEntry<string> AutoUpdatePortalsInclude { get; } = cfg.BindEx(section, "*", "Only portals with a tag that matches this filter are added to map tables");
 
-        public ConfigEntry<bool> AutoUpdateShips { get; } = cfg.Bind(section, nameof(AutoUpdateShips), false, "True to update map tables with ship pins");
-        public ConfigEntry<MessageTypes> UpdatedMessageType { get; } = cfg.Bind(section, nameof(UpdatedMessageType), MessageTypes.None,
-            new ConfigDescription("Type of message to show when a map table is updated", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<bool> AutoUpdateShips { get; } = cfg.BindEx(section, false, "True to update map tables with ship pins");
+        public ConfigEntry<MessageTypes> UpdatedMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of message to show when a map table is updated", AcceptableEnum<MessageTypes>.Default);
     }
 
     public sealed class TamesConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> MakeCommandable { get; } = cfg.Bind(section, nameof(MakeCommandable), false, "True to make all tames commandable (like wolves)");
-        //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to feed tames from containers");
+        public ConfigEntry<bool> MakeCommandable { get; } = cfg.BindEx(section, false, "True to make all tames commandable (like wolves)");
+        //public ConfigEntry<bool> FeedFromContainers { get; } = cfg.BindEx(section, false, "True to feed tames from containers");
 
-        public ConfigEntry<MessageTypes> TamingProgressMessageType { get; } = cfg.Bind(section, nameof(TamingProgressMessageType), MessageTypes.None,
-            new ConfigDescription("Type of taming progress messages to show", AcceptableEnum<MessageTypes>.Default));
-        public ConfigEntry<MessageTypes> GrowingProgressMessageType { get; } = cfg.Bind(section, nameof(GrowingProgressMessageType), MessageTypes.None,
-            new ConfigDescription("Type of growing progress messages to show", AcceptableEnum<MessageTypes>.Default));
-        public ConfigEntry<bool> AlwaysFed { get; } = cfg.Bind(section, nameof(AlwaysFed), false, "True to make tames always fed (not hungry)");
+        public ConfigEntry<MessageTypes> TamingProgressMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of taming progress messages to show", AcceptableEnum<MessageTypes>.Default);
+        public ConfigEntry<MessageTypes> GrowingProgressMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of growing progress messages to show", AcceptableEnum<MessageTypes>.Default);
+        public ConfigEntry<bool> AlwaysFed { get; } = cfg.BindEx(section, false, "True to make tames always fed (not hungry)");
 
-        public ConfigEntry<bool> TeleportFollow { get; } = cfg.Bind(section, nameof(TeleportFollow), false, "True to teleport following tames to the players location if the player gets too far away from them");
-        public ConfigEntry<bool> TakeIntoDungeons { get; } = cfg.Bind(section, nameof(TakeIntoDungeons), false, $"True to take following tames into (and out of) dungeons with you");
+        public ConfigEntry<bool> TeleportFollow { get; } = cfg.BindEx(section, false, "True to teleport following tames to the players location if the player gets too far away from them");
+        public ConfigEntry<bool> TakeIntoDungeons { get; } = cfg.BindEx(section, false, $"True to take following tames into (and out of) dungeons with you");
     }
 
     public sealed class CreaturesConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> ShowHigherLevelStars { get; } = cfg.Bind(section, nameof(ShowHigherLevelStars), false,
+        public ConfigEntry<bool> ShowHigherLevelStars { get; } = cfg.BindEx(section, false,
             "True to show stars for higher level creatures (> 2 stars)");
 
-        public ConfigEntry<ShowHigherLevelAuraOptions> ShowHigherLevelAura { get; } = cfg.Bind(section, nameof(ShowHigherLevelAura), ShowHigherLevelAuraOptions.Never,
-            new ConfigDescription("Show an aura for higher level creatures (> 2 stars)", AcceptableEnum<ShowHigherLevelAuraOptions>.Default));
+        public ConfigEntry<ShowHigherLevelAuraOptions> ShowHigherLevelAura { get; } = cfg.BindEx(section, ShowHigherLevelAuraOptions.Never,
+            "Show an aura for higher level creatures (> 2 stars)", AcceptableEnum<ShowHigherLevelAuraOptions>.Default);
 
-        public ConfigEntry<int> MaxLevelIncrease { get; } = cfg.Bind(section, nameof(MaxLevelIncrease), 0,
+        public ConfigEntry<int> MaxLevelIncrease { get; } = cfg.BindEx(section, 0,
             "Amount the max level of creatures is incremented throughout the world");
 
-        public ConfigEntry<int> MaxLevelIncreasePerDefeatedBoss { get; } = cfg.Bind(section, nameof(MaxLevelIncreasePerDefeatedBoss), 0,
+        public ConfigEntry<int> MaxLevelIncreasePerDefeatedBoss { get; } = cfg.BindEx(section, 0,
             "Amount the max level of creatures is incremented per defeated boss. The respective boss's biome and previous biomes are affected.");
 
-        public ConfigEntry<Heightmap.Biome> TreatOceanAs { get; } = cfg.Bind(section, nameof(TreatOceanAs), Heightmap.Biome.BlackForest,
-            new ConfigDescription("Biome to treat the ocean as for the purpose of leveling up creatures", new AcceptableEnum<Heightmap.Biome>(AcceptableEnum<Heightmap.Biome>.Default.AcceptableValues.Where(static x => x is not Heightmap.Biome.Ocean))));
+        public ConfigEntry<Heightmap.Biome> TreatOceanAs { get; } = cfg.BindEx(section, Heightmap.Biome.BlackForest,
+            "Biome to treat the ocean as for the purpose of leveling up creatures",
+            new AcceptableEnum<Heightmap.Biome>(AcceptableEnum<Heightmap.Biome>.Default.AcceptableValues.Where(static x => x is not Heightmap.Biome.Ocean)));
 
-        public ConfigEntry<bool> LevelUpBosses { get; } = cfg.Bind(section, nameof(LevelUpBosses), false, "True to also level up bosses");
+        public ConfigEntry<bool> LevelUpBosses { get; } = cfg.BindEx(section, false, "True to also level up bosses");
 
-        public ConfigEntry<float> RespawnOneTimeSpawnsAfter { get; } = cfg.Bind(section, nameof(RespawnOneTimeSpawnsAfter), 0f, "Time after one-time spawns are respawned in minutes");
+        public ConfigEntry<float> RespawnOneTimeSpawnsAfter { get; } = cfg.BindEx(section, 0f, "Time after one-time spawns are respawned in minutes");
 
         [Flags]
         public enum ShowHigherLevelAuraOptions
@@ -127,10 +128,10 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class FireplacesConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> MakeToggleable { get; } = cfg.Bind(section, nameof(MakeToggleable), false, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
-        public ConfigEntry<bool> InfiniteFuel { get; } = cfg.Bind(section, nameof(InfiniteFuel), false, "True to make all fireplaces have infinite fuel");
-        public ConfigEntry<IgnoreRainOptions> IgnoreRain { get; } = cfg.Bind(section, nameof(IgnoreRain), IgnoreRainOptions.Never,
-            new ConfigDescription("Options to make all fireplaces ignore rain", AcceptableEnum<IgnoreRainOptions>.Default));
+        public ConfigEntry<bool> MakeToggleable { get; } = cfg.BindEx(section, false, "True to make all fireplaces (including torches, braziers, etc.) toggleable");
+        public ConfigEntry<bool> InfiniteFuel { get; } = cfg.BindEx(section, false, "True to make all fireplaces have infinite fuel");
+        public ConfigEntry<IgnoreRainOptions> IgnoreRain { get; } = cfg.BindEx(section, IgnoreRainOptions.Never,
+            "Options to make all fireplaces ignore rain", AcceptableEnum<IgnoreRainOptions>.Default);
 
         public enum IgnoreRainOptions
         {
@@ -144,46 +145,46 @@ sealed record ModConfig(ConfigFile ConfigFile)
     {
         const string ChestSignItemNamesFileName = "ChestSignItemNames.yml";
 
-        public ConfigEntry<bool> AutoSort { get; } = cfg.Bind(section, nameof(AutoSort), false, "True to auto sort container inventories");
-        public ConfigEntry<MessageTypes> SortedMessageType { get; } = cfg.Bind(section, nameof(SortedMessageType), MessageTypes.None,
-            new ConfigDescription("Type of message to show when a container was sorted", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<bool> AutoSort { get; } = cfg.BindEx(section, false, "True to auto sort container inventories");
+        public ConfigEntry<MessageTypes> SortedMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of message to show when a container was sorted", AcceptableEnum<MessageTypes>.Default);
 
-        public ConfigEntry<bool> AutoPickup { get; } = cfg.Bind(section, nameof(AutoPickup), false, "True to automatically put dropped items into containers if they already contain said item");
-        public ConfigEntry<float> AutoPickupRange { get; } = cfg.Bind(section, nameof(AutoPickupRange), ZoneSystem.c_ZoneSize,
+        public ConfigEntry<bool> AutoPickup { get; } = cfg.BindEx(section, false, "True to automatically put dropped items into containers if they already contain said item");
+        public ConfigEntry<float> AutoPickupRange { get; } = cfg.BindEx(section, ZoneSystem.c_ZoneSize,
             $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign");
-        public ConfigEntry<int> AutoPickupMaxRange { get; } = cfg.Bind(section, nameof(AutoPickupMaxRange), (int)ZoneSystem.c_ZoneSize,
+        public ConfigEntry<int> AutoPickupMaxRange { get; } = cfg.BindEx(section, (int)ZoneSystem.c_ZoneSize,
             $"Max auto pickup range players can set per chest (by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign)");
-        public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoPickupMinPlayerDistance), 4f, "Min distance all player must have to a dropped item for it to be picked up");
-        public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = cfg.Bind(section, nameof(AutoPickupExcludeFodder), true, "True to exclude food items for tames when tames are within search range");
-        public ConfigEntry<bool> AutoPickupRequestOwnership { get; } = cfg.Bind(section, nameof(AutoPickupRequestOwnership), true,
+        public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.BindEx(section, 4f, "Min distance all player must have to a dropped item for it to be picked up");
+        public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = cfg.BindEx(section, true, "True to exclude food items for tames when tames are within search range");
+        public ConfigEntry<bool> AutoPickupRequestOwnership { get; } = cfg.BindEx(section, true,
             "True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance");
-        public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = cfg.Bind(section, nameof(PickedUpMessageType), MessageTypes.None,
-            new ConfigDescription("Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default);
 
         const string DefaultPlaceholderString = "•";
-        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.Bind(section, nameof(ChestSignsDefaultText), DefaultPlaceholderString, "Default text for chest signs");
-        public ConfigEntry<int> ChestSignsContentListMaxCount { get; } = cfg.Bind(section, nameof(ChestSignsContentListMaxCount), 3, "Max number of entries to show in the content list on chest signs.");
-        public ConfigEntry<string> ChestSignsContentListPlaceholder { get; } = cfg.Bind(section, nameof(ChestSignsContentListPlaceholder), DefaultPlaceholderString, "Bullet to use for content lists on chest signs");
-        public ConfigEntry<string> ChestSignsContentListSeparator { get; } = cfg.Bind(section, nameof(ChestSignsContentListSeparator), "<br>", "Separator to use for content lists on chest signs");
-        public ConfigEntry<string> ChestSignsContentListNameRest { get; } = cfg.Bind(section, nameof(ChestSignsContentListNameRest), "Other", "Text to show for the entry summarizing the rest of the items");
+        public ConfigEntry<string> ChestSignsDefaultText { get; } = cfg.BindEx(section, DefaultPlaceholderString, "Default text for chest signs");
+        public ConfigEntry<int> ChestSignsContentListMaxCount { get; } = cfg.BindEx(section, 3, "Max number of entries to show in the content list on chest signs.");
+        public ConfigEntry<string> ChestSignsContentListPlaceholder { get; } = cfg.BindEx(section, DefaultPlaceholderString, "Bullet to use for content lists on chest signs");
+        public ConfigEntry<string> ChestSignsContentListSeparator { get; } = cfg.BindEx(section, "<br>", "Separator to use for content lists on chest signs");
+        public ConfigEntry<string> ChestSignsContentListNameRest { get; } = cfg.BindEx(section, "Other", "Text to show for the entry summarizing the rest of the items");
         
-        public ConfigEntry<string> ChestSignsContentListEntryFormat { get; } = cfg.Bind(section, nameof(ChestSignsContentListEntryFormat), "{0} {1}",
-            new ConfigDescription($"Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item. The item names can be configured further by editing {ChestSignItemNamesFileName}", new AcceptableFormatString(["Test", 0])));
+        public ConfigEntry<string> ChestSignsContentListEntryFormat { get; } = cfg.BindEx(section, "{0} {1}",
+            $"Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item. The item names can be configured further by editing {ChestSignItemNamesFileName}",
+            new AcceptableFormatString(["Test", 0]));
 
-        public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.Bind(section, nameof(WoodChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default));
-        public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.Bind(section, nameof(ReinforcedChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default));
-        public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = cfg.Bind(section, nameof(BlackmetalChestSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default));
-        public ConfigEntry<SignOptions> ObliteratorSigns { get; } = cfg.Bind(section, nameof(ObliteratorSigns), SignOptions.None,
-            new ConfigDescription("Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front])));
-        public ConfigEntry<ObliteratorItemTeleporterOptions> ObliteratorItemTeleporter { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporter), ObliteratorItemTeleporterOptions.Disabled,
-            new ConfigDescription(
-                $"Options to enable obliterators to teleport items instead of obliterating them when the lever is pulled. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign",
-                AcceptableEnum<ObliteratorItemTeleporterOptions>.Default));
-        public ConfigEntry<MessageTypes> ObliteratorItemTeleporterMessageType { get; } = cfg.Bind(section, nameof(ObliteratorItemTeleporterMessageType), MessageTypes.InWorld,
-            new ConfigDescription("Type of message to show for obliterator item teleporters", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<SignOptions> WoodChestSigns { get; } = cfg.BindEx(section, SignOptions.None,
+            "Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default);
+        public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = cfg.BindEx(section, SignOptions.None,
+            "Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default);
+        public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = cfg.BindEx(section, SignOptions.None,
+            "Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default);
+        public ConfigEntry<SignOptions> ObliteratorSigns { get; } = cfg.BindEx(section, SignOptions.None,
+            "Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front]));
+        public ConfigEntry<ObliteratorItemTeleporterOptions> ObliteratorItemTeleporter { get; } = cfg.BindEx(section, ObliteratorItemTeleporterOptions.Disabled,
+            $"Options to enable obliterators to teleport items instead of obliterating them when the lever is pulled. Requires '{nameof(ObliteratorSigns)}' and two obliterators with matching tags. The tag is set by putting '{SignProcessor.LinkEmoji}<Tag>' on the sign",
+            AcceptableEnum<ObliteratorItemTeleporterOptions>.Default);
+        public ConfigEntry<MessageTypes> ObliteratorItemTeleporterMessageType { get; } = cfg.BindEx(section, MessageTypes.InWorld,
+            "Type of message to show for obliterator item teleporters", AcceptableEnum<MessageTypes>.Default);
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
             .Where(static x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
@@ -259,88 +260,89 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class SmeltersConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> FeedFromContainers { get; } = cfg.Bind(section, nameof(FeedFromContainers), false, "True to automatically feed smelters from nearby containers");
-        public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.Bind(section, nameof(FeedFromContainersRange), 4f,
+        public ConfigEntry<bool> FeedFromContainers { get; } = cfg.BindEx(section, false, "True to automatically feed smelters from nearby containers");
+        public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.BindEx(section, 4f,
             $"Required proxmity of a container to a smelter to be used as feeding source. Can be overriden per chest by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign");
-        public ConfigEntry<int> FeedFromContainersMaxRange { get; } = cfg.Bind(section, nameof(FeedFromContainersMaxRange), (int)ZoneSystem.c_ZoneSize,
+        public ConfigEntry<int> FeedFromContainersMaxRange { get; } = cfg.BindEx(section, (int)ZoneSystem.c_ZoneSize,
             $"Max feeding range players can set per chest (by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign)");
-        public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastFuel), 1, "Minimum amout of fuel to leave in a container");
-        public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.Bind(section, nameof(FeedFromContainersLeaveAtLeastOre), 1, "Minimum amout of ore to leave in a container");
-        public ConfigEntry<MessageTypes> OreOrFuelAddedMessageType { get; } = cfg.Bind(section, nameof(OreOrFuelAddedMessageType), MessageTypes.None,
-            new ConfigDescription("Type of message to show when ore or fuel is added to a smelter", AcceptableEnum<MessageTypes>.Default));
-        public ConfigEntry<float> CapacityMultiplier { get; } = cfg.Bind(section, nameof(CapacityMultiplier), 1f, "Multiply a smelter's ore/fuel capacity by this factor");
-        public ConfigEntry<float> TimePerProductMultiplier { get; } = cfg.Bind(section, nameof(TimePerProductMultiplier), 1f,
+        public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.BindEx(section, 1, "Minimum amout of fuel to leave in a container");
+        public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.BindEx(section, 1, "Minimum amout of ore to leave in a container");
+        public ConfigEntry<MessageTypes> OreOrFuelAddedMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of message to show when ore or fuel is added to a smelter", AcceptableEnum<MessageTypes>.Default);
+        public ConfigEntry<float> CapacityMultiplier { get; } = cfg.BindEx(section, 1f, "Multiply a smelter's ore/fuel capacity by this factor");
+        public ConfigEntry<float> TimePerProductMultiplier { get; } = cfg.BindEx(section, 1f,
             "Multiply the time it takes to produce one product by this factor (will not go below 1 second per product).");
     }
 
     public sealed class WindmillsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> IgnoreWind { get; } = cfg.Bind(section, nameof(IgnoreWind), false, "True to make windmills ignore wind (Cover still decreases operating efficiency though)");
+        public ConfigEntry<bool> IgnoreWind { get; } = cfg.BindEx(section, false, "True to make windmills ignore wind (Cover still decreases operating efficiency though)");
     }
 
     public sealed class CartsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.Bind(section, nameof(ContentMassMultiplier), 1f,
-            new ConfigDescription("Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+        public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.BindEx(section, 1f,
+            "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight", new AcceptableValueRange<float>(0, float.PositiveInfinity));
     }
 
     public sealed class DoorsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.Bind(section, nameof(AutoCloseMinPlayerDistance), float.NaN,
+        public ConfigEntry<float> AutoCloseMinPlayerDistance { get; } = cfg.BindEx(section, float.NaN,
             Invariant($"Min distance all players must have to the door before it is closed. {float.NaN} to disable this feature"));
     }
 
     public sealed class PlayersConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> InfiniteBuildingStamina { get; } = cfg.Bind(section, nameof(InfiniteBuildingStamina), false,
-            Invariant($"True to give players infinite stamina when building. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
-        public ConfigEntry<bool> InfiniteFarmingStamina { get; } = cfg.Bind(section, nameof(InfiniteFarmingStamina), false,
-            Invariant($"True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
-        public ConfigEntry<bool> InfiniteMiningStamina { get; } = cfg.Bind(section, nameof(InfiniteMiningStamina), false,
-            Invariant($"True to give players infinite stamina when mining. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
-        public ConfigEntry<bool> InfiniteWoodCuttingStamina { get; } = cfg.Bind(section, nameof(InfiniteWoodCuttingStamina), false,
-            Invariant($"True to give players infinite stamina when cutting wood. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
-        public ConfigEntry<bool> InfiniteEncumberedStamina { get; } = cfg.Bind(section, nameof(InfiniteEncumberedStamina), false,
-            Invariant($"True to give players infinite stamina when encumbered. If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0"));
+        static string GetInfiniteXDescription(string action) => Invariant($"""
+            True to give players infinite stamina when {action}.
+            Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.
+            If you want infinite stamina in general, set the global key '{nameof(GlobalKeys.StaminaRate)}' to 0.
+            """);
+            
+        public ConfigEntry<bool> InfiniteBuildingStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("building"));                
+        public ConfigEntry<bool> InfiniteFarmingStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("farming"));
+        public ConfigEntry<bool> InfiniteMiningStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("mining"));
+        public ConfigEntry<bool> InfiniteWoodCuttingStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("cutting wood"));
+        public ConfigEntry<bool> InfiniteEncumberedStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("encumbered"));
 
         public const Emotes DisabledEmote = (Emotes)(-1);
         public const Emotes AnyEmote = (Emotes)(-2);
-        public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = cfg.Bind(section, nameof(StackInventoryIntoContainersEmote), DisabledEmote,
-            new ConfigDescription($"Emote to stack inventory into containers. {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger", new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()])));
+        public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = cfg.BindEx(section, DisabledEmote,
+            $"Emote to stack inventory into containers. {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger", new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
 
-        public ConfigEntry<float> StackInventoryIntoContainersReturnDelay { get; } = cfg.Bind(section, nameof(StackInventoryIntoContainersReturnDelay), 1f,
-            new ConfigDescription("Time in seconds after which items which could not be stacked into containers are returned to the player. Increasing this value can help with bad connections", new AcceptableValueRange<float>(1f, 10f)));
+        public ConfigEntry<float> StackInventoryIntoContainersReturnDelay { get; } = cfg.BindEx(section, 1f,
+            "Time in seconds after which items which could not be stacked into containers are returned to the player. Increasing this value can help with bad connections", new AcceptableValueRange<float>(1f, 10f));
 
-        public ConfigEntry<bool> CanSacrificeMegingjord { get; } = cfg.Bind(section, nameof(CanSacrificeMegingjord), false,
+        public ConfigEntry<bool> CanSacrificeMegingjord { get; } = cfg.BindEx(section, false,
             "If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator");
-        public ConfigEntry<bool> CanSacrificeCryptKey { get; } = cfg.Bind(section, nameof(CanSacrificeCryptKey), false,
+        public ConfigEntry<bool> CanSacrificeCryptKey { get; } = cfg.BindEx(section, false,
             "If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator");
-        public ConfigEntry<bool> CanSacrificeWishbone { get; } = cfg.Bind(section, nameof(CanSacrificeWishbone), false,
+        public ConfigEntry<bool> CanSacrificeWishbone { get; } = cfg.BindEx(section, false,
             "If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator");
-        public ConfigEntry<bool> CanSacrificeTornSpirit { get; } = cfg.Bind(section, nameof(CanSacrificeTornSpirit), false,
+        public ConfigEntry<bool> CanSacrificeTornSpirit { get; } = cfg.BindEx(section, false,
             "If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator. WARNING: Wisp companion cannot be unsummoned and will stay as long as this setting is enabled.");
     }
 
     public sealed class TurretsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> DontTargetPlayers { get; } = cfg.Bind(section, nameof(DontTargetPlayers), false, "True to stop ballistas from targeting players");
-        public ConfigEntry<bool> DontTargetTames { get; } = cfg.Bind(section, nameof(DontTargetTames), false, "True to stop ballistas from targeting tames");
-        public ConfigEntry<bool> LoadFromContainers { get; } = cfg.Bind(section, nameof(LoadFromContainers), false, "True to automatically load ballistas from containers");
-        public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.Bind(section, nameof(LoadFromContainersRange), 4f, "Required proxmity of a container to a ballista to be used as ammo source");
-        public ConfigEntry<MessageTypes> AmmoAddedMessageType { get; } = cfg.Bind(section, nameof(AmmoAddedMessageType), MessageTypes.None,
-            new ConfigDescription("Type of message to show when ammo is added to a turret", AcceptableEnum<MessageTypes>.Default));
-        public ConfigEntry<MessageTypes> NoAmmoMessageType { get; } = cfg.Bind(section, nameof(NoAmmoMessageType), MessageTypes.None,
-            new ConfigDescription("Type of message to show when there is no ammo to add to a turret", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<bool> DontTargetPlayers { get; } = cfg.BindEx(section, false, "True to stop ballistas from targeting players");
+        public ConfigEntry<bool> DontTargetTames { get; } = cfg.BindEx(section, false, "True to stop ballistas from targeting tames");
+        public ConfigEntry<bool> LoadFromContainers { get; } = cfg.BindEx(section, false, "True to automatically load ballistas from containers");
+        public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.BindEx(section, 4f, "Required proxmity of a container to a ballista to be used as ammo source");
+        public ConfigEntry<MessageTypes> AmmoAddedMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of message to show when ammo is added to a turret", AcceptableEnum<MessageTypes>.Default);
+        public ConfigEntry<MessageTypes> NoAmmoMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of message to show when there is no ammo to add to a turret", AcceptableEnum<MessageTypes>.Default);
     }
 
     public sealed class WearNTearConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> DisableRainDamage { get; } = cfg.Bind(section, nameof(DisableRainDamage), false, "True to prevent rain from damaging build pieces");
+        public ConfigEntry<bool> DisableRainDamage { get; } = cfg.BindEx(section, false, "True to prevent rain from damaging build pieces");
 
-        public ConfigEntry<DisableSupportRequirementsOptions> DisableSupportRequirements { get; } = cfg.Bind(section, nameof(DisableSupportRequirements), DisableSupportRequirementsOptions.None,
-            new ConfigDescription("Ignore support requirements on build pieces", AcceptableEnum<DisableSupportRequirementsOptions>.Default));
+        public ConfigEntry<DisableSupportRequirementsOptions> DisableSupportRequirements { get; } = cfg.BindEx(section, DisableSupportRequirementsOptions.None,
+            "Ignore support requirements on build pieces", AcceptableEnum<DisableSupportRequirementsOptions>.Default);
 
-        public ConfigEntry<bool> MakeIndestructible { get; } = cfg.Bind(section, nameof(MakeIndestructible), false, "True to make player-built pieces indestructible");
+        public ConfigEntry<bool> MakeIndestructible { get; } = cfg.BindEx(section, false, "True to make player-built pieces indestructible");
 
         [Flags]
         public enum DisableSupportRequirementsOptions
@@ -394,22 +396,20 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class PortalHubConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to automatically generate a portal hub");
-        public ConfigEntry<string> Exclude { get; } = cfg.Bind(section, nameof(Exclude), "", "Portals with a tag that matches this filter are not added to the portal hub");
-        public ConfigEntry<string> Include { get; } = cfg.Bind(section, nameof(Include), "*", "Only portals with a tag that matches this filter are added to the portal hub");
-        public ConfigEntry<bool> AutoNameNewPortals { get; } = cfg.Bind(section, nameof(AutoNameNewPortals), false, $"True to automatically name new portals. Has no effect if '{nameof(Enable)}' is false");
-        public ConfigEntry<string> AutoNameNewPortalsFormat { get; } = cfg.Bind(section, nameof(AutoNameNewPortalsFormat), "{0} {1:D2}",
-            new ConfigDescription("Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer",
-                new AcceptableFormatString(["Test", 0])));
+        public ConfigEntry<bool> Enable { get; } = cfg.BindEx(section, false, "True to automatically generate a portal hub");
+        public ConfigEntry<string> Exclude { get; } = cfg.BindEx(section, "", "Portals with a tag that matches this filter are not added to the portal hub");
+        public ConfigEntry<string> Include { get; } = cfg.BindEx(section, "*", "Only portals with a tag that matches this filter are added to the portal hub");
+        public ConfigEntry<bool> AutoNameNewPortals { get; } = cfg.BindEx(section, false, $"True to automatically name new portals. Has no effect if '{nameof(Enable)}' is false");
+        public ConfigEntry<string> AutoNameNewPortalsFormat { get; } = cfg.BindEx(section, "{0} {1:D2}",
+            "Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer",
+            new AcceptableFormatString(["Test", 0]));
     }
 
     public sealed class WorldConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> AssignInteractableOwnershipToClosestPeer { get; } = cfg.Bind(section, nameof(AssignInteractableOwnershipToClosestPeer), false, "True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest peer. This should help avoiding the loss of ore, etc. due to networking issues.");
-        public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.Bind(section, nameof(RemoveMistlandsMist), RemoveMistlandsMistOptions.Never,
-            new ConfigDescription("Condition to remove the mist from the mistlands", AcceptableEnum<RemoveMistlandsMistOptions>.Default));
-
-        //public ConfigEntry<bool> UnlockSunkenCryptsAfterElder { get; } = cfg.Bind(section, nameof(UnlockSunkenCryptsAfterElder), false, "True to unlock sunken crypts after the Elder has been defeated");
+        public ConfigEntry<bool> AssignInteractableOwnershipToClosestPeer { get; } = cfg.BindEx(section, false, "True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest peer. This should help avoiding the loss of ore, etc. due to networking issues.");
+        public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.BindEx(section, RemoveMistlandsMistOptions.Never,
+            "Condition to remove the mist from the mistlands", AcceptableEnum<RemoveMistlandsMistOptions>.Default);
 
         public enum RemoveMistlandsMistOptions
         {
@@ -422,34 +422,32 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class TrophySpawnerConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to make dropped trophies attract mobs. Does not work for passive mobs (such as deer or rabbits).");
-        public ConfigEntry<int> ActivationDelay { get; } = cfg.Bind(section, nameof(ActivationDelay), 3600, "Time in seconds before trophies start attracting mobs");
-        public ConfigEntry<int> RespawnDelay { get; } = cfg.Bind(section, nameof(RespawnDelay), 12, "Respawn delay in seconds");
+        public ConfigEntry<bool> Enable { get; } = cfg.BindEx(section, false, "True to make dropped trophies attract mobs. Does not work for passive mobs (such as deer or rabbits).");
+        public ConfigEntry<int> ActivationDelay { get; } = cfg.BindEx(section, 3600, "Time in seconds before trophies start attracting mobs");
+        public ConfigEntry<int> RespawnDelay { get; } = cfg.BindEx(section, 12, "Respawn delay in seconds");
         static float MaxDistance => Mathf.Round(Mathf.Sqrt(2) * ZoneSystem.instance.m_activeArea * ZoneSystem.c_ZoneSize);
-        public ConfigEntry<float> MinSpawnDistance { get; } = cfg.Bind(section, nameof(MinSpawnDistance), MaxDistance,
-            new ConfigDescription("Min distance from the trophy mobs can spawn", new AcceptableValueRange<float>(0, MaxDistance)));
-        public ConfigEntry<float> MaxSpawnDistance { get; } = cfg.Bind(section, nameof(MaxSpawnDistance), MaxDistance,
-            new ConfigDescription("Max distance from the trophy mobs can spawn", new AcceptableValueRange<float>(0, MaxDistance)));
-        public ConfigEntry<int> MaxLevel { get; } = cfg.Bind(section, nameof(MaxLevel), 3,
-            new ConfigDescription("Maximum level of spawned mobs",
-                new AcceptableValueRange<int>(1, 9)));
-        public ConfigEntry<int> LevelUpChanceOverride { get; } = cfg.Bind(section, nameof(LevelUpChanceOverride), -1,
-            new ConfigDescription("Level up chance override for spawned mobs. If < 0, world default is used", new AcceptableValueRange<int>(-1, 100)));
-        public ConfigEntry<int> SpawnLimit { get; } = cfg.Bind(section, nameof(SpawnLimit), 20,
-            new ConfigDescription("Maximum number of mobs of the trophy's type in the active area", new AcceptableValueRange<int>(1, 10000)));
-        public ConfigEntry<bool> SuppressDrops { get; } = cfg.Bind(section, nameof(SuppressDrops), true,
+        public ConfigEntry<float> MinSpawnDistance { get; } = cfg.BindEx(section, MaxDistance,
+            "Min distance from the trophy mobs can spawn", new AcceptableValueRange<float>(0, MaxDistance));
+        public ConfigEntry<float> MaxSpawnDistance { get; } = cfg.BindEx(section, MaxDistance,
+            "Max distance from the trophy mobs can spawn", new AcceptableValueRange<float>(0, MaxDistance));
+        public ConfigEntry<int> MaxLevel { get; } = cfg.BindEx(section, 3, "Maximum level of spawned mobs", new AcceptableValueRange<int>(1, 9));
+        public ConfigEntry<int> LevelUpChanceOverride { get; } = cfg.BindEx(section, -1,
+            "Level up chance override for spawned mobs. If < 0, world default is used", new AcceptableValueRange<int>(-1, 100));
+        public ConfigEntry<int> SpawnLimit { get; } = cfg.BindEx(section, 20,
+            "Maximum number of mobs of the trophy's type in the active area", new AcceptableValueRange<int>(1, 10000));
+        public ConfigEntry<bool> SuppressDrops { get; } = cfg.BindEx(section, true,
             "True to suppress drops from mobs spawned by trophies. Does not work reliably (yet)");
-        public ConfigEntry<MessageTypes> MessageType { get; } = cfg.Bind(section, nameof(MessageType), MessageTypes.InWorld,
-            new ConfigDescription("Type of message to show when a trophy is attracting mobs", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<MessageTypes> MessageType { get; } = cfg.BindEx(section, MessageTypes.InWorld,
+            "Type of message to show when a trophy is attracting mobs", AcceptableEnum<MessageTypes>.Default);
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> SetPresetFromConfig { get; } = cfg.Bind(section, nameof(SetPresetFromConfig), false,
+        public ConfigEntry<bool> SetPresetFromConfig { get; } = cfg.BindEx(section, false,
             Invariant($"True to set the world preset according to the '{nameof(Preset)}' config entry"));
         public ConfigEntry<WorldPresets> Preset { get; } = GetPreset(cfg, section);
 
-        public ConfigEntry<bool> SetModifiersFromConfig { get; } = cfg.Bind(section, nameof(SetModifiersFromConfig), false,
+        public ConfigEntry<bool> SetModifiersFromConfig { get; } = cfg.BindEx(section, false,
             "True to set world modifiers according to the following configuration entries");
         public IReadOnlyDictionary<WorldModifiers, ConfigEntry<WorldModifierOption>> Modifiers { get; } = GetModifiers(cfg, section);
 
@@ -457,7 +455,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
         {
             /// <see cref="ServerOptionsGUI.SetPreset(World, WorldPresets)"/>
             var presets = PrivateAccessor.GetServerOptionsGUIPresets();
-            return cfg.Bind(section, nameof(Preset), WorldPresets.Default, new ConfigDescription(Invariant($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect"),
+            return cfg.Bind(section, nameof(Preset), WorldPresets.Default, new ConfigDescription(
+                Invariant($"World preset. Enable '{nameof(SetPresetFromConfig)}' for this to have an effect"),
                 new AcceptableEnum<WorldPresets>(presets.Select(static x => x.m_preset))));
         }
 
@@ -476,22 +475,22 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class SleepingConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<int> MinPlayersInBed { get; } = cfg.Bind(section, nameof(MinPlayersInBed), 0,
+        public ConfigEntry<int> MinPlayersInBed { get; } = cfg.BindEx(section, 0,
             "Minimum number of players in bed to show the sleep prompt to the other players. 0 to require all players to be in bed (default behavior)");
-        public ConfigEntry<int> RequiredPlayerPercentage { get; } = cfg.Bind(section, nameof(RequiredPlayerPercentage), 100,
-            new ConfigDescription("Percentage of players that must be in bed or sitting to skip the night", new AcceptableValueRange<int>(0, 100)));
-        public ConfigEntry<MessageHud.MessageType> SleepPromptMessageType { get; } = cfg.Bind(section, nameof(SleepPromptMessageType), MessageHud.MessageType.Center,
-            new ConfigDescription("Type of message to show for the sleep prompt", AcceptableEnum<MessageHud.MessageType>.Default));
+        public ConfigEntry<int> RequiredPlayerPercentage { get; } = cfg.BindEx(section, 100,
+            "Percentage of players that must be in bed or sitting to skip the night", new AcceptableValueRange<int>(0, 100));
+        public ConfigEntry<MessageHud.MessageType> SleepPromptMessageType { get; } = cfg.BindEx(section, MessageHud.MessageType.Center,
+            "Type of message to show for the sleep prompt", AcceptableEnum<MessageHud.MessageType>.Default);
     }
 
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section, object? tmp = null)
     {
-        public ConfigEntry<bool> SetGlobalKeysFromConfig { get; } = cfg.Bind(section, nameof(SetGlobalKeysFromConfig), false,
+        public ConfigEntry<bool> SetGlobalKeysFromConfig { get; } = cfg.BindEx(section, false,
             "True to set global keys according to the following configuration entries");
         public IReadOnlyDictionary<GlobalKeys, ConfigEntryBase> KeyConfigs { get; } = ((GlobalKeyConfigFinder)(tmp ??= new GlobalKeyConfigFinder()))
             .Get<GlobalKeys>(GlobalKeys.Preset, cfg, section, Invariant($"Sets the value for the '{{0}}' global key. Enable '{nameof(SetGlobalKeysFromConfig)}' for this to have an effect"));
 
-        public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.Bind(section, nameof(NoPortalsPreventsContruction), true,
+        public ConfigEntry<bool> NoPortalsPreventsContruction { get; } = cfg.BindEx(section, true,
             Invariant($"True to change the effect of the '{GlobalKeys.NoPortals}' global key, to prevent the construction of new portals but leave existing portals functional"));
 
         //public IReadOnlyDictionary<PlayerKeys, ConfigEntryBase> PlayerKeys { get; } = ((GlobalKeyConfigFinder)(tmp ??= new GlobalKeyConfigFinder()))
@@ -630,43 +629,43 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class PlantsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> GrowTimeMultiplier { get; } = cfg.Bind(section, nameof(GrowTimeMultiplier), 1f,
-            new ConfigDescription("Multiply plant grow time by this factor. 0 to make them grow almost instantly.", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
-        public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.Bind(section, nameof(SpaceRequirementMultiplier), 1f,
-            new ConfigDescription("Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
-        public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.Bind(section, nameof(DontDestroyIfCantGrow), false, "True to keep plants which can't grow alive");
+        public ConfigEntry<float> GrowTimeMultiplier { get; } = cfg.BindEx(section, 1f,
+            "Multiply plant grow time by this factor. 0 to make them grow almost instantly.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+        public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.BindEx(section, 1f,
+            "Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+        public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.BindEx(section, false, "True to keep plants which can't grow alive");
     }
 
     public sealed class SummonsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<float> UnsummonDistanceMultiplier { get; } = cfg.Bind(section, nameof(UnsummonDistanceMultiplier), 1f,
-            new ConfigDescription("Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
-        public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.Bind(section, nameof(UnsummonLogoutTimeMultiplier), 1f,
-            new ConfigDescription("Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
+        public ConfigEntry<float> UnsummonDistanceMultiplier { get; } = cfg.BindEx(section, 1f,
+            "Multiply unsummon distance by this factor. 0 to disable distance-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+        public ConfigEntry<float> UnsummonLogoutTimeMultiplier { get; } = cfg.BindEx(section, 1f,
+            "Multiply the time after which summons are unsummoned when the player logs out. 0 to disable logout-based unsummoning", new AcceptableValueRange<float>(0, float.PositiveInfinity));
     }
 
     public sealed class HostileSummonsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> AllowReplacementSummon { get; } = cfg.Bind(section, nameof(AllowReplacementSummon), false, "True to allow the summoning of new hostile summons (such as summoned trolls) to replace older ones when the limit exceeded");
-        public ConfigEntry<bool> MakeFriendly { get; } = cfg.Bind(section, nameof(MakeFriendly), false, "True to make all hostile summons (such as summoned trolls) friendly");
-        public ConfigEntry<bool> FollowSummoner { get; } = cfg.Bind(section, nameof(FollowSummoner), false, "True to make summoned creatures follow the summoner");
+        public ConfigEntry<bool> AllowReplacementSummon { get; } = cfg.BindEx(section, false, "True to allow the summoning of new hostile summons (such as summoned trolls) to replace older ones when the limit exceeded");
+        public ConfigEntry<bool> MakeFriendly { get; } = cfg.BindEx(section, false, "True to make all hostile summons (such as summoned trolls) friendly");
+        public ConfigEntry<bool> FollowSummoner { get; } = cfg.BindEx(section, false, "True to make summoned creatures follow the summoner");
     }
 
     public sealed class TrapsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> DisableTriggeredByPlayers { get; } = cfg.Bind(section, nameof(DisableTriggeredByPlayers), false, "True to stop traps from being triggered by players");
-        public ConfigEntry<bool> DisableFriendlyFire { get; } = cfg.Bind(section, nameof(DisableFriendlyFire), false, "True to stop traps from damaging players and tames");
-        public ConfigEntry<float> SelfDamageMultiplier { get; } = cfg.Bind(section, nameof(SelfDamageMultiplier), 1f,
-            new ConfigDescription("Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage", new AcceptableValueRange<float>(0, float.PositiveInfinity)));
-        public ConfigEntry<bool> AutoRearm { get; } = cfg.Bind(section, nameof(AutoRearm), false, "True to automatically rearm traps when they are triggered");
+        public ConfigEntry<bool> DisableTriggeredByPlayers { get; } = cfg.BindEx(section, false, "True to stop traps from being triggered by players");
+        public ConfigEntry<bool> DisableFriendlyFire { get; } = cfg.BindEx(section, false, "True to stop traps from damaging players and tames");
+        public ConfigEntry<float> SelfDamageMultiplier { get; } = cfg.BindEx(section, 1f,
+            "Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+        public ConfigEntry<bool> AutoRearm { get; } = cfg.BindEx(section, false, "True to automatically rearm traps when they are triggered");
     }
 
     public sealed class NonTeleportableItemsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> Enable { get; } = cfg.Bind(section, nameof(Enable), false, "True to enable the non-teleportable items feature");
-        public ConfigEntry<float> PortalRange { get; } = cfg.Bind(section, nameof(PortalRange), 4f, "When a player enters this range around a portal, non-teleportable items (for which you set boss keys below) might temporarily be taken from their inventory");
-        public ConfigEntry<MessageTypes> MessageType { get; } = cfg.Bind(section, nameof(MessageType), MessageTypes.None,
-            new ConfigDescription("Type of message to show when a non-teleportable item is taken from/returned to a player's inventory", AcceptableEnum<MessageTypes>.Default));
+        public ConfigEntry<bool> Enable { get; } = cfg.BindEx(section, false, "True to enable the non-teleportable items feature");
+        public ConfigEntry<float> PortalRange { get; } = cfg.BindEx(section, 4f, "When a player enters this range around a portal, non-teleportable items (for which you set boss keys below) might temporarily be taken from their inventory");
+        public ConfigEntry<MessageTypes> MessageType { get; } = cfg.BindEx(section, MessageTypes.None,
+            "Type of message to show when a non-teleportable item is taken from/returned to a player's inventory", AcceptableEnum<MessageTypes>.Default);
 
         public sealed record Entry(ItemDrop ItemDrop, ConfigEntry<string> Config);
 

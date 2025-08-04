@@ -184,11 +184,11 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|InfiniteBuildingStamina|False|True/False|True to give players infinite stamina when building. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
-|InfiniteFarmingStamina|False|True/False|True to give players infinite stamina when farming. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
-|InfiniteMiningStamina|False|True/False|True to give players infinite stamina when mining. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
-|InfiniteWoodCuttingStamina|False|True/False|True to give players infinite stamina when cutting wood. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
-|InfiniteEncumberedStamina|False|True/False|True to give players infinite stamina when encumbered. If you want infinite stamina in general, set the global key 'StaminaRate' to 0|
+|InfiniteBuildingStamina|False|True/False|True to give players infinite stamina when building.<br>Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.<br>If you want infinite stamina in general, set the global key 'StaminaRate' to 0.|
+|InfiniteFarmingStamina|False|True/False|True to give players infinite stamina when farming.<br>Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.<br>If you want infinite stamina in general, set the global key 'StaminaRate' to 0.|
+|InfiniteMiningStamina|False|True/False|True to give players infinite stamina when mining.<br>Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.<br>If you want infinite stamina in general, set the global key 'StaminaRate' to 0.|
+|InfiniteWoodCuttingStamina|False|True/False|True to give players infinite stamina when cutting wood.<br>Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.<br>If you want infinite stamina in general, set the global key 'StaminaRate' to 0.|
+|InfiniteEncumberedStamina|False|True/False|True to give players infinite stamina when encumbered.<br>Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.<br>If you want infinite stamina in general, set the global key 'StaminaRate' to 0.|
 |StackInventoryIntoContainersEmote|-1|-1, -2, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Count|Emote to stack inventory into containers. -1 to disable this feature, -2 to use any emote as trigger|
 |StackInventoryIntoContainersReturnDelay|1|From 1 to 10|Time in seconds after which items which could not be stacked into containers are returned to the player. Increasing this value can help with bad connections|
 |CanSacrificeMegingjord|False|True/False|If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator|

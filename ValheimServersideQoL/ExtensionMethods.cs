@@ -1,7 +1,8 @@
-﻿using BepInEx.Logging;
+﻿using BepInEx.Configuration;
+using BepInEx.Logging;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using UnityEngine;
-using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
@@ -12,6 +13,12 @@ static class ExtensionMethods
     /// <see cref="ZNetScene.InActiveArea(Vector2i, Vector2i)"/>
     public static int GetActiveArea(this ZoneSystem instance) => instance.m_activeArea - 1;
     public static int GetLoadedArea(this ZoneSystem instance) => instance.m_activeArea;
+
+    public static ConfigEntry<T> BindEx<T>(this ConfigFile config, string section, T defaultValue, string description, [CallerMemberName]string key = default!)
+        => config.Bind(section, key, defaultValue, description);
+
+    public static ConfigEntry<T> BindEx<T>(this ConfigFile config, string section, T defaultValue, string description, AcceptableValueBase? acceptableValues, [CallerMemberName] string key = default!)
+        => config.Bind(section, key, defaultValue, new ConfigDescription(description, acceptableValues));
 
     [Conditional("DEBUG")]
     public static void DevLog(this ManualLogSource logger, string text, LogLevel logLevel = LogLevel.Warning)
