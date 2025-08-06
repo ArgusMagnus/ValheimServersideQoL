@@ -100,11 +100,17 @@ sealed class PlayerProcessor : Processor
                     return false;
             }
         }
-
+        
         if (!CheckStamina(name, Config.Players))
             return;
 
-        var rightItem = ObjectDB.instance.GetItemPrefab(zdo.Vars.GetRightItem()).GetComponent<ItemDrop>();
+        var rightItemPrefab = zdo.Vars.GetRightItem();
+        if (ObjectDB.instance.GetItemPrefab(rightItemPrefab)?.GetComponent<ItemDrop>() is not { m_itemData.m_shared.m_attack: not null } rightItem)
+        {
+            Logger.LogWarning($"Player {zdo.Vars.GetPlayerName()}: SetTrigger({name}): Right item prefab '{rightItemPrefab}' not found");
+            return;
+        }
+
         var requiredStamina = rightItem.m_itemData.m_shared.m_attack.m_attackStamina;
         if (zdo.Vars.GetStamina() < 2 * requiredStamina)
             RPC.UseStamina(zdo, -requiredStamina);
