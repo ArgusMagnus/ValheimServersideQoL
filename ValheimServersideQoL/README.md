@@ -63,6 +63,11 @@ If you have an idea you think might fit this mod, you can create a feature reque
 Known issues are listed in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Abug%20(state%3Aopen%20OR%20label%3Awontfix)).
 If you experience an issue, please file a report there.
 
+## Uninstallation/Removal
+Many of this mod's features permanently modify the world, if you simply uninstall the mod, these changes will persist in the world.
+To reverse these changes, you can reset the configuration to default values (e.g. by deleting the config file) and leave the mod running for a while (until the affected zones have been visited by players).
+After that, it can be uninstalled normally.
+
 ## Configuration
 The configuration is loaded from `$(ValheimInstallDir)/BepInEx/config/argusmagnus.ServersideQoL.cfg`. Start the server once to generate the file if it does not exist.
 

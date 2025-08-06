@@ -2,7 +2,7 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enabled|True|True/False|Enables/disables the entire mode|
+|Enabled|True|True/False|Enables/disables the entire mod|
 |ConfigPerWorld|False|True/False|Use one config file per world. The file is saved next to the world file|
 |InWorldConfigRoom|False|True/False|True to generate an in-world room which admins can enter to configure this mod by editing signs. A portal is placed at the start location|
 |FarMessageRange|64||Max distance a player can have to a modified object to receive messages of type TopLeftFar or CenterFar|
@@ -44,8 +44,8 @@
 |AutoPickupRequestOwnership|True|True/False|True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance|
 |PickedUpMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a dropped item is added to a container|
 |ChestSignsDefaultText|•||Default text for chest signs|
+|ChestSignsContentListPlaceholder|•||If this value is found in the text of a chest sign, it will be replaced by a list of contained items in that chest|
 |ChestSignsContentListMaxCount|3||Max number of entries to show in the content list on chest signs.|
-|ChestSignsContentListPlaceholder|•||Bullet to use for content lists on chest signs|
 |ChestSignsContentListSeparator|<br>||Separator to use for content lists on chest signs|
 |ChestSignsContentListNameRest|Other||Text to show for the entry summarizing the rest of the items|
 |ChestSignsContentListEntryFormat|{0} {1}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item. The item names can be configured further by editing ChestSignItemNames.yml|
@@ -78,21 +78,21 @@
 |------|-------------|-----------------|-----------|
 |ArtisanstationBuildRange|40||Build range of Artisan Table|
 |ArtisanstationExtraBuildRangePerLevel|0||Additional build range per level of Artisan Table|
-|ArtisanstationMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Artisan Table to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Artisan Table to be able to place the extension.|
+|ArtisanstationMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Artisan Table to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Artisan Table to be able to place the extension.<br>NaN to use the games default range. |
 |BlackforgeBuildRange|20||Build range of Black Forge|
 |BlackforgeExtraBuildRangePerLevel|0||Additional build range per level of Black Forge|
-|BlackforgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Black Forge to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Black Forge to be able to place the extension.|
-|CauldronMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Cauldron to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Cauldron to be able to place the extension.|
+|BlackforgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Black Forge to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Black Forge to be able to place the extension.<br>NaN to use the games default range. |
+|CauldronMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Cauldron to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Cauldron to be able to place the extension.<br>NaN to use the games default range. |
 |ForgeBuildRange|20||Build range of Forge|
 |ForgeExtraBuildRangePerLevel|3||Additional build range per level of Forge|
-|ForgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Forge to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Forge to be able to place the extension.|
+|ForgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Forge to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Forge to be able to place the extension.<br>NaN to use the games default range. |
 |MagetableBuildRange|20||Build range of Galdr Table|
 |MagetableExtraBuildRangePerLevel|0||Additional build range per level of Galdr Table|
-|MagetableMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Galdr Table to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Galdr Table to be able to place the extension.|
+|MagetableMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Galdr Table to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Galdr Table to be able to place the extension.<br>NaN to use the games default range. |
 |StonecutterBuildRange|20||Build range of Stonecutter|
 |WorkbenchBuildRange|20||Build range of Workbench|
 |WorkbenchExtraBuildRangePerLevel|4||Additional build range per level of Workbench|
-|WorkbenchMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Workbench to increase its level. NaN to use the games default range. Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Workbench to be able to place the extension.|
+|WorkbenchMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Workbench to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Workbench to be able to place the extension.<br>NaN to use the games default range. |
 </details>
 <details><summary>Creatures</summary>
 
@@ -100,8 +100,8 @@
 |------|-------------|-----------------|-----------|
 |ShowHigherLevelStars|False|True/False|True to show stars for higher level creatures (> 2 stars)|
 |ShowHigherLevelAura|Never|Never or combination of Wild, Tamed|Show an aura for higher level creatures (> 2 stars)|
-|MaxLevelIncrease|0||Amount the max level of creatures is incremented throughout the world|
-|MaxLevelIncreasePerDefeatedBoss|0||Amount the max level of creatures is incremented per defeated boss. The respective boss's biome and previous biomes are affected.|
+|MaxLevelIncrease|0||Amount the max level of creatures is incremented throughout the world.<br>The level up chance increases with the max level.<br>Example: if this value is set to 2, a creature will spawn with 4 stars with the same probability as it would spawn with 2 stars without this setting.|
+|MaxLevelIncreasePerDefeatedBoss|0||Amount the max level of creatures is incremented per defeated boss.<br>The respective boss's biome and previous biomes are affected and the level up chance increases with the max level.<br>Example: If this value is set to 1 and Eikthyr and the Elder is defeated, the max creature level in the Black Forest will be raised by 1 and in the Meadows by 2.|
 |TreatOceanAs|BlackForest|None or combination of Meadows, Swamp, Mountain, BlackForest, Plains, AshLands, DeepNorth, Mistlands|Biome to treat the ocean as for the purpose of leveling up creatures|
 |LevelUpBosses|False|True/False|True to also level up bosses|
 |RespawnOneTimeSpawnsAfter|0||Time after one-time spawns are respawned in minutes|
@@ -142,8 +142,8 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enable|False|True/False|True to enable the non-teleportable items feature|
-|PortalRange|4||When a player enters this range around a portal, non-teleportable items (for which you set boss keys below) might temporarily be taken from their inventory|
+|Enable|False|True/False|True to enable the non-teleportable items feature.<br>Items which are not teleportable by default (e.g. ores, metals, etc.) will be temporarily taken from a player's inventory when they enter a certain range around a portal so that they can travel through, according to the settings below.<br>When the player leaves the range (e.g. by travelling through the portal), the items will be returned to their inventory.|
+|PortalRange|4||The range around a portal in which items will be taken from a player's inventory.<br>Decreasing this value will lead to a longer delay before players with non-teleportable items in their inventory can use the portal.<br>Increasing this value will leave players unable to have certain items in their inventory in a larger range around portals.|
 |MessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a non-teleportable item is taken from/returned to a player's inventory|
 |BlackMetal|defeated_goblinking|defeated_eikthyr, defeated_gdking, defeated_bonemass, defeated_dragon, defeated_goblinking, defeated_queen, defeated_fader|Key of the boss that will allow 'Black Metal' to be teleported when defeated|
 |BlackMetalScrap|defeated_goblinking|defeated_eikthyr, defeated_gdking, defeated_bonemass, defeated_dragon, defeated_goblinking, defeated_queen, defeated_fader|Key of the boss that will allow 'Black Metal Scrap' to be teleported when defeated|
@@ -189,8 +189,8 @@
 |InfiniteMiningStamina|False|True/False|True to give players infinite stamina when mining.<br>Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.<br>If you want infinite stamina in general, set the global key 'StaminaRate' to 0.|
 |InfiniteWoodCuttingStamina|False|True/False|True to give players infinite stamina when cutting wood.<br>Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.<br>If you want infinite stamina in general, set the global key 'StaminaRate' to 0.|
 |InfiniteEncumberedStamina|False|True/False|True to give players infinite stamina when encumbered.<br>Player stamina will still be drained, but when nearly depleted, just enough stamina will be restored to continue indefinitely.<br>If you want infinite stamina in general, set the global key 'StaminaRate' to 0.|
-|StackInventoryIntoContainersEmote|-1|-1, -2, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Count|Emote to stack inventory into containers. -1 to disable this feature, -2 to use any emote as trigger|
-|StackInventoryIntoContainersReturnDelay|1|From 1 to 10|Time in seconds after which items which could not be stacked into containers are returned to the player. Increasing this value can help with bad connections|
+|StackInventoryIntoContainersEmote|-1|-1, -2, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Count|Emote to stack inventory into containers.<br>If a player uses this emote, their inventory will be automatically stacked into nearby containers.<br>The rules for which containers are used are the same as for auto pickup.<br>-1 to disable this feature, -2 to use any emote as trigger.<br>If you use emotes exclusively for this feature, it is recommended to set the value to -2 as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.|
+|StackInventoryIntoContainersReturnDelay|1|From 1 to 10|Time in seconds after which items which could not be stacked into containers are returned to the player.<br>Increasing this value can help with bad connections.|
 |CanSacrificeMegingjord|False|True/False|If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator|
 |CanSacrificeCryptKey|False|True/False|If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator|
 |CanSacrificeWishbone|False|True/False|If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator|
@@ -200,9 +200,9 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enable|False|True/False|True to automatically generate a portal hub|
-|Exclude|||Portals with a tag that matches this filter are not added to the portal hub|
-|Include|*||Only portals with a tag that matches this filter are added to the portal hub|
+|Enable|False|True/False|True to automatically generate a portal hub.<br>Placed portals which don't have a paired portal in the world will be connected to the a the portal hub.|
+|Exclude|||Portals with a tag that matches this filter are not connected to the portal hub|
+|Include|*||Only portals with a tag that matches this filter are connected to the portal hub|
 |AutoNameNewPortals|False|True/False|True to automatically name new portals. Has no effect if 'Enable' is false|
 |AutoNameNewPortalsFormat|{0} {1:D2}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer|
 </details>
@@ -226,7 +226,7 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |FeedFromContainers|False|True/False|True to automatically feed smelters from nearby containers|
-|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source. Can be overriden per chest by putting '↔️<Range>' on a chest sign|
+|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source.<br>Can be overriden per chest by putting '↔️<Range>' on a chest sign.|
 |FeedFromContainersMaxRange|64||Max feeding range players can set per chest (by putting '↔️<Range>' on a chest sign)|
 |FeedFromContainersLeaveAtLeastFuel|1||Minimum amout of fuel to leave in a container|
 |FeedFromContainersLeaveAtLeastOre|1||Minimum amout of ore to leave in a container|
@@ -304,7 +304,7 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |DisableTriggeredByPlayers|False|True/False|True to stop traps from being triggered by players|
-|DisableFriendlyFire|False|True/False|True to stop traps from damaging players and tames|
+|DisableFriendlyFire|False|True/False|True to stop traps from damaging players and tames. Does not work reliably (yet).|
 |SelfDamageMultiplier|1|From 0 to Infinity|Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage|
 |AutoRearm|False|True/False|True to automatically rearm traps when they are triggered|
 </details>
@@ -312,7 +312,7 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enable|False|True/False|True to make dropped trophies attract mobs. Does not work for passive mobs (such as deer or rabbits).|
+|Enable|False|True/False|True to make dropped trophies attract mobs.|
 |ActivationDelay|3600||Time in seconds before trophies start attracting mobs|
 |RespawnDelay|12||Respawn delay in seconds|
 |MinSpawnDistance|181|From 0 to 181|Min distance from the trophy mobs can spawn|
