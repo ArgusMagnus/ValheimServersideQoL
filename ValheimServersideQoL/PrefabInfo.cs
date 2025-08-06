@@ -39,6 +39,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public EffectArea? EffectArea { get; } = Get<EffectArea>(Components);
     //public ItemStand? ItemStand { get; } = Get<ItemStand>(Components);
     public CookingStation? CookingStation { get; } = Get<CookingStation>(Components);
+    public Fermenter? Fermenter { get; } = Get<Fermenter>(Components);
 
     public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
 

@@ -35,6 +35,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public TrophySpawnerConfig TrophySpawner { get; } = new(ConfigFile, "B - Trophy Spawner");
     public NonTeleportableItemsConfig NonTeleportableItems { get; } = new(ConfigFile, "B - Non-teleportable Items");
     public SleepingConfig Sleeping { get; } = new(ConfigFile, "B - Sleeping");
+    public FermentersConfig Fermenters { get; } = new(ConfigFile, "B - Fermenters");
 
     public WorldModifiersConfig WorldModifiers { get; } = new(ConfigFile, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(ConfigFile, "D - Global Keys");
@@ -588,6 +589,11 @@ sealed record ModConfig(ConfigFile ConfigFile)
             }
             return result;
         }).Invoke();
+    }
+
+    public sealed class FermentersConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<float> FermentationDurationMultiplier { get; } = cfg.BindEx(section, 1f, "Multiply the time fermentation takes by this factor.");
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

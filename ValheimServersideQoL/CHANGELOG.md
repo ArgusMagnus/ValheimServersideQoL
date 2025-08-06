@@ -1,3 +1,6 @@
+### v1.1.10XX (BETA)
+- New feature: modify the fermentation time of fermenters [#113](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/113)
+
 ### v1.1.1022 (BETA)
 - Fixed trophy spawners to also work for passive mobs (such as deer or rabbits)
 - Fixed raising the max level of creatures to also work for passive mobs
