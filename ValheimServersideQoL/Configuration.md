@@ -112,6 +112,12 @@
 |------|-------------|-----------------|-----------|
 |AutoCloseMinPlayerDistance|NaN||Min distance all players must have to the door before it is closed. NaN to disable this feature|
 </details>
+<details><summary>Fermenters</summary>
+
+|Option|Default Value|Acceptable Values|Description|
+|------|-------------|-----------------|-----------|
+|FermentationDurationMultiplier|1||Multiply the time fermentation takes by this factor.|
+</details>
 <details><summary>Fireplaces</summary>
 
 |Option|Default Value|Acceptable Values|Description|

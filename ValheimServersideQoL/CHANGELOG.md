@@ -1,5 +1,6 @@
-### v1.1.10XX (BETA)
+### v1.1.1027 (BETA)
 - New feature: modify the fermentation time of fermenters [#113](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/113)
+- Update BepInEx to 5.4.2331
 
 ### v1.1.1022 (BETA)
 - Fixed trophy spawners to also work for passive mobs (such as deer or rabbits)
