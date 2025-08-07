@@ -79,7 +79,7 @@ sealed class PlayerProcessor : Processor
         if (!_players.TryGetValue(data.m_targetZDO, out var zdo))
             return;
 
-        //Logger.DevLog($"ZDO {data.m_targetZDO}: SetTrigger: {name}");
+        //Logger.DevLog($"Player {zdo.Vars.GetPlayerName()}: SetTrigger({name})");
 
         static bool CheckStamina(string triggerName, ModConfig.PlayersConfig cfg)
         {
@@ -383,10 +383,12 @@ sealed class PlayerProcessor : Processor
                 RPC.AddStatusEffect(zdo, StatusEffects.Demister);
         }
 
-        if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
-        {
+        if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
             RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_encumberedStaminaDrain);
-        }
+        else if (Config.Players.InfiniteSneakingStamina.Value && zdo.Vars.GetAnimationIsCrouching() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_sneakStaminaDrain)
+            RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_sneakStaminaDrain);
+        else if (Config.Players.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill)
+            RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
         {

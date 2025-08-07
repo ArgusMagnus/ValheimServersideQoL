@@ -64,4 +64,6 @@ static class PrivateAccessor
 
     public static int ZSyncAnimationZDOSalt { get; } = (int)typeof(ZSyncAnimation).GetField("c_ZDOSalt", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static).GetRawConstantValue();
     public static int CharacterAnimationHashEncumbered { get; } = (int)typeof(Character).GetField("s_encumbered", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+    public static int CharacterAnimationHashInWater { get; } = (int)typeof(Character).GetField("s_inWater", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+    public static int PlayerAnimationHashCrouching { get; } = (int)typeof(Player).GetField("s_crouching", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
 }

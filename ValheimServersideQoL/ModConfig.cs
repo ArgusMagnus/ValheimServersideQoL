@@ -323,6 +323,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<bool> InfiniteMiningStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("mining"));
         public ConfigEntry<bool> InfiniteWoodCuttingStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("cutting wood"));
         public ConfigEntry<bool> InfiniteEncumberedStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("encumbered"));
+        public ConfigEntry<bool> InfiniteSneakingStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("sneaking"));
+        public ConfigEntry<bool> InfiniteSwimmingStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("swimming"));
 
         public const Emotes DisabledEmote = (Emotes)(-1);
         public const Emotes AnyEmote = (Emotes)(-2);

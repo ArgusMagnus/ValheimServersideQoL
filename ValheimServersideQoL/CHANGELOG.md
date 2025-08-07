@@ -1,3 +1,6 @@
+### vNext (BETA)
+- New features: infinite swimming and sneaking stamina
+
 ### v1.1.1027 (BETA)
 - New feature: modify the fermentation time of fermenters [#113](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/113)
 - Update BepInEx to 5.4.2331

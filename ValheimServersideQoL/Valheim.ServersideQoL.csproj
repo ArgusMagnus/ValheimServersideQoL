@@ -107,6 +107,9 @@
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
 	</Reference>
+    <Reference Include="Splatform">
+      <HintPath>$(ValheimDir)valheim_server_Data\Managed\Splatform.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
