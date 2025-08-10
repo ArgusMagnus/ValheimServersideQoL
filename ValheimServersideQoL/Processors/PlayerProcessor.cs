@@ -5,8 +5,10 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor : Processor
 {
-    sealed record PlayerState(ExtendedZDO PlayerZDO)
+    sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor)
     {
+        readonly PlayerProcessor _processor = processor;
+        public ExtendedZDO PlayerZDO { get; } = playerZDO;
         public bool IsServer => PlayerZDO.GetOwner() == ZDOMan.GetSessionID();
         long? _playerID;
         public long PlayerID => _playerID ??= PlayerZDO.Vars.GetPlayerID();
@@ -18,6 +20,7 @@ sealed class PlayerProcessor : Processor
         public DateTimeOffset PingEnd { get; private set; }
         public TimeSpan? LastPing { get; private set; }
         public TimeSpan? AveragePing { get; private set; }
+        public TimeSpan? LastZoneOwnerPing { get; private set; }
 
         readonly List<TimeSpan> _pingHistory = [];
 
@@ -26,34 +29,67 @@ sealed class PlayerProcessor : Processor
             if (zdo.GetOwner() == PlayerZDO.GetOwner())
                 LastPing = (PingEnd = DateTimeOffset.UtcNow) - PingStart;
             else
+            {
                 LastPing = default;
+                Main.Instance.Logger.LogWarning($"Measuring ping for {PlayerName} failed");
+            }
             PingStart = default;
-            Main.Instance.Logger.DevLog($"Player {PlayerName} ping: {LastPing?.TotalMilliseconds:F0} ms");
 
-            while (_pingHistory.Count >= 5)
+            while (_pingHistory.Count >= 60)
                 _pingHistory.RemoveAt(0);
             _pingHistory.Add(LastPing ?? default);
-            TimeSpan sum = default;
-            foreach (var ping in _pingHistory)
+
+            AveragePing = CalculateAveragePing(_pingHistory);
+
+            LastZoneOwnerPing = default;
+            PlayerState? ownerState = null;
+            if (_processor._zoneControls.TryGetValue(PlayerZDO.GetSector(), out var zoneCtrl))
             {
-                if (ping == default)
-                {
-                    AveragePing = default;
-                    return;
-                }
-                sum += ping;
+                if (zoneCtrl.GetOwner() == PlayerZDO.GetOwner())
+                    LastZoneOwnerPing = new();
+                else if (_processor._playerStates.TryGetValue(zoneCtrl.GetOwner(), out ownerState))
+                    LastZoneOwnerPing = LastPing + ownerState.LastPing;
             }
-            AveragePing = sum / _pingHistory.Count;
+
+            var cfg = Main.Instance.Config.Networking;
+            if (LastPing > TimeSpan.FromMilliseconds(cfg.LogPingThreshold.Value) || LastZoneOwnerPing > TimeSpan.FromMilliseconds(cfg.LogZoneOwnerPingThreshold.Value))
+            {
+                if (ownerState is null)
+                    Main.Instance.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {AveragePing?.TotalMilliseconds:F0} ms)");
+                else
+                    Main.Instance.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {AveragePing?.TotalMilliseconds:F0} ms) / {ownerState.PlayerName}: {LastZoneOwnerPing?.TotalMilliseconds:F0} ms");
+            }
+            if (LastPing > TimeSpan.FromMilliseconds(cfg.ShowPingThreshold.Value) || LastZoneOwnerPing > TimeSpan.FromMilliseconds(cfg.ShowZoneOwnerPingThreshold.Value))
+            {
+                if (ownerState is null)
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {AveragePing?.TotalMilliseconds:F0} ms)");
+                else
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {AveragePing?.TotalMilliseconds:F0} ms) / {ownerState.PlayerName}: {LastZoneOwnerPing?.TotalMilliseconds:F0} ms");
+            }
+
+            static TimeSpan? CalculateAveragePing(IReadOnlyList<TimeSpan> pingHistory)
+            {
+                TimeSpan sum = default;
+                foreach (var ping in pingHistory)
+                {
+                    if (ping == default)
+                        return null;
+                    sum += ping;
+                }
+                return sum / pingHistory.Count;
+            }
         }
     }
 
-    readonly Dictionary<ExtendedZDO, PlayerState> _playerStates = [];
+    readonly Dictionary<long, PlayerState> _playerStates = [];
 
     readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
     public IReadOnlyDictionary<ZDOID, ExtendedZDO> Players => _players;
     readonly Dictionary<long, ExtendedZDO> _playersByID = [];
     public IReadOnlyDictionary<long, ExtendedZDO> PlayersByID => _playersByID;
     public event Action<ExtendedZDO>? PlayerDestroyed;
+
+    readonly Dictionary<Vector2i, ExtendedZDO> _zoneControls = [];
 
     sealed record StackContainerState(ExtendedZDO PlayerZDO)
     {
@@ -69,8 +105,8 @@ sealed class PlayerProcessor : Processor
         return id is not null && _players.TryGetValue(id.Value, out var zdo) ? zdo : null;
     }
 
-    static readonly MethodInfo __everybodyIsTryingToSleepMethod = typeof(Game).GetMethod("EverybodyIsTryingToSleep", BindingFlags.NonPublic | BindingFlags.Instance);
-    static readonly MethodInfo __everybodyIsTryingToSleepPrefix = typeof(PlayerProcessor).GetMethod(nameof(EverybodyIsTryingToSleepPrefix), BindingFlags.NonPublic | BindingFlags.Static);
+    readonly MethodInfo _everybodyIsTryingToSleepMethod = typeof(Game).GetMethod("EverybodyIsTryingToSleep", BindingFlags.NonPublic | BindingFlags.Instance);
+    readonly MethodInfo _everybodyIsTryingToSleepPrefix = typeof(PlayerProcessor).GetMethod(nameof(EverybodyIsTryingToSleepPrefix), BindingFlags.NonPublic | BindingFlags.Static);
 
     public override void Initialize(bool firstTime)
     {
@@ -87,9 +123,9 @@ sealed class PlayerProcessor : Processor
             Config.Players.CanSacrificeWishbone.Value ||
             Config.Players.CanSacrificeTornSpirit.Value);
 
-        Main.HarmonyInstance.Unpatch(__everybodyIsTryingToSleepMethod, __everybodyIsTryingToSleepPrefix);
+        Main.HarmonyInstance.Unpatch(_everybodyIsTryingToSleepMethod, _everybodyIsTryingToSleepPrefix);
         if (Config.Sleeping.MinPlayersInBed.Value > 0)
-            Main.HarmonyInstance.Patch(__everybodyIsTryingToSleepMethod, prefix: new(__everybodyIsTryingToSleepPrefix));
+            Main.HarmonyInstance.Patch(_everybodyIsTryingToSleepMethod, prefix: new(_everybodyIsTryingToSleepPrefix));
 
         if (!firstTime)
             return;
@@ -97,14 +133,16 @@ sealed class PlayerProcessor : Processor
         _players.Clear();
         _playersByID.Clear();
         _playerStates.Clear();
+        _zoneControls.Clear();
     }
 
     void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        _playerStates.Remove(zdo);
-        if (_players.Remove(zdo.m_uid))
+        if (_playerStates.Remove(zdo.GetOwner(), out var state))
         {
-            _playersByID.Remove(zdo.Vars.GetPlayerID());
+            _players.Remove(zdo.m_uid);
+            if (_playersByID.Remove(state.PlayerID, out var zdo2) && zdo2 != zdo)
+                _playersByID.Add(state.PlayerID, zdo2);
             PlayerDestroyed?.Invoke(zdo);
         }
     }
@@ -393,39 +431,39 @@ sealed class PlayerProcessor : Processor
         if (zdo.PrefabInfo.Player is null)
         {
             UnregisterZdoProcessor = true;
+
+            if (zdo.PrefabInfo.SpawnSystem is not null)
+                _zoneControls[zdo.GetSector()] = zdo;
+
             return false;
         }
 
-        if (!_playerStates.TryGetValue(zdo, out var state))
+        if (!_playerStates.TryGetValue(zdo.GetOwner(), out var state))
         {
-            _playerStates.Add(zdo, state = new(zdo));
-            zdo.Destroyed += x => _playerStates.Remove(x);
+            _playerStates.Add(zdo.GetOwner(), state = new(zdo, this));
+            _players.Add(zdo.m_uid, zdo);
+            _playersByID[state.PlayerID] = zdo;
+            zdo.Destroyed += OnZdoDestroyed;
+
+            if (Config.Players.CanSacrificeMegingjord.Value && DataZDO.Vars.GetSacrifiedMegingjord(state.PlayerID))
+                RPC.AddStatusEffect(zdo, StatusEffects.Megingjord);
+            if (Config.Players.CanSacrificeWishbone.Value && DataZDO.Vars.GetSacrifiedWishbone(state.PlayerID))
+                RPC.AddStatusEffect(zdo, StatusEffects.Wishbone);
+            if (Config.Players.CanSacrificeTornSpirit.Value && DataZDO.Vars.GetSacrifiedTornSpirit(state.PlayerID))
+                RPC.AddStatusEffect(zdo, StatusEffects.Demister);
 
 #if DEBUG
             RPC.AddStatusEffect(zdo, "Rested".GetStableHashCode());
 #endif
         }
 
-        if (!state.IsServer && state.PingStart == default && state.PingEnd < DateTimeOffset.UtcNow.AddSeconds(-1))
+        if (Config.Networking.MeasurePing.Value && state.PingStart == default && state.PingEnd < DateTimeOffset.UtcNow.AddSeconds(-Config.Networking.MeasurePingInterval.Value))
         {
-            var pingZdo = PlacePiece(zdo.GetPosition() with { y = -1000 }, Prefabs.WoodChest, 0);
-            pingZdo.SetOwner(zdo.GetOwner());
+            var pingZdo = PlacePiece(zdo.GetPosition() with { y = -10000 }, Prefabs.WoodChest, 0);
+            pingZdo.SetOwnerInternal(zdo.GetOwner());
             pingZdo.Fields<Container>().Set(static x => x.m_autoDestroyEmpty, true);
             pingZdo.Destroyed += state.OnPingZdoDestroyed;
             state.PingStart = DateTimeOffset.UtcNow;
-        }
-
-        if (_players.TryAdd(zdo.m_uid, zdo))
-        {
-            var playerID = zdo.Vars.GetPlayerID();
-            _playersByID[playerID] = zdo;
-            zdo.Destroyed += OnZdoDestroyed;
-            if (Config.Players.CanSacrificeMegingjord.Value && DataZDO.Vars.GetSacrifiedMegingjord(playerID))
-                RPC.AddStatusEffect(zdo, StatusEffects.Megingjord);
-            if (Config.Players.CanSacrificeWishbone.Value && DataZDO.Vars.GetSacrifiedWishbone(playerID))
-                RPC.AddStatusEffect(zdo, StatusEffects.Wishbone);
-            if (Config.Players.CanSacrificeTornSpirit.Value && DataZDO.Vars.GetSacrifiedTornSpirit(playerID))
-                RPC.AddStatusEffect(zdo, StatusEffects.Demister);
         }
 
         if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
@@ -558,7 +596,7 @@ sealed class PlayerProcessor : Processor
 
         var inBed = 0;
         var sitting = 0;
-        foreach (var player in _playerStates.Keys)
+        foreach (var player in _players.Values)
         {
             if (player.Vars.GetInBed())
                 inBed++;

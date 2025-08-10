@@ -144,6 +144,17 @@
 |AutoUpdateShips|False|True/False|True to update map tables with ship pins|
 |UpdatedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a map table is updated|
 </details>
+<details><summary>Networking</summary>
+
+|Option|Default Value|Acceptable Values|Description|
+|------|-------------|-----------------|-----------|
+|MeasurePing|False|True/False|True to measure player ping|
+|MeasurePingInterval|1||Time in seconds between ping measurements|
+|LogPingThreshold|0||A player's ping value to the server is logged if it exceeds this threshold|
+|ShowPingThreshold|0||A player's ping value to the server is shown to the player if it exceeds this threshold|
+|LogZoneOwnerPingThreshold|0||A player's ping value to the zone owner is logged if it exceeds this threshold|
+|ShowZoneOwnerPingThreshold|0||A player's ping value to the zone owner is shown to the player if it exceeds this threshold|
+</details>
 <details><summary>Non-teleportable Items</summary>
 
 |Option|Default Value|Acceptable Values|Description|

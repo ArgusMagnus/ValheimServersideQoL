@@ -36,6 +36,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public NonTeleportableItemsConfig NonTeleportableItems { get; } = new(ConfigFile, "B - Non-teleportable Items");
     public SleepingConfig Sleeping { get; } = new(ConfigFile, "B - Sleeping");
     public FermentersConfig Fermenters { get; } = new(ConfigFile, "B - Fermenters");
+    public NetworkingConfig Networking { get; } = new(ConfigFile, "B - Networking");
 
     public WorldModifiersConfig WorldModifiers { get; } = new(ConfigFile, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(ConfigFile, "D - Global Keys");
@@ -596,6 +597,16 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public sealed class FermentersConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<float> FermentationDurationMultiplier { get; } = cfg.BindEx(section, 1f, "Multiply the time fermentation takes by this factor.");
+    }
+
+    public sealed class NetworkingConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> MeasurePing { get; } = cfg.BindEx(section, false, "True to measure player ping");
+        public ConfigEntry<float> MeasurePingInterval { get; } = cfg.BindEx(section, 1f, "Time in seconds between ping measurements");
+        public ConfigEntry<int> LogPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the server is logged if it exceeds this threshold");
+        public ConfigEntry<int> ShowPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the server is shown to the player if it exceeds this threshold");
+        public ConfigEntry<int> LogZoneOwnerPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the zone owner is logged if it exceeds this threshold");
+        public ConfigEntry<int> ShowZoneOwnerPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the zone owner is shown to the player if it exceeds this threshold");
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)
