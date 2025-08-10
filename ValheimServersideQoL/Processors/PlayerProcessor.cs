@@ -5,10 +5,46 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor : Processor
 {
-    sealed class PlayerState
+    sealed record PlayerState(ExtendedZDO PlayerZDO)
     {
+        public bool IsServer => PlayerZDO.GetOwner() == ZDOMan.GetSessionID();
+        long? _playerID;
+        public long PlayerID => _playerID ??= PlayerZDO.Vars.GetPlayerID();
+        string? _playerName;
+        public string PlayerName => _playerName ??= PlayerZDO.Vars.GetPlayerName();
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
         public Vector3? InitialInInteriorPosition { get; set; }
+        public DateTimeOffset PingStart { get; set; }
+        public DateTimeOffset PingEnd { get; private set; }
+        public TimeSpan? LastPing { get; private set; }
+        public TimeSpan? AveragePing { get; private set; }
+
+        readonly List<TimeSpan> _pingHistory = [];
+
+        public void OnPingZdoDestroyed(ExtendedZDO zdo)
+        {
+            if (zdo.GetOwner() == PlayerZDO.GetOwner())
+                LastPing = (PingEnd = DateTimeOffset.UtcNow) - PingStart;
+            else
+                LastPing = default;
+            PingStart = default;
+            Main.Instance.Logger.DevLog($"Player {PlayerName} ping: {LastPing?.TotalMilliseconds:F0} ms");
+
+            while (_pingHistory.Count >= 5)
+                _pingHistory.RemoveAt(0);
+            _pingHistory.Add(LastPing ?? default);
+            TimeSpan sum = default;
+            foreach (var ping in _pingHistory)
+            {
+                if (ping == default)
+                {
+                    AveragePing = default;
+                    return;
+                }
+                sum += ping;
+            }
+            AveragePing = sum / _pingHistory.Count;
+        }
     }
 
     readonly Dictionary<ExtendedZDO, PlayerState> _playerStates = [];
@@ -362,12 +398,21 @@ sealed class PlayerProcessor : Processor
 
         if (!_playerStates.TryGetValue(zdo, out var state))
         {
-            _playerStates.Add(zdo, state = new());
+            _playerStates.Add(zdo, state = new(zdo));
             zdo.Destroyed += x => _playerStates.Remove(x);
 
 #if DEBUG
             RPC.AddStatusEffect(zdo, "Rested".GetStableHashCode());
 #endif
+        }
+
+        if (!state.IsServer && state.PingStart == default && state.PingEnd < DateTimeOffset.UtcNow.AddSeconds(-1))
+        {
+            var pingZdo = PlacePiece(zdo.GetPosition() with { y = -1000 }, Prefabs.WoodChest, 0);
+            pingZdo.SetOwner(zdo.GetOwner());
+            pingZdo.Fields<Container>().Set(static x => x.m_autoDestroyEmpty, true);
+            pingZdo.Destroyed += state.OnPingZdoDestroyed;
+            state.PingStart = DateTimeOffset.UtcNow;
         }
 
         if (_players.TryAdd(zdo.m_uid, zdo))
