@@ -19,8 +19,8 @@ sealed class PlayerProcessor : Processor
         public DateTimeOffset PingStart { get; set; }
         public DateTimeOffset PingEnd { get; private set; }
         public TimeSpan? LastPing { get; private set; }
-        public TimeSpan? AveragePing { get; private set; }
-        public TimeSpan? LastZoneOwnerPing { get; private set; }
+        public TimeSpan? PingMean { get; private set; }
+        public TimeSpan? PingStdDev { get; private set; }
 
         readonly List<TimeSpan> _pingHistory = [];
 
@@ -31,52 +31,60 @@ sealed class PlayerProcessor : Processor
             else
             {
                 LastPing = default;
-                Main.Instance.Logger.LogWarning($"Measuring ping for {PlayerName} failed");
+                _processor.Logger.LogWarning($"Measuring ping for {PlayerName} failed");
             }
             PingStart = default;
 
-            while (_pingHistory.Count >= 60)
+            var cfg = _processor.Config.Networking;
+
+            while (_pingHistory.Count >= cfg.PingStatisticsWindow.Value)
                 _pingHistory.RemoveAt(0);
             _pingHistory.Add(LastPing ?? default);
 
-            AveragePing = CalculateAveragePing(_pingHistory);
+            (PingMean, PingStdDev) = CalculateStats(_pingHistory);
 
-            LastZoneOwnerPing = default;
+            var (zoPing, zoPingMean, zoPingStdDev) = default((TimeSpan?, TimeSpan?, TimeSpan?));
             PlayerState? ownerState = null;
             if (_processor._zoneControls.TryGetValue(PlayerZDO.GetSector(), out var zoneCtrl))
             {
                 if (zoneCtrl.GetOwner() == PlayerZDO.GetOwner())
-                    LastZoneOwnerPing = new();
+                    (zoPing, zoPingMean, zoPingStdDev) = (new(), new(), new());
                 else if (_processor._playerStates.TryGetValue(zoneCtrl.GetOwner(), out ownerState))
-                    LastZoneOwnerPing = LastPing + ownerState.LastPing;
+                    (zoPing, zoPingMean, zoPingStdDev) = (ownerState.LastPing, ownerState.PingMean, ownerState.PingStdDev);
             }
 
-            var cfg = Main.Instance.Config.Networking;
-            if (LastPing > TimeSpan.FromMilliseconds(cfg.LogPingThreshold.Value) || LastZoneOwnerPing > TimeSpan.FromMilliseconds(cfg.LogZoneOwnerPingThreshold.Value))
+            if (LastPing > TimeSpan.FromMilliseconds(cfg.LogPingThreshold.Value) || zoPing > TimeSpan.FromMilliseconds(cfg.LogZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    Main.Instance.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {AveragePing?.TotalMilliseconds:F0} ms)");
+                    _processor.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {PingMean?.TotalMilliseconds:F0} ± {PingStdDev?.TotalMilliseconds:F0} ms)");
                 else
-                    Main.Instance.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {AveragePing?.TotalMilliseconds:F0} ms) / {ownerState.PlayerName}: {LastZoneOwnerPing?.TotalMilliseconds:F0} ms");
+                    _processor.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {PingMean?.TotalMilliseconds:F0} ± {PingStdDev?.TotalMilliseconds:F0} ms) + {ownerState.PlayerName}: {zoPing?.TotalMilliseconds:F0} ms (av: {zoPingMean?.TotalMilliseconds:F0} ± {zoPingStdDev?.TotalMilliseconds:F0} ms)");
             }
-            if (LastPing > TimeSpan.FromMilliseconds(cfg.ShowPingThreshold.Value) || LastZoneOwnerPing > TimeSpan.FromMilliseconds(cfg.ShowZoneOwnerPingThreshold.Value))
+            if (LastPing > TimeSpan.FromMilliseconds(cfg.ShowPingThreshold.Value) || zoPing > TimeSpan.FromMilliseconds(cfg.ShowZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {AveragePing?.TotalMilliseconds:F0} ms)");
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {PingMean?.TotalMilliseconds:F0} ± {PingStdDev?.TotalMilliseconds:F0} ms)");
                 else
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {AveragePing?.TotalMilliseconds:F0} ms) / {ownerState.PlayerName}: {LastZoneOwnerPing?.TotalMilliseconds:F0} ms");
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {PingMean?.TotalMilliseconds:F0} ± {PingStdDev?.TotalMilliseconds:F0} ms) + {ownerState.PlayerName}: {zoPing?.TotalMilliseconds:F0} ms (av: {zoPingMean?.TotalMilliseconds:F0} ± {zoPingStdDev?.TotalMilliseconds:F0} ms)");
             }
 
-            static TimeSpan? CalculateAveragePing(IReadOnlyList<TimeSpan> pingHistory)
+            static (TimeSpan? Mean, TimeSpan? StdDev) CalculateStats(IReadOnlyList<TimeSpan> pingHistory)
             {
-                TimeSpan sum = default;
+                double mean = 0;
+                double variance = 0;
+                int n = 0;
                 foreach (var ping in pingHistory)
                 {
                     if (ping == default)
-                        return null;
-                    sum += ping;
+                        return default;
+                    var value = ping.TotalMilliseconds;
+                    var delta = value - mean;
+                    mean += delta / ++n;
+                    variance += delta * (value - mean);
                 }
-                return sum / pingHistory.Count;
+
+                variance /= n - 1;
+                return (TimeSpan.FromMilliseconds(mean), TimeSpan.FromMilliseconds(Math.Sqrt(variance)));
             }
         }
     }

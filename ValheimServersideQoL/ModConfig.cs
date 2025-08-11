@@ -603,6 +603,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
     {
         public ConfigEntry<bool> MeasurePing { get; } = cfg.BindEx(section, false, "True to measure player ping");
         public ConfigEntry<float> MeasurePingInterval { get; } = cfg.BindEx(section, 1f, "Time in seconds between ping measurements");
+        public ConfigEntry<int> PingStatisticsWindow { get; } = cfg.BindEx(section, 60, "Number of measurements to include for statistic calulations like mean and standard deviation",
+            new AcceptableValueRange<int>(1, 100000));
         public ConfigEntry<int> LogPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the server is logged if it exceeds this threshold");
         public ConfigEntry<int> ShowPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the server is shown to the player if it exceeds this threshold");
         public ConfigEntry<int> LogZoneOwnerPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the zone owner is logged if it exceeds this threshold");
