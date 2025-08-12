@@ -25,6 +25,11 @@
   <ItemGroup>
     <ProjectReference Include="..\ValheimServersideQoL.YamlDotNet\YamlDotNet\Valheim.ServersideQoL.YamlDotNet.csproj" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <Compile Remove="Dependencies\**" />
+	<None Include="Dependencies\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <RequiredReference Include="assembly_utils">

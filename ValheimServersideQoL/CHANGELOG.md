@@ -1,5 +1,7 @@
-### vNext (BETA)
-- New features: infinite swimming and sneaking stamina
+### v1.1.1032 (BETA) (BETA)
+- New features:
+    - Infinite swimming and sneaking stamina
+    - Log and show player ping to server and zone owner
 
 ### v1.1.1027 (BETA)
 - New feature: modify the fermentation time of fermenters [#113](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/113)

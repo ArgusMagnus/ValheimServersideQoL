@@ -149,7 +149,7 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |MeasurePing|False|True/False|True to measure player ping|
-|MeasurePingInterval|1||Time in seconds between ping measurements|
+|PingStatisticsWindow|60|From 1 to 100000|Number of measurements to include for statistic calulations like mean and standard deviation|
 |LogPingThreshold|0||A player's ping value to the server is logged if it exceeds this threshold|
 |ShowPingThreshold|0||A player's ping value to the server is shown to the player if it exceeds this threshold|
 |LogZoneOwnerPingThreshold|0||A player's ping value to the zone owner is logged if it exceeds this threshold|

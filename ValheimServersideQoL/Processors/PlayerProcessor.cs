@@ -9,6 +9,7 @@ sealed class PlayerProcessor : Processor
     {
         readonly PlayerProcessor _processor = processor;
         public ExtendedZDO PlayerZDO { get; } = playerZDO;
+        public ZRpc? Rpc { get; } = ZNet.instance.GetPeer(playerZDO.GetOwner())?.m_rpc;
         public bool IsServer => PlayerZDO.GetOwner() == ZDOMan.GetSessionID();
         long? _playerID;
         public long PlayerID => _playerID ??= PlayerZDO.Vars.GetPlayerID();
@@ -16,67 +17,77 @@ sealed class PlayerProcessor : Processor
         public string PlayerName => _playerName ??= PlayerZDO.Vars.GetPlayerName();
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
         public Vector3? InitialInInteriorPosition { get; set; }
-        public DateTimeOffset PingStart { get; set; }
-        public DateTimeOffset PingEnd { get; private set; }
-        public TimeSpan? LastPing { get; private set; }
-        public TimeSpan? PingMean { get; private set; }
-        public TimeSpan? PingStdDev { get; private set; }
+        public TimeSpan LastPing { get; private set; }
+        public TimeSpan PingMean { get; private set; }
+        public TimeSpan PingStdDev { get; private set; }
 
         readonly List<TimeSpan> _pingHistory = [];
+        DateTimeOffset _pingStart;
 
-        public void OnPingZdoDestroyed(ExtendedZDO zdo)
+        public static void ReceivePingPrefix(ZRpc __instance, ZPackage package)
         {
-            if (zdo.GetOwner() == PlayerZDO.GetOwner())
-                LastPing = (PingEnd = DateTimeOffset.UtcNow) - PingStart;
-            else
-            {
-                LastPing = default;
-                _processor.Logger.LogWarning($"Measuring ping for {PlayerName} failed");
-            }
-            PingStart = default;
+            var pos = package.GetPos();
+            var isPing = !package.ReadBool();
+            package.SetPos(pos);
+            if (isPing && Instance<PlayerProcessor>()._statesByRpc.TryGetValue(__instance, out var state))
+                state.ReceivePingPrefix();
+        }
+
+        public static bool SendPackagePrefix(ZRpc __instance, ZPackage pkg)
+        {
+            var pos = pkg.GetPos();
+            pkg.SetPos(0);
+            var isPing = pkg.ReadInt() is 0 && pkg.ReadBool();
+            pkg.SetPos(pos);
+            if (!isPing || !Instance<PlayerProcessor>()._statesByRpc.TryGetValue(__instance, out var state))
+                return true;
+            return state.SendPingPrefix();
+        }
+
+        void ReceivePingPrefix()
+        {
+            LastPing = DateTimeOffset.UtcNow - _pingStart;
+            _pingStart = default;
 
             var cfg = _processor.Config.Networking;
 
             while (_pingHistory.Count >= cfg.PingStatisticsWindow.Value)
                 _pingHistory.RemoveAt(0);
-            _pingHistory.Add(LastPing ?? default);
+            _pingHistory.Add(LastPing);
 
             (PingMean, PingStdDev) = CalculateStats(_pingHistory);
 
-            var (zoPing, zoPingMean, zoPingStdDev) = default((TimeSpan?, TimeSpan?, TimeSpan?));
+            var (zoPing, zoPingMean, zoPingStdDev) = default((TimeSpan, TimeSpan, TimeSpan));
             PlayerState? ownerState = null;
-            if (_processor._zoneControls.TryGetValue(PlayerZDO.GetSector(), out var zoneCtrl))
+            if (_processor._zoneControls.TryGetValue(PlayerZDO.GetSector(), out var zoneCtrl) &&
+                zoneCtrl.GetOwner() != PlayerZDO.GetOwner() &&
+                _processor._playerStates.TryGetValue(zoneCtrl.GetOwner(), out ownerState))
             {
-                if (zoneCtrl.GetOwner() == PlayerZDO.GetOwner())
-                    (zoPing, zoPingMean, zoPingStdDev) = (new(), new(), new());
-                else if (_processor._playerStates.TryGetValue(zoneCtrl.GetOwner(), out ownerState))
-                    (zoPing, zoPingMean, zoPingStdDev) = (ownerState.LastPing, ownerState.PingMean, ownerState.PingStdDev);
+                (zoPing, zoPingMean, zoPingStdDev) = (ownerState.LastPing, ownerState.PingMean, ownerState.PingStdDev);
             }
 
             if (LastPing > TimeSpan.FromMilliseconds(cfg.LogPingThreshold.Value) || zoPing > TimeSpan.FromMilliseconds(cfg.LogZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    _processor.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {PingMean?.TotalMilliseconds:F0} ± {PingStdDev?.TotalMilliseconds:F0} ms)");
+                    _processor.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing.TotalMilliseconds:F0} ms (av: {PingMean.TotalMilliseconds:F0} ± {PingStdDev.TotalMilliseconds:F0} ms)");
                 else
-                    _processor.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {PingMean?.TotalMilliseconds:F0} ± {PingStdDev?.TotalMilliseconds:F0} ms) + {ownerState.PlayerName}: {zoPing?.TotalMilliseconds:F0} ms (av: {zoPingMean?.TotalMilliseconds:F0} ± {zoPingStdDev?.TotalMilliseconds:F0} ms)");
+                    _processor.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing.TotalMilliseconds:F0} ms (av: {PingMean.TotalMilliseconds:F0} ± {PingStdDev.TotalMilliseconds:F0} ms) + {ownerState.PlayerName}: {zoPing.TotalMilliseconds:F0} ms (av: {zoPingMean.TotalMilliseconds:F0} ± {zoPingStdDev.TotalMilliseconds:F0} ms)");
             }
             if (LastPing > TimeSpan.FromMilliseconds(cfg.ShowPingThreshold.Value) || zoPing > TimeSpan.FromMilliseconds(cfg.ShowZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {PingMean?.TotalMilliseconds:F0} ± {PingStdDev?.TotalMilliseconds:F0} ms)");
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing.TotalMilliseconds:F0} ms (av: {PingMean.TotalMilliseconds:F0} ± {PingStdDev.TotalMilliseconds:F0} ms)");
                 else
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing?.TotalMilliseconds:F0} ms (av: {PingMean?.TotalMilliseconds:F0} ± {PingStdDev?.TotalMilliseconds:F0} ms) + {ownerState.PlayerName}: {zoPing?.TotalMilliseconds:F0} ms (av: {zoPingMean?.TotalMilliseconds:F0} ± {zoPingStdDev?.TotalMilliseconds:F0} ms)");
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing.TotalMilliseconds:F0} ms (av: {PingMean.TotalMilliseconds:F0} ± {PingStdDev.TotalMilliseconds:F0} ms) + {ownerState.PlayerName}: {zoPing.TotalMilliseconds:F0} ms (av: {zoPingMean.TotalMilliseconds:F0} ± {zoPingStdDev.TotalMilliseconds:F0} ms)");
             }
 
-            static (TimeSpan? Mean, TimeSpan? StdDev) CalculateStats(IReadOnlyList<TimeSpan> pingHistory)
+            static (TimeSpan Mean, TimeSpan StdDev) CalculateStats(IReadOnlyList<TimeSpan> pingHistory)
             {
                 double mean = 0;
                 double variance = 0;
                 int n = 0;
                 foreach (var ping in pingHistory)
                 {
-                    if (ping == default)
-                        return default;
                     var value = ping.TotalMilliseconds;
                     var delta = value - mean;
                     mean += delta / ++n;
@@ -84,12 +95,22 @@ sealed class PlayerProcessor : Processor
                 }
 
                 variance /= n - 1;
-                return (TimeSpan.FromMilliseconds(mean), TimeSpan.FromMilliseconds(Math.Sqrt(variance)));
+                return (double.IsNaN(mean) ? default : TimeSpan.FromMilliseconds(mean), double.IsNaN(variance) ? default : TimeSpan.FromMilliseconds(Math.Sqrt(variance)));
             }
+        }
+
+        bool SendPingPrefix()
+        {
+            if (_pingStart != default && Rpc is not null && Rpc.GetTimeSinceLastPing() < ZNet.instance.m_badConnectionPing)
+                return false;
+            if (_pingStart == default)
+                _pingStart = DateTimeOffset.UtcNow;
+            return true;
         }
     }
 
     readonly Dictionary<long, PlayerState> _playerStates = [];
+    readonly Dictionary<ZRpc, PlayerState> _statesByRpc = [];
 
     readonly Dictionary<ZDOID, ExtendedZDO> _players = [];
     public IReadOnlyDictionary<ZDOID, ExtendedZDO> Players => _players;
@@ -114,7 +135,11 @@ sealed class PlayerProcessor : Processor
     }
 
     readonly MethodInfo _everybodyIsTryingToSleepMethod = typeof(Game).GetMethod("EverybodyIsTryingToSleep", BindingFlags.NonPublic | BindingFlags.Instance);
-    readonly MethodInfo _everybodyIsTryingToSleepPrefix = typeof(PlayerProcessor).GetMethod(nameof(EverybodyIsTryingToSleepPrefix), BindingFlags.NonPublic | BindingFlags.Static);
+    readonly MethodInfo _everybodyIsTryingToSleepPrefix = ((Delegate)EverybodyIsTryingToSleepPrefix).Method;
+    readonly MethodInfo _receivePingMethod = typeof(ZRpc).GetMethod("ReceivePing", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+    readonly MethodInfo _receivePingPefix = ((Delegate)PlayerState.ReceivePingPrefix).Method;
+    readonly MethodInfo _sendPackageMethod = typeof(ZRpc).GetMethod("SendPackage", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+    readonly MethodInfo _sendPackagePrefix = ((Delegate)PlayerState.SendPackagePrefix).Method;
 
     public override void Initialize(bool firstTime)
     {
@@ -135,12 +160,21 @@ sealed class PlayerProcessor : Processor
         if (Config.Sleeping.MinPlayersInBed.Value > 0)
             Main.HarmonyInstance.Patch(_everybodyIsTryingToSleepMethod, prefix: new(_everybodyIsTryingToSleepPrefix));
 
+        Main.HarmonyInstance.Unpatch(_receivePingMethod, _receivePingPefix);
+        Main.HarmonyInstance.Unpatch(_sendPackageMethod, _sendPackagePrefix);
+        if (Config.Networking.MeasurePing.Value)
+        {
+            Main.HarmonyInstance.Patch(_receivePingMethod, prefix: new(_receivePingPefix));
+            Main.HarmonyInstance.Patch(_sendPackageMethod, prefix: new(_sendPackagePrefix));
+        }
+
         if (!firstTime)
             return;
 
         _players.Clear();
         _playersByID.Clear();
         _playerStates.Clear();
+        _statesByRpc.Clear();
         _zoneControls.Clear();
     }
 
@@ -148,6 +182,8 @@ sealed class PlayerProcessor : Processor
     {
         if (_playerStates.Remove(zdo.GetOwner(), out var state))
         {
+            if (state.Rpc is not null)
+                _statesByRpc.Remove(state.Rpc);
             _players.Remove(zdo.m_uid);
             if (_playersByID.Remove(state.PlayerID, out var zdo2) && zdo2 != zdo)
                 _playersByID.Add(state.PlayerID, zdo2);
@@ -449,6 +485,8 @@ sealed class PlayerProcessor : Processor
         if (!_playerStates.TryGetValue(zdo.GetOwner(), out var state))
         {
             _playerStates.Add(zdo.GetOwner(), state = new(zdo, this));
+            if (state.Rpc is not null)
+                _statesByRpc.Add(state.Rpc, state);
             _players.Add(zdo.m_uid, zdo);
             _playersByID[state.PlayerID] = zdo;
             zdo.Destroyed += OnZdoDestroyed;
@@ -463,15 +501,6 @@ sealed class PlayerProcessor : Processor
 #if DEBUG
             RPC.AddStatusEffect(zdo, "Rested".GetStableHashCode());
 #endif
-        }
-
-        if (Config.Networking.MeasurePing.Value && state.PingStart == default && state.PingEnd < DateTimeOffset.UtcNow.AddSeconds(-Config.Networking.MeasurePingInterval.Value))
-        {
-            var pingZdo = PlacePiece(zdo.GetPosition() with { y = -10000 }, Prefabs.WoodChest, 0);
-            pingZdo.SetOwnerInternal(zdo.GetOwner());
-            pingZdo.Fields<Container>().Set(static x => x.m_autoDestroyEmpty, true);
-            pingZdo.Destroyed += state.OnPingZdoDestroyed;
-            state.PingStart = DateTimeOffset.UtcNow;
         }
 
         if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
