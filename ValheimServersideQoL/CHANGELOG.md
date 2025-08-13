@@ -1,32 +1,16 @@
-### v1.1.1032 (BETA) (BETA)
-- New features:
-    - Infinite swimming and sneaking stamina
-    - Log and show player ping to server and zone owner
-
-### v1.1.1027 (BETA)
-- New feature: modify the fermentation time of fermenters [#113](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/113)
-- Update BepInEx to 5.4.2331
-
-### v1.1.1022 (BETA)
-- Fixed trophy spawners to also work for passive mobs (such as deer or rabbits)
-- Fixed raising the max level of creatures to also work for passive mobs
-
-### v1.1.1018 (BETA)
-- Added configurable delay (`StackInventoryIntoContainersReturnDelay`) after which items which could not be stacked into containers are returned to the player
-- New feature: Allow sleeping when not all players are in bed
-
-### v1.1.1015 (BETA)
-- Seperately process event creatures when determing creature max level [#106](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/106)
-- Fixed issue where summoned trolls where not always unsummoned in the correct order
-- Fixed issue with stacking player inventories (via emote) which could lead to items being duplicated
-
-### v1.1.1011 (BETA)
-- Fix issue with mapping bosses to biomes which could lead to a crash for some worlds
-
-### v1.1.1009 (BETA)
+### v1.2.0
 - New features:
     - Modify the processing speed of smelters/windmills/etc. [#43](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/43)
+    - Modify the fermentation time of fermenters [#113](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/113)
     - Modfiy the max level and level up chance of creatures [#106](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/106)
+    - Allow sleeping when not all players are in bed
+    - Infinite swimming and sneaking stamina
+    - Log and show player ping to server and zone owner
+- Fixed issue where summoned trolls where not always unsummoned in the correct order
+- Fixed issue with stacking player inventories (via emote) which could lead to items being duplicated
+    - Added configurable delay (`StackInventoryIntoContainersReturnDelay`) after which items which could not be stacked into containers are returned to the player
+- Fixed trophy spawners to also work for passive mobs (such as deer or rabbits) [#107](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/107)
+- Update to BepInEx to 5.4.2332
 
 ### v1.1.0
 - Fixed issues due to stale cached data on non-dedicated servers
