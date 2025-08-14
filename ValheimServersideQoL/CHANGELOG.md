@@ -1,3 +1,6 @@
+### v1.2.1
+- Fixed issue with leveling up creatures not working correctly
+
 ### v1.2.0
 - New features:
     - Modify the processing speed of smelters/windmills/etc. [#43](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/43)
