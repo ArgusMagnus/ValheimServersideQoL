@@ -380,7 +380,7 @@ public sealed partial class Main : BaseUnityPlugin
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
                 sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
-                if (!zdo.IsValid() || ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy))
+                if (!zdo.IsValid() /*|| ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy)*/)
                     continue;
 
                 if (zdo.Processors.Count > 1)

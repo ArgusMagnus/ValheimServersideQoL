@@ -5,7 +5,17 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor : Processor
 {
-    sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor)
+    public interface IPeerInfo
+    {
+        ExtendedZDO PlayerZDO { get; }
+        long PlayerID { get; }
+        string PlayerName { get; }
+        TimeSpan LastPing { get; }
+        TimeSpan PingMean { get; }
+        TimeSpan PingStdDev { get; }
+    }
+
+    sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor) : IPeerInfo
     {
         readonly PlayerProcessor _processor = processor;
         public ExtendedZDO PlayerZDO { get; } = playerZDO;
@@ -128,11 +138,8 @@ sealed class PlayerProcessor : Processor
 
     readonly Dictionary<ExtendedZDO, StackContainerState> _stackContainers = [];
 
-    public ExtendedZDO? GetPeerCharacter(long peerID)
-    {
-        var id = peerID == ZDOMan.GetSessionID() ? Player.m_localPlayer?.GetZDOID() : ZNet.instance.GetPeer(peerID)?.m_characterID;
-        return id is not null && _players.TryGetValue(id.Value, out var zdo) ? zdo : null;
-    }
+    public ExtendedZDO? GetPeerCharacter(long peerID) => _playerStates.TryGetValue(peerID, out var state) ? state.PlayerZDO : null;
+    public IPeerInfo? GetPeerInfo(long peerID) => _playerStates.TryGetValue(peerID, out var state) ? state : null;
 
     readonly MethodInfo _everybodyIsTryingToSleepMethod = typeof(Game).GetMethod("EverybodyIsTryingToSleep", BindingFlags.NonPublic | BindingFlags.Instance);
     readonly MethodInfo _everybodyIsTryingToSleepPrefix = ((Delegate)EverybodyIsTryingToSleepPrefix).Method;

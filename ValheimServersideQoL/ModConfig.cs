@@ -608,6 +608,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<int> ShowPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the server is shown to the player if it exceeds this threshold");
         public ConfigEntry<int> LogZoneOwnerPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the zone owner is logged if it exceeds this threshold");
         public ConfigEntry<int> ShowZoneOwnerPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the zone owner is shown to the player if it exceeds this threshold");
+        public ConfigEntry<bool> ReassignOwnershipBasedOnConnectionQuality { get; } = cfg.BindEx(section, false, "True to (re)assign zone ownership to the player with the best connection");
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

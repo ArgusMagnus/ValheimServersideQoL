@@ -154,6 +154,7 @@
 |ShowPingThreshold|0||A player's ping value to the server is shown to the player if it exceeds this threshold|
 |LogZoneOwnerPingThreshold|0||A player's ping value to the zone owner is logged if it exceeds this threshold|
 |ShowZoneOwnerPingThreshold|0||A player's ping value to the zone owner is shown to the player if it exceeds this threshold|
+|ReassignOwnershipBasedOnConnectionQuality|False|True/False|True to (re)assign zone ownership to the player with the best connection|
 </details>
 <details><summary>Non-teleportable Items</summary>
 

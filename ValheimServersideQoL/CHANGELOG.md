@@ -1,3 +1,8 @@
+### v1.2.2001 (BETA)
+- New feature: (Re)assign zone ownership to the player with the best connection [#116](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/116)
+    - Enable this feature by setting `ReassignOwnershipBasedOnConnectionQuality` to `true` in the config
+    - Highly experimental / not well tested yet
+
 ### v1.2.1
 - Fixed issue with leveling up creatures not working correctly
 
