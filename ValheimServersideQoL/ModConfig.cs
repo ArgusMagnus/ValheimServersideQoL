@@ -56,7 +56,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<float> Frequency { get; } = cfg.BindEx(section, 5f,
             "How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity));
         public ConfigEntry<int> MaxProcessingTime { get; } = cfg.BindEx(section, 20, "Max processing time (in ms) per update");
-        public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.BindEx(section, 1, "Zones to process around each player");
+        public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.BindEx(section, ZoneSystem.instance.GetActiveArea(), "Zones to process around each player");
         public ConfigEntry<float> MinPlayerDistance { get; } = cfg.BindEx(section, 4f, "Min distance all players must have to a ZDO for it to be modified");
         public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = cfg.BindEx(section, true, "True to ignore the game version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
         public ConfigEntry<bool> IgnoreNetworkVersionCheck { get; } = cfg.BindEx(section, false, "True to ignore the network version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
@@ -608,7 +608,54 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<int> ShowPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the server is shown to the player if it exceeds this threshold");
         public ConfigEntry<int> LogZoneOwnerPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the zone owner is logged if it exceeds this threshold");
         public ConfigEntry<int> ShowZoneOwnerPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the zone owner is shown to the player if it exceeds this threshold");
-        public ConfigEntry<bool> ReassignOwnershipBasedOnConnectionQuality { get; } = cfg.BindEx(section, false, "True to (re)assign zone ownership to the player with the best connection");
+        public ConfigEntry<string> LogPingFormat { get; } = cfg.BindEx(section, "Ping ({0}): {1:F0} ms (av: {2:F0} ± {3:F0} ms, jitter: {4:F0} ms)", """
+            Format string for logging player ping.
+            Arguments:
+              0: Player name
+              1: Ping value in milliseconds
+              2: Mean ping of value in milliseconds
+              3: Standard deviation of ping value in milliseconds
+              4: Jitter in milliseconds
+            """, new AcceptableFormatString(["", 0d, 0d, 0d, 0d]));
+        public ConfigEntry<string> ShowPingFormat { get; } = cfg.BindEx(section, "Ping: <color=yellow>{0:F0} ms</color> (av: {1:F0} ± {2:F0} ms, jitter: {3:F0} ms)", """
+            Format string for player ping messages.
+            Arguments:
+              0: Ping value in milliseconds
+              1: Mean ping of value in milliseconds
+              2: Standard deviation of ping value in milliseconds
+              3: Jitter in milliseconds
+            """, new AcceptableFormatString([0d, 0d, 0d, 0d]));
+        public ConfigEntry<string> LogZoneOwnerPingFormat { get; } = cfg.BindEx(section, "Ping ({0}): {1:F0} ms (av: {2:F0} ± {3:F0} ms, jitter: {4:F0} ms) + ZoneOwner ({5}): {6:F0} ms (av: {7:F0} ± {8:F0} ms, jitter: {9:F0} ms)", """
+            Format string for logging player ping.
+            Arguments:
+              0: Player name
+              1: Ping value in milliseconds
+              2: Mean ping of value in milliseconds
+              3: Standard deviation of ping value in milliseconds
+              4: Jitter in milliseconds
+              5: Zone owner player name
+              6: Zone owner ping value in milliseconds
+              7: Mean ping of zone owner ping in milliseconds
+              8: Standard deviation of zone owner ping value in milliseconds
+              9: Zone owner jitter in milliseconds
+            """, new AcceptableFormatString(["", 0d, 0d, 0d, 0d]));
+        public ConfigEntry<string> ShowZoneOwnerPingFormat { get; } = cfg.BindEx(section, "Ping: <color=yellow>{0:F0} ms</color> (av: {1:F0} ± {2:F0} ms, jitter: {3:F0} ms) + <color=yellow>{4}: {5:F0} ms</color> (av: {6:F0} ± {7:F0} ms, jitter: {8:F0} ms)", """
+            Format string for player ping messages.
+            Arguments:
+              0: Ping value in milliseconds
+              1: Mean ping of value in milliseconds
+              2: Standard deviation of ping value in milliseconds
+              3: Jitter in milliseconds
+              4: Zone owner player name
+              5: Zone owner ping value in milliseconds
+              6: Mean ping of zone owner ping in milliseconds
+              7: Standard deviation of zone owner ping value in milliseconds
+              8: Zone owner jitter in milliseconds
+            """, new AcceptableFormatString([0d, 0d, 0d, 0d]));
+        public ConfigEntry<bool> ReassignOwnershipBasedOnConnectionQuality { get; } = cfg.BindEx(section, false, $"""
+            True to (re)assign zone ownership to the player with the best connection.
+            Requires '{nameof(MeasurePing)}' to be enabled.
+            """);    
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

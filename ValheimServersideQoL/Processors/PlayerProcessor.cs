@@ -10,9 +10,10 @@ sealed class PlayerProcessor : Processor
         ExtendedZDO PlayerZDO { get; }
         long PlayerID { get; }
         string PlayerName { get; }
-        TimeSpan LastPing { get; }
-        TimeSpan PingMean { get; }
-        TimeSpan PingStdDev { get; }
+        TimeSpan? LastPing { get; }
+        TimeSpan? PingMean { get; }
+        TimeSpan? PingStdDev { get; }
+        TimeSpan? PingJitter { get; }
     }
 
     sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor) : IPeerInfo
@@ -20,16 +21,17 @@ sealed class PlayerProcessor : Processor
         readonly PlayerProcessor _processor = processor;
         public ExtendedZDO PlayerZDO { get; } = playerZDO;
         public ZRpc? Rpc { get; } = ZNet.instance.GetPeer(playerZDO.GetOwner())?.m_rpc;
-        public bool IsServer => PlayerZDO.GetOwner() == ZDOMan.GetSessionID();
+        //public bool IsServer => PlayerZDO.GetOwner() == ZDOMan.GetSessionID();
         long? _playerID;
         public long PlayerID => _playerID ??= PlayerZDO.Vars.GetPlayerID();
         string? _playerName;
         public string PlayerName => _playerName ??= PlayerZDO.Vars.GetPlayerName();
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
         public Vector3? InitialInInteriorPosition { get; set; }
-        public TimeSpan LastPing { get; private set; }
-        public TimeSpan PingMean { get; private set; }
-        public TimeSpan PingStdDev { get; private set; }
+        public TimeSpan? LastPing { get; private set; }
+        public TimeSpan? PingMean { get; private set; }
+        public TimeSpan? PingStdDev { get; private set; }
+        public TimeSpan? PingJitter { get; private set; }
 
         readonly List<TimeSpan> _pingHistory = [];
         DateTimeOffset _pingStart;
@@ -63,49 +65,62 @@ sealed class PlayerProcessor : Processor
 
             while (_pingHistory.Count >= cfg.PingStatisticsWindow.Value)
                 _pingHistory.RemoveAt(0);
-            _pingHistory.Add(LastPing);
+            _pingHistory.Add(LastPing ?? default);
 
-            (PingMean, PingStdDev) = CalculateStats(_pingHistory);
+            (PingMean, PingStdDev, PingJitter) = CalculateStats(_pingHistory);
 
-            var (zoPing, zoPingMean, zoPingStdDev) = default((TimeSpan, TimeSpan, TimeSpan));
             PlayerState? ownerState = null;
             if (_processor._zoneControls.TryGetValue(PlayerZDO.GetSector(), out var zoneCtrl) &&
-                zoneCtrl.GetOwner() != PlayerZDO.GetOwner() &&
-                _processor._playerStates.TryGetValue(zoneCtrl.GetOwner(), out ownerState))
+                zoneCtrl.GetOwner() != PlayerZDO.GetOwner())
             {
-                (zoPing, zoPingMean, zoPingStdDev) = (ownerState.LastPing, ownerState.PingMean, ownerState.PingStdDev);
+                _processor._playerStates.TryGetValue(zoneCtrl.GetOwner(), out ownerState);
             }
 
-            if (LastPing > TimeSpan.FromMilliseconds(cfg.LogPingThreshold.Value) || zoPing > TimeSpan.FromMilliseconds(cfg.LogZoneOwnerPingThreshold.Value))
+            if (LastPing > TimeSpan.FromMilliseconds(cfg.LogPingThreshold.Value) || ownerState?.LastPing > TimeSpan.FromMilliseconds(cfg.LogZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    _processor.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing.TotalMilliseconds:F0} ms (av: {PingMean.TotalMilliseconds:F0} ± {PingStdDev.TotalMilliseconds:F0} ms)");
+                    _processor.Logger.LogInfo(string.Format(cfg.LogPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds]));
                 else
-                    _processor.Logger.LogInfo($"{PlayerName}: Ping server: {LastPing.TotalMilliseconds:F0} ms (av: {PingMean.TotalMilliseconds:F0} ± {PingStdDev.TotalMilliseconds:F0} ms) + {ownerState.PlayerName}: {zoPing.TotalMilliseconds:F0} ms (av: {zoPingMean.TotalMilliseconds:F0} ± {zoPingStdDev.TotalMilliseconds:F0} ms)");
+                    _processor.Logger.LogInfo(string.Format(cfg.LogZoneOwnerPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds]));
             }
-            if (LastPing > TimeSpan.FromMilliseconds(cfg.ShowPingThreshold.Value) || zoPing > TimeSpan.FromMilliseconds(cfg.ShowZoneOwnerPingThreshold.Value))
+            if (LastPing > TimeSpan.FromMilliseconds(cfg.ShowPingThreshold.Value) || ownerState?.LastPing > TimeSpan.FromMilliseconds(cfg.ShowZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing.TotalMilliseconds:F0} ms (av: {PingMean.TotalMilliseconds:F0} ± {PingStdDev.TotalMilliseconds:F0} ms)");
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds]));
                 else
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, $"Ping server: {LastPing.TotalMilliseconds:F0} ms (av: {PingMean.TotalMilliseconds:F0} ± {PingStdDev.TotalMilliseconds:F0} ms) + {ownerState.PlayerName}: {zoPing.TotalMilliseconds:F0} ms (av: {zoPingMean.TotalMilliseconds:F0} ± {zoPingStdDev.TotalMilliseconds:F0} ms)");
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowZoneOwnerPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds]));
             }
 
-            static (TimeSpan Mean, TimeSpan StdDev) CalculateStats(IReadOnlyList<TimeSpan> pingHistory)
+            static (TimeSpan? Mean, TimeSpan? StdDev, TimeSpan? Jitter) CalculateStats(IReadOnlyList<TimeSpan> pingHistory)
             {
+                if (pingHistory.Count < 2)
+                    return default;
+
                 double mean = 0;
                 double variance = 0;
+                long lastTicks = pingHistory.FirstOrDefault().Ticks;
+                long jitter = 0;
                 int n = 0;
                 foreach (var ping in pingHistory)
                 {
+                    if (ping == default)
+                        return default;
                     var value = ping.TotalMilliseconds;
                     var delta = value - mean;
                     mean += delta / ++n;
                     variance += delta * (value - mean);
+                    jitter += Math.Abs(ping.Ticks - lastTicks);
+                    lastTicks = ping.Ticks;
                 }
 
-                variance /= n - 1;
-                return (double.IsNaN(mean) ? default : TimeSpan.FromMilliseconds(mean), double.IsNaN(variance) ? default : TimeSpan.FromMilliseconds(Math.Sqrt(variance)));
+                n--;
+                variance /= n;
+                jitter /= n;
+
+                return (
+                    double.IsNaN(mean) ? null : TimeSpan.FromMilliseconds(mean),
+                    double.IsNaN(variance) ? null : TimeSpan.FromMilliseconds(Math.Sqrt(variance)),
+                    jitter is 0 ? null : new(jitter));
             }
         }
 
@@ -252,51 +267,51 @@ sealed class PlayerProcessor : Processor
         if (zdo.PrefabInfo.Container is not { Incinerator.Value: not null } || zdo.Vars.GetIntTag() is not 0)
             return;
 
-        ExtendedZDO? player = null;
+        IPeerInfo? peerInfo = null;
         if (Config.Players.CanSacrificeMegingjord.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Megingjord))
         {
-            player ??= GetPeerCharacter(data.m_senderPeerID);
-            if (player is null)
+            peerInfo ??= GetPeerInfo(data.m_senderPeerID);
+            if (peerInfo is null)
                 Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
             else
             {
-                DataZDO.Vars.SetSacrifiedMegingjord(player.Vars.GetPlayerID(), true);
-                RPC.AddStatusEffect(player, StatusEffects.Megingjord);
+                DataZDO.Vars.SetSacrifiedMegingjord(peerInfo.PlayerID, true);
+                RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Megingjord);
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted increased carrying weight");
             }
         }
         if (Config.Players.CanSacrificeCryptKey.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
         {
-            player ??= GetPeerCharacter(data.m_senderPeerID);
-            if (player is null)
+            peerInfo ??= GetPeerInfo(data.m_senderPeerID);
+            if (peerInfo is null)
                 Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
             else
             {
-                DataZDO.Vars.SetSacrifiedCryptKey(player.Vars.GetPlayerID(), true);
+                DataZDO.Vars.SetSacrifiedCryptKey(peerInfo.PlayerID, true);
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to open sunken crypt doors");
             }
         }
         if (Config.Players.CanSacrificeWishbone.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
         {
-            player ??= GetPeerCharacter(data.m_senderPeerID);
-            if (player is null)
+            peerInfo ??= GetPeerInfo(data.m_senderPeerID);
+            if (peerInfo is null)
                 Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
             else
             {
-                DataZDO.Vars.SetSacrifiedWishbone(player.Vars.GetPlayerID(), true);
-                RPC.AddStatusEffect(player, StatusEffects.Wishbone);
+                DataZDO.Vars.SetSacrifiedWishbone(peerInfo.PlayerID, true);
+                RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Wishbone);
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to sense hidden objects");
             }
         }
         if (Config.Players.CanSacrificeTornSpirit.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
         {
-            player ??= GetPeerCharacter(data.m_senderPeerID);
-            if (player is null)
+            peerInfo ??= GetPeerInfo(data.m_senderPeerID);
+            if (peerInfo is null)
                 Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
             else
             {
-                DataZDO.Vars.SetSacrifiedTornSpirit(player.Vars.GetPlayerID(), true);
-                RPC.AddStatusEffect(player, StatusEffects.Demister);
+                DataZDO.Vars.SetSacrifiedTornSpirit(peerInfo.PlayerID, true);
+                RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Demister);
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted a wisp companion");
             }
         }

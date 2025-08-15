@@ -8,6 +8,14 @@ sealed class ManageOwnerProcessor : Processor
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
+
+        if (Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value && !Config.Networking.MeasurePing.Value)
+        {
+            var def = Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Definition;
+            var def2 = Config.Networking.MeasurePing.Definition;
+            Logger.LogWarning($"Config option [{def.Section}].[{def.Key}] requires [{def.Section}].[{def.Key}] to be true, it does nothing otherwhise");
+        }
+
         if (!firstTime)
             return;
     }
@@ -19,8 +27,8 @@ sealed class ManageOwnerProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        if (!Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value || !zdo.Persistent ||
-            zdo.PrefabInfo is { Player: not null } or { Container: not null } or { ItemDrop: not null })
+        if (!Config.Networking.MeasurePing.Value || !Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value ||
+            !zdo.Persistent || zdo.PrefabInfo is { Player: not null } or { Container: not null } or { ItemDrop: not null })
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -34,9 +42,9 @@ sealed class ManageOwnerProcessor : Processor
             var min = TimeSpan.MaxValue;
             foreach (var peer in peers)
             {
-                if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { } peerInfo)
+                if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { PingMean: not null, PingStdDev: not null } peerInfo)
                     continue;
-                var value = peerInfo.PingMean + peerInfo.PingStdDev;
+                var value = peerInfo.PingMean.Value + peerInfo.PingStdDev.Value;
                 if (value < min)
                 {
                     min = value;

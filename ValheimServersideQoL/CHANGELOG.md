@@ -1,3 +1,6 @@
+### vNext (BETA)
+- Add config option to configure the format for logging/showing player ping
+
 ### v1.2.2001 (BETA)
 - New feature: (Re)assign zone ownership to the player with the best connection [#116](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/116)
     - Enable this feature by setting `ReassignOwnershipBasedOnConnectionQuality` to `true` in the config
