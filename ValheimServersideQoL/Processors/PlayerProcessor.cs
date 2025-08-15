@@ -10,10 +10,11 @@ sealed class PlayerProcessor : Processor
         ExtendedZDO PlayerZDO { get; }
         long PlayerID { get; }
         string PlayerName { get; }
-        TimeSpan? LastPing { get; }
-        TimeSpan? PingMean { get; }
-        TimeSpan? PingStdDev { get; }
-        TimeSpan? PingJitter { get; }
+        float ConnectionQuality { get; }
+        //TimeSpan? LastPing { get; }
+        //TimeSpan? PingMean { get; }
+        //TimeSpan? PingStdDev { get; }
+        //TimeSpan? PingJitter { get; }
     }
 
     sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor) : IPeerInfo
@@ -32,6 +33,7 @@ sealed class PlayerProcessor : Processor
         public TimeSpan? PingMean { get; private set; }
         public TimeSpan? PingStdDev { get; private set; }
         public TimeSpan? PingJitter { get; private set; }
+        public float ConnectionQuality { get; private set; }
 
         readonly List<TimeSpan> _pingHistory = [];
         DateTimeOffset _pingStart;
@@ -68,6 +70,11 @@ sealed class PlayerProcessor : Processor
             _pingHistory.Add(LastPing ?? default);
 
             (PingMean, PingStdDev, PingJitter) = CalculateStats(_pingHistory);
+            var connectionQuality =
+                PingMean?.TotalMilliseconds * cfg.ConnectionQualityPingMeanWeight.Value +
+                PingStdDev?.TotalMilliseconds * cfg.ConnectionQualityPingStdDevWeight.Value +
+                PingJitter?.TotalMilliseconds * cfg.ConnectionQualityPingJitterWeight.Value;
+            ConnectionQuality = connectionQuality is null ? float.NaN : (float)connectionQuality;
 
             PlayerState? ownerState = null;
             if (_processor._zoneControls.TryGetValue(PlayerZDO.GetSector(), out var zoneCtrl) &&
@@ -79,16 +86,16 @@ sealed class PlayerProcessor : Processor
             if (LastPing > TimeSpan.FromMilliseconds(cfg.LogPingThreshold.Value) || ownerState?.LastPing > TimeSpan.FromMilliseconds(cfg.LogZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    _processor.Logger.LogInfo(string.Format(cfg.LogPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds]));
+                    _processor.Logger.LogInfo(string.Format(cfg.LogPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality]));
                 else
-                    _processor.Logger.LogInfo(string.Format(cfg.LogZoneOwnerPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds]));
+                    _processor.Logger.LogInfo(string.Format(cfg.LogZoneOwnerPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds, ownerState.ConnectionQuality]));
             }
             if (LastPing > TimeSpan.FromMilliseconds(cfg.ShowPingThreshold.Value) || ownerState?.LastPing > TimeSpan.FromMilliseconds(cfg.ShowZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds]));
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality]));
                 else
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowZoneOwnerPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds]));
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowZoneOwnerPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds, ownerState.ConnectionQuality]));
             }
 
             static (TimeSpan? Mean, TimeSpan? StdDev, TimeSpan? Jitter) CalculateStats(IReadOnlyList<TimeSpan> pingHistory)

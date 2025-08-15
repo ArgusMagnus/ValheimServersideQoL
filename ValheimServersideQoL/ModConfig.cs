@@ -616,7 +616,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
               2: Mean ping of value in milliseconds
               3: Standard deviation of ping value in milliseconds
               4: Jitter in milliseconds
-            """, new AcceptableFormatString(["", 0d, 0d, 0d, 0d]));
+              5: Connection quality
+            """, new AcceptableFormatString(["", 0d, 0d, 0d, 0d, 0f]));
         public ConfigEntry<string> ShowPingFormat { get; } = cfg.BindEx(section, "Ping: <color=yellow>{0:F0} ms</color> (av: {1:F0} ± {2:F0} ms, jitter: {3:F0} ms)", """
             Format string for player ping messages.
             Arguments:
@@ -624,8 +625,9 @@ sealed record ModConfig(ConfigFile ConfigFile)
               1: Mean ping of value in milliseconds
               2: Standard deviation of ping value in milliseconds
               3: Jitter in milliseconds
-            """, new AcceptableFormatString([0d, 0d, 0d, 0d]));
-        public ConfigEntry<string> LogZoneOwnerPingFormat { get; } = cfg.BindEx(section, "Ping ({0}): {1:F0} ms (av: {2:F0} ± {3:F0} ms, jitter: {4:F0} ms) + ZoneOwner ({5}): {6:F0} ms (av: {7:F0} ± {8:F0} ms, jitter: {9:F0} ms)", """
+              4: Connection quality
+            """, new AcceptableFormatString([0d, 0d, 0d, 0d, 0f]));
+        public ConfigEntry<string> LogZoneOwnerPingFormat { get; } = cfg.BindEx(section, "Ping ({0}): {1:F0} ms (av: {2:F0} ± {3:F0} ms, jitter: {4:F0} ms) + ZoneOwner ({6}): {7:F0} ms (av: {8:F0} ± {9:F0} ms, jitter: {10:F0} ms)", """
             Format string for logging player ping.
             Arguments:
               0: Player name
@@ -633,29 +635,38 @@ sealed record ModConfig(ConfigFile ConfigFile)
               2: Mean ping of value in milliseconds
               3: Standard deviation of ping value in milliseconds
               4: Jitter in milliseconds
-              5: Zone owner player name
-              6: Zone owner ping value in milliseconds
-              7: Mean ping of zone owner ping in milliseconds
-              8: Standard deviation of zone owner ping value in milliseconds
-              9: Zone owner jitter in milliseconds
-            """, new AcceptableFormatString(["", 0d, 0d, 0d, 0d]));
-        public ConfigEntry<string> ShowZoneOwnerPingFormat { get; } = cfg.BindEx(section, "Ping: <color=yellow>{0:F0} ms</color> (av: {1:F0} ± {2:F0} ms, jitter: {3:F0} ms) + <color=yellow>{4}: {5:F0} ms</color> (av: {6:F0} ± {7:F0} ms, jitter: {8:F0} ms)", """
+              5: Connection quality
+              6: Zone owner player name
+              7: Zone owner ping value in milliseconds
+              8: Mean ping of zone owner ping in milliseconds
+              9: Standard deviation of zone owner ping value in milliseconds
+             10: Zone owner jitter in milliseconds
+             11: Zone owner connection quality
+            """, new AcceptableFormatString(["", 0d, 0d, 0d, 0d, 0f, "", 0d, 0d, 0d, 0d, 0f]));
+        public ConfigEntry<string> ShowZoneOwnerPingFormat { get; } = cfg.BindEx(section, "Ping: <color=yellow>{0:F0} ms</color> (av: {1:F0} ± {2:F0} ms, jitter: {3:F0} ms) + <color=yellow>{5}: {6:F0} ms</color> (av: {7:F0} ± {8:F0} ms, jitter: {9:F0} ms)", """
             Format string for player ping messages.
             Arguments:
               0: Ping value in milliseconds
               1: Mean ping of value in milliseconds
               2: Standard deviation of ping value in milliseconds
               3: Jitter in milliseconds
-              4: Zone owner player name
-              5: Zone owner ping value in milliseconds
-              6: Mean ping of zone owner ping in milliseconds
-              7: Standard deviation of zone owner ping value in milliseconds
-              8: Zone owner jitter in milliseconds
-            """, new AcceptableFormatString([0d, 0d, 0d, 0d]));
+              4: Connection quality
+              5: Zone owner player name
+              6: Zone owner ping value in milliseconds
+              7: Mean ping of zone owner ping in milliseconds
+              8: Standard deviation of zone owner ping value in milliseconds
+              9: Zone owner jitter in milliseconds
+             10: Zone owner connection quality
+            """, new AcceptableFormatString([0d, 0d, 0d, 0d, 0f, "", 0d, 0d, 0d, 0d, 0f]));
         public ConfigEntry<bool> ReassignOwnershipBasedOnConnectionQuality { get; } = cfg.BindEx(section, false, $"""
             True to (re)assign zone ownership to the player with the best connection.
             Requires '{nameof(MeasurePing)}' to be enabled.
-            """);    
+            The connection with the lowest connection quality value is chosen as the best connection,
+            where connection quality = ping mean * {nameof(ConnectionQualityPingMeanWeight)} + ping stddev * {nameof(ConnectionQualityPingStdDevWeight)} + ping jitter * {nameof(ConnectionQualityPingJitterWeight)}
+            """);
+        public ConfigEntry<float> ConnectionQualityPingMeanWeight { get; } = cfg.BindEx(section, 1f, "Weight of ping mean when calculating connection quality");
+        public ConfigEntry<float> ConnectionQualityPingStdDevWeight { get; } = cfg.BindEx(section, 1f, "Weight of ping standard deviation when calculating connection quality");
+        public ConfigEntry<float> ConnectionQualityPingJitterWeight { get; } = cfg.BindEx(section, 0f, "Weight of ping jitter when calculating connection quality");
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

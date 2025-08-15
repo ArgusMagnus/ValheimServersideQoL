@@ -39,15 +39,14 @@ sealed class ManageOwnerProcessor : Processor
 
         if (!_bestOwners.TryGetValue(zdo.GetSector(), out var bestOwner))
         {
-            var min = TimeSpan.MaxValue;
+            var min = float.MaxValue;
             foreach (var peer in peers)
             {
-                if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { PingMean: not null, PingStdDev: not null } peerInfo)
+                if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { } peerInfo)
                     continue;
-                var value = peerInfo.PingMean.Value + peerInfo.PingStdDev.Value;
-                if (value < min)
+                if (peerInfo.ConnectionQuality < min)
                 {
-                    min = value;
+                    min = peerInfo.ConnectionQuality;
                     bestOwner = peer.m_uid;
                 }
             }
