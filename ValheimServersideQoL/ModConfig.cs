@@ -443,7 +443,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class WorldConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> AssignInteractableOwnershipToClosestPeer { get; } = cfg.BindEx(section, false, "True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest peer. This should help avoiding the loss of ore, etc. due to networking issues.");
+        //public ConfigEntry<bool> AssignInteractableOwnershipToClosestPeer { get; } = cfg.BindEx(section, false, "True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest peer. This should help avoiding the loss of ore, etc. due to networking issues.");
         public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.BindEx(section, RemoveMistlandsMistOptions.Never,
             "Condition to remove the mist from the mistlands", AcceptableEnum<RemoveMistlandsMistOptions>.Default);
 
@@ -664,9 +664,20 @@ sealed record ModConfig(ConfigFile ConfigFile)
             The connection with the lowest connection quality value is chosen as the best connection,
             where connection quality = ping mean * {nameof(ConnectionQualityPingMeanWeight)} + ping stddev * {nameof(ConnectionQualityPingStdDevWeight)} + ping jitter * {nameof(ConnectionQualityPingJitterWeight)}
             """);
-        public ConfigEntry<float> ConnectionQualityPingMeanWeight { get; } = cfg.BindEx(section, 1f, "Weight of ping mean when calculating connection quality");
-        public ConfigEntry<float> ConnectionQualityPingStdDevWeight { get; } = cfg.BindEx(section, 1f, "Weight of ping standard deviation when calculating connection quality");
-        public ConfigEntry<float> ConnectionQualityPingJitterWeight { get; } = cfg.BindEx(section, 0f, "Weight of ping jitter when calculating connection quality");
+        public ConfigEntry<float> ConnectionQualityPingMeanWeight { get; } = cfg.BindEx(section, 1f,
+            "Weight of ping mean when calculating connection quality");
+        public ConfigEntry<float> ConnectionQualityPingStdDevWeight { get; } = cfg.BindEx(section, 1f,
+            "Weight of ping standard deviation when calculating connection quality");
+        public ConfigEntry<float> ConnectionQualityPingJitterWeight { get; } = cfg.BindEx(section, 0f,
+            "Weight of ping jitter when calculating connection quality");
+        public ConfigEntry<bool> AssignInteractablesToClosestPlayer { get; } = cfg.BindEx(section, false, """
+            True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest player.
+            This should help avoiding the loss of ore, etc. due to networking issues.
+            """);
+        public ConfigEntry<bool> AssignMobsToClosestPlayer { get; } = cfg.BindEx(section, false, """
+            True to assign ownership of hostile mobs to the closest player.
+            This should help reduce issues with dodging/parrying due to networking issues.
+            """);
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

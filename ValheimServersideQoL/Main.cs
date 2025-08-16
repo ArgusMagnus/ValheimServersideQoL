@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -160,6 +161,9 @@ public sealed partial class Main : BaseUnityPlugin
       
         if (!Config.General.Enabled.Value)
             return false;
+
+        if (Chainloader.PluginInfos.TryGetValue("org.bepinex.plugins.dedicatedserver", out var pluginInfo))
+            Logger.LogWarning($"Many features are incompatible with {pluginInfo.Metadata.Name}");
 
         if (Config.General.DiagnosticLogs.Value)
             Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));

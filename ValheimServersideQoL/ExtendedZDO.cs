@@ -170,6 +170,20 @@ sealed class ExtendedZDO : ZDO
         return zdo;
     }
 
+    public long PreviousSetOwner { get; private set; }
+
+    public new void SetOwner(long uid)
+    {
+        PreviousSetOwner = uid;
+        base.SetOwner(uid);
+    }
+
+    public new void SetOwnerInternal(long uid)
+    {
+        PreviousSetOwner = uid;
+        base.SetOwnerInternal(uid);
+    }
+
     public void ClaimOwnership() => SetOwner(ZDOMan.GetSessionID());
     public void ClaimOwnershipInternal() => SetOwnerInternal(ZDOMan.GetSessionID());
     public void ReleaseOwnership() => SetOwner(0);

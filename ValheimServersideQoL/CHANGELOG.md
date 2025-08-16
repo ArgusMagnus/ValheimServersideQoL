@@ -1,5 +1,9 @@
-### vNext (BETA)
+### v1.2.2004 (BETA)
 - Add config option to configure the format for logging/showing player ping
+- Adjusted feature: (Re)assign zone ownership to the player with the best connection
+    - Previous version probably did nothing
+- Added option `AssignMobsToClosestPlayer`
+- Replace option `AssignInteractableOwnershipToClosestPeer` with `AssignInteractablesToClosestPlayer`
 
 ### v1.2.2001 (BETA)
 - New feature: (Re)assign zone ownership to the player with the best connection [#116](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/116)
