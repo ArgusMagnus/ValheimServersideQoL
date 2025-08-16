@@ -6,14 +6,14 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class ManageOwnerProcessor : Processor
 {
     readonly Dictionary<Vector2i, long> _bestOwners = [];
-    readonly MethodInfo _releaseZDOSMethod = typeof(ZDOMan).GetMethod("ReleaseZDOS", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-    readonly MethodInfo _releaseZDOSPrefix = ((Delegate)ReleaseZDOSPrefix).Method;
+    readonly MethodInfo _releaseNearbyZDOSMethod = typeof(ZDOMan).GetMethod("ReleaseNearbyZDOS", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+    readonly MethodInfo _releaseNearbyZDOSPrefix = ((Delegate)ReleaseNearbyZDOSPrefix).Method;
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
 
-        Main.HarmonyInstance.Unpatch(_releaseZDOSMethod, _releaseZDOSPrefix);
+        Main.HarmonyInstance.Unpatch(_releaseNearbyZDOSMethod, _releaseNearbyZDOSPrefix);
         if (Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value && !Config.Networking.MeasurePing.Value)
         {
             var def = Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Definition;
@@ -22,15 +22,14 @@ sealed class ManageOwnerProcessor : Processor
         }
         else if (Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value)
         {
-            Logger.DevLog("Disabling ZDOMan.ReleaseZDOS");
-            Main.HarmonyInstance.Patch(_releaseZDOSMethod, prefix: new(_releaseZDOSPrefix));
+            Main.HarmonyInstance.Patch(_releaseNearbyZDOSMethod, prefix: new(_releaseNearbyZDOSPrefix));
         }
 
         if (!firstTime)
             return;
     }
 
-    static bool ReleaseZDOSPrefix() => false;
+    static bool ReleaseNearbyZDOSPrefix() => false;
 
     protected override void PreProcessCore(IEnumerable<Peer> peers)
     {
