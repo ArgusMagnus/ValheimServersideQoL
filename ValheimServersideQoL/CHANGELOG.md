@@ -1,3 +1,10 @@
+### vNext (BEAT)
+- New features:
+    - New option for tameables: `FedDurationMultiplier`
+    - New option for tameables: `TamingTimeMultiplier`
+    - New option for tameables: `PotionTamingBoostMultiplier`
+    - Removed option for tameables: `AlwaysFed`, use `FedDurationMultiplier` instead
+
 ### v1.2.2004 (BETA)
 - Add config option to configure the format for logging/showing player ping
 - Adjusted feature: (Re)assign zone ownership to the player with the best connection

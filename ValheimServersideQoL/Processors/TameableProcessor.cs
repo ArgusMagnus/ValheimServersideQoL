@@ -31,23 +31,38 @@ sealed class TameableProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        UnregisterZdoProcessor = true;
         if (zdo.PrefabInfo.Tameable is null)
+        {
+            UnregisterZdoProcessor = true;
             return false;
+        }
 
         var (tameable, _) = zdo.PrefabInfo.Tameable.Value;
 
         var fields = zdo.Fields<Tameable>();
+
+        if (Config.Tames.FedDurationMultiplier.Value is 1f)
+            fields.Reset(static x => x.m_fedDuration);
+        else if (fields.SetIfChanged(static x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
+            RecreateZdo = true;
+
+        if (Config.Tames.TamingTimeMultiplier.Value is 1f)
+            fields.Reset(static x => x.m_tamingTime);
+        else if (fields.SetIfChanged(static x => x.m_tamingTime, tameable.m_tamingTime * Config.Tames.TamingTimeMultiplier.Value))
+            RecreateZdo = true;
+
+        if (Config.Tames.PotionTamingBoostMultiplier.Value is 1f)
+            fields.Reset(static x => x.m_tamingBoostMultiplier);
+        else if (fields.SetIfChanged(static x => x.m_tamingBoostMultiplier, tameable.m_tamingBoostMultiplier * Config.Tames.PotionTamingBoostMultiplier.Value))
+            RecreateZdo = true;
+
         if (zdo.Vars.GetTamed())
         {
+            UnregisterZdoProcessor = true;
+
             if (!Config.Tames.MakeCommandable.Value)
                 fields.Reset(static x => x.m_commandable);
             else if (fields.SetIfChanged(static x => x.m_commandable, true))
-                RecreateZdo = true;
-
-            if (!Config.Tames.AlwaysFed.Value)
-                fields.Reset(static x => x.m_fedDuration);
-            else if (fields.SetIfChanged(static x => x.m_fedDuration, float.MaxValue))
                 RecreateZdo = true;
 
             if (Config.Summons.UnsummonDistanceMultiplier.Value is 1f)
@@ -72,8 +87,6 @@ sealed class TameableProcessor : Processor
         }
         else if (Config.Tames.TamingProgressMessageType.Value is not MessageTypes.None)
         {
-            UnregisterZdoProcessor = false;
-
             /// <see cref="Tameable.GetRemainingTime()"/>
             var tameTime = fields.GetFloat(static x => x.m_tamingTime);
             var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
