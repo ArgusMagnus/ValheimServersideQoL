@@ -92,13 +92,13 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<MessageTypes> GrowingProgressMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
             "Type of growing progress messages to show", AcceptableEnum<MessageTypes>.Default);
         public ConfigEntry<float> FedDurationMultiplier { get; } = cfg.BindEx(section, 1f, Invariant(
-            $"Multiply the time tames stay fed after they have eaten by this factor. {float.PositiveInfinity} to keep them fed indefinetly"));
+            $"Multiply the time tames stay fed after they have eaten by this factor. {float.PositiveInfinity} to keep them fed indefinitely"));
         public ConfigEntry<float> TamingTimeMultiplier { get; } = cfg.BindEx(section, 1f, """
             Multiply the time it takes to tame a tameable creature by this factor.
-            E.g. a value of 0.5 means that the taming time is halfed.
+            E.g. a value of 0.5 means that the taming time is halved.
             """);
         public ConfigEntry<float> PotionTamingBoostMultiplier { get; } = cfg.BindEx(section, 1f, """
-            Multiply the taming boost from the animal whispers potion by this factory.
+            Multiply the taming boost from the animal whispers potion by this factor.
             E.g. a value of 2 means that the effect of the potion is doubled and the resulting taming time is reduced by a factor of 4 per player.
             """);            
         public ConfigEntry<bool> TeleportFollow { get; } = cfg.BindEx(section, false, "True to teleport following tames to the players location if the player gets too far away from them");
@@ -167,7 +167,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
         public ConfigEntry<bool> AutoPickup { get; } = cfg.BindEx(section, false, "True to automatically put dropped items into containers if they already contain said item");
         public ConfigEntry<float> AutoPickupRange { get; } = cfg.BindEx(section, ZoneSystem.c_ZoneSize,
-            $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign");
+            $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overridden per chest by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign");
         public ConfigEntry<int> AutoPickupMaxRange { get; } = cfg.BindEx(section, (int)ZoneSystem.c_ZoneSize,
             $"Max auto pickup range players can set per chest (by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign)");
         public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = cfg.BindEx(section, 4f,
@@ -284,15 +284,15 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<bool> FeedFromContainers { get; } = cfg.BindEx(section, false,
             "True to automatically feed smelters from nearby containers");
         public ConfigEntry<float> FeedFromContainersRange { get; } = cfg.BindEx(section, 4f, $"""
-            Required proxmity of a container to a smelter to be used as feeding source.
-            Can be overriden per chest by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign.
+            Required proximity of a container to a smelter to be used as feeding source.
+            Can be overridden per chest by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign.
             """);            
         public ConfigEntry<int> FeedFromContainersMaxRange { get; } = cfg.BindEx(section, (int)ZoneSystem.c_ZoneSize,
             $"Max feeding range players can set per chest (by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign)");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = cfg.BindEx(section, 1,
-            "Minimum amout of fuel to leave in a container");
+            "Minimum amount of fuel to leave in a container");
         public ConfigEntry<int> FeedFromContainersLeaveAtLeastOre { get; } = cfg.BindEx(section, 1,
-            "Minimum amout of ore to leave in a container");
+            "Minimum amount of ore to leave in a container");
         public ConfigEntry<MessageTypes> OreOrFuelAddedMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
             "Type of message to show when ore or fuel is added to a smelter", AcceptableEnum<MessageTypes>.Default);
         public ConfigEntry<float> CapacityMultiplier { get; } = cfg.BindEx(section, 1f,
@@ -365,7 +365,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<bool> DontTargetPlayers { get; } = cfg.BindEx(section, false, "True to stop ballistas from targeting players");
         public ConfigEntry<bool> DontTargetTames { get; } = cfg.BindEx(section, false, "True to stop ballistas from targeting tames");
         public ConfigEntry<bool> LoadFromContainers { get; } = cfg.BindEx(section, false, "True to automatically load ballistas from containers");
-        public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.BindEx(section, 4f, "Required proxmity of a container to a ballista to be used as ammo source");
+        public ConfigEntry<float> LoadFromContainersRange { get; } = cfg.BindEx(section, 4f, "Required proximity of a container to a ballista to be used as ammo source");
         public ConfigEntry<MessageTypes> AmmoAddedMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
             "Type of message to show when ammo is added to a turret", AcceptableEnum<MessageTypes>.Default);
         public ConfigEntry<MessageTypes> NoAmmoMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
@@ -421,7 +421,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
                 cfg.Bind(section, $"{prefix}{nameof(MaxExtensionDistance)}", float.NaN, Invariant($"""
                     Max distance an extension can have to the corresponding {Localization.instance.Localize(station.m_name)} to increase its level.
                     Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional {Localization.instance.Localize(station.m_name)} to be able to place the extension.
-                    {float.NaN} to use the games default range. 
+                    {float.NaN} to use the game's default range. 
                     """));
         }
 
@@ -438,14 +438,14 @@ sealed record ModConfig(ConfigFile ConfigFile)
     {
         public ConfigEntry<bool> Enable { get; } = cfg.BindEx(section, false, """
             True to automatically generate a portal hub.
-            Placed portals which don't have a paired portal in the world will be connected to the a the portal hub.
+            Placed portals which don't have a paired portal in the world will be connected to the portal hub.
             """);
             
         public ConfigEntry<string> Exclude { get; } = cfg.BindEx(section, "", "Portals with a tag that matches this filter are not connected to the portal hub");
         public ConfigEntry<string> Include { get; } = cfg.BindEx(section, "*", "Only portals with a tag that matches this filter are connected to the portal hub");
         public ConfigEntry<bool> AutoNameNewPortals { get; } = cfg.BindEx(section, false, $"True to automatically name new portals. Has no effect if '{nameof(Enable)}' is false");
         public ConfigEntry<string> AutoNameNewPortalsFormat { get; } = cfg.BindEx(section, "{0} {1:D2}",
-            "Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer",
+            "Format string for auto-naming portals, the first argument is the biome name, the second is an automatically incremented integer",
             new AcceptableFormatString(["Test", 0]));
     }
 
@@ -522,7 +522,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             "Multiply plant grow time by this factor. 0 to make them grow almost instantly.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
         public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.BindEx(section, 1f,
             "Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
-        public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.BindEx(section, false, "True to keep plants which can't grow alive");
+        public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.BindEx(section, false, "True to keep plants that can't grow alive");
     }
 
     public sealed class SummonsConfig(ConfigFile cfg, string section)
@@ -610,7 +610,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public sealed class NetworkingConfig(ConfigFile cfg, string section)
     {
         public ConfigEntry<bool> MeasurePing { get; } = cfg.BindEx(section, false, "True to measure player ping");
-        public ConfigEntry<int> PingStatisticsWindow { get; } = cfg.BindEx(section, 60, "Number of measurements to include for statistic calulations like mean and standard deviation",
+        public ConfigEntry<int> PingStatisticsWindow { get; } = cfg.BindEx(section, 60, "Number of measurements to include for statistic calculations like mean and standard deviation",
             new AcceptableValueRange<int>(1, 100000));
         public ConfigEntry<int> LogPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the server is logged if it exceeds this threshold");
         public ConfigEntry<int> ShowPingThreshold { get; } = cfg.BindEx(section, 0, "A player's ping value to the server is shown to the player if it exceeds this threshold");
