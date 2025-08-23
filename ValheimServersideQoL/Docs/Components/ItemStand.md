@@ -9,7 +9,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
 |m_currentItemName|System.String||
 
@@ -20,7 +19,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
 |m_currentItemName|System.String||
 
@@ -31,7 +29,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
 |m_currentItemName|System.String||
 
@@ -42,7 +39,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
 |m_currentItemName|System.String||
 
@@ -53,7 +49,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
 |m_currentItemName|System.String||
 
@@ -64,7 +59,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
 |m_currentItemName|System.String||
 
@@ -75,7 +69,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$guardianstone_hook_name|
 |m_canBeRemoved|System.Boolean|False|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|3|
 |m_currentItemName|System.String||
 
@@ -86,7 +79,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$prop_eggcup|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|2|
 |m_currentItemName|System.String||
 
@@ -97,7 +89,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$faderlocation_bellholder|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|2|
 |m_currentItemName|System.String||
 
@@ -108,7 +99,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$prop_eggcup|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|True|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|2|
 |m_currentItemName|System.String||
 
@@ -119,7 +109,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$piece_itemstand|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|False|
-|m_horizontal|System.Boolean|False|
 |m_powerActivationDelay|System.Single|2|
 |m_currentItemName|System.String||
 
@@ -130,7 +119,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String|$piece_itemstand|
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|False|
-|m_horizontal|System.Boolean|True|
 |m_powerActivationDelay|System.Single|2|
 |m_currentItemName|System.String||
 
@@ -141,7 +129,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_name|System.String||
 |m_canBeRemoved|System.Boolean|True|
 |m_autoAttach|System.Boolean|False|
-|m_horizontal|System.Boolean|True|
 |m_powerActivationDelay|System.Single|2|
 |m_currentItemName|System.String||
 

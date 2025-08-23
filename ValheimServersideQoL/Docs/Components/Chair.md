@@ -342,6 +342,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_attachAnimation|System.String|attach_mast|
 |m_inShip|System.Boolean|False|
 
+## rug_Bjorn: SitPoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_rug_bjorn|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_inShip|System.Boolean|False|
+
 ## Trailership: front
 
 |Field|Type|Default Value|

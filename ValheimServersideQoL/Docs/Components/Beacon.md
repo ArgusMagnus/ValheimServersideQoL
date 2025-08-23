@@ -26,3 +26,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_range|System.Single|40|
 
+## TreasureChest_meadows_combat: TreasureChest_meadows_combat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_range|System.Single|30|
+

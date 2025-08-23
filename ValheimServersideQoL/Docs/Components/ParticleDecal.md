@@ -32,6 +32,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_chance|System.Single|100|
 
+## fx_bjorn_death: vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## fx_bjorn_hit: bloodchunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
 ## fx_blobtar_tarball_hit: Chunks
 
 |Field|Type|Default Value|
@@ -84,13 +96,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_chance|System.Single|10|
+|m_chance|System.Single|100|
 
 ## fx_gjall_death: drops-withdecals
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_chance|System.Single|100|
+|m_chance|System.Single|10|
 
 ## fx_gjall_egg_splat: drops-withdecals
 
@@ -224,6 +236,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_chance|System.Single|100|
 
+## fx_unbjorn_death: vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## fx_unbjorn_hit: bloodchunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
 ## SeekerQueen: drops-withdecals
 
 |Field|Type|Default Value|
@@ -249,6 +273,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_chance|System.Single|50|
 
 ## vfx_blob_death: Chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## vfx_blob_frost_death: Chunks
 
 |Field|Type|Default Value|
 |-----|----|-------------|

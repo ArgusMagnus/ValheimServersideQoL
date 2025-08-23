@@ -31,13 +31,11 @@ sealed class TameableProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        if (zdo.PrefabInfo.Tameable is null)
+        if (zdo.PrefabInfo.Tameable?.Tameable is not { } tameable)
         {
             UnregisterZdoProcessor = true;
             return false;
         }
-
-        var (tameable, _) = zdo.PrefabInfo.Tameable.Value;
 
         var fields = zdo.Fields<Tameable>();
 

@@ -4,6 +4,10 @@
 |------|----------|
 |vfx_ carrion_destroyed<small><br>- Hash: 1809303053</small>|[TimedDestruction (vfx_ carrion_destroyed)](Components/TimedDestruction.md#vfx_-carrion_destroyed-vfx_-carrion_destroyed)|
 |vfx_arbalest_fire<small><br>- Hash: 2034696918</small>|[TimedDestruction (vfx_arbalest_fire)](Components/TimedDestruction.md#vfx_arbalest_fire-vfx_arbalest_fire)|
+|vfx_archerytarget_bullseye<small><br>- Hash: 649818616</small>|[TimedDestruction (vfx_archerytarget_bullseye)](Components/TimedDestruction.md#vfx_archerytarget_bullseye-vfx_archerytarget_bullseye)|
+|vfx_archerytarget_bullseye_double<small><br>- Hash: 764854000</small>|[TimedDestruction (vfx_archerytarget_bullseye_double)](Components/TimedDestruction.md#vfx_archerytarget_bullseye_double-vfx_archerytarget_bullseye_double)|
+|vfx_archerytarget_bullseye_quint<small><br>- Hash: 1599688024</small>|[TimedDestruction (vfx_archerytarget_bullseye_quint)](Components/TimedDestruction.md#vfx_archerytarget_bullseye_quint-vfx_archerytarget_bullseye_quint)|
+|vfx_ArcheryTarget_hit<small><br>- Hash: -1007926976</small>|[TimedDestruction (vfx_ArcheryTarget_hit)](Components/TimedDestruction.md#vfx_archerytarget_hit-vfx_archerytarget_hit)|
 |vfx_arrowhit<small><br>- Hash: -1733578089</small>|[TimedDestruction (vfx_arrowhit)](Components/TimedDestruction.md#vfx_arrowhit-vfx_arrowhit)|
 |vfx_Ash_Arch2_Broken1_destroyed<small><br>- Hash: -498403247</small>|[Gibber (vfx_Ash_Arch2_Broken1_destroyed)](Components/Gibber.md#vfx_ash_arch2_broken1_destroyed-vfx_ash_arch2_broken1_destroyed)|
 |vfx_Ash_Arch2_Broken2_destroyed<small><br>- Hash: -691427538</small>|[Gibber (vfx_Ash_Arch2_Broken2_destroyed)](Components/Gibber.md#vfx_ash_arch2_broken2_destroyed-vfx_ash_arch2_broken2_destroyed)|
@@ -44,11 +48,15 @@
 |vfx_birch1_cut<small><br>- Hash: -1147555287</small>|[TimedDestruction (vfx_birch1_cut)](Components/TimedDestruction.md#vfx_birch1_cut-vfx_birch1_cut)|
 |vfx_birch2_aut_cut<small><br>- Hash: -851096239</small>|[TimedDestruction (vfx_birch2_aut_cut)](Components/TimedDestruction.md#vfx_birch2_aut_cut-vfx_birch2_aut_cut)|
 |vfx_birch2_cut<small><br>- Hash: 1055017368</small>|[TimedDestruction (vfx_birch2_cut)](Components/TimedDestruction.md#vfx_birch2_cut-vfx_birch2_cut)|
+|vfx_bjorn_groundslam<small><br>- Hash: 1961182073</small>|[TimedDestruction (vfx_bjorn_groundslam)](Components/TimedDestruction.md#vfx_bjorn_groundslam-vfx_bjorn_groundslam)|
 |vfx_blastfurance_addfuel<small><br>- Hash: 1343538387</small>|[TimedDestruction (vfx_blastfurance_addfuel)](Components/TimedDestruction.md#vfx_blastfurance_addfuel-vfx_blastfurance_addfuel)|
 |vfx_blastfurnace_addore<small><br>- Hash: 984877513</small>|[TimedDestruction (vfx_blastfurnace_addore)](Components/TimedDestruction.md#vfx_blastfurnace_addore-vfx_blastfurnace_addore)|
 |vfx_blastfurnace_produce<small><br>- Hash: 2028884154</small>|[TimedDestruction (vfx_blastfurnace_produce)](Components/TimedDestruction.md#vfx_blastfurnace_produce-vfx_blastfurnace_produce)|
 |vfx_blob_attack<small><br>- Hash: 18698171</small>|[TimedDestruction (vfx_blob_attack)](Components/TimedDestruction.md#vfx_blob_attack-vfx_blob_attack)|
 |vfx_blob_death<small><br>- Hash: 593299331</small>|[ParticleDecal (Chunks)](Components/ParticleDecal.md#vfx_blob_death-chunks), [TimedDestruction (vfx_blob_death)](Components/TimedDestruction.md#vfx_blob_death-vfx_blob_death)|
+|vfx_blob_frost_attack<small><br>- Hash: -968627914</small>|[TimedDestruction (vfx_blob_frost_attack)](Components/TimedDestruction.md#vfx_blob_frost_attack-vfx_blob_frost_attack)|
+|vfx_blob_frost_death<small><br>- Hash: 1568460864</small>|[ParticleDecal (Chunks)](Components/ParticleDecal.md#vfx_blob_frost_death-chunks), [TimedDestruction (vfx_blob_frost_death)](Components/TimedDestruction.md#vfx_blob_frost_death-vfx_blob_frost_death)|
+|vfx_blob_frost_hit<small><br>- Hash: -1210029971</small>|[TimedDestruction (vfx_blob_frost_hit)](Components/TimedDestruction.md#vfx_blob_frost_hit-vfx_blob_frost_hit)|
 |vfx_blob_hit<small><br>- Hash: 1665989430</small>|[ParticleDecal (chunks)](Components/ParticleDecal.md#vfx_blob_hit-chunks), [TimedDestruction (vfx_blob_hit)](Components/TimedDestruction.md#vfx_blob_hit-vfx_blob_hit)|
 |vfx_blobelite_attack<small><br>- Hash: 1436176688</small>|[TimedDestruction (vfx_blobelite_attack)](Components/TimedDestruction.md#vfx_blobelite_attack-vfx_blobelite_attack)|
 |vfx_blobtar_death<small><br>- Hash: 145857790</small>|[ParticleDecal (Chunks)](Components/ParticleDecal.md#vfx_blobtar_death-chunks), [TimedDestruction (vfx_blobtar_death)](Components/TimedDestruction.md#vfx_blobtar_death-vfx_blobtar_death)|
@@ -60,6 +68,11 @@
 |vfx_boar_death<small><br>- Hash: -318107006</small>|[ParticleDecal (vfx_BloodHit 1)](Components/ParticleDecal.md#vfx_boar_death-vfx_bloodhit-1), [TimedDestruction (vfx_boar_death)](Components/TimedDestruction.md#vfx_boar_death-vfx_boar_death)|
 |vfx_boar_hit<small><br>- Hash: 2086679503</small>|[ParticleDecal (bloodchunks)](Components/ParticleDecal.md#vfx_boar_hit-bloodchunks), [TimedDestruction (vfx_boar_hit)](Components/TimedDestruction.md#vfx_boar_hit-vfx_boar_hit)|
 |vfx_boar_love<small><br>- Hash: 195340900</small>|[TimedDestruction (vfx_boar_love)](Components/TimedDestruction.md#vfx_boar_love-vfx_boar_love)|
+|vfx_BombBlob_explode_frost<small><br>- Hash: 252250057</small>|[TimedDestruction (vfx_BombBlob_explode_frost)](Components/TimedDestruction.md#vfx_bombblob_explode_frost-vfx_bombblob_explode_frost)|
+|vfx_BombBlob_explode_lava<small><br>- Hash: -916064261</small>|[TimedDestruction (vfx_BombBlob_explode_lava)](Components/TimedDestruction.md#vfx_bombblob_explode_lava-vfx_bombblob_explode_lava)|
+|vfx_BombBlob_explode_poison<small><br>- Hash: 158924377</small>|[TimedDestruction (vfx_BombBlob_explode_poison)](Components/TimedDestruction.md#vfx_bombblob_explode_poison-vfx_bombblob_explode_poison)|
+|vfx_BombBlob_explode_poisonelite<small><br>- Hash: -814351570</small>|[TimedDestruction (vfx_BombBlob_explode_poisonelite)](Components/TimedDestruction.md#vfx_bombblob_explode_poisonelite-vfx_bombblob_explode_poisonelite)|
+|vfx_BombBlob_explode_tar<small><br>- Hash: 121120182</small>|[TimedDestruction (vfx_BombBlob_explode_tar)](Components/TimedDestruction.md#vfx_bombblob_explode_tar-vfx_bombblob_explode_tar)|
 |vfx_bone_stack_destroyed<small><br>- Hash: 2000079902</small>|[Gibber (vfx_bone_stack_destroyed)](Components/Gibber.md#vfx_bone_stack_destroyed-vfx_bone_stack_destroyed)|
 |vfx_BonemassDeath<small><br>- Hash: -1941020771</small>|[ParticleDecal (Chunks)](Components/ParticleDecal.md#vfx_bonemassdeath-chunks), [TimedDestruction (vfx_BonemassDeath)](Components/TimedDestruction.md#vfx_bonemassdeath-vfx_bonemassdeath)|
 |vfx_BonemassHit<small><br>- Hash: -1564202362</small>|[ParticleDecal (Chunks)](Components/ParticleDecal.md#vfx_bonemasshit-chunks), [TimedDestruction (vfx_BonemassHit)](Components/TimedDestruction.md#vfx_bonemasshit-vfx_bonemasshit)|
@@ -368,6 +381,8 @@
 |vfx_swamptree_cut<small><br>- Hash: -907217478</small>|[TimedDestruction (vfx_swamptree_cut)](Components/TimedDestruction.md#vfx_swamptree_cut-vfx_swamptree_cut)|
 |vfx_Tared<small><br>- Hash: 1314778849</small>|[ParticleDecal (flow)](Components/ParticleDecal.md#vfx_tared-flow), [ZSyncTransform (vfx_Tared)](Components/ZSyncTransform.md#vfx_tared-vfx_tared)|
 |vfx_torch_hit<small><br>- Hash: 998359095</small>|[TimedDestruction (vfx_torch_hit)](Components/TimedDestruction.md#vfx_torch_hit-vfx_torch_hit)|
+|vfx_TrainingDummy_destruction<small><br>- Hash: -1658059644</small>|[TimedDestruction (vfx_TrainingDummy_destruction)](Components/TimedDestruction.md#vfx_trainingdummy_destruction-vfx_trainingdummy_destruction)|
+|vfx_TrainingDummy_hit<small><br>- Hash: 1837673845</small>|[TimedDestruction (vfx_TrainingDummy_hit)](Components/TimedDestruction.md#vfx_trainingdummy_hit-vfx_trainingdummy_hit)|
 |vfx_tree_fall_hit<small><br>- Hash: -1850635673</small>|[TimedDestruction (vfx_tree_fall_hit)](Components/TimedDestruction.md#vfx_tree_fall_hit-vfx_tree_fall_hit)|
 |vfx_troll_attack_hit<small><br>- Hash: -398437737</small>|[TimedDestruction (vfx_troll_attack_hit)](Components/TimedDestruction.md#vfx_troll_attack_hit-vfx_troll_attack_hit)|
 |vfx_troll_death<small><br>- Hash: 1715200685</small>|[ParticleDecal (cunks)](Components/ParticleDecal.md#vfx_troll_death-cunks), [ParticleDecal (vfx_BloodHit 1)](Components/ParticleDecal.md#vfx_troll_death-vfx_bloodhit-1), [TimedDestruction (vfx_troll_death)](Components/TimedDestruction.md#vfx_troll_death-vfx_troll_death)|

@@ -37,7 +37,7 @@
 |AutoSort|False|True/False|True to auto sort container inventories|
 |SortedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a container was sorted|
 |AutoPickup|False|True/False|True to automatically put dropped items into containers if they already contain said item|
-|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overriden per chest by putting '🧲<Range>' on a chest sign|
+|AutoPickupRange|64||Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overridden per chest by putting '🧲<Range>' on a chest sign|
 |AutoPickupMaxRange|64||Max auto pickup range players can set per chest (by putting '🧲<Range>' on a chest sign)|
 |AutoPickupMinPlayerDistance|4||Min distance all player must have to a dropped item for it to be picked up|
 |AutoPickupExcludeFodder|True|True/False|True to exclude food items for tames when tames are within search range|
@@ -78,21 +78,21 @@
 |------|-------------|-----------------|-----------|
 |ArtisanstationBuildRange|40||Build range of Artisan Table|
 |ArtisanstationExtraBuildRangePerLevel|0||Additional build range per level of Artisan Table|
-|ArtisanstationMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Artisan Table to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Artisan Table to be able to place the extension.<br>NaN to use the games default range. |
+|ArtisanstationMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Artisan Table to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Artisan Table to be able to place the extension.<br>NaN to use the game's default range. |
 |BlackforgeBuildRange|20||Build range of Black Forge|
 |BlackforgeExtraBuildRangePerLevel|0||Additional build range per level of Black Forge|
-|BlackforgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Black Forge to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Black Forge to be able to place the extension.<br>NaN to use the games default range. |
-|CauldronMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Cauldron to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Cauldron to be able to place the extension.<br>NaN to use the games default range. |
+|BlackforgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Black Forge to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Black Forge to be able to place the extension.<br>NaN to use the game's default range. |
+|CauldronMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Cauldron to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Cauldron to be able to place the extension.<br>NaN to use the game's default range. |
 |ForgeBuildRange|20||Build range of Forge|
 |ForgeExtraBuildRangePerLevel|3||Additional build range per level of Forge|
-|ForgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Forge to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Forge to be able to place the extension.<br>NaN to use the games default range. |
+|ForgeMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Forge to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Forge to be able to place the extension.<br>NaN to use the game's default range. |
 |MagetableBuildRange|20||Build range of Galdr Table|
 |MagetableExtraBuildRangePerLevel|0||Additional build range per level of Galdr Table|
-|MagetableMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Galdr Table to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Galdr Table to be able to place the extension.<br>NaN to use the games default range. |
+|MagetableMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Galdr Table to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Galdr Table to be able to place the extension.<br>NaN to use the game's default range. |
 |StonecutterBuildRange|20||Build range of Stonecutter|
 |WorkbenchBuildRange|20||Build range of Workbench|
 |WorkbenchExtraBuildRangePerLevel|4||Additional build range per level of Workbench|
-|WorkbenchMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Workbench to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Workbench to be able to place the extension.<br>NaN to use the games default range. |
+|WorkbenchMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Workbench to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Workbench to be able to place the extension.<br>NaN to use the game's default range. |
 </details>
 <details><summary>Creatures</summary>
 
@@ -149,7 +149,7 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |MeasurePing|False|True/False|True to measure player ping|
-|PingStatisticsWindow|60|From 1 to 100000|Number of measurements to include for statistic calulations like mean and standard deviation|
+|PingStatisticsWindow|60|From 1 to 100000|Number of measurements to include for statistic calculations like mean and standard deviation|
 |LogPingThreshold|0||A player's ping value to the server is logged if it exceeds this threshold|
 |ShowPingThreshold|0||A player's ping value to the server is shown to the player if it exceeds this threshold|
 |LogZoneOwnerPingThreshold|0||A player's ping value to the zone owner is logged if it exceeds this threshold|
@@ -205,7 +205,7 @@
 |------|-------------|-----------------|-----------|
 |GrowTimeMultiplier|1|From 0 to Infinity|Multiply plant grow time by this factor. 0 to make them grow almost instantly.|
 |SpaceRequirementMultiplier|1|From 0 to Infinity|Multiply plant space requirement by this factor. 0 to disable space requirements.|
-|DontDestroyIfCantGrow|False|True/False|True to keep plants which can't grow alive|
+|DontDestroyIfCantGrow|False|True/False|True to keep plants that can't grow alive|
 </details>
 <details><summary>Players</summary>
 
@@ -229,11 +229,11 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|Enable|False|True/False|True to automatically generate a portal hub.<br>Placed portals which don't have a paired portal in the world will be connected to the a the portal hub.|
+|Enable|False|True/False|True to automatically generate a portal hub.<br>Placed portals which don't have a paired portal in the world will be connected to the portal hub.|
 |Exclude|||Portals with a tag that matches this filter are not connected to the portal hub|
 |Include|*||Only portals with a tag that matches this filter are connected to the portal hub|
 |AutoNameNewPortals|False|True/False|True to automatically name new portals. Has no effect if 'Enable' is false|
-|AutoNameNewPortalsFormat|{0} {1:D2}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for autonaming portals, the first argument is the biome name, the second is an automatically incremented integer|
+|AutoNameNewPortalsFormat|{0} {1:D2}|.NET Format strings for two arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for auto-naming portals, the first argument is the biome name, the second is an automatically incremented integer|
 </details>
 <details><summary>Signs</summary>
 
@@ -255,10 +255,10 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |FeedFromContainers|False|True/False|True to automatically feed smelters from nearby containers|
-|FeedFromContainersRange|4||Required proxmity of a container to a smelter to be used as feeding source.<br>Can be overriden per chest by putting '↔️<Range>' on a chest sign.|
+|FeedFromContainersRange|4||Required proximity of a container to a smelter to be used as feeding source.<br>Can be overridden per chest by putting '↔️<Range>' on a chest sign.|
 |FeedFromContainersMaxRange|64||Max feeding range players can set per chest (by putting '↔️<Range>' on a chest sign)|
-|FeedFromContainersLeaveAtLeastFuel|1||Minimum amout of fuel to leave in a container|
-|FeedFromContainersLeaveAtLeastOre|1||Minimum amout of ore to leave in a container|
+|FeedFromContainersLeaveAtLeastFuel|1||Minimum amount of fuel to leave in a container|
+|FeedFromContainersLeaveAtLeastOre|1||Minimum amount of ore to leave in a container|
 |OreOrFuelAddedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when ore or fuel is added to a smelter|
 |CapacityMultiplier|1||Multiply a smelter's ore/fuel capacity by this factor|
 |TimePerProductMultiplier|1||Multiply the time it takes to produce one product by this factor (will not go below 1 second per product).|
@@ -277,7 +277,9 @@
 |MakeCommandable|False|True/False|True to make all tames commandable (like wolves)|
 |TamingProgressMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of taming progress messages to show|
 |GrowingProgressMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of growing progress messages to show|
-|AlwaysFed|False|True/False|True to make tames always fed (not hungry)|
+|FedDurationMultiplier|1||Multiply the time tames stay fed after they have eaten by this factor. Infinity to keep them fed indefinitely|
+|TamingTimeMultiplier|1||Multiply the time it takes to tame a tameable creature by this factor.<br>E.g. a value of 0.5 means that the taming time is halved.|
+|PotionTamingBoostMultiplier|1||Multiply the taming boost from the animal whispers potion by this factor.<br>E.g. a value of 2 means that the effect of the potion is doubled and the resulting taming time is reduced by a factor of 4 per player.|
 |TeleportFollow|False|True/False|True to teleport following tames to the players location if the player gets too far away from them|
 |TakeIntoDungeons|False|True/False|True to take following tames into (and out of) dungeons with you|
 </details>
@@ -294,6 +296,7 @@
 |AlwaysUnlockBogWitchSpicePlains|False|True/False|Remove the progression requirements for buying Grasslands Herbalist Harvest from |
 |AlwaysUnlockBogWitchSpiceMistlands|False|True/False|Remove the progression requirements for buying Herbs of the Hidden Hills from |
 |AlwaysUnlockBogWitchSpiceAshlands|False|True/False|Remove the progression requirements for buying Fiery Spice Powder from |
+|AlwaysUnlockBogWitchBlobVial|False|True/False|Remove the progression requirements for buying Corked Vial from |
 |AlwaysUnlockHaldorYmirRemains|False|True/False|Remove the progression requirements for buying Ymir Flesh from Haldor|
 |AlwaysUnlockHaldorThunderstone|False|True/False|Remove the progression requirements for buying Thunder Stone from Haldor|
 |AlwaysUnlockHaldorChickenEgg|False|True/False|Remove the progression requirements for buying Egg from Haldor|
@@ -359,7 +362,7 @@
 |DontTargetPlayers|False|True/False|True to stop ballistas from targeting players|
 |DontTargetTames|False|True/False|True to stop ballistas from targeting tames|
 |LoadFromContainers|False|True/False|True to automatically load ballistas from containers|
-|LoadFromContainersRange|4||Required proxmity of a container to a ballista to be used as ammo source|
+|LoadFromContainersRange|4||Required proximity of a container to a ballista to be used as ammo source|
 |AmmoAddedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when ammo is added to a turret|
 |NoAmmoMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when there is no ammo to add to a turret|
 </details>
@@ -399,6 +402,7 @@
 |EventRate|100||Sets the value for the 'EventRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |ResourceRate|100||Sets the value for the 'ResourceRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |StaminaRate|100||Sets the value for the 'StaminaRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
+|AdrenalineRate|100||Sets the value for the 'AdrenalineRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |MoveStaminaRate|100||Sets the value for the 'MoveStaminaRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |StaminaRegenRate|100||Sets the value for the 'StaminaRegenRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|
 |SkillGainRate|100||Sets the value for the 'SkillGainRate' global key. Enable 'SetGlobalKeysFromConfig' for this to have an effect|

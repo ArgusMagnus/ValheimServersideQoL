@@ -569,7 +569,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_strength|System.Single|1|
 |m_range|System.Single|50|
-|m_delay|System.Single|0|
+|m_delay|System.Single|0.2|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|
@@ -580,7 +580,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_strength|System.Single|1|
 |m_range|System.Single|50|
-|m_delay|System.Single|0.2|
+|m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|
@@ -1003,6 +1003,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|True|
 
+## sfx_perfect_dodge: sfx_perfect_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|0.8|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|True|
+
 ## sfx_prespawn: sfx_prespawn
 
 |Field|Type|Default Value|
@@ -1205,7 +1216,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_strength|System.Single|1|
+|m_strength|System.Single|0.25|
 |m_range|System.Single|30|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|

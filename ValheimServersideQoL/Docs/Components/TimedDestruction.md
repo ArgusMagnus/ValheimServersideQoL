@@ -458,6 +458,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## fx_Adrenaline1: fx_Adrenaline1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_Adrenaline1: sfx_shieldgenerator_startup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|2|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_Adrenaline1: sfx_ui_player_firedamage_ignite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|3|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## fx_ArmorStand_pick: fx_ArmorStand_pick
 
 |Field|Type|Default Value|
@@ -551,6 +575,22 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_timeout|System.Single|6|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_bjorn_death: fx_bjorn_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|10|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_bjorn_hit: fx_bjorn_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|10|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
@@ -1722,6 +1762,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## fx_perfectdodge: fx_perfectdodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|3|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## fx_pheromonebomb_explode: fx_pheromonebomb_explode
 
 |Field|Type|Default Value|
@@ -1871,6 +1919,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_timeout|System.Single|8|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_ShieldCharge_1: fx_ShieldCharge_1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_ShieldCharge_2: fx_ShieldCharge_2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_ShieldCharge_3: fx_ShieldCharge_3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_ShieldCharge_4: fx_ShieldCharge_4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_ShieldCharge_5: fx_ShieldCharge_5
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
@@ -2154,6 +2242,22 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## fx_unbjorn_death: fx_unbjorn_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|10|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## fx_unbjorn_hit: fx_unbjorn_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|10|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## fx_unstablelavarock_explosion: fx_unstablelavarock_explosion
 
 |Field|Type|Default Value|
@@ -2346,6 +2450,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## sfx_archery_target_hit: sfx_archery_target_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|3|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## sfx_arrow_hit: sfx_arrow_hit
 
 |Field|Type|Default Value|
@@ -2511,6 +2623,70 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_timeout|System.Single|3|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_bear_bite_attack: sfx_bear_bite_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_bear_bite_attack_impact: sfx_bear_bite_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_bear_claw_attack slash: sfx_bear_claw_attack slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_bear_claw_attack: sfx_bear_claw_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_bear_death: sfx_bear_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_bear_footstep: sfx_bear_footstep
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_bear_hurt: sfx_bear_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_bear_idle: sfx_bear_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
@@ -4362,6 +4538,54 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## sfx_ghosts_death: sfx_ghosts_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_ghosts_footstep: sfx_ghosts_footstep
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_ghosts_hurt: sfx_ghosts_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_ghosts_idle: sfx_ghosts_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_ghosts_melee_attack: sfx_ghosts_melee_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_ghosts_melee_attack_impact: sfx_ghosts_melee_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## sfx_gjall_alerted: sfx_gjall_alerted
 
 |Field|Type|Default Value|
@@ -5562,6 +5786,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## sfx_perfect_dodge: sfx_perfect_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|3|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## sfx_perfectblock: sfx_perfectblock
 
 |Field|Type|Default Value|
@@ -6298,6 +6530,78 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## sfx_trainingdummy_alert: sfx_trainingdummy_alert
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_trainingdummy_heavy_attack impact: sfx_trainingdummy_heavy_attack impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_trainingdummy_heavy_attack: sfx_trainingdummy_heavy_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_trainingdummy_idle: sfx_trainingdummy_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_trainingdummy_light_attack impact: sfx_trainingdummy_light_attack impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_trainingdummy_light_attack: sfx_trainingdummy_light_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_trainingdummy_stagger: sfx_trainingdummy_stagger
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_trainingdummy_throw: sfx_trainingdummy_throw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_trainingdummy_throw_impact: sfx_trainingdummy_throw_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## sfx_treasurechest_destroyed: sfx_treasurechest_destroyed
 
 |Field|Type|Default Value|
@@ -6527,6 +6831,70 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_timeout|System.Single|3|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_unbjorn_bite_attack: sfx_unbjorn_bite_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_unbjorn_bite_attack_impact: sfx_unbjorn_bite_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_unbjorn_claw_attack: sfx_unbjorn_claw_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_unbjorn_claw_attack_slash: sfx_unbjorn_claw_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_unbjorn_death: sfx_unbjorn_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_unbjorn_footstep: sfx_unbjorn_footstep
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_unbjorn_hurt: sfx_unbjorn_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## sfx_unbjorn_idle: sfx_unbjorn_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
@@ -6858,6 +7226,38 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## vfx_archerytarget_bullseye: vfx_archerytarget_bullseye
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_archerytarget_bullseye_double: vfx_archerytarget_bullseye_double
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_archerytarget_bullseye_quint: vfx_archerytarget_bullseye_quint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_ArcheryTarget_hit: vfx_ArcheryTarget_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|6|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## vfx_arrowhit: vfx_arrowhit
 
 |Field|Type|Default Value|
@@ -7050,6 +7450,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
+## vfx_bjorn_groundslam: vfx_bjorn_groundslam
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
 ## vfx_blastfurance_addfuel: vfx_blastfurance_addfuel
 
 |Field|Type|Default Value|
@@ -7083,6 +7491,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
 ## vfx_blob_death: vfx_blob_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|10|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_blob_frost_attack: vfx_blob_frost_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_blob_frost_death: vfx_blob_frost_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|10|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_blob_frost_hit: vfx_blob_frost_hit
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7175,6 +7607,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_BombBlob_explode_frost: vfx_BombBlob_explode_frost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_BombBlob_explode_lava: vfx_BombBlob_explode_lava
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5.5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_BombBlob_explode_poison: vfx_BombBlob_explode_poison
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_BombBlob_explode_poisonelite: vfx_BombBlob_explode_poisonelite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_BombBlob_explode_tar: vfx_BombBlob_explode_tar
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|4|
 |m_triggerOnAwake|System.Boolean|True|
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
@@ -9219,6 +9691,22 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_forceTakeOwnershipAndDestroy|System.Boolean|False|
 
 ## vfx_torch_hit: vfx_torch_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_TrainingDummy_destruction: vfx_TrainingDummy_destruction
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_timeout|System.Single|5|
+|m_triggerOnAwake|System.Boolean|True|
+|m_forceTakeOwnershipAndDestroy|System.Boolean|False|
+
+## vfx_TrainingDummy_hit: vfx_TrainingDummy_hit
 
 |Field|Type|Default Value|
 |-----|----|-------------|

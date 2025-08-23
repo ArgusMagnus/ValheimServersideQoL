@@ -924,7 +924,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-646712673|
+|m_hash|System.Int32|-73716780|
 
 ## fermenter: SFX
 
@@ -952,7 +952,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-73716780|
+|m_hash|System.Int32|-646712673|
 
 ## Fire: sfx_fire_loop
 
@@ -1262,6 +1262,62 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-1953661787|
 
+## fx_Adrenaline1: sfx_shieldgenerator_startup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$piece_shieldgenerator|
+|m_secondaryCaptionToken|System.String|$caption_startup|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-653365451|
+
+## fx_Adrenaline1: sfx_ui_player_firedamage_ignite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$caption_catchfire|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-217079593|
+
 ## fx_altar_charred_destruction: sfx
 
 |Field|Type|Default Value|
@@ -1569,6 +1625,62 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|944910193|
+
+## fx_bjorn_death: sfx_lox_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|566331989|
+
+## fx_bjorn_hit: sfx_troll_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|675580105|
 
 ## fx_blobtar_tarball_hit: sfx
 
@@ -5238,6 +5350,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|1017210284|
 
+## fx_perfectdodge: SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.95|
+|m_minPitch|System.Single|1.05|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1771331381|
+
 ## fx_Potion_fireresist: sfx
 
 |Field|Type|Default Value|
@@ -5343,12 +5483,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
+|m_maxDelay|System.Single|0.15|
+|m_minDelay|System.Single|0.15|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1438827396|
+|m_hash|System.Int32|-1731706305|
 
 ## fx_QueenPierceGround: SFX (1)
 
@@ -5371,12 +5511,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.15|
-|m_minDelay|System.Single|0.15|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1731706305|
+|m_hash|System.Int32|-1438827396|
 
 ## fx_QueenPierceGround: SFX (2)
 
@@ -6638,6 +6778,62 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|148772731|
 
+## fx_unbjorn_death: sfx_lox_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|566331989|
+
+## fx_unbjorn_hit: sfx_troll_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|675580105|
+
 ## fx_vines_hit: sfx
 
 |Field|Type|Default Value|
@@ -7338,6 +7534,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|1411424932|
 
+## sfx_archery_target_hit: sfx_archery_target_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1493305394|
+
 ## sfx_arrow_hit: sfx_arrow_hit
 
 |Field|Type|Default Value|
@@ -7925,6 +8149,230 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|1544671131|
+
+## sfx_bear_bite_attack: sfx_bear_bite_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1790193528|
+
+## sfx_bear_bite_attack_impact: sfx_bear_bite_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|2136427640|
+
+## sfx_bear_claw_attack slash: sfx_bear_claw_attack slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|928532426|
+
+## sfx_bear_claw_attack: sfx_bear_claw_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1695466617|
+
+## sfx_bear_death: sfx_bear_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|499014845|
+
+## sfx_bear_footstep: sfx_bear_footstep
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1235045673|
+
+## sfx_bear_hurt: sfx_bear_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1473318911|
+
+## sfx_bear_idle: sfx_bear_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1607889661|
 
 ## sfx_beehive_destroyed: sfx_beehive_destroyed
 
@@ -14618,6 +15066,174 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|533610948|
 
+## sfx_ghosts_death: sfx_ghosts_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_ghost|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|616773316|
+
+## sfx_ghosts_footstep: sfx_ghosts_footstep
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_ghost|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-201370992|
+
+## sfx_ghosts_hurt: sfx_ghosts_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_ghost|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-687530586|
+
+## sfx_ghosts_idle: sfx_ghosts_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_ghost|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-2138700277|
+
+## sfx_ghosts_melee_attack: sfx_ghosts_melee_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_ghost|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|250261266|
+
+## sfx_ghosts_melee_attack_impact: sfx_ghosts_melee_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_ghost|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|215198981|
+
 ## sfx_gjall_alerted: sfx_gjall_alerted
 
 |Field|Type|Default Value|
@@ -19014,6 +19630,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|1040911607|
 
+## sfx_perfect_dodge: sfx_perfect_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$caption_player|
+|m_secondaryCaptionToken|System.String|$caption_dodging|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1961132098|
+
 ## sfx_perfectblock: sfx_perfectblock
 
 |Field|Type|Default Value|
@@ -21238,34 +21882,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.7|
-|m_maxVol|System.Single|0.2|
-|m_minVol|System.Single|0.3|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|2142695449|
-
-## sfx_StaffLightning_fire: sfx_StaffLightning_fire
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.7|
 |m_maxVol|System.Single|0.4|
 |m_minVol|System.Single|0.4|
 |m_fadeInDuration|System.Single|0|
@@ -21281,6 +21897,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|280375988|
+
+## sfx_StaffLightning_fire: sfx_StaffLightning_fire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.7|
+|m_maxVol|System.Single|0.2|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|2142695449|
 
 ## sfx_stonegolem_alerted: sfx_stonegolem_alerted
 
@@ -21897,6 +22541,258 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|-2099942183|
+
+## sfx_trainingdummy_alert: sfx_trainingdummy_alert
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_alerted|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-723458919|
+
+## sfx_trainingdummy_heavy_attack impact: sfx_trainingdummy_heavy_attack impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1597618769|
+
+## sfx_trainingdummy_heavy_attack: sfx_trainingdummy_heavy_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1997178571|
+
+## sfx_trainingdummy_idle: sfx_trainingdummy_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1790353668|
+
+## sfx_trainingdummy_light_attack impact: sfx_trainingdummy_light_attack impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|325743416|
+
+## sfx_trainingdummy_light_attack: sfx_trainingdummy_light_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1268134282|
+
+## sfx_trainingdummy_stagger: sfx_trainingdummy_stagger
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-786318541|
+
+## sfx_trainingdummy_throw: sfx_trainingdummy_throw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_throw|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|426100386|
+
+## sfx_trainingdummy_throw_impact: sfx_trainingdummy_throw_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_trainingdummy|
+|m_secondaryCaptionToken|System.String|$caption_alerted|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.3|
+|m_minVol|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-183369544|
 
 ## sfx_treasurechest_destroyed: sfx_treasurechest_destroyed
 
@@ -22709,6 +23605,230 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
 |m_hash|System.Int32|2033543783|
+
+## sfx_unbjorn_bite_attack: sfx_unbjorn_bite_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_unbjorn|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-343783393|
+
+## sfx_unbjorn_bite_attack_impact: sfx_unbjorn_bite_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_unbjorn|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1768061253|
+
+## sfx_unbjorn_claw_attack: sfx_unbjorn_claw_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_unbjorn|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|116568888|
+
+## sfx_unbjorn_claw_attack_slash: sfx_unbjorn_claw_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|928532426|
+
+## sfx_unbjorn_death: sfx_unbjorn_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_unbjorn|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|1322322619|
+
+## sfx_unbjorn_footstep: sfx_unbjorn_footstep
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|-1235045673|
+
+## sfx_unbjorn_hurt: sfx_unbjorn_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|434712508|
+
+## sfx_unbjorn_idle: sfx_unbjorn_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_hash|System.Int32|617826103|
 
 ## sfx_UndeadBurn_Start: sfx_UndeadBurn_Start
 

@@ -82,6 +82,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
+## Bjorn: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
 ## Blob: blob
 
 |Field|Type|Default Value|
@@ -103,6 +123,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maleOffset|System.Single|0.0007651657|
 
 ## BlobElite: blob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## BlobFrost: blob
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -862,7 +902,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
-## Ghost: _skeleton_base
+## Ghost: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1442,6 +1482,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
+## piece_TrainingDummy: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
 ## Player: Visual
 
 |Field|Type|Default Value|
@@ -1863,6 +1923,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maleOffset|System.Single|0.0007651657|
 
 ## Ulv: Ulv
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Unbjorn: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|

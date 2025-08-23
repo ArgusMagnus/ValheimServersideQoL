@@ -9,6 +9,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -62,6 +63,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## arbalest_projectile_blackmetal: arbalest_projectile_blackmetal
@@ -71,6 +73,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -124,6 +127,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## arbalest_projectile_bone: arbalest_projectile_bone
@@ -133,6 +137,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -186,6 +191,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## arbalest_projectile_carapace: arbalest_projectile_carapace
@@ -195,6 +201,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -248,6 +255,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## arbalest_projectile_charred: arbalest_projectile_charred
@@ -257,6 +265,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -310,6 +319,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## arbalest_projectile_iron: arbalest_projectile_iron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|0|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|5|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|0|
+|m_doOwnerRaytest|System.Boolean|True|
+|m_stayAfterHitStatic|System.Boolean|True|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|2|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|False|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|0|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|*null*|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bilebomb_projectile: bilebomb_projectile
@@ -319,6 +393,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -372,6 +447,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|bomb|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## blobtar_projectile_tarball: blobtar_projectile_tarball
@@ -381,6 +457,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|1.5|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -434,6 +511,327 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|visual|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## BombBlob_Frost_projectile: BombBlob_Frost_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|0|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|10|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|40|
+|m_doOwnerRaytest|System.Boolean|False|
+|m_stayAfterHitStatic|System.Boolean|False|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|1|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|BlobFrost|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, -1.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|True|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|500|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|BombBlob_Poison|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## BombBlob_Lava_projectile: BombBlob_Lava_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|0|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|10|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|40|
+|m_doOwnerRaytest|System.Boolean|False|
+|m_stayAfterHitStatic|System.Boolean|False|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|1|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|BlobLava|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, -1.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|True|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|500|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|BombBlob_Poison|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## BombBlob_Poison_projectile: BombBlob_Poison_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|0|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|10|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|40|
+|m_doOwnerRaytest|System.Boolean|False|
+|m_stayAfterHitStatic|System.Boolean|False|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|1|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|Blob|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, -1.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|True|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|500|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|BombBlob_Poison|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## BombBlob_PoisonElite_projectile: BombBlob_PoisonElite_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|0|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|10|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|40|
+|m_doOwnerRaytest|System.Boolean|False|
+|m_stayAfterHitStatic|System.Boolean|False|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|1|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|BlobElite|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, -1.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|True|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|500|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|BombBlob_Poison|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## BombBlob_Tar_projectile: BombBlob_Tar_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|0|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|10|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|40|
+|m_doOwnerRaytest|System.Boolean|False|
+|m_stayAfterHitStatic|System.Boolean|False|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|1|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|BlobTar|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, -1.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|True|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|500|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|BombBlob_Poison|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bonemass_throw_projectile: bonemass_throw_projectile
@@ -443,6 +841,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -496,6 +895,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|default|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## BonemawSerpent_projectile: BonemawSerpent_projectile
@@ -505,6 +905,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -558,6 +959,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bow_projectile: bow_projectile
@@ -567,6 +969,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -620,6 +1023,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## bow_projectile_bronze: bow_projectile_bronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|30|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|5|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|0|
+|m_doOwnerRaytest|System.Boolean|True|
+|m_stayAfterHitStatic|System.Boolean|True|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|2|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|False|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|0|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|*null*|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bow_projectile_carapace: bow_projectile_carapace
@@ -629,6 +1097,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -682,6 +1151,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## bow_projectile_charred: bow_projectile_charred
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|30|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|5|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|0|
+|m_doOwnerRaytest|System.Boolean|True|
+|m_stayAfterHitStatic|System.Boolean|True|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|2|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|False|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|0|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|*null*|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bow_projectile_fire: bow_projectile_fire
@@ -691,6 +1225,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -744,6 +1279,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## bow_projectile_flint: bow_projectile_flint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|30|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|5|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|0|
+|m_doOwnerRaytest|System.Boolean|True|
+|m_stayAfterHitStatic|System.Boolean|True|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|2|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|False|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|0|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|*null*|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bow_projectile_frost: bow_projectile_frost
@@ -753,6 +1353,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -806,6 +1407,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## bow_projectile_iron: bow_projectile_iron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|30|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|5|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|0|
+|m_doOwnerRaytest|System.Boolean|True|
+|m_stayAfterHitStatic|System.Boolean|True|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|2|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|False|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|0|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|*null*|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bow_projectile_needle: bow_projectile_needle
@@ -815,6 +1481,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -868,6 +1535,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## bow_projectile_obsidian: bow_projectile_obsidian
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|30|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|5|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|0|
+|m_doOwnerRaytest|System.Boolean|True|
+|m_stayAfterHitStatic|System.Boolean|True|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|2|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|False|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|0|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|*null*|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bow_projectile_poison: bow_projectile_poison
@@ -877,6 +1609,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -930,6 +1663,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## bow_projectile_silver: bow_projectile_silver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|30|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|20|
+|m_gravity|System.Single|5|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0|
+|m_hitNoise|System.Single|0|
+|m_doOwnerRaytest|System.Boolean|True|
+|m_stayAfterHitStatic|System.Boolean|True|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|2|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|False|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|0|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|*null*|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## bronzespear_projectile: bronzespear_projectile
@@ -939,6 +1737,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -992,6 +1791,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## Catapult_Ammo_Projectile: Catapult_Ammo_Projectile
@@ -1001,6 +1801,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1054,6 +1855,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|True|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## Catapult_projectile: Catapult_projectile
@@ -1063,6 +1865,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1116,6 +1919,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|polySurface20|
 |m_canChangeVisuals|System.Boolean|True|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## charred_bow_Fader_projectile: charred_bow_Fader_projectile
@@ -1125,6 +1929,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1178,6 +1983,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## charred_bow_projectile: charred_bow_projectile
@@ -1187,6 +1993,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1240,6 +2047,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## charred_bow_volley_Fader_projectile: charred_bow_volley_Fader_projectile
@@ -1249,6 +2057,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1302,6 +2111,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## charred_bow_volley_projectile: charred_bow_volley_projectile
@@ -1311,6 +2121,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1364,6 +2175,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## charred_fireball_projectile: charred_fireball_projectile
@@ -1373,6 +2185,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1426,6 +2239,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## charred_twitcher_projectile: charred_twitcher_projectile
@@ -1435,6 +2249,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1488,6 +2303,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## dragon_ice_projectile: dragon_ice_projectile
@@ -1497,6 +2313,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1550,6 +2367,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## draugr_bow_projectile: draugr_bow_projectile
@@ -1559,6 +2377,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1612,6 +2431,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DvergerArbalest_projectile: DvergerArbalest_projectile
@@ -1621,6 +2441,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1674,6 +2495,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DvergerStaffBlocker_projectile: DvergerStaffBlocker_projectile
@@ -1683,6 +2505,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1736,6 +2559,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DvergerStaffFire_clusterbomb_projectile: DvergerStaffFire_clusterbomb_projectile
@@ -1745,6 +2569,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1798,6 +2623,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DvergerStaffFire_fireball_projectile: DvergerStaffFire_fireball_projectile
@@ -1807,6 +2633,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1860,6 +2687,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DvergerStaffIce_projectile: DvergerStaffIce_projectile
@@ -1869,6 +2697,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1922,6 +2751,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## Fader_Roar_Projectile: Fader_Roar_Projectile
@@ -1931,6 +2761,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -1984,6 +2815,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## fallenvalkyrie_feather_projectile: fallenvalkyrie_feather_projectile
@@ -1993,6 +2825,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|15|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2046,6 +2879,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## fallenvalkyrie_spit_projectile: fallenvalkyrie_spit_projectile
@@ -2055,6 +2889,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2108,6 +2943,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## FishingRodFloatProjectile: FishingRodFloatProjectile
@@ -2117,6 +2953,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|30|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2170,6 +3007,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|default|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## flintspear_projectile: flintspear_projectile
@@ -2179,6 +3017,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2232,6 +3071,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## gdking_root_projectile: gdking_root_projectile
@@ -2241,6 +3081,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2294,6 +3135,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## gjall_egg_projectile: gjall_egg_projectile
@@ -2303,6 +3145,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2356,6 +3199,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|default|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## gjall_spit_projectile: gjall_spit_projectile
@@ -2365,6 +3209,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|4|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2418,6 +3263,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|Sphere|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## GoblinShaman_projectile_fireball: GoblinShaman_projectile_fireball
@@ -2427,6 +3273,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2480,6 +3327,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## GoblinSpear_projectile: GoblinSpear_projectile
@@ -2489,6 +3337,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2542,6 +3391,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## Greydwarf_throw_projectile: Greydwarf_throw_projectile
@@ -2551,6 +3401,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2604,6 +3455,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|default|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## hatchling_cold_projectile: hatchling_cold_projectile
@@ -2613,6 +3465,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2666,6 +3519,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## hive_throw_projectile: hive_throw_projectile
@@ -2675,6 +3529,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2728,6 +3583,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|default|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## Imp_fireball_projectile: Imp_fireball_projectile
@@ -2737,6 +3593,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2790,6 +3647,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## lavabomb_projectile: lavabomb_projectile
@@ -2799,6 +3657,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2852,6 +3711,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|bomb|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## oozebomb_projectile: oozebomb_projectile
@@ -2861,6 +3721,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -2914,6 +3775,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|bomb|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_ashlandmeteor: projectile_ashlandmeteor
@@ -2923,6 +3785,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|100|
 |m_backstabBonus|System.Single|1|
 |m_statusEffect|System.String||
@@ -2976,6 +3839,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|visual|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_ashlandmeteor2: projectile_ashlandmeteor2
@@ -2985,6 +3849,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|6|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|100|
 |m_backstabBonus|System.Single|1|
 |m_statusEffect|System.String||
@@ -3038,6 +3903,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|visual|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_beam: projectile_beam
@@ -3047,6 +3913,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|40|
 |m_backstabBonus|System.Single|1|
 |m_statusEffect|System.String||
@@ -3100,6 +3967,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_chitinharpoon: projectile_chitinharpoon
@@ -3109,6 +3977,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3162,6 +4031,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_lavaRock: projectile_lavaRock
@@ -3171,6 +4041,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|5|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|100|
 |m_backstabBonus|System.Single|1|
 |m_statusEffect|System.String||
@@ -3224,6 +4095,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|visual|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_meteor: projectile_meteor
@@ -3233,6 +4105,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|5|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|100|
 |m_backstabBonus|System.Single|1|
 |m_statusEffect|System.String||
@@ -3286,6 +4159,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|visual|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_meteor_fader: projectile_meteor_fader
@@ -3295,6 +4169,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|5|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|100|
 |m_backstabBonus|System.Single|1|
 |m_statusEffect|System.String||
@@ -3348,6 +4223,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|visual|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_splitner: projectile_splitner
@@ -3357,6 +4233,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3410,6 +4287,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_splitner_blood: projectile_splitner_blood
@@ -3419,6 +4297,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3472,6 +4351,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_splitner_lightning: projectile_splitner_lightning
@@ -3481,6 +4361,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3534,6 +4415,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_splitner_nature: projectile_splitner_nature
@@ -3543,6 +4425,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3596,6 +4479,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## projectile_wolffang: projectile_wolffang
@@ -3605,6 +4489,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3658,6 +4543,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## radiation: radiation
@@ -3667,6 +4553,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|1|
 |m_statusEffect|System.String||
@@ -3720,6 +4607,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## SeekerQueen_projectile_spit: SeekerQueen_projectile_spit
@@ -3729,6 +4617,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|1.5|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3782,6 +4671,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## siegebomb_projectile: siegebomb_projectile
@@ -3791,6 +4681,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3844,6 +4735,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## smokebomb_projectile: smokebomb_projectile
@@ -3853,6 +4745,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3906,6 +4799,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|bomb|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## staff_clusterbombstaff_projectile: staff_clusterbombstaff_projectile
@@ -3915,6 +4809,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -3968,6 +4863,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## staff_clusterbombstaff_splinter_projectile: staff_clusterbombstaff_splinter_projectile
@@ -3977,6 +4873,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0.6|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|0.5|
 |m_attackForce|System.Single|100|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4030,6 +4927,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|splinter|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## staff_fireball_projectile: staff_fireball_projectile
@@ -4039,6 +4937,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|5|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4092,6 +4991,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## staff_greenroots_projectile: staff_greenroots_projectile
@@ -4101,6 +5001,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|0|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4154,6 +5055,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## staff_iceshard_projectile: staff_iceshard_projectile
@@ -4163,6 +5065,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4216,6 +5119,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## staff_lightning_projectile: staff_lightning_projectile
@@ -4225,6 +5129,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0.25|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
+|m_adrenaline|System.Single|0|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4278,6 +5183,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## staff_skeleton_projectile: staff_skeleton_projectile
@@ -4287,6 +5193,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4340,6 +5247,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|default|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
+|m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## TrainingDummy_throw_projectile: TrainingDummy_throw_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_aoe|System.Single|0|
+|m_dodgeable|System.Boolean|False|
+|m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
+|m_attackForce|System.Single|0|
+|m_backstabBonus|System.Single|4|
+|m_statusEffect|System.String||
+|m_healthReturn|System.Single|0|
+|m_canHitWater|System.Boolean|False|
+|m_ttl|System.Single|4|
+|m_gravity|System.Single|10|
+|m_drag|System.Single|0|
+|m_rayRadius|System.Single|0.5|
+|m_hitNoise|System.Single|50|
+|m_doOwnerRaytest|System.Boolean|False|
+|m_stayAfterHitStatic|System.Boolean|False|
+|m_stayAfterHitDynamic|System.Boolean|False|
+|m_stayTTL|System.Single|1|
+|m_attachToRigidBody|System.Boolean|False|
+|m_attachToClosestBone|System.Boolean|False|
+|m_attachPenetration|System.Single|0|
+|m_attachBoneNearify|System.Single|0.25|
+|m_hideOnHit|UnityEngine.GameObject|*null*|
+|m_stopEmittersOnHit|System.Boolean|True|
+|m_bounce|System.Boolean|False|
+|m_bounceOnWater|System.Boolean|False|
+|m_bouncePower|System.Single|0.85|
+|m_bounceRoughness|System.Single|0.3|
+|m_maxBounces|System.Int32|99|
+|m_minBounceVel|System.Single|0.25|
+|m_respawnItemOnHit|System.Boolean|False|
+|m_spawnOnTtl|System.Boolean|False|
+|m_spawnOnHit|UnityEngine.GameObject|*null*|
+|m_spawnOnHitChance|System.Single|1|
+|m_spawnCount|System.Int32|1|
+|m_randomSpawnOnHitCount|System.Int32|1|
+|m_randomSpawnSkipLava|System.Boolean|False|
+|m_showBreakMessage|System.Boolean|False|
+|m_staticHitOnly|System.Boolean|False|
+|m_groundHitOnly|System.Boolean|False|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_copyProjectileRotation|System.Boolean|True|
+|m_spawnRandomRotation|System.Boolean|False|
+|m_spawnFacingRotation|System.Boolean|False|
+|m_spawnProjectileNewVelocity|System.Boolean|False|
+|m_spawnProjectileMinVel|System.Single|1|
+|m_spawnProjectileMaxVel|System.Single|5|
+|m_spawnProjectileRandomDir|System.Single|0|
+|m_spawnProjectileHemisphereDir|System.Boolean|False|
+|m_projectilesInheritHitData|System.Boolean|False|
+|m_onlySpawnedProjectilesDealDamage|System.Boolean|False|
+|m_divideDamageBetweenProjectiles|System.Boolean|False|
+|m_rotateVisual|System.Single|500|
+|m_rotateVisualY|System.Single|0|
+|m_rotateVisualZ|System.Single|0|
+|m_visual|UnityEngine.GameObject|default|
+|m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## troll_summoned_throw_projectile: troll_summoned_throw_projectile
@@ -4349,6 +5321,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4402,6 +5375,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|default|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## troll_throw_projectile: troll_throw_projectile
@@ -4411,6 +5385,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4464,6 +5439,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|default|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## Turret_projectile: Turret_projectile
@@ -4473,6 +5449,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|60|
 |m_backstabBonus|System.Single|20|
 |m_statusEffect|System.String||
@@ -4526,6 +5503,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## Turret_projectilebone: Turret_projectilebone
@@ -4535,6 +5513,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|False|
 |m_blockable|System.Boolean|False|
+|m_adrenaline|System.Single|2|
 |m_attackForce|System.Single|60|
 |m_backstabBonus|System.Single|20|
 |m_statusEffect|System.String||
@@ -4588,5 +5567,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_rotateVisualZ|System.Single|0|
 |m_visual|UnityEngine.GameObject|*null*|
 |m_canChangeVisuals|System.Boolean|False|
+|m_raiseSkillAmount|System.Single|1|
 |m_startPoint|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 

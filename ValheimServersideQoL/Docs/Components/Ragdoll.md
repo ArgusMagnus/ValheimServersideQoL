@@ -13,6 +13,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
+## Bjorn_ragdoll: Bjorn_ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1|
+|m_ttl|System.Single|8|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|0.2|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
 ## boar_ragdoll: boar_ragdoll
 
 |Field|Type|Default Value|
@@ -406,6 +417,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|2|
 |m_float|System.Boolean|False|
 |m_floatOffset|System.Single|-0.1|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
+## Unbjorn_ragdoll: Unbjorn_ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1|
+|m_ttl|System.Single|8|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|0.2|
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 

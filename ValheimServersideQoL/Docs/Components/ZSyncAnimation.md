@@ -32,6 +32,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Bjorn: Bjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Blob: Blob
 
 |Field|Type|Default Value|
@@ -39,6 +45,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## BlobElite: BlobElite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## BlobFrost: BlobFrost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -458,6 +470,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## piece_TrainingDummy: piece_TrainingDummy
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Player: Player
 
 |Field|Type|Default Value|
@@ -591,6 +609,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## Ulv: Ulv
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Unbjorn: Unbjorn
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -26,6 +26,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## Bjorn: Bjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## Blob: Blob
 
 |Field|Type|Default Value|
@@ -35,6 +43,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footstepCullDistance|System.Single|20|
 
 ## BlobElite: BlobElite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## BlobFrost: BlobFrost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -579,6 +595,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footstepCullDistance|System.Single|50|
 
 ## Ulv: Ulv
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Unbjorn: Unbjorn
 
 |Field|Type|Default Value|
 |-----|----|-------------|

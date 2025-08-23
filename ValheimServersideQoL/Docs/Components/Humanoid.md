@@ -6,8 +6,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_abomination|
 |m_group|System.String||
@@ -39,11 +39,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|800|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.33|
 |m_heatBuildupBase|System.Single|1.5|
@@ -65,8 +67,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_asksvin|
 |m_group|System.String|asksvin|
@@ -98,11 +100,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|True|
 |m_health|System.Single|800|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -124,8 +128,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_asksvin_hatchling|
 |m_group|System.String|asksvin|
@@ -157,11 +161,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|False|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|True|
 |m_health|System.Single|400|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -183,8 +189,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_bat|
 |m_group|System.String||
@@ -216,13 +222,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
+|m_heatBuildupBase|System.Single|1.5|
+|m_heatCooldownBase|System.Single|1|
+|m_heatBuildupWater|System.Single|2|
+|m_heatWaterTouchMultiplier|System.Single|0.2|
+|m_lavaDamageTickInterval|System.Single|0.2|
+|m_heatLevelFirstDamageThreshold|System.Single|0.7|
+|m_lavaFirstDamage|System.Single|10|
+|m_lavaFullDamage|System.Single|100|
+|m_lavaAirDamageHeight|System.Single|3|
+|m_dayHeatGainRunning|System.Single|0.2|
+|m_dayHeatGainStill|System.Single|-0.05|
+|m_dayHeatEquipmentStop|System.Single|0.5|
+|m_lavaSlowMax|System.Single|0.5|
+|m_lavaSlowHeight|System.Single|0.8|
+
+## Bjorn: Bjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
+|m_unarmedWeapon|ItemDrop|*null*|
+|m_name|System.String|$enemy_bjorn|
+|m_group|System.String|bjorn|
+|m_boss|System.Boolean|False|
+|m_dontHideBossHud|System.Boolean|False|
+|m_bossEvent|System.String||
+|m_defeatSetGlobalKey|System.String||
+|m_aiSkipTarget|System.Boolean|False|
+|m_crouchSpeed|System.Single|2|
+|m_walkSpeed|System.Single|1.5|
+|m_speed|System.Single|3.33|
+|m_turnSpeed|System.Single|80|
+|m_runSpeed|System.Single|7|
+|m_runTurnSpeed|System.Single|100|
+|m_flySlowSpeed|System.Single|5|
+|m_flyFastSpeed|System.Single|12|
+|m_flyTurnSpeed|System.Single|12|
+|m_acceleration|System.Single|0.5|
+|m_jumpForce|System.Single|10|
+|m_jumpForceForward|System.Single|0|
+|m_jumpForceTiredFactor|System.Single|0.7|
+|m_airControl|System.Single|0.1|
+|m_canSwim|System.Boolean|True|
+|m_swimDepth|System.Single|2.7|
+|m_swimSpeed|System.Single|3|
+|m_swimTurnSpeed|System.Single|50|
+|m_swimAcceleration|System.Single|0.05|
+|m_groundTiltSpeed|System.Single|50|
+|m_flying|System.Boolean|False|
+|m_jumpStaminaUsage|System.Single|10|
+|m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
+|m_tolerateWater|System.Boolean|True|
+|m_tolerateFire|System.Boolean|False|
+|m_tolerateSmoke|System.Boolean|False|
+|m_tolerateTar|System.Boolean|False|
+|m_health|System.Single|800|
+|m_regenAllHPTime|System.Single|3000|
+|m_staggerWhenBlocked|System.Boolean|True|
+|m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
 |m_heatCooldownBase|System.Single|1|
 |m_heatBuildupWater|System.Single|2|
@@ -242,8 +311,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_blob|
 |m_group|System.String||
@@ -275,11 +344,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|50|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -301,8 +372,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_blobelite|
 |m_group|System.String||
@@ -334,11 +405,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|150|
+|m_regenAllHPTime|System.Single|3600|
+|m_staggerWhenBlocked|System.Boolean|True|
+|m_staggerDamageFactor|System.Single|0|
+|m_heatBuildupBase|System.Single|1.5|
+|m_heatCooldownBase|System.Single|1|
+|m_heatBuildupWater|System.Single|2|
+|m_heatWaterTouchMultiplier|System.Single|0.2|
+|m_lavaDamageTickInterval|System.Single|0.2|
+|m_heatLevelFirstDamageThreshold|System.Single|0.7|
+|m_lavaFirstDamage|System.Single|10|
+|m_lavaFullDamage|System.Single|100|
+|m_lavaAirDamageHeight|System.Single|3|
+|m_dayHeatGainRunning|System.Single|0.2|
+|m_dayHeatGainStill|System.Single|-0.05|
+|m_dayHeatEquipmentStop|System.Single|0.5|
+|m_lavaSlowMax|System.Single|0.5|
+|m_lavaSlowHeight|System.Single|0.8|
+
+## BlobFrost: BlobFrost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
+|m_unarmedWeapon|ItemDrop|*null*|
+|m_name|System.String|$enemy_blobfrost|
+|m_group|System.String||
+|m_boss|System.Boolean|False|
+|m_dontHideBossHud|System.Boolean|False|
+|m_bossEvent|System.String||
+|m_defeatSetGlobalKey|System.String||
+|m_aiSkipTarget|System.Boolean|False|
+|m_crouchSpeed|System.Single|2|
+|m_walkSpeed|System.Single|5|
+|m_speed|System.Single|1|
+|m_turnSpeed|System.Single|100|
+|m_runSpeed|System.Single|2|
+|m_runTurnSpeed|System.Single|100|
+|m_flySlowSpeed|System.Single|5|
+|m_flyFastSpeed|System.Single|12|
+|m_flyTurnSpeed|System.Single|12|
+|m_acceleration|System.Single|0.5|
+|m_jumpForce|System.Single|13|
+|m_jumpForceForward|System.Single|5|
+|m_jumpForceTiredFactor|System.Single|0.7|
+|m_airControl|System.Single|0|
+|m_canSwim|System.Boolean|False|
+|m_swimDepth|System.Single|0.57|
+|m_swimSpeed|System.Single|2|
+|m_swimTurnSpeed|System.Single|100|
+|m_swimAcceleration|System.Single|0.05|
+|m_groundTiltSpeed|System.Single|50|
+|m_flying|System.Boolean|False|
+|m_jumpStaminaUsage|System.Single|10|
+|m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
+|m_tolerateWater|System.Boolean|True|
+|m_tolerateFire|System.Boolean|False|
+|m_tolerateSmoke|System.Boolean|True|
+|m_tolerateTar|System.Boolean|False|
+|m_health|System.Single|50|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -360,8 +494,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_bloblava|
 |m_group|System.String||
@@ -393,11 +527,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|300|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -419,8 +555,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_blobtar|
 |m_group|System.String||
@@ -452,11 +588,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|True|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -478,8 +616,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_boar|
 |m_group|System.String|boar|
@@ -511,11 +649,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -537,8 +677,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_boarpiggy|
 |m_group|System.String|boar|
@@ -570,11 +710,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -596,8 +738,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_kvastur|
 |m_group|System.String||
@@ -629,11 +771,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|700|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -655,8 +799,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_bonemass|
 |m_group|System.String||
@@ -688,11 +832,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|5000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|False|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -714,8 +860,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_bonemawserpent|
 |m_group|System.String||
@@ -747,11 +893,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -773,8 +921,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_archer|
 |m_group|System.String||
@@ -806,11 +954,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|200|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -832,8 +982,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_melee_Fader|
 |m_group|System.String||
@@ -865,11 +1015,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|50|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -891,8 +1043,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_mage|
 |m_group|System.String||
@@ -924,11 +1076,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|600|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -950,8 +1104,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_melee|
 |m_group|System.String||
@@ -983,11 +1137,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|600|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1009,8 +1165,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_melee_Dyrnwyn|
 |m_group|System.String||
@@ -1042,11 +1198,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|2500|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1068,8 +1226,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_melee_Fader|
 |m_group|System.String||
@@ -1101,11 +1259,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|50|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1127,8 +1287,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_twitcher|
 |m_group|System.String||
@@ -1160,11 +1320,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|220|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1186,8 +1348,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_charred_twitcher_summoned|
 |m_group|System.String||
@@ -1219,11 +1381,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|50|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1245,8 +1409,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_chicken|
 |m_group|System.String|chicken|
@@ -1278,11 +1442,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1304,8 +1470,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_deathsquito|
 |m_group|System.String||
@@ -1337,11 +1503,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1363,8 +1531,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dragon|
 |m_group|System.String||
@@ -1396,11 +1564,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|7500|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|False|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1422,8 +1592,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_draugr|
 |m_group|System.String||
@@ -1455,11 +1625,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1481,8 +1653,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_draugrelite|
 |m_group|System.String||
@@ -1514,11 +1686,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|200|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1540,8 +1714,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_draugr|
 |m_group|System.String||
@@ -1573,11 +1747,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1599,8 +1775,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr|
 |m_group|System.String||
@@ -1632,11 +1808,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|350|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1658,8 +1836,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr|
 |m_group|System.String||
@@ -1691,11 +1869,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1717,8 +1897,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr_mage|
 |m_group|System.String||
@@ -1750,11 +1930,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|350|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1776,8 +1958,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr_mage|
 |m_group|System.String||
@@ -1809,11 +1991,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|350|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1835,8 +2019,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr_mage|
 |m_group|System.String||
@@ -1868,11 +2052,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|350|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1894,8 +2080,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dvergr_mage|
 |m_group|System.String||
@@ -1927,11 +2113,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|350|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -1953,8 +2141,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_dverger|
 |m_group|System.String||
@@ -1986,11 +2174,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2012,8 +2202,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_eikthyr|
 |m_group|System.String||
@@ -2045,11 +2235,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|500|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2071,8 +2263,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fader|
 |m_group|System.String||
@@ -2104,11 +2296,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|25000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|False|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2130,8 +2324,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fallenvalkyrie|
 |m_group|System.String||
@@ -2163,11 +2357,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1500|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2189,8 +2385,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fenring|
 |m_group|System.String||
@@ -2222,11 +2418,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|300|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2248,8 +2446,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fenringcultist|
 |m_group|System.String||
@@ -2281,11 +2479,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|200|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2307,8 +2507,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fenringcultist_hildir|
 |m_group|System.String||
@@ -2340,11 +2540,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|3700|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2366,8 +2568,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_fenringcultist_hildir|
 |m_group|System.String||
@@ -2399,11 +2601,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1850|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2425,8 +2629,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_gdking|
 |m_group|System.String||
@@ -2458,11 +2662,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|2500|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|False|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2484,8 +2690,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_ghost|
 |m_group|System.String||
@@ -2517,11 +2723,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|60|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2543,8 +2751,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_gjall|
 |m_group|System.String||
@@ -2576,11 +2784,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1500|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2602,8 +2812,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblin|
 |m_group|System.String||
@@ -2635,11 +2845,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|175|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2661,8 +2873,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblin|
 |m_group|System.String||
@@ -2694,11 +2906,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|175|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2720,8 +2934,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinbrute|
 |m_group|System.String||
@@ -2753,11 +2967,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|800|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2779,8 +2995,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinbrute_hildir|
 |m_group|System.String||
@@ -2812,11 +3028,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|800|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2838,8 +3056,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinbrute_hildircombined|
 |m_group|System.String||
@@ -2871,11 +3089,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|4200|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2897,8 +3117,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinbrute_hildircombined|
 |m_group|System.String||
@@ -2930,11 +3150,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|2100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -2956,8 +3178,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinking|
 |m_group|System.String||
@@ -2989,11 +3211,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|False|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3015,8 +3239,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblinshaman|
 |m_group|System.String||
@@ -3048,11 +3272,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3074,8 +3300,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblin_hildir|
 |m_group|System.String||
@@ -3107,11 +3333,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|2400|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3133,8 +3361,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_goblin_hildir|
 |m_group|System.String||
@@ -3166,11 +3394,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1200|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3192,8 +3422,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_greydwarf|
 |m_group|System.String||
@@ -3225,11 +3455,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|40|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3251,8 +3483,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_greydwarfbrute|
 |m_group|System.String||
@@ -3284,11 +3516,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|150|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3310,8 +3544,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_greydwarfshaman|
 |m_group|System.String||
@@ -3343,11 +3577,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|60|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.33|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3369,8 +3605,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_greyling|
 |m_group|System.String||
@@ -3402,11 +3638,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|20|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3428,8 +3666,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_drake|
 |m_group|System.String||
@@ -3461,11 +3699,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3487,8 +3727,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_hen|
 |m_group|System.String|chicken|
@@ -3520,11 +3760,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3546,8 +3788,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_hive|
 |m_group|System.String||
@@ -3579,11 +3821,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|False|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3605,8 +3849,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_leech|
 |m_group|System.String||
@@ -3638,11 +3882,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|60|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3664,8 +3910,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_leech|
 |m_group|System.String||
@@ -3697,11 +3943,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|60|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3723,8 +3971,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_lox|
 |m_group|System.String|lox|
@@ -3756,11 +4004,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3782,8 +4032,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_loxcalf|
 |m_group|System.String|lox|
@@ -3815,11 +4065,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3841,8 +4093,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_mistile|
 |m_group|System.String||
@@ -3874,11 +4126,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3900,8 +4154,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_morgen|
 |m_group|System.String||
@@ -3933,11 +4187,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1600|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -3959,8 +4215,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_morgen|
 |m_group|System.String||
@@ -3992,11 +4248,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1600|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4018,8 +4276,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_neck|
 |m_group|System.String||
@@ -4051,13 +4309,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|5|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
+|m_heatBuildupBase|System.Single|1.5|
+|m_heatCooldownBase|System.Single|1|
+|m_heatBuildupWater|System.Single|2|
+|m_heatWaterTouchMultiplier|System.Single|0.2|
+|m_lavaDamageTickInterval|System.Single|0.2|
+|m_heatLevelFirstDamageThreshold|System.Single|0.7|
+|m_lavaFirstDamage|System.Single|10|
+|m_lavaFullDamage|System.Single|100|
+|m_lavaAirDamageHeight|System.Single|3|
+|m_dayHeatGainRunning|System.Single|0.2|
+|m_dayHeatGainStill|System.Single|-0.05|
+|m_dayHeatEquipmentStop|System.Single|0.5|
+|m_lavaSlowMax|System.Single|0.5|
+|m_lavaSlowHeight|System.Single|0.8|
+
+## piece_TrainingDummy: piece_TrainingDummy
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
+|m_unarmedWeapon|ItemDrop|*null*|
+|m_name|System.String|$piece_trainingdummy|
+|m_group|System.String||
+|m_boss|System.Boolean|False|
+|m_dontHideBossHud|System.Boolean|False|
+|m_bossEvent|System.String||
+|m_defeatSetGlobalKey|System.String||
+|m_aiSkipTarget|System.Boolean|True|
+|m_crouchSpeed|System.Single|2|
+|m_walkSpeed|System.Single|0|
+|m_speed|System.Single|0|
+|m_turnSpeed|System.Single|0|
+|m_runSpeed|System.Single|0|
+|m_runTurnSpeed|System.Single|300|
+|m_flySlowSpeed|System.Single|5|
+|m_flyFastSpeed|System.Single|12|
+|m_flyTurnSpeed|System.Single|12|
+|m_acceleration|System.Single|0.5|
+|m_jumpForce|System.Single|10|
+|m_jumpForceForward|System.Single|0|
+|m_jumpForceTiredFactor|System.Single|0.7|
+|m_airControl|System.Single|0.1|
+|m_canSwim|System.Boolean|False|
+|m_swimDepth|System.Single|1.3|
+|m_swimSpeed|System.Single|1|
+|m_swimTurnSpeed|System.Single|100|
+|m_swimAcceleration|System.Single|0.05|
+|m_groundTiltSpeed|System.Single|50|
+|m_flying|System.Boolean|False|
+|m_jumpStaminaUsage|System.Single|10|
+|m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
+|m_tolerateWater|System.Boolean|True|
+|m_tolerateFire|System.Boolean|False|
+|m_tolerateSmoke|System.Boolean|True|
+|m_tolerateTar|System.Boolean|False|
+|m_health|System.Single|2500|
+|m_regenAllHPTime|System.Single|30|
+|m_staggerWhenBlocked|System.Boolean|True|
+|m_staggerDamageFactor|System.Single|100|
 |m_heatBuildupBase|System.Single|1.5|
 |m_heatCooldownBase|System.Single|1|
 |m_heatBuildupWater|System.Single|2|
@@ -4077,8 +4398,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_seeker|
 |m_group|System.String||
@@ -4110,11 +4431,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|200|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4136,8 +4459,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_babyseeker|
 |m_group|System.String||
@@ -4169,11 +4492,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|20|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4195,8 +4520,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_seekerbrute|
 |m_group|System.String||
@@ -4228,11 +4553,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1500|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4254,8 +4581,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_seekerqueen|
 |m_group|System.String||
@@ -4287,11 +4614,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|12500|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|False|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4313,8 +4642,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_serpent|
 |m_group|System.String||
@@ -4346,11 +4675,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|400|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4372,8 +4703,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeleton|
 |m_group|System.String||
@@ -4405,11 +4736,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|40|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4431,8 +4764,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeleton_summoned|
 |m_group|System.String||
@@ -4464,11 +4797,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|400|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4490,8 +4825,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeletonfire|
 |m_group|System.String||
@@ -4523,11 +4858,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|1200|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4549,8 +4886,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeletonfire|
 |m_group|System.String||
@@ -4582,11 +4919,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|600|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4608,8 +4947,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeleton|
 |m_group|System.String||
@@ -4641,11 +4980,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|40|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4667,8 +5008,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_skeletonpoison|
 |m_group|System.String||
@@ -4700,11 +5041,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4726,8 +5069,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_summonedroot|
 |m_group|System.String||
@@ -4759,11 +5102,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|250|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4785,8 +5130,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_stonegolem|
 |m_group|System.String||
@@ -4818,11 +5163,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|800|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.33|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4844,8 +5191,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_surtling|
 |m_group|System.String||
@@ -4877,11 +5224,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|False|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|20|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4903,8 +5252,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|Root|
 |m_group|System.String||
@@ -4936,11 +5285,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|20|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -4962,8 +5313,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_thehive|
 |m_group|System.String||
@@ -4995,11 +5346,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|5000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -5021,8 +5374,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_tick|
 |m_group|System.String||
@@ -5054,11 +5407,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|50|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -5080,8 +5435,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|TrainingDummy|
 |m_group|System.String||
@@ -5113,11 +5468,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|40000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
 |m_heatBuildupBase|System.Single|1.5|
@@ -5139,8 +5496,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_troll|
 |m_group|System.String||
@@ -5172,11 +5529,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|600|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -5198,8 +5557,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_summonedtroll|
 |m_group|System.String||
@@ -5231,11 +5590,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|True|
 |m_tolerateSmoke|System.Boolean|True|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|2000|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
@@ -5257,8 +5618,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_ulv|
 |m_group|System.String||
@@ -5290,13 +5651,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|True|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|50|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
+|m_heatBuildupBase|System.Single|1.5|
+|m_heatCooldownBase|System.Single|1|
+|m_heatBuildupWater|System.Single|2|
+|m_heatWaterTouchMultiplier|System.Single|0.2|
+|m_lavaDamageTickInterval|System.Single|0.2|
+|m_heatLevelFirstDamageThreshold|System.Single|0.7|
+|m_lavaFirstDamage|System.Single|10|
+|m_lavaFullDamage|System.Single|100|
+|m_lavaAirDamageHeight|System.Single|3|
+|m_dayHeatGainRunning|System.Single|0.2|
+|m_dayHeatGainStill|System.Single|-0.05|
+|m_dayHeatEquipmentStop|System.Single|0.5|
+|m_lavaSlowMax|System.Single|0.5|
+|m_lavaSlowHeight|System.Single|0.8|
+
+## Unbjorn: Unbjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
+|m_unarmedWeapon|ItemDrop|*null*|
+|m_name|System.String|$enemy_unbjorn|
+|m_group|System.String|bjorn|
+|m_boss|System.Boolean|False|
+|m_dontHideBossHud|System.Boolean|False|
+|m_bossEvent|System.String||
+|m_defeatSetGlobalKey|System.String||
+|m_aiSkipTarget|System.Boolean|False|
+|m_crouchSpeed|System.Single|2|
+|m_walkSpeed|System.Single|1.5|
+|m_speed|System.Single|3.33|
+|m_turnSpeed|System.Single|80|
+|m_runSpeed|System.Single|7|
+|m_runTurnSpeed|System.Single|100|
+|m_flySlowSpeed|System.Single|5|
+|m_flyFastSpeed|System.Single|12|
+|m_flyTurnSpeed|System.Single|12|
+|m_acceleration|System.Single|0.5|
+|m_jumpForce|System.Single|10|
+|m_jumpForceForward|System.Single|0|
+|m_jumpForceTiredFactor|System.Single|0.7|
+|m_airControl|System.Single|0.1|
+|m_canSwim|System.Boolean|True|
+|m_swimDepth|System.Single|2.7|
+|m_swimSpeed|System.Single|3|
+|m_swimTurnSpeed|System.Single|50|
+|m_swimAcceleration|System.Single|0.05|
+|m_groundTiltSpeed|System.Single|50|
+|m_flying|System.Boolean|False|
+|m_jumpStaminaUsage|System.Single|10|
+|m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|True|
+|m_tolerateWater|System.Boolean|True|
+|m_tolerateFire|System.Boolean|False|
+|m_tolerateSmoke|System.Boolean|False|
+|m_tolerateTar|System.Boolean|False|
+|m_health|System.Single|1200|
+|m_regenAllHPTime|System.Single|3000|
+|m_staggerWhenBlocked|System.Boolean|True|
+|m_staggerDamageFactor|System.Single|0.3|
 |m_heatBuildupBase|System.Single|1.5|
 |m_heatCooldownBase|System.Single|1|
 |m_heatBuildupWater|System.Single|2|
@@ -5316,8 +5740,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_volture|
 |m_group|System.String||
@@ -5349,11 +5773,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|200|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -5375,8 +5801,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_wolf|
 |m_group|System.String|wolf|
@@ -5408,11 +5834,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|80|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -5434,8 +5862,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_wolfcub|
 |m_group|System.String|wolf|
@@ -5467,11 +5895,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|False|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|10|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|
@@ -5493,8 +5923,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_equipStaminaDrain|System.Single|10|
 |m_blockStaminaDrain|System.Single|25|
+|m_perfectBlockStaminaDrain|System.Single|0|
 |m_unarmedWeapon|ItemDrop|*null*|
 |m_name|System.String|$enemy_wraith|
 |m_group|System.String||
@@ -5526,11 +5956,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flying|System.Boolean|True|
 |m_jumpStaminaUsage|System.Single|10|
 |m_disableWhileSleeping|System.Boolean|False|
+|m_useAltStatusEffectScaling|System.Boolean|False|
 |m_tolerateWater|System.Boolean|True|
 |m_tolerateFire|System.Boolean|False|
 |m_tolerateSmoke|System.Boolean|False|
 |m_tolerateTar|System.Boolean|False|
 |m_health|System.Single|100|
+|m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.5|
 |m_heatBuildupBase|System.Single|1.5|

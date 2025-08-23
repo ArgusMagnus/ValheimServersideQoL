@@ -317,6 +317,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
 
+## piece_TrainingDummy: piece_TrainingDummy
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_isPlayer|System.Boolean|False|
+|m_useAllTrails|System.Boolean|False|
+
 ## Player: Player
 
 |Field|Type|Default Value|

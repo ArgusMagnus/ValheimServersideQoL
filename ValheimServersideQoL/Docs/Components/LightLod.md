@@ -56,6 +56,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_shadowLod|System.Boolean|False|
 |m_shadowDistance|System.Single|20|
 
+## BlobFrost: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_lightLod|System.Boolean|True|
+|m_lightDistance|System.Single|40|
+|m_shadowLod|System.Boolean|False|
+|m_shadowDistance|System.Single|20|
+
 ## BlobLava: Point light
 
 |Field|Type|Default Value|

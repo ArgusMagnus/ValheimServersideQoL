@@ -26,6 +26,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
+## Bjorn: Bjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
 ## Blob: Blob
 
 |Field|Type|Default Value|
@@ -33,6 +39,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## BlobElite: BlobElite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## BlobFrost: BlobFrost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -525,6 +537,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## Ulv: Ulv
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## Unbjorn: Unbjorn
 
 |Field|Type|Default Value|
 |-----|----|-------------|

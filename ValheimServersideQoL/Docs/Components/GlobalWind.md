@@ -122,6 +122,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_clothRandomAccelerationFactor|System.Single|0.5|
 |m_checkPlayerShelter|System.Boolean|False|
 
+## Ghost: LowerCloth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_multiplier|System.Single|1|
+|m_smoothUpdate|System.Boolean|False|
+|m_alignToWindDirection|System.Boolean|False|
+|m_particleVelocity|System.Boolean|False|
+|m_particleForce|System.Boolean|False|
+|m_particleEmission|System.Boolean|False|
+|m_particleEmissionMin|System.Int32|0|
+|m_particleEmissionMax|System.Int32|1|
+|m_clothRandomAccelerationFactor|System.Single|0.5|
+|m_checkPlayerShelter|System.Boolean|False|
+
 ## GoblinBrute_HipCloth: HipCloth
 
 |Field|Type|Default Value|

@@ -1217,6 +1217,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_checkSolids|System.Boolean|False|
 |m_fallCheckRadius|System.Single|0|
 
+## TreasureChest_meadows_combat: TreasureChest_meadows_combat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_pushUp|System.Boolean|True|
+|m_fall|System.Boolean|True|
+|m_checkSolids|System.Boolean|False|
+|m_fallCheckRadius|System.Single|0|
+
 ## UnstableLavaRock: UnstableLavaRock
 
 |Field|Type|Default Value|

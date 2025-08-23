@@ -14,6 +14,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
+## Bjorn: Bjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_baseEnableObject|UnityEngine.GameObject|*null*|
+
 ## Boar: Visual
 
 |Field|Type|Default Value|
@@ -291,6 +297,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_baseEnableObject|UnityEngine.GameObject|*null*|
 
 ## Ulv: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_baseEnableObject|UnityEngine.GameObject|*null*|
+
+## Unbjorn: Unbjorn
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -83,6 +83,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## ArmorBerserkerChest: ArmorBerserkerChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorBerserkerLegs: ArmorBerserkerLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorBerserkerUndeadChest: ArmorBerserkerUndeadChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorBerserkerUndeadLegs: ArmorBerserkerUndeadLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## ArmorBronzeChest: ArmorBronzeChest
 
 |Field|Type|Default Value|
@@ -731,6 +767,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## AtgeirWood: AtgeirWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## AxeBerzerkr: AxeBerzerkr
 
 |Field|Type|Default Value|
@@ -821,6 +866,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## AxeWood: AxeWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## BarberKit: BarberKit
 
 |Field|Type|Default Value|
@@ -893,7 +947,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## BattleaxeBlackmetal: BattleaxeBlackmetal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## BattleaxeCrystal: BattleaxeCrystal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BattleaxeSkullSplittur: BattleaxeSkullSplittur
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BattleaxeWood: BattleaxeWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -956,6 +1037,78 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## bjorn_bite: bjorn_bite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## bjorn_claws: bjorn_claws
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## bjorn_swipe_combo: bjorn_swipe_combo
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## bjorn_swipe_l: bjorn_swipe_l
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## bjorn_swipe_r: bjorn_swipe_r
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BjornHide: BjornHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BjornMeat: BjornMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BjornPaw: BjornPaw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## BlackCore: BlackCore
 
 |Field|Type|Default Value|
@@ -1002,6 +1155,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## Blackwood: Blackwood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BlobVial: BlobVial
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1092,6 +1254,51 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BombBile: BombBile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombBlob_Frost: BombBlob_Frost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombBlob_Lava: BombBlob_Lava
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombBlob_Poison: BombBlob_Poison
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombBlob_PoisonElite: BombBlob_PoisonElite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombBlob_Tar: BombBlob_Tar
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1838,6 +2045,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
+## CookedBjornMeat: CookedBjornMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
 ## CookedBoneMawSerpentMeat: CookedBoneMawSerpentMeat
 
 |Field|Type|Default Value|
@@ -2334,6 +2550,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DyrnwynTipFragment: DyrnwynTipFragment
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Ectoplasm: Ectoplasm
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2954,6 +3179,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
+## FistBjornClaw: FistBjornClaw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FistBjornUndeadClaw: FistBjornUndeadClaw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## FistFenrirClaw: FistFenrirClaw
 
 |Field|Type|Default Value|
@@ -3404,6 +3647,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## HelmetBerserkerHood: HelmetBerserkerHood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## HelmetBerserkerUndead: HelmetBerserkerUndead
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## HelmetBronze: HelmetBronze
 
 |Field|Type|Default Value|
@@ -3647,6 +3908,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## HelmetSweatBand: HelmetSweatBand
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## HelmetTrollLeather: HelmetTrollLeather
 
 |Field|Type|Default Value|
@@ -3854,6 +4124,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## KnifeWood: KnifeWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Lantern: Lantern
 
 |Field|Type|Default Value|
@@ -3990,6 +4269,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceSilver: MaceSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceWood: MaceWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5348,6 +5636,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## SledgeWood: SledgeWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Softtissue: Softtissue
 
 |Field|Type|Default Value|
@@ -5457,6 +5754,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SpearWolfFang: SpearWolfFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpearWood: SpearWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5816,6 +6122,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## SwordWood: SwordWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Tankard: Tankard
 
 |Field|Type|Default Value|
@@ -5924,6 +6239,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## THSwordWood: THSwordWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Thunderstone: Thunderstone
 
 |Field|Type|Default Value|
@@ -5961,6 +6285,123 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TorchMist: TorchMist
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketBlackDamageHealth: TrinketBlackDamageHealth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketBlackStamina: TrinketBlackStamina
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketBronzeHealth: TrinketBronzeHealth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketBronzeStamina: TrinketBronzeStamina
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketCarapaceEitr: TrinketCarapaceEitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketChitinSwim: TrinketChitinSwim
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketFlametalEitr: TrinketFlametalEitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketFlametalStaminaHealth: TrinketFlametalStaminaHealth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketIronHealth: TrinketIronHealth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketIronStamina: TrinketIronStamina
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketScaleStaminaDamage: TrinketScaleStaminaDamage
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketSilverDamage: TrinketSilverDamage
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketSilverResist: TrinketSilverResist
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6024,6 +6465,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyAsksvin: TrophyAsksvin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBjorn: TrophyBjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBjornUndead: TrophyBjornUndead
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6222,6 +6681,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyFrostTroll: TrophyFrostTroll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyGhost: TrophyGhost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6600,6 +7068,60 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Ulv_attack2_slash: Ulv_attack2_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## unbjorn_bite: unbjorn_bite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## unbjorn_claws: unbjorn_claws
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## unbjorn_swipe_combo: unbjorn_swipe_combo
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## unbjorn_swipe_l: unbjorn_swipe_l
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## unbjorn_swipe_r: unbjorn_swipe_r
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## UndeadBjornRibcage: UndeadBjornRibcage
 
 |Field|Type|Default Value|
 |-----|----|-------------|

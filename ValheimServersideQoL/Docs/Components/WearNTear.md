@@ -4634,6 +4634,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
 
+## CookedBjornMeat: CookedBjornMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_noSupportWear|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
 ## CookedBoneMawSerpentMeat: CookedBoneMawSerpentMeat
 
 |Field|Type|Default Value|
@@ -8690,6 +8714,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
 
+## piece_ArcheryTarget: piece_ArcheryTarget
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|High|
+|m_worn|UnityEngine.GameObject|High|
+|m_broken|UnityEngine.GameObject|High|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_noSupportWear|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
 ## piece_artisanstation: piece_artisanstation
 
 |Field|Type|Default Value|
@@ -12242,6 +12290,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
 
+## rug_Bjorn: rug_Bjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_noSupportWear|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
 ## rug_deer: rug_deer
 
 |Field|Type|Default Value|
@@ -13476,6 +13548,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
 |m_noSupportWear|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## TreasureChest_meadows_combat: TreasureChest_meadows_combat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_noSupportWear|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|

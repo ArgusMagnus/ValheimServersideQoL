@@ -535,6 +535,19 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
+## TreasureChest_meadows_combat: TreasureChest_meadows_combat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestwood|
+|m_width|System.Int32|4|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|woodchesttop_open|
+|m_closed|UnityEngine.GameObject|woodchesttop_closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+
 ## TreasureChest_mountaincave: TreasureChest_mountaincave
 
 |Field|Type|Default Value|

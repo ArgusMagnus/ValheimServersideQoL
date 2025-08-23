@@ -14,3 +14,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_triggerOnAwake|System.Boolean|True|
 
+## fx_ShieldCharge_5: Range Indicator
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_triggerOnAwake|System.Boolean|True|
+

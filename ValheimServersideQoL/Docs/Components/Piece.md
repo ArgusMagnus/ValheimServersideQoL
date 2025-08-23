@@ -5637,6 +5637,55 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
+## CookedBjornMeat: CookedBjornMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_targetNonPlayerBuilt|System.Boolean|True|
+|m_name|System.String|$item_bjorn_meat_cooked|
+|m_description|System.String|$item_bjorn_meat_cooked_description|
+|m_enabled|System.Boolean|True|
+|m_isUpgrade|System.Boolean|False|
+|m_comfort|System.Int32|0|
+|m_comfortObject|UnityEngine.GameObject|*null*|
+|m_groundPiece|System.Boolean|False|
+|m_allowAltGroundPlacement|System.Boolean|False|
+|m_groundOnly|System.Boolean|False|
+|m_cultivatedGroundOnly|System.Boolean|False|
+|m_waterPiece|System.Boolean|False|
+|m_clipGround|System.Boolean|False|
+|m_clipEverything|System.Boolean|False|
+|m_noInWater|System.Boolean|True|
+|m_notOnWood|System.Boolean|False|
+|m_notOnTiltingSurface|System.Boolean|True|
+|m_inCeilingOnly|System.Boolean|False|
+|m_notOnFloor|System.Boolean|False|
+|m_noClipping|System.Boolean|True|
+|m_onlyInTeleportArea|System.Boolean|False|
+|m_allowedInDungeons|System.Boolean|False|
+|m_spaceRequirement|System.Single|0|
+|m_repairPiece|System.Boolean|False|
+|m_removePiece|System.Boolean|False|
+|m_canRotate|System.Boolean|True|
+|m_randomInitBuildRotation|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
+|m_allowRotatedOverlap|System.Boolean|False|
+|m_vegetationGroundOnly|System.Boolean|False|
+|m_blockRadius|System.Single|0|
+|m_connectRadius|System.Single|0|
+|m_mustBeAboveConnected|System.Boolean|False|
+|m_noVines|System.Boolean|False|
+|m_extraPlacementDistance|System.Int32|0|
+|m_harvest|System.Boolean|False|
+|m_harvestRadius|System.Single|0|
+|m_harvestRadiusMaxLevel|System.Single|0|
+|m_dlc|System.String||
+|m_returnResourceHeightOffset|System.Single|0.1|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
 ## CookedBoneMawSerpentMeat: CookedBoneMawSerpentMeat
 
 |Field|Type|Default Value|
@@ -12252,6 +12301,55 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|False|
 
+## piece_ArcheryTarget: piece_ArcheryTarget
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_targetNonPlayerBuilt|System.Boolean|True|
+|m_name|System.String|$piece_archerytarget|
+|m_description|System.String||
+|m_enabled|System.Boolean|True|
+|m_isUpgrade|System.Boolean|False|
+|m_comfort|System.Int32|0|
+|m_comfortObject|UnityEngine.GameObject|*null*|
+|m_groundPiece|System.Boolean|False|
+|m_allowAltGroundPlacement|System.Boolean|False|
+|m_groundOnly|System.Boolean|False|
+|m_cultivatedGroundOnly|System.Boolean|False|
+|m_waterPiece|System.Boolean|False|
+|m_clipGround|System.Boolean|False|
+|m_clipEverything|System.Boolean|False|
+|m_noInWater|System.Boolean|True|
+|m_notOnWood|System.Boolean|False|
+|m_notOnTiltingSurface|System.Boolean|False|
+|m_inCeilingOnly|System.Boolean|False|
+|m_notOnFloor|System.Boolean|True|
+|m_noClipping|System.Boolean|False|
+|m_onlyInTeleportArea|System.Boolean|False|
+|m_allowedInDungeons|System.Boolean|False|
+|m_spaceRequirement|System.Single|0|
+|m_repairPiece|System.Boolean|False|
+|m_removePiece|System.Boolean|False|
+|m_canRotate|System.Boolean|True|
+|m_randomInitBuildRotation|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
+|m_allowRotatedOverlap|System.Boolean|False|
+|m_vegetationGroundOnly|System.Boolean|False|
+|m_blockRadius|System.Single|0|
+|m_connectRadius|System.Single|0|
+|m_mustBeAboveConnected|System.Boolean|False|
+|m_noVines|System.Boolean|False|
+|m_extraPlacementDistance|System.Int32|0|
+|m_harvest|System.Boolean|False|
+|m_harvestRadius|System.Single|0|
+|m_harvestRadiusMaxLevel|System.Single|0|
+|m_dlc|System.String||
+|m_returnResourceHeightOffset|System.Single|1|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
 ## piece_artisanstation: piece_artisanstation
 
 |Field|Type|Default Value|
@@ -18230,6 +18328,55 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
+## piece_TrainingDummy: piece_TrainingDummy
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_targetNonPlayerBuilt|System.Boolean|True|
+|m_name|System.String|$piece_trainingdummy|
+|m_description|System.String||
+|m_enabled|System.Boolean|True|
+|m_isUpgrade|System.Boolean|False|
+|m_comfort|System.Int32|0|
+|m_comfortObject|UnityEngine.GameObject|*null*|
+|m_groundPiece|System.Boolean|False|
+|m_allowAltGroundPlacement|System.Boolean|False|
+|m_groundOnly|System.Boolean|False|
+|m_cultivatedGroundOnly|System.Boolean|False|
+|m_waterPiece|System.Boolean|False|
+|m_clipGround|System.Boolean|False|
+|m_clipEverything|System.Boolean|False|
+|m_noInWater|System.Boolean|True|
+|m_notOnWood|System.Boolean|False|
+|m_notOnTiltingSurface|System.Boolean|False|
+|m_inCeilingOnly|System.Boolean|False|
+|m_notOnFloor|System.Boolean|False|
+|m_noClipping|System.Boolean|False|
+|m_onlyInTeleportArea|System.Boolean|False|
+|m_allowedInDungeons|System.Boolean|False|
+|m_spaceRequirement|System.Single|0|
+|m_repairPiece|System.Boolean|False|
+|m_removePiece|System.Boolean|False|
+|m_canRotate|System.Boolean|True|
+|m_randomInitBuildRotation|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
+|m_allowRotatedOverlap|System.Boolean|False|
+|m_vegetationGroundOnly|System.Boolean|False|
+|m_blockRadius|System.Single|0|
+|m_connectRadius|System.Single|0|
+|m_mustBeAboveConnected|System.Boolean|False|
+|m_noVines|System.Boolean|False|
+|m_extraPlacementDistance|System.Int32|0|
+|m_harvest|System.Boolean|False|
+|m_harvestRadius|System.Single|0|
+|m_harvestRadiusMaxLevel|System.Single|0|
+|m_dlc|System.String||
+|m_returnResourceHeightOffset|System.Single|1|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
 ## piece_trap_troll: piece_trap_troll
 
 |Field|Type|Default Value|
@@ -19559,6 +19706,55 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_targetNonPlayerBuilt|System.Boolean|True|
 |m_name|System.String|$piece_rug_asksvin|
+|m_description|System.String||
+|m_enabled|System.Boolean|True|
+|m_isUpgrade|System.Boolean|False|
+|m_comfort|System.Int32|1|
+|m_comfortObject|UnityEngine.GameObject|*null*|
+|m_groundPiece|System.Boolean|False|
+|m_allowAltGroundPlacement|System.Boolean|False|
+|m_groundOnly|System.Boolean|False|
+|m_cultivatedGroundOnly|System.Boolean|False|
+|m_waterPiece|System.Boolean|False|
+|m_clipGround|System.Boolean|False|
+|m_clipEverything|System.Boolean|True|
+|m_noInWater|System.Boolean|False|
+|m_notOnWood|System.Boolean|False|
+|m_notOnTiltingSurface|System.Boolean|True|
+|m_inCeilingOnly|System.Boolean|False|
+|m_notOnFloor|System.Boolean|False|
+|m_noClipping|System.Boolean|False|
+|m_onlyInTeleportArea|System.Boolean|False|
+|m_allowedInDungeons|System.Boolean|False|
+|m_spaceRequirement|System.Single|0|
+|m_repairPiece|System.Boolean|False|
+|m_removePiece|System.Boolean|False|
+|m_canRotate|System.Boolean|True|
+|m_randomInitBuildRotation|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
+|m_allowRotatedOverlap|System.Boolean|False|
+|m_vegetationGroundOnly|System.Boolean|False|
+|m_blockRadius|System.Single|0|
+|m_connectRadius|System.Single|0|
+|m_mustBeAboveConnected|System.Boolean|False|
+|m_noVines|System.Boolean|False|
+|m_extraPlacementDistance|System.Int32|0|
+|m_harvest|System.Boolean|False|
+|m_harvestRadius|System.Single|0|
+|m_harvestRadiusMaxLevel|System.Single|0|
+|m_dlc|System.String||
+|m_returnResourceHeightOffset|System.Single|1|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|False|
+
+## rug_Bjorn: rug_Bjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_targetNonPlayerBuilt|System.Boolean|True|
+|m_name|System.String|$piece_rug_bjorn|
 |m_description|System.String||
 |m_enabled|System.Boolean|True|
 |m_isUpgrade|System.Boolean|False|
@@ -22347,6 +22543,55 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_randomTarget|System.Boolean|False|
 
 ## TreasureChest_meadows_buried: TreasureChest_meadows_buried
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_targetNonPlayerBuilt|System.Boolean|True|
+|m_name|System.String|Chest|
+|m_description|System.String||
+|m_enabled|System.Boolean|True|
+|m_isUpgrade|System.Boolean|False|
+|m_comfort|System.Int32|0|
+|m_comfortObject|UnityEngine.GameObject|*null*|
+|m_groundPiece|System.Boolean|False|
+|m_allowAltGroundPlacement|System.Boolean|False|
+|m_groundOnly|System.Boolean|False|
+|m_cultivatedGroundOnly|System.Boolean|False|
+|m_waterPiece|System.Boolean|False|
+|m_clipGround|System.Boolean|False|
+|m_clipEverything|System.Boolean|False|
+|m_noInWater|System.Boolean|True|
+|m_notOnWood|System.Boolean|False|
+|m_notOnTiltingSurface|System.Boolean|False|
+|m_inCeilingOnly|System.Boolean|False|
+|m_notOnFloor|System.Boolean|False|
+|m_noClipping|System.Boolean|False|
+|m_onlyInTeleportArea|System.Boolean|False|
+|m_allowedInDungeons|System.Boolean|False|
+|m_spaceRequirement|System.Single|0|
+|m_repairPiece|System.Boolean|False|
+|m_removePiece|System.Boolean|False|
+|m_canRotate|System.Boolean|True|
+|m_randomInitBuildRotation|System.Boolean|False|
+|m_canBeRemoved|System.Boolean|True|
+|m_canRockJade|System.Boolean|False|
+|m_allowRotatedOverlap|System.Boolean|False|
+|m_vegetationGroundOnly|System.Boolean|False|
+|m_blockRadius|System.Single|0|
+|m_connectRadius|System.Single|0|
+|m_mustBeAboveConnected|System.Boolean|False|
+|m_noVines|System.Boolean|False|
+|m_extraPlacementDistance|System.Int32|0|
+|m_harvest|System.Boolean|False|
+|m_harvestRadius|System.Single|0|
+|m_harvestRadiusMaxLevel|System.Single|0|
+|m_dlc|System.String||
+|m_returnResourceHeightOffset|System.Single|1|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|False|
+
+## TreasureChest_meadows_combat: TreasureChest_meadows_combat
 
 |Field|Type|Default Value|
 |-----|----|-------------|

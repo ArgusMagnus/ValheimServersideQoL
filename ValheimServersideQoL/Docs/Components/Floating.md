@@ -959,6 +959,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## MaceWood: MaceWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## MeadSwimmer: MeadSwimmer
 
 |Field|Type|Default Value|
@@ -1422,6 +1433,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearWolfFang: SpearWolfFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.4|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SpearWood: SpearWood
 
 |Field|Type|Default Value|
 |-----|----|-------------|

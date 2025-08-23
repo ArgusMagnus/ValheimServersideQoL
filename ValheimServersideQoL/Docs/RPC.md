@@ -3,6 +3,8 @@
 |Type|Method|Parameters|
 |----|------|----------|
 |AnimalAI|RPC_OnNearProjectileHit|Int64 sender, Vector3 center, Single range, ZDOID attacker|
+|ArcheryTarget|RPC_DropArrows|Int64 sender|
+|ArcheryTarget|RPC_ProjectileHit|Int64 sender, Int32 points, Int32 ammoIndex, Vector3 hitPoint|
 |ArmorStand|RPC_DestroyAttachment|Int64 sender, Int32 index|
 |ArmorStand|RPC_DropItem|Int64 sender, Int32 index|
 |ArmorStand|RPC_DropItemByName|Int64 sender, String name|
@@ -17,6 +19,7 @@
 |Catapult|RPC_OnLegUse|Int64 sender, Boolean value|
 |Catapult|RPC_SetLoadedVisual|Int64 sender, String name|
 |Catapult|RPC_Shoot|Int64 sender|
+|Character|RPC_AddAdrenaline|Int64 sender, Single amount|
 |Character|RPC_AddNoise|Int64 sender, Single range|
 |Character|RPC_Damage|Int64 sender, HitData hit|
 |Character|RPC_FreezeFrame|Int64 sender, Single duration|
@@ -69,7 +72,8 @@
 |ItemStand|RPC_DestroyAttachment|Int64 sender|
 |ItemStand|RPC_DropItem|Int64 sender|
 |ItemStand|RPC_RequestOwn|Int64 sender|
-|ItemStand|RPC_SetVisualItem|Int64 sender, String itemName, Int32 variant, Int32 quality|
+|ItemStand|RPC_SetVisualItem|Int64 sender, String itemName, Int32 variant, Int32 quality, Int32 orientation|
+|ItemStand|RPC_UpdateVisual|Int64 sender|
 |MapTable|RPC_MapData|Int64 sender, ZPackage pkg|
 |MasterClient|RPC_ServerList|ZRpc rpc, ZPackage pkg|
 |MaterialVariation|RPC_UpdateMaterial|Int64 sender, Int32 index|
@@ -79,6 +83,7 @@
 |MineRock5|RPC_Damage|Int64 sender, HitData hit, Int32 hitAreaIndex|
 |MineRock5|RPC_SetAreaHealth|Int64 sender, Int32 index, Single health|
 |MonsterAI|RPC_OnNearProjectileHit|Int64 sender, Vector3 center, Single range, ZDOID attackerID|
+|MonsterAI|RPC_Sleep|Int64 sender|
 |MonsterAI|RPC_Wakeup|Int64 sender|
 |MusicVolume|RPC_PlayMusic|Int64 sender|
 |OfferingBowl|RPC_BossSpawnInitiated|Int64 senderId|
@@ -87,6 +92,7 @@
 |Pickable|RPC_Pick|Int64 sender, Int32 bonus|
 |Pickable|RPC_SetPicked|Int64 sender, Boolean picked|
 |PickableItem|RPC_Pick|Int64 sender|
+|Player|RPC_HitWhileDodging|Int64 sender|
 |Player|RPC_Message|Int64 sender, Int32 type, String msg, Int32 amount|
 |Player|RPC_OnDeath|Int64 sender|
 |Player|RPC_OnTargeted|Int64 sender, Boolean sensed, Boolean alerted|
@@ -98,6 +104,7 @@
 |PrivateArea|RPC_TogglePermitted|Int64 uid, Int64 playerID, String name|
 |Projectile|RPC_Attach|Int64 sender, ZDOID parent|
 |Projectile|RPC_OnHit|Int64 sender|
+|Projectile|RPC_SetStayTTL|Int64 sender, Single sec|
 |RandEventSystem|RPC_ConsoleResetRandomEvent|Int64 sender|
 |RandEventSystem|RPC_ConsoleStartRandomEvent|Int64 sender|
 |RandEventSystem|RPC_SetEvent|Int64 sender, String eventName, Single time, Vector3 pos|
@@ -113,6 +120,7 @@
 |ShieldGenerator|RPC_AddFuel|Int64 sender|
 |ShieldGenerator|RPC_Attack|Int64 sender|
 |ShieldGenerator|RPC_HitNow|Int64 sender|
+|ShieldGenerator|RPC_SetFuel|Int64 sender, Single fuel|
 |Ship|RPC_Backward|Int64 sender|
 |Ship|RPC_Forward|Int64 sender|
 |Ship|RPC_Rudder|Int64 sender, Single value|
