@@ -515,7 +515,7 @@ sealed class PlayerProcessor : Processor
         {
             _playerStates.Add(zdo.GetOwner(), state = new(zdo, this));
             if (state.Rpc is not null)
-                _statesByRpc.Add(state.Rpc, state);
+                _statesByRpc[state.Rpc] = state;
             _players.Add(zdo.m_uid, zdo);
             _playersByID[state.PlayerID] = zdo;
             zdo.Destroyed += OnZdoDestroyed;

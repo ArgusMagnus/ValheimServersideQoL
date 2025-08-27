@@ -1,4 +1,5 @@
-### vNext (BEAT)
+### v1.2.2009 (BETA)
+- Fix: `ReassignOwnershipBasedOnConnectionQuality` no longer breaks interaction with pickables/trees/etc. [#119](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/119)
 - New features:
     - New option for tameables: `FedDurationMultiplier`
     - New option for tameables: `TamingTimeMultiplier`

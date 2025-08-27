@@ -38,11 +38,14 @@ sealed class ManageOwnerProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
+        if (!zdo.Persistent)
+            return false;
+
         UnregisterZdoProcessor = true;
+        long? owner = null;
         long? newOwner = null;
 
-        if (Config.Networking.MeasurePing.Value && Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value &&
-            zdo.Persistent && zdo.PrefabInfo is { Player: null })
+        if (Config.Networking.MeasurePing.Value && Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value)
         {
             UnregisterZdoProcessor = false;
             if (!_bestOwners.TryGetValue(zdo.GetSector(), out var bestOwner))
@@ -61,25 +64,14 @@ sealed class ManageOwnerProcessor : Processor
                 _bestOwners.Add(zdo.GetSector(), bestOwner);
             }
 
-            if ((bestOwner is not 0 && zdo.PreviousSetOwner == zdo.GetOwner()) || !HasValidOwner(zdo, peers))
+            owner = zdo.GetOwner();
+            if ((bestOwner is not 0 && zdo.PreviousSetOwner == owner) || !HasValidOwner(owner.Value, peers))
                 newOwner = bestOwner;
-
-            static bool HasValidOwner(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
-            {
-                if (!zdo.HasOwner())
-                    return false;
-                foreach (var peer in peers)
-                {
-                    if (zdo.GetOwner() == peer.m_uid)
-                        return true;
-                }
-                return false;
-            }
         }
 
-        if (peers.Count > 1 &&
+        if (peers.Count > 1 && (
             (Config.Networking.AssignInteractablesToClosestPlayer.Value && zdo.PrefabInfo is not { Smelter: null, CookingStation: null }) ||
-            (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed()))
+            (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed())))
         {
             UnregisterZdoProcessor = false;
             long closestOwner = 0;
@@ -100,10 +92,21 @@ sealed class ManageOwnerProcessor : Processor
                 newOwner = closestOwner;
         }
 
-        if (newOwner is not null)
+        if (newOwner is not null && (owner ??= zdo.GetOwner()) != newOwner.Value)
             zdo.SetOwner(newOwner.Value);
 
         return false;
+    }
 
+    static bool HasValidOwner(long owner, IReadOnlyList<Peer> peers)
+    {
+        if (owner is 0)
+            return false;
+        foreach (var peer in peers)
+        {
+            if (owner == peer.m_uid)
+                return true;
+        }
+        return false;
     }
 }
