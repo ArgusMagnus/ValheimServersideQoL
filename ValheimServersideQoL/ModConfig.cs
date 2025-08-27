@@ -10,6 +10,7 @@ namespace Valheim.ServersideQoL;
 
 sealed record ModConfig(ConfigFile ConfigFile)
 {
+    static readonly ConfigFile __dummyConfig = new("dummy", false) { SaveOnConfigSet = false };
     public GeneralConfig General { get; } = new(ConfigFile, "A - General");
     public SignsConfig Signs { get; } = new(ConfigFile, "B - Signs");
     public MapTableConfig MapTables { get; } = new(ConfigFile, "B - Map Tables");
@@ -494,6 +495,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
             "Percentage of players that must be in bed or sitting to skip the night", new AcceptableValueRange<int>(0, 100));
         public ConfigEntry<MessageHud.MessageType> SleepPromptMessageType { get; } = cfg.BindEx(section, MessageHud.MessageType.Center,
             "Type of message to show for the sleep prompt", AcceptableEnum<MessageHud.MessageType>.Default);
+
+        public ConfigEntry<bool> PauseWhenSitting { get; } = __dummyConfig.BindEx(section, false, "");
     }
 
     public sealed class TradersConfig(ConfigFile cfg, string section)

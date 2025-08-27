@@ -28,6 +28,7 @@ sealed class PlayerProcessor : Processor
         string? _playerName;
         public string PlayerName => _playerName ??= PlayerZDO.Vars.GetPlayerName();
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
+        public DateTimeOffset? SittingSince { get; set; }
         public Vector3? InitialInInteriorPosition { get; set; }
         public TimeSpan? LastPing { get; private set; }
         public TimeSpan? PingMean { get; private set; }
@@ -36,7 +37,7 @@ sealed class PlayerProcessor : Processor
         public float ConnectionQuality { get; private set; }
 
         readonly List<TimeSpan> _pingHistory = [];
-        DateTimeOffset _pingStart;
+        DateTimeOffset? _pingStart;
 
         public static void ReceivePingPrefix(ZRpc __instance, ZPackage package)
         {
@@ -165,6 +166,8 @@ sealed class PlayerProcessor : Processor
 
     readonly MethodInfo _everybodyIsTryingToSleepMethod = typeof(Game).GetMethod("EverybodyIsTryingToSleep", BindingFlags.NonPublic | BindingFlags.Instance);
     readonly MethodInfo _everybodyIsTryingToSleepPrefix = ((Delegate)EverybodyIsTryingToSleepPrefix).Method;
+    readonly MethodInfo _updateNetTimeMethod = typeof(ZNet).GetMethod("UpdateNetTime", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+    readonly MethodInfo _updateNetTimePrefix = ((Delegate)UpdateNetTimePefix).Method;
     readonly MethodInfo _receivePingMethod = typeof(ZRpc).GetMethod("ReceivePing", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
     readonly MethodInfo _receivePingPefix = ((Delegate)PlayerState.ReceivePingPrefix).Method;
     readonly MethodInfo _sendPackageMethod = typeof(ZRpc).GetMethod("SendPackage", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
@@ -188,6 +191,10 @@ sealed class PlayerProcessor : Processor
         Main.HarmonyInstance.Unpatch(_everybodyIsTryingToSleepMethod, _everybodyIsTryingToSleepPrefix);
         if (Config.Sleeping.MinPlayersInBed.Value > 0)
             Main.HarmonyInstance.Patch(_everybodyIsTryingToSleepMethod, prefix: new(_everybodyIsTryingToSleepPrefix));
+
+        Main.HarmonyInstance.Unpatch(_updateNetTimeMethod, _updateNetTimePrefix);
+        if (Config.Sleeping.PauseWhenSitting.Value)
+            Main.HarmonyInstance.Patch(_updateNetTimeMethod, prefix: new(_updateNetTimePrefix));
 
         Main.HarmonyInstance.Unpatch(_receivePingMethod, _receivePingPefix);
         Main.HarmonyInstance.Unpatch(_sendPackageMethod, _sendPackagePrefix);
@@ -539,13 +546,21 @@ sealed class PlayerProcessor : Processor
         else if (Config.Players.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill)
             RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
 
-        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
+        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote || Config.Sleeping.PauseWhenSitting.Value)
         {
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
             {
                 state.LastEmoteId = emoteId;
-                if (Config.Players.StackInventoryIntoContainersEmote.Value is ModConfig.PlayersConfig.AnyEmote || zdo.Vars.GetEmote() == Config.Players.StackInventoryIntoContainersEmote.Value)
+                var emote = zdo.Vars.GetEmote();
+
+                if (emote is Emotes.Sit)
+                    state.SittingSince ??= DateTimeOffset.UtcNow;
+                else
+                    state.SittingSince = null;
+
+                if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote &&
+                    (Config.Players.StackInventoryIntoContainersEmote.Value is ModConfig.PlayersConfig.AnyEmote || emote == Config.Players.StackInventoryIntoContainersEmote.Value))
                 {
                     Dictionary<SharedItemDataKey, ItemDrop.ItemData>? items = null;
                     foreach (var containerZdo in Instance<ContainerProcessor>().Containers)
@@ -683,5 +698,33 @@ sealed class PlayerProcessor : Processor
             $"{total} of {_playerStates.Count} players want to sleep.<br>Sit down if you want to sleep as well");
 
         return false;
+    }
+
+    DateTimeOffset _lastPauseMessage;
+
+    static bool UpdateNetTimePefix()
+    {
+        var instance = Instance<PlayerProcessor>();
+        if (instance._playerStates.Count is 0)
+            return true;
+
+        var t = DateTimeOffset.UtcNow.AddSeconds(-1);
+        var pause = true;
+        foreach (var state in instance._playerStates.Values)
+        {
+            if (!(state.SittingSince < t))
+            {
+                pause = false;
+                break;
+            }
+        }
+
+        if (pause && instance._lastPauseMessage < t)
+        {
+            RPC.ShowMessage(ZRoutedRpc.Everybody, MessageHud.MessageType.Center, "Paused");
+            instance._lastPauseMessage = DateTimeOffset.UtcNow;
+        }
+
+        return !pause;
     }
 }
