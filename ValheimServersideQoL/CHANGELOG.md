@@ -1,3 +1,6 @@
+### vNext (BETA)
+- Fix: Mod stops functioning after death in multiplayer [#123](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/123)
+
 ### v1.2.2009 (BETA)
 - Fix: `ReassignOwnershipBasedOnConnectionQuality` no longer breaks interaction with pickables/trees/etc. [#119](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/119)
 - New features:

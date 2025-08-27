@@ -10,6 +10,7 @@ sealed class PlayerProcessor : Processor
         ExtendedZDO PlayerZDO { get; }
         long PlayerID { get; }
         string PlayerName { get; }
+        bool IsAdmin { get; }
         float ConnectionQuality { get; }
         //TimeSpan? LastPing { get; }
         //TimeSpan? PingMean { get; }
@@ -21,12 +22,15 @@ sealed class PlayerProcessor : Processor
     {
         readonly PlayerProcessor _processor = processor;
         public ExtendedZDO PlayerZDO { get; } = playerZDO;
-        public ZRpc? Rpc { get; } = ZNet.instance.GetPeer(playerZDO.GetOwner())?.m_rpc;
+        readonly ZNetPeer? _peer = ZNet.instance.GetPeer(playerZDO.GetOwner());
+        public ZRpc? Rpc => _peer?.m_rpc;
         //public bool IsServer => PlayerZDO.GetOwner() == ZDOMan.GetSessionID();
         long? _playerID;
         public long PlayerID => _playerID ??= PlayerZDO.Vars.GetPlayerID();
         string? _playerName;
         public string PlayerName => _playerName ??= PlayerZDO.Vars.GetPlayerName();
+        bool? _isAdmin;
+        public bool IsAdmin => _isAdmin ??= (Player.m_localPlayer?.GetZDOID() == PlayerZDO.m_uid || ZNet.instance.IsAdmin(_peer?.m_socket.GetHostName() ?? ""));
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
         public Vector3? InitialInInteriorPosition { get; set; }
         public TimeSpan? LastPing { get; private set; }

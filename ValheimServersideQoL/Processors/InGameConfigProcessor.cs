@@ -15,8 +15,6 @@ sealed class InGameConfigProcessor : Processor
     internal const string PortalHubTag = $"{Main.PluginName} Portal Hub";
     const float FloorOffset = 5;
 
-    readonly Dictionary<ZDOID, (ExtendedZDO Player, bool IsAdmin)> _isAdmin = [];
-
     sealed record ConfigState(ConfigEntryBase Entry, object? Value, ExtendedZDO Sign)
     {
         public bool CandleState { get; set; }
@@ -50,7 +48,6 @@ sealed class InGameConfigProcessor : Processor
         if (!firstTime)
             return;
 
-        _isAdmin.Clear();
         _portalSigns.Clear();
         _candleToggles.Clear();
         _configBySign.Clear();
@@ -417,30 +414,21 @@ sealed class InGameConfigProcessor : Processor
         
         if (zdo.PrefabInfo.Player is not null)
         {
-            Peer peer = default;
-            bool isAdmin;
-            if (_isAdmin.TryGetValue(zdo.m_uid, out var entry))
-                isAdmin = entry.IsAdmin;
-            else
+            if (Instance<PlayerProcessor>().GetPeerInfo(zdo.GetOwner()) is not { } peerInfo)
+                return false;
+
+            if (peerInfo.IsAdmin)
             {
-                if (peer.IsDefault)
-                    peer = peers.First(x => x.m_characterID == zdo.m_uid);
-                isAdmin = Player.m_localPlayer?.GetZDOID() == zdo.m_uid || ZNet.instance.IsAdmin(peer.GetHostName());
-                _isAdmin.Add(zdo.m_uid, (zdo, isAdmin));
-                zdo.Destroyed += x => _isAdmin.Remove(x.m_uid);
-                if (isAdmin)
-                    UnregisterZdoProcessor = true;
+                UnregisterZdoProcessor = true;
+                return false;
             }
 
-            if (!isAdmin && Character.InInterior(zdo.GetPosition()) &&
-                zdo.GetSector() == ZoneSystem.GetZone(_offset.WorldSpawn))
+            if (Character.InInterior(zdo.GetPosition()) && zdo.GetSector() == ZoneSystem.GetZone(_offset.WorldSpawn))
             {
-                if (peer.IsDefault)
-                    peer = peers.First(x => x.m_characterID == zdo.m_uid);
                 /// <see cref="Game.FindSpawnPoint">
                 var pos = _offset.WorldSpawn + Vector3.up * 2f;
-                RPC.TeleportPlayer(peer, pos, zdo.GetRotation(), false);
-                RPC.ShowMessage(peer, MessageHud.MessageType.Center, "$piece_noaccess");
+                RPC.TeleportPlayer(zdo, pos, zdo.GetRotation(), false);
+                RPC.ShowMessage(zdo.GetOwner(), MessageHud.MessageType.Center, "$piece_noaccess");
             }
             return false;
         }
@@ -560,7 +548,7 @@ sealed class InGameConfigProcessor : Processor
                 try { entry.BoxedValue = TomlTypeConverter.ConvertToValue(text, entry.SettingType); }
                 catch (Exception)
                 {
-                    RPC.ShowMessage(peers.Where(x => _isAdmin.TryGetValue(x.m_characterID, out var y) && y.IsAdmin),
+                    RPC.ShowMessage(peers.Where(static x => Instance<PlayerProcessor>().GetPeerInfo(x.m_uid) is { IsAdmin: true }),
                         MessageHud.MessageType.Center, "$invalid_keybind_header");
                 }
                 zdo.Vars.SetText(GetSignText(entry));
