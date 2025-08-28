@@ -170,17 +170,17 @@ sealed class ExtendedZDO : ZDO
         return zdo;
     }
 
-    public long PreviousSetOwner { get; private set; }
+    public DateTimeOffset OwnerTimestamp { get; private set; }
 
     public new void SetOwner(long uid)
     {
-        PreviousSetOwner = uid;
+        OwnerTimestamp = DateTimeOffset.UtcNow;
         base.SetOwner(uid);
     }
 
     public new void SetOwnerInternal(long uid)
     {
-        PreviousSetOwner = uid;
+        OwnerTimestamp = DateTimeOffset.UtcNow;
         base.SetOwnerInternal(uid);
     }
 
