@@ -1,5 +1,6 @@
-### vNext (BETA)
+### v1.2.2012 (BETA)
 - Fix: Mod stops functioning after death in multiplayer [#123](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/123)
+- Fix: Teleport metal does not register when a boss is defeated until server restart [#125](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/125)
 - Tweaked `ReassignOwnershipBasedOnConnectionQuality`
 
 ### v1.2.2009 (BETA)

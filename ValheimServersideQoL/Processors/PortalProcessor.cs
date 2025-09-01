@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using static UnityEngine.Random;
+using Valheim.ServersideQoL.HarmonyPatches;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -42,6 +42,22 @@ sealed class PortalProcessor : Processor
             }
         }
 
+        _rangeSqr = Config.NonTeleportableItems.PortalRange.Value;
+        _rangeSqr *= _rangeSqr;
+
+        ZoneSystemSendGlobalKeys.GlobalKeysChanged -= InitializePortableItems;
+        InitializePortableItems();
+        if (Config.NonTeleportableItems.Enable.Value)
+            ZoneSystemSendGlobalKeys.GlobalKeysChanged += InitializePortableItems;
+
+        if (!firstTime)
+            return;
+
+        _containers.Clear();
+    }
+
+    void InitializePortableItems()
+    {        
         _teleportableItems.Clear();
         if (Config.NonTeleportableItems.Enable.Value && !ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
         {
@@ -54,14 +70,6 @@ sealed class PortalProcessor : Processor
                     _teleportableItems.Add(entry.ItemDrop);
             }
         }
-
-        _rangeSqr = Config.NonTeleportableItems.PortalRange.Value;
-        _rangeSqr *= _rangeSqr;
-
-        if (!firstTime)
-            return;
-
-        _containers.Clear();
     }
 
     void OnInitialPortalDestroyed(ExtendedZDO zdo)

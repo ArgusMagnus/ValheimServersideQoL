@@ -671,6 +671,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             Requires '{nameof(MeasurePing)}' to be enabled.
             The connection with the lowest connection quality value is chosen as the best connection,
             where connection quality = ping mean * {nameof(ConnectionQualityPingMeanWeight)} + ping stddev * {nameof(ConnectionQualityPingStdDevWeight)} + ping jitter * {nameof(ConnectionQualityPingJitterWeight)}
+            WARNING: This feature is highly experimental and is likely to cause issues/interfere with other features
             """);
         public ConfigEntry<float> ConnectionQualityPingMeanWeight { get; } = cfg.BindEx(section, 1f,
             "Weight of ping mean when calculating connection quality");
