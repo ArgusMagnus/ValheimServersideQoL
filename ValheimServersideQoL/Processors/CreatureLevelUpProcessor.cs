@@ -11,7 +11,7 @@ sealed class CreatureLevelUpProcessor : Processor
 {
     readonly Dictionary<Biome, int> _levelIncreasePerBiome = [];
     readonly Dictionary<Vector2i, SectorState> _sectorStates = [];
-    readonly Dictionary<(Biome, BiomeArea, int Prefab), List<SpawnSystemData>> _spawnData = [];
+    readonly Dictionary<(Biome, int Prefab), List<SpawnSystemData>> _spawnData = [];
     readonly Dictionary<string, EventInfo> _spawnDataByEvent = [];
 
     record SpawnData(int Prefab, int MinLevel, int MaxLevel, float LevelUpChance);
@@ -81,16 +81,10 @@ sealed class CreatureLevelUpProcessor : Processor
                 if (!spawner.m_biome.HasFlag(biome))
                     continue;
 
-                foreach (var biomeArea in ModConfig.AcceptableEnum<BiomeArea>.Default.AcceptableValues)
-                {
-                    if (!spawner.m_biomeArea.HasFlag(biomeArea))
-                        continue;
-
-                    var prefab = spawner.m_prefab.name.GetStableHashCode();
-                    if (!_spawnData.TryGetValue((biome, biomeArea, prefab), out var list))
-                        _spawnData.Add((biome, biomeArea, prefab), list = []);
-                    list.Add(new(spawner));
-                }
+                var prefab = spawner.m_prefab.name.GetStableHashCode();
+                if (!_spawnData.TryGetValue((biome, prefab), out var list))
+                    _spawnData.Add((biome, prefab), list = []);
+                list.Add(new(spawner));
             }
         }
 
@@ -130,7 +124,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 var biome = (Biome)zdo.Vars.GetLevel();
                 if (biome is 0)
                 {
-                    biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
+                    biome = GetBiome(zdo.GetPosition());
                     if (RandEventSystem.instance.GetCurrentEvent() is { } currentEvent &&
                         GetEventInfo(currentEvent, out var eventInfo) &&
                         eventInfo.SpawnAreas.Contains(zdo.GetPrefab()))
@@ -185,7 +179,7 @@ sealed class CreatureLevelUpProcessor : Processor
         var increase = Config.Creatures.MaxLevelIncrease.Value;
         if (Config.Creatures.MaxLevelIncreasePerDefeatedBoss.Value > 0)
         {
-            var biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
+            var biome = GetBiome(zdo.GetPosition());
             if (_levelIncreasePerBiome.TryGetValue(biome, out var value))
                 increase += value;
         }
@@ -199,16 +193,19 @@ sealed class CreatureLevelUpProcessor : Processor
         if (fields.SetIfChanged(static x => x.m_maxLevel, maxLevel))
             RecreateZdo = true;
 
+        var chance = zdo.PrefabInfo.CreatureSpawner.m_levelupChance;
         var steps = maxLevel - zdo.PrefabInfo.CreatureSpawner.m_minLevel;
-        if (steps is 0)
-            return;
+        if (steps > 0)
+        {
+            chance /= 100f;
+            if (zdo.PrefabInfo.CreatureSpawner.m_maxLevel > zdo.PrefabInfo.CreatureSpawner.m_minLevel)
+                chance = Mathf.Pow(chance, zdo.PrefabInfo.CreatureSpawner.m_maxLevel - zdo.PrefabInfo.CreatureSpawner.m_minLevel);
+            chance = Mathf.Pow(chance, 1f / steps) * 100f;
+            if (fields.SetIfChanged(static x => x.m_levelupChance, chance))
+                RecreateZdo = true;
+        }
 
-        var chance = zdo.PrefabInfo.CreatureSpawner.m_levelupChance / 100f;
-        if (zdo.PrefabInfo.CreatureSpawner.m_maxLevel > zdo.PrefabInfo.CreatureSpawner.m_minLevel)
-            chance = Mathf.Pow(chance, zdo.PrefabInfo.CreatureSpawner.m_maxLevel - zdo.PrefabInfo.CreatureSpawner.m_minLevel);
-        chance = Mathf.Pow(chance, 1f / steps) * 100f;
-        if (fields.SetIfChanged(static x => x.m_levelupChance, chance))
-            RecreateZdo = true;
+        //Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: max: {maxLevel} (+{increase}), chance: {chance:F2}%");
     }
 
     void LevelUpCharacter<T>(ExtendedZDO zdo) where T : Character
@@ -246,15 +243,18 @@ sealed class CreatureLevelUpProcessor : Processor
         if (initialLevel <= 0)
             return;
 
+        var pos = zdo.Vars.GetSpawnPoint(zdo.GetPosition());
+
         var increase = Config.Creatures.MaxLevelIncrease.Value;
         SpawnData spawnData;
+        Biome biome;
 
         if (zdo.PrefabInfo.Humanoid is { Humanoid.m_boss: true })
         {
             if (!Config.Creatures.LevelUpBosses.Value)
                 return;
             spawnData = new(zdo.GetPrefab(), 1, 1, 0);
-            if (_levelIncreasePerBiome.TryGetValue(WorldGenerator.instance.GetBiome(zdo.GetPosition()), out var value))
+            if (_levelIncreasePerBiome.TryGetValue(biome = GetBiome(pos), out var value))
                 increase += value;
         }
         else if (zdo.Vars.GetEventCreature())
@@ -275,27 +275,26 @@ sealed class CreatureLevelUpProcessor : Processor
             }
 
             spawnData = spawnSystemData;
-            if (_levelIncreasePerBiome.TryGetValue(eventInfo.Biome, out var value))
+            if (_levelIncreasePerBiome.TryGetValue(biome = eventInfo.Biome, out var value))
                 increase += value;
         }
         else if (state is not null && state.SpawnAreasBySpawned.TryGetValue(zdo.GetPrefab(), out var spawnAreas) &&
-            spawnAreas.FirstOrDefault(x => Vector3.Distance(x.Position, zdo.GetPosition()) <= x.Radius) is { } spawnAreaData)
+            spawnAreas.FirstOrDefault(x => Vector3.Distance(x.Position, pos) <= x.Radius) is { } spawnAreaData)
         {
             spawnData = spawnAreaData;
-            if (_levelIncreasePerBiome.TryGetValue(spawnAreaData.Biome, out var value))
+            if (_levelIncreasePerBiome.TryGetValue(biome = spawnAreaData.Biome, out var value))
                 increase += value;
         }
         else
         {
-            var biome = WorldGenerator.instance.GetBiome(zdo.GetPosition());
-            var biomeArea = WorldGenerator.instance.GetBiomeArea(zdo.GetPosition());
+            biome = GetBiome(pos);
             float? distanceFromCenter = null;
-            if (!_spawnData.TryGetValue((biome, biomeArea, zdo.GetPrefab()), out var spawnDataList) ||
-                spawnDataList.FirstOrDefault(x => IsValidSpawnData(x, distanceFromCenter ??= Utils.LengthXZ(zdo.GetPosition()))) is not { } spawnSystemData)
+            if (!_spawnData.TryGetValue((biome, zdo.GetPrefab()), out var spawnDataList) ||
+                spawnDataList.FirstOrDefault(x => IsValidSpawnData(x, distanceFromCenter ??= Utils.LengthXZ(pos))) is not { } spawnSystemData)
             {
                 var spawnListStr = spawnDataList is null ? "" : string.Join($"{Environment.NewLine}  ", spawnDataList.Select(static x =>
-                $"{x.Data.m_prefab.name} ({x.Prefab}): {x.Data.m_biome} ({x.Data.m_biomeArea}), day: {x.Data.m_spawnAtDay}, night: {x.Data.m_spawnAtNight}").Prepend(""));
-                Logger.LogWarning($"{zdo.PrefabInfo.PrefabName} ({zdo.GetPrefab()}): Spawn source not found in {biome} ({biomeArea}), day: {EnvMan.IsDay()}, night: {EnvMan.IsNight()}){spawnListStr}");
+                $"{x.Data.m_prefab.name} ({x.Prefab}): {x.Data.m_biome}, day: {x.Data.m_spawnAtDay}, night: {x.Data.m_spawnAtNight}").Prepend(""));
+                Logger.LogWarning($"{zdo.PrefabInfo.PrefabName} ({zdo.GetPrefab()}): Spawn source not found in {biome}, day: {EnvMan.IsDay()}, night: {EnvMan.IsNight()}){spawnListStr}");
                 return;
             }
 
@@ -325,7 +324,7 @@ sealed class CreatureLevelUpProcessor : Processor
         if (level == initialLevel)
             return;
 
-        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Set level {initialLevel} -> {level} (max: {maxLevel} (+{increase}), chance: {chance:F2}%)");
+        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Set level {initialLevel} -> {level} (min: {spawnData.MinLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
         zdo.Vars.SetLevel(level);
         RecreateZdo = true;
     }
@@ -347,14 +346,27 @@ sealed class CreatureLevelUpProcessor : Processor
     {
         if (!_spawnDataByEvent.TryGetValue(currentEvent.m_name, out eventInfo))
         {
-            var biome = SharedProcessorState.BossesByBiome.FirstOrDefault(x => currentEvent.m_notRequiredGlobalKeys.Contains(x.Value.m_defeatSetGlobalKey)).Key;
-            if (biome == default)
-                biome = SharedProcessorState.BossesByBiome.FirstOrDefault(x => currentEvent.m_requiredGlobalKeys.Contains(x.Value.m_defeatSetGlobalKey)).Key;
-            if (biome == default)
+            var biome = Biome.None;
+            foreach (var (b, boss) in SharedProcessorState.BossesByBiome.OrderBy(static x => x.Value.m_health))
+            {
+                if (biome is Biome.None)
+                {
+                    if (currentEvent.m_requiredGlobalKeys.Contains(boss.m_defeatSetGlobalKey))
+                        biome = b;
+                }
+                else // one biome higher than the boss that enabled the event
+                {
+                    biome = b;
+                    break;
+                }
+            }
+
+            if (biome is Biome.None)
             {
                 Logger.LogWarning($"Associated boss for event {currentEvent.m_name} not found");
                 return false;
             }
+
             Logger.DevLog($"Event {currentEvent.m_name}: {biome}");
             eventInfo = new(biome);
             _spawnDataByEvent.Add(currentEvent.m_name, eventInfo);

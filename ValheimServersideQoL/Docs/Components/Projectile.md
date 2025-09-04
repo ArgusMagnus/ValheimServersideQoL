@@ -4809,7 +4809,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
-|m_adrenaline|System.Single|2|
+|m_adrenaline|System.Single|0|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4873,7 +4873,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0.6|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
-|m_adrenaline|System.Single|0.5|
+|m_adrenaline|System.Single|0|
 |m_attackForce|System.Single|100|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -4937,7 +4937,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|3|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
-|m_adrenaline|System.Single|5|
+|m_adrenaline|System.Single|0|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||
@@ -5065,7 +5065,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_aoe|System.Single|0|
 |m_dodgeable|System.Boolean|True|
 |m_blockable|System.Boolean|True|
-|m_adrenaline|System.Single|2|
+|m_adrenaline|System.Single|1|
 |m_attackForce|System.Single|0|
 |m_backstabBonus|System.Single|4|
 |m_statusEffect|System.String||

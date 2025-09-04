@@ -26,11 +26,11 @@ abstract class Processor
         .OrderByDescending(static x => x.GetCustomAttribute<ProcessorAttribute>()?.Priority ?? 0)
         .Select(static x => (Processor)Activator.CreateInstance(x))];
 
-    static class InstanceCache<T> where T : Processor
+    static class InstanceCache<T> where T : Processor, new()
     {
         public static T Instance { get; } = DefaultProcessors.OfType<T>().First();
     }
-    public static T Instance<T>() where T : Processor => InstanceCache<T>.Instance;
+    public static T Instance<T>() where T : Processor, new() => InstanceCache<T>.Instance;
 
     protected ManualLogSource Logger => Main.Instance.Logger;
     protected ModConfig Config => Main.Instance.Config;
@@ -186,6 +186,9 @@ abstract class Processor
         zdo.Destroy();
     }
 
+    protected static Heightmap GetHeightmap(Vector3 pos) => Heightmap.FindHeightmap(pos) ?? SharedProcessorState.CreateHeightmap(pos);
+    protected static Heightmap.Biome GetBiome(Vector3 pos) => GetHeightmap(pos).GetBiome(pos);
+
     protected static string ConvertToRegexPattern(string searchPattern)
     {
         searchPattern = Regex.Escape(searchPattern);
@@ -326,7 +329,7 @@ abstract class Processor
 
     protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
     {
-        Main.Instance.Logger.DevLog($"ShowMessage: {message}", LogLevel.Info);
+        //Main.Instance.Logger.DevLog($"ShowMessage: {message}", LogLevel.Info);
         switch (type)
         {
             case MessageTypes.TopLeftNear:

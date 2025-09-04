@@ -45,6 +45,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
+|m_enemyAdrenalineMultiplier|System.Single|1|
 |m_heatBuildupBase|System.Single|1.5|
 |m_heatCooldownBase|System.Single|1|
 |m_heatBuildupWater|System.Single|2|
@@ -103,6 +104,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
+|m_enemyAdrenalineMultiplier|System.Single|1|
 |m_heatBuildupBase|System.Single|1.5|
 |m_heatCooldownBase|System.Single|1|
 |m_heatBuildupWater|System.Single|2|
@@ -161,6 +163,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0|
+|m_enemyAdrenalineMultiplier|System.Single|1|
 |m_heatBuildupBase|System.Single|1.5|
 |m_heatCooldownBase|System.Single|1|
 |m_heatBuildupWater|System.Single|2|

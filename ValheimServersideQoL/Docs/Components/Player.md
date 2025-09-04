@@ -35,7 +35,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_perfectDodgeStaminaReturnMultiplier|System.Single|0.5|
 |m_attackMissAdrenaline|System.Single|0|
 |m_nonBlockDamageAdrenaline|System.Single|0|
-|m_staggerEnemyAdrenaline|System.Single|5|
+|m_staggerEnemyAdrenaline|System.Single|3|
 |m_eiterRegen|System.Single|2|
 |m_eitrRegenDelay|System.Single|1|
 |m_guardianPowerCooldown|System.Single|0|
@@ -83,6 +83,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_regenAllHPTime|System.Single|3600|
 |m_staggerWhenBlocked|System.Boolean|True|
 |m_staggerDamageFactor|System.Single|0.4|
+|m_enemyAdrenalineMultiplier|System.Single|1|
 |m_heatBuildupBase|System.Single|2.5|
 |m_heatCooldownBase|System.Single|1|
 |m_heatBuildupWater|System.Single|0.025|

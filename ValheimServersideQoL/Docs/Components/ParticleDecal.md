@@ -96,13 +96,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_chance|System.Single|100|
+|m_chance|System.Single|10|
 
 ## fx_gjall_death: drops-withdecals
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_chance|System.Single|10|
+|m_chance|System.Single|100|
 
 ## fx_gjall_egg_splat: drops-withdecals
 

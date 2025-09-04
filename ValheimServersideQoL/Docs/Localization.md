@@ -1890,7 +1890,7 @@
 |item_trinketflametalstaminahealth|Brimstone|
 |item_trinketflametalstaminahealth_description|It's warm, as if filled with a lifesblood of its own.|
 |item_trinketironhealth|Iron Brooch|
-|item_trinketironhealth_description|A delicate yet defensive acecssory.|
+|item_trinketironhealth_description|A delicate yet defensive accessory.|
 |item_trinketironstamina|Nimble Anklet|
 |item_trinketironstamina_description|Puts a spring in your step!|
 |item_trinketscalestaminadamage|Resounding Shackle|
@@ -2092,7 +2092,7 @@
 |item_turretboltwood_description|Sturdy wooden missiles that can provide a tough defense against foes.|
 |item_twohanded|Two-handed|
 |item_UndeadBjornRibcage|Vile Ribcage|
-|item_UndeadBjornRibcage_description|A relic of savage strength, perfect for forging armor that bears the wild’s fury.|
+|item_UndeadBjornRibcage_description|A relic of savage strength, perfect for forging armour that bears the wild’s fury.|
 |item_utility|Utility item|
 |item_value|Value|
 |item_vineberry|Vineberry Cluster|
@@ -2556,6 +2556,8 @@
 |menu_ugcwarningheader|User generated content blocked|
 |menu_ugcwarningtext|Your platform privilege settings prevent you from viewing user generated content. Text from other players will be heavily filtered.|
 |menu_upgrade_tab|UPGRADE|
+|menu_vulkancrashwarning_header|Valheim might crash on your system when using Vulkan|
+|menu_vulkancrashwarning_text|You're currently using Vulkan. We're investigating a known crash when using Vulkan on certain systems, and your system has been detected as potentially being affected. If you experience stability issues, please use the default rendering API instead (DirectX 11). Sorry for the inconvenience!|
 |menu_worldnametip|5 characters minimum|
 |menu_worlds|Worlds|
 |menu_yes|Yes|
@@ -3452,7 +3454,7 @@
 |piece_tombstone|Here rests|
 |piece_tombstone_recovered|Items recovered|
 |piece_toofar|Too far|
-|piece_trainingdummy|Battle Brother|
+|piece_trainingdummy|T.W.I.G.|
 |piece_trap|Trap|
 |piece_trap_arm|Arm trap|
 |piece_trap_armed|Armed|
@@ -3583,7 +3585,7 @@
 |raven_interact|Talk|
 |rock_abyssalbarnacle|Abyssal Barnacle|
 |rotate_build_mode|Rotate (build mode)|
-|se_adrenaline|Adrenaline use|
+|se_adrenaline|Adrenaline gain|
 |se_adrenaline_upfront|Adrenaline gain|
 |se_adrenalinerush|Adrenaline Rush|
 |se_adrenalinerush_tooltip|The adrenaline surges through you|
@@ -3596,7 +3598,7 @@
 |se_berserker_undead_effect_tooltip|Increases damage and regeneration, but weakens you against physical damage.|
 |se_berserkereffect_name|Berserk|
 |se_berserkerteffect_tooltip|Increases damage and regeneration, but weakens you against physical damage.|
-|se_blockstamina|Block stamina usage|
+|se_blockstamina|Block stamina cost|
 |se_blockstaminaflat|Block stamina use|
 |se_blockstaminaflat_minus|Block stamina return|
 |se_bonemass_name|Bonemass|
@@ -3765,7 +3767,7 @@
 |se_trinketflametalstaminahealth|Brimstone|
 |se_trinketflametalstaminahealth_description|A quick burst of both health and stamina regeneration.|
 |se_trinketironhealth|Iron Brooch|
-|se_trinketironhealth_description|Increased armor and a quick burst of health regeneration.|
+|se_trinketironhealth_description|Increased armour and a quick burst of health regeneration.|
 |se_trinketironstamina|Nimble Anklet|
 |se_trinketironstamina_description|Increased run speed and a quick burst of stamina regeneration.|
 |se_trinketscalestaminadamage|Resounding Shackle|

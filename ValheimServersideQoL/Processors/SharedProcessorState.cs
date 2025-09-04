@@ -183,4 +183,38 @@ static class SharedProcessorState
             //return null;
         }
     }
+
+    static readonly List<(Vector2i ZoneId, GameObject Root)> _zoneRoots = [];
+
+    public static Heightmap CreateHeightmap(Vector2i zoneId)
+    {
+        var zonePos = ZoneSystem.GetZonePos(zoneId);
+        //Main.Instance.Logger.DevLog($"Creating hmap for {zoneId}");
+        var root = UnityEngine.Object.Instantiate(ZoneSystem.instance.m_zonePrefab, zonePos, Quaternion.identity);
+        _zoneRoots.Add((zoneId, root));
+        return root.GetComponentInChildren<Heightmap>();
+    }
+
+    public static Heightmap CreateHeightmap(Vector3 refPos) => CreateHeightmap(ZoneSystem.GetZone(refPos));
+
+    static DateTimeOffset __nextCleanup;
+
+    public static void CleanUp(IEnumerable<Peer> peers)
+    {
+        if (__nextCleanup > DateTimeOffset.UtcNow)
+            return;
+
+        for (int i = _zoneRoots.Count - 1; i >= 0; i--)
+        {
+            var (zone, root) = _zoneRoots[i];
+            if (peers.Any(x => ZNetScene.InActiveArea(zone, x.m_refPos)))
+                continue;
+
+            //Main.Instance.Logger.DevLog($"Destroying hmap for {zone}");
+            _zoneRoots.RemoveAt(i);
+            UnityEngine.Object.Destroy(root);
+        }
+
+        __nextCleanup = DateTimeOffset.UtcNow.AddSeconds(2);
+    }
 }
