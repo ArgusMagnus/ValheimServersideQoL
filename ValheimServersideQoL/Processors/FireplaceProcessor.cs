@@ -34,7 +34,7 @@ sealed class FireplaceProcessor : Processor
         if (_enclosure.Remove(zdo, out var enclosures))
         {
             foreach (var piece in enclosures)
-                DestroyPiece(piece);
+                DestroyObject(piece);
         }
     }
 
@@ -97,7 +97,7 @@ sealed class FireplaceProcessor : Processor
             if (_enclosure.Remove(zdo, out var enclosures))
             {
                 foreach (var piece in enclosures)
-                    DestroyPiece(piece);
+                    DestroyObject(piece);
                 zdo.Destroyed -= OnFireplaceDestroyed;
             }
         }

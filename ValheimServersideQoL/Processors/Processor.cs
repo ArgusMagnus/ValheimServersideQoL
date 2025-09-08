@@ -40,7 +40,7 @@ abstract class Processor
     public bool UnregisterZdoProcessor { get; protected set; }
 
     readonly Stopwatch _watch = new();
-    protected HashSet<ExtendedZDO> PlacedPieces { get; } = [];
+    protected HashSet<ExtendedZDO> PlacedObjects { get; } = [];
     static bool __initialized;
     static ExtendedZDO? _dataZDO;
 
@@ -118,7 +118,7 @@ abstract class Processor
 
     protected virtual void PostProcessCore() { }
 
-    public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedPieces.Contains(zdo);
+    public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedObjects.Contains(zdo);
 
     protected abstract bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers);
     public void Process(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
@@ -152,10 +152,10 @@ abstract class Processor
         return true;
     }
 
-    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
-        => PlacePiece(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
+    protected ExtendedZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
+        => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
 
-    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
+    protected ExtendedZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
     {
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.SetPrefab(prefab);
@@ -165,7 +165,16 @@ abstract class Processor
         zdo.SetRotation(rot);
         zdo.SetModAsCreator(marker);
         zdo.Vars.SetHealth(-1);
-        PlacedPieces.Add(zdo);
+        PlacedObjects.Add(zdo);
+        return zdo;
+    }
+
+    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
+        => PlacePiece(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
+
+    protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
+    {
+        var zdo = PlaceObject(pos, prefab, rot, marker);
         zdo.Fields<Piece>().Set(static x => x.m_canBeRemoved, false);
         zdo.Fields<WearNTear>().Set(static x => x.m_noRoofWear, false).Set(static x => x.m_noSupportWear, false).Set(static x => x.m_health, -1);
         return zdo;
@@ -173,15 +182,15 @@ abstract class Processor
 
     protected ExtendedZDO RecreatePiece(ExtendedZDO zdo)
     {
-        if (!PlacedPieces.Remove(zdo))
+        if (!PlacedObjects.Remove(zdo))
             throw new ArgumentException();
-        PlacedPieces.Add(zdo = zdo.Recreate());
+        PlacedObjects.Add(zdo = zdo.Recreate());
         return zdo;
     }
 
-    protected void DestroyPiece(ExtendedZDO zdo)
+    protected void DestroyObject(ExtendedZDO zdo)
     {
-        if (!PlacedPieces.Remove(zdo))
+        if (!PlacedObjects.Remove(zdo))
             throw new ArgumentException();
         zdo.Destroy();
     }
@@ -318,6 +327,7 @@ abstract class Processor
         public static int StandingIronTorchGreen { get; } = "piece_groundtorch_green".GetStableHashCode();
         public static int StandingIronTorchBlue { get; } = "piece_groundtorch_blue".GetStableHashCode();
         //public static IReadOnlyList<int> Banners { get; } = [.. Enumerable.Range(1, 10).Select(static x => $"piece_banner{x:D2}".GetStableHashCode())];
+        public static int MountainRemainsBuried { get; } = "Pickable_MountainRemains01_buried".GetStableHashCode();
     }
 
     protected static class StatusEffects

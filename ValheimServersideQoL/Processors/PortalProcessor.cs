@@ -100,14 +100,14 @@ sealed class PortalProcessor : Processor
             {
                 state.Container.Destroyed -= OnContainerDestroyed;
                 if (!state.Stacked)
-                    DestroyPiece(state.Container);
+                    DestroyObject(state.Container);
                 else
                 {
                     state.Container.ReleaseOwnershipInternal();
                     state.Container.SetPosition(state.InitialPosition with { y = -1000 });
                     state.Container.Fields<Container>().Set(static x => x.m_autoDestroyEmpty, true);
                     state.Container.CreateClone();
-                    DestroyPiece(state.Container); // release exclusive claim
+                    DestroyObject(state.Container); // release exclusive claim
                 }
                 _containers.RemoveAt(i);
                 return;
@@ -122,7 +122,7 @@ sealed class PortalProcessor : Processor
             var state = _containers[i];
 
             if (state.Container.Inventory.Items.Count is 0)
-                DestroyPiece(state.Container);
+                DestroyObject(state.Container);
             else if (state.Stacked)
             {
                 if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) > _rangeSqr)
@@ -192,7 +192,7 @@ sealed class PortalProcessor : Processor
             }
             else
             {
-                DestroyPiece(state.Container);
+                DestroyObject(state.Container);
             }
         }
     }

@@ -157,9 +157,9 @@ sealed class PortalHubProcessor : Processor
 
     void UpdatePortalHub()
     {
-        foreach (var zdo in PlacedPieces)
+        foreach (var zdo in PlacedObjects)
             zdo.Destroy();
-        PlacedPieces.Clear();
+        PlacedObjects.Clear();
 
         if (!_hubEnabled)
             return;

@@ -432,7 +432,7 @@ sealed class InGameConfigProcessor : Processor
             }
             return false;
         }
-        else if (!PlacedPieces.Contains(zdo))
+        else if (!PlacedObjects.Contains(zdo))
         {
             UnregisterZdoProcessor = true;
             return false;

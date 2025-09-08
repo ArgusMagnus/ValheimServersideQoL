@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
-using static Terminal;
 using System.Reflection;
+using static Terminal;
+using static ZoneSystem;
 
 namespace Valheim.ServersideQoL;
 
@@ -60,6 +61,13 @@ static class PrivateAccessor
         Expression.Field(
             Expression.Parameter(typeof(RandEventSystem)) is var par1 ? par1 : throw new Exception(),
             typeof(RandEventSystem).GetField("m_randomEvent", BindingFlags.NonPublic | BindingFlags.Instance)),
+        par1).Compile()).Invoke(instance);
+
+    static Func<ZoneSystem, IReadOnlyDictionary<int, ZoneLocation>>? __getLocationsByHash;
+    public static IReadOnlyDictionary<int, ZoneLocation> GetLocationsByHash(this ZoneSystem instance) => (__getLocationsByHash ??= Expression.Lambda<Func<ZoneSystem, IReadOnlyDictionary<int, ZoneLocation>>>(
+        Expression.Field(
+            Expression.Parameter(typeof(ZoneSystem)) is var par1 ? par1 : throw new Exception(),
+            typeof(ZoneSystem).GetField("m_locationsByHash", BindingFlags.NonPublic | BindingFlags.Instance)),
         par1).Compile()).Invoke(instance);
 
     public static int ZSyncAnimationZDOSalt { get; } = (int)typeof(ZSyncAnimation).GetField("c_ZDOSalt", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static).GetRawConstantValue();

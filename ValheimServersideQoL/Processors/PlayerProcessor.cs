@@ -456,7 +456,7 @@ sealed class PlayerProcessor : Processor
         if (_stackContainers.TryGetValue(zdo, out var stackContainerState))
         {
             if (zdo.Inventory.Items.Count is 0)
-                DestroyPiece(zdo);
+                DestroyObject(zdo);
             else if (stackContainerState.Stacked)
             {
                 if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
@@ -466,7 +466,7 @@ sealed class PlayerProcessor : Processor
                     zdo.Destroyed -= OnStackContainerDestroyed;
                     _stackContainers.Remove(zdo);
                     if (zdo.Inventory.Items.Count is 0)
-                        DestroyPiece(zdo);
+                        DestroyObject(zdo);
                     else
                     {
                         _stackContainers.Add(zdo = RecreatePiece(zdo), stackContainerState);
@@ -496,7 +496,7 @@ sealed class PlayerProcessor : Processor
             }
             else if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
             {
-                DestroyPiece(zdo);
+                DestroyObject(zdo);
             }
             else
             {

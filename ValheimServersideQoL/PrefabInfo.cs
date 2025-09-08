@@ -42,6 +42,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public CookingStation? CookingStation { get; } = Get<CookingStation>(Components);
     public Fermenter? Fermenter { get; } = Get<Fermenter>(Components);
     public SpawnSystem? SpawnSystem { get; } = Get<SpawnSystem>(Components);
+    public LocationProxy? LocationProxy { get; } = Get<LocationProxy>(Components);
 
     public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
 
