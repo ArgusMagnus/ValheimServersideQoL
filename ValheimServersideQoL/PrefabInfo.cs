@@ -28,6 +28,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public StationExtension? StationExtension { get; } = Get<StationExtension>(Components);
     public Trader? Trader { get; } = Get<Trader>(Components);
     public Plant? Plant { get; } = Get<Plant>(Components);
+    public Pickable? Pickable { get; } = Get<Pickable>(Components);
     public EggGrow? EggGrow { get; } = Get<EggGrow>(Components);
     public Growup? Growup { get; } = Get<Growup>(Components);
     public (Aoe Aoe, Piece Piece, PieceTable PieceTable, Optional<Trap> Trap)? Trap { get; } = GetTuple<(Aoe, Piece, PieceTable, Optional<Trap>)>(Components);

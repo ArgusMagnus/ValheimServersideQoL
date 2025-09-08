@@ -535,6 +535,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<float> SpaceRequirementMultiplier { get; } = cfg.BindEx(section, 1f,
             "Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
         public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.BindEx(section, false, "True to keep plants that can't grow alive");
+        //public ConfigEntry<bool> MakeHarvestableWithScythe { get; } = cfg.BindEx(section, false, "True to make all crops harvestable with the scythe");
     }
 
     public sealed class SummonsConfig(ConfigFile cfg, string section)
