@@ -1,30 +1,17 @@
-### v1.2.2013 (BETA)
-- Improve precision of biome detection (e.g. for leveling up creatures or auto-naming portals)
-
-### v1.2.2012 (BETA)
+### v1.3.0
 - Fix: Mod stops functioning after death in multiplayer [#123](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/123)
 - Fix: Teleport metal does not register when a boss is defeated until server restart [#125](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/125)
-- Tweaked `ReassignOwnershipBasedOnConnectionQuality`
-
-### v1.2.2009 (BETA)
-- Fix: `ReassignOwnershipBasedOnConnectionQuality` no longer breaks interaction with pickables/trees/etc. [#119](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/119)
+- Improve precision of biome detection (e.g. for leveling up creatures or auto-naming portals)
 - New features:
     - New option for tameables: `FedDurationMultiplier`
     - New option for tameables: `TamingTimeMultiplier`
     - New option for tameables: `PotionTamingBoostMultiplier`
     - Removed option for tameables: `AlwaysFed`, use `FedDurationMultiplier` instead
-
-### v1.2.2004 (BETA)
-- Add config option to configure the format for logging/showing player ping
-- Adjusted feature: (Re)assign zone ownership to the player with the best connection
-    - Previous version probably did nothing
-- Added option `AssignMobsToClosestPlayer`
-- Replace option `AssignInteractableOwnershipToClosestPeer` with `AssignInteractablesToClosestPlayer`
-
-### v1.2.2001 (BETA)
 - New feature: (Re)assign zone ownership to the player with the best connection [#116](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/116)
     - Enable this feature by setting `ReassignOwnershipBasedOnConnectionQuality` to `true` in the config
     - Highly experimental / not well tested yet
+- Replace option `AssignInteractableOwnershipToClosestPeer` with `AssignInteractablesToClosestPlayer`
+- Update to Valheim patch 0.221.4 (Call To Arms)
 
 ### v1.2.1
 - Fixed issue with leveling up creatures not working correctly
