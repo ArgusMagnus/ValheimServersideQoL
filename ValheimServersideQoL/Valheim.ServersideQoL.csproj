@@ -6,17 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
+    <!--<DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>-->
+	<DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>	  
 	<MinVerTagPrefix>v</MinVerTagPrefix>
 	<MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
     <ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
   </PropertyGroup>
 	
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+  <!--<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>	  
-  </PropertyGroup>
+  </PropertyGroup>-->
 
   <ItemGroup>
 	<PackageReference Include="MinVer" Version="6.0.0" PrivateAssets="All" />

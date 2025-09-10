@@ -1,3 +1,6 @@
+### vNext (BETA)
+- New feature: Make wishbone find certain (configurable) locations
+
 ### v1.3.0
 - Fix: Mod stops functioning after death in multiplayer [#123](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/123)
 - Fix: Teleport metal does not register when a boss is defeated until server restart [#125](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/125)

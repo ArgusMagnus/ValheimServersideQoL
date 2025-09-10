@@ -37,6 +37,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public SleepingConfig Sleeping { get; } = new(ConfigFile, "B - Sleeping");
     public FermentersConfig Fermenters { get; } = new(ConfigFile, "B - Fermenters");
     public NetworkingConfig Networking { get; } = new(ConfigFile, "B - Networking");
+    public WishboneConfig Wishbone { get; } = new(ConfigFile, "B - Wishbone");
 
     public WorldModifiersConfig WorldModifiers { get; } = new(ConfigFile, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(ConfigFile, "D - Global Keys");
@@ -699,6 +700,16 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public ConfigEntry<bool> AssignMobsToClosestPlayer { get; } = cfg.BindEx(section, false, """
             True to assign ownership of hostile mobs to the closest player.
             This should help reduce issues with dodging/parrying due to networking issues.
+            """);
+    }
+
+    public sealed class WishboneConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> FindDungeons { get; } = cfg.BindEx(section, false, "True to make the wishbone find dungeons");
+        public ConfigEntry<bool> FindVegvisir { get; } = cfg.BindEx(section, false, "True to make the wishbone find vegvisirs");
+        public ConfigEntry<string> FindLocationObjectRegex { get; } = cfg.BindEx(section, "", $"""
+            The wishbone will find locations which contain an object whose (prefab) name matches this regular expression.
+            Example: Beehive|goblin_totempole|giant_brain|dvergrprops_crate\w*
             """);
     }
 

@@ -372,6 +372,14 @@
 |------|-------------|-----------------|-----------|
 |IgnoreWind|False|True/False|True to make windmills ignore wind (Cover still decreases operating efficiency though)|
 </details>
+<details><summary>Wishbone</summary>
+
+|Option|Default Value|Acceptable Values|Description|
+|------|-------------|-----------------|-----------|
+|FindDungeons|True|True/False|True to make the wishbone find dungeons|
+|FindVegvisir|True|True/False|True to make the wishbone find vegvisirs|
+|FindLocationObjectRegex|Beehive|goblin_totempole|giant_brain|dvergrprops_crate\w*||The wishbone will find locations which contain an object whose name matches this regular expression.<br>Example: Beehive|goblin_totempole|giant_brain|dvergrprops_crate\w*|
+</details>
 <details><summary>World</summary>
 
 |Option|Default Value|Acceptable Values|Description|

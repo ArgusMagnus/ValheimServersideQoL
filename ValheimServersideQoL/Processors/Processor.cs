@@ -306,6 +306,7 @@ abstract class Processor
         public const string ReinforcedChest = "piece_chest";
         public const string WoodChest = "piece_chest_wood";
         public const string Incinerator = "incinerator";
+        public const string GiantBrain = "giant_brain";
     }
 
     public static class Prefabs
