@@ -116,6 +116,7 @@
 	</Reference>
     <Reference Include="Splatform">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\Splatform.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-### vNext (BETA)
+### v1.3.1004 (BETA)
 - New feature: Make wishbone find certain (configurable) locations
 
 ### v1.3.0

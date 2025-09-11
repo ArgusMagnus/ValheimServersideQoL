@@ -76,7 +76,7 @@ sealed class LocationProcessor : Processor
         beacon.Fields<Beacon>(true).Set(x => x.m_range, Minimap.instance.m_exploreRadius);
         _zdosByBeacon.Add(beacon, zdo);
 
-        Logger.DevLog($"Beacon added for {prefab.name} at {pos}");
+        Logger.DevLog($"Beacon added for {prefab.name} at {pos} with range {Minimap.instance.m_exploreRadius}");
         return false;
     }
 }
