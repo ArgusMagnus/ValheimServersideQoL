@@ -1,5 +1,5 @@
-### v1.3.1004 (BETA)
-- New feature: Make wishbone find certain (configurable) locations
+### v1.3.1
+- Fix: Leveling up creatures per defeated boss wrongly levels up charred from the spawner event [#133](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/133)
 
 ### v1.3.0
 - Fix: Mod stops functioning after death in multiplayer [#123](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/123)

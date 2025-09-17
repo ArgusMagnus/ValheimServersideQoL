@@ -121,7 +121,7 @@ sealed class CreatureLevelUpProcessor : Processor
             case { SpawnArea: not null }:
                 var minZone = ZoneSystem.GetZone(zdo.GetPosition() - new Vector3(zdo.PrefabInfo.SpawnArea.m_spawnRadius, 0, zdo.PrefabInfo.SpawnArea.m_spawnRadius));
                 var maxZone = ZoneSystem.GetZone(zdo.GetPosition() + new Vector3(zdo.PrefabInfo.SpawnArea.m_spawnRadius, 0, zdo.PrefabInfo.SpawnArea.m_spawnRadius));
-                var biome = (Biome)zdo.Vars.GetLevel();
+                var biome = (Biome)zdo.Vars.GetLevel((int)Biome.None);
                 if (biome is 0)
                 {
                     biome = GetBiome(zdo.GetPosition());
@@ -294,7 +294,7 @@ sealed class CreatureLevelUpProcessor : Processor
             {
                 var spawnListStr = spawnDataList is null ? "" : string.Join($"{Environment.NewLine}  ", spawnDataList.Select(static x =>
                 $"{x.Data.m_prefab.name} ({x.Prefab}): {x.Data.m_biome}, day: {x.Data.m_spawnAtDay}, night: {x.Data.m_spawnAtNight}").Prepend(""));
-                Logger.LogWarning($"{zdo.PrefabInfo.PrefabName} ({zdo.GetPrefab()}): Spawn source not found in {biome}, day: {EnvMan.IsDay()}, night: {EnvMan.IsNight()}){spawnListStr}");
+                Logger.LogWarning($"{zdo.PrefabInfo.PrefabName} ({zdo.GetPrefab()}): Spawn source not found in {biome}, day: {EnvMan.IsDay()}, night: {EnvMan.IsNight()}{spawnListStr}");
                 return;
             }
 
@@ -317,7 +317,7 @@ sealed class CreatureLevelUpProcessor : Processor
             chance = Mathf.Pow(chance, 1f / steps) * 100f;
         }
 
-        var level = spawnData.MinLevel;
+        var level = Math.Min(spawnData.MinLevel, spawnData.MaxLevel); // Some SpawnArea, namely Spawner_CharredStone_event, have MinLevel > MaxLevel
         while (level < maxLevel && UnityEngine.Random.Range(0f, 100f) <= chance)
             level++;
 
