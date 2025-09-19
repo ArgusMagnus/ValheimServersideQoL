@@ -379,12 +379,13 @@
 |FindDungeons|False|True/False|True to make the wishbone find dungeons|
 |FindVegvisir|False|True/False|True to make the wishbone find vegvisirs|
 |FindLocationObjectRegex|||The wishbone will find locations which contain an object whose (prefab) name matches this regular expression.<br>Example: Beehive|goblin_totempole|giant_brain|dvergrprops_crate\w*|
+|Range|50|From 0 to 181.0193|Radius in which the wishbone will react to dungeons/locations|
 </details>
 <details><summary>World</summary>
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|RemoveMistlandsMist|Never|Never, Always, AfterQueenKilled, InsideShield|Condition to remove the mist from the mistlands|
+|RemoveMistlandsMist|Never|Never, Always, AfterQueenKilled, InsideShield|Condition to remove the mist from the mistlands.<br>Beware that there are a few cases of mist (namely mist around POIs like ancient bones/skulls)<br>that cannot be removed by this mod and will remain regardless of this setting.|
 </details>
 <details><summary>World Modifiers</summary>
 

@@ -22,9 +22,14 @@ sealed class SmelterProcessor : Processor
         if (containerZdo.Inventory.Items.Count is 0)
             return;
 
+        var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
+        feedRangeSqr *= feedRangeSqr;
+        if (feedRangeSqr is 0f)
+            return;
+
         foreach (var zdo in _smelters)
         {
-            if (Vector3.Distance(zdo.GetPosition(), containerZdo.GetPosition()) <= Config.Smelters.FeedFromContainersRange.Value)
+            if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) <= feedRangeSqr)
                 zdo.ResetProcessorDataRevision(this);
         }
     }

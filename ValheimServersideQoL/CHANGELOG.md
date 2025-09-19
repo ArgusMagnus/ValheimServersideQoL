@@ -1,8 +1,12 @@
-### v1.3.1004 (BETA)
-- New feature: Make wishbone find certain (configurable) locations
+### v1.3.3002 (BETA)
+- Added range config option to wishbone location finding
+- Fixed issues with reloading turrets from containers
 
 ### v1.3.2
 - Fix: Player state not being clean up correctly when player disconnects leading to various issues [#127](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/127), [#134](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/134)
+
+### v1.3.1004 (BETA)
+- New feature: Make wishbone find certain (configurable) locations
 
 ### v1.3.1
 - Fix: Leveling up creatures per defeated boss wrongly levels up charred from the spawner event [#133](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/133)

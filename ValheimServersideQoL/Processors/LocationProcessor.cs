@@ -37,7 +37,7 @@ sealed class LocationProcessor : Processor
         }
 
         UnregisterZdoProcessor = true;
-        if (zdo.PrefabInfo.LocationProxy is null)
+        if (zdo.PrefabInfo.LocationProxy is null || Config.Wishbone.Range.Value <= 0)
             return false;
 
         if (!Config.Wishbone.FindDungeons.Value && !Config.Wishbone.FindVegvisir.Value && _regex is null)
@@ -73,10 +73,8 @@ sealed class LocationProcessor : Processor
         var pos = zdo.GetPosition();
         pos.y -= 4;
         var beacon = PlaceObject(pos, Prefabs.MountainRemainsBuried, 0);
-        beacon.Fields<Beacon>(true).Set(x => x.m_range, Minimap.instance.m_exploreRadius);
+        beacon.Fields<Beacon>(true).Set(x => x.m_range, Config.Wishbone.Range.Value);
         _zdosByBeacon.Add(beacon, zdo);
-
-        Logger.DevLog($"Beacon added for {prefab.name} at {pos} with range {Minimap.instance.m_exploreRadius}");
         return false;
     }
 }

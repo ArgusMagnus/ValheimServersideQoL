@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
+using static Heightmap;
 
 namespace Valheim.ServersideQoL;
 

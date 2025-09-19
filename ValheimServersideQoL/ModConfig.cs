@@ -465,8 +465,12 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public sealed class WorldConfig(ConfigFile cfg, string section)
     {
         //public ConfigEntry<bool> AssignInteractableOwnershipToClosestPeer { get; } = cfg.BindEx(section, false, "True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest peer. This should help avoiding the loss of ore, etc. due to networking issues.");
-        public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.BindEx(section, RemoveMistlandsMistOptions.Never,
-            "Condition to remove the mist from the mistlands", AcceptableEnum<RemoveMistlandsMistOptions>.Default);
+        public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.BindEx(section, RemoveMistlandsMistOptions.Never, """
+            Condition to remove the mist from the mistlands.
+            Beware that there are a few cases of mist (namely mist around POIs like ancient bones/skulls)
+            that cannot be removed by this mod and will remain regardless of this setting.
+            """, AcceptableEnum<RemoveMistlandsMistOptions>.Default);
+            
 
         public enum RemoveMistlandsMistOptions
         {
@@ -711,6 +715,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
             The wishbone will find locations which contain an object whose (prefab) name matches this regular expression.
             Example: Beehive|goblin_totempole|giant_brain|dvergrprops_crate\w*
             """);
+        public ConfigEntry<float> Range { get; } = cfg.BindEx(section, Minimap.instance.m_exploreRadius,
+            "Radius in which the wishbone will react to dungeons/locations", new AcceptableValueRange<float>(0, ZoneSystem.c_ZoneSize * 2 * Mathf.Sqrt(2)));
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

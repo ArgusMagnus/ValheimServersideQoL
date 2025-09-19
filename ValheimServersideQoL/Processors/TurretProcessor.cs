@@ -22,9 +22,14 @@ sealed class TurretProcessor : Processor
         if (containerZdo.Inventory.Items.Count is 0)
             return;
 
+        var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Turrets.LoadFromContainersRange.Value;
+        feedRangeSqr *= feedRangeSqr;
+        if (feedRangeSqr is 0f)
+            return;
+
         foreach (var zdo in _turrets)
         {
-            if (Vector3.Distance(zdo.GetPosition(), containerZdo.GetPosition()) <= Config.Smelters.FeedFromContainersRange.Value && zdo.Vars.GetAmmo() is 0)
+            if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) <= feedRangeSqr && zdo.Vars.GetAmmo() is 0)
                 zdo.ResetProcessorDataRevision(this);
         }
     }
@@ -91,7 +96,9 @@ sealed class TurretProcessor : Processor
                     continue;
                 }
 
-                if (Utils.DistanceXZ(zdo.GetPosition(), containerZdo.GetPosition()) > Config.Turrets.LoadFromContainersRange.Value)
+                var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Turrets.LoadFromContainersRange.Value;
+                feedRangeSqr *= feedRangeSqr;
+                if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > feedRangeSqr)
                     continue;
 
                 if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
