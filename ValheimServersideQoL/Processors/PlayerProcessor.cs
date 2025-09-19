@@ -213,15 +213,16 @@ sealed class PlayerProcessor : Processor
 
     void OnZdoDestroyed(ExtendedZDO zdo)
     {
-        if (_playerStates.Remove(zdo.GetOwner(), out var state))
-        {
-            if (state.Rpc is not null)
-                _statesByRpc.Remove(state.Rpc);
-            _players.Remove(zdo.m_uid);
-            if (_playersByID.Remove(state.PlayerID, out var zdo2) && zdo2 != zdo)
-                _playersByID.Add(state.PlayerID, zdo2);
-            PlayerDestroyed?.Invoke(zdo);
-        }
+        // zdo.GetOwner() is no longer valid here, so use zdo.m_uid.UserID instead
+        if (!_playerStates.Remove(zdo.m_uid.UserID, out var state))
+            return;
+
+        if (state.Rpc is not null)
+            _statesByRpc.Remove(state.Rpc);
+        _players.Remove(zdo.m_uid);
+        if (_playersByID.Remove(state.PlayerID, out var zdo2) && zdo2 != zdo)
+            _playersByID.Add(state.PlayerID, zdo2);
+        PlayerDestroyed?.Invoke(zdo);
     }
 
     /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
@@ -520,7 +521,7 @@ sealed class PlayerProcessor : Processor
             _playerStates.Add(zdo.GetOwner(), state = new(zdo, this));
             if (state.Rpc is not null)
                 _statesByRpc[state.Rpc] = state;
-            _players.Add(zdo.m_uid, zdo);
+            _players[zdo.m_uid] = zdo;
             _playersByID[state.PlayerID] = zdo;
             zdo.Destroyed += OnZdoDestroyed;
 

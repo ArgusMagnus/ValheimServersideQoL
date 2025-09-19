@@ -1,3 +1,6 @@
+### v1.3.2
+- Fix: Player state not being clean up correctly when player disconnects leading to various issues [#127](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/127), [#134](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/134)
+
 ### v1.3.1
 - Fix: Leveling up creatures per defeated boss wrongly levels up charred from the spawner event [#133](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/133)
 
