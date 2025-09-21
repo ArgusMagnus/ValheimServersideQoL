@@ -715,7 +715,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             The wishbone will find locations which contain an object whose (prefab) name matches this regular expression.
             Example: Beehive|goblin_totempole|giant_brain|dvergrprops_crate\w*
             """);
-        public ConfigEntry<float> Range { get; } = cfg.BindEx(section, Minimap.instance.m_exploreRadius,
+        public ConfigEntry<float> Range { get; } = cfg.BindEx(section, Mathf.Max(Minimap.instance.m_exploreRadius, ZoneSystem.c_ZoneSize),
             "Radius in which the wishbone will react to dungeons/locations", new AcceptableValueRange<float>(0, ZoneSystem.c_ZoneSize * 2 * Mathf.Sqrt(2)));
     }
 

@@ -379,7 +379,7 @@
 |FindDungeons|False|True/False|True to make the wishbone find dungeons|
 |FindVegvisir|False|True/False|True to make the wishbone find vegvisirs|
 |FindLocationObjectRegex|||The wishbone will find locations which contain an object whose (prefab) name matches this regular expression.<br>Example: Beehive|goblin_totempole|giant_brain|dvergrprops_crate\w*|
-|Range|50|From 0 to 181.0193|Radius in which the wishbone will react to dungeons/locations|
+|Range|64|From 0 to 181.0193|Radius in which the wishbone will react to dungeons/locations|
 </details>
 <details><summary>World</summary>
 

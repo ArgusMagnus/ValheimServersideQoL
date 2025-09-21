@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -27,7 +28,7 @@ sealed class LocationProcessor : Processor
     {
         if (_zdosByBeacon.TryGetValue(zdo, out var zdo2))
         {
-            if (peers.Any(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition()) < 4))
+            if (peers.Any(x => Utils.DistanceXZ(x.m_refPos, zdo.GetPosition()) < 2))
             {
                 DestroyObject(zdo);
                 _zdosByBeacon.Remove(zdo);
@@ -43,8 +44,8 @@ sealed class LocationProcessor : Processor
         if (!Config.Wishbone.FindDungeons.Value && !Config.Wishbone.FindVegvisir.Value && _regex is null)
             return false;
 
-        if (zdo.Vars.GetBeaconFound())
-            return false;
+        //if (zdo.Vars.GetBeaconFound())
+        //    return false;
 
         var hash = zdo.Vars.GetLocation();
         if (hash is 0)
@@ -65,16 +66,93 @@ sealed class LocationProcessor : Processor
         }
 
         var prefab = location.m_prefab.Asset;
-        if ((!Config.Wishbone.FindDungeons.Value || prefab.GetComponentInChildren<Teleport>() is null)
-            && (!Config.Wishbone.FindVegvisir.Value || prefab.GetComponentInChildren<Vegvisir>() is null)
-            && (_regex is null || !prefab.GetComponentsInChildren<ZNetView>().Any(x => _regex.IsMatch(Utils.GetPrefabName(x.gameObject)))))
+        var position = prefab.gameObject.transform.position;
+        var rotation = prefab.gameObject.transform.rotation;
+        prefab.gameObject.transform.position = Vector3.zero;
+        prefab.gameObject.transform.rotation = Quaternion.identity;
+
+        List<RandomSpawn>? activeRandomSpawns = null;
+        List<Vector3>? beaconPositions = null;
+        if (Config.Wishbone.FindDungeons.Value)
+        {
+            foreach (var c in prefab.GetComponentsInChildren<Teleport>())
+                AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+        }
+        if (Config.Wishbone.FindVegvisir.Value)
+        {
+            foreach (var c in prefab.GetComponentsInChildren<Vegvisir>())
+                AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+        }
+        if (_regex is not null)
+        {
+            foreach (var component in prefab.GetComponentsInChildren<Component>())
+            {
+                if (_regex.IsMatch(Utils.GetPrefabName(component.gameObject)))
+                    AddBeaconPosition(ref beaconPositions, component, ref activeRandomSpawns, prefab, zdo);
+            }
+        }
+
+        prefab.gameObject.transform.position = position;
+        prefab.gameObject.transform.rotation = rotation;
+
+        if (beaconPositions is not { Count: > 0 })
             return false;
 
-        var pos = zdo.GetPosition();
-        pos.y -= 4;
-        var beacon = PlaceObject(pos, Prefabs.MountainRemainsBuried, 0);
-        beacon.Fields<Beacon>(true).Set(x => x.m_range, Config.Wishbone.Range.Value);
-        _zdosByBeacon.Add(beacon, zdo);
+        foreach (var pos in beaconPositions)
+        {
+            var p = pos;
+            p.y -= 4;
+            var beacon = PlaceObject(p, Prefabs.MountainRemainsBuried, 0);
+            beacon.Fields<Beacon>(true).Set(x => x.m_range, Config.Wishbone.Range.Value);
+            _zdosByBeacon.Add(beacon, zdo);
+        }
+
         return false;
+
+        static void AddBeaconPosition(ref List<Vector3>? positions, Component? component, ref List<RandomSpawn>? activeRandomSpawns, GameObject location, ExtendedZDO zdo)
+        {
+            /// <see cref="ZoneSystem.SpawnProxyLocation"/>
+            if (component is null)
+                return;
+
+            if (component.GetComponent<RandomSpawn>() is not { } randomSpawn)
+            {
+                var pos = zdo.GetPosition() + zdo.GetRotation() * component.gameObject.transform.position;
+                (positions ??= []).Add(pos);
+                return;
+            }
+
+            if (activeRandomSpawns is null)
+            {
+                activeRandomSpawns = [];
+                var randomSpawns = Utils.GetEnabledComponentsInChildren<RandomSpawn>(location); 
+                var state = UnityEngine.Random.state;
+                UnityEngine.Random.InitState(zdo.Vars.GetSeed());
+                Location? loc = null;
+                foreach (var rs in randomSpawns)
+                {
+                    var pos = rs.gameObject.transform.position;
+                    pos = zdo.GetPosition() + zdo.GetRotation() * pos;
+                    rs.Prepare();
+                    //rs.gameObject.SetActive(true); // maybe not necessary
+                    rs.Randomize(pos, loc ??= location.GetComponent<Location>());
+                    Main.Instance.Logger.DevLog($"Random spawn: {rs.name}, active: {rs.gameObject.activeSelf}");
+                    if (rs.gameObject.activeSelf)
+                        activeRandomSpawns.Add(rs);
+                    rs.Reset();
+                    if (rs.GetComponent<ZNetView>() is { } znv)
+                        znv.gameObject.SetActive(true);
+                }
+                UnityEngine.Random.state = state;
+            }
+
+            if (activeRandomSpawns.Contains(randomSpawn))
+            {
+                var pos = zdo.GetPosition() + zdo.GetRotation() * randomSpawn.gameObject.transform.position;
+                Main.Instance.Logger.DevLog($"Add random spawn beacon: {component.name}, {pos}");
+                (positions ??= []).Add(pos);
+            }
+        }
     }
+
 }

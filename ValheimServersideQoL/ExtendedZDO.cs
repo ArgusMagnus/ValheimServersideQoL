@@ -300,6 +300,7 @@ sealed class ExtendedZDO : ZDO
         public bool GetEventCreature(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_eventCreature, defaultValue);
         public bool GetInBed(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_inBed, defaultValue);
         public int GetLocation(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_location, defaultValue);
+        public int GetSeed(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_seed, defaultValue);
 
         static int __intTag = $"{Main.PluginGuid}.IntTag".GetStableHashCode();
         public int GetIntTag(int defaultValue = default) => _zdo.GetInt(__intTag, defaultValue);
