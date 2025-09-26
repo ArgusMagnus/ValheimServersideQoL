@@ -1,3 +1,6 @@
+### v1.3.3005 (BETA)
+- Fix: wishbone location finding not working correctly for random spawns (beehives, vegvisir, etc.)
+
 ### v1.3.3002 (BETA)
 - Added range config option to wishbone location finding
 - Fixed issues with reloading turrets from containers
