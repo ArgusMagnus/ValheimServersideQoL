@@ -44,8 +44,8 @@ sealed class LocationProcessor : Processor
         if (!Config.Wishbone.FindDungeons.Value && !Config.Wishbone.FindVegvisir.Value && _regex is null)
             return false;
 
-        //if (zdo.Vars.GetBeaconFound())
-        //    return false;
+        if (zdo.Vars.GetBeaconFound())
+            return false;
 
         var hash = zdo.Vars.GetLocation();
         if (hash is 0)
@@ -73,22 +73,29 @@ sealed class LocationProcessor : Processor
 
         List<RandomSpawn>? activeRandomSpawns = null;
         List<Vector3>? beaconPositions = null;
+        HashSet<GameObject>? objs = null;
         if (Config.Wishbone.FindDungeons.Value)
         {
             foreach (var c in prefab.GetComponentsInChildren<Teleport>())
-                AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+            {
+                if ((objs ??= []).Add(c.gameObject))
+                    AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+            }
         }
         if (Config.Wishbone.FindVegvisir.Value)
         {
             foreach (var c in prefab.GetComponentsInChildren<Vegvisir>())
-                AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+            {
+                if ((objs ??= []).Add(c.gameObject))
+                    AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
+            }
         }
         if (_regex is not null)
         {
-            foreach (var component in prefab.GetComponentsInChildren<Component>())
+            foreach (var c in prefab.GetComponentsInChildren<Component>())
             {
-                if (_regex.IsMatch(Utils.GetPrefabName(component.gameObject)))
-                    AddBeaconPosition(ref beaconPositions, component, ref activeRandomSpawns, prefab, zdo);
+                if ((objs ??= []).Add(c.gameObject) && _regex.IsMatch(Utils.GetPrefabName(c.gameObject)))
+                    AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
             }
         }
 
@@ -134,14 +141,12 @@ sealed class LocationProcessor : Processor
                     var pos = rs.gameObject.transform.position;
                     pos = zdo.GetPosition() + zdo.GetRotation() * pos;
                     rs.Prepare();
-                    //rs.gameObject.SetActive(true); // maybe not necessary
                     rs.Randomize(pos, loc ??= location.GetComponent<Location>());
-                    Main.Instance.Logger.DevLog($"Random spawn: {rs.name}, active: {rs.gameObject.activeSelf}");
+                    //Main.Instance.Logger.DevLog($"Random spawn: {rs.name}, active: {rs.gameObject.activeSelf}");
                     if (rs.gameObject.activeSelf)
                         activeRandomSpawns.Add(rs);
                     rs.Reset();
-                    if (rs.GetComponent<ZNetView>() is { } znv)
-                        znv.gameObject.SetActive(true);
+                    rs.GetComponent<ZNetView>()?.gameObject.SetActive(true);
                 }
                 UnityEngine.Random.state = state;
             }
