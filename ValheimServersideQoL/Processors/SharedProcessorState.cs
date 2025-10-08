@@ -87,7 +87,13 @@ static class SharedProcessorState
                 if (bosses.ContainsKey(location.m_biome))
                     continue;
 
-                location.m_prefab.Load();
+                try { location.m_prefab.Load(); }
+                catch(Exception ex)
+                {
+                    Main.Instance.Logger.LogError(ex);
+                    continue;
+                }
+
                 var bowl = location.m_prefab.Asset.GetComponentInChildren<OfferingBowl>();
                 if (includeDungeons && bowl is null && location.m_prefab.Asset.GetComponentInChildren<DungeonGenerator>() is { } dungeonGen)
                 {
