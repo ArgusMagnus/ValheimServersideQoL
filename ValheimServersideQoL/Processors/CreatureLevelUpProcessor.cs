@@ -16,7 +16,7 @@ sealed class CreatureLevelUpProcessor : Processor
 
     record SpawnData(int Prefab, int MinLevel, int MaxLevel, float LevelUpChance);
 
-    sealed record SpawnSystemData(SpawnSystem.SpawnData Data) : SpawnData(Data.m_prefab.name.GetStableHashCode(), Data.m_minLevel, Data.m_maxLevel, Data.m_overrideLevelupChance);
+    sealed record SpawnSystemData(SpawnSystem.SpawnData Data, Biome? BiomeOverwrite) : SpawnData(Data.m_prefab.name.GetStableHashCode(), Data.m_minLevel, Data.m_maxLevel, Data.m_overrideLevelupChance);
 
     sealed class SectorState
     {
@@ -54,6 +54,7 @@ sealed class CreatureLevelUpProcessor : Processor
     void InitializeData()
     {
         _levelIncreasePerBiome.Clear();
+        Dictionary<string, Biome> biomePerBossKey = [];
         if (Config.Creatures.MaxLevelIncreasePerDefeatedBoss.Value > 0)
         {
             var increase = 0;
@@ -62,6 +63,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 if (ZoneSystem.instance.GetGlobalKey(boss.m_defeatSetGlobalKey))
                     increase += Config.Creatures.MaxLevelIncreasePerDefeatedBoss.Value;
                 _levelIncreasePerBiome.Add(biome, increase);
+                biomePerBossKey.Add(boss.m_defeatSetGlobalKey, biome);
             }
             if (_levelIncreasePerBiome.TryGetValue(Config.Creatures.TreatOceanAs.Value, out var oceanIncrease))
                 _levelIncreasePerBiome.Add(Biome.Ocean, oceanIncrease);
@@ -84,7 +86,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 var prefab = spawner.m_prefab.name.GetStableHashCode();
                 if (!_spawnData.TryGetValue((biome, prefab), out var list))
                     _spawnData.Add((biome, prefab), list = []);
-                list.Add(new(spawner));
+                list.Add(new(spawner, biomePerBossKey.TryGetValue(spawner.m_requiredGlobalKey, out var b) ? b : null));
             }
         }
 
@@ -176,18 +178,35 @@ sealed class CreatureLevelUpProcessor : Processor
 
     void LevelUpSpawner(ExtendedZDO zdo)
     {
+        Biome? biome = null;
+        var fields = zdo.Fields<CreatureSpawner>();
+
+        if (zdo.PrefabInfo.CreatureSpawner!.m_respawnTimeMinuts <= 0)
+        {
+            var respawnTime = Config.Creatures.RespawnOneTimeSpawnsAfter.Value;
+            if (respawnTime > 0)
+            {
+                if (Config.Creatures.RespawnOneTimeSpawnsCondition.Value is ModConfig.CreaturesConfig.RespawnOneTimeSpawnsConditions.Never)
+                    respawnTime = 0;
+                else if (Config.Creatures.RespawnOneTimeSpawnsCondition.Value is ModConfig.CreaturesConfig.RespawnOneTimeSpawnsConditions.AfterBossDefeated)
+                {
+                    biome ??= GetBiome(zdo.GetPosition());
+                    if (!SharedProcessorState.BossesByBiome.TryGetValue(biome.Value, out var boss) || !ZoneSystem.instance.GetGlobalKey(boss.m_defeatSetGlobalKey))
+                        respawnTime = 0;
+                }
+            }
+
+            if (fields.SetIfChanged(static x => x.m_respawnTimeMinuts, respawnTime))
+                RecreateZdo = true;
+        }
+
         var increase = Config.Creatures.MaxLevelIncrease.Value;
         if (Config.Creatures.MaxLevelIncreasePerDefeatedBoss.Value > 0)
         {
-            var biome = GetBiome(zdo.GetPosition());
-            if (_levelIncreasePerBiome.TryGetValue(biome, out var value))
+            biome ??= GetBiome(zdo.GetPosition());
+            if (_levelIncreasePerBiome.TryGetValue(biome.Value, out var value))
                 increase += value;
         }
-
-        var fields = zdo.Fields<CreatureSpawner>();
-
-        if (zdo.PrefabInfo.CreatureSpawner!.m_respawnTimeMinuts <= 0 && fields.SetIfChanged(static x => x.m_respawnTimeMinuts, Config.Creatures.RespawnOneTimeSpawnsAfter.Value))
-            RecreateZdo = true;
 
         var maxLevel = zdo.PrefabInfo.CreatureSpawner.m_maxLevel + increase;
         if (fields.SetIfChanged(static x => x.m_maxLevel, maxLevel))
@@ -299,6 +318,8 @@ sealed class CreatureLevelUpProcessor : Processor
             }
 
             spawnData = spawnSystemData;
+            if (spawnSystemData.BiomeOverwrite is not null)
+                biome = spawnSystemData.BiomeOverwrite.Value;
             if (_levelIncreasePerBiome.TryGetValue(biome, out var value))
                 increase += value;
         }
@@ -373,7 +394,7 @@ sealed class CreatureLevelUpProcessor : Processor
             foreach (var data in currentEvent.m_spawn)
             {
                 if (data.m_prefab.GetComponent<Character>() is not null)
-                    eventInfo.SpawnData.Add(data.m_prefab.name.GetStableHashCode(), new(data));
+                    eventInfo.SpawnData.Add(data.m_prefab.name.GetStableHashCode(), new(data, biome));
                 else if (data.m_prefab.GetComponent<SpawnArea>() is not null)
                     eventInfo.SpawnAreas.Add(data.m_prefab.name.GetStableHashCode());
             }

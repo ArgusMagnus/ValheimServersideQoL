@@ -104,7 +104,8 @@
 |MaxLevelIncreasePerDefeatedBoss|0||Amount the max level of creatures is incremented per defeated boss.<br>The respective boss's biome and previous biomes are affected and the level up chance increases with the max level.<br>Example: If this value is set to 1 and Eikthyr and the Elder is defeated, the max creature level in the Black Forest will be raised by 1 and in the Meadows by 2.|
 |TreatOceanAs|BlackForest|None or combination of Meadows, Swamp, Mountain, BlackForest, Plains, AshLands, DeepNorth, Mistlands|Biome to treat the ocean as for the purpose of leveling up creatures|
 |LevelUpBosses|False|True/False|True to also level up bosses|
-|RespawnOneTimeSpawnsAfter|0||Time after one-time spawns are respawned in minutes|
+|RespawnOneTimeSpawnsCondition|Never|One of Never, Always, AfterBossDefeated|Condition for one-time spawns to respawn|
+|RespawnOneTimeSpawnsAfter|240||Time after one-time spawns are respawned in minutes|
 </details>
 <details><summary>Doors</summary>
 

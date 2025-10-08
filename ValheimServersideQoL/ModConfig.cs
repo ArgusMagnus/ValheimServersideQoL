@@ -132,7 +132,11 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
         public ConfigEntry<bool> LevelUpBosses { get; } = cfg.BindEx(section, false, "True to also level up bosses");
 
-        public ConfigEntry<float> RespawnOneTimeSpawnsAfter { get; } = cfg.BindEx(section, 0f, "Time after one-time spawns are respawned in minutes");
+        public ConfigEntry<RespawnOneTimeSpawnsConditions> RespawnOneTimeSpawnsCondition { get; } = cfg.BindEx(section, RespawnOneTimeSpawnsConditions.Never,
+            "Condition for one-time spawns to respawn");
+
+        public ConfigEntry<float> RespawnOneTimeSpawnsAfter { get; } = cfg.BindEx(section, 240f,
+            "Time after one-time spawns are respawned in minutes");
 
         [Flags]
         public enum ShowHigherLevelAuraOptions
@@ -140,6 +144,13 @@ sealed record ModConfig(ConfigFile ConfigFile)
             Never = 0,
             Wild = (1 << 0),
             Tamed = (1 << 1)
+        }
+
+        public enum RespawnOneTimeSpawnsConditions
+        {
+            Never,
+            Always,
+            AfterBossDefeated
         }
     }
 

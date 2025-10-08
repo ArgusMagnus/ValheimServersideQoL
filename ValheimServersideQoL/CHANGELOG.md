@@ -1,3 +1,7 @@
+### v1.5.0
+- Fix: increase the max level of night spawns according to the biome of the boss that enabled them instead of the biome they spawned in
+- New option `RespawnOneTimeSpawnsCondition` allows more control over when one-time spawns should respawn
+ 
 ### v1.4.0
 - New feature: Make wishbone find certain (configurable) locations
 - Fixed issues with reloading turrets from containers
