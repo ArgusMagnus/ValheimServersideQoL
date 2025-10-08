@@ -7,8 +7,6 @@
 |InWorldConfigRoom|False|True/False|True to generate an in-world room which admins can enter to configure this mod by editing signs. A portal is placed at the start location|
 |FarMessageRange|64||Max distance a player can have to a modified object to receive messages of type TopLeftFar or CenterFar|
 |DiagnosticLogs|False|True/False|Enables/disables diagnostic logs|
-|Frequency|5|From 0 to Infinity|How many times per second the mod processes the world|
-|MaxProcessingTime|20||Max processing time (in ms) per update|
 |ZonesAroundPlayers|1||Zones to process around each player|
 |MinPlayerDistance|4||Min distance all players must have to a ZDO for it to be modified|
 |IgnoreGameVersionCheck|True|True/False|True to ignore the game version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption|

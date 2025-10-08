@@ -1,3 +1,6 @@
+### v1.5.1001 (BETA)
+- Use variable time budget for world processing (removed config options `Frequency` and `MaxProcessingTime`)
+
 ### v1.5.0
 - New option `RespawnOneTimeSpawnsCondition` allows more control over when one-time spawns should respawn
 - Fix: increase the max level of night spawns according to the biome of the boss that enabled them instead of the biome they spawned in

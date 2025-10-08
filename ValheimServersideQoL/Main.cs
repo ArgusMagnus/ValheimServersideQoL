@@ -68,7 +68,7 @@ public sealed partial class Main : BaseUnityPlugin
     {
         StartCoroutine(CallExecute());
 
-        IEnumerator<YieldInstruction> CallExecute()
+        IEnumerator<YieldInstruction?> CallExecute()
         {
             while (true)
             {
@@ -108,12 +108,24 @@ public sealed partial class Main : BaseUnityPlugin
 
                 while (true)
                 {
-                    yield return new WaitForSeconds(1f / Config.General.Frequency.Value);
+                    yield return null;
 
                     if (ZNet.instance is null)
                         break;
 
-                    try { Execute(peers); }
+                    var minFps = ZNet.instance.IsDedicated() ? 10 : Game.m_minimumFPSLimit;
+                    var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
+                    var maxDelta = 1f / minFps;
+                    var actualFps = 1f / Time.unscaledDeltaTime;
+                    if (Time.unscaledDeltaTime > maxDelta)
+                    {
+                        Logger.DevLog($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
+                        continue;
+                    }
+                    var fraction = Mathf.Min(1f,  (actualFps - minFps) / (targetFps - minFps));
+                    var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
+
+                    try { Execute(peers, TimeSpan.FromSeconds(budget)); }
                     catch (OperationCanceledException) { yield break; }
                     catch (Exception ex)
                     {
@@ -222,7 +234,7 @@ public sealed partial class Main : BaseUnityPlugin
             Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
     }
 
-    void Execute(PeersEnumerable peers)
+    void Execute(PeersEnumerable peers, TimeSpan timeBudget)
     {
         _executeCounter++;
         if (_configChanged)
@@ -373,7 +385,7 @@ public sealed partial class Main : BaseUnityPlugin
 
         foreach (var (sector, sectorInfo) in playerSectors)
         {
-            if (_watch.ElapsedMilliseconds >= Config.General.MaxProcessingTime.Value)
+            if (_watch.Elapsed >= timeBudget)
                 break;
 
             processedSectors++;
@@ -383,7 +395,7 @@ public sealed partial class Main : BaseUnityPlugin
 
             totalZdos += sectorInfo.ZDOs.Count;
 
-            while (sectorInfo is { ZDOs.Count: > 0 } && _watch.ElapsedMilliseconds < Config.General.MaxProcessingTime.Value)
+            while (sectorInfo is { ZDOs.Count: > 0 } && _watch.Elapsed < timeBudget)
             {
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
@@ -449,10 +461,9 @@ public sealed partial class Main : BaseUnityPlugin
 #endif
 
         Logger.Log(logLevel,
-            Invariant($"{nameof(Execute)} took {_watch.ElapsedMilliseconds} ms to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+            Invariant($"{nameof(Execute)} took {_watch.Elapsed.Milliseconds:F2} ms (budget: {timeBudget.Milliseconds:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
 
         Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(static x => x.ProcessingTime.Ticks > 0).OrderByDescending(static x => x.ProcessingTime.Ticks).Select(static x => Invariant($"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms")))}"));
-        //Logger.LogDebug(string.Join(Invariant(.$"{Environment.NewLine}  ", Processor.DefaultProcessors.Select(static x => Invariant(.$"{x.GetType().Name}: {x.TotalProcessingTime}").Prepend("TotalProcessingTime:")));
     }
 
 #if DEBUG

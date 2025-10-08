@@ -54,9 +54,6 @@ sealed record ModConfig(ConfigFile ConfigFile)
             $"Max distance a player can have to a modified object to receive messages of type {MessageTypes.TopLeftFar} or {MessageTypes.CenterFar}");
 
         public ConfigEntry<bool> DiagnosticLogs { get; } = cfg.BindEx(section, false, "Enables/disables diagnostic logs");
-        public ConfigEntry<float> Frequency { get; } = cfg.BindEx(section, 5f,
-            "How many times per second the mod processes the world", new AcceptableValueRange<float>(0, float.PositiveInfinity));
-        public ConfigEntry<int> MaxProcessingTime { get; } = cfg.BindEx(section, 20, "Max processing time (in ms) per update");
         public ConfigEntry<int> ZonesAroundPlayers { get; } = cfg.BindEx(section, ZoneSystem.instance.GetActiveArea(), "Zones to process around each player");
         public ConfigEntry<float> MinPlayerDistance { get; } = cfg.BindEx(section, 4f, "Min distance all players must have to a ZDO for it to be modified");
         public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = cfg.BindEx(section, true, "True to ignore the game version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
