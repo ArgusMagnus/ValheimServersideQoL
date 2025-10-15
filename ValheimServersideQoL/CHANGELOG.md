@@ -1,4 +1,4 @@
-### v1.5.1001 (BETA)
+### v1.5.1
 - Use variable time budget for world processing (removed config options `Frequency` and `MaxProcessingTime`)
 
 ### v1.5.0

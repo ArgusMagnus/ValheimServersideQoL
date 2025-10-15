@@ -119,7 +119,8 @@ public sealed partial class Main : BaseUnityPlugin
                     var actualFps = 1f / Time.unscaledDeltaTime;
                     if (Time.unscaledDeltaTime > maxDelta)
                     {
-                        Logger.DevLog($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
+                        if (Config.General.DiagnosticLogs.Value)
+                            Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
                         continue;
                     }
                     var fraction = Mathf.Min(1f,  (actualFps - minFps) / (targetFps - minFps));
