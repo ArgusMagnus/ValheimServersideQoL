@@ -226,7 +226,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
                 .Bind(section, Invariant($"InventorySize_{x.Name}"), Invariant($"{x.Container.m_width}x{x.Container.m_height}"), Invariant($"""
                     Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'.
                     If you append '+' to the end (e.g. '{x.Container.m_width}x{x.Container.m_height}+'),
-                    the container size will keep expanding as long as only one type of item is stored inside.
+                    the inventory size will keep expanding as long as only one type of item is stored inside.
                     """)));
                     
         

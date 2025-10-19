@@ -1,4 +1,4 @@
-### vNext (BETA)
+### v1.5.2004 (BETA)
 - New features:
     - "Magic" containers with infinite inventory size [#145](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/145)
     - Container sign support for barrels
