@@ -399,21 +399,15 @@ sealed class ContainerProcessor : Processor
         }
 
         var checkShrink = true;
-        if (sizeCfg.Growing && inventory.Items.Count > sizeCfg.Width * (sizeCfg.Height - 1))
+        if (sizeCfg.Growing)
         {
-            var isSame = true;
+            checkShrink = false;
             var key = new ItemKey(inventory.Items[0]);
-            for (int i = 1; isSame && i < inventory.Items.Count; i++)
-            {
-                if (key != new ItemKey(inventory.Items[i]))
-                    isSame = false;
-            }
+            for (int i = 1; !checkShrink && i < inventory.Items.Count; i++)
+                checkShrink = key != new ItemKey(inventory.Items[i]);
 
-            if (isSame)
-            {
-                checkShrink = false;
-                sizeCfg = sizeCfg with { Height = Mathf.CeilToInt((float)inventory.Items.Count / sizeCfg.Width) + 1 };
-            }
+            if (!checkShrink)
+                sizeCfg = sizeCfg with { Height = Math.Max(sizeCfg.Height, Mathf.CeilToInt((float)inventory.Items.Count / sizeCfg.Width) + 1) };
         }
 
         if ((width, height) != (sizeCfg.Width, sizeCfg.Height))
@@ -440,7 +434,7 @@ sealed class ContainerProcessor : Processor
 
             if (RecreateZdo)
             {
-                Logger.DevLog($"Change {zdo.PrefabInfo.PrefabName} inventory size: {(width, height)} -> {(sizeCfg.Width, sizeCfg.Height)}");
+                Logger.DevLog($"Change {zdo.PrefabInfo.PrefabName} inventory size: {(width, height)} -> {(sizeCfg.Width, sizeCfg.Height)}, check shrink: {checkShrink}");
                 fields.Set(static x => x.m_width, width = sizeCfg.Width);
                 fields.Set(static x => x.m_height, height = sizeCfg.Height);
             }
@@ -570,11 +564,14 @@ sealed class ContainerProcessor : Processor
             }
         }
 
-        if (changed)
+        if (changed || RecreateZdo)
         {
             if (!zdo.IsOwnerOrUnassigned())
+            {
+                RecreateZdo = false;
                 RequestOwnership(zdo, zdo.Vars.GetCreator(), state);
-            else
+            }
+            else if (changed)
             {
                 inventory.Save();
                 ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Container.Value.Piece.m_name} sorted", Config.Containers.SortedMessageType.Value);

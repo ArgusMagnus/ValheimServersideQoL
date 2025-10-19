@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
-record struct ItemKey(string Name, int Quality, int Variant)
+readonly record struct ItemKey(string Name, int Quality, int Variant)
 {
     public static implicit operator ItemKey(ItemDrop.ItemData data) => new(data);
     public ItemKey(ItemDrop.ItemData data) : this(data.m_shared.m_name, data.m_quality, data.m_variant) { }
 }
 
-record struct SharedItemDataKey(string Name)
+readonly record struct SharedItemDataKey(string Name)
 {
     public static implicit operator SharedItemDataKey(ItemDrop.ItemData.SharedData data) => new(data.m_name);
 }
