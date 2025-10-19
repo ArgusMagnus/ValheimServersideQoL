@@ -1,5 +1,7 @@
 ﻿using System.Collections.Concurrent;
+using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -9,6 +11,9 @@ sealed class ContainerProcessor : Processor
     readonly Dictionary<ItemKey, int> _stackPerItem = new();
     readonly Dictionary<ExtendedZDO, List<ExtendedZDO>> _signsByChests = [];
     readonly Dictionary<ExtendedZDO, ExtendedZDO> _chestsBySigns = [];
+
+    readonly record struct ContainerSizeConfig(int Width, int Height, bool Growing);
+    readonly Dictionary<int, ContainerSizeConfig> _containerSizes = [];
 
     public event Action<ExtendedZDO>? ContainerChanged;
 
@@ -51,6 +56,20 @@ sealed class ContainerProcessor : Processor
         UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled);
         UpdateRpcSubscription("RPC_AnimateLeverReturn", RPC_AnimateLeverReturn, Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled);
         _openResponseRegistered = false;
+
+        _containerSizes.Clear();
+        foreach (var (prefab, cfg) in Config.Containers.ContainerSizes)
+        {
+            if (Regex.Match(cfg.Value, @"^(?<w>\d+)x(?<h>\d+)(?<g>\+)?$") is not { Success: true } match)
+            {
+                Logger.LogWarning($"Invalid container size config value: {cfg.Value}");
+                continue;
+            }
+            _containerSizes.Add(prefab, new(
+                int.Parse(match.Groups["w"].Value, CultureInfo.InvariantCulture),
+                int.Parse(match.Groups["h"].Value, CultureInfo.InvariantCulture),
+                match.Groups["g"].Success));
+        }
 
         if (!firstTime)
             return;
@@ -284,26 +303,19 @@ sealed class ContainerProcessor : Processor
         var inventory = zdo.Inventory!;
         var width = inventory.Inventory.GetWidth();
         var height = inventory.Inventory.GetHeight();
-        if (Config.Containers.ContainerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg)
-            && sizeCfg.Value.Split(['x'], 2) is { Length: 2 } parts
-            && int.TryParse(parts[0], out var desiredWidth)
-            && int.TryParse(parts[1], out var desiredHeight)
-            && (width, height) != (desiredWidth, desiredHeight))
+        if (!_containerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg))
+            sizeCfg = new(width, height, false);
+        else if ((sizeCfg.Width, sizeCfg.Height) != (width, height))
         {
             if (zdo.Inventory is { Items.Count: 0 })
             {
-                fields.Set(static x => x.m_width, width = desiredWidth);
-                fields.Set(static x => x.m_height, height = desiredHeight);
+                fields.Set(static x => x.m_width, width = sizeCfg.Width);
+                fields.Set(static x => x.m_height, height = sizeCfg.Height);
                 RecreateZdo = true;
                 if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
                     zdo.ReleaseOwnershipInternal(); // required for physics to work again
                 return false;
             }
-        }
-        else
-        {
-            desiredWidth = width;
-            desiredHeight = height;
         }
 
         var signOptions = GetSignOptions(zdo.GetPrefab());
@@ -384,31 +396,51 @@ sealed class ContainerProcessor : Processor
             return true;
         }
 
-        if ((width, height) != (desiredWidth, desiredHeight))
+        var checkShrink = true;
+        if (sizeCfg.Growing && inventory.Items.Count > sizeCfg.Width * (sizeCfg.Height - 1))
+        {
+            var isSame = true;
+            var key = new ItemKey(inventory.Items[0]);
+            for (int i = 1; isSame && i < inventory.Items.Count; i++)
+            {
+                if (key != new ItemKey(inventory.Items[i]))
+                    isSame = false;
+            }
+
+            if (isSame)
+            {
+                checkShrink = false;
+                sizeCfg = sizeCfg with { Height = Mathf.CeilToInt((float)inventory.Items.Count / sizeCfg.Width) + 1 };
+            }
+        }
+
+        if ((width, height) != (sizeCfg.Width, sizeCfg.Height))
         {
             RecreateZdo = true;
-            if (inventory.Items.Count > desiredWidth * desiredHeight)
+            if (checkShrink && inventory.Items.Count > sizeCfg.Width * sizeCfg.Height)
             {
                 var found = false;
-                for (var h = desiredHeight; !found && h <= height; h++)
+                for (var h = sizeCfg.Height; !found && h <= height; h++)
                 {
-                    for (var w = desiredWidth; !found && w <= width; w++)
+                    for (var w = sizeCfg.Width; !found && w <= width; w++)
                     {
                         if (inventory.Items.Count <= w * h)
                         {
                             found = true;
-                            (desiredWidth, desiredHeight) = (w, h);
+                            sizeCfg = sizeCfg with { Width = w, Height = h };
                         }
                     }
                 }
 
-                if (!found || (width, height) == (desiredWidth, desiredHeight))
+                if (!found || (width, height) == (sizeCfg.Width, sizeCfg.Height))
                     RecreateZdo = false;
             }
+
             if (RecreateZdo)
             {
-                fields.Set(static x => x.m_width, width = desiredWidth);
-                fields.Set(static x => x.m_height, height = desiredHeight);
+                Logger.DevLog($"Change {zdo.PrefabInfo.PrefabName} inventory size: {(width, height)} -> {(sizeCfg.Width, sizeCfg.Height)}");
+                fields.Set(static x => x.m_width, width = sizeCfg.Width);
+                fields.Set(static x => x.m_height, height = sizeCfg.Height);
             }
         }
 

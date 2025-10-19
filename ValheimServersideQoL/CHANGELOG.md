@@ -1,3 +1,7 @@
+### vNext (BETA)
+- New features:
+    - "Magic" containers with infinite inventory size [#145](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/145)
+
 ### v1.5.1
 - Use variable time budget for world processing (removed config options `Frequency` and `MaxProcessingTime`)
 

@@ -218,10 +218,15 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
         public IReadOnlyDictionary<int, ConfigEntry<string>> ContainerSizes { get; } = ZNetScene.instance.m_prefabs
             .Where(static x => SharedProcessorState.PieceTablesByPiece.ContainsKey(x.name))
-            .Select(static x => (Name: x.name, Container: x.GetComponent<Container>() ?? x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
+            .Select(static x => (Name: x.name, Container: x.GetComponentInChildren<Container>(), Piece: x.GetComponent<Piece>()))
             .Where(static x => x is { Container: not null, Piece: not null })
             .ToDictionary(static x => x.Name.GetStableHashCode(), x => cfg
-                .Bind(section, Invariant($"InventorySize_{x.Name}"), Invariant($"{x.Container.m_width}x{x.Container.m_height}"), Invariant($"Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'")));
+                .Bind(section, Invariant($"InventorySize_{x.Name}"), Invariant($"{x.Container.m_width}x{x.Container.m_height}"), Invariant($"""
+                    Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'.
+                    If you append '+' to the end (e.g. '{x.Container.m_width}x{x.Container.m_height}+'),
+                    the container size will keep expanding as long as only one type of item is stored inside.
+                    """)));
+                    
         
         public enum ObliteratorItemTeleporterOptions
         {
