@@ -73,6 +73,13 @@ sealed class TameableProcessor : Processor
             else if (fields.SetIfChanged(static x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
                 RecreateZdo = true;
 
+            //if (zdo.PrefabInfo.Humanoid is { Humanoid.m_damageModifiers.m_spirit: not HitData.DamageModifier.Immune })
+            //{
+            //    Logger.DevLog($"Undead: {zdo.PrefabInfo.PrefabName}");
+            //    if (zdo.Fields<Humanoid>().SetIfChanged(static x => x.m_tolerateFire, true))
+            //        RecreateZdo = true;
+            //}
+
             if (!RecreateZdo)
             {
                 if (!_states.TryGetValue(zdo, out var state))

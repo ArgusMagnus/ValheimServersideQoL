@@ -208,6 +208,8 @@ sealed record ModConfig(ConfigFile ConfigFile)
             "Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default);
         public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = cfg.BindEx(section, SignOptions.None,
             "Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default);
+        public ConfigEntry<SignOptions> BarrelSigns { get; } = cfg.BindEx(section, SignOptions.None,
+            "Options to automatically put signs on barrels", AcceptableEnum<SignOptions>.Default);
         public ConfigEntry<SignOptions> ObliteratorSigns { get; } = cfg.BindEx(section, SignOptions.None,
             "Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front]));
         public ConfigEntry<ObliteratorItemTeleporterOptions> ObliteratorItemTeleporter { get; } = cfg.BindEx(section, ObliteratorItemTeleporterOptions.Disabled,
@@ -1030,6 +1032,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
                 [Processor.PrefabNames.WoodChest] = new(0.8f, 0.8f, 0.4f, 0.4f, 0.8f),
                 [Processor.PrefabNames.ReinforcedChest] = new(0.85f, 0.85f, 0.5f, 0.5f, 1.1f),
                 [Processor.PrefabNames.BlackmetalChest] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f),
+                [Processor.PrefabNames.Barrel] = new(0.4f, 0.4f, 0.4f, 0.4f, 0.9f),
                 [Processor.PrefabNames.Incinerator] = new(float.NaN, float.NaN, 0.1f, float.NaN, 3f)
             };
 

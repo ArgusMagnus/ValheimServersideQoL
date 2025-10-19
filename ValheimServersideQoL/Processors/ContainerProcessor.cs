@@ -123,6 +123,8 @@ sealed class ContainerProcessor : Processor
             return Config.Containers.ReinforcedChestSigns.Value;
         if (prefab == Prefabs.BlackmetalChest)
             return Config.Containers.BlackmetalChestSigns.Value;
+        if (prefab == Prefabs.Barrel)
+            return Config.Containers.BarrelSigns.Value;
         if (prefab == Prefabs.Incinerator)
             return Config.Containers.ObliteratorSigns.Value;
         return default;
