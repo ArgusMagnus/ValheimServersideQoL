@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using UnityEngine;
+using Valheim.ServersideQoL.HarmonyPatches;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -184,6 +185,7 @@ sealed class PlayerProcessor : Processor
 
     readonly Dictionary<Vector2i, ExtendedZDO> _zoneControls = [];
     readonly Dictionary<ExtendedZDO, PlayerState> _backpacks = [];
+    int _backpackSlots;
 
     static TimeSpan OpenBackpackDelay => TimeSpan.FromMilliseconds(200);
 
@@ -231,6 +233,21 @@ sealed class PlayerProcessor : Processor
             Main.HarmonyInstance.Patch(_receivePingMethod, prefix: new(_receivePingPefix));
             Main.HarmonyInstance.Patch(_sendPackageMethod, prefix: new(_sendPackagePrefix));
         }
+
+        void UpdateBackpackSlots()
+        {
+            _backpackSlots = Config.Players.InitialBackpackSlots.Value;
+            if (Config.Players.AdditionalBackpackSlotsPerDefeatedBoss.Value is 0)
+                return;
+            _backpackSlots += Config.Players.AdditionalBackpackSlotsPerDefeatedBoss.Value * SharedProcessorState.BossesByBiome.Values
+                .Count(static x => ZoneSystem.instance.GetGlobalKey(x.m_defeatSetGlobalKey));
+            Logger.DevLog($"Backpack slots: {_backpackSlots}");
+        }
+
+        UpdateBackpackSlots();
+        ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateBackpackSlots;
+        if (Config.Players.AdditionalBackpackSlotsPerDefeatedBoss.Value is not 0)
+            ZoneSystemSendGlobalKeys.GlobalKeysChanged += UpdateBackpackSlots;
 
         if (!firstTime)
             return;
@@ -650,7 +667,7 @@ sealed class PlayerProcessor : Processor
         }
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote ||
-            Config.Players.OpenBackpackEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
+            (Config.Players.OpenBackpackEmote.Value is not ModConfig.PlayersConfig.DisabledEmote) && _backpackSlots > 0)
         {
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
@@ -701,7 +718,7 @@ sealed class PlayerProcessor : Processor
                         RPC.StackResponse(container, true);
                     }
                 }
-                else if (CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value) && Config.Players.InitialBackpackSlots.Value > 0)
+                else if (CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value) && _backpackSlots > 0)
                 {
                     var backpackPrefab = Prefabs.PrivateChest;
 
@@ -710,19 +727,42 @@ sealed class PlayerProcessor : Processor
                     var pos = zdo.GetPosition();
                     pos.y -= 0.6f;
 
-                    var (width, height) = GetBackpackSize(Config.Players.InitialBackpackSlots.Value);
+                    static bool AdjustSize(ExtendedZDO zdo, int slots)
+                    {
+                        var fields = zdo.Fields<Container>();
+                        var actualSlots = Math.Max(slots, zdo.Inventory.Items.Count);
+                        var (width, height) = GetBackpackSize(actualSlots);
+                        if ((fields!.SetIfChanged(static x => x.m_width, width), fields.SetIfChanged(static x => x.m_height, height)) == (false, false))
+                            return false;
+
+                        if (actualSlots != slots)
+                        {
+                            using var enumerator = zdo.Inventory.Items.GetEnumerator();
+                            for (int y = 0; y < height; y++)
+                            {
+                                for (int x = 0; x < width; x++)
+                                {
+                                    if (!enumerator.MoveNext())
+                                    {
+                                        zdo.ClaimOwnershipInternal();
+                                        zdo.Inventory.Save();
+                                        return true;
+                                    }
+
+                                    enumerator.Current.m_gridPos = new(x, y);
+                                }
+                            }
+                        }
+                        return true;
+                    }
 
                     state.BackpackContainer ??= PlacedObjects.FirstOrDefault(x => x.PrefabInfo.Container is not null && x.IsModCreator(out var marker) && marker is CreatorMarkers.ProcessorOwned && x.Vars.GetPlayerID() == state.PlayerID);
-                    var fields = state.BackpackContainer?.Fields<Container>();
                     if (state.BackpackContainer is null)
                     {
                         state.BackpackContainer = PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
                         state.BackpackContainer.Vars.SetPlayerID(state.PlayerID);
-                        fields = state.BackpackContainer.Fields<Container>();
-                        fields
-                            .Set(static x => x.m_name, "Backpack")
-                            .Set(static x => x.m_width, width)
-                            .Set(static x => x.m_height, height);
+                        state.BackpackContainer.Fields<Container>().Set(static x => x.m_name, "Backpack");
+                        AdjustSize(state.BackpackContainer, _backpackSlots);
                         state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
                     }
 #if DEBUG
@@ -733,7 +773,7 @@ sealed class PlayerProcessor : Processor
                     }
 #endif
                     else if (Vector3.Distance(zdo.GetPosition(), state.BackpackContainer.GetPosition()) > InventoryGui.instance.m_autoCloseDistance
-                        || fields!.SetIfChanged(static x => x.m_width, width) || fields.SetIfChanged(static x => x.m_height, height))
+                        || AdjustSize(zdo, _backpackSlots))
                     {
                         state.BackpackContainer.SetPosition(pos);
                         state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());

@@ -357,6 +357,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             If a player uses this emote, their inventory will be automatically stacked into nearby containers.
             The rules for which containers are used are the same as for auto pickup.
             {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
+            For example, on xbox you can use D-Pad down to execute the {Emotes.Sit} emote.
             If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
             """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
 
@@ -375,7 +376,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
 
         public ConfigEntry<int> InitialBackpackSlots { get; } = cfg.BindEx(section, 4, "Initial available slots in the backpack");
-        ////public ConfigEntry<int>
+        public ConfigEntry<int> AdditionalBackpackSlotsPerDefeatedBoss { get; } = cfg.BindEx(section, 4, "Additional backpack slots per defeated boss");
 
         public ConfigEntry<bool> CanSacrificeMegingjord { get; } = cfg.BindEx(section, false,
             "If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator");
