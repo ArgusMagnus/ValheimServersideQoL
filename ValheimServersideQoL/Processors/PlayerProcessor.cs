@@ -484,6 +484,29 @@ sealed class PlayerProcessor : Processor
 
     void OnStackContainerDestroyed(ExtendedZDO zdo) => _stackContainers.Remove(zdo);
 
+    static (int Width, int Height) GetBackpackSize(int slots)
+    {
+        var height = slots switch
+        {
+            < 4 => 1,
+            < 9 => 2,
+            < 16 => 3,
+            <= 8 * 4 => 4,
+            _ => 0
+        };
+
+        var width = 0;
+        if (height > 0)
+            width = (slots + height - 1) / height;
+        else
+        {
+            width = 8;
+            height = (slots + width - 1) / width;
+        }
+
+        return (width, height);
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         if (_stackContainers.TryGetValue(zdo, out var stackContainerState))
@@ -678,7 +701,7 @@ sealed class PlayerProcessor : Processor
                         RPC.StackResponse(container, true);
                     }
                 }
-                else if (CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value))
+                else if (CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value) && Config.Players.InitialBackpackSlots.Value > 0)
                 {
                     var backpackPrefab = Prefabs.PrivateChest;
 
@@ -686,12 +709,20 @@ sealed class PlayerProcessor : Processor
 
                     var pos = zdo.GetPosition();
                     pos.y -= 0.6f;
+
+                    var (width, height) = GetBackpackSize(Config.Players.InitialBackpackSlots.Value);
+
                     state.BackpackContainer ??= PlacedObjects.FirstOrDefault(x => x.PrefabInfo.Container is not null && x.IsModCreator(out var marker) && marker is CreatorMarkers.ProcessorOwned && x.Vars.GetPlayerID() == state.PlayerID);
+                    var fields = state.BackpackContainer?.Fields<Container>();
                     if (state.BackpackContainer is null)
                     {
                         state.BackpackContainer = PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
                         state.BackpackContainer.Vars.SetPlayerID(state.PlayerID);
-                        state.BackpackContainer.Fields<Container>().Set(static x => x.m_name, "Backpack");
+                        fields = state.BackpackContainer.Fields<Container>();
+                        fields
+                            .Set(static x => x.m_name, "Backpack")
+                            .Set(static x => x.m_width, width)
+                            .Set(static x => x.m_height, height);
                         state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
                     }
 #if DEBUG
@@ -701,7 +732,8 @@ sealed class PlayerProcessor : Processor
                         state.BackpackContainer = null;
                     }
 #endif
-                    else if (Vector3.Distance(zdo.GetPosition(), state.BackpackContainer.GetPosition()) > InventoryGui.instance.m_autoCloseDistance)
+                    else if (Vector3.Distance(zdo.GetPosition(), state.BackpackContainer.GetPosition()) > InventoryGui.instance.m_autoCloseDistance
+                        || fields!.SetIfChanged(static x => x.m_width, width) || fields.SetIfChanged(static x => x.m_height, height))
                     {
                         state.BackpackContainer.SetPosition(pos);
                         state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());

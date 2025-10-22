@@ -374,7 +374,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
             If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
             """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
 
-        //public ConfigEntry<int> InitialBackpackSlots { get; } = cfg.BindEx(section, 0, "Initial available slots in the backpack");
+        public ConfigEntry<int> InitialBackpackSlots { get; } = cfg.BindEx(section, 4, "Initial available slots in the backpack");
         ////public ConfigEntry<int>
 
         public ConfigEntry<bool> CanSacrificeMegingjord { get; } = cfg.BindEx(section, false,
