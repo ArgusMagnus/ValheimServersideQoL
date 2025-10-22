@@ -44,7 +44,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public SpawnSystem? SpawnSystem { get; } = Get<SpawnSystem>(Components);
     public LocationProxy? LocationProxy { get; } = Get<LocationProxy>(Components);
 
-    public static PrefabInfo Dummy { get; } = new(null!, new Dictionary<Type, MonoBehaviour>(0));
+    public static PrefabInfo Dummy { get; } = new(null!, ReadOnlyDictionary<Type, MonoBehaviour>.Empty);
 
     static T? Get<T>(IReadOnlyDictionary<Type, MonoBehaviour> prefabs)
         where T : MonoBehaviour

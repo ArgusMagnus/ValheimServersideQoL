@@ -217,17 +217,7 @@ sealed class ContainerProcessor : Processor
                 break;
         }
 
-        static bool HasNonTeleportableItems(IEnumerable<ItemDrop.ItemData> items)
-        {
-            foreach (var item in items)
-            {
-                if (!item.m_shared.m_teleportable)
-                    return true;
-            }
-            return false;
-        }
-
-        return HasNonTeleportableItems(from) || HasNonTeleportableItems(to);
+        return HasNonTeleportableItem(from) || HasNonTeleportableItem(to);
     }
 
     protected override void PreProcessCore(IEnumerable<Peer> peers)

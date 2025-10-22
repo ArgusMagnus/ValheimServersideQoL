@@ -10,7 +10,6 @@ sealed class PortalProcessor : Processor
     bool _destroyNewPortals;
     float _rangeSqr;
     readonly HashSet<ExtendedZDO> _initialPortals = [];
-    readonly List<ItemDrop> _teleportableItems = [];
     readonly List<ContainerState> _containers = [];
 
     sealed class ContainerState(ExtendedZDO container, Peer peer, ExtendedZDO player, ExtendedZDO portal)
@@ -47,31 +46,10 @@ sealed class PortalProcessor : Processor
         _rangeSqr = Config.NonTeleportableItems.PortalRange.Value;
         _rangeSqr *= _rangeSqr;
 
-        ZoneSystemSendGlobalKeys.GlobalKeysChanged -= InitializePortableItems;
-        InitializePortableItems();
-        if (Config.NonTeleportableItems.Enable.Value)
-            ZoneSystemSendGlobalKeys.GlobalKeysChanged += InitializePortableItems;
-
         if (!firstTime)
             return;
 
         _containers.Clear();
-    }
-
-    void InitializePortableItems()
-    {        
-        _teleportableItems.Clear();
-        if (Config.NonTeleportableItems.Enable.Value && !ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
-        {
-            foreach (var entry in Config.NonTeleportableItems.Entries)
-            {
-                if (string.IsNullOrEmpty(entry.Config.Value))
-                    continue;
-
-                if (ZoneSystem.instance.GetGlobalKey(entry.Config.Value))
-                    _teleportableItems.Add(entry.ItemDrop);
-            }
-        }
     }
 
     void OnInitialPortalDestroyed(ExtendedZDO zdo)
@@ -219,7 +197,7 @@ sealed class PortalProcessor : Processor
             return false;
         }
 
-        if (_teleportableItems.Count is 0 || zdo.Fields<TeleportWorld>().GetBool(static x => x.m_allowAllItems))
+        if (TeleportableItems.Count is 0 || zdo.Fields<TeleportWorld>().GetBool(static x => x.m_allowAllItems))
             return false;
         
         foreach (var peer in peers)
@@ -233,13 +211,13 @@ sealed class PortalProcessor : Processor
 
             var container = PlacePiece(player.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
             container.UnregisterAllProcessors();
-            var h = Math.Max(4, _teleportableItems.Count);
+            var h = Math.Max(4, TeleportableItems.Count);
             container.Fields<Container>().Set(static x => x.m_width, 8).Set(static x => x.m_height, h);
             int y = 0;
-            foreach (var item in _teleportableItems)
+            foreach (var (item, dropPrefab) in TeleportableItems)
             {
-                var clone = item.m_itemData.Clone();
-                clone.m_dropPrefab = item.gameObject;
+                var clone = item.Clone();
+                clone.m_dropPrefab = dropPrefab;
                 clone.m_stack = 1;
                 clone.m_gridPos = new(0, y++);
                 container.Inventory.Items.Add(clone);

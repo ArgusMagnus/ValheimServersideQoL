@@ -3,11 +3,13 @@ using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using MonoMod.Utils;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using Valheim.ServersideQoL.HarmonyPatches;
 using RoutedRPCData = ZRoutedRpc.RoutedRPCData;
 
 namespace Valheim.ServersideQoL.Processors;
@@ -66,6 +68,9 @@ abstract class Processor
 
     public virtual void Initialize(bool firstTime)
     {
+        __teleportableItems = null;
+        ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateTeleportableItems;
+
         if (!firstTime)
         {
             __initialized = false;
@@ -242,6 +247,62 @@ abstract class Processor
         searchPattern = Regex.Escape(searchPattern);
         searchPattern = searchPattern.Replace("\\*", ".*").Replace("\\?", ".?");
         return $"(?i)^{searchPattern}$";
+    }
+
+    static IReadOnlyDictionary<ItemDrop.ItemData, GameObject>? __teleportableItems;
+    protected IReadOnlyDictionary<ItemDrop.ItemData, GameObject> TeleportableItems
+    {
+        get
+        {
+            if (__teleportableItems is null)
+                UpdateTeleportableItems();
+            return __teleportableItems;
+        }
+    }
+
+    protected bool IsItemTeleportable(ItemDrop.ItemData item)
+    {
+        if (item.m_shared.m_teleportable || ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
+            return true;
+        if (!Config.NonTeleportableItems.Enable.Value)
+            return false;
+
+        if (__teleportableItems is null)
+            UpdateTeleportableItems();
+        return __teleportableItems.ContainsKey(item);
+    }
+
+    protected bool HasNonTeleportableItem(IEnumerable<ItemDrop.ItemData> items)
+    {
+        foreach (var item in items)
+        {
+            if (!IsItemTeleportable(item))
+                return true;
+        }
+        return false;
+    }
+
+    [MemberNotNull(nameof(__teleportableItems))]
+    void UpdateTeleportableItems()
+    {
+        var set = __teleportableItems as Dictionary<ItemDrop.ItemData, GameObject>;
+        set?.Clear();
+
+        if (Config.NonTeleportableItems.Enable.Value)
+        {
+            foreach (var entry in Config.NonTeleportableItems.Entries)
+            {
+                if (string.IsNullOrEmpty(entry.Config.Value))
+                    continue;
+
+                if (ZoneSystem.instance.GetGlobalKey(entry.Config.Value))
+                    (set ??= []).Add(entry.ItemDrop.m_itemData, entry.ItemDrop.gameObject);
+            }
+
+            if (__teleportableItems is null)
+                ZoneSystemSendGlobalKeys.GlobalKeysChanged += UpdateTeleportableItems;
+        }
+        __teleportableItems = set ?? ReadOnlyDictionary<ItemDrop.ItemData, GameObject>.Empty;
     }
 
     static List<object?> __args = [];
