@@ -36,7 +36,30 @@ sealed class PlayerProcessor : Processor
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
         public Vector3? InitialInInteriorPosition { get; set; }
         public DateTimeOffset NextStaminaRestore { get; set; }
-        public ExtendedZDO? BackpackContainer { get; set; }
+        ExtendedZDO? _backpackContainer;
+        public ExtendedZDO? BackpackContainer
+        {
+            get => _backpackContainer;
+            set
+            {
+                if (_backpackContainer is not null)
+                    _processor._backpacks.Remove(_backpackContainer);
+                _backpackContainer = value;
+                if (_backpackContainer is not null)
+                {
+                    _processor._backpacks.Add(_backpackContainer, this);
+                    _backpackContainer.Destroyed += OnBackpackDestroyed;
+                }
+            }
+        }
+
+        void OnBackpackDestroyed(ExtendedZDO backpack)
+        {
+            _processor._backpacks.Remove(backpack);
+            if (ReferenceEquals(backpack, _backpackContainer))
+                _backpackContainer = null;
+        }
+
         public DateTimeOffset? OpenBackpackAfter { get; set; }
         public TimeSpan? LastPing { get; private set; }
         public TimeSpan? PingMean { get; private set; }
@@ -160,6 +183,9 @@ sealed class PlayerProcessor : Processor
     public event Action<ExtendedZDO>? PlayerDestroyed;
 
     readonly Dictionary<Vector2i, ExtendedZDO> _zoneControls = [];
+    readonly Dictionary<ExtendedZDO, PlayerState> _backpacks = [];
+
+    static TimeSpan OpenBackpackDelay => TimeSpan.FromMilliseconds(200);
 
     sealed record StackContainerState(ExtendedZDO PlayerZDO)
     {
@@ -214,6 +240,7 @@ sealed class PlayerProcessor : Processor
         _playerStates.Clear();
         _statesByRpc.Clear();
         _zoneControls.Clear();
+        _backpacks.Clear();
     }
 
     void OnZdoDestroyed(ExtendedZDO zdo)
@@ -511,6 +538,37 @@ sealed class PlayerProcessor : Processor
             return true;
         }
 
+        if (_backpacks.TryGetValue(zdo, out var state))
+        {
+            var hasNonTeleportableItems = false;
+            var inventory = zdo.Inventory;
+            var dropPos = state.PlayerZDO.GetPosition();
+            dropPos.y += 2;
+            for (int i = inventory.Items.Count - 1; i >= 0; i--)
+            {
+                var item = inventory.Items[i];
+                if (IsItemTeleportable(item))
+                    continue;
+                hasNonTeleportableItems = true;
+                ItemDrop.DropItem(item, 0, dropPos, state.PlayerZDO.GetRotation());
+                inventory.Items.RemoveAt(i);
+            }
+
+            Logger.DevLog($"Backpack has non-teleportables: {hasNonTeleportableItems}");
+
+            if (hasNonTeleportableItems)
+            {
+                var owner = zdo.GetOwner();
+                zdo.ClaimOwnershipInternal();
+                zdo.Inventory.Save();
+                zdo.SetOwnerInternal(owner);
+                state.BackpackContainer = RecreatePiece(zdo);
+                RPC.ShowMessage(owner, MessageHud.MessageType.Center, "Backpack cannot contain non-teleportable items");
+                state.OpenBackpackAfter = DateTimeOffset.UtcNow + OpenBackpackDelay;
+            }
+            return true;
+        }
+
         if (zdo.PrefabInfo.Player is null)
         {
             UnregisterZdoProcessor = true;
@@ -521,7 +579,7 @@ sealed class PlayerProcessor : Processor
             return false;
         }
 
-        if (!_playerStates.TryGetValue(zdo.GetOwner(), out var state))
+        if (!_playerStates.TryGetValue(zdo.GetOwner(), out state))
         {
             _playerStates.Add(zdo.GetOwner(), state = new(zdo, this));
             if (state.Rpc is not null)
@@ -624,7 +682,7 @@ sealed class PlayerProcessor : Processor
                 {
                     var backpackPrefab = Prefabs.PrivateChest;
 
-                    state.OpenBackpackAfter = DateTimeOffset.UtcNow.AddMilliseconds(200);
+                    state.OpenBackpackAfter = DateTimeOffset.UtcNow + OpenBackpackDelay;
 
                     var pos = zdo.GetPosition();
                     pos.y -= 0.6f;
