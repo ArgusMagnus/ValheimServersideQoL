@@ -37,6 +37,7 @@ sealed class PlayerProcessor : Processor
         public Vector3? InitialInInteriorPosition { get; set; }
         public DateTimeOffset NextStaminaRestore { get; set; }
         public ExtendedZDO? BackpackContainer { get; set; }
+        public DateTimeOffset? OpenBackpackAfter { get; set; }
         public TimeSpan? LastPing { get; private set; }
         public TimeSpan? PingMean { get; private set; }
         public TimeSpan? PingStdDev { get; private set; }
@@ -544,21 +545,41 @@ sealed class PlayerProcessor : Processor
         if (state.NextStaminaRestore < DateTimeOffset.UtcNow)
         {
             state.NextStaminaRestore = DateTimeOffset.UtcNow.AddSeconds(1);
-        if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
-            RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_encumberedStaminaDrain);
-        else if (Config.Players.InfiniteSneakingStamina.Value && zdo.Vars.GetAnimationIsCrouching() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_sneakStaminaDrain)
-            RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_sneakStaminaDrain);
-        else if (Config.Players.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill)
-            RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
+            if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
+                RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_encumberedStaminaDrain);
+            else if (Config.Players.InfiniteSneakingStamina.Value && zdo.Vars.GetAnimationIsCrouching() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_sneakStaminaDrain)
+                RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_sneakStaminaDrain);
+            else if (Config.Players.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill)
+                RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
         }
 
-        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
+        if (state.BackpackContainer is not null)
+        {
+            if (state.OpenBackpackAfter < DateTimeOffset.UtcNow)
+            {
+                state.OpenBackpackAfter = null;
+                RPC.OpenResponse(state.BackpackContainer, true);
+            }
+            else if (state.BackpackContainer.GetPosition() is { y: > -1000 } &&
+                Vector3.Distance(zdo.GetPosition(), state.BackpackContainer.GetPosition()) > InventoryGui.instance.m_autoCloseDistance)
+            {
+                state.BackpackContainer.SetPosition(state.BackpackContainer.GetPosition() with { y = -1000 });
+                state.BackpackContainer = RecreatePiece(state.BackpackContainer);
+            }
+        }
+
+        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote ||
+            Config.Players.OpenBackpackEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
         {
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
             {
                 state.LastEmoteId = emoteId;
-                if (Config.Players.StackInventoryIntoContainersEmote.Value is ModConfig.PlayersConfig.AnyEmote || zdo.Vars.GetEmote() == Config.Players.StackInventoryIntoContainersEmote.Value)
+
+                static bool CheckEmote(ExtendedZDO player, Emotes emote)
+                    => emote is not ModConfig.PlayersConfig.DisabledEmote && (emote is ModConfig.PlayersConfig.AnyEmote || emote == player.Vars.GetEmote());
+
+                if (CheckEmote(zdo, Config.Players.StackInventoryIntoContainersEmote.Value))
                 {
                     Dictionary<SharedItemDataKey, ItemDrop.ItemData>? items = null;
                     foreach (var containerZdo in Instance<ContainerProcessor>().Containers)
@@ -597,6 +618,41 @@ sealed class PlayerProcessor : Processor
                         _stackContainers.Add(container, new(zdo));
                         container.Destroyed += OnStackContainerDestroyed;
                         RPC.StackResponse(container, true);
+                    }
+                }
+                else if (CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value))
+                {
+                    var backpackPrefab = Prefabs.PrivateChest;
+
+                    state.OpenBackpackAfter = DateTimeOffset.UtcNow.AddMilliseconds(200);
+
+                    var pos = zdo.GetPosition();
+                    pos.y -= 0.6f;
+                    state.BackpackContainer ??= PlacedObjects.FirstOrDefault(x => x.PrefabInfo.Container is not null && x.IsModCreator(out var marker) && marker is CreatorMarkers.ProcessorOwned && x.Vars.GetPlayerID() == state.PlayerID);
+                    if (state.BackpackContainer is null)
+                    {
+                        state.BackpackContainer = PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
+                        state.BackpackContainer.Vars.SetPlayerID(state.PlayerID);
+                        state.BackpackContainer.Fields<Container>().Set(static x => x.m_name, "Backpack");
+                        state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
+                    }
+#if DEBUG
+                    else if (state.BackpackContainer.GetPrefab() != backpackPrefab)
+                    {
+                        DestroyObject(state.BackpackContainer);
+                        state.BackpackContainer = null;
+                    }
+#endif
+                    else if (Vector3.Distance(zdo.GetPosition(), state.BackpackContainer.GetPosition()) > InventoryGui.instance.m_autoCloseDistance)
+                    {
+                        state.BackpackContainer.SetPosition(pos);
+                        state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
+                        state.BackpackContainer = RecreatePiece(state.BackpackContainer);
+                    }
+                    else
+                    {
+                        state.OpenBackpackAfter = null;
+                        RPC.OpenResponse(state.BackpackContainer, true);
                     }
                 }
             }

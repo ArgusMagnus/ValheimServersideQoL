@@ -227,8 +227,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
                     Inventory size for '{Localization.instance.Localize(x.Piece.m_name)}'.
                     If you append '+' to the end (e.g. '{x.Container.m_width}x{x.Container.m_height}+'),
                     the inventory size will keep expanding as long as only one type of item is stored inside.
-                    """)));
-                    
+                    """)));                    
         
         public enum ObliteratorItemTeleporterOptions
         {
@@ -366,14 +365,14 @@ sealed record ModConfig(ConfigFile ConfigFile)
             Increasing this value can help with bad connections.
             """, new AcceptableValueRange<float>(1f, 10f));
 
-        //public ConfigEntry<Emotes> OpenBackpackEmote { get; } = cfg.BindEx(section, DisabledEmote, $"""
-        //    Emote to open the backpack.
-        //    If a player uses this emote, a virtual container acting as their backpack will open.
-        //    {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
-        //    You can bind emotes to buttons with chat commands.
-        //    For example, on xbox you can bind the Y-Button to the wave-emote by entering "/bind JoystickButton3 wave" in the in-game chat.
-        //    If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
-        //    """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
+        public ConfigEntry<Emotes> OpenBackpackEmote { get; } = cfg.BindEx(section, DisabledEmote, $"""
+            Emote to open the backpack.
+            If a player uses this emote, a virtual container acting as their backpack will open.
+            {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
+            You can bind emotes to buttons with chat commands.
+            For example, on xbox you can bind the Y-Button to the wave-emote by entering "/bind JoystickButton3 {Emotes.Wave}" in the in-game chat.
+            If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
+            """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
 
         //public ConfigEntry<int> InitialBackpackSlots { get; } = cfg.BindEx(section, 0, "Initial available slots in the backpack");
         ////public ConfigEntry<int>
