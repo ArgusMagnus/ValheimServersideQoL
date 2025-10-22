@@ -33,6 +33,8 @@ sealed class PlayerProcessor : Processor
         public bool IsAdmin => _isAdmin ??= (Player.m_localPlayer?.GetZDOID() == PlayerZDO.m_uid || ZNet.instance.IsAdmin(_peer?.m_socket.GetHostName() ?? ""));
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
         public Vector3? InitialInInteriorPosition { get; set; }
+        public DateTimeOffset NextStaminaRestore { get; set; }
+        public ExtendedZDO? BackpackContainer { get; set; }
         public TimeSpan? LastPing { get; private set; }
         public TimeSpan? PingMean { get; private set; }
         public TimeSpan? PingStdDev { get; private set; }
@@ -537,12 +539,16 @@ sealed class PlayerProcessor : Processor
 #endif
         }
 
+        if (state.NextStaminaRestore < DateTimeOffset.UtcNow)
+        {
+            state.NextStaminaRestore = DateTimeOffset.UtcNow.AddSeconds(1);
         if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
             RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_encumberedStaminaDrain);
         else if (Config.Players.InfiniteSneakingStamina.Value && zdo.Vars.GetAnimationIsCrouching() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_sneakStaminaDrain)
             RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_sneakStaminaDrain);
         else if (Config.Players.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill)
             RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
+        }
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote)
         {
