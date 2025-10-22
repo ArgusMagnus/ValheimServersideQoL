@@ -5,6 +5,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class LocationProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("fbacfa56-3fd4-408c-aac7-cd39663d4ea2");
+
     readonly Dictionary<ExtendedZDO, ExtendedZDO> _zdosByBeacon = [];
     Regex? _regex;
 

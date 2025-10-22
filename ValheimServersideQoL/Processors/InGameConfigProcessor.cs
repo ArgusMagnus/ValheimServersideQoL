@@ -9,6 +9,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class InGameConfigProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("81185723-7387-4b8c-ac26-e78fe1e659a6");
+
     const string SignFormatWhite = "<color=\"white\" x><noparse x>";
     const string SignFormatGreen = "<color=#00FF00 x><noparse x>";
     const string MainPortalTag = $"{Main.PluginName} Config-Room";

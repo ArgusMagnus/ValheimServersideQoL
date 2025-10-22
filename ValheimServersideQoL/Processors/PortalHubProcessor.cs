@@ -5,6 +5,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PortalHubProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("1523cbb8-ed88-4608-84c5-8526937020f7");
+
     sealed class PortalState
     {
         public required string Tag { get; set; }

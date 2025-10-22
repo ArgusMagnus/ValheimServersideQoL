@@ -5,6 +5,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PlayerProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("159d939c-cb85-4314-ac30-f473d043fdc2");
+
     public interface IPeerInfo
     {
         ExtendedZDO PlayerZDO { get; }

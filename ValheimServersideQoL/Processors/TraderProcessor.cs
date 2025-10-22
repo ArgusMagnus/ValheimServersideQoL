@@ -1,9 +1,9 @@
-﻿using BepInEx.Logging;
-
-namespace Valheim.ServersideQoL.Processors;
+﻿namespace Valheim.ServersideQoL.Processors;
 
 sealed class TraderProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("f21976ad-a2b6-4aaf-94d1-8f9e65510704");
+
     readonly Dictionary<Trader, List<string>> _globalKeysToSet = [];
     readonly Dictionary<ZDOID, Peer> _reset = [];
 

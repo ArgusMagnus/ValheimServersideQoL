@@ -2,6 +2,8 @@
 
 sealed class FermenterProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("19367679-d46d-45e6-be8a-505d638cc133");
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;

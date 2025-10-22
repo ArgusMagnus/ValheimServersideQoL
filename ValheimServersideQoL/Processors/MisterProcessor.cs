@@ -1,10 +1,11 @@
-﻿using BepInEx.Logging;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class MisterProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("bc1174a9-43c5-4594-8754-bc059bbee284");
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;

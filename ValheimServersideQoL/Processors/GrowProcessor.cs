@@ -1,12 +1,11 @@
-﻿using BepInEx.Logging;
-using System;
-using System.Collections.Concurrent;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class GrowProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("c41992d5-60b0-4628-a578-f897ecb102a7");
+
     readonly Dictionary<ExtendedZDO, LastMessage> _lastMessage = new();
 
     sealed class LastMessage

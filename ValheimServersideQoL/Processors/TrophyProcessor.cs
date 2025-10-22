@@ -4,6 +4,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TrophyProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("e320985c-d7c9-4922-b778-2efee903ed4d");
+
     TimeSpan _activationDelay;
     TimeSpan _respawnDelay;
     readonly Dictionary<ExtendedZDO, TrophyState> _stateByTrophy = [];

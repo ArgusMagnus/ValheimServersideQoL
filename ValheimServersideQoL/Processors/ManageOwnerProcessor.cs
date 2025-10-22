@@ -5,6 +5,8 @@ namespace Valheim.ServersideQoL.Processors;
 [Processor(Priority = int.MaxValue)]
 sealed class ManageOwnerProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("9178b9fe-ef1a-4e75-b492-ae392aa6b557");
+
     readonly Dictionary<Vector2i, long> _bestOwners = [];
     readonly MethodInfo _releaseNearbyZDOSMethod = typeof(ZDOMan).GetMethod("ReleaseNearbyZDOS", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
     readonly MethodInfo _releaseNearbyZDOSPrefix = ((Delegate)ReleaseNearbyZDOSPrefix).Method;

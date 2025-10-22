@@ -2,6 +2,8 @@
 
 sealed class HumanoidLevelProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("e579ea6d-86ca-4fbf-bd61-539bae01cf1d");
+
     readonly IReadOnlyList<int> _statusEffects = [
         //SEMan.s_statusEffectBurning, SEMan.s_statusEffectLightning, SEMan.s_statusEffectPoison,
         SEMan.s_statusEffectSpirit];

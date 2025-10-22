@@ -3,6 +3,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class CraftingStationProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("a04a766c-a580-470a-9e6c-758a6ae7ccdb");
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;

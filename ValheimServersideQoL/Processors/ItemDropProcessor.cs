@@ -1,10 +1,11 @@
-﻿using BepInEx.Logging;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class ItemDropProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("0c2236b3-e371-4bb9-9724-e1eb83a9679e");
+
     readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = [];
     readonly List<ExtendedZDO> _itemDrops = [];
 

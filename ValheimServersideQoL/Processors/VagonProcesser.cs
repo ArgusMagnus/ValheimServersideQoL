@@ -1,9 +1,9 @@
-﻿using BepInEx.Logging;
-
-namespace Valheim.ServersideQoL.Processors;
+﻿namespace Valheim.ServersideQoL.Processors;
 
 sealed class VagonProcesser : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("c4463e98-16e0-419b-9096-90307a332803");
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;

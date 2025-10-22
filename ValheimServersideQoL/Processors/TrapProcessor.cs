@@ -2,6 +2,8 @@
 
 sealed class TrapProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("9617e1bc-80d0-4852-af9d-2946bd6cb801");
+
     readonly List<(ExtendedZDO ZDO, DateTimeOffset RearmAfter)> _rearmAfter = [];
 
     public override void Initialize(bool firstTime)

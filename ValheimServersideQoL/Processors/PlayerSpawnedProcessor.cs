@@ -2,6 +2,8 @@
 
 sealed class PlayerSpawnedProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("7766ee34-0ade-4f71-8e6e-5931419cc303");
+
     sealed record SpawnInfo(int MaxSpawned, string MaxSummonReached, Dictionary<int, List<ExtendedZDO>> SpawnedByPrefab);
 
     readonly Dictionary<string, SpawnInfo> _spawnInfo = [];

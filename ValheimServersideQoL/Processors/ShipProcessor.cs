@@ -4,6 +4,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ShipProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("822bb8e2-75a4-4519-b144-0b4f927ae6c2");
+
     readonly HashSet<ExtendedZDO> _ships = [];
     public IReadOnlyCollection<ExtendedZDO> Ships => _ships;
 

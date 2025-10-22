@@ -5,6 +5,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class PortalProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("a59669f7-3573-4ece-9ec3-d42e67a772c1");
+
     bool _destroyNewPortals;
     float _rangeSqr;
     readonly HashSet<ExtendedZDO> _initialPortals = [];

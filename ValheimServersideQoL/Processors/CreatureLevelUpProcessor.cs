@@ -9,6 +9,8 @@ namespace Valheim.ServersideQoL.Processors;
 ]
 sealed class CreatureLevelUpProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("26c57b62-c9be-458a-8d2f-18b140f483fb");
+
     readonly Dictionary<Biome, int> _levelIncreasePerBiome = [];
     readonly Dictionary<Vector2i, SectorState> _sectorStates = [];
     readonly Dictionary<(Biome, int Prefab), List<SpawnSystemData>> _spawnData = [];

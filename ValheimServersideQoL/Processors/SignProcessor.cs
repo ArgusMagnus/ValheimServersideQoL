@@ -5,6 +5,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class SignProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("806bdb85-c857-4154-a246-a0b1d0917987");
+
     internal const string MagnetEmoji = "🧲";
     readonly Regex _chestPickupRangeRegex = new($@"{Regex.Escape(MagnetEmoji)}\s*(?<R>\d+)");
 

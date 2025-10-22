@@ -2,6 +2,8 @@
 
 sealed class ShieldGeneratorProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("0ccc72d2-cddb-4007-a206-61cea0308af3");
+
     readonly Dictionary<ExtendedZDO, bool> _shieldGenerators = [];
 
     public readonly record struct ShieldGeneratorInfo(ExtendedZDO ShieldGenerator, bool HasFuel);

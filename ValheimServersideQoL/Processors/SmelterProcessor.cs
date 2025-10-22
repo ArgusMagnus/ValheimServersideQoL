@@ -4,6 +4,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class SmelterProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("fb9d92e2-c7bb-4d9d-9cae-6b23828da3ef");
+
     readonly List<ExtendedZDO> _smelters = [];
 
     public override void Initialize(bool firstTime)

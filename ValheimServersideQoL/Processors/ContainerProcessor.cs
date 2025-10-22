@@ -8,6 +8,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class ContainerProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("2e74d73e-d1e4-46e2-9885-d608730bd0da");
+
     readonly Dictionary<ItemKey, int> _stackPerItem = new();
     readonly Dictionary<ExtendedZDO, List<ExtendedZDO>> _signsByChests = [];
     readonly Dictionary<ExtendedZDO, ExtendedZDO> _chestsBySigns = [];
@@ -153,7 +155,7 @@ sealed class ContainerProcessor : Processor
         state.PreviousOwner = zdo.GetOwner();
 
         //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
-        RPC.RequestOwn(zdo, playerID);
+        RPC.RequestOpen(zdo, playerID);
     }
 
     bool RPC_OpenResponse(ExtendedZDO? zdo, bool granted)

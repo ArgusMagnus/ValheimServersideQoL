@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-
-namespace Valheim.ServersideQoL.Processors;
+﻿namespace Valheim.ServersideQoL.Processors;
 
 sealed class TurretProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("4b69158e-1790-40be-8dd1-5d1d57197bba");
+
     readonly List<ExtendedZDO> _turrets = [];
 
     public override void Initialize(bool firstTime)

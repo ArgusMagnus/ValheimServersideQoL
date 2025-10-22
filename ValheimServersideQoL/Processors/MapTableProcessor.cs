@@ -1,11 +1,12 @@
-﻿using BepInEx.Logging;
+﻿using System.Text.RegularExpressions;
 using UnityEngine;
-using System.Text.RegularExpressions;
 
 namespace Valheim.ServersideQoL.Processors;
 
 sealed class MapTableProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("7d16d783-e298-43ee-b621-11022e4b392a");
+
     record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
     readonly List<Pin> _pins = new();
     readonly List<Pin> _existingPins = new();

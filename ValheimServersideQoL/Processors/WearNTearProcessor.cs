@@ -4,6 +4,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class WearNTearProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("46374d89-a351-48f5-96b2-b1ad46e71ee6");
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         UnregisterZdoProcessor = true;

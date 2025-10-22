@@ -302,11 +302,14 @@ sealed class ExtendedZDO : ZDO
         public int GetLocation(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_location, defaultValue);
         public int GetSeed(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_seed, defaultValue);
 
+        static int __processorId = $"{Main.PluginGuid}.ProcessorId".GetStableHashCode();
+        public Guid GetProcessorId(Guid defaultValue = default) => _zdo.GetByteArray(__processorId, Array.Empty<byte>()) is { Length: > 0 } arr ? new(arr) : defaultValue;
+        public void SetProcessorId(Guid value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__processorId, value == default ? Array.Empty<byte>() : value.ToByteArray()); }
+
         static int __intTag = $"{Main.PluginGuid}.IntTag".GetStableHashCode();
         public int GetIntTag(int defaultValue = default) => _zdo.GetInt(__intTag, defaultValue);
         public void SetIntTag(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__intTag, value); }
         public void RemoveIntTag([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__intTag); }
-
 
         static int __lastSpawnedTime = $"{Main.PluginGuid}.LastSpawnedTime".GetStableHashCode();
         public DateTimeOffset GetLastSpawnedTime(DateTimeOffset defaultValue = default) => new(_zdo.GetLong(__lastSpawnedTime, defaultValue.Ticks), default);

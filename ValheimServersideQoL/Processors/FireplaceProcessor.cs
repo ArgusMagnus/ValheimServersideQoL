@@ -4,6 +4,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class FireplaceProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("a805afd0-ecd0-4c85-8d8a-6f2f14957b0a");
+
     readonly Dictionary<ExtendedZDO, IEnumerable<ExtendedZDO>> _enclosure = [];
     readonly List<ExtendedZDO> _fireplaces = [];
 

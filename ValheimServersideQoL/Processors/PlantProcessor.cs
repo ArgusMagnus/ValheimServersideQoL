@@ -2,6 +2,8 @@
 
 sealed class PlantProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("6b337a7f-e751-454e-ac84-b6c3b4679535");
+
     //readonly HashSet<int> _cropPickables = [];
 
     //public override void Initialize(bool firstTime)

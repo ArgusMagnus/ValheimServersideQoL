@@ -26,6 +26,21 @@ abstract class Processor
         .OrderByDescending(static x => x.GetCustomAttribute<ProcessorAttribute>()?.Priority ?? 0)
         .Select(static x => (Processor)Activator.CreateInstance(x))];
 
+#if DEBUG
+    static Processor()
+    {
+        var list = DefaultProcessors
+            .GroupBy(static x => x.Id)
+            .Where(static x => x.Count() is not 1)
+            .Select(static x => $"({string.Join(", ", x.Select(static x => x.GetType().Name))})").ToList();
+        if (list.Count is 0)
+            return;
+
+        Main.Instance.Logger.LogError($"Processor Ids must be unique. Offenders: {string.Join(", ", list)}");
+        throw new OperationCanceledException();
+    }
+#endif
+
     static class InstanceCache<T> where T : Processor, new()
     {
         public static T Instance { get; } = DefaultProcessors.OfType<T>().First();
@@ -34,6 +49,7 @@ abstract class Processor
 
     protected ManualLogSource Logger => Main.Instance.Logger;
     protected ModConfig Config => Main.Instance.Config;
+    protected abstract Guid Id { get; }
 
     public bool DestroyZdo { get; protected set; }
     public bool RecreateZdo { get; protected set; }
@@ -65,15 +81,34 @@ abstract class Processor
         {
             if (zdo.IsModCreator(out var marker))
             {
-                if (marker is not CreatorMarkers.DataZDO)
-                    zdo.Destroy();
-                else if (_dataZDO is null)
-                    _dataZDO = zdo;
-                else
+                switch (marker)
                 {
-                    Logger.LogError("More then one DataZDO found, destroying the second one");
-                    zdo.Destroy();
-                }                    
+                    case CreatorMarkers.DataZDO:
+                        if (_dataZDO is null)
+                            _dataZDO = zdo;
+                        else
+                        {
+                            Logger.LogError("More then one DataZDO found, destroying the second one");
+                            zdo.Destroy();
+                        }
+                        break;
+
+                    case CreatorMarkers.ProcessorOwned:
+                        var id = zdo.Vars.GetProcessorId();
+                        foreach (var processor in DefaultProcessors)
+                        {
+                            if (processor.Id == id)
+                            {
+                                processor.PlacedObjects.Add(zdo);
+                                break;
+                            }
+                        }
+                        break;
+
+                    default:
+                        zdo.Destroy();
+                        break;
+                }
             }
         }
     }
@@ -158,6 +193,8 @@ abstract class Processor
     protected ExtendedZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
     {
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
+        PlacedObjects.Add(zdo);
+
         zdo.SetPrefab(prefab);
         zdo.Persistent = true;
         zdo.Distant = false;
@@ -165,7 +202,9 @@ abstract class Processor
         zdo.SetRotation(rot);
         zdo.SetModAsCreator(marker);
         zdo.Vars.SetHealth(-1);
-        PlacedObjects.Add(zdo);
+        if (marker.HasFlag(CreatorMarkers.ProcessorOwned))
+            zdo.Vars.SetProcessorId(Id);
+
         return zdo;
     }
 
@@ -293,7 +332,8 @@ abstract class Processor
     public enum CreatorMarkers : uint
     {
         None = 0,
-        DataZDO = (1u << 0)
+        DataZDO = 1u << 0,
+        ProcessorOwned = 1u << 1
     }
 
     public static class PrefabNames
@@ -524,16 +564,22 @@ abstract class Processor
             ZRoutedRpc.instance.InvokeRoutedRPC(itemDrop.GetOwner(), itemDrop.m_uid, "RPC_RequestOwn");
         }
 
-        public static void RequestOwn(ExtendedZDO container, long playerID)
+        public static void RequestOpen(ExtendedZDO container, long playerID)
         {
             container.AssertIs<Container>();
             /// <see cref="Container.RPC_RequestOpen"/>
             ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "RequestOpen", [playerID]);
         }
 
+        public static void OpenResponse(ExtendedZDO container, bool granted)
+        {
+            container.AssertIs<Container>();
+            /// <see cref="Container.RPC_OpenRespons"/>
+            ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "OpenRespons", [granted]);
+        }
 
         static Action<ZRoutedRpc, long, ZDOID, string, object[], long>? __invokeRouteRPCAsSender;
-        
+
         static void InvokeRoutedRPCAsSender(long senderPeerId, long targetPeerID, ZDOID targetZDO, string methodName, object[] parameters)
         {
             __invokeRouteRPCAsSender ??= GetDelegate();

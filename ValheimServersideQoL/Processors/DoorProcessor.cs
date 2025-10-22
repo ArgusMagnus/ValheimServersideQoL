@@ -4,6 +4,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class DoorProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("9cf1003b-a30e-4844-9522-aad3c51f5a1e");
+
     readonly Dictionary<ExtendedZDO, DateTimeOffset> _openSince = [];
     readonly List<ExtendedZDO> _allowedPlayers = [];
     readonly Dictionary<int, int> _keyItemWeightByHash = [];

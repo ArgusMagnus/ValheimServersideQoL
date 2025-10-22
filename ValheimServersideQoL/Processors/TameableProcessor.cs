@@ -5,6 +5,8 @@ namespace Valheim.ServersideQoL.Processors;
 
 sealed class TameableProcessor : Processor
 {
+    protected override Guid Id { get; } = Guid.Parse("fbc11c11-6193-4e9e-956d-615107d80682");
+
     public interface ITameableState
     {
         ExtendedZDO ZDO { get; }
