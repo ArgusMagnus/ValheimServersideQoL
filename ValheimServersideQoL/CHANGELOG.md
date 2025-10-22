@@ -1,3 +1,6 @@
+### v1.5.2013 (BETA)
+- New feature: Backpack [#121](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/121)
+
 ### v1.5.2004 (BETA)
 - New features:
     - "Magic" containers with infinite inventory size [#145](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/145)

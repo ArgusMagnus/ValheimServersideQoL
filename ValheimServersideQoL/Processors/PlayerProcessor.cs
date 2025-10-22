@@ -244,10 +244,15 @@ sealed class PlayerProcessor : Processor
             Logger.DevLog($"Backpack slots: {_backpackSlots}");
         }
 
-        UpdateBackpackSlots();
         ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateBackpackSlots;
-        if (Config.Players.AdditionalBackpackSlotsPerDefeatedBoss.Value is not 0)
-            ZoneSystemSendGlobalKeys.GlobalKeysChanged += UpdateBackpackSlots;
+        if (Config.Players.OpenBackpackEmote.Value is ModConfig.PlayersConfig.DisabledEmote)
+            _backpackSlots = 0;
+        else
+        {
+            UpdateBackpackSlots();
+            if (Config.Players.AdditionalBackpackSlotsPerDefeatedBoss.Value is not 0)
+                ZoneSystemSendGlobalKeys.GlobalKeysChanged += UpdateBackpackSlots;
+        }
 
         if (!firstTime)
             return;
@@ -268,6 +273,8 @@ sealed class PlayerProcessor : Processor
 
         if (state.Rpc is not null)
             _statesByRpc.Remove(state.Rpc);
+        if (state.BackpackContainer is not null)
+            _backpacks.Remove(state.BackpackContainer);
         _players.Remove(zdo.m_uid);
         if (_playersByID.Remove(state.PlayerID, out var zdo2) && zdo2 != zdo)
             _playersByID.Add(state.PlayerID, zdo2);
@@ -612,8 +619,6 @@ sealed class PlayerProcessor : Processor
                 }
             }
 
-            Logger.DevLog($"Backpack has non-teleportables: {hasNonTeleportableItems}");
-
             if (hasNonTeleportableItems || weightLimitExceeded)
             {
                 var owner = zdo.GetOwner();
@@ -662,7 +667,7 @@ sealed class PlayerProcessor : Processor
 
         if (state.NextStaminaRestore < DateTimeOffset.UtcNow)
         {
-            state.NextStaminaRestore = DateTimeOffset.UtcNow.AddSeconds(1);
+            state.NextStaminaRestore = DateTimeOffset.UtcNow.AddSeconds(0.5);
             if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
                 RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_encumberedStaminaDrain);
             else if (Config.Players.InfiniteSneakingStamina.Value && zdo.Vars.GetAnimationIsCrouching() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_sneakStaminaDrain)
@@ -687,7 +692,7 @@ sealed class PlayerProcessor : Processor
         }
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote ||
-            (Config.Players.OpenBackpackEmote.Value is not ModConfig.PlayersConfig.DisabledEmote) && _backpackSlots > 0)
+            _backpackSlots > 0)
         {
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
@@ -738,7 +743,7 @@ sealed class PlayerProcessor : Processor
                         RPC.StackResponse(container, true);
                     }
                 }
-                else if (CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value) && _backpackSlots > 0)
+                else if (_backpackSlots > 0 && CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value))
                 {
                     var backpackPrefab = Prefabs.PrivateChest;
 
@@ -793,7 +798,7 @@ sealed class PlayerProcessor : Processor
                     }
 #endif
                     else if (Vector3.Distance(zdo.GetPosition(), state.BackpackContainer.GetPosition()) > InventoryGui.instance.m_autoCloseDistance
-                        || AdjustSize(zdo, _backpackSlots))
+                        || AdjustSize(state.BackpackContainer, _backpackSlots))
                     {
                         state.BackpackContainer.SetPosition(pos);
                         state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
