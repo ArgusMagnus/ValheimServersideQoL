@@ -581,29 +581,49 @@ sealed class PlayerProcessor : Processor
         if (_backpacks.TryGetValue(zdo, out var state))
         {
             var hasNonTeleportableItems = false;
+            var weightLimitExceeded = false;
+            var totalWeight = 0f;
             var inventory = zdo.Inventory;
             var dropPos = state.PlayerZDO.GetPosition();
             dropPos.y += 2;
             for (int i = inventory.Items.Count - 1; i >= 0; i--)
             {
                 var item = inventory.Items[i];
-                if (IsItemTeleportable(item))
-                    continue;
-                hasNonTeleportableItems = true;
-                ItemDrop.DropItem(item, 0, dropPos, state.PlayerZDO.GetRotation());
-                inventory.Items.RemoveAt(i);
+                var drop = false;
+                if (!IsItemTeleportable(item))
+                {
+                    hasNonTeleportableItems = true;
+                    drop = true;
+                }
+                else
+                {
+                    totalWeight += item.GetWeight();
+                    if (Config.Players.MaxBackpackWeight.Value > 0 && totalWeight > Config.Players.MaxBackpackWeight.Value)
+                    {
+                        weightLimitExceeded = true;
+                        drop = true;
+                    }
+                }
+
+                if (drop)
+                {
+                    ItemDrop.DropItem(item, 0, dropPos, state.PlayerZDO.GetRotation());
+                    inventory.Items.RemoveAt(i);
+                }
             }
 
             Logger.DevLog($"Backpack has non-teleportables: {hasNonTeleportableItems}");
 
-            if (hasNonTeleportableItems)
+            if (hasNonTeleportableItems || weightLimitExceeded)
             {
                 var owner = zdo.GetOwner();
                 zdo.ClaimOwnershipInternal();
                 zdo.Inventory.Save();
                 zdo.SetOwnerInternal(owner);
                 state.BackpackContainer = RecreatePiece(zdo);
-                RPC.ShowMessage(owner, MessageHud.MessageType.Center, "Backpack cannot contain non-teleportable items");
+                RPC.ShowMessage(owner, MessageHud.MessageType.Center, hasNonTeleportableItems ?
+                    "Backpack cannot contain non-teleportable items" :
+                    $"Backpack weight limit ({Config.Players.MaxBackpackWeight.Value}) exceeded");
                 state.OpenBackpackAfter = DateTimeOffset.UtcNow + OpenBackpackDelay;
             }
             return true;

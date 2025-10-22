@@ -10,12 +10,14 @@ namespace Valheim.ServersideQoL;
 interface IZDOInventoryReadOnly
 {
     IReadOnlyList<ItemDrop.ItemData> Items { get; }
+    float TotalWeight { get; }
 }
 
 interface IZDOInventory
 {
     Inventory Inventory { get; }
     IList<ItemDrop.ItemData> Items { get; }
+    float TotalWeight { get; }
     void Save();
     int? PickupRange { get; set; }
     int? FeedRange { get; set; }
@@ -625,6 +627,8 @@ sealed class ExtendedZDO : ZDO
             }
         }
 
+        public float TotalWeight => Inventory.GetTotalWeight();
+
         IList<ItemDrop.ItemData> IZDOInventory.Items => Items;
         IReadOnlyList<ItemDrop.ItemData> IZDOInventoryReadOnly.Items => Items;
 
@@ -642,7 +646,7 @@ sealed class ExtendedZDO : ZDO
             var h = fields.GetInt(static x => x.m_height);
             if (Inventory is null || Inventory.GetWidth() != w || Inventory.GetHeight() != h)
                 Inventory = new(ZDO.PrefabInfo.Container!.Value.Container.m_name, ZDO.PrefabInfo.Container!.Value.Container.m_bkg, w, h);
-
+            
             if (string.IsNullOrEmpty(data))
                 Items.Clear();
             else
