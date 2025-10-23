@@ -51,7 +51,7 @@ sealed class PlayerSpawnedProcessor : Processor
                         _spawnInfo.Add(attack.m_attackAnimation, new(spawnAbility.m_maxSpawned, spawnAbility.m_maxSummonReached, dict));
                 }
 
-                foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
+                foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjects())
                 {
                     if (!_spawnedByPrefab.TryGetValue(zdo.GetPrefab(), out var list) || list.Contains(zdo))
                         continue;

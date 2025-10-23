@@ -166,7 +166,7 @@ sealed class SignProcessor : Processor
                     .OrderByDescending(static x => x.Count)
                     .ToList();
 
-                var items = list.AsEnumerable();
+                var items = list.AsBoxedEnumerable();
                 if (list.Count > Config.Containers.ChestSignsContentListMaxCount.Value)
                 {
                     items = list

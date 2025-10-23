@@ -29,7 +29,7 @@ sealed class TrophyProcessor : Processor
     {
         base.Initialize(firstTime);
 
-        foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
+        foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjects())
         {
             if (zdo.Vars.GetSpawnedByTrophy())
             {

@@ -974,7 +974,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
         public override object Clamp(object value) => value;
 
         public override string ToDescriptionString()
-            => $"# Acceptable values: .NET Format strings for two arguments ({string.Join(", ", testArgs.Select(static x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method";
+            => Invariant($"# Acceptable values: .NET Format strings for {testArgs.Length} arguments ({string.Join(", ", testArgs.Select(static x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method");
     }
 
     public sealed class AdvancedConfig

@@ -104,7 +104,8 @@ sealed class ExtendedZDO : ZDO
     }
 
     public IReadOnlyList<Processor> Processors => AddData.Processors;
-    public void UnregisterProcessors(IEnumerable<Processor> processors) => AddData.Ungregister(processors);
+    public void UnregisterProcessors(IReadOnlyList<Processor> processors) => AddData.Ungregister(processors);
+    public void UnregisterAllExcept(Processor processor) => AddData.UnregisterAllExcept(processor);
     public void UnregisterAllProcessors() => AddData.UnregisterAll();
 
     public void ReregisterAllProcessors() => _addData?.ReregisterAll();
@@ -359,20 +360,70 @@ sealed class ExtendedZDO : ZDO
         public RecreateHandler? Recreated { get; set; }
         public Action<ExtendedZDO>? Destroyed { get; set; }
 
-        static ConcurrentDictionary<int, IReadOnlyList<Processor>> _processors = new();
+        static readonly Dictionary<int, IReadOnlyList<Processor>> _processors = [];
 
-        public void Ungregister(IEnumerable<Processor> processors)
-        {            
+        public void Ungregister(IReadOnlyList<Processor> processors)
+        {
             var hash = 0;
-            foreach (var processor in Processors)
+            foreach (var processor in Processors.AsEnumerable())
             {
-                if (!processors.Any(x => ReferenceEquals(x, processor)))
+                var keep = true;
+                foreach (var remove in processors.AsEnumerable())
+                {
+                    if (ReferenceEquals(processor, remove))
+                    {
+                        keep = false;
+                        break;
+                    }
+                }
+                if (keep)
                     hash = (hash, processor.GetType()).GetHashCode();
             }
 
-            Processors = _processors.GetOrAdd(hash, _ => Processors.Where(x => !processors.Any(y => ReferenceEquals(x, y))).ToList());
-            foreach (var processor in processors)
-                ProcessorDataRevisions?.Remove(processor);
+            if (!_processors.TryGetValue(hash, out var newProcessors))
+            {
+                var list = new List<Processor>();
+                _processors.Add(hash, newProcessors = list);
+                foreach (var processor in Processors.AsEnumerable())
+                {
+                    var keep = true;
+                    foreach (var remove in processors.AsEnumerable())
+                    {
+                        if (ReferenceEquals(processor, remove))
+                        {
+                            keep = false;
+                            break;
+                        }
+                    }
+                    if (keep)
+                        list.Add(processor);
+                }
+            }
+
+            Processors = newProcessors;
+
+            if (ProcessorDataRevisions is not null)
+            {
+                foreach (var processor in processors.AsEnumerable())
+                    ProcessorDataRevisions.Remove(processor);
+            }
+        }
+
+        public void UnregisterAllExcept(Processor keep)
+        {
+            var hash = (0, keep.GetType()).GetHashCode();
+            if (!_processors.TryGetValue(hash, out var processors))
+                _processors.Add(hash, processors = [keep]);
+            if (ProcessorDataRevisions is not null)
+            {
+                foreach (var processor in Processors.AsEnumerable())
+                {
+                    if (!ReferenceEquals(processor, keep))
+                        ProcessorDataRevisions.Remove(processor);
+                }
+            }
+            Processors = processors;
+            return;
         }
 
         public void UnregisterAll() => Processors = [];

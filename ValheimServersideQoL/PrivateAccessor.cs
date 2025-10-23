@@ -42,12 +42,13 @@ static class PrivateAccessor
     public static Func<IReadOnlyList<KeyUI>> GetServerOptionsGUIModifiers => __getServerOptionsGUIModifiers ??= Expression.Lambda<Func<IReadOnlyList<KeyUI>>>(
         Expression.Field(null, typeof(ServerOptionsGUI).GetField("m_modifiers", BindingFlags.Static | BindingFlags.NonPublic))).Compile();
 
-    static Func<ZDOMan, IReadOnlyDictionary<ZDOID, ZDO>>? __getZDOManObjectsByID;
-    public static IReadOnlyDictionary<ZDOID, ZDO> GetObjectsByID(this ZDOMan instance) => (__getZDOManObjectsByID ??= Expression.Lambda<Func<ZDOMan, IReadOnlyDictionary<ZDOID, ZDO>>>(
+    static Func<ZDOMan, Dictionary<ZDOID, ZDO>>? __getZDOManObjectsByID;
+    static Dictionary<ZDOID, ZDO> GetObjectsByIDCore(this ZDOMan instance) => (__getZDOManObjectsByID ??= Expression.Lambda<Func<ZDOMan, Dictionary<ZDOID, ZDO>>>(
         Expression.Field(
             Expression.Parameter(typeof(ZDOMan)) is var par1 ? par1 : throw new Exception(),
             typeof(ZDOMan).GetField("m_objectsByID", BindingFlags.NonPublic | BindingFlags.Instance)),
         par1).Compile()).Invoke(instance);
+    public static Dictionary<ZDOID, ZDO>.ValueCollection GetObjects(this ZDOMan instance) => GetObjectsByIDCore(instance).Values;
 
     static Func<Localization, IReadOnlyDictionary<string, string>>? __getLocalizationStrings;
     public static IReadOnlyDictionary<string, string> GetStrings(this Localization instance) => (__getLocalizationStrings ??= Expression.Lambda<Func<Localization, IReadOnlyDictionary<string, string>>>(

@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -286,7 +287,7 @@ public sealed partial class Main : BaseUnityPlugin
                 }
             }
             
-            foreach (var processor in Processor.DefaultProcessors)
+            foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
                 processor.Initialize(_executeCounter is 1);
 
             if (_executeCounter is 1)
@@ -302,7 +303,7 @@ public sealed partial class Main : BaseUnityPlugin
             }
             else
             {
-                foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
+                foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjects())
                     zdo.ReregisterAllProcessors();
             }
 
@@ -319,12 +320,13 @@ public sealed partial class Main : BaseUnityPlugin
             return;
 
         (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
+        var zonesAroundPlayers = Config.General.ZonesAroundPlayers.Value;
         foreach (var peer in peers)
         {
             var playerSector = ZoneSystem.GetZone(peer.m_refPos);
-            for (int x = playerSector.x - Config.General.ZonesAroundPlayers.Value; x <= playerSector.x + Config.General.ZonesAroundPlayers.Value; x++)
+            for (int x = playerSector.x - zonesAroundPlayers; x <= playerSector.x + zonesAroundPlayers; x++)
             {
-                for (int y = playerSector.y - Config.General.ZonesAroundPlayers.Value; y <= playerSector.y + Config.General.ZonesAroundPlayers.Value; y++)
+                for (int y = playerSector.y - zonesAroundPlayers; y <= playerSector.y + zonesAroundPlayers; y++)
                 {
                     var sector = new Vector2i(x, y);
                     if (_playerSectorsOld.Remove(sector, out var sectorInfo))
@@ -359,25 +361,26 @@ public sealed partial class Main : BaseUnityPlugin
         }
         _playerSectorsOld.Clear();
 
-        var playerSectors = _playerSectors.AsEnumerable();
-        if (_unfinishedProcessingInRow > 10)
-        {
-            // The idea here is to process zones in order of player proximity.
-            // However, if all ZDOs are processed anyway, this ordering is a waste of time.
-            foreach (var peer in peers)
-            {
-                var playerSector = ZoneSystem.GetZone(peer.m_refPos);
-                foreach (var (sector, sectorInfo) in _playerSectors.Select(static x => (x.Key, x.Value)))
-                {
-                    var dx = sector.x - playerSector.x;
-                    var dy = sector.y - playerSector.y;
-                    sectorInfo.InverseWeight += dx * dx + dy * dy;
-                }
-            }
-            playerSectors = playerSectors.OrderBy(static x => x.Value.InverseWeight);
-        }
+        var playerSectors = _playerSectors;
+        //var playerSectors = _playerSectors.AsEnumerable();
+        //if (_unfinishedProcessingInRow > 10)
+        //{
+        //    // The idea here is to process zones in order of player proximity.
+        //    // However, if all ZDOs are processed anyway, this ordering is a waste of time.
+        //    foreach (var peer in peers)
+        //    {
+        //        var playerSector = ZoneSystem.GetZone(peer.m_refPos);
+        //        foreach (var (sector, sectorInfo) in _playerSectors)
+        //        {
+        //            var dx = sector.x - playerSector.x;
+        //            var dy = sector.y - playerSector.y;
+        //            sectorInfo.InverseWeight += dx * dx + dy * dy;
+        //        }
+        //    }
+        //    playerSectors = playerSectors.OrderBy(static x => x.Value.InverseWeight);
+        //}
 
-        foreach (var processor in Processor.DefaultProcessors)
+        foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
             processor.PreProcess(peers);
 
         int processedSectors = 0;
@@ -407,7 +410,7 @@ public sealed partial class Main : BaseUnityPlugin
                 if (zdo.Processors.Count > 1)
                 {
                     Processor? claimedExclusiveBy = null;
-                    foreach (var processor in zdo.Processors)
+                    foreach (var processor in zdo.Processors.AsEnumerable())
                     {
                         if (!processor.ClaimExclusive(zdo))
                             continue;
@@ -418,13 +421,13 @@ public sealed partial class Main : BaseUnityPlugin
                     }
 
                     if (claimedExclusiveBy is not null)
-                        zdo.UnregisterProcessors(zdo.Processors.Where(x => x != claimedExclusiveBy));
+                        zdo.UnregisterAllExcept(claimedExclusiveBy);
                 }
 
                 var destroy = false;
                 var recreate = false;
                 _unregister.Clear();
-                foreach (var processor in zdo.Processors)
+                foreach (var processor in zdo.Processors.AsEnumerable())
                 {
                     processor.Process(zdo, sectorInfo.Peers);
                     if (processor.UnregisterZdoProcessor)
@@ -443,7 +446,7 @@ public sealed partial class Main : BaseUnityPlugin
             }
         }
 
-        foreach (var processor in Processor.DefaultProcessors)
+        foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
             processor.PostProcess();
 
         if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
@@ -685,7 +688,7 @@ public sealed partial class Main : BaseUnityPlugin
     sealed class PeersEnumerable(ZNetPeer? localPeer) : IEnumerable<Peer>
     {
         readonly ZNetPeer? _localPeer = localPeer;
-        IReadOnlyList<ZNetPeer> _peers = [];
+        List<ZNetPeer> _peers = [];
 
         public int Count => _peers.Count + (_localPeer is null ? 0 : 1);
 
@@ -696,15 +699,47 @@ public sealed partial class Main : BaseUnityPlugin
             _peers = ZNet.instance.GetPeers();
         }
 
-        public IEnumerator<Peer> GetEnumerator()
-        {
-            if (_localPeer is not null)
-                yield return new(_localPeer);
-            foreach (var peer in _peers)
-                yield return new(peer);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Enumerator GetEnumerator() => new(this);
 
+        IEnumerator<Peer> IEnumerable<Peer>.GetEnumerator() => GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public struct Enumerator(PeersEnumerable enumerable) : IEnumerator<Peer>
+        {
+            readonly PeersEnumerable _enumerable = enumerable;
+            int _index = -2;
+
+            public Peer Current { readonly get; private set; }
+            readonly object IEnumerator.Current => Current;
+
+            public void Dispose() => Current = default;
+
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            public bool MoveNext()
+            {
+                if (++_index < 0)
+                {
+                    if (_enumerable._localPeer is null)
+                        ++_index;
+                    else
+                    {
+                        Current = new(_enumerable._localPeer);
+                        return true;
+                    }
+                }
+                
+                if (_index < _enumerable._peers.Count)
+                {
+                    Current = new(_enumerable._peers[_index]);
+                    return true;
+                }
+                Current = default;
+                return false;
+            }
+
+            public void Reset() => _index = -2;
+        }
     }
 
     sealed class MyTerminal : Terminal

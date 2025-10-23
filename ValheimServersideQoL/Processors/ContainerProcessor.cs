@@ -83,7 +83,7 @@ sealed class ContainerProcessor : Processor
 
         if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled)
         {
-            foreach (var zdo in ZDOMan.instance.GetObjectsByID().Values.Cast<ExtendedZDO>())
+            foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjects())
             {
                 if (zdo.GetPrefab() != Prefabs.Incinerator || zdo.Vars.GetCreator() is 0)
                     continue;
