@@ -48,17 +48,17 @@ sealed class FireplaceProcessor : Processor
 
         var fields = zdo.Fields<Fireplace>();
         if (!Config.Fireplaces.MakeToggleable.Value)
-            fields.Reset(static x => x.m_canTurnOff);
-        else if (fields.SetIfChanged(static x => x.m_canTurnOff, true))
+            fields.Reset(static () => x => x.m_canTurnOff);
+        else if (fields.SetIfChanged(static () => x => x.m_canTurnOff, true))
             RecreateZdo = true;
 
         if (!Config.Fireplaces.InfiniteFuel.Value)
-            fields.Reset(static x => x.m_secPerFuel).Reset(static x => x.m_canRefill);
+            fields.Reset(static () => x => x.m_secPerFuel).Reset(static () => x => x.m_canRefill);
         else
         {
-            if (fields.SetIfChanged(static x => x.m_secPerFuel, 0))
+            if (fields.SetIfChanged(static () => x => x.m_secPerFuel, 0))
                 RecreateZdo = true;
-            if (fields.SetIfChanged(static x => x.m_canRefill, false))
+            if (fields.SetIfChanged(static () => x => x.m_canRefill, false))
                 RecreateZdo = true;
             zdo.Vars.SetFuel(fields.GetFloat(static () => x => x.m_maxFuel));
         }
@@ -80,9 +80,9 @@ sealed class FireplaceProcessor : Processor
         if (ignoreRain)
         {
             /// <see cref="Fireplace.CheckWet"/>
-            if (fields.SetIfChanged(static x => x.m_coverCheckOffset, offset))
+            if (fields.SetIfChanged(static () => x => x.m_coverCheckOffset, offset))
                 RecreateZdo = true;
-            if (fields.SetIfChanged(static x => x.m_disableCoverCheck, true))
+            if (fields.SetIfChanged(static () => x => x.m_disableCoverCheck, true))
                 RecreateZdo = true;
             if (!RecreateZdo && !_enclosure.ContainsKey(zdo))
             {
@@ -92,9 +92,9 @@ sealed class FireplaceProcessor : Processor
         }
         else
         {
-            if (fields.ResetIfChanged(static x => x.m_coverCheckOffset))
+            if (fields.ResetIfChanged(static () => x => x.m_coverCheckOffset))
                 RecreateZdo = true;
-            if (fields.ResetIfChanged(static x => x.m_disableCoverCheck))
+            if (fields.ResetIfChanged(static () => x => x.m_disableCoverCheck))
                 RecreateZdo = true;
             if (_enclosure.Remove(zdo, out var enclosures))
             {

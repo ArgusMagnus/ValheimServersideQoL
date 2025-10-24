@@ -13,9 +13,9 @@ sealed class CraftingStationProcessor : Processor
             if (!Config.CraftingStations.StationConfig.TryGetValue(zdo.PrefabInfo.CraftingStation, out var cfg))
                 return false;
             var fields = zdo.Fields<CraftingStation>();
-            if (cfg.BuildRange is not null && fields.SetIfChanged(static x => x.m_rangeBuild, cfg.BuildRange.Value))
+            if (cfg.BuildRange is not null && fields.SetIfChanged(static () => x => x.m_rangeBuild, cfg.BuildRange.Value))
                 RecreateZdo = true;
-            if (cfg.ExtraBuildRangePerLevel is not null && fields.SetIfChanged(static x => x.m_extraRangePerLevel, cfg.ExtraBuildRangePerLevel.Value))
+            if (cfg.ExtraBuildRangePerLevel is not null && fields.SetIfChanged(static () => x => x.m_extraRangePerLevel, cfg.ExtraBuildRangePerLevel.Value))
                 RecreateZdo = true;
         }
         else if (zdo.PrefabInfo.StationExtension is not null)
@@ -24,8 +24,8 @@ sealed class CraftingStationProcessor : Processor
                 return false;
             var fields = zdo.Fields<StationExtension>();
             if (float.IsNaN(cfg.MaxExtensionDistance.Value))
-                fields.Reset(static x => x.m_maxStationDistance);
-            else if (fields.SetIfChanged(static x => x.m_maxStationDistance, cfg.MaxExtensionDistance.Value))
+                fields.Reset(static () => x => x.m_maxStationDistance);
+            else if (fields.SetIfChanged(static () => x => x.m_maxStationDistance, cfg.MaxExtensionDistance.Value))
                 RecreateZdo = true;
         }
         return false;

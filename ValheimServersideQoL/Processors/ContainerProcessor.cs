@@ -303,8 +303,8 @@ sealed class ContainerProcessor : Processor
         {
             if (zdo.Inventory is { Items.Count: 0 })
             {
-                fields.Set(static x => x.m_width, width = sizeCfg.Width);
-                fields.Set(static x => x.m_height, height = sizeCfg.Height);
+                fields.Set(static () => x => x.m_width, width = sizeCfg.Width);
+                fields.Set(static () => x => x.m_height, height = sizeCfg.Height);
                 RecreateZdo = true;
                 if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
                     zdo.ReleaseOwnershipInternal(); // required for physics to work again
@@ -427,8 +427,8 @@ sealed class ContainerProcessor : Processor
             if (RecreateZdo)
             {
                 Logger.DevLog($"Change {zdo.PrefabInfo.PrefabName} inventory size: {(width, height)} -> {(sizeCfg.Width, sizeCfg.Height)}, check shrink: {checkShrink}");
-                fields.Set(static x => x.m_width, width = sizeCfg.Width);
-                fields.Set(static x => x.m_height, height = sizeCfg.Height);
+                fields.Set(static () => x => x.m_width, width = sizeCfg.Width);
+                fields.Set(static () => x => x.m_height, height = sizeCfg.Height);
             }
         }
 

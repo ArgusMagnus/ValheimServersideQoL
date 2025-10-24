@@ -112,7 +112,7 @@ sealed class LocationProcessor : Processor
             var p = pos;
             p.y -= 4;
             var beacon = PlaceObject(p, Prefabs.MountainRemainsBuried, 0);
-            beacon.Fields<Beacon>(true).Set(x => x.m_range, Config.Wishbone.Range.Value);
+            beacon.Fields<Beacon>(true).Set(static () => x => x.m_range, Config.Wishbone.Range.Value);
             _zdosByBeacon.Add(beacon, zdo);
         }
 

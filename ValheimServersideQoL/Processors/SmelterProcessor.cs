@@ -47,19 +47,23 @@ sealed class SmelterProcessor : Processor
         if (Config.Smelters.CapacityMultiplier.Value is 1f)
         {
             if (zdo.PrefabInfo.Smelter is not null)
-                zdo.Fields<Smelter>().Reset(static x => x.m_maxFuel).Reset(static x => x.m_maxOre);
+            {
+                zdo.Fields<Smelter>()
+                    .Reset(static () => x => x.m_maxFuel)
+                    .Reset(static () => x => x.m_maxOre);
+            }
             else
-                zdo.Fields<ShieldGenerator>().Reset(static x => x.m_maxFuel);
+                zdo.Fields<ShieldGenerator>().Reset(static () => x => x.m_maxFuel);
         }
         else
         {
             if (zdo.PrefabInfo.Smelter is null)
-                RecreateZdo = zdo.Fields<ShieldGenerator>().SetIfChanged(static x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.ShieldGenerator!.m_maxFuel));
+                RecreateZdo = zdo.Fields<ShieldGenerator>().SetIfChanged(static () => x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.ShieldGenerator!.m_maxFuel));
             else
             {
-                if (zdo.Fields<Smelter>().SetIfChanged(static x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxFuel)))
+                if (zdo.Fields<Smelter>().SetIfChanged(static () => x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxFuel)))
                     RecreateZdo = true;
-                if (zdo.Fields<Smelter>().SetIfChanged(static x => x.m_maxOre, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxOre)))
+                if (zdo.Fields<Smelter>().SetIfChanged(static () => x => x.m_maxOre, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxOre)))
                     RecreateZdo = true;
             }
         }
@@ -67,8 +71,8 @@ sealed class SmelterProcessor : Processor
         if (zdo.PrefabInfo.Smelter?.m_conversion.Any(static x => x.m_to is not null) is true)
         {
             if (Config.Smelters.TimePerProductMultiplier.Value is 1f)
-                zdo.Fields<Smelter>().Reset(static x => x.m_secPerProduct);
-            else if (zdo.Fields<Smelter>().SetIfChanged(static x => x.m_secPerProduct, Mathf.Max(1f, zdo.PrefabInfo.Smelter.m_secPerProduct * Config.Smelters.TimePerProductMultiplier.Value)))
+                zdo.Fields<Smelter>().Reset(static () => x => x.m_secPerProduct);
+            else if (zdo.Fields<Smelter>().SetIfChanged(static () => x => x.m_secPerProduct, Mathf.Max(1f, zdo.PrefabInfo.Smelter.m_secPerProduct * Config.Smelters.TimePerProductMultiplier.Value)))
                 RecreateZdo = true;
         }
 

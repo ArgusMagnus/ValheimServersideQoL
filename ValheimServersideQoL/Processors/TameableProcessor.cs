@@ -42,18 +42,18 @@ sealed class TameableProcessor : Processor
         var fields = zdo.Fields<Tameable>();
 
         if (Config.Tames.FedDurationMultiplier.Value is 1f)
-            fields.Reset(static x => x.m_fedDuration);
-        else if (fields.SetIfChanged(static x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
+            fields.Reset(static () => x => x.m_fedDuration);
+        else if (fields.SetIfChanged(static () => x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
             RecreateZdo = true;
 
         if (Config.Tames.TamingTimeMultiplier.Value is 1f)
-            fields.Reset(static x => x.m_tamingTime);
-        else if (fields.SetIfChanged(static x => x.m_tamingTime, tameable.m_tamingTime * Config.Tames.TamingTimeMultiplier.Value))
+            fields.Reset(static () => x => x.m_tamingTime);
+        else if (fields.SetIfChanged(static () => x => x.m_tamingTime, tameable.m_tamingTime * Config.Tames.TamingTimeMultiplier.Value))
             RecreateZdo = true;
 
         if (Config.Tames.PotionTamingBoostMultiplier.Value is 1f)
-            fields.Reset(static x => x.m_tamingBoostMultiplier);
-        else if (fields.SetIfChanged(static x => x.m_tamingBoostMultiplier, tameable.m_tamingBoostMultiplier * Config.Tames.PotionTamingBoostMultiplier.Value))
+            fields.Reset(static () => x => x.m_tamingBoostMultiplier);
+        else if (fields.SetIfChanged(static () => x => x.m_tamingBoostMultiplier, tameable.m_tamingBoostMultiplier * Config.Tames.PotionTamingBoostMultiplier.Value))
             RecreateZdo = true;
 
         if (zdo.Vars.GetTamed())
@@ -61,24 +61,24 @@ sealed class TameableProcessor : Processor
             UnregisterZdoProcessor = true;
 
             if (!Config.Tames.MakeCommandable.Value)
-                fields.Reset(static x => x.m_commandable);
-            else if (fields.SetIfChanged(static x => x.m_commandable, true))
+                fields.Reset(static () => x => x.m_commandable);
+            else if (fields.SetIfChanged(static () => x => x.m_commandable, true))
                 RecreateZdo = true;
 
             if (Config.Summons.UnsummonDistanceMultiplier.Value is 1f)
-                fields.Reset(static x => x.m_unsummonDistance);
-            else if (fields.SetIfChanged(static x => x.m_unsummonDistance, tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
+                fields.Reset(static () => x => x.m_unsummonDistance);
+            else if (fields.SetIfChanged(static () => x => x.m_unsummonDistance, tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
                 RecreateZdo = true;
 
             if (Config.Summons.UnsummonLogoutTimeMultiplier.Value is 1f)
-                fields.Reset(static x => x.m_unsummonOnOwnerLogoutSeconds);
-            else if (fields.SetIfChanged(static x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
+                fields.Reset(static () => x => x.m_unsummonOnOwnerLogoutSeconds);
+            else if (fields.SetIfChanged(static () => x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
                 RecreateZdo = true;
 
             //if (zdo.PrefabInfo.Humanoid is { Humanoid.m_damageModifiers.m_spirit: not HitData.DamageModifier.Immune })
             //{
             //    Logger.DevLog($"Undead: {zdo.PrefabInfo.PrefabName}");
-            //    if (zdo.Fields<Humanoid>().SetIfChanged(static x => x.m_tolerateFire, true))
+            //    if (zdo.Fields<Humanoid>().SetIfChanged(static () => x => x.m_tolerateFire, true))
             //        RecreateZdo = true;
             //}
 

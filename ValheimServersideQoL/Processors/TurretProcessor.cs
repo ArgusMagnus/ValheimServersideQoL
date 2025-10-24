@@ -44,18 +44,18 @@ sealed class TurretProcessor : Processor
 
         var fields = zdo.Fields<Turret>();
         if (!Config.Turrets.DontTargetPlayers.Value)
-            fields.Reset(static x => x.m_targetPlayers);
-        else if (fields.SetIfChanged(static x => x.m_targetPlayers, false))
+            fields.Reset(static () => x => x.m_targetPlayers);
+        else if (fields.SetIfChanged(static () => x => x.m_targetPlayers, false))
             RecreateZdo = true;
 
         if (!Config.Turrets.DontTargetTames.Value)
-            fields.Reset(static x => x.m_targetTamed);
-        else if (fields.SetIfChanged(static x => x.m_targetTamed, false))
+            fields.Reset(static () => x => x.m_targetTamed);
+        else if (fields.SetIfChanged(static () => x => x.m_targetTamed, false))
             RecreateZdo = true;
 
         if (!Config.Turrets.DontTargetTames.Value)
-            fields.Reset(static x => x.m_targetTamedConfig);
-        else if (fields.SetIfChanged(static x => x.m_targetTamedConfig, false))
+            fields.Reset(static () => x => x.m_targetTamedConfig);
+        else if (fields.SetIfChanged(static () => x => x.m_targetTamedConfig, false))
             RecreateZdo = true;
 
         /// <see cref="Turret.RPC_AddAmmo"/>

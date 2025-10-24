@@ -198,7 +198,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 }
             }
 
-            if (fields.SetIfChanged(static x => x.m_respawnTimeMinuts, respawnTime))
+            if (fields.SetIfChanged(static () => x => x.m_respawnTimeMinuts, respawnTime))
                 RecreateZdo = true;
         }
 
@@ -211,7 +211,7 @@ sealed class CreatureLevelUpProcessor : Processor
         }
 
         var maxLevel = zdo.PrefabInfo.CreatureSpawner.m_maxLevel + increase;
-        if (fields.SetIfChanged(static x => x.m_maxLevel, maxLevel))
+        if (fields.SetIfChanged(static () => x => x.m_maxLevel, maxLevel))
             RecreateZdo = true;
 
         var chance = zdo.PrefabInfo.CreatureSpawner.m_levelupChance;
@@ -222,7 +222,7 @@ sealed class CreatureLevelUpProcessor : Processor
             if (zdo.PrefabInfo.CreatureSpawner.m_maxLevel > zdo.PrefabInfo.CreatureSpawner.m_minLevel)
                 chance = Mathf.Pow(chance, zdo.PrefabInfo.CreatureSpawner.m_maxLevel - zdo.PrefabInfo.CreatureSpawner.m_minLevel);
             chance = Mathf.Pow(chance, 1f / steps) * 100f;
-            if (fields.SetIfChanged(static x => x.m_levelupChance, chance))
+            if (fields.SetIfChanged(static () => x => x.m_levelupChance, chance))
                 RecreateZdo = true;
         }
 

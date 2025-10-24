@@ -3,7 +3,9 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Valheim.ServersideQoL.CodeAnalysis;
 using Valheim.ServersideQoL.Processors;
+using YamlDotNet.Core.Tokens;
 
 namespace Valheim.ServersideQoL;
 
@@ -456,259 +458,320 @@ sealed class ExtendedZDO : ZDO
             return Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode();
         }
 
-        //public readonly struct FieldReference<T>
-        //{
-        //    public readonly int Hash;
-        //    public readonly Func<TComponent, T> GetValue;
-
-        //    FieldReference(int hash, Func<TComponent, T> getValue)
-        //    {
-        //        Hash = hash;
-        //        GetValue = getValue;
-        //    }
-
-        //    public static implicit operator FieldReference<T>(Expression<Func<TComponent, T>> fieldExpression)
-        //    {
-        //        var body = (MemberExpression)fieldExpression.Body;
-        //        var field = (FieldInfo)body.Member;
-        //        var par = Expression.Parameter(typeof(TComponent));
-        //        var getValue = Expression.Lambda<Func<TComponent, T>>(Expression.Field(par, field), par).Compile();
-        //        return new(Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode(), getValue);
-        //    }
-        //}
-
-        //public bool GetBool(in FieldReference<bool> fieldReference)
-        //    => Get(in fieldReference, static (zdo, hash, defaultValue) => zdo.GetBool(hash, defaultValue));
-
-        //public float GetFloat(in FieldReference<float> fieldReference)
-        //    => Get(in fieldReference, static (zdo, hash, defaultValue) => zdo.GetFloat(hash, defaultValue));
-
-        //public int GetInt(in FieldReference<int> fieldReference)
-        //    => Get(in fieldReference, static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
-
-        //public string GetString(in FieldReference<string> fieldReference)
-        //    => Get(in fieldReference, static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
-
-        static class ExpressionCache<T>
+        static class ExpressionCache<T> where T : notnull
         {
-            static readonly Dictionary<(string, int), Expression<Func<TComponent, T>>> __expressions = [];
+            static readonly Dictionary<(string, int), Expression<Func<TComponent, T>>> __cache = [];
 
             public static Expression<Func<TComponent, T>> Get(Func<Expression<Func<TComponent, T>>> factory, string callerFilePath, int callerLineNo)
             {
-                if (!__expressions.TryGetValue((callerFilePath, callerLineNo), out var expression))
+                if (!__cache.TryGetValue((callerFilePath, callerLineNo), out var result))
+                    __cache.Add((callerFilePath, callerLineNo), result = factory());
+                return result;
+            }
+        }
+
+        delegate T GetHandler<T>(ZDO zdo, int hash, T defaultValue) where T : notnull;
+        delegate void SetHandler<T>(ZDO zdo, int hash, T value) where T : notnull;
+        delegate bool RemoveHandler<T>(ZDO zdo, int hash) where T : notnull;
+
+        sealed class FieldReference<T> where T : notnull
+        {
+            //readonly Expression<Func<TComponent, T>> _fieldExpression;
+            readonly int _hash;
+            readonly Func<TComponent, T> _getFieldValue;
+            static readonly Dictionary<string, FieldReference<T>> __cacheByFieldName = [];
+            static readonly Dictionary<(string, int), FieldReference<T>> __cacheByLocation = [];
+
+            static readonly (GetHandler<T> Getter, SetHandler<T> Setter, RemoveHandler<T>? Remover) Accessors = new Func<(GetHandler<T>, SetHandler<T>, RemoveHandler<T>?)>(static () =>
+            {
+                if (typeof(T) == typeof(bool)) return (
+                    (GetHandler<T>)(Delegate)new GetHandler<bool>(static (ZDO zdo, int hash, bool defaultValue) => zdo.GetBool(hash, defaultValue)),
+                    (SetHandler<T>)(Delegate)new SetHandler<bool>(static (ZDO zdo, int hash, bool value) => zdo.Set(hash, value)),
+                    (RemoveHandler<T>)(Delegate)new RemoveHandler<bool>(static (ZDO zdo, int hash) => zdo.RemoveInt(hash)));
+
+                if (typeof(T) == typeof(int)) return (
+                    (GetHandler<T>)(Delegate)new GetHandler<int>(static (ZDO zdo, int hash, int defaultValue) => zdo.GetInt(hash, defaultValue)),
+                    (SetHandler<T>)(Delegate)new SetHandler<int>(static (ZDO zdo, int hash, int value) => zdo.Set(hash, value)),
+                    (RemoveHandler<T>)(Delegate)new RemoveHandler<int>(static (ZDO zdo, int hash) => zdo.RemoveInt(hash)));
+
+                if (typeof(T) == typeof(float)) return (
+                    (GetHandler<T>)(Delegate)new GetHandler<float>(static (ZDO zdo, int hash, float defaultValue) => zdo.GetFloat(hash, defaultValue)),
+                    (SetHandler<T>)(Delegate)new SetHandler<float>(static (ZDO zdo, int hash, float value) => zdo.Set(hash, value)),
+                    (RemoveHandler<T>)(Delegate)new RemoveHandler<float>(static (ZDO zdo, int hash) => zdo.RemoveFloat(hash)));
+
+                if (typeof(T) == typeof(string)) return (
+                    (GetHandler<T>)(Delegate)new GetHandler<string>(static (ZDO zdo, int hash, string defaultValue) => zdo.GetString(hash, defaultValue)),
+                    (SetHandler<T>)(Delegate)new SetHandler<string>(static (ZDO zdo, int hash, string value) => zdo.Set(hash, value)),
+                    null);
+
+                if (typeof(T) == typeof(Vector3)) return (
+                    (GetHandler<T>)(Delegate)new GetHandler<Vector3>(static (ZDO zdo, int hash, Vector3 defaultValue) => zdo.GetVec3(hash, defaultValue)),
+                    (SetHandler<T>)(Delegate)new SetHandler<Vector3>(static (ZDO zdo, int hash, Vector3 value) => zdo.Set(hash, value)),
+                    (RemoveHandler<T>)(Delegate)new RemoveHandler<Vector3>(static (ZDO zdo, int hash) => zdo.RemoveVec3(hash)));
+
+                if (typeof(T) == typeof(GameObject)) return (
+                    (GetHandler<T>)(Delegate)new GetHandler<GameObject>(GetGameObject),
+                    (SetHandler<T>)(Delegate)new SetHandler<GameObject>(static (ZDO zdo, int hash, GameObject value) => zdo.Set(hash, value.name)),
+                    null);
+
+                if (typeof(T) == typeof(ItemDrop)) return (
+                    (GetHandler<T>)(Delegate)new GetHandler<ItemDrop>(GetItemDrop),
+                    (SetHandler<T>)(Delegate)new SetHandler<ItemDrop>(static (ZDO zdo, int hash, ItemDrop value) => zdo.Set(hash, value)),
+                    null);
+
+                throw new NotSupportedException();
+
+                static GameObject GetGameObject(ZDO zdo, int hash, GameObject defaultValue)
                 {
-                    expression = factory();
+                    throw new NotImplementedException();
+                    var name = zdo.GetString(hash);
+                    if (string.IsNullOrEmpty(name))
+                        return defaultValue;
+                    // todo
+                }
+
+                static ItemDrop GetItemDrop(ZDO zdo, int hash, ItemDrop defaultValue)
+                {
+                    throw new NotImplementedException();
+                    var name = zdo.GetString(hash);
+                    if (string.IsNullOrEmpty(name))
+                        return defaultValue;
+                    // todo
+                }
+            }).Invoke();
+
+            FieldReference(FieldInfo field)
+            {
 #if DEBUG
-                    if (factory.Target is not null)
-                        throw new Exception("Expression factory must be static");
+                if (field.FieldType != typeof(T))
+                    throw new Exception($"Field type {typeof(T).Name} expected, actual field type is {field.FieldType.Name}");
+#endif
+                _hash = Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode();
+
+                var par = Expression.Parameter(typeof(TComponent));
+                _getFieldValue = Expression.Lambda<Func<TComponent, T>>(Expression.Field(par, field), par).Compile();
+            }
+
+            public static FieldReference<T> Get(Func<Expression<Func<TComponent, T>>> factory, string callerFilePath, int callerLineNo)
+            {
+                if (!__cacheByLocation.TryGetValue((callerFilePath, callerLineNo), out var result))
+                {
+                    var expression = ExpressionCache<T>.Get(factory, callerFilePath, callerLineNo);
                     var body = (MemberExpression)expression.Body;
                     var field = (FieldInfo)body.Member;
-                    if (field.FieldType != typeof(T))
-                        throw new Exception($"Field type {typeof(T).Name} expected, actual field type is {field.FieldType.Name}");
-#endif
-                    __expressions.Add((callerFilePath, callerLineNo), expression);
+                    if (!__cacheByFieldName.TryGetValue(field.Name, out result))
+                        __cacheByFieldName.Add(field.Name, result = new(field));
+                    __cacheByLocation.Add((callerFilePath, callerLineNo), result);
                 }
-                return expression;
+                return result;
+            }
+
+            public T GetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor)
+            {
+                var defaultValue = _getFieldValue(componentFieldAccessor._component);
+                if (!componentFieldAccessor.HasFields)
+                    return defaultValue;
+                return Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue);
+            }
+
+            public ComponentFieldAccessor<TComponent> SetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
+            {
+                if (Accessors.Remover is not null && EqualityComparer<T>.Default.Equals(value, _getFieldValue(componentFieldAccessor._component)))
+                    Accessors.Remover(componentFieldAccessor._zdo, _hash);
+                else
+                {
+                    if (!componentFieldAccessor.HasFields)
+                        componentFieldAccessor.SetHasFields(true);
+                    Accessors.Setter(componentFieldAccessor._zdo, _hash, value);
+                }
+                return componentFieldAccessor;
+            }
+
+            public bool UpdateValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
+            {
+                var defaultValue = _getFieldValue(componentFieldAccessor._component);
+                if (EqualityComparer<T>.Default.Equals(value, Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue)))
+                    return false;
+
+                if (Accessors.Remover is not null && EqualityComparer<T>.Default.Equals(value, defaultValue))
+                    Accessors.Remover(componentFieldAccessor._zdo, _hash);
+                else
+                {
+                    if (!componentFieldAccessor.HasFields)
+                        componentFieldAccessor.SetHasFields(true);
+                    Accessors.Setter(componentFieldAccessor._zdo, _hash, value);
+                }
+                return true;
+            }
+
+            public ComponentFieldAccessor<TComponent> ResetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor)
+            {
+                if (!componentFieldAccessor.HasFields)
+                    return componentFieldAccessor;
+
+                if (Accessors.Remover is not null)
+                    Accessors.Remover(componentFieldAccessor._zdo, _hash);
+                else
+                    Accessors.Setter(componentFieldAccessor._zdo, _hash, _getFieldValue(componentFieldAccessor._component));
+                return componentFieldAccessor;
+            }
+
+            public bool UpdateResetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor)
+            {
+                if (!componentFieldAccessor.HasFields)
+                    return false;
+
+                if (Accessors.Remover is not null)
+                    return Accessors.Remover(componentFieldAccessor._zdo, _hash);
+                
+                var defaultValue = _getFieldValue(componentFieldAccessor._component);
+                if (EqualityComparer<T>.Default.Equals(Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue), defaultValue))
+                    return false;
+                Accessors.Setter(componentFieldAccessor._zdo, _hash, defaultValue);
+                return true;
             }
         }
 
-        T Get<T>(Expression<Func<TComponent, T>> fieldExpression, Func<ZDO, int, T?, T> getter)
-        {
-            var body = (MemberExpression)fieldExpression.Body;
-            var field = (FieldInfo)body.Member;
-            if (!HasFields)
-                return (T)field.GetValue(_component);
-
-            var hash = Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode();
-            return getter(_zdo, hash, (T)field.GetValue(_component));
-        }
-
+        [MustBeOnUniqueLine]
         public bool GetBool(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-            => Get(ExpressionCache<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo), static (zdo, hash, defaultValue) => zdo.GetBool(hash, defaultValue));
+            => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
+        [MustBeOnUniqueLine]
         public float GetFloat(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-            => Get(ExpressionCache<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo), static (zdo, hash, defaultValue) => zdo.GetFloat(hash, defaultValue));
+            => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
+        [MustBeOnUniqueLine]
         public int GetInt(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-            => Get(ExpressionCache<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo), static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
+            => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
+        [MustBeOnUniqueLine]
         public string GetString(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-            => Get(ExpressionCache<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
+            => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
-        ComponentFieldAccessor<TComponent> SetCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, TObj valueObj, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<TObj, T> cast)
-            where TObj : notnull
-            where T : notnull
-        {
-            var hash = GetHash(fieldExpression, out var field);
-            var value = cast(valueObj);
-            if (remover is not null && value.Equals(cast((TObj)field.GetValue(_component))))
-                remover(_zdo, hash);
-            else
-            {
-                if (!HasFields)
-                    SetHasFields(true);
-                setter(_zdo, hash, value);
-            }
-            return this;
-        }
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, bool value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
-        ComponentFieldAccessor<TComponent> SetCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int>? remover, Action<ZDO, int, T> setter)
-            where T : notnull
-            => SetCore(fieldExpression, value, remover, setter, static x => x);
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, float value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
-        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, bool>> fieldExpression, bool value)
-            => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, int value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
-        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, float>> fieldExpression, float value)
-            => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveFloat(hash), static (zdo, hash, value) => zdo.Set(hash, value));
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, Vector3>>> fieldExpressionFactory, Vector3 value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<Vector3>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
-        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, int>> fieldExpression, int value)
-            => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value));
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, string value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
-        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, Vector3>> fieldExpression, Vector3 value)
-            => SetCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveVec3(hash), static (zdo, hash, value) => zdo.Set(hash, value));
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, GameObject value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
-        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, string>> fieldExpression, string value)
-            => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value));
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, ItemDrop value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
-        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, GameObject>> fieldExpression, GameObject value)
-            => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static x => x.name);
+        [MustBeOnUniqueLine]
+        public bool SetIfChanged(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, bool value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
-        public ComponentFieldAccessor<TComponent> Set(Expression<Func<TComponent, ItemDrop>> fieldExpression, ItemDrop value)
-            => SetCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static x => x.name);
+        [MustBeOnUniqueLine]
+        public bool SetIfChanged(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, float value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
-        bool SetIfChangedCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, TObj valueObj, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<ZDO, int, T?, T> getter, Func<TObj, T> cast)
-            where TObj : notnull
-            where T : notnull
-        {
-            var hash = GetHash(fieldExpression, out var field);
-            var defaultValue = cast((TObj)field.GetValue(_component));
-            var value = cast(valueObj);
-            if (value.Equals(getter(_zdo, hash, defaultValue)))
-                return false;
+        [MustBeOnUniqueLine]
+        public bool SetIfChanged(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, int value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
-            if (remover is not null && value.Equals(defaultValue))
-                remover(_zdo, hash);
-            else
-            {
-                if (!HasFields)
-                    SetHasFields(true);
-                setter(_zdo, hash, value);
-            }
-            return true;
-        }
+        [MustBeOnUniqueLine]
+        public bool SetIfChanged(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, string value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
-        bool SetIfChangedCore<T>(Expression<Func<TComponent, T>> fieldExpression, T value, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<ZDO, int, T?, T> getter)
-            where T : notnull
-            => SetIfChangedCore(fieldExpression, value, remover, setter, getter, static x => x);
+        [MustBeOnUniqueLine]
+        public bool SetIfChanged(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, GameObject value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
-        public bool SetIfChanged(Expression<Func<TComponent, bool>> fieldExpression, bool value)
-            => SetIfChangedCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetBool(hash, defaultValue));
+        [MustBeOnUniqueLine]
+        public bool SetIfChanged(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, ItemDrop value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
-        public bool SetIfChanged(Expression<Func<TComponent, float>> fieldExpression, float value)
-            => SetIfChangedCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveFloat(hash), static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetFloat(hash, defaultValue));
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
-        public bool SetIfChanged(Expression<Func<TComponent, int>> fieldExpression, int value)
-            => SetIfChangedCore(fieldExpression, value, static (zdo, hash) => zdo.RemoveInt(hash), static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
-        public bool SetIfChanged(Expression<Func<TComponent, string>> fieldExpression, string value)
-            => SetIfChangedCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
-        public bool SetIfChanged(Expression<Func<TComponent, GameObject>> fieldExpression, GameObject value)
-            => SetIfChangedCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x.name);
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
-        public bool SetIfChanged(Expression<Func<TComponent, ItemDrop>> fieldExpression, ItemDrop value)
-            => SetIfChangedCore(fieldExpression, value, null, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x.name);
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
-        ComponentFieldAccessor<TComponent> ResetCore<T>(Expression<Func<TComponent, T>> fieldExpression, Action<ZDO, int> remover)
-        {
-            var hash = GetHash(fieldExpression, out _);
-            remover(_zdo, hash);
-            return this;
-        }
+        [MustBeOnUniqueLine]
+        public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
-        ComponentFieldAccessor<TComponent> ResetCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, Action<ZDO, int, T> setter, Func<TObj, T> cast)
-            where TObj : notnull
-            where T : notnull
-        {
-            var hash = GetHash(fieldExpression, out var field);
-            var defaultValue = cast((TObj)field.GetValue(_component));
-            setter(_zdo, hash, defaultValue);
-            return this;
-        }
 
-        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, bool>> fieldExpression)
-            => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
+        [MustBeOnUniqueLine]
+        public bool ResetIfChanged(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, float>> fieldExpression)
-            => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveFloat(hash));
+        [MustBeOnUniqueLine]
+        public bool ResetIfChanged(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, int>> fieldExpression)
-            => ResetCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
+        [MustBeOnUniqueLine]
+        public bool ResetIfChanged(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, string>> fieldExpression)
-            => ResetCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static x => x);
+        [MustBeOnUniqueLine]
+        public bool ResetIfChanged(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, GameObject>> fieldExpression)
-            => ResetCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static x => x.name);
+        [MustBeOnUniqueLine]
+        public bool ResetIfChanged(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public ComponentFieldAccessor<TComponent> Reset(Expression<Func<TComponent, ItemDrop>> fieldExpression)
-            => ResetCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static x => x.name);
+        [MustBeOnUniqueLine]
+        public bool ResetIfChanged(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        bool ResetIfChangedCore<T>(Expression<Func<TComponent, T>> fieldExpression, Func<ZDO, int, bool> remover)
-        {
-            var hash = GetHash(fieldExpression, out _);
-            return remover(_zdo, hash);
-        }
+        [MustBeOnUniqueLine]
+        public bool SetOrReset(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, bool set, bool setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => set ? FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        bool ResetIfChangedCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, Action<ZDO, int, T> setter, Func<ZDO, int, T?, T> getter, Func<TObj, T> cast)
-            where TObj : notnull
-            where T : notnull
-        {
-            var hash = GetHash(fieldExpression, out var field);
-            var defaultValue = cast((TObj)field.GetValue(_component));
-            var value = getter(_zdo, hash, defaultValue);
-            if (value.Equals(defaultValue))
-                return false;
-            setter(_zdo, hash, defaultValue);
-            return true;
-        }
+        [MustBeOnUniqueLine]
+        public bool SetOrReset(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, bool set, float setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => set ? FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public bool ResetIfChanged(Expression<Func<TComponent, bool>> fieldExpression)
-            => ResetIfChangedCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
+        [MustBeOnUniqueLine]
+        public bool SetOrReset(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, bool set, int setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => set ? FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public bool ResetIfChanged(Expression<Func<TComponent, float>> fieldExpression)
-            => ResetIfChangedCore(fieldExpression, static (zdo, hash) => zdo.RemoveFloat(hash));
+        [MustBeOnUniqueLine]
+        public bool SetOrReset(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, bool set, string setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => set ? FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public bool ResetIfChanged(Expression<Func<TComponent, int>> fieldExpression)
-            => ResetIfChangedCore(fieldExpression, static (zdo, hash) => zdo.RemoveInt(hash));
+        [MustBeOnUniqueLine]
+        public bool SetOrReset(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, bool set, GameObject setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => set ? FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
-        public bool ResetIfChanged(Expression<Func<TComponent, string>> fieldExpression)
-            => ResetIfChangedCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x);
-
-        public bool ResetIfChanged(Expression<Func<TComponent, GameObject>> fieldExpression)
-            => ResetIfChangedCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x.name);
-
-        public bool ResetIfChanged(Expression<Func<TComponent, ItemDrop>> fieldExpression)
-            => ResetIfChangedCore(fieldExpression, static (zdo, hash, value) => zdo.Set(hash, value), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue), static x => x.name);
-
-        public bool SetOrReset(Expression<Func<TComponent, bool>> fieldExpression, bool set, bool setValue)
-            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
-
-        public bool SetOrReset(Expression<Func<TComponent, float>> fieldExpression, bool set, float setValue)
-            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
-
-        public bool SetOrReset(Expression<Func<TComponent, int>> fieldExpression, bool set, int setValue)
-            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
-
-        public bool SetOrReset(Expression<Func<TComponent, string>> fieldExpression, bool set, string setValue)
-            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
-
-        public bool SetOrReset(Expression<Func<TComponent, GameObject>> fieldExpression, bool set, GameObject setValue)
-            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
-
-        public bool SetOrReset(Expression<Func<TComponent, ItemDrop>> fieldExpression, bool set, ItemDrop setValue)
-            => set ? SetIfChanged(fieldExpression, setValue) : ResetIfChanged(fieldExpression);
+        [MustBeOnUniqueLine]
+        public bool SetOrReset(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, bool set, ItemDrop setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => set ? FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
     }
 
     sealed class ZDOInventory(ExtendedZDO zdo) : IZDOInventory, IZDOInventoryReadOnly

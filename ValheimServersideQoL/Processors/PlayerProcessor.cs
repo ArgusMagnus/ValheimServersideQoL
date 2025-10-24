@@ -727,7 +727,9 @@ sealed class PlayerProcessor : Processor
                     {
                         var container = PlacePiece(zdo.GetPosition() with { y = -1000 }, Prefabs.WoodChest, 0);
                         var h = Math.Max(4, items.Count);
-                        container.Fields<Container>().Set(static x => x.m_width, 8).Set(static x => x.m_height, h);
+                        container.Fields<Container>()
+                            .Set(static () => x => x.m_width, 8)
+                            .Set(static () => x => x.m_height, h);
                         int y = 0;
                         foreach (var item in items.Values)
                         {
@@ -757,7 +759,8 @@ sealed class PlayerProcessor : Processor
                         var fields = zdo.Fields<Container>();
                         var actualSlots = Math.Max(slots, zdo.Inventory.Items.Count);
                         var (width, height) = GetBackpackSize(actualSlots);
-                        if ((fields!.SetIfChanged(static x => x.m_width, width), fields.SetIfChanged(static x => x.m_height, height)) == (false, false))
+                        if ((fields!.SetIfChanged(static () => x => x.m_width, width),
+                            fields.SetIfChanged(static () => x => x.m_height, height)) == (false, false))
                             return false;
 
                         if (actualSlots != slots)
@@ -786,7 +789,7 @@ sealed class PlayerProcessor : Processor
                     {
                         state.BackpackContainer = PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
                         state.BackpackContainer.Vars.SetPlayerID(state.PlayerID);
-                        state.BackpackContainer.Fields<Container>().Set(static x => x.m_name, "Backpack");
+                        state.BackpackContainer.Fields<Container>().Set(static () => x => x.m_name, "Backpack");
                         AdjustSize(state.BackpackContainer, _backpackSlots);
                         state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
                     }

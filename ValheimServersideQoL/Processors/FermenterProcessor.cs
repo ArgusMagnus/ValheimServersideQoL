@@ -12,8 +12,8 @@ sealed class FermenterProcessor : Processor
 
         var fields = zdo.Fields<Fermenter>();
         if (Config.Fermenters.FermentationDurationMultiplier.Value is 1f)
-            fields.Reset(static x => x.m_fermentationDuration);
-        else if (fields.SetIfChanged(static x => x.m_fermentationDuration, zdo.PrefabInfo.Fermenter.m_fermentationDuration * Config.Fermenters.FermentationDurationMultiplier.Value))
+            fields.Reset(static () => x => x.m_fermentationDuration);
+        else if (fields.SetIfChanged(static () => x => x.m_fermentationDuration, zdo.PrefabInfo.Fermenter.m_fermentationDuration * Config.Fermenters.FermentationDurationMultiplier.Value))
             RecreateZdo = true;
 
         return false;

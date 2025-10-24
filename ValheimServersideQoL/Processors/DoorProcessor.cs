@@ -43,7 +43,7 @@ sealed class DoorProcessor : Processor
         {
             var fields = zdo.Fields<Door>();
             if (!Config.Players.CanSacrificeCryptKey.Value)
-                fields.Reset(static x => x.m_keyItem);
+                fields.Reset(static () => x => x.m_keyItem);
             else
             {
                 UnregisterZdoProcessor = false;
@@ -63,7 +63,7 @@ sealed class DoorProcessor : Processor
 
                 if (_allowedPlayers.Count is 0)
                 {
-                    if (fields.ResetIfChanged(static x => x.m_keyItem))
+                    if (fields.ResetIfChanged(static () => x => x.m_keyItem))
                         RecreateZdo = true;
                 }
                 else
@@ -93,7 +93,7 @@ sealed class DoorProcessor : Processor
 
                     if (keyHash is 0 || ObjectDB.instance.GetItemPrefab(keyHash)?.GetComponent<ItemDrop>() is not { } keyItem)
                         Logger.LogWarning($"Item {keyHash} was chosen as key, but it's not a valid ItemDrop");
-                    else if (fields.SetIfChanged(static x => x.m_keyItem, keyItem))
+                    else if (fields.SetIfChanged(static () => x => x.m_keyItem, keyItem))
                         RecreateZdo = true;
                 }
             }

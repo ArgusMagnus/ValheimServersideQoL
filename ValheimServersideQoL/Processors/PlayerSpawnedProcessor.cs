@@ -151,9 +151,9 @@ sealed class PlayerSpawnedProcessor : Processor
         {
             var cfg = Config.Advanced.HostileSummons.FollowSummoners;
             var fields = zdo.Fields<MonsterAI>();
-            if (fields.SetIfChanged(static x => x.m_randomMoveInterval, cfg.MoveInterval))
+            if (fields.SetIfChanged(static () => x => x.m_randomMoveInterval, cfg.MoveInterval))
                 RecreateZdo = true;
-            if (fields.SetIfChanged(static x => x.m_randomMoveRange, cfg.MaxDistance))
+            if (fields.SetIfChanged(static () => x => x.m_randomMoveRange, cfg.MaxDistance))
                 RecreateZdo = true;
             if (RecreateZdo)
                 return false;

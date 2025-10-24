@@ -31,22 +31,22 @@ sealed class PlantProcessor : Processor
             var fields = zdo.Fields<Plant>();
             if (Config.Plants.GrowTimeMultiplier.Value is not 1f)
             {
-                if (fields.SetIfChanged(static x => x.m_growTime, zdo.PrefabInfo.Plant.m_growTime * Config.Plants.GrowTimeMultiplier.Value))
+                if (fields.SetIfChanged(static () => x => x.m_growTime, zdo.PrefabInfo.Plant.m_growTime * Config.Plants.GrowTimeMultiplier.Value))
                     RecreateZdo = true;
-                if (fields.SetIfChanged(static x => x.m_growTimeMax, zdo.PrefabInfo.Plant.m_growTimeMax * Config.Plants.GrowTimeMultiplier.Value))
+                if (fields.SetIfChanged(static () => x => x.m_growTimeMax, zdo.PrefabInfo.Plant.m_growTimeMax * Config.Plants.GrowTimeMultiplier.Value))
                     RecreateZdo = true;
             }
             if (Config.Plants.SpaceRequirementMultiplier.Value is not 1f)
             {
-                if (fields.SetIfChanged(static x => x.m_growRadius, zdo.PrefabInfo.Plant.m_growRadius * Config.Plants.SpaceRequirementMultiplier.Value))
+                if (fields.SetIfChanged(static () => x => x.m_growRadius, zdo.PrefabInfo.Plant.m_growRadius * Config.Plants.SpaceRequirementMultiplier.Value))
                     RecreateZdo = true;
                 //if (fields.SetIfChanged(static x => x.m_growRadiusVines, zdo.PrefabInfo.Plant.m_growRadiusVines * Config.Plants.SpaceRequirementMultiplier.Value))
                 //    RecreateZdo = true;
             }
 
             if (!Config.Plants.DontDestroyIfCantGrow.Value)
-                fields.Reset(static x => x.m_destroyIfCantGrow);
-            else if (fields.SetIfChanged(static x => x.m_destroyIfCantGrow, false))
+                fields.Reset(static () => x => x.m_destroyIfCantGrow);
+            else if (fields.SetIfChanged(static () => x => x.m_destroyIfCantGrow, false))
                 RecreateZdo = true;
         }
 

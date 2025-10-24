@@ -17,16 +17,16 @@ sealed class WearNTearProcessor : Processor
         if (isPlayerBuilt)
         {
             if (!Config.WearNTear.DisableRainDamage.Value)
-                fields.Reset(static x => x.m_noRoofWear);
-            else if (fields.SetIfChanged(static x => x.m_noRoofWear, false))
+                fields.Reset(static () => x => x.m_noRoofWear);
+            else if (fields.SetIfChanged(static () => x => x.m_noRoofWear, false))
                 RecreateZdo = true;
 
             if (!Config.WearNTear.MakeIndestructible.Value)
             {
-                if (fields.ResetIfChanged(static x => x.m_health))
+                if (fields.ResetIfChanged(static () => x => x.m_health))
                     zdo.Vars.RemoveHealth();
             }
-            else if (fields.SetIfChanged(static x => x.m_health, -1))
+            else if (fields.SetIfChanged(static () => x => x.m_health, -1))
             {
                 zdo.Vars.SetHealth(-1);
                 RecreateZdo = true;
@@ -38,8 +38,8 @@ sealed class WearNTearProcessor : Processor
                 (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.World) && !isPlayerBuilt));
 
         if (!disableSupport)
-            fields.Reset(static x => x.m_noSupportWear);
-        else if (fields.SetIfChanged(static x => x.m_noSupportWear, false))
+            fields.Reset(static () => x => x.m_noSupportWear);
+        else if (fields.SetIfChanged(static () => x => x.m_noSupportWear, false))
             RecreateZdo = true;
 
         return true;

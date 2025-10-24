@@ -141,8 +141,8 @@ abstract class Processor
                 _dataZDO.Type = ZDO.ObjectType.Default;
                 _dataZDO.SetModAsCreator(CreatorMarkers.DataZDO);
                 _dataZDO.Vars.SetHealth(-1);
-                _dataZDO.Fields<Piece>().Set(static x => x.m_canBeRemoved, false);
-                _dataZDO.Fields<WearNTear>().Set(static x => x.m_noRoofWear, false).Set(static x => x.m_noSupportWear, false).Set(static x => x.m_health, -1);
+                _dataZDO.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
+                _dataZDO.Fields<WearNTear>().Set(static () => x => x.m_noRoofWear, false).Set(static () => x => x.m_noSupportWear, false).Set(static () => x => x.m_health, -1);
                 _dataZDO.UnregisterAllProcessors();
             }
             return _dataZDO;
@@ -224,8 +224,11 @@ abstract class Processor
     protected ExtendedZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
     {
         var zdo = PlaceObject(pos, prefab, rot, marker);
-        zdo.Fields<Piece>().Set(static x => x.m_canBeRemoved, false);
-        zdo.Fields<WearNTear>().Set(static x => x.m_noRoofWear, false).Set(static x => x.m_noSupportWear, false).Set(static x => x.m_health, -1);
+        zdo.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
+        zdo.Fields<WearNTear>()
+            .Set(static () => x => x.m_noRoofWear, false)
+            .Set(static () => x => x.m_noSupportWear, false)
+            .Set(static () => x => x.m_health, -1);
         return zdo;
     }
 

@@ -85,7 +85,7 @@ sealed class PortalProcessor : Processor
                 {
                     state.Container.ReleaseOwnershipInternal();
                     state.Container.SetPosition(state.InitialPosition with { y = -1000 });
-                    state.Container.Fields<Container>().Set(static x => x.m_autoDestroyEmpty, true);
+                    state.Container.Fields<Container>().Set(static () => x => x.m_autoDestroyEmpty, true);
                     state.Container.CreateClone();
                     DestroyObject(state.Container); // release exclusive claim
                 }
@@ -212,7 +212,9 @@ sealed class PortalProcessor : Processor
             var container = PlacePiece(player.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
             container.UnregisterAllProcessors();
             var h = Math.Max(4, TeleportableItems.Count);
-            container.Fields<Container>().Set(static x => x.m_width, 8).Set(static x => x.m_height, h);
+            container.Fields<Container>()
+                .Set(static () => x => x.m_width, 8)
+                .Set(static () => x => x.m_height, h);
             int y = 0;
             foreach (var (item, dropPrefab) in TeleportableItems)
             {

@@ -50,18 +50,18 @@ sealed class TrapProcessor : Processor
         if (zdo.PrefabInfo.Trap is { Trap.Value: not null })
         {
             if (!Config.Traps.DisableTriggeredByPlayers.Value)
-                zdo.Fields<Trap>().Reset(static x => x.m_triggeredByPlayers);
-            else if (zdo.Fields<Trap>().SetIfChanged(static x => x.m_triggeredByPlayers, false))
+                zdo.Fields<Trap>().Reset(static () => x => x.m_triggeredByPlayers);
+            else if (zdo.Fields<Trap>().SetIfChanged(static () => x => x.m_triggeredByPlayers, false))
                 RecreateZdo = true;
         }
 
         var fields = zdo.Fields<Aoe>();
         if (!Config.Traps.DisableFriendlyFire.Value)
-            fields.Reset(static x => x.m_hitFriendly);
-        else if (fields.SetIfChanged(static x => x.m_hitFriendly, false)) // hitFriendly does not seem to be respected by sharp stakes
+            fields.Reset(static () => x => x.m_hitFriendly);
+        else if (fields.SetIfChanged(static () => x => x.m_hitFriendly, false)) // hitFriendly does not seem to be respected by sharp stakes
             RecreateZdo = true;
 
-        if (fields.SetIfChanged(static x => x.m_damageSelf, zdo.PrefabInfo.Trap.Value.Aoe.m_damageSelf * Config.Traps.SelfDamageMultiplier.Value))
+        if (fields.SetIfChanged(static () => x => x.m_damageSelf, zdo.PrefabInfo.Trap.Value.Aoe.m_damageSelf * Config.Traps.SelfDamageMultiplier.Value))
             RecreateZdo = true;
 
         return false;

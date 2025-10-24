@@ -181,7 +181,7 @@ sealed class PortalHubProcessor : Processor
         _hubRadius = (width + 1) * 4f * Mathf.Sqrt(2);
 
         PlacePiece(_offset with { y = _offset.y - 2 }, Prefabs.DvergerGuardstone, 0)
-            .Fields<PrivateArea>(true).Set(static x => x.m_radius, _hubRadius);
+            .Fields<PrivateArea>(true).Set(static () => x => x.m_radius, _hubRadius);
 
         for (int i = 0; i < width; i++)
         {
@@ -291,7 +291,7 @@ sealed class PortalHubProcessor : Processor
             pos.y += ofsY;
             var zdo = PlacePiece(pos, state.AllowAllItems ? Prefabs.Portal : Prefabs.PortalWood, rot);
             pos.y -= ofsY;
-            zdo.Fields<TeleportWorld>().Set(static x => x.m_allowAllItems, true);
+            zdo.Fields<TeleportWorld>().Set(static () => x => x.m_allowAllItems, true);
             zdo.Vars.SetTag(state.Tag);
             zdo.UnregisterAllProcessors();
 
@@ -328,8 +328,8 @@ sealed class PortalHubProcessor : Processor
                     else if (!kIsEdge)
                         pos.z += i is 0 ? -dx : dx;
                     PlacePiece(pos, torches[j], rot).Fields<Fireplace>()
-                        .Set(static x => x.m_infiniteFuel, true)
-                        .Set(static x => x.m_disableCoverCheck, true);
+                        .Set(static () => x => x.m_infiniteFuel, true)
+                        .Set(static () => x => x.m_disableCoverCheck, true);
                 }
             }
         }

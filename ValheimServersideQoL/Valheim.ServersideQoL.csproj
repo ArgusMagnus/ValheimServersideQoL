@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ValheimServersideQoL.CodeAnalysis\Valheim.ServersideQoL.CodeAnalysis.csproj" OutputItemType="Analyzer" PrivateAssets="all" />
     <ProjectReference Include="..\ValheimServersideQoL.YamlDotNet\YamlDotNet\Valheim.ServersideQoL.YamlDotNet.csproj" />
   </ItemGroup>
 	
