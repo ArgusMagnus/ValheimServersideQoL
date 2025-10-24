@@ -1,3 +1,6 @@
+### v1.5.2017 (BETA)
+- Performance optimizations
+
 ### v1.5.2013 (BETA)
 - New feature: Backpack [#121](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/121)
 

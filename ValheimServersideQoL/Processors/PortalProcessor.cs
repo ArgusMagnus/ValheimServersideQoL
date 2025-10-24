@@ -197,7 +197,13 @@ sealed class PortalProcessor : Processor
             return false;
         }
 
-        if (TeleportableItems.Count is 0 || zdo.Fields<TeleportWorld>().GetBool(static () => x => x.m_allowAllItems))
+        if (zdo.Fields<TeleportWorld>().GetBool(static () => x => x.m_allowAllItems))
+        {
+            UnregisterZdoProcessor = true;
+            return false;
+        }
+
+        if (TeleportableItems.Count is 0)
             return false;
         
         foreach (var peer in peers)
