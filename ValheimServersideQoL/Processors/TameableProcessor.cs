@@ -95,7 +95,7 @@ sealed class TameableProcessor : Processor
         else if (Config.Tames.TamingProgressMessageType.Value is not MessageTypes.None)
         {
             /// <see cref="Tameable.GetRemainingTime()"/>
-            var tameTime = fields.GetFloat(static x => x.m_tamingTime);
+            var tameTime = fields.GetFloat(static () => x => x.m_tamingTime);
             var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
             if (tameTimeLeft < tameTime)
             {
@@ -113,7 +113,7 @@ sealed class TameableProcessor : Processor
                     var message = $"$hud_tameness {tameness:P0}";
 
                     /// <see cref="Tameable.IsHungry()"/>
-                    if ((ZNet.instance.GetTime() - zdo.Vars.GetTameLastFeeding()).TotalSeconds > fields.GetFloat(static x => x.m_fedDuration))
+                    if ((ZNet.instance.GetTime() - zdo.Vars.GetTameLastFeeding()).TotalSeconds > fields.GetFloat(static () => x => x.m_fedDuration))
                         message += ", $hud_tamehungry";
 
                     ShowMessage(peers, zdo, message, Config.Tames.TamingProgressMessageType.Value);

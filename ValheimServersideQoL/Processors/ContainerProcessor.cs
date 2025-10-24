@@ -577,19 +577,4 @@ sealed class ContainerProcessor : Processor
 
         return true;
     }
-
-    protected override void PostProcessCore()
-    {
-        //if (!ZNet.instance.IsDedicated())
-        //    return;
-
-        //foreach (var (zdo, state) in _containers)
-        //{
-        //    if (!zdo.IsOwner() || _swapContentRequests.Any(static x => ReferenceEquals(zdo, x.From) || ReferenceEquals(zdo, x.To)))
-        //        continue;
-        //    //Logger.DevLog($"Setting owner for {zdo.m_uid} to {state.PreviousOwner}");
-        //    //zdo.SetOwner(state.PreviousOwner);
-        //    zdo.SetOwner(0);
-        //}
-    }
 }

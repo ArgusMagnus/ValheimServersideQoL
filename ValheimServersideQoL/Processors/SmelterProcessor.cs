@@ -83,7 +83,9 @@ sealed class SmelterProcessor : Processor
 
 		/// <see cref="Smelter.OnAddFuel"/>
 		{
-            var maxFuel = zdo.PrefabInfo.Smelter is not null ? zdo.Fields<Smelter>().GetInt(static x => x.m_maxFuel) : zdo.Fields<ShieldGenerator>().GetInt(static x => x.m_maxFuel);
+            var maxFuel = zdo.PrefabInfo.Smelter is not null ?
+                zdo.Fields<Smelter>().GetInt(static () => x => x.m_maxFuel) :
+                zdo.Fields<ShieldGenerator>().GetInt(static () => x => x.m_maxFuel);
             var currentFuel = zdo.Vars.GetFuel();
             var maxFuelAdd = (int)(maxFuel - currentFuel);
             if (maxFuelAdd > maxFuel / 2)
@@ -192,7 +194,7 @@ sealed class SmelterProcessor : Processor
         /// <see cref="Smelter.OnAddOre"/> <see cref="Smelter.QueueOre"/>
         if (zdo.PrefabInfo.Smelter is not null)
         {
-            int maxOre = zdo.Fields<Smelter>().GetInt(static x => x.m_maxOre);
+            int maxOre = zdo.Fields<Smelter>().GetInt(static () => x => x.m_maxOre);
             var currentOre = zdo.Vars.GetQueued();
             var maxOreAdd = maxOre - currentOre;
             if (maxOreAdd > maxOre / 2)

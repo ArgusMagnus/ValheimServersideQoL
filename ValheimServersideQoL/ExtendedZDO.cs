@@ -456,6 +456,62 @@ sealed class ExtendedZDO : ZDO
             return Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode();
         }
 
+        //public readonly struct FieldReference<T>
+        //{
+        //    public readonly int Hash;
+        //    public readonly Func<TComponent, T> GetValue;
+
+        //    FieldReference(int hash, Func<TComponent, T> getValue)
+        //    {
+        //        Hash = hash;
+        //        GetValue = getValue;
+        //    }
+
+        //    public static implicit operator FieldReference<T>(Expression<Func<TComponent, T>> fieldExpression)
+        //    {
+        //        var body = (MemberExpression)fieldExpression.Body;
+        //        var field = (FieldInfo)body.Member;
+        //        var par = Expression.Parameter(typeof(TComponent));
+        //        var getValue = Expression.Lambda<Func<TComponent, T>>(Expression.Field(par, field), par).Compile();
+        //        return new(Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode(), getValue);
+        //    }
+        //}
+
+        //public bool GetBool(in FieldReference<bool> fieldReference)
+        //    => Get(in fieldReference, static (zdo, hash, defaultValue) => zdo.GetBool(hash, defaultValue));
+
+        //public float GetFloat(in FieldReference<float> fieldReference)
+        //    => Get(in fieldReference, static (zdo, hash, defaultValue) => zdo.GetFloat(hash, defaultValue));
+
+        //public int GetInt(in FieldReference<int> fieldReference)
+        //    => Get(in fieldReference, static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
+
+        //public string GetString(in FieldReference<string> fieldReference)
+        //    => Get(in fieldReference, static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
+
+        static class ExpressionCache<T>
+        {
+            static readonly Dictionary<(string, int), Expression<Func<TComponent, T>>> __expressions = [];
+
+            public static Expression<Func<TComponent, T>> Get(Func<Expression<Func<TComponent, T>>> factory, string callerFilePath, int callerLineNo)
+            {
+                if (!__expressions.TryGetValue((callerFilePath, callerLineNo), out var expression))
+                {
+                    expression = factory();
+#if DEBUG
+                    if (factory.Target is not null)
+                        throw new Exception("Expression factory must be static");
+                    var body = (MemberExpression)expression.Body;
+                    var field = (FieldInfo)body.Member;
+                    if (field.FieldType != typeof(T))
+                        throw new Exception($"Field type {typeof(T).Name} expected, actual field type is {field.FieldType.Name}");
+#endif
+                    __expressions.Add((callerFilePath, callerLineNo), expression);
+                }
+                return expression;
+            }
+        }
+
         T Get<T>(Expression<Func<TComponent, T>> fieldExpression, Func<ZDO, int, T?, T> getter)
         {
             var body = (MemberExpression)fieldExpression.Body;
@@ -467,17 +523,17 @@ sealed class ExtendedZDO : ZDO
             return getter(_zdo, hash, (T)field.GetValue(_component));
         }
 
-        public bool GetBool(Expression<Func<TComponent, bool>> fieldExpression)
-            => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetBool(hash, defaultValue));
+        public bool GetBool(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => Get(ExpressionCache<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo), static (zdo, hash, defaultValue) => zdo.GetBool(hash, defaultValue));
 
-        public float GetFloat(Expression<Func<TComponent, float>> fieldExpression)
-            => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetFloat(hash, defaultValue));
+        public float GetFloat(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => Get(ExpressionCache<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo), static (zdo, hash, defaultValue) => zdo.GetFloat(hash, defaultValue));
 
-        public int GetInt(Expression<Func<TComponent, int>> fieldExpression)
-            => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
+        public int GetInt(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => Get(ExpressionCache<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo), static (zdo, hash, defaultValue) => zdo.GetInt(hash, defaultValue));
 
-        public string GetString(Expression<Func<TComponent, string>> fieldExpression)
-            => Get(fieldExpression, static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
+        public string GetString(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+            => Get(ExpressionCache<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo), static (zdo, hash, defaultValue) => zdo.GetString(hash, defaultValue));
 
         ComponentFieldAccessor<TComponent> SetCore<TObj, T>(Expression<Func<TComponent, TObj>> fieldExpression, TObj valueObj, Action<ZDO, int>? remover, Action<ZDO, int, T> setter, Func<TObj, T> cast)
             where TObj : notnull
@@ -693,8 +749,8 @@ sealed class ExtendedZDO : ZDO
                 return this;
 
             var fields = ZDO.Fields<Container>();
-            var w = fields.GetInt(static x => x.m_width);
-            var h = fields.GetInt(static x => x.m_height);
+            var w = fields.GetInt(static () => x => x.m_width);
+            var h = fields.GetInt(static () => x => x.m_height);
             if (Inventory is null || Inventory.GetWidth() != w || Inventory.GetHeight() != h)
             {
                 Inventory = new(ZDO.PrefabInfo.Container!.Value.Container.m_name, ZDO.PrefabInfo.Container!.Value.Container.m_bkg, w, h);

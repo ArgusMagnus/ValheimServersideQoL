@@ -57,17 +57,27 @@ abstract class Processor
     public bool RecreateZdo { get; protected set; }
     public bool UnregisterZdoProcessor { get; protected set; }
 
-    readonly Stopwatch _watch = new();
+    Stopwatch? _watch;
     protected HashSet<ExtendedZDO> PlacedObjects { get; } = [];
     static bool __initialized;
     static ExtendedZDO? _dataZDO;
 
-    public TimeSpan ProcessingTime => _watch.Elapsed;
+    public TimeSpan ProcessingTime => _watch?.Elapsed ?? default;
     long _totalProcessingTimeTicks;
-    public TimeSpan TotalProcessingTime => new(_totalProcessingTimeTicks + _watch.ElapsedTicks);
+    public TimeSpan TotalProcessingTime => new(_totalProcessingTimeTicks + (_watch?.ElapsedTicks ?? 0));
 
     public virtual void Initialize(bool firstTime)
     {
+        if (
+#if DEBUG
+            true ||
+#endif
+            Config.General.DiagnosticLogs.Value
+            )
+            _watch ??= new();
+        else
+            _watch = null;
+
         __teleportableItems = null;
         ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateTeleportableItems;
 
@@ -141,50 +151,45 @@ abstract class Processor
 
     public void PreProcess(IEnumerable<Peer> peers)
     {
-        _totalProcessingTimeTicks += _watch.ElapsedTicks;
-        _watch.Restart();
+        _totalProcessingTimeTicks += _watch?.ElapsedTicks ?? 0;
+        _watch?.Restart();
         PreProcessCore(peers);
-        _watch.Stop();
+        _watch?.Stop();
     }
 
     protected virtual void PreProcessCore(IEnumerable<Peer> peers) { }
 
-    public virtual void PostProcess()
-    {
-        _watch.Start();
-        PostProcessCore();
-        _watch.Stop();
-    }
+    //public virtual void PostProcess()
+    //{
+    //    _watch?.Start();
+    //    PostProcessCore();
+    //    _watch?.Stop();
+    //}
 
-    protected virtual void PostProcessCore() { }
+    //protected virtual void PostProcessCore() { }
 
     public virtual bool ClaimExclusive(ExtendedZDO zdo) => PlacedObjects.Contains(zdo);
 
     protected abstract bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers);
-    public void Process(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
+    public bool Process(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        _watch.Start();
+        _watch?.Start();
 
         DestroyZdo = false;
         RecreateZdo = false;
         UnregisterZdoProcessor = false;
-
-        if (zdo.CheckProcessorDataRevisionChanged(this))
-        {
-            if (ProcessCore(zdo, peers))
-                zdo.UpdateProcessorDataRevision(this);
-        }
-
-        _watch.Stop();
+        var result = ProcessCore(zdo, peers);
+        _watch?.Stop();
+        return result;
     }
 
-    protected bool CheckMinDistance(IEnumerable<Peer> peers, ZDO zdo)
+    protected bool CheckMinDistance(IReadOnlyList<Peer> peers, ZDO zdo)
         => CheckMinDistance(peers, zdo, Config.General.MinPlayerDistance.Value);
 
-    protected static bool CheckMinDistance(IEnumerable<Peer> peers, ZDO zdo, float minDistance)
+    protected static bool CheckMinDistance(IReadOnlyList<Peer> peers, ZDO zdo, float minDistance)
     {
         minDistance *= minDistance;
-        foreach (var peer in peers)
+        foreach (var peer in peers.AsEnumerable())
         {
             if (Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistance)
                 return false;

@@ -53,7 +53,7 @@ sealed class PortalHubProcessor : Processor
                 string? tag = null;
                 if (!zdo.IsModCreator() && CheckFilter(zdo, tag = zdo.Vars.GetTag()))
                 {
-                    _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static x => x.m_allowAllItems) });
+                    _knownPortals.Add(zdo, new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static () => x => x.m_allowAllItems) });
                     zdo.Destroyed += OnKnownPortalDestroyed;
                 }
             }
@@ -140,7 +140,7 @@ sealed class PortalHubProcessor : Processor
                     state.Tag = tag;
                 else
                 {
-                    _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static x => x.m_allowAllItems) });
+                    _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = zdo.Vars.GetPortalHubId(), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static () => x => x.m_allowAllItems) });
                     zdo.Destroyed += OnKnownPortalDestroyed;
 
                     if (state.HubId is 0)

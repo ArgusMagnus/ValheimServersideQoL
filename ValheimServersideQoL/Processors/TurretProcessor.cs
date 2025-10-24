@@ -68,7 +68,7 @@ sealed class TurretProcessor : Processor
         if (!CheckMinDistance(peers, zdo))
             return false;
 
-        var maxLoaded = fields.GetInt(static x => x.m_maxAmmo);
+        var maxLoaded = fields.GetInt(static () => x => x.m_maxAmmo);
         var currentAmmo = zdo.Vars.GetAmmo();
         var maxAdd = maxLoaded - currentAmmo;
         if (maxAdd < maxLoaded / 2)

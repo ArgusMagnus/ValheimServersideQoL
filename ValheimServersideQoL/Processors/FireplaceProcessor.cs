@@ -60,7 +60,7 @@ sealed class FireplaceProcessor : Processor
                 RecreateZdo = true;
             if (fields.SetIfChanged(static x => x.m_canRefill, false))
                 RecreateZdo = true;
-            zdo.Vars.SetFuel(fields.GetFloat(static x => x.m_maxFuel));
+            zdo.Vars.SetFuel(fields.GetFloat(static () => x => x.m_maxFuel));
         }
 
         /// Weather has no effect, <see cref="Fireplace.CheckEnv()"/>

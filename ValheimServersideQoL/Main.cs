@@ -43,6 +43,7 @@ public sealed partial class Main : BaseUnityPlugin
     readonly Stack<SectorInfo> _sectorInfoPool = [];
     Dictionary<Vector2i, SectorInfo> _playerSectors = [];
     Dictionary<Vector2i, SectorInfo> _playerSectorsOld = [];
+    List<(Processor, TimeSpan)>? _processingTimes;
 
     readonly List<Processor> _unregister = [];
     bool _configChanged = true;
@@ -429,7 +430,11 @@ public sealed partial class Main : BaseUnityPlugin
                 _unregister.Clear();
                 foreach (var processor in zdo.Processors.AsEnumerable())
                 {
-                    processor.Process(zdo, sectorInfo.Peers);
+
+                    if (!zdo.CheckProcessorDataRevisionChanged(processor))
+                        continue;
+                    if (processor.Process(zdo, sectorInfo.Peers))
+                        zdo.UpdateProcessorDataRevision(processor);
                     if (processor.UnregisterZdoProcessor)
                         _unregister.Add(processor);
                     if (destroy = processor.DestroyZdo)
@@ -446,8 +451,8 @@ public sealed partial class Main : BaseUnityPlugin
             }
         }
 
-        foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
-            processor.PostProcess();
+        //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
+        //    processor.PostProcess();
 
         if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
             _unfinishedProcessingInRow++;
@@ -467,7 +472,16 @@ public sealed partial class Main : BaseUnityPlugin
         Logger.Log(logLevel,
             Invariant($"{nameof(Execute)} took {_watch.Elapsed.Milliseconds:F2} ms (budget: {timeBudget.Milliseconds:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
 
-        Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", Processor.DefaultProcessors.Where(static x => x.ProcessingTime.Ticks > 0).OrderByDescending(static x => x.ProcessingTime.Ticks).Select(static x => Invariant($"{x.GetType().Name}: {x.ProcessingTime.TotalMilliseconds}ms")))}"));
+        (_processingTimes ??= new(Processor.DefaultProcessors.Count)).Clear();
+        foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
+        {
+            var time = processor.ProcessingTime;
+            if (time.Ticks <= 0)
+                continue;
+            _processingTimes.Add((processor, time));
+        }
+        _processingTimes.Sort(static (a, b) => Math.Sign(a.Item2.Ticks - b.Item2.Ticks));
+        Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2.TotalMilliseconds}ms")))}"));
     }
 
 #if DEBUG
