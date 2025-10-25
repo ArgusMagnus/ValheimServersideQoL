@@ -121,7 +121,7 @@ sealed class SmelterProcessor : Processor
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
                             var found = false;
                             var requestOwn = false;
-                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == fuelItem).OrderBy(static x => x.m_stack))
+                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemDataKey(x) == fuelItem).OrderBy(static x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxFuelAdd, slot.m_stack);
@@ -231,7 +231,7 @@ sealed class SmelterProcessor : Processor
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastOre.Value;
                             var found = false;
                             var requestOwn = false;
-                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemKey(x) == oreItem).OrderBy(static x => x.m_stack))
+                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemDataKey(x) == oreItem).OrderBy(static x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxOreAdd, slot.m_stack);

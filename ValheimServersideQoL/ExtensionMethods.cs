@@ -41,17 +41,16 @@ static class ExtensionMethods
     public static ListEnumerable<T> AsEnumerable<T>(this IReadOnlyList<T> list) => new(list);
     public static IEnumerable<T> AsBoxedEnumerable<T>(this IReadOnlyList<T> list) => Enumerable.AsEnumerable(list);
 
-    public readonly struct ListEnumerable<T>(IReadOnlyList<T> list) : IEnumerable<T>
+    public readonly struct ListEnumerable<T>(IReadOnlyList<T> list)
     {
         readonly IReadOnlyList<T> _list = list;
 
         public Enumerator GetEnumerator() => new(_list);
-        IEnumerator<T> IEnumerable<T>.GetEnumerator() => GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         public struct Enumerator(IReadOnlyList<T> list) : IEnumerator<T>
         {
             readonly IReadOnlyList<T> _list = list;
+            readonly int _count = list.Count;
             int _index = -1;
 
             public T Current { get; private set; } = default!;
@@ -61,7 +60,7 @@ static class ExtensionMethods
 
             public bool MoveNext()
             {
-                if (++_index < _list.Count)
+                if (++_index < _count)
                 {
                     Current = _list[_index];
                     return true;

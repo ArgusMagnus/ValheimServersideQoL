@@ -57,27 +57,17 @@ abstract class Processor
     public bool RecreateZdo { get; protected set; }
     public bool UnregisterZdoProcessor { get; protected set; }
 
-    Stopwatch? _watch;
     protected HashSet<ExtendedZDO> PlacedObjects { get; } = [];
     static bool __initialized;
     static ExtendedZDO? _dataZDO;
 
-    public TimeSpan ProcessingTime => _watch?.Elapsed ?? default;
-    long _totalProcessingTimeTicks;
-    public TimeSpan TotalProcessingTime => new(_totalProcessingTimeTicks + (_watch?.ElapsedTicks ?? 0));
+    static bool __enableProcessingTimeMonitoring;
+    public double ProcessingTimeSeconds { get; private set; }
+    public double TotalProcessingTimeSeconds { get; private set; }
 
     public virtual void Initialize(bool firstTime)
     {
-        if (
-#if DEBUG
-            true ||
-#endif
-            Config.General.DiagnosticLogs.Value
-            )
-            _watch ??= new();
-        else
-            _watch = null;
-
+        __enableProcessingTimeMonitoring = Config.General.DiagnosticLogs.Value;
         __teleportableItems = null;
         ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateTeleportableItems;
 
@@ -151,10 +141,15 @@ abstract class Processor
 
     public void PreProcess(IEnumerable<Peer> peers)
     {
-        _totalProcessingTimeTicks += _watch?.ElapsedTicks ?? 0;
-        _watch?.Restart();
-        PreProcessCore(peers);
-        _watch?.Stop();
+        if (!__enableProcessingTimeMonitoring)
+            PreProcessCore(peers);
+        else
+        {
+            TotalProcessingTimeSeconds += ProcessingTimeSeconds;
+            var start = Time.realtimeSinceStartupAsDouble;
+            PreProcessCore(peers);
+            ProcessingTimeSeconds = Time.realtimeSinceStartupAsDouble - start;
+        }
     }
 
     protected virtual void PreProcessCore(IEnumerable<Peer> peers) { }
@@ -173,13 +168,18 @@ abstract class Processor
     protected abstract bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers);
     public bool Process(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        _watch?.Start();
-
         DestroyZdo = false;
         RecreateZdo = false;
         UnregisterZdoProcessor = false;
-        var result = ProcessCore(zdo, peers);
-        _watch?.Stop();
+        bool result;
+        if (!__enableProcessingTimeMonitoring)
+            result = ProcessCore(zdo, peers);
+        else
+        {
+            var start = Time.realtimeSinceStartupAsDouble;
+            result = ProcessCore(zdo, peers);
+            ProcessingTimeSeconds += Time.realtimeSinceStartupAsDouble - start;
+        }
         return result;
     }
 
@@ -275,9 +275,7 @@ abstract class Processor
         if (!Config.NonTeleportableItems.Enable.Value)
             return false;
 
-        if (__teleportableItems is null)
-            UpdateTeleportableItems();
-        return __teleportableItems.ContainsKey(item);
+        return TeleportableItems.ContainsKey(item);
     }
 
     protected bool HasNonTeleportableItem(IEnumerable<ItemDrop.ItemData> items)
@@ -304,7 +302,7 @@ abstract class Processor
                     continue;
 
                 if (ZoneSystem.instance.GetGlobalKey(entry.Config.Value))
-                    (set ??= []).Add(entry.ItemDrop.m_itemData, entry.ItemDrop.gameObject);
+                    (set ??= new(SharedItemDataKeyComparer.Instance)).Add(entry.ItemDrop.m_itemData, entry.ItemDrop.gameObject);
             }
 
             if (__teleportableItems is null)

@@ -136,7 +136,7 @@ sealed class ItemDropProcessor : Processor
             foreach (var slot in containerZdo.Inventory.Items)
             {
                 usedSlots.Add(slot.m_gridPos);
-                if (new ItemKey(item) != slot)
+                if (new ItemDataKey(item) != slot)
                     continue;
 
                 containerItem ??= slot;

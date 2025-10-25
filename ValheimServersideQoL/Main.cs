@@ -32,8 +32,6 @@ public sealed partial class Main : BaseUnityPlugin
     ModConfig? _worldConfig;
     internal new ModConfig Config => _worldConfig ?? (_mainConfig ??= new(base.Config));
 
-    readonly Stopwatch _watch = new();
-
     ulong _executeCounter;
     uint _unfinishedProcessingInRow;
     record SectorInfo(List<Peer> Peers, List<ZDO> ZDOs)
@@ -43,7 +41,7 @@ public sealed partial class Main : BaseUnityPlugin
     readonly Stack<SectorInfo> _sectorInfoPool = [];
     Dictionary<Vector2i, SectorInfo> _playerSectors = [];
     Dictionary<Vector2i, SectorInfo> _playerSectorsOld = [];
-    List<(Processor, TimeSpan)>? _processingTimes;
+    List<(Processor, double)>? _processingTimes;
 
     readonly List<Processor> _unregister = [];
     bool _configChanged = true;
@@ -117,18 +115,18 @@ public sealed partial class Main : BaseUnityPlugin
 
                     var minFps = ZNet.instance.IsDedicated() ? 10 : Game.m_minimumFPSLimit;
                     var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
-                    var maxDelta = 1f / minFps;
-                    var actualFps = 1f / Time.unscaledDeltaTime;
+                    var maxDelta = 1.0 / minFps;
+                    var actualFps = 1.0 / Time.unscaledDeltaTime;
                     if (Time.unscaledDeltaTime > maxDelta)
                     {
                         if (Config.General.DiagnosticLogs.Value)
                             Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
                         continue;
                     }
-                    var fraction = Mathf.Min(1f,  (actualFps - minFps) / (targetFps - minFps));
+                    var fraction = Math.Min(1,  (actualFps - minFps) / (targetFps - minFps));
                     var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
 
-                    try { Execute(peers, TimeSpan.FromSeconds(budget)); }
+                    try { Execute(peers, budget); }
                     catch (OperationCanceledException) { yield break; }
                     catch (Exception ex)
                     {
@@ -237,8 +235,10 @@ public sealed partial class Main : BaseUnityPlugin
             Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
     }
 
-    void Execute(PeersEnumerable peers, TimeSpan timeBudget)
+    void Execute(PeersEnumerable peers, double timeBudgetSeconds)
     {
+        var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
+        var executeUntil = timeStartSeconds + timeBudgetSeconds;
         _executeCounter++;
         if (_configChanged)
         {
@@ -310,8 +310,6 @@ public sealed partial class Main : BaseUnityPlugin
 
             return;
         }
-
-        _watch.Restart();
 
         peers.Update();
 
@@ -390,7 +388,7 @@ public sealed partial class Main : BaseUnityPlugin
 
         foreach (var (sector, sectorInfo) in playerSectors)
         {
-            if (_watch.Elapsed >= timeBudget)
+            if (Time.realtimeSinceStartupAsDouble > executeUntil)
                 break;
 
             processedSectors++;
@@ -400,7 +398,7 @@ public sealed partial class Main : BaseUnityPlugin
 
             totalZdos += sectorInfo.ZDOs.Count;
 
-            while (sectorInfo is { ZDOs.Count: > 0 } && _watch.Elapsed < timeBudget)
+            while (sectorInfo is { ZDOs.Count: > 0 } && Time.realtimeSinceStartupAsDouble < executeUntil)
             {
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
@@ -459,8 +457,6 @@ public sealed partial class Main : BaseUnityPlugin
         else
             _unfinishedProcessingInRow = 0;
 
-        _watch.Stop();
-
 #if DEBUG
         var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
 #else
@@ -469,19 +465,23 @@ public sealed partial class Main : BaseUnityPlugin
         var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
 #endif
 
+        var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) / 1000;
         Logger.Log(logLevel,
-            Invariant($"{nameof(Execute)} took {_watch.Elapsed.Milliseconds:F2} ms (budget: {timeBudget.Milliseconds:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+            Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {elapsedMs:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+
+        if (logLevel is > LogLevel.Info or LogLevel.None)
+            return;
 
         (_processingTimes ??= new(Processor.DefaultProcessors.Count)).Clear();
         foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
         {
-            var time = processor.ProcessingTime;
-            if (time.Ticks <= 0)
+            var time = Math.Round(processor.ProcessingTimeSeconds / 1000, 2);
+            if (time <= 0)
                 continue;
             _processingTimes.Add((processor, time));
         }
-        _processingTimes.Sort(static (a, b) => Math.Sign(a.Item2.Ticks - b.Item2.Ticks));
-        Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2.TotalMilliseconds}ms")))}"));
+        _processingTimes.Sort(static (a, b) => Math.Sign(a.Item2 - b.Item2));
+        Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
     }
 
 #if DEBUG

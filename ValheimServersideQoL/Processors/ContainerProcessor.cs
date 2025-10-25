@@ -10,7 +10,7 @@ sealed class ContainerProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("2e74d73e-d1e4-46e2-9885-d608730bd0da");
 
-    readonly Dictionary<ItemKey, int> _stackPerItem = new();
+    readonly Dictionary<ItemDataKey, int> _stackPerItem = new();
     readonly Dictionary<ExtendedZDO, List<ExtendedZDO>> _signsByChests = [];
     readonly Dictionary<ExtendedZDO, ExtendedZDO> _chestsBySigns = [];
 
@@ -394,9 +394,9 @@ sealed class ContainerProcessor : Processor
         if (sizeCfg.Growing)
         {
             checkShrink = false;
-            var key = new ItemKey(inventory.Items[0]);
+            var key = new ItemDataKey(inventory.Items[0]);
             for (int i = 1; !checkShrink && i < inventory.Items.Count; i++)
-                checkShrink = key != new ItemKey(inventory.Items[i]);
+                checkShrink = key != new ItemDataKey(inventory.Items[i]);
 
             if (!checkShrink)
                 sizeCfg = sizeCfg with { Height = Math.Max(sizeCfg.Height, Mathf.CeilToInt((float)inventory.Items.Count / sizeCfg.Width) + 1) };
@@ -449,7 +449,7 @@ sealed class ContainerProcessor : Processor
             if (!Config.Containers.AutoSort.Value && !RecreateZdo)
                 continue;
 
-            if (lastPartialSlot is not null && new ItemKey(item) == lastPartialSlot)
+            if (lastPartialSlot is not null && new ItemDataKey(item) == lastPartialSlot)
             {
                 changed = true;
                 if (!zdo.IsOwnerOrUnassigned())
@@ -488,7 +488,7 @@ sealed class ContainerProcessor : Processor
             {
                 var x = -1;
                 var y = 0;
-                ItemKey? lastKey = null;
+                ItemDataKey? lastKey = null;
                 foreach (var item in inventory.Items
                     .OrderBy(static x => x.IsEquipable() ? 0 : 1)
                     .ThenBy(static x => x.m_shared.m_name)
@@ -512,7 +512,7 @@ sealed class ContainerProcessor : Processor
             {
                 var x = 0;
                 var y = height;
-                ItemKey? lastKey = null;
+                ItemDataKey? lastKey = null;
                 foreach (var item in inventory.Items
                     .OrderBy(static x => x.IsEquipable() ? 0 : 1)
                     .ThenBy(static x => x.m_shared.m_name)
