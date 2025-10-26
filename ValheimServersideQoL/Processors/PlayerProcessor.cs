@@ -36,7 +36,7 @@ sealed class PlayerProcessor : Processor
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
         public Vector3? InitialInInteriorPosition { get; set; }
         public DateTimeOffset NextStaminaCheck { get; set; }
-        public float Stamina { get; set; }
+        public int Stamina { get; set; }
         public DateTimeOffset StaminaTimestamp { get; set; } = DateTimeOffset.UtcNow;
 
         ExtendedZDO? _backpackContainer;
@@ -64,7 +64,7 @@ sealed class PlayerProcessor : Processor
         }
 
         public DateTimeOffset? OpenBackpackAfter { get; set; }
-        
+
         public ItemDrop? LastUsedItem { get; set; }
         public ItemDrop? CheckSkillItem { get; set; }
         public float CheckSkillStamina { get; set; }
@@ -223,9 +223,10 @@ sealed class PlayerProcessor : Processor
 
         _estimateSkillLevels = Config.Skills.PickaxeAffectsRockDestruction.Value;
 
-        UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger,
-            (Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value || Config.Players.InfiniteWoodCuttingStamina.Value)
-            && Game.m_staminaRate > 0);
+        var subscribeSetTrigger = _estimateSkillLevels;
+        if (!subscribeSetTrigger && Game.m_staminaRate > 0)
+            subscribeSetTrigger = Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value || Config.Players.InfiniteWoodCuttingStamina.Value;
+        UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger, subscribeSetTrigger);
 
         //UpdateRpcSubscription("Say", OnTalkerSay, true);
         UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever,
@@ -320,20 +321,19 @@ sealed class PlayerProcessor : Processor
 
         //Logger.DevLog($"Trigger: {name}, Item: {item?.name}");
 
-        if (item is null)
+        if (item?.m_itemData.m_shared.m_attack is not { } attack)
             return;
 
-        if (item.m_itemData.m_shared.m_attack is { } attack)
+        /// <see cref="Attack.Start"/>
+        if (attack.m_attackChainLevels > 1 || attack.m_attackRandomAnimations >= 2)
         {
-            /// <see cref="Attack.Start"/>
-            if (attack.m_attackChainLevels > 1 || attack.m_attackRandomAnimations >= 2)
-            {
-                if (Regex.IsMatch(name, $@"^{attack.m_attackAnimation}\d+$"))
-                    state.LastUsedItem = item;
-            }
-            else if (name == attack.m_attackAnimation)
+            if (Regex.IsMatch(name, $@"^{Regex.Escape(attack.m_attackAnimation)}\d+$"))
                 state.LastUsedItem = item;
         }
+        else if (name == attack.m_attackAnimation)
+            state.LastUsedItem = item;
+
+        //Logger.DevLog($"Trigger: {name}, Item: {item.name}, Last used: {state.LastUsedItem?.name}");
 
         static bool CheckStamina(string triggerName, ModConfig.PlayersConfig cfg)
         {
@@ -370,15 +370,16 @@ sealed class PlayerProcessor : Processor
                 state.StaminaTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_staminaRegenDelay))
             {
                 var stamina = zdo.Vars.GetStamina();
-                if (stamina != state.Stamina)
+                var floored = Mathf.FloorToInt(stamina);
+                if (floored != state.Stamina)
                 {
-                    state.Stamina = stamina;
+                    state.Stamina = floored;
                     state.StaminaTimestamp = DateTimeOffset.UtcNow;
                 }
                 else
                 {
-                    state.CheckSkillStamina = zdo.Vars.GetStamina();
-                    state.CheckSkillItem = rightItem;
+                    state.CheckSkillStamina = stamina;
+                    state.CheckSkillItem = item;
                 }
             }
         }
@@ -601,7 +602,7 @@ sealed class PlayerProcessor : Processor
             {
                 if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
                     RPC.TakeAllResponse(zdo, true);
-                else if(MoveItems(zdo, stackContainerState, peers))
+                else if (MoveItems(zdo, stackContainerState, peers))
                 {
                     zdo.Destroyed -= OnStackContainerDestroyed;
                     _stackContainers.Remove(zdo);
@@ -728,7 +729,7 @@ sealed class PlayerProcessor : Processor
         if (state.NextStaminaCheck < DateTimeOffset.UtcNow)
         {
             state.NextStaminaCheck = DateTimeOffset.UtcNow.AddSeconds(0.5);
-            var stamina = zdo.Vars.GetStamina();
+            var stamina = Mathf.FloorToInt(zdo.Vars.GetStamina());
             if (state.Stamina != stamina)
             {
                 state.StaminaTimestamp = DateTimeOffset.UtcNow;
@@ -767,15 +768,18 @@ sealed class PlayerProcessor : Processor
                 var eff = state.CheckSkillStamina - stamina;
                 var diff = max - eff;
                 var estSkill = diff / (max * 0.33f);
-                //var prevEstSkill = DataZDO.Vars.GetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, float.NaN);
-                //DataZDO.Vars.SetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, estSkill);
-                if (!state.EstimatedSkillLevels.TryGetValue(shared.m_skillType, out var prevEstSkill))
-                    prevEstSkill = float.NaN;
-                state.EstimatedSkillLevels[shared.m_skillType] = estSkill;
-                var intSkill = Mathf.Floor(estSkill * 100);
-                var intPrevSkill = Mathf.Floor(prevEstSkill * 100);
-                if (intSkill != intPrevSkill)
-                    Logger.Log(intSkill - intPrevSkill > 1f ? LogLevel.Warning : LogLevel.Info, $"Player {state.PlayerName}: Estimated {shared.m_skillType} skill level: {intSkill}, Previous estimate: {intPrevSkill} (Item: {state.CheckSkillItem.name}, max stamina: {max}, used stamina: {eff})");
+                if (estSkill is >= 0f and <= 1f)
+                {
+                    //var prevEstSkill = DataZDO.Vars.GetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, float.NaN);
+                    //DataZDO.Vars.SetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, estSkill);
+                    if (!state.EstimatedSkillLevels.TryGetValue(shared.m_skillType, out var prevEstSkill))
+                        prevEstSkill = float.NaN;
+                    state.EstimatedSkillLevels[shared.m_skillType] = estSkill;
+                    var intSkill = Mathf.Floor(estSkill * 100);
+                    var intPrevSkill = Mathf.Floor(prevEstSkill * 100);
+                    if (intSkill != intPrevSkill)
+                        Logger.Log(intSkill - intPrevSkill > 1f ? LogLevel.Warning : LogLevel.Info, $"Player {state.PlayerName}: Estimated {shared.m_skillType} skill level: {intSkill}, Previous estimate: {intPrevSkill} (Item: {state.CheckSkillItem.name}, max stamina: {max}, used stamina: {eff})");
+                }
                 state.CheckSkillItem = null;
             }
         }
@@ -935,7 +939,7 @@ sealed class PlayerProcessor : Processor
             tameState.ZDO.Recreate();
         }
 
-        return false; 
+        return false;
     }
 
     bool ShouldTeleport(in Vector2i playerZone, in Vector2i tameZone, ExtendedZDO player, ExtendedZDO tame, PlayerState state)

@@ -49,13 +49,11 @@ sealed class MineRockProcessor : Processor
                 _notDestroyedIndices.Add((i, health));
         }
         var destroyed = (float)(count - _notDestroyedIndices.Count) / count;
-        //Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Destroyed: {destroyed:P1}");
-
         var minDestroyed = 1f - skill;
+        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Player: {info.PlayerName}, Skill: {skill}, Destroyed: {destroyed:P1}, Min: {minDestroyed:P1}");
         if (destroyed < minDestroyed)
             return true;
 
-        Logger.DevLog($"Destroying {zdo.PrefabInfo.PrefabName} (Player {info.PlayerName}, skill: {skill}");
         var hit = new HitData();
         foreach (var (idx, health) in _notDestroyedIndices)
         {

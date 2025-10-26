@@ -738,7 +738,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class SkillsConfig(ConfigFile cfg, string section)
     {
-        public ConfigEntry<bool> PickaxeAffectsRockDestruction { get; } = cfg.BindEx(section, true, """
+        public ConfigEntry<bool> PickaxeAffectsRockDestruction { get; } = cfg.BindEx(section, false, """
             True to make the pickaxe skill affect the destruction of rocks and ore deposits.
             If true, rocks and ore deposits will be completely destroyed once more than (100 - Pickaxe Skill Level)%
             of their parts have been destroyed.

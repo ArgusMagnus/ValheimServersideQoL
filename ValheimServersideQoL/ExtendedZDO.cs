@@ -105,6 +105,7 @@ sealed class ExtendedZDO : ZDO
         }
     }
 
+    public bool HasProcessors => AddData.HasProcessors;
     public IReadOnlyList<Processor> Processors => AddData.Processors;
     public void UnregisterProcessors(IReadOnlyList<Processor> processors) => AddData.Ungregister(processors);
     public void UnregisterAllExcept(Processor processor) => AddData.UnregisterAllExcept(processor);
@@ -357,7 +358,13 @@ sealed class ExtendedZDO : ZDO
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)
     {
-        public IReadOnlyList<Processor> Processors { get; private set; } = Processor.DefaultProcessors;
+        public bool HasProcessors { get; private set; } = true;
+        public IReadOnlyList<Processor> Processors
+        {
+            get => field ??= Processor.DefaultProcessors;
+            private set { field = value; HasProcessors = value.Count > 0; }
+        }
+
         public PrefabInfo PrefabInfo { get; } = prefabInfo;
         public ConcurrentDictionary<Type, object>? ComponentFieldAccessors { get; set; }
         public Dictionary<Processor, (uint Data, uint Owner)>? ProcessorDataRevisions { get; set; }

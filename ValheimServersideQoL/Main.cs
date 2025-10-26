@@ -400,7 +400,7 @@ public sealed partial class Main : BaseUnityPlugin
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
                 sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
-                if (!zdo.IsValid() /*|| ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy)*/)
+                if (!zdo.IsValid() || !zdo.HasProcessors /*|| ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy)*/)
                     continue;
 
                 if (zdo.Processors.Count > 1)
@@ -472,11 +472,13 @@ public sealed partial class Main : BaseUnityPlugin
         (_processingTimes ??= new(Processor.DefaultProcessors.Count)).Clear();
         foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
         {
-            var time = Math.Round(processor.ProcessingTimeSeconds / 1000, 2);
+            var time = Math.Round(processor.ProcessingTimeSeconds * 1000, 2);
             if (time <= 0)
                 continue;
             _processingTimes.Add((processor, time));
         }
+        if (_processingTimes.Count is 0)
+            return;
         _processingTimes.Sort(static (a, b) => Math.Sign(a.Item2 - b.Item2));
         Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
     }
