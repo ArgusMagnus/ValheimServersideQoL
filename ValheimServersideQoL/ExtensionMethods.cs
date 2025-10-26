@@ -38,6 +38,14 @@ static class ExtensionMethods
 #endif
     }
 
+    public static void InsertSorted<T>(this List<T> list, T item) where T : IComparable<T>
+    {
+        var index = list.BinarySearch(item);
+        if (index < 0)
+            index = ~index; // bitwise complement = insertion point
+        list.Insert(index, item);
+    }
+
     public static ListEnumerable<T> AsEnumerable<T>(this IReadOnlyList<T> list) => new(list);
     public static IEnumerable<T> AsBoxedEnumerable<T>(this IReadOnlyList<T> list) => Enumerable.AsEnumerable(list);
 

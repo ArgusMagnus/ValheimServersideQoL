@@ -48,9 +48,10 @@ sealed class MineRockProcessor : Processor
             if (health > 0)
                 _notDestroyedIndices.Add((i, health));
         }
+        
         var destroyed = (float)(count - _notDestroyedIndices.Count) / count;
         var minDestroyed = 1f - skill;
-        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Player: {info.PlayerName}, Skill: {skill}, Destroyed: {destroyed:P1}, Min: {minDestroyed:P1}");
+       
         if (destroyed < minDestroyed)
             return true;
 

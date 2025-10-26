@@ -70,6 +70,7 @@ sealed class PlayerProcessor : Processor
         public float CheckSkillStamina { get; set; }
         public Dictionary<Skills.SkillType, float> EstimatedSkillLevels => field ??= [];
         IReadOnlyDictionary<Skills.SkillType, float> IPeerInfo.EstimatedSkillLevels => EstimatedSkillLevels;
+        public Dictionary<Skills.SkillType, (Queue<float> Queue, List<float> List)> EstimatedSkillLevelHistories => field ??= [];
 
         public TimeSpan? LastPing { get; private set; }
         public TimeSpan? PingMean { get; private set; }
@@ -365,7 +366,7 @@ sealed class PlayerProcessor : Processor
         if (_estimateSkillLevels)
         {
             state.CheckSkillItem = null;
-            if (item is not null &&
+            if (item.m_itemData.m_shared is { m_skillType: not Skills.SkillType.Swords } or {m_damages.m_slash: > 0 } &&
                 ReferenceEquals(item, state.LastUsedItem) &&
                 state.StaminaTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_staminaRegenDelay))
             {
@@ -376,7 +377,7 @@ sealed class PlayerProcessor : Processor
                     state.Stamina = floored;
                     state.StaminaTimestamp = DateTimeOffset.UtcNow;
                 }
-                else
+                else if (stamina >= 2 * item.m_itemData.m_shared.m_attack.m_attackStamina) // infinite stamina feature might interfere
                 {
                     state.CheckSkillStamina = stamina;
                     state.CheckSkillItem = item;
@@ -770,6 +771,20 @@ sealed class PlayerProcessor : Processor
                 var estSkill = diff / (max * 0.33f);
                 if (estSkill is >= 0f and <= 1f)
                 {
+                    const int HalfHistoryWindow = 2;
+                    const int HistoryWindow = 2 * HalfHistoryWindow + 1;
+
+                    if (!state.EstimatedSkillLevelHistories.TryGetValue(shared.m_skillType, out var history))
+                        state.EstimatedSkillLevelHistories.Add(shared.m_skillType, history = (new(HistoryWindow), new(HistoryWindow)));
+
+                    while (history.Queue.Count >= HistoryWindow)
+                        history.List.Remove(history.Queue.Dequeue());
+
+                    history.Queue.Enqueue(estSkill);
+                    history.List.InsertSorted(estSkill);
+                    // median
+                    estSkill = history.List[history.List.Count / 2];
+
                     //var prevEstSkill = DataZDO.Vars.GetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, float.NaN);
                     //DataZDO.Vars.SetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, estSkill);
                     if (!state.EstimatedSkillLevels.TryGetValue(shared.m_skillType, out var prevEstSkill))
