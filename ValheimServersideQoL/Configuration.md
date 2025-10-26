@@ -246,6 +246,12 @@
 |DefaultColor|||Default color for signs. Can be a color name or hex code (e.g. #FF0000 for red)|
 |TimeSigns|False|True/False|True to update sign texts which contain time emojis (any of 🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦) with the in-game time|
 </details>
+<details><summary>Skills</summary>
+
+|Option|Default Value|Acceptable Values|Description|
+|------|-------------|-----------------|-----------|
+|PickaxeAffectsRockDestruction|True|True/False|True to make the pickaxe skill affect the destruction of rocks and ore deposits.<br>If true, rocks and ore deposits will be completely destroyed once more than (100 - Pickaxe Skill Level)%<br>of their parts have been destroyed.<br>E.g. at skill level 10, 90% of the parts need to be destroyed while at skill level 80, 20% destroyed parts are enough<br>to destroy the whole rock/ore deposit|
+</details>
 <details><summary>Sleeping</summary>
 
 |Option|Default Value|Acceptable Values|Description|

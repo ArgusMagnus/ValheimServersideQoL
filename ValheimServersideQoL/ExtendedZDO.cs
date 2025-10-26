@@ -205,11 +205,11 @@ sealed class ExtendedZDO : ZDO
             return (ComponentFieldAccessor<TComponent>)(AddData.ComponentFieldAccessors ??= new()).GetOrAdd(typeof(TComponent), key =>
             {
                 if (!PrefabInfo.Components.TryGetValue(key, out var component) && getUnknownComponent)
-                        component = PrefabInfo.Prefab.GetComponentInChildren<TComponent>();
+                    component = PrefabInfo.Prefab.GetComponentInChildren<TComponent>();
                 if (component is null)
                     throw new KeyNotFoundException();
                 return new ComponentFieldAccessor<TComponent>(this, (TComponent)component);
-            });            
+            });
         }
         else if (getUnknownComponent)
         {
@@ -261,7 +261,7 @@ sealed class ExtendedZDO : ZDO
         public string GetFollow(string defaultValue = "") => _zdo.GetString(ZDOVars.s_follow, defaultValue);
         public void SetFollow(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_follow, value); }
         public int GetRightItem(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_rightItem, defaultValue);
-        public void SetRightItem(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_rightItem, value); }
+        public int GetLeftItem(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_leftItem, defaultValue);
         public string GetText(string defaultValue = "") => _zdo.GetString(ZDOVars.s_text, defaultValue);
         public void SetText(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_text, value); }
         public string GetItem(string defaultValue = "") => _zdo.GetString(ZDOVars.s_item, defaultValue);
@@ -284,6 +284,8 @@ sealed class ExtendedZDO : ZDO
         public void SetSpawnTime(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_spawnTime, value.Ticks); }
         public float GetHealth(float defaultValue = default) => _zdo.GetFloat(ZDOVars.s_health, defaultValue);
         public void SetHealth(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_health, value); }
+        public string GetHealthString(string defaultValue = "") => _zdo.GetString(ZDOVars.s_health, defaultValue);
+        public void SetHealth(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_health, value); }
         public void RemoveHealth([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveFloat(ZDOVars.s_health); }
         public int GetPermitted(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_permitted, defaultValue);
         public void SetPermitted(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_permitted, value); }
@@ -331,7 +333,7 @@ sealed class ExtendedZDO : ZDO
         static int __returnContentToCreator = $"{Main.PluginGuid}.ReturnContentToCreator".GetStableHashCode();
         public bool GetReturnContentToCreator(bool defaultValue = default) => _zdo.GetBool(__returnContentToCreator, defaultValue);
         public void SetReturnContentToCreator(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__returnContentToCreator, value); }
-        
+
         static int __initialLevel = $"{Main.PluginGuid}.PortalHubId".GetStableHashCode();
         public int GetInitialLevel(int defaultValue = default) => _zdo.GetInt(__initialLevel, defaultValue);
         public void SetInitialLevel(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__initialLevel, value); }
@@ -625,7 +627,7 @@ sealed class ExtendedZDO : ZDO
 
                 if (Accessors.Remover is not null)
                     return Accessors.Remover(componentFieldAccessor._zdo, _hash);
-                
+
                 var defaultValue = _getFieldValue(componentFieldAccessor._component);
                 if (EqualityComparer<T>.Default.Equals(Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue), defaultValue))
                     return false;
@@ -821,7 +823,7 @@ sealed class ExtendedZDO : ZDO
                 Inventory = new(ZDO.PrefabInfo.Container!.Value.Container.m_name, ZDO.PrefabInfo.Container!.Value.Container.m_bkg, w, h);
                 _items = null;
             }
-            
+
             if (string.IsNullOrEmpty(data))
                 Items.Clear();
             else

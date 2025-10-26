@@ -38,6 +38,7 @@ sealed record ModConfig(ConfigFile ConfigFile)
     public FermentersConfig Fermenters { get; } = new(ConfigFile, "B - Fermenters");
     public NetworkingConfig Networking { get; } = new(ConfigFile, "B - Networking");
     public WishboneConfig Wishbone { get; } = new(ConfigFile, "B - Wishbone");
+    public SkillsConfig Skills { get; } = new(ConfigFile, "B - Skills");
 
     public WorldModifiersConfig WorldModifiers { get; } = new(ConfigFile, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(ConfigFile, "D - Global Keys");
@@ -733,6 +734,18 @@ sealed record ModConfig(ConfigFile ConfigFile)
             """);
         public ConfigEntry<float> Range { get; } = cfg.BindEx(section, Mathf.Max(Minimap.instance.m_exploreRadius, ZoneSystem.c_ZoneSize),
             "Radius in which the wishbone will react to dungeons/locations", new AcceptableValueRange<float>(0, ZoneSystem.c_ZoneSize * 2 * Mathf.Sqrt(2)));
+    }
+
+    public sealed class SkillsConfig(ConfigFile cfg, string section)
+    {
+        public ConfigEntry<bool> PickaxeAffectsRockDestruction { get; } = cfg.BindEx(section, true, """
+            True to make the pickaxe skill affect the destruction of rocks and ore deposits.
+            If true, rocks and ore deposits will be completely destroyed once more than (100 - Pickaxe Skill Level)%
+            of their parts have been destroyed.
+            E.g. at skill level 10, 90% of the parts need to be destroyed while at skill level 80, 20% destroyed parts are enough
+            to destroy the whole rock/ore deposit
+            """);
+            
     }
 
     public sealed class WorldModifiersConfig(ConfigFile cfg, string section)

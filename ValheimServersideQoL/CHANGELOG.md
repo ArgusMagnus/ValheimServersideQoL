@@ -1,3 +1,6 @@
+### vNext (BETA)
+- New feature: Make pickaxe skill affect the portion of a rock / ore deposit that needs to be destroyed before the whole rock collapses
+
 ### v1.5.2017 (BETA)
 - Performance optimizations
 

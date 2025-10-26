@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Valheim.ServersideQoL;
@@ -43,6 +42,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public Fermenter? Fermenter { get; } = Get<Fermenter>(Components);
     public SpawnSystem? SpawnSystem { get; } = Get<SpawnSystem>(Components);
     public LocationProxy? LocationProxy { get; } = Get<LocationProxy>(Components);
+    public MineRock5? MineRock5 { get; } = Get<MineRock5>(Components);
 
     public static PrefabInfo Dummy { get; } = new(null!, ReadOnlyDictionary<Type, MonoBehaviour>.Empty);
 
