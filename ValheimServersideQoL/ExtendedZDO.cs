@@ -349,6 +349,8 @@ sealed class ExtendedZDO : ZDO
         public void SetSacrifiedWishbone(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedWishbone", value); }
         public bool GetSacrifiedTornSpirit(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedTornSpirit", defaultValue);
         public void SetSacrifiedTornSpirit(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedTornSpirit", value); }
+        //public float GetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float defaultValue = default) => _zdo.GetFloat($"player{playerID}_EstimatedSkillLevel_{skill}", defaultValue);
+        //public void SetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_EstimatedSkillLevel_{skill}", value); }
     }
 
     sealed class AdditionalData_(PrefabInfo prefabInfo)

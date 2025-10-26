@@ -5,19 +5,16 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections;
 using System.Collections.Concurrent;
-using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
-using static Heightmap;
 
 namespace Valheim.ServersideQoL;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-//[BepInIncompatibility("org.bepinex.plugins.dedicatedserver")]
 public sealed partial class Main : BaseUnityPlugin
 {
     internal const string PluginName = "ServersideQoL";
@@ -465,9 +462,9 @@ public sealed partial class Main : BaseUnityPlugin
         var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
 #endif
 
-        var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) / 1000;
+        var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
         Logger.Log(logLevel,
-            Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {elapsedMs:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+            Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
 
         if (logLevel is > LogLevel.Info or LogLevel.None)
             return;

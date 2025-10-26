@@ -312,6 +312,7 @@ abstract class Processor
     }
 
     static List<object?> __args = [];
+    static readonly Dictionary<int, object?[]> __argArrays = [];
     static bool HandleRoutedRPCPrefix(RoutedRPCData data)
     {
         if (__methods.TryGetValue(data.m_methodHash, out var rpcMethod))
@@ -325,12 +326,27 @@ abstract class Processor
                     __args.Clear();
                     ZRpc.Deserialize(del.Parameters, data.m_parameters, ref __args);
                     data.m_parameters.SetPos(0);
-                    if (del.DataParameterIndex > -1)
-                        __args.Insert(Math.Min(del.DataParameterIndex, __args.Count), data);
-                    if (del.ZdoParameterIndex > -1)
-                        __args.Insert(del.ZdoParameterIndex + ((del.DataParameterIndex > -1 && del.DataParameterIndex < del.ZdoParameterIndex) ? 1 : 0), zdo ??= ZDOMan.instance.GetExtendedZDO(data.m_targetZDO));
+                    if (del.DataParameterIndex < del.ZdoParameterIndex)
+                    {
+                        if (del.DataParameterIndex > -1)
+                            __args.Insert(del.DataParameterIndex, data);
+                        if (del.ZdoParameterIndex > -1)
+                            __args.Insert(del.ZdoParameterIndex, zdo ??= ZDOMan.instance.GetExtendedZDO(data.m_targetZDO));
+                    }
+                    else
+                    {
+                        if (del.ZdoParameterIndex > -1)
+                            __args.Insert(del.ZdoParameterIndex, zdo ??= ZDOMan.instance.GetExtendedZDO(data.m_targetZDO));
+                        if (del.DataParameterIndex > -1)
+                            __args.Insert(del.DataParameterIndex, data);
+                    }
 
-                    if (del.Delegate.DynamicInvoke([.. __args!]) is bool success && !success)
+                    if (!__argArrays.TryGetValue(__args.Count, out var args))
+                        __argArrays.Add(__args.Count, args = [.. __args]);
+                    else
+                        __args.CopyTo(args);
+
+                    if (del.Delegate.DynamicInvoke(args) is bool success && !success)
                     {
                         //Main.Instance.Logger.DevLog($"Invokation of {rpcMethod.Name} cancelled");
                         return false;
@@ -339,6 +355,7 @@ abstract class Processor
                 catch (Exception ex)
                 {
                     Main.Instance.Logger.LogError($"{rpcMethod.Name}: {del.Delegate.Method.DeclaringType.Name}.{del.Delegate.Method.Name}: {ex}");
+                    Main.Instance.Logger.LogError($"Arguments: {string.Join(", ", __args.Select(static (x, i) => $"{i}: {x?.GetType().Name}"))}");
                     rpcMethod.Delegates.RemoveAt(i--);
                     if (rpcMethod.Delegates.Count is 0 && __methods.Remove(data.m_methodHash) && __methods.Count is 0)
                         Main.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);

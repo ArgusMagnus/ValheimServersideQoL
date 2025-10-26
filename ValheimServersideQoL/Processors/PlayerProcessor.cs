@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using BepInEx.Logging;
+using System.Reflection;
 using UnityEngine;
 using Valheim.ServersideQoL.HarmonyPatches;
 
@@ -7,6 +8,8 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class PlayerProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("159d939c-cb85-4314-ac30-f473d043fdc2");
+
+    const bool _estimateSkillLevels = false;
 
     public interface IPeerInfo
     {
@@ -36,7 +39,10 @@ sealed class PlayerProcessor : Processor
         public bool IsAdmin => _isAdmin ??= (Player.m_localPlayer?.GetZDOID() == PlayerZDO.m_uid || ZNet.instance.IsAdmin(_peer?.m_socket.GetHostName() ?? ""));
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
         public Vector3? InitialInInteriorPosition { get; set; }
-        public DateTimeOffset NextStaminaRestore { get; set; }
+        public DateTimeOffset NextStaminaCheck { get; set; }
+        public float Stamina { get; set; }
+        public DateTimeOffset StaminaTimestamp { get; set; } = DateTimeOffset.UtcNow;
+
         ExtendedZDO? _backpackContainer;
         public ExtendedZDO? BackpackContainer
         {
@@ -62,6 +68,11 @@ sealed class PlayerProcessor : Processor
         }
 
         public DateTimeOffset? OpenBackpackAfter { get; set; }
+        
+        public ItemDrop? CheckSkillItem { get; set; }
+        public float CheckSkillStamina { get; set; }
+        public Dictionary<Skills.SkillType, float> EstimatedSkillLevels => field ??= [];
+
         public TimeSpan? LastPing { get; private set; }
         public TimeSpan? PingMean { get; private set; }
         public TimeSpan? PingStdDev { get; private set; }
@@ -308,20 +319,62 @@ sealed class PlayerProcessor : Processor
                     return false;
             }
         }
-        
-        if (!CheckStamina(name, Config.Players))
-            return;
 
-        var rightItemPrefab = zdo.Vars.GetRightItem();
-        if (ObjectDB.instance.GetItemPrefab(rightItemPrefab)?.GetComponent<ItemDrop>() is not { m_itemData.m_shared.m_attack: not null } rightItem)
+        ItemDrop? rightItem = null;
+
+        if (CheckStamina(name, Config.Players))
         {
-            Logger.LogWarning($"Player {zdo.Vars.GetPlayerName()}: SetTrigger({name}): Right item prefab '{rightItemPrefab}' not found");
-            return;
+            var rightItemPrefab = zdo.Vars.GetRightItem();
+            rightItem = ObjectDB.instance.GetItemPrefab(rightItemPrefab)?.GetComponent<ItemDrop>();
+            if (rightItem is not { m_itemData.m_shared.m_attack: not null })
+                Logger.LogWarning($"Player {zdo.Vars.GetPlayerName()}: SetTrigger({name}): Right item prefab '{rightItemPrefab}' not found");
+            else
+            {
+                var requiredStamina = rightItem.m_itemData.m_shared.m_attack.m_attackStamina;
+                if (zdo.Vars.GetStamina() < 2 * requiredStamina)
+                    RPC.UseStamina(zdo, -requiredStamina);
+            }
         }
 
-        var requiredStamina = rightItem.m_itemData.m_shared.m_attack.m_attackStamina;
-        if (zdo.Vars.GetStamina() < 2 * requiredStamina)
-            RPC.UseStamina(zdo, -requiredStamina);
+        if (_estimateSkillLevels)
+        {
+            if (_playerStates.TryGetValue(zdo.GetOwner(), out var state))
+            {
+                state.CheckSkillItem = null;
+
+                if (rightItem is null)
+                {
+                    var rightItemPrefab = zdo.Vars.GetRightItem();
+                    if (rightItemPrefab is not 0)
+                    {
+                        rightItem = ObjectDB.instance.GetItemPrefab(rightItemPrefab)?.GetComponent<ItemDrop>();
+                        if (rightItem is not { m_itemData.m_shared.m_attack: not null })
+                            Logger.LogWarning($"Player {zdo.Vars.GetPlayerName()}: SetTrigger({name}): Right item prefab '{rightItemPrefab}' not found");
+                    }
+                }
+
+                var attack = rightItem?.m_itemData.m_shared.m_attack;
+                /// <see cref="Attack.Start"/>
+                if (attack is not null &&
+                    (attack.m_attackChainLevels > 1 || attack.m_attackRandomAnimations >= 2 ?
+                    name == $"{attack.m_attackAnimation}0" : // Regex.IsMatch($@"{attack.m_attackAnimation}\d+", name) :
+                    name == attack.m_attackAnimation) &&
+                    state.StaminaTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_staminaRegenDelay))
+                {
+                    var stamina = zdo.Vars.GetStamina();
+                    if (stamina != state.Stamina)
+                    {
+                        state.Stamina = stamina;
+                        state.StaminaTimestamp = DateTimeOffset.UtcNow;
+                    }
+                    else
+                    {
+                        state.CheckSkillStamina = zdo.Vars.GetStamina();
+                        state.CheckSkillItem = rightItem;
+                    }
+                }
+            }
+        }
     }
 
     /// <see cref="Talker.Say(Talker.Type, string)"/>
@@ -665,14 +718,20 @@ sealed class PlayerProcessor : Processor
 #endif
         }
 
-        if (state.NextStaminaRestore < DateTimeOffset.UtcNow)
+        if (state.NextStaminaCheck < DateTimeOffset.UtcNow)
         {
-            state.NextStaminaRestore = DateTimeOffset.UtcNow.AddSeconds(0.5);
-            if (Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_encumberedStaminaDrain)
+            state.NextStaminaCheck = DateTimeOffset.UtcNow.AddSeconds(0.5);
+            var stamina = zdo.Vars.GetStamina();
+            if (state.Stamina != stamina)
+            {
+                state.StaminaTimestamp = DateTimeOffset.UtcNow;
+                state.Stamina = stamina;
+            }
+            if (stamina < zdo.PrefabInfo.Player.m_encumberedStaminaDrain && Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered())
                 RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_encumberedStaminaDrain);
-            else if (Config.Players.InfiniteSneakingStamina.Value && zdo.Vars.GetAnimationIsCrouching() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_sneakStaminaDrain)
+            else if (stamina < zdo.PrefabInfo.Player.m_sneakStaminaDrain && Config.Players.InfiniteSneakingStamina.Value && zdo.Vars.GetAnimationIsCrouching())
                 RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_sneakStaminaDrain);
-            else if (Config.Players.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater() && zdo.Vars.GetStamina() < zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill)
+            else if (stamina < zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill && Config.Players.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater())
                 RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
         }
 
@@ -688,6 +747,29 @@ sealed class PlayerProcessor : Processor
             {
                 state.BackpackContainer.SetPosition(state.BackpackContainer.GetPosition() with { y = -1000 });
                 state.BackpackContainer = RecreatePiece(state.BackpackContainer);
+            }
+        }
+
+        if (_estimateSkillLevels && state.CheckSkillItem is not null)
+        {
+            var stamina = zdo.Vars.GetStamina();
+            if (stamina < state.CheckSkillStamina)
+            {
+                var shared = state.CheckSkillItem.m_itemData.m_shared;
+                var max = shared.m_attack.m_attackStamina;
+                var eff = state.CheckSkillStamina - stamina;
+                var diff = max - eff;
+                var estSkill = diff / (max * 0.33f);
+                //var prevEstSkill = DataZDO.Vars.GetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, float.NaN);
+                //DataZDO.Vars.SetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, estSkill);
+                if (!state.EstimatedSkillLevels.TryGetValue(shared.m_skillType, out var prevEstSkill))
+                    prevEstSkill = float.NaN;
+                state.EstimatedSkillLevels[shared.m_skillType] = estSkill;
+                var intSkill = Mathf.Floor(estSkill * 100);
+                var intPrevSkill = Mathf.Floor(prevEstSkill * 100);
+                if (intSkill != intPrevSkill)
+                    Logger.Log(intSkill - intPrevSkill > 1f ? LogLevel.Warning : LogLevel.Info, $"Player {state.PlayerName}: Estimated {shared.m_skillType} skill level: {intSkill}, Previous estimate: {intPrevSkill} (Item: {state.CheckSkillItem.name}, max stamina: {max}, used stamina: {eff})");
+                state.CheckSkillItem = null;
             }
         }
 
