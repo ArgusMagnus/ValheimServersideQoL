@@ -445,6 +445,14 @@ sealed class ExtendedZDO : ZDO
         public static AdditionalData_ Dummy { get; } = new(PrefabInfo.Dummy);
     }
 
+    sealed class UnityObjectEqualityComparer<T> : EqualityComparer<T>
+        where T : UnityEngine.Object
+    {
+        public static UnityObjectEqualityComparer<T> Instance { get; } = new();
+        public override bool Equals(T x, T y) => x?.name == y?.name;
+        public override int GetHashCode(T obj) => obj.name.GetHashCode();
+    }
+
     public sealed class ComponentFieldAccessor<TComponent>(ExtendedZDO zdo, TComponent component)
     {
         readonly ExtendedZDO _zdo = zdo;
@@ -493,61 +501,67 @@ sealed class ExtendedZDO : ZDO
             static readonly Dictionary<string, FieldReference<T>> __cacheByFieldName = [];
             static readonly Dictionary<(string, int), FieldReference<T>> __cacheByLocation = [];
 
-            static readonly (GetHandler<T> Getter, SetHandler<T> Setter, RemoveHandler<T>? Remover) Accessors = new Func<(GetHandler<T>, SetHandler<T>, RemoveHandler<T>?)>(static () =>
+            static readonly (GetHandler<T> Getter, SetHandler<T> Setter, RemoveHandler<T>? Remover, IEqualityComparer<T> EqualityComparer) Accessors =
+                new Func<(GetHandler<T>, SetHandler<T>, RemoveHandler<T>?, IEqualityComparer<T>)>(static () =>
             {
                 if (typeof(T) == typeof(bool)) return (
                     (GetHandler<T>)(Delegate)new GetHandler<bool>(static (ZDO zdo, int hash, bool defaultValue) => zdo.GetBool(hash, defaultValue)),
                     (SetHandler<T>)(Delegate)new SetHandler<bool>(static (ZDO zdo, int hash, bool value) => zdo.Set(hash, value)),
-                    (RemoveHandler<T>)(Delegate)new RemoveHandler<bool>(static (ZDO zdo, int hash) => zdo.RemoveInt(hash)));
+                    (RemoveHandler<T>)(Delegate)new RemoveHandler<bool>(static (ZDO zdo, int hash) => zdo.RemoveInt(hash)),
+                    (IEqualityComparer<T>)EqualityComparer<bool>.Default);
 
                 if (typeof(T) == typeof(int)) return (
                     (GetHandler<T>)(Delegate)new GetHandler<int>(static (ZDO zdo, int hash, int defaultValue) => zdo.GetInt(hash, defaultValue)),
                     (SetHandler<T>)(Delegate)new SetHandler<int>(static (ZDO zdo, int hash, int value) => zdo.Set(hash, value)),
-                    (RemoveHandler<T>)(Delegate)new RemoveHandler<int>(static (ZDO zdo, int hash) => zdo.RemoveInt(hash)));
+                    (RemoveHandler<T>)(Delegate)new RemoveHandler<int>(static (ZDO zdo, int hash) => zdo.RemoveInt(hash)),
+                    (IEqualityComparer<T>)EqualityComparer<int>.Default);
 
                 if (typeof(T) == typeof(float)) return (
                     (GetHandler<T>)(Delegate)new GetHandler<float>(static (ZDO zdo, int hash, float defaultValue) => zdo.GetFloat(hash, defaultValue)),
                     (SetHandler<T>)(Delegate)new SetHandler<float>(static (ZDO zdo, int hash, float value) => zdo.Set(hash, value)),
-                    (RemoveHandler<T>)(Delegate)new RemoveHandler<float>(static (ZDO zdo, int hash) => zdo.RemoveFloat(hash)));
+                    (RemoveHandler<T>)(Delegate)new RemoveHandler<float>(static (ZDO zdo, int hash) => zdo.RemoveFloat(hash)),
+                    (IEqualityComparer<T>)EqualityComparer<float>.Default);
 
                 if (typeof(T) == typeof(string)) return (
                     (GetHandler<T>)(Delegate)new GetHandler<string>(static (ZDO zdo, int hash, string defaultValue) => zdo.GetString(hash, defaultValue)),
                     (SetHandler<T>)(Delegate)new SetHandler<string>(static (ZDO zdo, int hash, string value) => zdo.Set(hash, value)),
-                    null);
+                    null,
+                    (IEqualityComparer<T>)EqualityComparer<string>.Default);
 
                 if (typeof(T) == typeof(Vector3)) return (
                     (GetHandler<T>)(Delegate)new GetHandler<Vector3>(static (ZDO zdo, int hash, Vector3 defaultValue) => zdo.GetVec3(hash, defaultValue)),
                     (SetHandler<T>)(Delegate)new SetHandler<Vector3>(static (ZDO zdo, int hash, Vector3 value) => zdo.Set(hash, value)),
-                    (RemoveHandler<T>)(Delegate)new RemoveHandler<Vector3>(static (ZDO zdo, int hash) => zdo.RemoveVec3(hash)));
+                    (RemoveHandler<T>)(Delegate)new RemoveHandler<Vector3>(static (ZDO zdo, int hash) => zdo.RemoveVec3(hash)),
+                    (IEqualityComparer<T>)EqualityComparer<Vector3>.Default);
 
                 if (typeof(T) == typeof(GameObject)) return (
                     (GetHandler<T>)(Delegate)new GetHandler<GameObject>(GetGameObject),
                     (SetHandler<T>)(Delegate)new SetHandler<GameObject>(static (ZDO zdo, int hash, GameObject value) => zdo.Set(hash, value.name)),
-                    null);
+                    null,
+                    (IEqualityComparer<T>)(object)UnityObjectEqualityComparer<GameObject>.Instance);
 
                 if (typeof(T) == typeof(ItemDrop)) return (
                     (GetHandler<T>)(Delegate)new GetHandler<ItemDrop>(GetItemDrop),
-                    (SetHandler<T>)(Delegate)new SetHandler<ItemDrop>(static (ZDO zdo, int hash, ItemDrop value) => zdo.Set(hash, value)),
-                    null);
+                    (SetHandler<T>)(Delegate)new SetHandler<ItemDrop>(static (ZDO zdo, int hash, ItemDrop value) => zdo.Set(hash, value.name)),
+                    null,
+                    (IEqualityComparer<T>)(object)UnityObjectEqualityComparer<ItemDrop>.Instance);
 
                 throw new NotSupportedException();
 
                 static GameObject GetGameObject(ZDO zdo, int hash, GameObject defaultValue)
                 {
-                    throw new NotImplementedException();
                     var name = zdo.GetString(hash);
                     if (string.IsNullOrEmpty(name))
                         return defaultValue;
-                    // todo
+                    return ZNetScene.instance.GetPrefab(name) ?? defaultValue;
                 }
 
                 static ItemDrop GetItemDrop(ZDO zdo, int hash, ItemDrop defaultValue)
                 {
-                    throw new NotImplementedException();
                     var name = zdo.GetString(hash);
                     if (string.IsNullOrEmpty(name))
                         return defaultValue;
-                    // todo
+                    return ZNetScene.instance.GetPrefab(name)?.GetComponent<ItemDrop>() ?? defaultValue;
                 }
             }).Invoke();
 
@@ -587,7 +601,7 @@ sealed class ExtendedZDO : ZDO
 
             public ComponentFieldAccessor<TComponent> SetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
             {
-                if (Accessors.Remover is not null && EqualityComparer<T>.Default.Equals(value, _getFieldValue(componentFieldAccessor._component)))
+                if (Accessors.Remover is not null && Accessors.EqualityComparer.Equals(value, _getFieldValue(componentFieldAccessor._component)))
                     Accessors.Remover(componentFieldAccessor._zdo, _hash);
                 else
                 {
@@ -601,14 +615,16 @@ sealed class ExtendedZDO : ZDO
             public bool UpdateValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
             {
                 var defaultValue = _getFieldValue(componentFieldAccessor._component);
-                if (EqualityComparer<T>.Default.Equals(value, Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue)))
+                if (Accessors.EqualityComparer.Equals(value, Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue)))
                     return false;
 
-                if (Accessors.Remover is not null && EqualityComparer<T>.Default.Equals(value, defaultValue))
+                var isDefaultValue = Accessors.EqualityComparer.Equals(value, defaultValue);
+
+                if (Accessors.Remover is not null && isDefaultValue)
                     Accessors.Remover(componentFieldAccessor._zdo, _hash);
                 else
                 {
-                    if (!componentFieldAccessor.HasFields)
+                    if (!componentFieldAccessor.HasFields && !isDefaultValue)
                         componentFieldAccessor.SetHasFields(true);
                     Accessors.Setter(componentFieldAccessor._zdo, _hash, value);
                 }
@@ -636,7 +652,7 @@ sealed class ExtendedZDO : ZDO
                     return Accessors.Remover(componentFieldAccessor._zdo, _hash);
 
                 var defaultValue = _getFieldValue(componentFieldAccessor._component);
-                if (EqualityComparer<T>.Default.Equals(Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue), defaultValue))
+                if (Accessors.EqualityComparer.Equals(Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue), defaultValue))
                     return false;
                 Accessors.Setter(componentFieldAccessor._zdo, _hash, defaultValue);
                 return true;
