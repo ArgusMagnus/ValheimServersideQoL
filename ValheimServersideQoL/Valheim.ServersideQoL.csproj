@@ -35,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="**/*.*.cs" DependentUpon="$([System.IO.Path]::GetFileNameWithoutExtension(%(Filename))).cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <RequiredReference Include="assembly_utils">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_utils.dll</HintPath>
     <Private>False</Private>
