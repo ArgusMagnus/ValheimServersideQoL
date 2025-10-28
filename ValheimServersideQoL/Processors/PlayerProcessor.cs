@@ -78,7 +78,7 @@ sealed class PlayerProcessor : Processor
         public TimeSpan? PingJitter { get; private set; }
         public float ConnectionQuality { get; private set; }
 
-        readonly List<TimeSpan> _pingHistory = [];
+        readonly Queue<TimeSpan> _pingHistory = [];
         DateTimeOffset _pingStart;
 
         public static void ReceivePingPrefix(ZRpc __instance, ZPackage package)
@@ -109,8 +109,8 @@ sealed class PlayerProcessor : Processor
             var cfg = _processor.Config.Networking;
 
             while (_pingHistory.Count >= cfg.PingStatisticsWindow.Value)
-                _pingHistory.RemoveAt(0);
-            _pingHistory.Add(LastPing ?? default);
+                _pingHistory.Dequeue();
+            _pingHistory.Enqueue(LastPing ?? default);
 
             (PingMean, PingStdDev, PingJitter) = CalculateStats(_pingHistory);
             var connectionQuality =
@@ -141,7 +141,7 @@ sealed class PlayerProcessor : Processor
                     RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowZoneOwnerPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds, ownerState.ConnectionQuality]));
             }
 
-            static (TimeSpan? Mean, TimeSpan? StdDev, TimeSpan? Jitter) CalculateStats(IReadOnlyList<TimeSpan> pingHistory)
+            static (TimeSpan? Mean, TimeSpan? StdDev, TimeSpan? Jitter) CalculateStats(Queue<TimeSpan> pingHistory)
             {
                 if (pingHistory.Count < 2)
                     return default;
@@ -771,11 +771,23 @@ sealed class PlayerProcessor : Processor
                 var estSkill = diff / (max * 0.33f);
                 if (estSkill is >= 0f and <= 1f)
                 {
-                    const int HalfHistoryWindow = 2;
+                    const int HalfHistoryWindow = 3;
                     const int HistoryWindow = 2 * HalfHistoryWindow + 1;
 
+                    if (!state.EstimatedSkillLevels.TryGetValue(shared.m_skillType, out var prevEstSkill))
+                        prevEstSkill = DataZDO.Vars.GetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, float.NaN);
                     if (!state.EstimatedSkillLevelHistories.TryGetValue(shared.m_skillType, out var history))
+                    {
                         state.EstimatedSkillLevelHistories.Add(shared.m_skillType, history = (new(HistoryWindow), new(HistoryWindow)));
+                        if (!float.IsNaN(prevEstSkill))
+                        {
+                            for (int i = 0; i < HistoryWindow; i++)
+                            {
+                                history.Queue.Enqueue(prevEstSkill);
+                                history.List.Add(prevEstSkill);
+                            }
+                        }
+                    }
 
                     while (history.Queue.Count >= HistoryWindow)
                         history.List.Remove(history.Queue.Dequeue());
@@ -785,11 +797,8 @@ sealed class PlayerProcessor : Processor
                     // median
                     estSkill = history.List[history.List.Count / 2];
 
-                    //var prevEstSkill = DataZDO.Vars.GetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, float.NaN);
-                    //DataZDO.Vars.SetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, estSkill);
-                    if (!state.EstimatedSkillLevels.TryGetValue(shared.m_skillType, out var prevEstSkill))
-                        prevEstSkill = float.NaN;
                     state.EstimatedSkillLevels[shared.m_skillType] = estSkill;
+                    DataZDO.Vars.SetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, estSkill);
                     var intSkill = Mathf.Floor(estSkill * 100);
                     var intPrevSkill = Mathf.Floor(prevEstSkill * 100);
                     if (intSkill != intPrevSkill)
