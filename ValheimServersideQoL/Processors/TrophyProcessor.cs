@@ -189,7 +189,7 @@ sealed class TrophyProcessor : Processor
             return false;
         }
 
-        if (zdo.Fields<ItemDrop>().SetIfChanged(static () => x => x.m_autoPickup, false))
+        if (zdo.Fields<ItemDrop>().UpdateValue(static () => x => x.m_autoPickup, false))
         {
             RecreateZdo = true;
             return false;

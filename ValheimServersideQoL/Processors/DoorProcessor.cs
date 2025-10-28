@@ -63,7 +63,7 @@ sealed class DoorProcessor : Processor
 
                 if (_allowedPlayers.Count is 0)
                 {
-                    if (fields.ResetIfChanged(static () => x => x.m_keyItem))
+                    if (fields.UpdateResetValue(static () => x => x.m_keyItem))
                         RecreateZdo = true;
                 }
                 else
@@ -93,7 +93,7 @@ sealed class DoorProcessor : Processor
 
                     if (keyHash is 0 || ObjectDB.instance.GetItemPrefab(keyHash)?.GetComponent<ItemDrop>() is not { } keyItem)
                         Logger.LogWarning($"Item {keyHash} was chosen as key, but it's not a valid ItemDrop");
-                    else if (fields.SetIfChanged(static () => x => x.m_keyItem, keyItem))
+                    else if (fields.UpdateValue(static () => x => x.m_keyItem, keyItem))
                         RecreateZdo = true;
                 }
             }

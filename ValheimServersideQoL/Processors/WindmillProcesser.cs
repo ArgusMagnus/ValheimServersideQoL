@@ -14,7 +14,7 @@ sealed class WindmillProcesser : Processor
         var fields = zdo.Fields<Windmill>();
         if (!Config.Windmills.IgnoreWind.Value)
             fields.Reset(static () => x => x.m_minWindSpeed);
-        else if (fields.SetIfChanged(static () => x => x.m_minWindSpeed, float.MinValue))
+        else if (fields.UpdateValue(static () => x => x.m_minWindSpeed, float.MinValue))
             RecreateZdo = true;
 
         return true;

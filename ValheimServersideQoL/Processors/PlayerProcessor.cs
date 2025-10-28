@@ -876,8 +876,8 @@ sealed class PlayerProcessor : Processor
                         var fields = zdo.Fields<Container>();
                         var actualSlots = Math.Max(slots, zdo.Inventory.Items.Count);
                         var (width, height) = GetBackpackSize(actualSlots);
-                        if ((fields!.SetIfChanged(static () => x => x.m_width, width),
-                            fields.SetIfChanged(static () => x => x.m_height, height)) == (false, false))
+                        if ((fields!.UpdateValue(static () => x => x.m_width, width),
+                            fields.UpdateValue(static () => x => x.m_height, height)) == (false, false))
                             return false;
 
                         if (actualSlots != slots)

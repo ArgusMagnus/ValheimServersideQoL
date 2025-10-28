@@ -58,12 +58,12 @@ sealed class SmelterProcessor : Processor
         else
         {
             if (zdo.PrefabInfo.Smelter is null)
-                RecreateZdo = zdo.Fields<ShieldGenerator>().SetIfChanged(static () => x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.ShieldGenerator!.m_maxFuel));
+                RecreateZdo = zdo.Fields<ShieldGenerator>().UpdateValue(static () => x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.ShieldGenerator!.m_maxFuel));
             else
             {
-                if (zdo.Fields<Smelter>().SetIfChanged(static () => x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxFuel)))
+                if (zdo.Fields<Smelter>().UpdateValue(static () => x => x.m_maxFuel, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxFuel)))
                     RecreateZdo = true;
-                if (zdo.Fields<Smelter>().SetIfChanged(static () => x => x.m_maxOre, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxOre)))
+                if (zdo.Fields<Smelter>().UpdateValue(static () => x => x.m_maxOre, Mathf.RoundToInt(Config.Smelters.CapacityMultiplier.Value * zdo.PrefabInfo.Smelter.m_maxOre)))
                     RecreateZdo = true;
             }
         }
@@ -72,7 +72,7 @@ sealed class SmelterProcessor : Processor
         {
             if (Config.Smelters.TimePerProductMultiplier.Value is 1f)
                 zdo.Fields<Smelter>().Reset(static () => x => x.m_secPerProduct);
-            else if (zdo.Fields<Smelter>().SetIfChanged(static () => x => x.m_secPerProduct, Mathf.Max(1f, zdo.PrefabInfo.Smelter.m_secPerProduct * Config.Smelters.TimePerProductMultiplier.Value)))
+            else if (zdo.Fields<Smelter>().UpdateValue(static () => x => x.m_secPerProduct, Mathf.Max(1f, zdo.PrefabInfo.Smelter.m_secPerProduct * Config.Smelters.TimePerProductMultiplier.Value)))
                 RecreateZdo = true;
         }
 

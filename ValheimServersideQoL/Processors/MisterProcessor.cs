@@ -16,25 +16,25 @@ sealed class MisterProcessor : Processor
         switch (Config.World.RemoveMistlandsMist.Value)
         {
             case ModConfig.WorldConfig.RemoveMistlandsMistOptions.Never:
-                if (fields.ResetIfChanged(static () => x => x.m_radius))
+                if (fields.UpdateResetValue(static () => x => x.m_radius))
                     RecreateZdo = true;
                 break;
 
             case ModConfig.WorldConfig.RemoveMistlandsMistOptions.Always:
-                if (fields.SetIfChanged(static () => x => x.m_radius, float.MinValue))
+                if (fields.UpdateValue(static () => x => x.m_radius, float.MinValue))
                     RecreateZdo = true;
                 break;
 
             case ModConfig.WorldConfig.RemoveMistlandsMistOptions.AfterQueenKilled:
                 if (ZoneSystem.instance.GetGlobalKey("defeated_queen"))
                 {
-                    if (fields.SetIfChanged(static () => x => x.m_radius, float.MinValue))
+                    if (fields.UpdateValue(static () => x => x.m_radius, float.MinValue))
                         RecreateZdo = true;
                 }
                 else
                 {
                     UnregisterZdoProcessor = false;
-                    if (fields.ResetIfChanged(static () => x => x.m_radius))
+                    if (fields.UpdateResetValue(static () => x => x.m_radius))
                         RecreateZdo = true;
                 }
                 break;
@@ -53,19 +53,19 @@ sealed class MisterProcessor : Processor
 
                 if (zdo.PrefabInfo.Mister.m_radius > maxRadius)
                 {
-                    if (fields.SetIfChanged(static () => x => x.m_radius, maxRadius))
+                    if (fields.UpdateValue(static () => x => x.m_radius, maxRadius))
                         RecreateZdo = true;
                 }
                 else
                 {
-                    if (fields.ResetIfChanged(static () => x => x.m_radius))
+                    if (fields.UpdateResetValue(static () => x => x.m_radius))
                         RecreateZdo = true;
                 }
                 break;
         }
 
 #if DEBUG
-        if (fields.ResetIfChanged(static () => x => x.m_height))
+        if (fields.UpdateResetValue(static () => x => x.m_height))
             RecreateZdo = true;
 #endif
 
