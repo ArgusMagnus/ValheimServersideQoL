@@ -259,7 +259,7 @@ sealed class ContainerProcessor : Processor
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
         long? creator;
-        if (zdo.PrefabInfo.Container is null || (creator = zdo.Vars.GetCreator()) is 0)
+        if (zdo.PrefabInfo.Container is not { Piece.Value: not null, PieceTable.Value: not null } || (creator = zdo.Vars.GetCreator()) is 0)
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -566,7 +566,7 @@ sealed class ContainerProcessor : Processor
             else if (changed)
             {
                 inventory.Save();
-                ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Container.Value.Piece.m_name} sorted", Config.Containers.SortedMessageType.Value);
+                ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Container.Value.Container.m_name} sorted", Config.Containers.SortedMessageType.Value);
             }
         }
 

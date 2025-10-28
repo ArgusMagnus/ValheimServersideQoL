@@ -481,12 +481,17 @@ sealed record ModConfig(ConfigFile ConfigFile)
 
     public sealed class WorldConfig(ConfigFile cfg, string section)
     {
-        //public ConfigEntry<bool> AssignInteractableOwnershipToClosestPeer { get; } = cfg.BindEx(section, false, "True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest peer. This should help avoiding the loss of ore, etc. due to networking issues.");
         public ConfigEntry<RemoveMistlandsMistOptions> RemoveMistlandsMist { get; } = cfg.BindEx(section, RemoveMistlandsMistOptions.Never, """
             Condition to remove the mist from the mistlands.
             Beware that there are a few cases of mist (namely mist around POIs like ancient bones/skulls)
             that cannot be removed by this mod and will remain regardless of this setting.
             """, AcceptableEnum<RemoveMistlandsMistOptions>.Default);
+
+        public ConfigEntry<bool> MakeAllItemsFloat { get; } = cfg.BindEx(section, false, """
+            True to make all items float.
+            Non-floating items will be put in a floating cargo crate if they sink 2m below water level.
+            """);
+            
             
 
         public enum RemoveMistlandsMistOptions

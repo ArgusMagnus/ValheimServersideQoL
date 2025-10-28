@@ -552,7 +552,7 @@ sealed class PlayerProcessor : Processor
                     containerZdo.Inventory.Save();
                     (item.m_stack, stack) = (stack, item.m_stack);
                     changed = true;
-                    ShowMessage(peers, containerZdo, $"{containerZdo.PrefabInfo.Container.Value.Piece.m_name}: $msg_added {item.m_shared.m_name} {stack}x", Config.Containers.PickedUpMessageType.Value);
+                    ShowMessage(peers, containerZdo, $"{containerZdo.PrefabInfo.Container.Value.Container.m_name}: $msg_added {item.m_shared.m_name} {stack}x", Config.Containers.PickedUpMessageType.Value);
                 }
 
                 if (item.m_stack is 0)

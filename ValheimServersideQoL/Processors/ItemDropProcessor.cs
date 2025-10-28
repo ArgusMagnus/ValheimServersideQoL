@@ -62,10 +62,29 @@ sealed class ItemDropProcessor : Processor
                 return false;
         }
 
+        var shared = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.m_itemData.m_shared;
+        ItemDrop.ItemData? item = null;
+        if (zdo.PrefabInfo.ItemDrop is { Floating.Value: null, Fish.Value: null } && Config.World.MakeAllItemsFloat.Value
+            && zdo.GetPosition() is { y: < ZoneSystem.c_WaterLevel -2 })
+        {
+            var crate = PlaceObject(zdo.GetPosition(), Prefabs.CargoCrate, zdo.GetRotation());
+            crate.Fields<Container>()
+                .Set(static () => x => x.m_width, 1)
+                .Set(static () => x => x.m_height, 1);
+            item = new() { m_shared = shared };
+            PrivateAccessor.LoadFromZDO(item, zdo);
+            item.m_dropPrefab = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.gameObject;
+            crate.Inventory.Items.Add(item);
+            crate.Inventory.Save();
+            crate.Vars.SetCreator(0);
+            crate.SetOwnerInternal(zdo.GetOwner());
+            DestroyZdo = true;
+            return false;
+        }
+
         if (!CheckMinDistance(peers, zdo, Config.Containers.AutoPickupMinPlayerDistance.Value))
 			return false; // player to close
 
-		var shared = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.m_itemData.m_shared;
         if (!Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(shared, out var containers))
             return false;
 
@@ -100,7 +119,6 @@ sealed class ItemDropProcessor : Processor
         }
 
         HashSet<Vector2i>? usedSlots = null;
-        ItemDrop.ItemData? item = null;
         var requestOwn = false;
 
         foreach (var containerZdo in containers)
@@ -208,7 +226,7 @@ sealed class ItemDropProcessor : Processor
                 containerZdo.Inventory.Save();
                 (item.m_stack, stack) = (stack, item.m_stack);
                 ItemDrop.SaveToZDO(item, zdo);
-                ShowMessage(peers, containerZdo, $"{containerZdo.PrefabInfo.Container.Value.Piece.m_name}: $msg_added {item.m_shared.m_name} {stack}x", Config.Containers.PickedUpMessageType.Value);
+                ShowMessage(peers, containerZdo, $"{containerZdo.PrefabInfo.Container.Value.Container.m_name}: $msg_added {item.m_shared.m_name} {stack}x", Config.Containers.PickedUpMessageType.Value);
             }
 
             if (item.m_stack is 0)
