@@ -2,6 +2,9 @@
 - New features:
     - Make pickaxe skill affect the portion of a rock / ore deposit that needs to be destroyed before the whole rock collapses
     - Make all items "float" (non-floating items will automatically be put into floating cargo crates when they sink 2m below water level)
+- New options for reassigning ownership in multiplayer based on connection quality:
+    - `ReassignOwnershipConnectionQualityHysteresis`: Mininum difference in connection quality before ownership is reassigned
+    - `ConnectionQualityPingEMAWeight`/`PingEMAHalfLife`: New connection metric (exponential moving average) that can be used to estimate the connection quality
 
 ### v1.5.2017 (BETA)
 - Performance optimizations

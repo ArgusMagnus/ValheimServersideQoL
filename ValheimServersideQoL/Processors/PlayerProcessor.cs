@@ -11,6 +11,7 @@ sealed class PlayerProcessor : Processor
     protected override Guid Id { get; } = Guid.Parse("159d939c-cb85-4314-ac30-f473d043fdc2");
     public interface IPeerInfo
     {
+        long Owner { get; }
         ExtendedZDO PlayerZDO { get; }
         long PlayerID { get; }
         string PlayerName { get; }
@@ -23,6 +24,7 @@ sealed class PlayerProcessor : Processor
     sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor) : IPeerInfo
     {
         readonly PlayerProcessor _processor = processor;
+        public long Owner { get; } = playerZDO.GetOwner();
         public ExtendedZDO PlayerZDO { get; } = playerZDO;
         readonly ZNetPeer? _peer = ZNet.instance.GetPeer(playerZDO.GetOwner());
         public ZRpc? Rpc => _peer?.m_rpc;
@@ -73,9 +75,11 @@ sealed class PlayerProcessor : Processor
         public Dictionary<Skills.SkillType, (Queue<float> Queue, List<float> List)> EstimatedSkillLevelHistories => field ??= [];
 
         public TimeSpan? LastPing { get; private set; }
+        public DateTimeOffset? LastPingTimestamp { get; private set; }
         public TimeSpan? PingMean { get; private set; }
         public TimeSpan? PingStdDev { get; private set; }
         public TimeSpan? PingJitter { get; private set; }
+        public TimeSpan? PingEMA { get; private set; }
         public float ConnectionQuality { get; private set; }
 
         readonly Queue<TimeSpan> _pingHistory = [];
@@ -103,8 +107,21 @@ sealed class PlayerProcessor : Processor
 
         void ReceivePingPrefix()
         {
-            LastPing = DateTimeOffset.UtcNow - _pingStart;
+            var now = DateTimeOffset.UtcNow;
+            LastPing = now - _pingStart;
             _pingStart = default;
+
+            // exponential moving average
+            if (PingEMA is null || LastPingTimestamp is null)
+                PingEMA = LastPing;
+            else
+            {
+                var dt = (now - LastPingTimestamp.Value).TotalSeconds;
+                // alpha depends on elapsed time
+                var alpha = 1.0 - Math.Exp(-dt / _processor._emaTau);
+                PingEMA = alpha * LastPing.Value + (1.0 - alpha) * PingEMA.Value;
+            }
+            LastPingTimestamp = now;
 
             var cfg = _processor.Config.Networking;
 
@@ -116,7 +133,8 @@ sealed class PlayerProcessor : Processor
             var connectionQuality =
                 PingMean?.TotalMilliseconds * cfg.ConnectionQualityPingMeanWeight.Value +
                 PingStdDev?.TotalMilliseconds * cfg.ConnectionQualityPingStdDevWeight.Value +
-                PingJitter?.TotalMilliseconds * cfg.ConnectionQualityPingJitterWeight.Value;
+                PingJitter?.TotalMilliseconds * cfg.ConnectionQualityPingJitterWeight.Value +
+                PingEMA?.TotalMilliseconds * cfg.ConnectionQualityPingEMAWeight.Value;
             ConnectionQuality = connectionQuality is null ? float.NaN : (float)connectionQuality;
 
             PlayerState? ownerState = null;
@@ -129,16 +147,16 @@ sealed class PlayerProcessor : Processor
             if (LastPing > TimeSpan.FromMilliseconds(cfg.LogPingThreshold.Value) || ownerState?.LastPing > TimeSpan.FromMilliseconds(cfg.LogZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    _processor.Logger.LogInfo(string.Format(cfg.LogPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality]));
+                    _processor.Logger.LogInfo(string.Format(cfg.LogPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, PingEMA?.TotalMilliseconds]));
                 else
-                    _processor.Logger.LogInfo(string.Format(cfg.LogZoneOwnerPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds, ownerState.ConnectionQuality]));
+                    _processor.Logger.LogInfo(string.Format(cfg.LogZoneOwnerPingFormat.Value, [PlayerName, LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds, ownerState.ConnectionQuality, PingEMA?.TotalMilliseconds, ownerState.PingEMA?.TotalMilliseconds]));
             }
             if (LastPing > TimeSpan.FromMilliseconds(cfg.ShowPingThreshold.Value) || ownerState?.LastPing > TimeSpan.FromMilliseconds(cfg.ShowZoneOwnerPingThreshold.Value))
             {
                 if (ownerState is null)
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality]));
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, PingEMA?.TotalMilliseconds]));
                 else
-                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowZoneOwnerPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds, ownerState.ConnectionQuality]));
+                    RPC.ShowMessage(PlayerZDO.GetOwner(), MessageHud.MessageType.TopLeft, string.Format(cfg.ShowZoneOwnerPingFormat.Value, [LastPing?.TotalMilliseconds, PingMean?.TotalMilliseconds, PingStdDev?.TotalMilliseconds, PingJitter?.TotalMilliseconds, ConnectionQuality, ownerState.PlayerName, ownerState.LastPing?.TotalMilliseconds, ownerState.PingMean?.TotalMilliseconds, ownerState.PingStdDev?.TotalMilliseconds, ownerState.PingJitter?.TotalMilliseconds, ownerState.ConnectionQuality, PingEMA?.TotalMilliseconds, ownerState.PingEMA?.TotalMilliseconds]));
             }
 
             static (TimeSpan? Mean, TimeSpan? StdDev, TimeSpan? Jitter) CalculateStats(Queue<TimeSpan> pingHistory)
@@ -172,6 +190,7 @@ sealed class PlayerProcessor : Processor
                     double.IsNaN(variance) ? null : TimeSpan.FromMilliseconds(Math.Sqrt(variance)),
                     jitter is 0 ? null : new(jitter));
             }
+
         }
 
         bool SendPingPrefix()
@@ -198,6 +217,7 @@ sealed class PlayerProcessor : Processor
     int _backpackSlots;
     static TimeSpan OpenBackpackDelay => TimeSpan.FromMilliseconds(200);
     bool _estimateSkillLevels;
+    double _emaTau;
 
     sealed record StackContainerState(ExtendedZDO PlayerZDO)
     {
@@ -223,6 +243,7 @@ sealed class PlayerProcessor : Processor
         base.Initialize(firstTime);
 
         _estimateSkillLevels = Config.Skills.PickaxeAffectsRockDestruction.Value;
+        _emaTau = Config.Networking.PingEMAHalfLife.Value / Math.Log(2);
 
         var subscribeSetTrigger = _estimateSkillLevels;
         if (!subscribeSetTrigger && Game.m_staminaRate > 0)
@@ -366,7 +387,7 @@ sealed class PlayerProcessor : Processor
         if (_estimateSkillLevels)
         {
             state.CheckSkillItem = null;
-            if (item.m_itemData.m_shared is { m_skillType: not Skills.SkillType.Swords } or {m_damages.m_slash: > 0 } &&
+            if (item.m_itemData.m_shared is { m_skillType: not Skills.SkillType.Swords } or { m_damages.m_slash: > 0 } &&
                 ReferenceEquals(item, state.LastUsedItem) &&
                 state.StaminaTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_staminaRegenDelay))
             {

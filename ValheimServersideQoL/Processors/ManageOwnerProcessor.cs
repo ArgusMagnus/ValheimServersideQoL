@@ -7,7 +7,8 @@ sealed class ManageOwnerProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("9178b9fe-ef1a-4e75-b492-ae392aa6b557");
 
-    readonly Dictionary<Vector2i, long> _bestOwners = [];
+    readonly Dictionary<Vector2i, (PlayerProcessor.IPeerInfo BestOwner, HashSet<long> ValidOwners)> _zoneData = [];
+    readonly Stack<HashSet<long>> _hashsetCache = [];
     readonly MethodInfo _releaseNearbyZDOSMethod = typeof(ZDOMan).GetMethod("ReleaseNearbyZDOS", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
     readonly MethodInfo _releaseNearbyZDOSPrefix = ((Delegate)ReleaseNearbyZDOSPrefix).Method;
     DateTimeOffset _maxOwnerTimestamp;
@@ -36,7 +37,12 @@ sealed class ManageOwnerProcessor : Processor
 
     protected override void PreProcessCore(IEnumerable<Peer> peers)
     {
-        _bestOwners.Clear();
+        foreach (var (_, set) in _zoneData.Values)
+        {
+            set.Clear();
+            _hashsetCache.Push(set);
+        }
+        _zoneData.Clear();
         _maxOwnerTimestamp = DateTimeOffset.UtcNow.AddSeconds(-2);
     }
 
@@ -46,33 +52,38 @@ sealed class ManageOwnerProcessor : Processor
             return false;
 
         UnregisterZdoProcessor = true;
-        long? owner = null;
-        long? newOwner = null;
+        PlayerProcessor.IPeerInfo? owner = null;
+        PlayerProcessor.IPeerInfo? newOwner = null;
 
         if (Config.Networking.MeasurePing.Value && Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value)
         {
             UnregisterZdoProcessor = false;
+
             if (zdo.OwnerTimestamp < _maxOwnerTimestamp)
             {
-                if (!_bestOwners.TryGetValue(zdo.GetSector(), out var bestOwner))
+                owner = zdo.OwnerPeerInfo;
+                if (!_zoneData.TryGetValue(zdo.GetSector(), out var data))
                 {
+                    if (!_hashsetCache.TryPop(out data.ValidOwners))
+                        data.ValidOwners = [];
                     var min = float.MaxValue;
-                    foreach (var peer in peers)
+                    foreach (var peer in peers.AsEnumerable())
                     {
+                        data.ValidOwners.Add(peer.m_uid);
                         if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { } peerInfo)
                             continue;
                         if (peerInfo.ConnectionQuality < min)
                         {
                             min = peerInfo.ConnectionQuality;
-                            bestOwner = peer.m_uid;
+                            data.BestOwner = peerInfo;
                         }
                     }
-                    _bestOwners.Add(zdo.GetSector(), bestOwner);
+
+                    _zoneData.Add(zdo.GetSector(), data);
                 }
 
-                owner = zdo.GetOwner();
-                if (bestOwner is not 0 || !HasValidOwner(owner.Value, peers))
-                    newOwner = bestOwner;
+                if (data.BestOwner is not null && (owner is null || !data.ValidOwners.Contains(owner.Owner) || SwitchOwner(owner, data.BestOwner)))
+                    newOwner = data.BestOwner;
             }
         }
 
@@ -81,9 +92,9 @@ sealed class ManageOwnerProcessor : Processor
             (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed())))
         {
             UnregisterZdoProcessor = false;
-            long closestOwner = 0;
+            PlayerProcessor.IPeerInfo? closestOwner = null;
             var minDistSqr = float.MaxValue;
-            foreach (var peer in peers)
+            foreach (var peer in peers.AsEnumerable())
             {
                 if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { } peerInfo)
                     continue;
@@ -91,29 +102,28 @@ sealed class ManageOwnerProcessor : Processor
                 if (distSqr < minDistSqr)
                 {
                     minDistSqr = distSqr;
-                    closestOwner = peer.m_uid;
+                    closestOwner = peerInfo;
                 }
             }
 
-            if (closestOwner is not 0)
+            if (closestOwner is not null)
                 newOwner = closestOwner;
         }
 
-        if (newOwner is not null && (owner ??= zdo.GetOwner()) != newOwner.Value)
-            zdo.SetOwner(newOwner.Value);
+        if (newOwner is not null && !ReferenceEquals(owner ??= zdo.OwnerPeerInfo, newOwner))
+            zdo.SetOwner(newOwner.Owner);
 
         return false;
     }
 
-    static bool HasValidOwner(long owner, IReadOnlyList<Peer> peers)
+    bool SwitchOwner(PlayerProcessor.IPeerInfo currentOwner, PlayerProcessor.IPeerInfo bestCandidate)
     {
-        if (owner is 0)
-            return false;
-        foreach (var peer in peers)
-        {
-            if (owner == peer.m_uid)
-                return true;
-        }
-        return false;
+        var minDiff = Config.Networking.ReassignOwnershipConnectionQualityHysteresis.Value;
+        if (minDiff <= 0f)
+            return true;
+
+        if (minDiff < 1f)
+            minDiff = currentOwner.ConnectionQuality * minDiff;
+        return currentOwner.ConnectionQuality - bestCandidate.ConnectionQuality >= minDiff;
     }
 }

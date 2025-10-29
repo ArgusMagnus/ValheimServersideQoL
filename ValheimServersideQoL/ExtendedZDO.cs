@@ -173,6 +173,18 @@ sealed partial class ExtendedZDO : ZDO
     }
 
     public DateTimeOffset OwnerTimestamp { get; private set; }
+    public PlayerProcessor.IPeerInfo? OwnerPeerInfo
+    {
+        get
+        {
+            if (!HasOwner())
+                return null;
+            var owner = GetOwner();
+            if (field?.Owner != owner)
+                field = Processor.Instance<PlayerProcessor>().GetPeerInfo(owner);
+            return field;
+        }
+    }
 
     public new void SetOwner(long uid)
     {
