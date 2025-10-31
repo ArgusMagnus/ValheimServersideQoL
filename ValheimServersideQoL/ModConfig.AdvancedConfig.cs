@@ -20,16 +20,16 @@ partial record ModConfig
             float MinDistXZ, float MaxDistXZ, float MinOffsetY, float MaxOffsetY, float HalfArcXZ)
             { TeleportFollowPositioningConfig() : this(default, default, default, default, default) { } }
 
-            Dictionary<string, bool> TeleportFollow { get; init; } = new();
-            IReadOnlyList<int>? _teleportFollowExcluded;
+            Dictionary<string, bool> TeleportFollow { get; init; } = [];
+
             [YamlIgnore]
-            public IReadOnlyList<int> TeleportFollowExcluded => _teleportFollowExcluded ??= [.. TeleportFollow
+            public IReadOnlyList<int> TeleportFollowExcluded => field ??= [.. TeleportFollow
                 .Where(static x => !x.Value).Select(static x => x.Key.GetStableHashCode())];
 
-            Dictionary<string, bool> TakeIntoDungeon { get; init; } = new();
-            IReadOnlyList<int>? _takeIntoDungeonExcluded;
+            Dictionary<string, bool> TakeIntoDungeon { get; init; } = [];
+
             [YamlIgnore]
-            public IReadOnlyList<int> TakeIntoDungeonExcluded => _takeIntoDungeonExcluded ??= [.. TakeIntoDungeon
+            public IReadOnlyList<int> TakeIntoDungeonExcluded => field ??= [.. TakeIntoDungeon
                 .Where(static x => !x.Value).Select(static x => x.Key.GetStableHashCode())];
 
             public TamesConfig()
@@ -67,19 +67,18 @@ partial record ModConfig
                 [Processor.PrefabNames.Incinerator] = new(float.NaN, float.NaN, 0.1f, float.NaN, 3f)
             };
 
-            IReadOnlyDictionary<int, ChestSignOffset>? _chestSignOffsets;
-
             [YamlIgnore]
-            public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets => _chestSignOffsets ??= ChestSignOffsetsYaml.ToDictionary(static x => x.Key.GetStableHashCode(), static x => x.Value);
+            public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets => field ??= ChestSignOffsetsYaml.ToDictionary(static x => x.Key.GetStableHashCode(), static x => x.Value);
         }
     }
 
-    static AdvancedConfig InitializeAdvancedConfig(ConfigFile cfg)
+    static T InitializeAdvancedConfig<T>(ConfigFile cfg, string filename)
+        where T : class, new()
     {
         var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
-        var configPath = Path.Combine(configDir, "Advanced.yml");
+        var configPath = Path.Combine(configDir, filename);
 
-        var result = new AdvancedConfig();
+        var result = new T();
 
         var serializer = new SerializerBuilder()
             .IncludeNonPublicProperties()
@@ -107,7 +106,7 @@ partial record ModConfig
                     .EnablePrivateConstructors()
                     //.WithObjectFactory(new MyObjectFactory())
                     .WithTypeInspector(static x => new MyTypeInspector(x))
-                    .Build().Deserialize<AdvancedConfig>(stream);
+                    .Build().Deserialize<T>(stream);
                 Main.Instance.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}:{Environment.NewLine}{serializer.Serialize(result)}");
             }
             catch (Exception ex)

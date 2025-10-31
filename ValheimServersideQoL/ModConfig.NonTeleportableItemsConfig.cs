@@ -52,7 +52,7 @@ partial record ModConfig
                     defaultValue = SharedProcessorState.BossesByBiome[Heightmap.Biome.AshLands].m_defeatSetGlobalKey;
 
                 result.Add(new(itemDrop, cfg.Bind(section, item.name, defaultValue, new ConfigDescription(
-                    $"Key of the boss that will allow '{Localization.instance.Localize(itemDrop.m_itemData.m_shared.m_name)}' to be teleported when defeated",
+                    $"Key of the boss that will allow '{(global::Localization.instance.Localize(itemDrop.m_itemData.m_shared.m_name))}' to be teleported when defeated",
                     acceptableValues))));
             }
             return result;

@@ -42,5 +42,6 @@ sealed partial record ModConfig(ConfigFile ConfigFile)
     public WorldModifiersConfig WorldModifiers { get; } = new(ConfigFile, "C - World Modifiers");
     public GlobalsKeysConfig GlobalsKeys { get; } = new(ConfigFile, "D - Global Keys");
 
-    public AdvancedConfig Advanced { get; } = InitializeAdvancedConfig(ConfigFile);
+    public AdvancedConfig Advanced { get; } = InitializeAdvancedConfig<AdvancedConfig>(ConfigFile, "Advanced.yml");
+    public LocalizationConfig Localization { get; } = InitializeAdvancedConfig<LocalizationConfig>(ConfigFile, "Localization.yml");
 }
