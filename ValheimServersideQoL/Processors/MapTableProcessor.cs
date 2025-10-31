@@ -15,6 +15,7 @@ sealed class MapTableProcessor : Processor
     int _oldPinsHash;
     Regex? _includePortalRegex;
     Regex? _excludePortalRegex;
+    DateTimeOffset _nextUpdate;
 
     public override void Initialize(bool firstTime)
     {
@@ -46,28 +47,39 @@ sealed class MapTableProcessor : Processor
             return false;
         }
 
+        var now = DateTimeOffset.UtcNow;
+        if (now < _nextUpdate)
+            return false;
+        _nextUpdate = now.AddSeconds(2);
+
         if (_pins is { Count: 0 })
         {
-            var pins = Enumerable.Empty<Pin>();
             if (Config.MapTables.AutoUpdatePortals.Value)
             {
-                pins = [.. pins, .. ZDOMan.instance.GetPortals().Cast<ExtendedZDO>()
-                    .Where(static x => !x.IsModCreator()) // exclude map room portals
-                    .Select(static x => new Pin(Main.PluginGuidHash, x.Vars.GetTag(), x.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid))];
-                if ((_includePortalRegex ?? _excludePortalRegex) is not null)
-                    pins = pins.Where(x => _includePortalRegex?.IsMatch(x.Tag) is not false && _excludePortalRegex?.IsMatch(x.Tag) is not true);
+                foreach (ExtendedZDO portal in ZDOMan.instance.GetPortals())
+                {
+                    if (portal.IsModCreator())
+                        continue;
+                    var tag = portal.Vars.GetTag();
+                    if (_includePortalRegex?.IsMatch(tag) is false || _excludePortalRegex?.IsMatch(tag) is true)
+                        continue;
+                    var pin = new Pin(Main.PluginGuidHash, tag, portal.GetPosition(), Minimap.PinType.Icon4, false, Main.PluginGuid);
+                    _pins.Add(pin);
+                    _oldPinsHash = (_oldPinsHash, pin).GetHashCode();
+                }
             }
             if (Config.MapTables.AutoUpdateShips.Value)
             {
-                pins = [.. pins, .. Instance<ShipProcessor>().Ships
-                    .Where(static x => x is not null)
-                    .Select(static x => new Pin(Main.PluginGuidHash, x!.PrefabInfo.Ship!.Value.Piece.m_name ?? "", x.GetPosition(), Minimap.PinType.Player, false, Main.PluginGuid))];
-            }
-
-            foreach (var pin in pins)
-            {
-                _pins.Add(pin);
-                _oldPinsHash = (_oldPinsHash, pin).GetHashCode();
+                foreach (var ship in Instance<ShipProcessor>().Ships)
+                {
+                    var pos = ship.GetPosition();
+                    // round pos to multiples of 5 to reduce pin churn due to minor position changes
+                    static float RoundToMultipleOf5(float value) => Mathf.Round(value / 5f) * 5f;
+                    pos = new(RoundToMultipleOf5(pos.x), RoundToMultipleOf5(pos.y), RoundToMultipleOf5(pos.z));
+                    var pin = new Pin(Main.PluginGuidHash, ship.PrefabInfo.Ship!.Value.Piece.m_name ?? "", pos, Minimap.PinType.Player, false, Main.PluginGuid);
+                    _pins.Add(pin);
+                    _oldPinsHash = (_oldPinsHash, pin).GetHashCode();
+                }
             }
 
             (_pinsHash, _oldPinsHash) = (_oldPinsHash, _pinsHash);
