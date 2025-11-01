@@ -110,13 +110,12 @@ sealed class TameableProcessor : Processor
                     state.LastMessage = DateTimeOffset.UtcNow;
                     var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
 
-                    var message = $"$hud_tameness {tameness:P0}";
-
+                    var isHungry = false;
                     /// <see cref="Tameable.IsHungry()"/>
                     if ((ZNet.instance.GetTime() - zdo.Vars.GetTameLastFeeding()).TotalSeconds > fields.GetFloat(static () => x => x.m_fedDuration))
-                        message += ", $hud_tamehungry";
+                        isHungry = true;
 
-                    ShowMessage(peers, zdo, message, Config.Tames.TamingProgressMessageType.Value);
+                    ShowMessage(peers, zdo, Config.Localization.Tames.FormatTaming(tameness, isHungry), Config.Tames.TamingProgressMessageType.Value);
                 }
             }
         }

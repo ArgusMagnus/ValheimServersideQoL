@@ -114,7 +114,7 @@ sealed class PortalProcessor : Processor
                         if (DateTimeOffset.UtcNow - state.LastMessageTime > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
                         {
                             state.LastMessageTime = DateTimeOffset.UtcNow;
-                            ShowMessage([state.Peer], state.PortalPosition, "Portal returned your items", Config.NonTeleportableItems.MessageType.Value);
+                            ShowMessage([state.Peer], state.PortalPosition, Config.Localization.NonTeleportableItems.ItemsReturned, Config.NonTeleportableItems.MessageType.Value);
                         }
                     }
                     else
@@ -150,7 +150,7 @@ sealed class PortalProcessor : Processor
                 state.Container.Destroyed += OnContainerDestroyed;
                 if (Config.NonTeleportableItems.MessageType.Value is not MessageTypes.CenterNear and not MessageTypes.CenterFar)
                     RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
-                ShowMessage([state.Peer], state.PortalPosition, $"Portal took {count} items", Config.NonTeleportableItems.MessageType.Value);
+                ShowMessage([state.Peer], state.PortalPosition, Config.Localization.NonTeleportableItems.FormatItemsTaken(count), Config.NonTeleportableItems.MessageType.Value);
             }
             else if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) <= _rangeSqr)
             {

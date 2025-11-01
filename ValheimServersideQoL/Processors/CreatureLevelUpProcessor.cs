@@ -141,7 +141,7 @@ sealed class CreatureLevelUpProcessor : Processor
                         {
                             biome = eventInfo.Biome;
                             zdo.Vars.SetLevel((int)biome);
-                            Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Event spawner: {biome}");
+                            //Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Event spawner: {biome}");
                         }
                     }
                 }
@@ -347,7 +347,7 @@ sealed class CreatureLevelUpProcessor : Processor
         if (level == initialLevel)
             return;
 
-        Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Set level {initialLevel} -> {level} (min: {spawnData.MinLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
+        //Logger.DevLog($"{zdo.PrefabInfo.PrefabName}: Set level {initialLevel} -> {level} (min: {spawnData.MinLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
         zdo.Vars.SetLevel(level);
         RecreateZdo = true;
     }
@@ -390,7 +390,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 return false;
             }
 
-            Logger.DevLog($"Event {currentEvent.m_name}: {biome}");
+            //Logger.DevLog($"Event {currentEvent.m_name}: {biome}");
             eventInfo = new(biome);
             _spawnDataByEvent.Add(currentEvent.m_name, eventInfo);
             foreach (var data in currentEvent.m_spawn)

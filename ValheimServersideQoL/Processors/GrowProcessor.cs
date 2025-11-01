@@ -6,7 +6,7 @@ sealed class GrowProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("c41992d5-60b0-4628-a578-f897ecb102a7");
 
-    readonly Dictionary<ExtendedZDO, LastMessage> _lastMessage = new();
+    readonly Dictionary<ExtendedZDO, LastMessage> _lastMessage = [];
 
     sealed class LastMessage
     {
@@ -52,7 +52,7 @@ sealed class GrowProcessor : Processor
         lastMessage.Timestamp = DateTimeOffset.UtcNow;
         lastMessage.Progress = progress;
 
-        ShowMessage(peers, zdo, $"$caption_growing {progress}%", Config.Tames.GrowingProgressMessageType.Value);
+        ShowMessage(peers, zdo, Config.Localization.Tames.FormatGrowing(progress), Config.Tames.GrowingProgressMessageType.Value);
         return false;
     }
 }

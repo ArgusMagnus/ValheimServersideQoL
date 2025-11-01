@@ -177,9 +177,9 @@ sealed class TurretProcessor : Processor
         }
 
         if (addedAmmo is not 0)
-            ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Turret.Value.Piece.m_name}: $msg_added {allowedAmmo!.m_shared.m_name} {addedAmmo}x", Config.Turrets.AmmoAddedMessageType.Value);
+            ShowMessage(peers, zdo, Config.Localization.Turrets.FormatAmmoAdded(zdo.PrefabInfo.Turret.Value.Piece.m_name, allowedAmmo!.m_shared.m_name, addedAmmo), Config.Turrets.AmmoAddedMessageType.Value);
         else
-            ShowMessage(peers, zdo, "<color=red>$msg_noturretammo", Config.Turrets.NoAmmoMessageType.Value, DamageText.TextType.Bonus);
+            ShowMessage(peers, zdo, Config.Localization.Turrets.NoAmmoFound, Config.Turrets.NoAmmoMessageType.Value, DamageText.TextType.Bonus);
 
         if (!_turrets.Contains(zdo))
         {

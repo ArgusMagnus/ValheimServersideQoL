@@ -184,7 +184,9 @@ sealed class TrophyProcessor : Processor
             if (DateTimeOffset.UtcNow - state.LastMessage > _textDuration)
             {
                 state.LastMessage = DateTimeOffset.UtcNow;
-                ShowMessage(peers, zdo, $"Attracting {trophyCharacter.m_name}... {progress:P0}", Config.TrophySpawner.MessageType.Value);
+                ShowMessage(peers, zdo,
+                    Config.Localization.TrophySpawner.FormatAttractingProgress(trophyCharacter.m_name, progress),
+                    Config.TrophySpawner.MessageType.Value);
             }
             return false;
         }
@@ -240,7 +242,7 @@ sealed class TrophyProcessor : Processor
                     pos = minPos + dir * step * UnityEngine.Random.Range(0f, stepCount);
 
                 var dstZone = ZoneSystem.GetZone(pos);
-                Logger.DevLog($"Trophy zone: {zone}, spawned zone: {dstZone}");
+                //Logger.DevLog($"Trophy zone: {zone}, spawned zone: {dstZone}");
 
                 var spawn = true;
 
@@ -277,7 +279,7 @@ sealed class TrophyProcessor : Processor
                     continue;
                 }
 
-                Logger.DevLog($"{nameof(TrophyProcessor)}: Spawning {trophyCharacter.name} at {pos} ({Mathf.Round(Utils.DistanceXZ(pos, zdo.GetPosition()))}m away)");
+                //Logger.DevLog($"{nameof(TrophyProcessor)}: Spawning {trophyCharacter.name} at {pos} ({Mathf.Round(Utils.DistanceXZ(pos, zdo.GetPosition()))}m away)");
                 var mob = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, state.CharacterPrefab);
                 mob.SetPrefab(state.CharacterPrefab);
                 mob.Persistent = true;
@@ -304,7 +306,9 @@ sealed class TrophyProcessor : Processor
         if (DateTimeOffset.UtcNow - state.LastMessage > _textDuration)
         {
             state.LastMessage = DateTimeOffset.UtcNow;
-            ShowMessage(peers, zdo, $"Attracting {trophyCharacter.m_name}", Config.TrophySpawner.MessageType.Value, DamageText.TextType.Weak);
+            ShowMessage(peers, zdo,
+                Config.Localization.TrophySpawner.FormatAttracting(trophyCharacter.m_name),
+                Config.TrophySpawner.MessageType.Value, DamageText.TextType.Weak);
         }
 
         return false;

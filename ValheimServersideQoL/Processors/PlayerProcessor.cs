@@ -289,6 +289,9 @@ sealed class PlayerProcessor : Processor
                 ZoneSystemSendGlobalKeys.GlobalKeysChanged += UpdateBackpackSlots;
         }
 
+        //foreach (var x in PlacedObjects)
+        //    Logger.DevLog($"{x.PrefabInfo.PrefabName}: IsModCreator: {x.IsModCreator(out var marker)}, Marker: {marker}, PlayerID: {x.Vars.GetPlayerID()}{Environment.NewLine}{x.Vars.ToDebugString()}");
+
         if (!firstTime)
             return;
 
@@ -428,7 +431,7 @@ sealed class PlayerProcessor : Processor
             {
                 DataZDO.Vars.SetSacrifiedMegingjord(peerInfo.PlayerID, true);
                 RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Megingjord);
-                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted increased carrying weight");
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedMegingjord);
             }
         }
         if (Config.Players.CanSacrificeCryptKey.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
@@ -439,7 +442,7 @@ sealed class PlayerProcessor : Processor
             else
             {
                 DataZDO.Vars.SetSacrifiedCryptKey(peerInfo.PlayerID, true);
-                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to open sunken crypt doors");
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedCryptKey);
             }
         }
         if (Config.Players.CanSacrificeWishbone.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
@@ -451,7 +454,7 @@ sealed class PlayerProcessor : Processor
             {
                 DataZDO.Vars.SetSacrifiedWishbone(peerInfo.PlayerID, true);
                 RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Wishbone);
-                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted the ability to sense hidden objects");
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedWishbone);
             }
         }
         if (Config.Players.CanSacrificeTornSpirit.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
@@ -463,7 +466,7 @@ sealed class PlayerProcessor : Processor
             {
                 DataZDO.Vars.SetSacrifiedTornSpirit(peerInfo.PlayerID, true);
                 RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Demister);
-                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, "You were permanently granted a wisp companion");
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedTornSpirit);
             }
         }
     }
@@ -573,7 +576,9 @@ sealed class PlayerProcessor : Processor
                     containerZdo.Inventory.Save();
                     (item.m_stack, stack) = (stack, item.m_stack);
                     changed = true;
-                    ShowMessage(peers, containerZdo, $"{containerZdo.PrefabInfo.Container.Value.Container.m_name}: $msg_added {item.m_shared.m_name} {stack}x", Config.Containers.PickedUpMessageType.Value);
+                    ShowMessage(peers, containerZdo,
+                        Config.Localization.Containers.FormatAutoPickup(containerZdo.PrefabInfo.Container.Value.Container.m_name, item.m_shared.m_name, stack),
+                        Config.Containers.PickedUpMessageType.Value);
                 }
 
                 if (item.m_stack is 0)
@@ -710,8 +715,8 @@ sealed class PlayerProcessor : Processor
                 zdo.SetOwnerInternal(owner);
                 state.BackpackContainer = RecreatePiece(zdo);
                 RPC.ShowMessage(owner, MessageHud.MessageType.Center, hasNonTeleportableItems ?
-                    "Backpack cannot contain non-teleportable items" :
-                    $"Backpack weight limit ({Config.Players.MaxBackpackWeight.Value}) exceeded");
+                    Config.Localization.Players.Backpack.ForbiddenItems :
+                    Config.Localization.Players.Backpack.FormatWeightLimitExceeded(Config.Players.MaxBackpackWeight.Value));
                 state.OpenBackpackAfter = DateTimeOffset.UtcNow + OpenBackpackDelay;
             }
             return true;
@@ -897,37 +902,39 @@ sealed class PlayerProcessor : Processor
                         var fields = zdo.Fields<Container>();
                         var actualSlots = Math.Max(slots, zdo.Inventory.Items.Count);
                         var (width, height) = GetBackpackSize(actualSlots);
-                        if ((fields!.UpdateValue(static () => x => x.m_width, width),
+                        if ((fields.UpdateValue(static () => x => x.m_width, width),
                             fields.UpdateValue(static () => x => x.m_height, height)) == (false, false))
                             return false;
 
-                        if (actualSlots != slots)
+                        using var enumerator = zdo.Inventory.Items.GetEnumerator();
+                        for (int y = 0; y < height; y++)
                         {
-                            using var enumerator = zdo.Inventory.Items.GetEnumerator();
-                            for (int y = 0; y < height; y++)
+                            for (int x = 0; x < width; x++)
                             {
-                                for (int x = 0; x < width; x++)
+                                if (!enumerator.MoveNext())
                                 {
-                                    if (!enumerator.MoveNext())
-                                    {
-                                        zdo.ClaimOwnershipInternal();
-                                        zdo.Inventory.Save();
-                                        return true;
-                                    }
-
-                                    enumerator.Current.m_gridPos = new(x, y);
+                                    zdo.ClaimOwnershipInternal();
+                                    zdo.Inventory.Save();
+                                    return true;
                                 }
+
+                                enumerator.Current.m_gridPos = new(x, y);
                             }
                         }
                         return true;
                     }
 
-                    state.BackpackContainer ??= PlacedObjects.FirstOrDefault(x => x.PrefabInfo.Container is not null && x.IsModCreator(out var marker) && marker is CreatorMarkers.ProcessorOwned && x.Vars.GetPlayerID() == state.PlayerID);
+                    if (state.BackpackContainer is null)
+                    {
+                        state.BackpackContainer = PlacedObjects.FirstOrDefault(x => x.PrefabInfo.Container is not null && x.IsModCreator(out var marker) && marker is CreatorMarkers.ProcessorOwned && x.Vars.GetPlayerID() == state.PlayerID);
+                        state.BackpackContainer?.Fields<Container>().Set(static () => x => x.m_name, Config.Localization.Players.Backpack.Name);
+                    }
+
                     if (state.BackpackContainer is null)
                     {
                         state.BackpackContainer = PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
                         state.BackpackContainer.Vars.SetPlayerID(state.PlayerID);
-                        state.BackpackContainer.Fields<Container>().Set(static () => x => x.m_name, "Backpack");
+                        state.BackpackContainer.Fields<Container>().Set(static () => x => x.m_name, Config.Localization.Players.Backpack.Name);
                         AdjustSize(state.BackpackContainer, _backpackSlots);
                         state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
                     }
@@ -1045,7 +1052,7 @@ sealed class PlayerProcessor : Processor
             return true;
 
         RPC.ShowMessage(ZRoutedRpc.Everybody, Config.Sleeping.SleepPromptMessageType.Value,
-            $"{total} of {_playerStates.Count} players want to sleep.<br>Sit down if you want to sleep as well");
+            Config.Localization.Sleeping.FormatPrompt(total, _playerStates.Count));
 
         return false;
     }

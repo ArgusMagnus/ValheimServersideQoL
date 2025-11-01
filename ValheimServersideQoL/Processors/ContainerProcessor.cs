@@ -233,9 +233,9 @@ sealed class ContainerProcessor : Processor
             else if (request.SwapAfter <= DateTimeOffset.UtcNow)
             {
                 if (request.To is null)
-                    ShowMessage(peers, request.From, "No target with corresponding tag found", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
+                    ShowMessage(peers, request.From, Config.Localization.Containers.ObliteratorItemTeleporter.TargetNotFound, Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
                 else if (CheckForbiddenItems(request.FromItems, request.To.Inventory.Items))
-                    ShowMessage(peers, request.From, "An item prevents the teleportation", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
+                    ShowMessage(peers, request.From, Config.Localization.Containers.ObliteratorItemTeleporter.ForbiddenItem, Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
                 else
                 {
                     var toItems = request.To.Inventory.Items.ToList();
@@ -247,8 +247,8 @@ sealed class ContainerProcessor : Processor
                         request.From.Inventory.Items.Add(item);
                     request.To.Inventory.Save();
                     request.From.Inventory.Save();
-                    ShowMessage(peers, request.From, "Items teleported", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Weak);
-                    ShowMessage(peers, request.To, "Items teleported", Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Weak);
+                    ShowMessage(peers, request.From, Config.Localization.Containers.ObliteratorItemTeleporter.ItemsTeleported, Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Weak);
+                    ShowMessage(peers, request.To, Config.Localization.Containers.ObliteratorItemTeleporter.ItemsTeleported, Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Weak);
                 }
                 request.From.SetOwner(request.SenderPeerID);
                 _swapContentRequests.RemoveAt(i);
@@ -426,7 +426,7 @@ sealed class ContainerProcessor : Processor
 
             if (RecreateZdo)
             {
-                Logger.DevLog($"Change {zdo.PrefabInfo.PrefabName} inventory size: {(width, height)} -> {(sizeCfg.Width, sizeCfg.Height)}, check shrink: {checkShrink}");
+                //Logger.DevLog($"Change {zdo.PrefabInfo.PrefabName} inventory size: {(width, height)} -> {(sizeCfg.Width, sizeCfg.Height)}, check shrink: {checkShrink}");
                 fields.Set(static () => x => x.m_width, width = sizeCfg.Width);
                 fields.Set(static () => x => x.m_height, height = sizeCfg.Height);
             }
@@ -566,7 +566,7 @@ sealed class ContainerProcessor : Processor
             else if (changed)
             {
                 inventory.Save();
-                ShowMessage(peers, zdo, $"{zdo.PrefabInfo.Container.Value.Container.m_name} sorted", Config.Containers.SortedMessageType.Value);
+                ShowMessage(peers, zdo, Config.Localization.Containers.FormatContainerSorted(zdo.PrefabInfo.Container.Value.Container.m_name), Config.Containers.SortedMessageType.Value);
             }
         }
 

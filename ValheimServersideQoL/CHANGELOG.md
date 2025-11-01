@@ -1,3 +1,6 @@
+### vNEXT (BETA)
+- Make all messages/texts localizable via Localization.yml
+
 ### v1.5.2029 (BETA)
 - New features:
     - Make pickaxe skill affect the portion of a rock / ore deposit that needs to be destroyed before the whole rock collapses
