@@ -1,24 +1,15 @@
-### vNEXT (BETA)
-- Make all messages/texts localizable via Localization.yml
-
-### v1.5.2029 (BETA)
+### v1.6.0
 - New features:
+    - Backpack [#121](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/121)
+    - "Magic" containers with infinite inventory size [#145](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/145)
+    - Container sign support for barrels
     - Make pickaxe skill affect the portion of a rock / ore deposit that needs to be destroyed before the whole rock collapses
     - Make all items "float" (non-floating items will automatically be put into floating cargo crates when they sink 2m below water level)
 - New options for reassigning ownership in multiplayer based on connection quality:
     - `ReassignOwnershipConnectionQualityHysteresis`: Mininum difference in connection quality before ownership is reassigned
     - `ConnectionQualityPingEMAWeight`/`PingEMAHalfLife`: New connection metric (exponential moving average) that can be used to estimate the connection quality
-
-### v1.5.2017 (BETA)
+- All messages/texts localizable via Localization.yml
 - Performance optimizations
-
-### v1.5.2013 (BETA)
-- New feature: Backpack [#121](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/121)
-
-### v1.5.2004 (BETA)
-- New features:
-    - "Magic" containers with infinite inventory size [#145](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/145)
-    - Container sign support for barrels
 
 ### v1.5.1
 - Use variable time budget for world processing (removed config options `Frequency` and `MaxProcessingTime`)
