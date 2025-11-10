@@ -12,6 +12,6 @@ partial record ModConfig
             "Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
         public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = cfg.BindEx(section, false,
             "True to keep plants that can't grow alive");
-        //public ConfigEntry<bool> MakeHarvestableWithScythe { get; } = cfg.BindEx(section, false, "True to make all crops harvestable with the scythe");
+        //public ConfigEntry<bool> MakeHarvestableWithScythe { get; } = cfg.BindEx(section, false, "True to make all crops/berries harvestable with the scythe (doesn't work for mistlands crops)");
     }
 }

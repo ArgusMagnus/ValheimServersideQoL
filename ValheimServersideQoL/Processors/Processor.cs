@@ -49,7 +49,7 @@ abstract class Processor
     }
     public static T Instance<T>() where T : Processor, new() => InstanceCache<T>.Instance;
 
-    protected ManualLogSource Logger => Main.Instance.Logger;
+    protected Logger Logger => Main.Instance.Logger;
     protected ModConfig Config => Main.Instance.Config;
     protected abstract Guid Id { get; }
 
@@ -313,6 +313,7 @@ abstract class Processor
 
     static List<object?> __args = [];
     static readonly Dictionary<int, object?[]> __argArrays = [];
+    static int __loopCounter;
     static bool HandleRoutedRPCPrefix(RoutedRPCData data)
     {
         if (__methods.TryGetValue(data.m_methodHash, out var rpcMethod))
@@ -346,11 +347,14 @@ abstract class Processor
                     else
                         __args.CopyTo(args);
 
-                    if (del.Delegate.DynamicInvoke(args) is bool success && !success)
-                    {
-                        //Main.Instance.Logger.DevLog($"Invokation of {rpcMethod.Name} cancelled");
+                    __loopCounter++;
+                    if (__loopCounter > 1)
+                        Main.Instance.Logger.DevLog($"{rpcMethod.Name}: Loop Counter: {__loopCounter}");
+                    var result = del.Delegate.DynamicInvoke(args);
+                    __loopCounter--;
+
+                    if (result is bool success && !success)
                         return false;
-                    }
                 }
                 catch (Exception ex)
                 {
@@ -512,7 +516,7 @@ abstract class Processor
         public static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
         {
             /// Invoke <see cref="MessageHud.RPC_ShowMessage"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, "ShowMessage", parameters: [(int)type, message]);
+            InvokeRoutedRPC(targetPeerId, "ShowMessage", parameters: [(int)type, message]);
         }
 
         //public static void ShowMessage(MessageHud.MessageType type, string message)
@@ -531,25 +535,25 @@ abstract class Processor
         {
             playerZdo.AssertIs<Player>();
             /// <see cref="Player.UseStamina(float)"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(playerZdo.GetOwner(), playerZdo.m_uid, "UseStamina", parameters: [value]);
+            InvokeRoutedRPC(playerZdo.GetOwner(), playerZdo.m_uid, "UseStamina", parameters: [value]);
         }
 
         public static void SendGlobalKeys(Peer peer, List<string> keys)
         {
             /// <see cref="ZoneSystem.SendGlobalKeys"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(peer.m_uid, "GlobalKeys", parameters: [keys]);
+            InvokeRoutedRPC(peer.m_uid, "GlobalKeys", parameters: [keys]);
         }
 
         public static void ShowInWorldText(IEnumerable<long> targetPeerIds, DamageText.TextType type, Vector3 pos, string text)
         {
             /// <see cref="DamageText.ShowText(DamageText.TextType, Vector3, string, bool)"/>
-            ZPackage zPackage = new ZPackage();
+            ZPackage zPackage = new();
             zPackage.Write((int)type);
             zPackage.Write(pos);
             zPackage.Write(text);
             zPackage.Write(false);
             foreach (var peer in targetPeerIds)
-                ZRoutedRpc.instance.InvokeRoutedRPC(peer, "RPC_DamageText", parameters: [zPackage]);
+                InvokeRoutedRPC(peer, "RPC_DamageText", parameters: [zPackage]);
         }
 
         //public static void ShowInWorldText(IEnumerable<Peer> peers, DamageText.TextType type, Vector3 pos, string text)
@@ -564,7 +568,7 @@ abstract class Processor
         static void TeleportPlayer(long targetPeerID, Vector3 pos, Quaternion rot, bool distantTeleport)
         {
             /// <see cref="Chat.TeleportPlayer(long, Vector3, Quaternion, bool)"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerID, "RPC_TeleportPlayer", parameters: [pos, rot, distantTeleport]);
+            InvokeRoutedRPC(targetPeerID, "RPC_TeleportPlayer", parameters: [pos, rot, distantTeleport]);
         }
 
         public static void TeleportPlayer(Peer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
@@ -574,21 +578,21 @@ abstract class Processor
         {
             player.AssertIs<Player>();
             /// <see cref="Player.TeleportTo(Vector3, Quaternion, bool)"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(player.GetOwner(), player.m_uid, "RPC_TeleportTo", parameters: [pos, rot, distantTeleport]);
+            InvokeRoutedRPC(player.GetOwner(), player.m_uid, "RPC_TeleportTo", parameters: [pos, rot, distantTeleport]);
         }
 
         public static void Remove(ExtendedZDO piece, bool blockDrop = false)
         {
             piece.AssertIs<Piece>();
             /// <see cref="WearNTear.RPC_Remove"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(piece.GetOwner(), piece.m_uid, "RPC_Remove", parameters: [false]);
+            InvokeRoutedRPC(piece.GetOwner(), piece.m_uid, "RPC_Remove", parameters: [false]);
         }
 
         public static void AddStatusEffect(ExtendedZDO character, int nameHash, bool resetTime = false, int itemLevel = 0, float skillLevel = 0f)
         {
             character.AssertIs<Character>();
             /// <see cref="SEMan.AddStatusEffect"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_AddStatusEffect", parameters: [nameHash, resetTime, itemLevel, skillLevel]);
+            InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_AddStatusEffect", parameters: [nameHash, resetTime, itemLevel, skillLevel]);
         }
 
         public static void RequestStack(ExtendedZDO container, ExtendedZDO player, long playerID = 0)
@@ -607,14 +611,14 @@ abstract class Processor
             container.AssertIs<Container>();
 
             /// <see cref="Container.RPC_StackResponse"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "RPC_StackResponse", parameters: [granted]);
+            InvokeRoutedRPC(container.GetOwner(), container.m_uid, "RPC_StackResponse", parameters: [granted]);
         }
 
         public static void TakeAllResponse(ExtendedZDO container, bool granted)
         {
             container.AssertIs<Container>();
             /// <see cref="Container.RPC_TakeAllRespons"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "TakeAllRespons", parameters: [granted]);
+            InvokeRoutedRPC(container.GetOwner(), container.m_uid, "TakeAllRespons", parameters: [granted]);
         }
 
         public static void RequestStateChange(ExtendedZDO trap, int state)
@@ -622,7 +626,7 @@ abstract class Processor
             trap.AssertIs<Trap>();
 
             /// <see cref="Trap.RPC_RequestStateChange"/>"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(trap.GetOwner(), trap.m_uid, "RPC_RequestStateChange", parameters: [state]);
+            InvokeRoutedRPC(trap.GetOwner(), trap.m_uid, "RPC_RequestStateChange", parameters: [state]);
         }
 
         public static void SetTamed(ExtendedZDO character, bool tamed)
@@ -630,7 +634,7 @@ abstract class Processor
             character.AssertIs<Character>();
 
             /// <see cref="Character.SetTamed(bool)"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_SetTamed", parameters: [tamed]);
+            InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_SetTamed", parameters: [tamed]);
         }
 
         public static void Damage(ExtendedZDO character, HitData hitData)
@@ -638,7 +642,7 @@ abstract class Processor
             character.AssertIs<Character>();
 
             /// <see cref="Character.Damage(HitData)"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_Damage", parameters: [hitData]);
+            InvokeRoutedRPC(character.GetOwner(), character.m_uid, "RPC_Damage", parameters: [hitData]);
         }
 
         public static void RequestOwn(ExtendedZDO itemDrop, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
@@ -646,34 +650,73 @@ abstract class Processor
             itemDrop.AssertIs<ItemDrop>();
             //DevShowMessage(itemDrop, "Ownership requested", DamageText.TextType.Normal, callerFile, callerLineNo);
             /// <see cref="ItemDrop.RequestOwn"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(itemDrop.GetOwner(), itemDrop.m_uid, "RPC_RequestOwn");
+            InvokeRoutedRPC(itemDrop.GetOwner(), itemDrop.m_uid, "RPC_RequestOwn");
         }
 
         public static void RequestOpen(ExtendedZDO container, long playerID)
         {
             container.AssertIs<Container>();
             /// <see cref="Container.RPC_RequestOpen"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "RequestOpen", parameters: [playerID]);
+            InvokeRoutedRPC(container.GetOwner(), container.m_uid, "RequestOpen", parameters: [playerID]);
         }
 
         public static void OpenResponse(ExtendedZDO container, bool granted)
         {
             container.AssertIs<Container>();
             /// <see cref="Container.RPC_OpenRespons"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(container.GetOwner(), container.m_uid, "OpenRespons", parameters: [granted]);
+            InvokeRoutedRPC(container.GetOwner(), container.m_uid, "OpenRespons", parameters: [granted]);
         }
 
         public static void DamageMineRock5(ExtendedZDO minerock5, HitData hit, int hitAreaIndex)
         {
             minerock5.AssertIs<MineRock5>();
             /// <see cref="MineRock5.RPC_Damage"/>
-            ZRoutedRpc.instance.InvokeRoutedRPC(minerock5.GetOwner(), minerock5.m_uid, "RPC_Damage", parameters: [hit, hitAreaIndex]);
+            InvokeRoutedRPC(minerock5.GetOwner(), minerock5.m_uid, "RPC_Damage", parameters: [hit, hitAreaIndex]);
+        }
+
+        static readonly Dictionary<string, int> __invokeCounters = [];
+        static readonly Dictionary<string, int> __invokeAsSenderCounters = [];
+        static int __invokeTotalCounter;
+
+        static void InvokeRoutedRPC(long targetPeerId, string methodName, object[]? parameters = null)
+        {
+            if (Main.Instance.Config.General.DiagnosticLogs.Value)
+            {
+                __invokeCounters.TryGetValue(methodName, out var count);
+                __invokeCounters[methodName] = ++count;
+                __invokeTotalCounter++;
+                if (count % 10 is 0)
+                    Main.Instance.Logger.LogInfo($"{nameof(InvokeRoutedRPC)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count/__invokeTotalCounter:P0})");
+            }
+            ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, methodName, parameters ?? []);
+        }
+
+        static void InvokeRoutedRPC(long targetPeerId, ZDOID targetZDO, string methodName, object[]? parameters = null)
+        {
+            if (Main.Instance.Config.General.DiagnosticLogs.Value)
+            {
+                __invokeCounters.TryGetValue(methodName, out var count);
+                __invokeCounters[methodName] = ++count;
+                __invokeTotalCounter++;
+                if (count % 10 is 0)
+                    Main.Instance.Logger.LogInfo($"{nameof(InvokeRoutedRPC)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
+            }
+            ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, targetZDO, methodName, parameters ?? []);
         }
 
         static Action<ZRoutedRpc, long, ZDOID, string, object[], long>? __invokeRouteRPCAsSender;
 
         static void InvokeRoutedRPCAsSender(long senderPeerId, long targetPeerID, ZDOID targetZDO, string methodName, object[] parameters)
         {
+            if (Main.Instance.Config.General.DiagnosticLogs.Value)
+            {
+                __invokeAsSenderCounters.TryGetValue(methodName, out var count);
+                __invokeAsSenderCounters[methodName] = ++count;
+                __invokeTotalCounter++;
+                if (count % 10 is 0)
+                    Main.Instance.Logger.LogInfo($"{nameof(InvokeRoutedRPCAsSender)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
+            }
+
             __invokeRouteRPCAsSender ??= GetDelegate();
             __invokeRouteRPCAsSender(ZRoutedRpc.instance, targetPeerID, targetZDO, methodName, parameters, senderPeerId);
 

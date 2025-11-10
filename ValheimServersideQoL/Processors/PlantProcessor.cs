@@ -12,12 +12,12 @@ sealed class PlantProcessor : Processor
 
     //    if (Config.Plants.MakeHarvestableWithScythe.Value && _cropPickables.Count is 0)
     //    {
-    //        foreach (var prefab in ZNetScene.instance.m_prefabs
-    //            .Select(static x => x.GetComponent<Plant>()).Where(static x => x is not null)
-    //            .SelectMany(static x => x.m_grownPrefabs).Where(static x => x.GetComponent<Pickable>() is not null))
+    //        foreach (var pickable in ZNetScene.instance.m_prefabs
+    //            .Select(static x => x.GetComponent<Pickable>())
+    //            .Where(static x => x?.m_itemPrefab.GetComponent<ItemDrop>() is { m_itemData.m_shared.m_itemType: ItemDrop.ItemData.ItemType.Consumable}))
     //        {
-    //            Logger.DevLog(prefab.name);
-    //            _cropPickables.Add(prefab.name.GetStableHashCode());
+    //            //Logger.DevLog(pickable.name);
+    //            _cropPickables.Add(pickable.name.GetStableHashCode());
     //        }
     //    }
     //}
@@ -50,11 +50,11 @@ sealed class PlantProcessor : Processor
                 RecreateZdo = true;
         }
 
-        //if (zdo.PrefabInfo.Pickable is not null && Config.Plants.MakeHarvestableWithScythe.Value && _cropPickables.Contains(zdo.GetPrefab()))
+        //if (zdo.PrefabInfo.Pickable is not null && _cropPickables.Contains(zdo.GetPrefab()))
         //{
-        //    Logger.DevLog($"Pickable: {zdo.PrefabInfo.PrefabName}");
+        //    //Logger.DevLog($"Pickable: {zdo.PrefabInfo.PrefabName}");
         //    var fields = zdo.Fields<Pickable>();
-        //    if (fields.SetIfChanged(static x => x.m_harvestable, true))
+        //    if (fields.UpdateValue(static () => x => x.m_harvestable, zdo.PrefabInfo.Pickable.m_harvestable || Config.Plants.MakeHarvestableWithScythe.Value))
         //        RecreateZdo = true;
         //}
 

@@ -22,14 +22,6 @@ static class ExtensionMethods
         => config.Bind(section, key, defaultValue, new ConfigDescription(description, acceptableValues));
 
     [Conditional("DEBUG")]
-    public static void DevLog(this ManualLogSource logger, string text, LogLevel logLevel = LogLevel.Warning)
-    {
-#if DEBUG
-        logger.Log(logLevel, text);
-#endif
-    }
-
-    [Conditional("DEBUG")]
     public static void AssertIs<T>(this ExtendedZDO zdo) where T : MonoBehaviour
     {
 #if DEBUG

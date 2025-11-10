@@ -289,9 +289,6 @@ sealed class PlayerProcessor : Processor
                 ZoneSystemSendGlobalKeys.GlobalKeysChanged += UpdateBackpackSlots;
         }
 
-        //foreach (var x in PlacedObjects)
-        //    Logger.DevLog($"{x.PrefabInfo.PrefabName}: IsModCreator: {x.IsModCreator(out var marker)}, Marker: {marker}, PlayerID: {x.Vars.GetPlayerID()}{Environment.NewLine}{x.Vars.ToDebugString()}");
-
         if (!firstTime)
             return;
 

@@ -21,7 +21,7 @@ sealed class PortalProcessor : Processor
         public long PlayerID { get; } = player.Vars.GetPlayerID();
         public Vector3 PortalPosition { get; } = portal.GetPosition();
         public bool Stacked { get; set; }
-        public DateTimeOffset LastMessageTime { get; set; }
+        public DateTimeOffset NextRequest { get; set; }
     }
 
     public override void Initialize(bool firstTime)
@@ -110,10 +110,11 @@ sealed class PortalProcessor : Processor
                     if (state.Container.GetOwner() == state.Player.GetOwner() &&
                         ZNetScene.InActiveArea(state.Container.GetSector(), state.Player.GetSector()))
                     {
-                        RPC.TakeAllResponse(state.Container, true);
-                        if (DateTimeOffset.UtcNow - state.LastMessageTime > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
+                        var now = DateTimeOffset.UtcNow;
+                        if (now > state.NextRequest)
                         {
-                            state.LastMessageTime = DateTimeOffset.UtcNow;
+                            state.NextRequest = now.AddMilliseconds(200);
+                            RPC.TakeAllResponse(state.Container, true);
                             ShowMessage([state.Peer], state.PortalPosition, Config.Localization.NonTeleportableItems.ItemsReturned, Config.NonTeleportableItems.MessageType.Value);
                         }
                     }
@@ -148,8 +149,8 @@ sealed class PortalProcessor : Processor
                 state.Container = RecreatePiece(state.Container);
                 state.Container.UnregisterAllProcessors();
                 state.Container.Destroyed += OnContainerDestroyed;
-                if (Config.NonTeleportableItems.MessageType.Value is not MessageTypes.CenterNear and not MessageTypes.CenterFar)
-                    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
+                //if (Config.NonTeleportableItems.MessageType.Value is not MessageTypes.CenterNear and not MessageTypes.CenterFar)
+                //    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
                 ShowMessage([state.Peer], state.PortalPosition, Config.Localization.NonTeleportableItems.FormatItemsTaken(count), Config.NonTeleportableItems.MessageType.Value);
             }
             else if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) <= _rangeSqr)
@@ -157,8 +158,13 @@ sealed class PortalProcessor : Processor
                 if (state.Container.GetOwner() == state.Player.GetOwner() &&
                     ZNetScene.InActiveArea(state.Container.GetSector(), state.Player.GetSector()))
                 {
-                    RPC.StackResponse(state.Container, true);
-                    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
+                    var now = DateTimeOffset.UtcNow;
+                    if (now > state.NextRequest)
+                    {
+                        state.NextRequest = now.AddMilliseconds(200);
+                        RPC.StackResponse(state.Container, true);
+                        RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
+                    }
                 }
                 else
                 {
@@ -206,7 +212,7 @@ sealed class PortalProcessor : Processor
         if (TeleportableItems.Count is 0)
             return false;
         
-        foreach (var peer in peers)
+        foreach (var peer in peers.AsEnumerable())
         {
             if (Instance<PlayerProcessor>().GetPeerCharacter(peer.m_uid) is not { } player)
                 continue;
