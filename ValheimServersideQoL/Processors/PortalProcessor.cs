@@ -21,7 +21,8 @@ sealed class PortalProcessor : Processor
         public long PlayerID { get; } = player.Vars.GetPlayerID();
         public Vector3 PortalPosition { get; } = portal.GetPosition();
         public bool Stacked { get; set; }
-        public DateTimeOffset NextRequest { get; set; }
+        public DateTimeOffset NextRequest { get => field; set { field = value; DestroyAfter = value.AddSeconds(5); } }
+        public DateTimeOffset DestroyAfter { get; private set; }
     }
 
     public override void Initialize(bool firstTime)
@@ -152,31 +153,29 @@ sealed class PortalProcessor : Processor
                 //if (Config.NonTeleportableItems.MessageType.Value is not MessageTypes.CenterNear and not MessageTypes.CenterFar)
                 //    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
                 ShowMessage([state.Peer], state.PortalPosition, Config.Localization.NonTeleportableItems.FormatItemsTaken(count), Config.NonTeleportableItems.MessageType.Value);
+                state.NextRequest = DateTimeOffset.UtcNow.AddSeconds(1);
             }
             else if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) <= _rangeSqr)
             {
-                if (state.Container.GetOwner() == state.Player.GetOwner() &&
-                    ZNetScene.InActiveArea(state.Container.GetSector(), state.Player.GetSector()))
+                var now = DateTimeOffset.UtcNow;
+                if (now > state.NextRequest)
                 {
-                    var now = DateTimeOffset.UtcNow;
-                    if (now > state.NextRequest)
+                    state.NextRequest = now.AddMilliseconds(200);
+                    if (state.Container.GetOwner() != state.Player.GetOwner() ||
+                        !ZNetScene.InActiveArea(state.Container.GetSector(), state.Player.GetSector()))
                     {
-                        state.NextRequest = now.AddMilliseconds(200);
-                        RPC.StackResponse(state.Container, true);
-                        RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
+                        state.Container.SetOwnerInternal(state.Player.GetOwner());
+                        state.Container.SetPosition(state.Player.GetPosition() with { y = -1000 });
+                        state.Container.Destroyed -= OnContainerDestroyed;
+                        state.Container = RecreatePiece(state.Container);
+                        state.Container.UnregisterAllProcessors();
+                        state.Container.Destroyed += OnContainerDestroyed;
                     }
-                }
-                else
-                {
-                    state.Container.SetOwnerInternal(state.Player.GetOwner());
-                    state.Container.SetPosition(state.Player.GetPosition() with { y = -1000 });
-                    state.Container.Destroyed -= OnContainerDestroyed;
-                    state.Container = RecreatePiece(state.Container);
-                    state.Container.UnregisterAllProcessors();
-                    state.Container.Destroyed += OnContainerDestroyed;
+                    RPC.StackResponse(state.Container, true);
+                    RPC.ShowMessage(state.Player.GetOwner(), MessageHud.MessageType.Center, "");
                 }
             }
-            else
+            else if (DateTimeOffset.UtcNow > state.DestroyAfter)
             {
                 DestroyObject(state.Container);
             }
@@ -238,7 +237,7 @@ sealed class PortalProcessor : Processor
             }
             container.Inventory.Save();
             container.SetOwner(peer.m_uid);
-            _containers.Add(new(container, peer, player, zdo));
+            _containers.Add(new(container, peer, player, zdo) { NextRequest = DateTimeOffset.UtcNow.AddMilliseconds(200) });
             container.Destroyed += OnContainerDestroyed;
             if (!peer.IsServer)
                 player.Destroyed += OnPlayerDestroyed;
