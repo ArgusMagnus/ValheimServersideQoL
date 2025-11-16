@@ -1,8 +1,11 @@
 ﻿using BepInEx.Logging;
+using SoftReferenceableAssets;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Valheim.ServersideQoL.HarmonyPatches;
+using static Skills;
+using static UnityEngine.Random;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -17,7 +20,7 @@ sealed class PlayerProcessor : Processor
         string PlayerName { get; }
         bool IsAdmin { get; }
         float ConnectionQuality { get; }
-        IReadOnlyDictionary<Skills.SkillType, float> EstimatedSkillLevels { get; }
+        float GetEstimatedSkillLevel(SkillType skillType);
         public ItemDrop? LastUsedItem { get; }
     }
 
@@ -40,6 +43,8 @@ sealed class PlayerProcessor : Processor
         public DateTimeOffset NextStaminaCheck { get; set; }
         public int Stamina { get; set; }
         public DateTimeOffset StaminaTimestamp { get; set; } = DateTimeOffset.UtcNow;
+        public int Eitr { get; set; }
+        public DateTimeOffset EitrTimestamp { get; set; } = DateTimeOffset.UtcNow;
 
         ExtendedZDO? _backpackContainer;
         public ExtendedZDO? BackpackContainer
@@ -69,10 +74,16 @@ sealed class PlayerProcessor : Processor
 
         public ItemDrop? LastUsedItem { get; set; }
         public ItemDrop? CheckSkillItem { get; set; }
-        public float CheckSkillStamina { get; set; }
-        public Dictionary<Skills.SkillType, float> EstimatedSkillLevels => field ??= [];
-        IReadOnlyDictionary<Skills.SkillType, float> IPeerInfo.EstimatedSkillLevels => EstimatedSkillLevels;
-        public Dictionary<Skills.SkillType, (Queue<float> Queue, List<float> List)> EstimatedSkillLevelHistories => field ??= [];
+        public float CheckSkillStaminaEitr { get; set; }
+        public Dictionary<SkillType, float> EstimatedSkillLevels => field ??= [];
+        public Dictionary<SkillType, (Queue<float> Queue, List<float> List)> EstimatedSkillLevelHistories => field ??= [];
+
+        public float GetEstimatedSkillLevel(SkillType skillType)
+        {
+            if (!EstimatedSkillLevels.TryGetValue(skillType, out var level))
+                EstimatedSkillLevels.Add(skillType, level = DataZDO.Vars.GetEstimatedSkillLevel(PlayerID, skillType, float.NaN));
+            return level;
+        }
 
         public TimeSpan? LastPing { get; private set; }
         public DateTimeOffset? LastPingTimestamp { get; private set; }
@@ -387,21 +398,43 @@ sealed class PlayerProcessor : Processor
         if (_estimateSkillLevels)
         {
             state.CheckSkillItem = null;
-            if (item.m_itemData.m_shared is { m_skillType: not Skills.SkillType.Swords } or { m_damages.m_slash: > 0 } &&
-                ReferenceEquals(item, state.LastUsedItem) &&
-                state.StaminaTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_staminaRegenDelay))
+
+            if (item.m_itemData.m_shared is { m_skillType: SkillType.ElementalMagic or SkillType.BloodMagic })
             {
-                var stamina = zdo.Vars.GetStamina();
-                var floored = Mathf.FloorToInt(stamina);
-                if (floored != state.Stamina)
+                if (ReferenceEquals(item, state.LastUsedItem) &&
+                    state.EitrTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_eitrRegenDelay))
                 {
-                    state.Stamina = floored;
-                    state.StaminaTimestamp = DateTimeOffset.UtcNow;
+                    var eitr = zdo.Vars.GetEitr();
+                    var floored = Mathf.FloorToInt(eitr);
+                    if (floored != state.Eitr)
+                    {
+                        state.Eitr = floored;
+                        state.EitrTimestamp = DateTimeOffset.UtcNow;
+                    }
+                    else
+                    {
+                        state.CheckSkillStaminaEitr = eitr;
+                        state.CheckSkillItem = item;
+                    }
                 }
-                else if (stamina >= 2 * item.m_itemData.m_shared.m_attack.m_attackStamina) // infinite stamina feature might interfere
+            }
+            else if (item.m_itemData.m_shared is { m_skillType: not SkillType.Swords } or { m_damages.m_slash: > 0 })
+            {
+                if (ReferenceEquals(item, state.LastUsedItem) &&
+                    state.StaminaTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_staminaRegenDelay))
                 {
-                    state.CheckSkillStamina = stamina;
-                    state.CheckSkillItem = item;
+                    var stamina = zdo.Vars.GetStamina();
+                    var floored = Mathf.FloorToInt(stamina);
+                    if (floored != state.Stamina)
+                    {
+                        state.Stamina = floored;
+                        state.StaminaTimestamp = DateTimeOffset.UtcNow;
+                    }
+                    else if (stamina >= 2 * item.m_itemData.m_shared.m_attack.m_attackStamina) // infinite stamina feature might interfere
+                    {
+                        state.CheckSkillStaminaEitr = stamina;
+                        state.CheckSkillItem = item;
+                    }
                 }
             }
         }
@@ -752,7 +785,7 @@ sealed class PlayerProcessor : Processor
 
         if (state.NextStaminaCheck < DateTimeOffset.UtcNow)
         {
-            state.NextStaminaCheck = DateTimeOffset.UtcNow.AddSeconds(0.5);
+            state.NextStaminaCheck = DateTimeOffset.UtcNow.AddSeconds(0.2);
             var stamina = Mathf.FloorToInt(zdo.Vars.GetStamina());
             if (state.Stamina != stamina)
             {
@@ -765,6 +798,13 @@ sealed class PlayerProcessor : Processor
                 RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_sneakStaminaDrain);
             else if (stamina < zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill && Config.Players.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater())
                 RPC.UseStamina(zdo, -zdo.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
+
+            var eitr = Mathf.FloorToInt(zdo.Vars.GetEitr());
+            if (state.Eitr != eitr)
+            {
+                state.EitrTimestamp = DateTimeOffset.UtcNow;
+                state.Eitr = eitr;
+            }
         }
 
         if (state.BackpackContainer is not null)
@@ -784,12 +824,14 @@ sealed class PlayerProcessor : Processor
 
         if (_estimateSkillLevels && state.CheckSkillItem is not null)
         {
-            var stamina = zdo.Vars.GetStamina();
-            if (stamina < state.CheckSkillStamina)
+            var usesEitr = state.CheckSkillItem.m_itemData.m_shared.m_skillType is SkillType.ElementalMagic or SkillType.BloodMagic;
+            var staminaOrEitr = usesEitr ? zdo.Vars.GetEitr() : zdo.Vars.GetStamina();
+
+            if (staminaOrEitr < state.CheckSkillStaminaEitr)
             {
                 var shared = state.CheckSkillItem.m_itemData.m_shared;
-                var max = shared.m_attack.m_attackStamina;
-                var eff = state.CheckSkillStamina - stamina;
+                var max = usesEitr ? shared.m_attack.m_attackEitr : shared.m_attack.m_attackStamina;
+                var eff = state.CheckSkillStaminaEitr - staminaOrEitr;
                 var diff = max - eff;
                 var estSkill = diff / (max * 0.33f);
                 if (estSkill is >= 0f and <= 1f)
@@ -797,8 +839,7 @@ sealed class PlayerProcessor : Processor
                     const int HalfHistoryWindow = 3;
                     const int HistoryWindow = 2 * HalfHistoryWindow + 1;
 
-                    if (!state.EstimatedSkillLevels.TryGetValue(shared.m_skillType, out var prevEstSkill))
-                        prevEstSkill = DataZDO.Vars.GetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, float.NaN);
+                    var prevEstSkill = state.GetEstimatedSkillLevel(shared.m_skillType);
                     if (!state.EstimatedSkillLevelHistories.TryGetValue(shared.m_skillType, out var history))
                     {
                         state.EstimatedSkillLevelHistories.Add(shared.m_skillType, history = (new(HistoryWindow), new(HistoryWindow)));

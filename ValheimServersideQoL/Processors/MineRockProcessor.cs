@@ -26,7 +26,7 @@ sealed class MineRockProcessor : Processor
         {
             if (peerInfo.LastUsedItem is not { m_itemData.m_shared.m_skillType: Skills.SkillType.Pickaxes })
                 continue;
-            if (!peerInfo.EstimatedSkillLevels.TryGetValue(Skills.SkillType.Pickaxes, out skill))
+            if (float.IsNaN(skill = peerInfo.GetEstimatedSkillLevel(Skills.SkillType.Pickaxes)))
                 continue;
             var dist = Vector3.Distance(peerInfo.PlayerZDO.GetPosition(), zdo.GetPosition());
             if (dist >= minDist)
