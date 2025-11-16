@@ -8,6 +8,7 @@ sealed class ItemDropProcessor : Processor
 
     readonly Dictionary<ExtendedZDO, DateTimeOffset> _eggDropTime = [];
     readonly List<ExtendedZDO> _itemDrops = [];
+    readonly Dictionary<Vector2i, ExtendedZDO> _crates = [];
 
     public override void Initialize(bool firstTime)
     {
@@ -240,24 +241,72 @@ sealed class ItemDropProcessor : Processor
             Config.World.MakeAllItemsFloat.Value &&
             zdo.GetPosition() is { y: < ZoneSystem.c_WaterLevel - 2 })
         {
-            var crate = PlaceObject(zdo.GetPosition(), Prefabs.CargoCrate, zdo.GetRotation());
-            crate.Fields<Container>()
-                .Set(static () => x => x.m_width, 1)
-                .Set(static () => x => x.m_height, 1);
+            var crate = GetCrate(zdo.GetPosition(), zdo.GetRotation());
+
             if (item is null)
             {
                 item = new() { m_shared = shared };
                 PrivateAccessor.LoadFromZDO(item, zdo);
             }
+
             item.m_dropPrefab = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.gameObject;
-            crate.Inventory.Items.Add(item);
+
+            foreach (var slot in crate.Inventory.Items)
+            {
+                if (ItemDataKeyComparer.Instance.Equals(slot, item))
+                {
+                    var transfer = Math.Min(item.m_stack, slot.m_shared.m_maxStackSize - slot.m_stack);
+                    slot.m_stack += transfer;
+                    item.m_stack -= transfer;
+                    if (item.m_stack is 0)
+                        break;
+                }
+            }
+
+            if (item.m_stack > 0)
+            {
+                crate.Inventory.Items.Add(item);
+                var (width, height) = PlayerProcessor.GetBackpackSize(crate.Inventory.Items.Count);
+                var fields = crate.Fields<Container>();
+                var changed = (
+                    fields.UpdateValue(static () => x => x.m_width, width),
+                    fields.UpdateValue(static () => x => x.m_height, height)) != (false, false);
+                if (changed)
+                {
+                    using var enumerator = crate.Inventory.Items.GetEnumerator();
+                    for (var y = 0; y < height; y++)
+                    {
+                        for (var x = 0; x < width; x++)
+                        {
+                            if (!enumerator.MoveNext())
+                                break;
+                            enumerator.Current.m_gridPos = new(x, y);
+                        }
+                    }
+
+                }
+            }
+
+            crate.ClaimOwnershipInternal();
             crate.Inventory.Save();
-            crate.Vars.SetCreator(0);
             crate.SetOwnerInternal(zdo.GetOwner());
             DestroyZdo = true;
             return false;
         }
 
         return true;
+    }
+
+    ExtendedZDO GetCrate(Vector3 pos, Quaternion rot)
+    {
+        // round to 4 meters
+        var key = new Vector2i(Mathf.RoundToInt(pos.x / 4), Mathf.RoundToInt(pos.z / 4));
+        if (!_crates.TryGetValue(key, out var crate))
+        {
+            _crates.Add(key, crate = PlaceObject(pos, Prefabs.CargoCrate, rot));
+            crate.Destroyed += _ => _crates.Remove(key);
+            crate.Vars.SetCreator(0);
+        }
+        return crate;
     }
 }

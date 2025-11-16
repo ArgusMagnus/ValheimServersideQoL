@@ -593,7 +593,7 @@ sealed class PlayerProcessor : Processor
 
     void OnStackContainerDestroyed(ExtendedZDO zdo) => _stackContainers.Remove(zdo);
 
-    static (int Width, int Height) GetBackpackSize(int slots)
+    internal static (int Width, int Height) GetBackpackSize(int slots)
     {
         var height = slots switch
         {
