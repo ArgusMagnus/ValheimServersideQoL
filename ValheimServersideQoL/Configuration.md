@@ -294,6 +294,7 @@
 |TamingTimeMultiplier|1||Multiply the time it takes to tame a tameable creature by this factor.<br>E.g. a value of 0.5 means that the taming time is halved.|
 |PotionTamingBoostMultiplier|1||Multiply the taming boost from the animal whispers potion by this factor.<br>E.g. a value of 2 means that the effect of the potion is doubled and the resulting taming time is reduced by a factor of 4 per player.|
 |TeleportFollow|False|True/False|True to teleport following tames to the players location if the player gets too far away from them|
+|TeleportFollowMinDistance|64||Minimum distance from the player at which following tames will be teleported to the player's location|
 |TakeIntoDungeons|False|True/False|True to take following tames into (and out of) dungeons with you|
 </details>
 <details><summary>Traders</summary>

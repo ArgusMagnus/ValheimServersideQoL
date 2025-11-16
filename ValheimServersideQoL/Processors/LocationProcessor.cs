@@ -144,7 +144,6 @@ sealed class LocationProcessor : Processor
                     pos = zdo.GetPosition() + zdo.GetRotation() * pos;
                     rs.Prepare();
                     rs.Randomize(pos, loc ??= location.GetComponent<Location>());
-                    //Main.Instance.Logger.DevLog($"Random spawn: {rs.name}, active: {rs.gameObject.activeSelf}");
                     if (rs.gameObject.activeSelf)
                         activeRandomSpawns.Add(rs);
                     rs.Reset();
@@ -156,7 +155,6 @@ sealed class LocationProcessor : Processor
             if (activeRandomSpawns.Contains(randomSpawn))
             {
                 var pos = zdo.GetPosition() + zdo.GetRotation() * randomSpawn.gameObject.transform.position;
-                Main.Instance.Logger.DevLog($"Add random spawn beacon: {component.name}, {pos}");
                 (positions ??= []).Add(pos);
             }
         }

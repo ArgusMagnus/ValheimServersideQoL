@@ -1,3 +1,6 @@
+### vNext (BETA)
+- New option for teleporting following tames: `TeleportFollowMinDistance`
+
 ### v1.6.0
 - New features:
     - Backpack [#121](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/121)

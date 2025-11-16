@@ -1,11 +1,9 @@
 ﻿using BepInEx.Logging;
-using SoftReferenceableAssets;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Valheim.ServersideQoL.HarmonyPatches;
 using static Skills;
-using static UnityEngine.Random;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -1047,11 +1045,13 @@ sealed class PlayerProcessor : Processor
             return false;
         }
 
-        if (Config.Tames.TeleportFollow.Value && !Character.InInterior(player.GetPosition()) && !ZNetScene.InActiveArea(tameZone, playerZone))
+        if (Config.Tames.TeleportFollow.Value && !Character.InInterior(player.GetPosition()))
         {
             if (Config.Advanced.Tames.TeleportFollowExcluded.Contains(tame.GetPrefab()))
                 return false;
-            return true;
+            if (Utils.DistanceXZ(player.GetPosition(), tame.GetPosition()) >= Config.Tames.TeleportFollowMinDistance.Value)
+                return true;
+            return false;
         }
 
         return false;

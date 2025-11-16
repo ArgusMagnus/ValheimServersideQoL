@@ -25,6 +25,8 @@ partial record ModConfig
              """);
         public ConfigEntry<bool> TeleportFollow { get; } = cfg.BindEx(section, false,
             "True to teleport following tames to the players location if the player gets too far away from them");
+        public ConfigEntry<float> TeleportFollowMinDistance { get; } = cfg.BindEx(section, ZoneSystem.c_ZoneSize,
+            "Minimum distance from the player at which following tames will be teleported to the player's location");
         public ConfigEntry<bool> TakeIntoDungeons { get; } = cfg.BindEx(section, false,
             $"True to take following tames into (and out of) dungeons with you");
     }
