@@ -178,7 +178,7 @@ sealed class TurretProcessor : Processor
 
         if (addedAmmo is not 0)
             ShowMessage(peers, zdo, Config.Localization.Turrets.FormatAmmoAdded(zdo.PrefabInfo.Turret.Value.Piece.m_name, allowedAmmo!.m_shared.m_name, addedAmmo), Config.Turrets.AmmoAddedMessageType.Value);
-        else
+        else if (currentAmmo is 0)
             ShowMessage(peers, zdo, Config.Localization.Turrets.NoAmmoFound, Config.Turrets.NoAmmoMessageType.Value, DamageText.TextType.Bonus);
 
         if (!_turrets.Contains(zdo))
