@@ -1,5 +1,9 @@
 ### vNext (BETA)
 - New option for teleporting following tames: `TeleportFollowMinDistance`
+- New features in the `Skills` section:
+    - `BloodmagicSummonsMinLevelUpChance`/`BloodmagicSummonsMaxLevelUpChance`: Creatures gain a chance to be summoned with an increased level based on the bloodmagic skill
+    - `BloodmagicMakeHostileSummonsFriendlyMinChance`/`BloodmagicMakeHostileSummonsFriendlyMaxChance`: Hostile summons (like summoned troll) gain a chance to be friendly based on the bloodmagic skill
+    - `BloodmagicMakeSummonsTolerateLavaMinChance`/`BloodmagicMakeSummonsTolerateLavaMaxChance`: Summons gain a chance to gain fire/lava immunity based on the bloodmagic skill
 
 ### v1.6.0
 - New features:

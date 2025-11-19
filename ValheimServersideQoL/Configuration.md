@@ -254,6 +254,13 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |PickaxeAffectsRockDestruction|False|True/False|True to make the pickaxe skill affect the destruction of rocks and ore deposits.<br>If true, rocks and ore deposits will be completely destroyed once more than (100 - Pickaxe Skill Level)%<br>of their parts have been destroyed.<br>E.g. at skill level 10, 90% of the parts need to be destroyed while at skill level 80, 20% destroyed parts are enough<br>to destroy the whole rock/ore deposit|
+|BloodmagicSummonsMinLevelUpChance|-1|From 0 to 100|The chance (in percent) at skill level 0 to summon a creature with an increased level.<br>A value of -1 disables this feature.|
+|BloodmagicSummonsMaxLevelUpChance|-1|From 0 to 100|The chance (in percent) at skill level 100 to summon a creature with an increased level.<br>A value of -1 disables this feature.|
+|BloodmagicSummonsMaxLevel|3|From 2 to 9|The maximum level a summoned creature can reach.|
+|BloodmagicMakeHostileSummonsFriendlyMinChance|-1|From -1 to 100|The chance (in percent) at skill level 0 for hostile summons to be made friendly.<br>A value of -1 disables this feature.<br>This will not affect summons that are already friendly by default.|
+|BloodmagicMakeHostileSummonsFriendlyMaxChance|-1|From -1 to 100|The chance (in percent) at skill level 100 for hostile summons to be made friendly.<br>A value of -1 disables this feature.<br>This will not affect summons that are already friendly by default.|
+|BloodmagicMakeSummonsTolerateLavaMinChance|-1|From -1 to 100|The chance (in percent) at skill level 0 for a summoned creature to tolerate lava.<br>A value of -1 disables this feature.<br>This will not affect summons that already tolerate lava by default.|
+|BloodmagicMakeSummonsTolerateLavaMaxChance|-1|From -1 to 100|The chance (in percent) at skill level 0 for a summoned creature to tolerate lava.<br>A value of -1 disables this feature.<br>This will not affect summons that already tolerate lava by default.|
 </details>
 <details><summary>Sleeping</summary>
 

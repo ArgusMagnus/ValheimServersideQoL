@@ -396,27 +396,7 @@ sealed class PlayerProcessor : Processor
         if (_estimateSkillLevels)
         {
             state.CheckSkillItem = null;
-
-            if (item.m_itemData.m_shared is { m_skillType: SkillType.ElementalMagic or SkillType.BloodMagic })
-            {
-                if (ReferenceEquals(item, state.LastUsedItem) &&
-                    state.EitrTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_eitrRegenDelay))
-                {
-                    var eitr = zdo.Vars.GetEitr();
-                    var floored = Mathf.FloorToInt(eitr);
-                    if (floored != state.Eitr)
-                    {
-                        state.Eitr = floored;
-                        state.EitrTimestamp = DateTimeOffset.UtcNow;
-                    }
-                    else
-                    {
-                        state.CheckSkillStaminaEitr = eitr;
-                        state.CheckSkillItem = item;
-                    }
-                }
-            }
-            else if (item.m_itemData.m_shared is { m_skillType: not SkillType.Swords } or { m_damages.m_slash: > 0 })
+            if (item.m_itemData.m_shared is { m_attack.m_attackStamina: > 0 } and ({ m_skillType: not SkillType.Swords } or { m_damages.m_slash: > 0 }))
             {
                 if (ReferenceEquals(item, state.LastUsedItem) &&
                     state.StaminaTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_staminaRegenDelay))
@@ -431,6 +411,25 @@ sealed class PlayerProcessor : Processor
                     else if (stamina >= 2 * item.m_itemData.m_shared.m_attack.m_attackStamina) // infinite stamina feature might interfere
                     {
                         state.CheckSkillStaminaEitr = stamina;
+                        state.CheckSkillItem = item;
+                    }
+                }
+            }
+            else if (item.m_itemData.m_shared.m_attack.m_attackEitr > 0)
+            {
+                if (ReferenceEquals(item, state.LastUsedItem) &&
+                    state.EitrTimestamp < DateTimeOffset.UtcNow.AddSeconds(-1.5f * zdo.PrefabInfo.Player!.m_eitrRegenDelay))
+                {
+                    var eitr = zdo.Vars.GetEitr();
+                    var floored = Mathf.FloorToInt(eitr);
+                    if (floored != state.Eitr)
+                    {
+                        state.Eitr = floored;
+                        state.EitrTimestamp = DateTimeOffset.UtcNow;
+                    }
+                    else
+                    {
+                        state.CheckSkillStaminaEitr = eitr;
                         state.CheckSkillItem = item;
                     }
                 }
@@ -822,7 +821,7 @@ sealed class PlayerProcessor : Processor
 
         if (_estimateSkillLevels && state.CheckSkillItem is not null)
         {
-            var usesEitr = state.CheckSkillItem.m_itemData.m_shared.m_skillType is SkillType.ElementalMagic or SkillType.BloodMagic;
+            var usesEitr = state.CheckSkillItem.m_itemData.m_shared.m_attack.m_attackEitr > 0;
             var staminaOrEitr = usesEitr ? zdo.Vars.GetEitr() : zdo.Vars.GetStamina();
 
             if (staminaOrEitr < state.CheckSkillStaminaEitr)
