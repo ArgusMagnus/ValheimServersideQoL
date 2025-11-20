@@ -261,6 +261,8 @@
 |BloodmagicMakeHostileSummonsFriendlyMaxChance|-1|From -1 to 100|The chance (in percent) at skill level 100 for hostile summons to be made friendly.<br>A value of -1 disables this feature.<br>This will not affect summons that are already friendly by default.|
 |BloodmagicMakeSummonsTolerateLavaMinChance|-1|From -1 to 100|The chance (in percent) at skill level 0 for a summoned creature to tolerate lava.<br>A value of -1 disables this feature.<br>This will not affect summons that already tolerate lava by default.|
 |BloodmagicMakeSummonsTolerateLavaMaxChance|-1|From -1 to 100|The chance (in percent) at skill level 0 for a summoned creature to tolerate lava.<br>A value of -1 disables this feature.<br>This will not affect summons that already tolerate lava by default.|
+|BloodmagicSummonsHPRegenMinMultiplier|1||The time it takes for a summoned creature to fully regenerate its health at skill level 0 is multiplied by this factor.|
+|BloodmagicSummonsHPRegenMaxMultiplier|1||The time it takes for a summoned creature to fully regenerate its health at skill level 100 is multiplied by this factor.|
 </details>
 <details><summary>Sleeping</summary>
 

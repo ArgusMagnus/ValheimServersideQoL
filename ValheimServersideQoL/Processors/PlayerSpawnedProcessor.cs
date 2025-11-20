@@ -13,13 +13,16 @@ sealed class PlayerSpawnedProcessor : Processor
     readonly Dictionary<int, List<ExtendedZDO>> _spawnedByPrefab = [];
     readonly Dictionary<ExtendedZDO, SpawnedState> _spawnedStates = [];
     PlayerProcessor.IPeerInfo? _lastSummoningPlayer;
-    int _makeFriendlyChance;
-    int _levelUpChance;
-    int _tolerateLavaChance;
+    bool _canMakeFriendly;
+    bool _canLevelUp;
+    bool _canTolerateLava;
+    bool _modifyHpRegen;
+
+    public bool SetsFedDuration => _modifyHpRegen;
 
     sealed class SpawnedState
     {
-        public ExtendedZDO? FollowTarget { get; set; }
+        public PlayerProcessor.IPeerInfo? Summoner { get; set; }
         public DateTimeOffset NextPatrolPointUpdate { get; set; }
         public bool ChancesEvaluated { get; set; }
     }
@@ -34,15 +37,18 @@ sealed class PlayerSpawnedProcessor : Processor
                 list.Clear();
         }
 
-        _makeFriendlyChance = Config.HostileSummons.MakeFriendly.Value ? 100 :
-            Math.Min(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value);
+        _canMakeFriendly = Config.HostileSummons.MakeFriendly.Value ? true :
+            Math.Min(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value) >= 0;
 
-        _levelUpChance = Math.Min(Config.Skills.BloodmagicSummonsMinLevelUpChance.Value, Config.Skills.BloodmagicSummonsMaxLevelUpChance.Value);
-        _tolerateLavaChance = Math.Min(Config.Skills.BloodmagicMakeSummonsTolerateLavaMinChance.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaMaxChance.Value);
+        _canLevelUp = Math.Min(Config.Skills.BloodmagicSummonsMinLevelUpChance.Value, Config.Skills.BloodmagicSummonsMaxLevelUpChance.Value) >= 0;
+        _canTolerateLava = Math.Min(Config.Skills.BloodmagicMakeSummonsTolerateLavaMinChance.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaMaxChance.Value) >= 0;
+        _modifyHpRegen =
+            (Config.Skills.BloodmagicSummonsHPRegenMinMultiplier.Value, Config.Skills.BloodmagicSummonsHPRegenMaxMultiplier.Value)
+            is { Item1: >= 0, Item2: >= 0 } and not { Item1: 1f, Item2: 1f };
 
         if (_spawnInfo.Count is 0)
         {
-            if (Config.HostileSummons.AllowReplacementSummon.Value || _makeFriendlyChance > -1)
+            if (Config.HostileSummons.AllowReplacementSummon.Value || _canMakeFriendly)
             {
                 foreach (var item in ObjectDB.instance.m_items.Select(static x => x.GetComponent<ItemDrop>()))
                 {
@@ -79,7 +85,7 @@ sealed class PlayerSpawnedProcessor : Processor
         }
 
         UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger,
-            Config.HostileSummons.AllowReplacementSummon.Value || _makeFriendlyChance > -1);
+            Config.HostileSummons.AllowReplacementSummon.Value || _canMakeFriendly);
 
         if (!firstTime)
             return;
@@ -93,45 +99,103 @@ sealed class PlayerSpawnedProcessor : Processor
         list.Sort(static (a, b) => Math.Sign(a.Vars.GetSpawnTime().Ticks - b.Vars.GetSpawnTime().Ticks));
     }
 
+    void EvaluateChances(ExtendedZDO zdo, SpawnedState state, bool tamed)
+    {
+        if (state.ChancesEvaluated)
+            return;
+        state.ChancesEvaluated = true;
+        if (state.Summoner is null)
+            return;
+
+        var randomState = UnityEngine.Random.state;
+        UnityEngine.Random.InitState(zdo.Vars.GetSeed());
+        try
+        {
+            float? skill = null;
+            if (!tamed)
+            {
+                int makeFriendlyChance = -1;
+                if (Config.HostileSummons.MakeFriendly.Value)
+                    makeFriendlyChance = 100;
+                else if (_canMakeFriendly)
+                {
+                    if (skill is null)
+                    {
+                        skill = state.Summoner.GetEstimatedSkillLevel(SkillType.BloodMagic);
+                        if (float.IsNaN(skill.Value))
+                            skill = 0;
+                    }
+                    makeFriendlyChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value, skill.Value));
+                }
+                if (makeFriendlyChance >= 0 && (makeFriendlyChance is 100 || UnityEngine.Random.Range(0, 100) <= makeFriendlyChance))
+                {
+                    UnregisterZdoProcessor = false;
+                    RPC.SetTamed(zdo, true);
+                    zdo.Vars.SetTamed(true);
+                }
+            }
+
+            if (_canLevelUp)
+            {
+                if (skill is null)
+                {
+                    skill = state.Summoner.GetEstimatedSkillLevel(SkillType.BloodMagic);
+                    if (float.IsNaN(skill.Value))
+                        skill = 0;
+                }
+                var levelUpChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicSummonsMinLevelUpChance.Value, Config.Skills.BloodmagicSummonsMaxLevelUpChance.Value, skill.Value));
+
+                var level = 1;
+                while (level < Config.Skills.BloodmagicSummonsMaxLevel.Value && UnityEngine.Random.Range(0f, 100f) <= levelUpChance)
+                    level++;
+                if (level != zdo.Vars.GetLevel())
+                {
+                    zdo.Vars.SetLevel(level);
+                    RecreateZdo = true;
+                }
+            }
+
+            if (_canTolerateLava)
+            {
+                if (skill is null)
+                {
+                    skill = state.Summoner.GetEstimatedSkillLevel(SkillType.BloodMagic);
+                    if (float.IsNaN(skill.Value))
+                        skill = 0;
+                }
+                var tolerateLavaChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeSummonsTolerateLavaMinChance.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaMaxChance.Value, skill.Value));
+                
+                if (zdo.PrefabInfo.Humanoid is { Humanoid.m_tolerateFire: false } &&
+                    zdo.Fields<Humanoid>().UpdateValue(static () => x => x.m_tolerateFire, UnityEngine.Random.Range(0, 100) <= tolerateLavaChance))
+                {
+                    RecreateZdo = true;
+                }
+            }
+
+            if (_modifyHpRegen)
+            {
+                if (skill is null)
+                {
+                    skill = state.Summoner.GetEstimatedSkillLevel(SkillType.BloodMagic);
+                    if (float.IsNaN(skill.Value))
+                        skill = 0;
+                }
+                var hpRegenMultiplier = Utils.Lerp(Config.Skills.BloodmagicSummonsHPRegenMinMultiplier.Value, Config.Skills.BloodmagicSummonsHPRegenMaxMultiplier.Value, skill.Value);
+
+                if (zdo.Fields<Humanoid>().UpdateValue(static () => x => x.m_regenAllHPTime, zdo.PrefabInfo.Humanoid!.Value.Humanoid.m_regenAllHPTime / hpRegenMultiplier))
+                    RecreateZdo = true;
+                if (zdo.PrefabInfo.Tameable is not null && zdo.Fields<Tameable>().UpdateValue(static () => x => x.m_fedDuration, float.PositiveInfinity))
+                    RecreateZdo = true;
+            }
+        }
+        finally { UnityEngine.Random.state = randomState; }
+    }
+
     /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
     void OnZSyncAnimationSetTrigger(ZRoutedRpc.RoutedRPCData data, string name)
     {
         if (!_spawnInfo.TryGetValue(name, out var spawnInfo) || (_lastSummoningPlayer = Instance<PlayerProcessor>().GetPeerInfo(data.m_senderPeerID)) is null)
             return;
-
-        float? skill = null;
-        if (!Config.HostileSummons.MakeFriendly.Value && _makeFriendlyChance > -1)
-        {
-            if (skill is null)
-            {
-                skill = _lastSummoningPlayer.GetEstimatedSkillLevel(SkillType.BloodMagic);
-                if (float.IsNaN(skill.Value))
-                    skill = 0;
-            }
-            _makeFriendlyChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value, skill.Value));
-        }
-
-        if (_levelUpChance > -1)
-        {
-            if (skill is null)
-            {
-                skill = _lastSummoningPlayer.GetEstimatedSkillLevel(SkillType.BloodMagic);
-                if (float.IsNaN(skill.Value))
-                    skill = 0;
-            }
-            _levelUpChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicSummonsMinLevelUpChance.Value, Config.Skills.BloodmagicSummonsMaxLevelUpChance.Value, skill.Value));
-        }
-
-        if (_tolerateLavaChance > -1)
-        {
-            if (skill is null)
-            {
-                skill = _lastSummoningPlayer.GetEstimatedSkillLevel(SkillType.BloodMagic);
-                if (float.IsNaN(skill.Value))
-                    skill = 0;
-            }
-            _tolerateLavaChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeSummonsTolerateLavaMinChance.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaMaxChance.Value, skill.Value));
-        }
 
         if (!Config.HostileSummons.AllowReplacementSummon.Value)
             return;
@@ -178,57 +242,21 @@ sealed class PlayerSpawnedProcessor : Processor
             }
         }
 
-        if ((Config.HostileSummons.FollowSummoner.Value || _makeFriendlyChance > -1) && state.FollowTarget is null)
+        if (state.Summoner is null)
         {
             var playerName = zdo.Vars.GetFollow();
             if (!string.IsNullOrEmpty(playerName))
-                state.FollowTarget = Instance<PlayerProcessor>().Players.Values.FirstOrDefault(x => x.Vars.GetPlayerName() == playerName);
-            state.FollowTarget ??= _lastSummoningPlayer?.PlayerZDO;
-            if (state.FollowTarget is not null && string.IsNullOrEmpty(playerName))
-                zdo.Vars.SetFollow(playerName = state.FollowTarget.Vars.GetPlayerName());
+                state.Summoner = Instance<PlayerProcessor>().PeerInfos.FirstOrDefault(x => x.PlayerName == playerName);
+            state.Summoner ??= _lastSummoningPlayer;
+            if (state.Summoner is not null && string.IsNullOrEmpty(playerName))
+                zdo.Vars.SetFollow(playerName = state.Summoner.PlayerName);
         }
 
         var tamed = zdo.Vars.GetTamed();
 
-        if (!state.ChancesEvaluated)
-        {
-            state.ChancesEvaluated = true;
-            var randomState = UnityEngine.Random.state;
-            UnityEngine.Random.InitState(zdo.Vars.GetSeed());
-            try
-            {
-                if (_makeFriendlyChance > -1 && !tamed)
-                {
-                    if (_makeFriendlyChance < 100 && UnityEngine.Random.Range(0, 100) > _makeFriendlyChance)
-                        return false;
+        EvaluateChances(zdo, state, tamed);
 
-                    UnregisterZdoProcessor = false;
-                    RPC.SetTamed(zdo, true);
-                    zdo.Vars.SetTamed(true);
-                }
-
-                if (_levelUpChance > -1)
-                {
-                    var level = 1;
-                    while (level < Config.Skills.BloodmagicSummonsMaxLevel.Value && UnityEngine.Random.Range(0f, 100f) <= _levelUpChance)
-                        level++;
-                    if (level != zdo.Vars.GetLevel())
-                    {
-                        zdo.Vars.SetLevel(level);
-                        RecreateZdo = true;
-                    }
-                }
-
-                if (_tolerateLavaChance > -1 && zdo.PrefabInfo.Humanoid is { Humanoid.m_tolerateFire: false } &&
-                    zdo.Fields<Humanoid>().UpdateValue(static () => x => x.m_tolerateFire, UnityEngine.Random.Range(0, 100) <= _tolerateLavaChance))
-                {
-                    RecreateZdo = true;
-                }
-            }
-            finally { UnityEngine.Random.state = randomState; }
-        }
-
-        var follow = Config.HostileSummons.FollowSummoner.Value || (_makeFriendlyChance > -1 && tamed);
+        var follow = Config.HostileSummons.FollowSummoner.Value || (_canMakeFriendly && tamed);
         if (follow && zdo.PrefabInfo.Tameable is null)
         {
             var cfg = Config.Advanced.HostileSummons.FollowSummoners;
@@ -241,15 +269,15 @@ sealed class PlayerSpawnedProcessor : Processor
                 return false;
 
             UnregisterZdoProcessor = false;
-            if (state.FollowTarget is not null &&
+            if (state.Summoner is not null &&
                 DateTimeOffset.UtcNow is { } now && now > state.NextPatrolPointUpdate &&
-                Utils.DistanceXZ(zdo.GetPosition(), state.FollowTarget.GetPosition()) > cfg.MaxDistance / 2)
+                Utils.DistanceXZ(zdo.GetPosition(), state.Summoner.PlayerZDO.GetPosition()) > cfg.MaxDistance / 2)
             {
                 state.NextPatrolPointUpdate = now.AddSeconds(cfg.MoveInterval / 2);
                 var rev = zdo.DataRevision;
-                zdo.Vars.SetSpawnPoint(state.FollowTarget.GetPosition());
+                zdo.Vars.SetSpawnPoint(state.Summoner.PlayerZDO.GetPosition());
                 zdo.Vars.SetPatrol(true);
-                zdo.Vars.SetPatrolPoint(state.FollowTarget.GetPosition());
+                zdo.Vars.SetPatrolPoint(state.Summoner.PlayerZDO.GetPosition());
                 if (rev != zdo.DataRevision) // values changed
                     zdo.DataRevision += 100;
             }

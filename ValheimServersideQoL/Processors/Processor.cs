@@ -249,6 +249,7 @@ abstract class Processor
 
     protected static Heightmap GetHeightmap(Vector3 pos) => Heightmap.FindHeightmap(pos) ?? SharedProcessorState.CreateHeightmap(pos);
     protected static Heightmap.Biome GetBiome(Vector3 pos) => GetHeightmap(pos).GetBiome(pos);
+    protected static float GetHeight(Vector3 pos) => GetHeightmap(pos).GetHeight(pos);
 
     protected static string ConvertToRegexPattern(string searchPattern)
     {

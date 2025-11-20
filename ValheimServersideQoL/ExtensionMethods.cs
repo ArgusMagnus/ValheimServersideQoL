@@ -15,6 +15,12 @@ static class ExtensionMethods
     public static int GetActiveArea(this ZoneSystem instance) => instance.m_activeArea - 1;
     public static int GetLoadedArea(this ZoneSystem instance) => instance.m_activeArea;
 
+    public static float GetHeight(this Heightmap hmap, Vector3 pos)
+    {
+        hmap.WorldToVertex(pos, out var x, out var y);
+        return hmap.GetHeight(x, y);
+    }
+
     public static ConfigEntry<T> BindEx<T>(this ConfigFile config, string section, T defaultValue, string description, [CallerMemberName]string key = default!)
         => config.Bind(section, key, defaultValue, description);
 

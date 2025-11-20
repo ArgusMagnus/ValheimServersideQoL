@@ -239,7 +239,7 @@ sealed class ItemDropProcessor : Processor
 
         if (zdo.PrefabInfo.ItemDrop is { Floating.Value: null, Fish.Value: null } &&
             Config.World.MakeAllItemsFloat.Value &&
-            zdo.GetPosition() is { y: < ZoneSystem.c_WaterLevel - 2 })
+            GetHeight(zdo.GetPosition()) is < ZoneSystem.c_WaterLevel - 2)
         {
             var crate = GetCrate(zdo.GetPosition(), zdo.GetRotation());
 

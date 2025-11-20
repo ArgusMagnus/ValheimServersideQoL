@@ -43,8 +43,11 @@ sealed class TameableProcessor : Processor
 
         if (Config.Tames.FedDurationMultiplier.Value is 1f)
             fields.Reset(static () => x => x.m_fedDuration);
-        else if (fields.UpdateValue(static () => x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
+        else if (zdo.PrefabInfo.Humanoid is not { Humanoid.m_faction: Character.Faction.Players or Character.Faction.PlayerSpawned }
+            && fields.UpdateValue(static () => x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
+        { 
             RecreateZdo = true;
+        }
 
         if (Config.Tames.TamingTimeMultiplier.Value is 1f)
             fields.Reset(static () => x => x.m_tamingTime);
@@ -74,13 +77,6 @@ sealed class TameableProcessor : Processor
                 fields.Reset(static () => x => x.m_unsummonOnOwnerLogoutSeconds);
             else if (fields.UpdateValue(static () => x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
                 RecreateZdo = true;
-
-            //if (zdo.PrefabInfo.Humanoid is { Humanoid.m_damageModifiers.m_spirit: not HitData.DamageModifier.Immune })
-            //{
-            //    Logger.DevLog($"Undead: {zdo.PrefabInfo.PrefabName}");
-            //    if (zdo.Fields<Humanoid>().SetIfChanged(static () => x => x.m_tolerateFire, true))
-            //        RecreateZdo = true;
-            //}
 
             if (!RecreateZdo)
             {

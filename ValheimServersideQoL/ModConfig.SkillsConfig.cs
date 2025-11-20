@@ -51,5 +51,13 @@ partial record ModConfig
             A value of -1 disables this feature.
             This will not affect summons that already tolerate lava by default.
             """, new AcceptableValueRange<int>(-1, 100));
+
+        public ConfigEntry<float> BloodmagicSummonsHPRegenMinMultiplier { get; } = cfg.BindEx(section, 1f, """
+            The time it takes for a summoned creature to fully regenerate its health at skill level 0 is multiplied by this factor.
+            """);
+
+        public ConfigEntry<float> BloodmagicSummonsHPRegenMaxMultiplier { get; } = cfg.BindEx(section, 1f, """
+            The time it takes for a summoned creature to fully regenerate its health at skill level 100 is multiplied by this factor.
+            """);
     }
 }
