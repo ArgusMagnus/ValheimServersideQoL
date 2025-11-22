@@ -239,7 +239,8 @@ sealed class ItemDropProcessor : Processor
 
         if (zdo.PrefabInfo.ItemDrop is { Floating.Value: null, Fish.Value: null } &&
             Config.World.MakeAllItemsFloat.Value &&
-            GetHeight(zdo.GetPosition()) is < ZoneSystem.c_WaterLevel - 2)
+            zdo.Vars.GetSpawnTime() < ZNet.instance.GetTime().AddSeconds(-2) &&
+            GetHeight(zdo.GetPosition()) is < ZoneSystem.c_WaterLevel - 2 && zdo.GetPosition() is { y: < ZoneSystem.c_WaterLevel })
         {
             var crate = GetCrate(zdo.GetPosition(), zdo.GetRotation());
 
@@ -287,9 +288,7 @@ sealed class ItemDropProcessor : Processor
                 }
             }
 
-            crate.ClaimOwnershipInternal();
             crate.Inventory.Save();
-            crate.SetOwnerInternal(zdo.GetOwner());
             DestroyZdo = true;
             return false;
         }
@@ -300,10 +299,13 @@ sealed class ItemDropProcessor : Processor
     ExtendedZDO GetCrate(Vector3 pos, Quaternion rot)
     {
         // round to 4 meters
-        var key = new Vector2i(Mathf.RoundToInt(pos.x / 4), Mathf.RoundToInt(pos.z / 4));
-        if (!_crates.TryGetValue(key, out var crate))
+        var key = new Vector2i(Mathf.FloorToInt(pos.x / 4), Mathf.FloorToInt(pos.z / 4));
+        if (!_crates.TryGetValue(key, out var crate) || !crate.IsOwnerOrUnassigned())
         {
+            if (crate is not null)
+                _crates.Remove(key);
             _crates.Add(key, crate = PlaceObject(pos, Prefabs.CargoCrate, rot));
+            PlacedObjects.Remove(crate); // remove exclusive access
             crate.Destroyed += _ => _crates.Remove(key);
             crate.Vars.SetCreator(0);
         }

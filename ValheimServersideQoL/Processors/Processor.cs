@@ -84,35 +84,35 @@ abstract class Processor
 
         foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjects())
         {
-            if (zdo.IsModCreator(out var marker))
+            if (!zdo.IsModCreator(out var marker))
+                continue;
+
+            if (marker is 0)
             {
-                switch (marker)
+                zdo.Destroy();
+                continue;
+            }
+
+            if ((marker & CreatorMarkers.DataZDO) is not 0)
+            {
+                if (_dataZDO is null)
+                    _dataZDO = zdo;
+                else
                 {
-                    case CreatorMarkers.DataZDO:
-                        if (_dataZDO is null)
-                            _dataZDO = zdo;
-                        else
-                        {
-                            Logger.LogError("More then one DataZDO found, destroying the second one");
-                            zdo.Destroy();
-                        }
+                    Logger.LogError("More then one DataZDO found, destroying the second one");
+                    zdo.Destroy();
+                }
+            }
+            if ((marker & CreatorMarkers.ProcessorOwned) is not 0)
+            {
+                var id = zdo.Vars.GetProcessorId();
+                foreach (var processor in DefaultProcessors)
+                {
+                    if (processor.Id == id)
+                    {
+                        processor.PlacedObjects.Add(zdo);
                         break;
-
-                    case CreatorMarkers.ProcessorOwned:
-                        var id = zdo.Vars.GetProcessorId();
-                        foreach (var processor in DefaultProcessors)
-                        {
-                            if (processor.Id == id)
-                            {
-                                processor.PlacedObjects.Add(zdo);
-                                break;
-                            }
-                        }
-                        break;
-
-                    default:
-                        zdo.Destroy();
-                        break;
+                    }
                 }
             }
         }
@@ -422,7 +422,8 @@ abstract class Processor
     {
         None = 0,
         DataZDO = 1u << 0,
-        ProcessorOwned = 1u << 1
+        ProcessorOwned = 1u << 1,
+        //Persistent = 1u << 2
     }
 
     public static class PrefabNames

@@ -38,13 +38,13 @@ sealed class PlayerSpawnedProcessor : Processor
         }
 
         _canMakeFriendly = Config.HostileSummons.MakeFriendly.Value ? true :
-            Math.Min(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value) >= 0;
+            Math.Max(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value) >= 0;
 
-        _canLevelUp = Math.Min(Config.Skills.BloodmagicSummonsMinLevelUpChance.Value, Config.Skills.BloodmagicSummonsMaxLevelUpChance.Value) >= 0;
-        _canTolerateLava = Math.Min(Config.Skills.BloodmagicMakeSummonsTolerateLavaMinChance.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaMaxChance.Value) >= 0;
+        _canLevelUp = Math.Max(Config.Skills.BloodmagicSummonsMinLevelUpChance.Value, Config.Skills.BloodmagicSummonsMaxLevelUpChance.Value) >= 0;
+        _canTolerateLava = Math.Max(Config.Skills.BloodmagicMakeSummonsTolerateLavaMinChance.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaMaxChance.Value) >= 0;
         _modifyHpRegen =
             (Config.Skills.BloodmagicSummonsHPRegenMinMultiplier.Value, Config.Skills.BloodmagicSummonsHPRegenMaxMultiplier.Value)
-            is { Item1: >= 0, Item2: >= 0 } and not { Item1: 1f, Item2: 1f };
+            is ({ Item1: >= 0 } or { Item2: >= 0 }) and not { Item1: 1f, Item2: 1f };
 
         if (_spawnInfo.Count is 0)
         {
@@ -127,7 +127,7 @@ sealed class PlayerSpawnedProcessor : Processor
                     }
                     makeFriendlyChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value, skill.Value));
                 }
-                if (makeFriendlyChance >= 0 && (makeFriendlyChance is 100 || UnityEngine.Random.Range(0, 100) <= makeFriendlyChance))
+                if (makeFriendlyChance >= 0 && UnityEngine.Random.Range(0, 100) <= makeFriendlyChance)
                 {
                     UnregisterZdoProcessor = false;
                     RPC.SetTamed(zdo, true);
