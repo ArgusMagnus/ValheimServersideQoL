@@ -1,3 +1,13 @@
+### vNext (BETA)
+- Deprecated `PickaxeAffectsRockDestruction` and introduced `PickaxeRockCollapseThresholdAtMinSkill`/`PickaxeRockCollapseThresholdAtMaxSkill` instead
+- Renamed options in `Skills` section introduced in the last patch
+- New features in the `Skills` section:
+    - `BloodmagicSummonsLevelUpChanceAtMinSkill`/`BloodmagicSummonsLevelUpChanceAtMaxSkill`: Creatures gain a chance to be summoned with an increased level based on the bloodmagic skill
+    - `BloodmagicMakeSummonsFriendlyChanceAtMinSkill`/`BloodmagicMakeSummonsFriendlyChanceAtMaxSkill`: Hostile summons (like summoned troll) gain a chance to be friendly based on the bloodmagic skill
+    - `BloodmagicMakeSummonsTolerateLavaChanceAtMinSkill`/`BloodmagicMakeSummonsTolerateLavaChanceAtMaxSkill`: Summons gain a chance to gain fire/lava immunity based on the bloodmagic skill
+    - `BloodmagicSummonsHPRegenMultiplierAtMinSkill`/`BloodmagicSummonsHPRegenMultiplierAtMaxSkill`: Summons gain a multiplier to their HP regeneration based on the bloodmagic skill
+    - `BloodmagicSummonsSpeedMultiplierAtMinSkill`/`BloodmagicSummonsSpeedMultiplierAtMaxSkill`: Summons gain a multiplier to their speed based on the bloodmagic skill
+
 ### v1.6.1008 (BETA)
 - New option for teleporting following tames: `TeleportFollowMinDistance`
 - New features in the `Skills` section:

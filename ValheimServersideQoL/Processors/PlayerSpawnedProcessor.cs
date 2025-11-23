@@ -17,6 +17,7 @@ sealed class PlayerSpawnedProcessor : Processor
     bool _canLevelUp;
     bool _canTolerateLava;
     bool _modifyHpRegen;
+    bool _modifySpeed;
 
     public bool SetsFedDuration => _modifyHpRegen;
 
@@ -43,6 +44,7 @@ sealed class PlayerSpawnedProcessor : Processor
         _canLevelUp = Config.Skills.BloodmagicSummonsLevelUpEnabled;
         _canTolerateLava = Config.Skills.BloodmagicMakeSummonsTolerateLavaEnabled;
         _modifyHpRegen = Config.Skills.BloodmagicSummonsHPRegenMultiplierEnabled;
+        _modifySpeed = Config.Skills.BloodmagicSummonsSpeedMultiplierEnabled;
 
         if (_spawnInfo.Count is 0)
         {
@@ -183,6 +185,43 @@ sealed class PlayerSpawnedProcessor : Processor
                 if (zdo.Fields<Humanoid>().UpdateValue(static () => x => x.m_regenAllHPTime, zdo.PrefabInfo.Humanoid!.Value.Humanoid.m_regenAllHPTime / hpRegenMultiplier))
                     RecreateZdo = true;
                 if (zdo.PrefabInfo.Tameable is not null && zdo.Fields<Tameable>().UpdateValue(static () => x => x.m_fedDuration, float.PositiveInfinity))
+                    RecreateZdo = true;
+            }
+
+            if (_modifySpeed)
+            {
+                if (skill is null)
+                {
+                    skill = state.Summoner.GetEstimatedSkillLevel(SkillType.BloodMagic);
+                    if (float.IsNaN(skill.Value))
+                        skill = 0;
+                }
+                var speedMultiplier = Utils.Lerp(Config.Skills.BloodmagicSummonsSpeedMultiplierAtMinSkill.Value, Config.Skills.BloodmagicSummonsSpeedMultiplierAtMaxSkill.Value, skill.Value);
+                var fields = zdo.Fields<Humanoid>();
+                var humanoid = zdo.PrefabInfo.Humanoid!.Value.Humanoid;
+                if (fields.UpdateValue(static () => x => x.m_speed, humanoid.m_speed * speedMultiplier))
+                    RecreateZdo = true;
+                if (fields.UpdateValue(static () => x => x.m_crouchSpeed, humanoid.m_crouchSpeed * speedMultiplier))
+                    RecreateZdo = true;
+                if (fields.UpdateValue(static () => x => x.m_flyFastSpeed, humanoid.m_flyFastSpeed * speedMultiplier))
+                    RecreateZdo = true;
+                if (fields.UpdateValue(static () => x => x.m_flySlowSpeed, humanoid.m_flySlowSpeed * speedMultiplier))
+                    RecreateZdo = true;
+                //if (fields.UpdateValue(static () => x => x.m_flyTurnSpeed, humanoid.m_flyTurnSpeed * speedMultiplier))
+                //    RecreateZdo = true;
+                if (fields.UpdateValue(static () => x => x.m_groundTiltSpeed, humanoid.m_groundTiltSpeed * speedMultiplier))
+                    RecreateZdo = true;
+                if (fields.UpdateValue(static () => x => x.m_runSpeed, humanoid.m_runSpeed * speedMultiplier))
+                    RecreateZdo = true;
+                //if (fields.UpdateValue(static () => x => x.m_runTurnSpeed, humanoid.m_runTurnSpeed * speedMultiplier))
+                //    RecreateZdo = true;
+                if (fields.UpdateValue(static () => x => x.m_swimSpeed, humanoid.m_swimSpeed * speedMultiplier))
+                    RecreateZdo = true;
+                //if (fields.UpdateValue(static () => x => x.m_swimTurnSpeed, humanoid.m_swimTurnSpeed * speedMultiplier))
+                //    RecreateZdo = true;
+                //if (fields.UpdateValue(static () => x => x.m_turnSpeed, humanoid.m_turnSpeed * speedMultiplier))
+                //    RecreateZdo = true;
+                if (fields.UpdateValue(static () => x => x.m_walkSpeed, humanoid.m_walkSpeed * speedMultiplier))
                     RecreateZdo = true;
             }
         }

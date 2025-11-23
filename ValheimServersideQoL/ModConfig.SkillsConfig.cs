@@ -98,7 +98,7 @@ partial record ModConfigBase
 
         public bool BloodmagicSummonsHPRegenMultiplierEnabled =>
             (BloodmagicSummonsHPRegenMultiplierAtMinSkill.Value, BloodmagicSummonsHPRegenMultiplierAtMaxSkill.Value)
-            is ({ Item1: > 0 } or { Item2: > 0 }) and not { Item1: 1f, Item2: 1f };
+            is { Item1: > 0, Item2: > 0 } and not { Item1: 1f, Item2: 1f };
 
         public ConfigEntry<float> BloodmagicSummonsSpeedMultiplierAtMinSkill { get; } = cfg.BindEx(section, 1f, $"""
             The movement speed of a summoned creature at skill level 0 is multiplied by this factor.
@@ -114,7 +114,7 @@ partial record ModConfigBase
 
         public bool BloodmagicSummonsSpeedMultiplierEnabled =>
             (BloodmagicSummonsSpeedMultiplierAtMinSkill.Value, BloodmagicSummonsSpeedMultiplierAtMaxSkill.Value)
-            is ({ Item1: > 0 } or { Item2: > 0 }) and not { Item1: 1f, Item2: 1f };
+            is { Item1: > 0, Item2: > 0 } and not { Item1: 1f, Item2: 1f };
 
         public bool AnyEnbaled =>
             PickaxeRockCollapseEnabled ||
