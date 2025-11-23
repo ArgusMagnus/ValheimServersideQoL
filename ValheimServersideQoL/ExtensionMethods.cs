@@ -21,11 +21,13 @@ static class ExtensionMethods
         return hmap.GetHeight(x, y);
     }
 
-    public static ConfigEntry<T> BindEx<T>(this ConfigFile config, string section, T defaultValue, string description, [CallerMemberName]string key = default!)
-        => config.Bind(section, key, defaultValue, description);
+    public static ConfigEntry<T> BindEx<T>(this ConfigFile config, string section, T defaultValue, string description,
+        AcceptableValueBase? acceptableValues = null,
+        ModConfigBase.Deprecated? deprecated = null,
+        [CallerMemberName] string key = default!)
+        => ModConfigBase.BindEx(config, section, defaultValue, description, acceptableValues, deprecated, key);
 
-    public static ConfigEntry<T> BindEx<T>(this ConfigFile config, string section, T defaultValue, string description, AcceptableValueBase? acceptableValues, [CallerMemberName] string key = default!)
-        => config.Bind(section, key, defaultValue, new ConfigDescription(description, acceptableValues));
+    public static bool IsDeprecated(this ConfigEntryBase entry) => ModConfigBase.IsDeprecated(entry);
 
     [Conditional("DEBUG")]
     public static void AssertIs<T>(this ExtendedZDO zdo) where T : MonoBehaviour

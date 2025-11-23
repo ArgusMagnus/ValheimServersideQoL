@@ -38,13 +38,11 @@ sealed class PlayerSpawnedProcessor : Processor
         }
 
         _canMakeFriendly = Config.HostileSummons.MakeFriendly.Value ? true :
-            Math.Max(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value) >= 0;
+            Config.Skills.BloodmagicMakeSummonsFriendlyEnabled;
 
-        _canLevelUp = Math.Max(Config.Skills.BloodmagicSummonsMinLevelUpChance.Value, Config.Skills.BloodmagicSummonsMaxLevelUpChance.Value) >= 0;
-        _canTolerateLava = Math.Max(Config.Skills.BloodmagicMakeSummonsTolerateLavaMinChance.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaMaxChance.Value) >= 0;
-        _modifyHpRegen =
-            (Config.Skills.BloodmagicSummonsHPRegenMinMultiplier.Value, Config.Skills.BloodmagicSummonsHPRegenMaxMultiplier.Value)
-            is ({ Item1: >= 0 } or { Item2: >= 0 }) and not { Item1: 1f, Item2: 1f };
+        _canLevelUp = Config.Skills.BloodmagicSummonsLevelUpEnabled;
+        _canTolerateLava = Config.Skills.BloodmagicMakeSummonsTolerateLavaEnabled;
+        _modifyHpRegen = Config.Skills.BloodmagicSummonsHPRegenMultiplierEnabled;
 
         if (_spawnInfo.Count is 0)
         {
@@ -125,7 +123,7 @@ sealed class PlayerSpawnedProcessor : Processor
                         if (float.IsNaN(skill.Value))
                             skill = 0;
                     }
-                    makeFriendlyChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeHostileSummonsFriendlyMinChance.Value, Config.Skills.BloodmagicMakeHostileSummonsFriendlyMaxChance.Value, skill.Value));
+                    makeFriendlyChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeSummonsFriendlyChanceAtMinSkill.Value, Config.Skills.BloodmagicMakeSummonsFriendlyChanceAtMaxSkill.Value, skill.Value));
                 }
                 if (makeFriendlyChance >= 0 && UnityEngine.Random.Range(0, 100) <= makeFriendlyChance)
                 {
@@ -143,7 +141,7 @@ sealed class PlayerSpawnedProcessor : Processor
                     if (float.IsNaN(skill.Value))
                         skill = 0;
                 }
-                var levelUpChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicSummonsMinLevelUpChance.Value, Config.Skills.BloodmagicSummonsMaxLevelUpChance.Value, skill.Value));
+                var levelUpChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicSummonsLevelUpChanceAtMinSkill.Value, Config.Skills.BloodmagicSummonsLevelUpChanceAtMaxSkill.Value, skill.Value));
 
                 var level = 1;
                 while (level < Config.Skills.BloodmagicSummonsMaxLevel.Value && UnityEngine.Random.Range(0f, 100f) <= levelUpChance)
@@ -163,7 +161,7 @@ sealed class PlayerSpawnedProcessor : Processor
                     if (float.IsNaN(skill.Value))
                         skill = 0;
                 }
-                var tolerateLavaChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeSummonsTolerateLavaMinChance.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaMaxChance.Value, skill.Value));
+                var tolerateLavaChance = Mathf.RoundToInt(Utils.Lerp(Config.Skills.BloodmagicMakeSummonsTolerateLavaChanceAtMinSkill.Value, Config.Skills.BloodmagicMakeSummonsTolerateLavaChanceAtMaxSkill.Value, skill.Value));
                 
                 if (zdo.PrefabInfo.Humanoid is { Humanoid.m_tolerateFire: false } &&
                     zdo.Fields<Humanoid>().UpdateValue(static () => x => x.m_tolerateFire, UnityEngine.Random.Range(0, 100) <= tolerateLavaChance))
@@ -180,7 +178,7 @@ sealed class PlayerSpawnedProcessor : Processor
                     if (float.IsNaN(skill.Value))
                         skill = 0;
                 }
-                var hpRegenMultiplier = Utils.Lerp(Config.Skills.BloodmagicSummonsHPRegenMinMultiplier.Value, Config.Skills.BloodmagicSummonsHPRegenMaxMultiplier.Value, skill.Value);
+                var hpRegenMultiplier = Utils.Lerp(Config.Skills.BloodmagicSummonsHPRegenMultiplierAtMinSkill.Value, Config.Skills.BloodmagicSummonsHPRegenMultiplierAtMaxSkill.Value, skill.Value);
 
                 if (zdo.Fields<Humanoid>().UpdateValue(static () => x => x.m_regenAllHPTime, zdo.PrefabInfo.Humanoid!.Value.Humanoid.m_regenAllHPTime / hpRegenMultiplier))
                     RecreateZdo = true;

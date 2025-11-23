@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using static Valheim.ServersideQoL.ModConfigBase.ContainersConfig;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -55,8 +56,8 @@ sealed class ContainerProcessor : Processor
         _chestsBySigns.Clear();
 
         UpdateRpcSubscription("OpenRespons", RPC_OpenResponse, false);
-        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled);
-        UpdateRpcSubscription("RPC_AnimateLeverReturn", RPC_AnimateLeverReturn, Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled);
+        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever, Config.Containers.ObliteratorItemTeleporter.Value is not ObliteratorItemTeleporterOptions.Disabled);
+        UpdateRpcSubscription("RPC_AnimateLeverReturn", RPC_AnimateLeverReturn, Config.Containers.ObliteratorItemTeleporter.Value is not ObliteratorItemTeleporterOptions.Disabled);
         _openResponseRegistered = false;
 
         _containerSizes.Clear();
@@ -81,7 +82,7 @@ sealed class ContainerProcessor : Processor
         ContainersByItemName.Clear();
         _swapContentRequests.Clear();
 
-        if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled)
+        if (Config.Containers.ObliteratorItemTeleporter.Value is not ObliteratorItemTeleporterOptions.Disabled)
         {
             foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjects())
             {
@@ -117,7 +118,7 @@ sealed class ContainerProcessor : Processor
         }
     }
 
-    ModConfig.ContainersConfig.SignOptions GetSignOptions(int prefab)
+    SignOptions GetSignOptions(int prefab)
     {
         if (prefab == Prefabs.WoodChest)
             return Config.Containers.WoodChestSigns.Value;
@@ -209,9 +210,9 @@ sealed class ContainerProcessor : Processor
     {
         switch (Config.Containers.ObliteratorItemTeleporter.Value)
         {
-            case ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.EnabledAllItems:
+            case ObliteratorItemTeleporterOptions.EnabledAllItems:
                 return false;
-            case ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Enabled:
+            case ObliteratorItemTeleporterOptions.Enabled:
                 if (ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
                     return false;
                 break;
@@ -313,7 +314,7 @@ sealed class ContainerProcessor : Processor
         }
 
         var signOptions = GetSignOptions(zdo.GetPrefab());
-        if (signOptions is not ModConfig.ContainersConfig.SignOptions.None && !_signsByChests.ContainsKey(zdo) && Config.Advanced.Containers.ChestSignOffsets.TryGetValue(zdo.GetPrefab(), out var signOffset))
+        if (signOptions is not SignOptions.None && !_signsByChests.ContainsKey(zdo) && Config.Advanced.Containers.ChestSignOffsets.TryGetValue(zdo.GetPrefab(), out var signOffset))
         {
             var text = zdo.Vars.GetText(null!);
             if (text is null)
@@ -331,28 +332,28 @@ sealed class ContainerProcessor : Processor
             var signs = new List<ExtendedZDO>();
             ExtendedZDO sign;
             p.y += signOffset.Top / 2;
-            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Left))
+            if (signOptions.HasFlag(SignOptions.Left))
             {
                 sign = PlacePiece(p + r * Vector3.right * signOffset.Left, Prefabs.Sign, rot);
                 sign.Vars.SetText(text);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
-            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Right))
+            if (signOptions.HasFlag(SignOptions.Right))
             {
                 sign = PlacePiece(p + r * Vector3.left * signOffset.Right, Prefabs.Sign, rot + 180);
                 sign.Vars.SetText(text);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
-            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Front))
+            if (signOptions.HasFlag(SignOptions.Front))
             {
                 sign = PlacePiece(p + r * Vector3.forward * signOffset.Front, Prefabs.Sign, rot + 270);
                 sign.Vars.SetText(text);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
-            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.Back))
+            if (signOptions.HasFlag(SignOptions.Back))
             {
                 sign = PlacePiece(p + r * Vector3.back * signOffset.Back, Prefabs.Sign, rot + 90);
                 sign.Vars.SetText(text);
@@ -361,14 +362,14 @@ sealed class ContainerProcessor : Processor
             }
             p = zdo.GetPosition();
             p.y += signOffset.Top;
-            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.TopLongitudinal))
+            if (signOptions.HasFlag(SignOptions.TopLongitudinal))
             {
                 sign = PlacePiece(p, Prefabs.Sign, Quaternion.Euler(-90, rot - 90, 0));
                 sign.Vars.SetText(text);
                 signs.Add(sign);
                 _chestsBySigns.Add(sign, zdo);
             }
-            if (signOptions.HasFlag(ModConfig.ContainersConfig.SignOptions.TopLateral))
+            if (signOptions.HasFlag(SignOptions.TopLateral))
             {
                 sign = PlacePiece(p, Prefabs.Sign, Quaternion.Euler(-90, rot, 0));
                 sign.Vars.SetText(text);

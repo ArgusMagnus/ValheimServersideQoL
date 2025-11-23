@@ -2,7 +2,7 @@ using BepInEx.Configuration;
 
 namespace Valheim.ServersideQoL;
 
-partial record ModConfig
+partial record ModConfigBase
 {
     public sealed class TrapsConfig(ConfigFile cfg, string section)
     {

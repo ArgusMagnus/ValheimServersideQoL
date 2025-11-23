@@ -2,7 +2,7 @@
 
 namespace Valheim.ServersideQoL;
 
-partial record ModConfig
+partial record ModConfigBase
 {
     public sealed class GeneralConfig(ConfigFile cfg, string section)
     {

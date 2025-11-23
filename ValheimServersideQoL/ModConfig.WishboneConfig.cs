@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Valheim.ServersideQoL;
 
-partial record ModConfig
+partial record ModConfigBase
 {
     public sealed class WishboneConfig(ConfigFile cfg, string section)
     {

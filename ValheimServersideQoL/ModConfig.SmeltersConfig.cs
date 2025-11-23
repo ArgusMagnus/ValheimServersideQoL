@@ -3,7 +3,7 @@ using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
-partial record ModConfig
+partial record ModConfigBase
 {
     public sealed class SmeltersConfig(ConfigFile cfg, string section)
     {

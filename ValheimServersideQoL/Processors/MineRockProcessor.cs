@@ -8,9 +8,17 @@ sealed class MineRockProcessor : Processor
     readonly ZPackage _pkg = new();
     readonly List<(int Idx, float Health)> _notDestroyedIndices = [];
 
+    bool _canCollapseBasedOnSkill;
+
+    public override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        _canCollapseBasedOnSkill = Config.Skills.PickaxeRockCollapseEnabled;
+    }
+
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        if (zdo.PrefabInfo.MineRock5 is null ||!Config.Skills.PickaxeAffectsRockDestruction.Value)
+        if (zdo.PrefabInfo.MineRock5 is null ||!_canCollapseBasedOnSkill)
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -38,33 +46,42 @@ sealed class MineRockProcessor : Processor
         if (info is null)
             return true;
 
-        /// <see cref="MineRock5.LoadHealth"/>
-        _pkg.Load(Convert.FromBase64String(healthData));
-        var count = _pkg.ReadInt();
-        _notDestroyedIndices.Clear();
-        for (int i = 0; i < count; i++)
-        {
-            var health = _pkg.ReadSingle();
-            if (health > 0)
-                _notDestroyedIndices.Add((i, health));
-        }
-        
-        var destroyed = (float)(count - _notDestroyedIndices.Count) / count;
-        var minDestroyed = 1f - skill;
-       
-        if (destroyed < minDestroyed)
+        if (float.IsNaN(skill))
+            skill = 0;
+        var threshold = Utils.Lerp(Config.Skills.PickaxeRockCollapseThresholdAtMinSkill.Value, Config.Skills.PickaxeRockCollapseThresholdAtMaxSkill.Value, skill);
+        threshold /= 100;
+        if (threshold >= 1)
             return true;
-
-        var hit = new HitData();
-        foreach (var (idx, health) in _notDestroyedIndices)
+        var destroy = threshold <= 0;
+        if (!destroy)
         {
-            /// <see cref="MineRock5.CheckSupport"/>
-            hit.m_damage.m_damage = health;
-            hit.m_toolTier = short.MaxValue;
-            hit.m_hitType = HitData.HitType.Structural;
-            RPC.DamageMineRock5(zdo, hit, idx);
+            /// <see cref="MineRock5.LoadHealth"/>
+            _pkg.Load(Convert.FromBase64String(healthData));
+            var count = _pkg.ReadInt();
+            _notDestroyedIndices.Clear();
+            for (int i = 0; i < count; i++)
+            {
+                var health = _pkg.ReadSingle();
+                if (health > 0)
+                    _notDestroyedIndices.Add((i, health));
+            }
+
+            var destroyed = (float)(count - _notDestroyedIndices.Count) / count;
+            destroy = destroyed >= threshold;
         }
 
+        if (destroy)
+        {
+            var hit = new HitData();
+            foreach (var (idx, health) in _notDestroyedIndices)
+            {
+                /// <see cref="MineRock5.CheckSupport"/>
+                hit.m_damage.m_damage = health;
+                hit.m_toolTier = short.MaxValue;
+                hit.m_hitType = HitData.HitType.Structural;
+                RPC.DamageMineRock5(zdo, hit, idx);
+            }
+        }
         return true;
     }
 }

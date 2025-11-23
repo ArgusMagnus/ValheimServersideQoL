@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Valheim.ServersideQoL;
 
-partial record ModConfig
+partial record ModConfigBase
 {
     public sealed class GlobalsKeysConfig(ConfigFile cfg, string section, object? tmp = null)
     {

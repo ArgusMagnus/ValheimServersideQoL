@@ -1,14 +1,18 @@
 ﻿using BepInEx.Configuration;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using UnityEngine;
-using Valheim.ServersideQoL.Processors;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.TypeInspectors;
+using System.Runtime.CompilerServices;
 
 namespace Valheim.ServersideQoL;
 
-sealed partial record ModConfig(ConfigFile ConfigFile)
+sealed record ModConfig : ModConfigBase
+{
+    public static event Action<ConfigFile, ModConfig>? Initialized;
+
+    public ModConfig(ConfigFile configFile)
+        : base(configFile)
+        => Initialized?.Invoke(configFile, this);
+}
+
+partial record ModConfigBase(ConfigFile ConfigFile)
 {
     public GeneralConfig General { get; } = new(ConfigFile, "A - General");
     public SignsConfig Signs { get; } = new(ConfigFile, "B - Signs");
@@ -44,4 +48,43 @@ sealed partial record ModConfig(ConfigFile ConfigFile)
 
     public AdvancedConfig Advanced { get; } = InitializeAdvancedConfig<AdvancedConfig>(ConfigFile, "Advanced.yml");
     public LocalizationConfig Localization { get; } = InitializeAdvancedConfig<LocalizationConfig>(ConfigFile, "Localization.yml");
+
+    public sealed record Deprecated(string Reason, Action<ModConfig> AdjustConfig);
+    static readonly HashSet<ConfigEntryBase> __deprecatedEntries = [];
+
+    public static bool IsDeprecated(ConfigEntryBase entry)
+        => __deprecatedEntries.Contains(entry);
+
+    public static ConfigEntry<T> BindEx<T>(ConfigFile config, string section, T defaultValue, string description,
+        AcceptableValueBase? acceptableValues,
+        Deprecated? deprecated,
+        string key)
+    {
+        if (deprecated is not null)
+            description = string.Join(Environment.NewLine, [$"DEPRECATED: {deprecated.Reason}", description]);
+        var cfg = config.Bind(section, key, defaultValue, new ConfigDescription(description, acceptableValues));
+        if (deprecated is not null)
+        {
+            __deprecatedEntries.Add(cfg);
+            ModConfig.Initialized += OnInitialized;
+        }
+        return cfg;
+
+        void OnInitialized(ConfigFile cfgFile, ModConfig modConfig)
+        {
+            if (!ReferenceEquals(cfgFile, cfg.ConfigFile))
+                return;
+            ModConfig.Initialized -= OnInitialized;
+            cfg.SettingChanged += (_, _) => OnSettingChanged(deprecated, cfg, modConfig);
+            OnSettingChanged(deprecated, cfg, modConfig);
+        }
+
+        static void OnSettingChanged(Deprecated deprecated, ConfigEntry<T> cfg, ModConfig modCfg)
+        {
+            if (EqualityComparer<T>.Default.Equals(cfg.Value, (T)cfg.DefaultValue))
+                return;
+            deprecated.AdjustConfig(modCfg);
+            Main.Instance.Logger.LogWarning($"[{cfg.Definition.Section}].[{cfg.Definition.Key}] is deprecated: {deprecated.Reason}");
+        }
+    }
 }

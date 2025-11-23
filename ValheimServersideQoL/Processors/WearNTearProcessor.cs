@@ -1,4 +1,4 @@
-﻿using static Valheim.ServersideQoL.ModConfig.WearNTearConfig;
+﻿using static Valheim.ServersideQoL.ModConfigBase.WearNTearConfig;
 
 namespace Valheim.ServersideQoL.Processors;
 

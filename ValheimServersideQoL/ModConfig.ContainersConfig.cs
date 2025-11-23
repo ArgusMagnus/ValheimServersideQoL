@@ -4,7 +4,7 @@ using YamlDotNet.Serialization;
 
 namespace Valheim.ServersideQoL;
 
-partial record ModConfig
+partial record ModConfigBase
 {
     public sealed class ContainersConfig(ConfigFile cfg, string section)
     {

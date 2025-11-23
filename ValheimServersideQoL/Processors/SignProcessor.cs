@@ -1,5 +1,6 @@
 ﻿using BepInEx.Logging;
 using System.Text.RegularExpressions;
+using static Valheim.ServersideQoL.ModConfigBase.ContainersConfig;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -147,7 +148,7 @@ sealed class SignProcessor : Processor
             }
 
             int tag = 0;
-            if (Config.Containers.ObliteratorItemTeleporter.Value is not ModConfig.ContainersConfig.ObliteratorItemTeleporterOptions.Disabled
+            if (Config.Containers.ObliteratorItemTeleporter.Value is not ObliteratorItemTeleporterOptions.Disabled
                 && chest.PrefabInfo.Container is { Incinerator.Value: not null })
             {
                 if (_incineratorTagRegex.Match(newText) is { Success: true } match)

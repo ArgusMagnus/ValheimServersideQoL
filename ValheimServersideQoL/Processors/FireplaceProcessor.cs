@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static Valheim.ServersideQoL.ModConfigBase.FireplacesConfig;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -69,9 +70,9 @@ sealed class FireplaceProcessor : Processor
 
         var ignoreRain = Config.Fireplaces.IgnoreRain.Value switch
         {
-            ModConfig.FireplacesConfig.IgnoreRainOptions.Never => false,
-            ModConfig.FireplacesConfig.IgnoreRainOptions.Always => true,
-            ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield => Instance<ShieldGeneratorProcessor>().ShieldGenerators
+            IgnoreRainOptions.Never => false,
+            IgnoreRainOptions.Always => true,
+            IgnoreRainOptions.InsideShield => Instance<ShieldGeneratorProcessor>().ShieldGenerators
                 .Any(x => x.HasFuel && Vector3.Distance(x.ShieldGenerator.GetPosition(), zdo.GetPosition()) < x.ShieldGenerator.PrefabInfo.ShieldGenerator!.m_maxShieldRadius),
             _ => false
         };
@@ -104,7 +105,7 @@ sealed class FireplaceProcessor : Processor
             }
         }
 
-        if (Config.Fireplaces.IgnoreRain.Value is ModConfig.FireplacesConfig.IgnoreRainOptions.InsideShield)
+        if (Config.Fireplaces.IgnoreRain.Value is IgnoreRainOptions.InsideShield)
         {
             UnregisterZdoProcessor = false;
             if (!_fireplaces.Contains(zdo))

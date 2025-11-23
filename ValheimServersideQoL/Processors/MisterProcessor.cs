@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static Valheim.ServersideQoL.ModConfigBase.WorldConfig;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -15,17 +16,17 @@ sealed class MisterProcessor : Processor
         var fields = zdo.Fields<Mister>();
         switch (Config.World.RemoveMistlandsMist.Value)
         {
-            case ModConfig.WorldConfig.RemoveMistlandsMistOptions.Never:
+            case RemoveMistlandsMistOptions.Never:
                 if (fields.UpdateResetValue(static () => x => x.m_radius))
                     RecreateZdo = true;
                 break;
 
-            case ModConfig.WorldConfig.RemoveMistlandsMistOptions.Always:
+            case RemoveMistlandsMistOptions.Always:
                 if (fields.UpdateValue(static () => x => x.m_radius, float.MinValue))
                     RecreateZdo = true;
                 break;
 
-            case ModConfig.WorldConfig.RemoveMistlandsMistOptions.AfterQueenKilled:
+            case RemoveMistlandsMistOptions.AfterQueenKilled:
                 if (ZoneSystem.instance.GetGlobalKey("defeated_queen"))
                 {
                     if (fields.UpdateValue(static () => x => x.m_radius, float.MinValue))
@@ -39,7 +40,7 @@ sealed class MisterProcessor : Processor
                 }
                 break;
 
-            case ModConfig.WorldConfig.RemoveMistlandsMistOptions.InsideShield:
+            case RemoveMistlandsMistOptions.InsideShield:
                 UnregisterZdoProcessor = false;
                 var maxRadius = float.PositiveInfinity;
                 var range = Mathf.Max(ParticleMist.instance.m_localRange, ParticleMist.instance.m_distantMaxRange);

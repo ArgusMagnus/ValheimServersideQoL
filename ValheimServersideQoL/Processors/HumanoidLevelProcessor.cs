@@ -1,4 +1,6 @@
-﻿namespace Valheim.ServersideQoL.Processors;
+﻿using static Valheim.ServersideQoL.ModConfigBase.CreaturesConfig;
+
+namespace Valheim.ServersideQoL.Processors;
 
 sealed class HumanoidLevelProcessor : Processor
 {
@@ -42,8 +44,8 @@ sealed class HumanoidLevelProcessor : Processor
             if (!RecreateZdo)
             {
                 var tamed = zdo.Vars.GetTamed();
-                if ((tamed && Config.Creatures.ShowHigherLevelAura.Value.HasFlag(ModConfig.CreaturesConfig.ShowHigherLevelAuraOptions.Tamed)) ||
-                    (!tamed && Config.Creatures.ShowHigherLevelAura.Value.HasFlag(ModConfig.CreaturesConfig.ShowHigherLevelAuraOptions.Wild)))
+                if ((tamed && Config.Creatures.ShowHigherLevelAura.Value.HasFlag(ShowHigherLevelAuraOptions.Tamed)) ||
+                    (!tamed && Config.Creatures.ShowHigherLevelAura.Value.HasFlag(ShowHigherLevelAuraOptions.Wild)))
                 {
                     _states.Add(zdo, state = new(_statusEffects[UnityEngine.Random.Range(0, _statusEffects.Count)]));
                     zdo.Destroyed += x => _states.Remove(x);

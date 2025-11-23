@@ -251,7 +251,7 @@ sealed class PlayerProcessor : Processor
     {
         base.Initialize(firstTime);
 
-        _estimateSkillLevels = Config.Skills.PickaxeAffectsRockDestruction.Value;
+        _estimateSkillLevels = Config.Skills.AnyEnbaled;
         _emaTau = Config.Networking.PingEMAHalfLife.Value / Math.Log(2);
 
         var subscribeSetTrigger = _estimateSkillLevels;
@@ -289,7 +289,7 @@ sealed class PlayerProcessor : Processor
         }
 
         ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateBackpackSlots;
-        if (Config.Players.OpenBackpackEmote.Value is ModConfig.PlayersConfig.DisabledEmote)
+        if (Config.Players.OpenBackpackEmote.Value is ModConfigBase.PlayersConfig.DisabledEmote)
             _backpackSlots = 0;
         else
         {
@@ -366,7 +366,7 @@ sealed class PlayerProcessor : Processor
 
         //Logger.DevLog($"Trigger: {name}, Item: {item.name}, Last used: {state.LastUsedItem?.name}");
 
-        static bool CheckStamina(string triggerName, ModConfig.PlayersConfig cfg)
+        static bool CheckStamina(string triggerName, ModConfigBase.PlayersConfig cfg)
         {
             switch (triggerName)
             {
@@ -869,7 +869,7 @@ sealed class PlayerProcessor : Processor
             }
         }
 
-        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfig.PlayersConfig.DisabledEmote ||
+        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfigBase.PlayersConfig.DisabledEmote ||
             _backpackSlots > 0)
         {
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
@@ -878,7 +878,7 @@ sealed class PlayerProcessor : Processor
                 state.LastEmoteId = emoteId;
 
                 static bool CheckEmote(ExtendedZDO player, Emotes emote)
-                    => emote is not ModConfig.PlayersConfig.DisabledEmote && (emote is ModConfig.PlayersConfig.AnyEmote || emote == player.Vars.GetEmote());
+                    => emote is not ModConfigBase.PlayersConfig.DisabledEmote && (emote is ModConfigBase.PlayersConfig.AnyEmote || emote == player.Vars.GetEmote());
 
                 if (CheckEmote(zdo, Config.Players.StackInventoryIntoContainersEmote.Value))
                 {

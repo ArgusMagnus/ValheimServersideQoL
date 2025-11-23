@@ -492,8 +492,8 @@ public sealed partial class Main : BaseUnityPlugin
 
         foreach (var (def, entry) in cfg.OrderBy(static x => x.Key.Section))
         {
-            //if (def.Section == DummyConfigSection)
-            //    continue;
+            if (entry.IsDeprecated())
+                continue;
 
             if (def.Section != prevSection)
             {

@@ -4,7 +4,7 @@ using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
-partial record ModConfig
+partial record ModConfigBase
 {
     public sealed class NonTeleportableItemsConfig(ConfigFile cfg, string section)
     {

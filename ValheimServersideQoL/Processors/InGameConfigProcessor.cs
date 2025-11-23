@@ -332,9 +332,9 @@ sealed class InGameConfigProcessor : Processor
                     values = [.. (IEnumerable)acceptableValuesType.GetProperty(nameof(AcceptableValueList<int>.AcceptableValues), BindingFlags.Public | BindingFlags.Instance)
                         .GetValue(entry.Description.AcceptableValues)];
                 }
-                else if (genericDef == typeof(ModConfig.AcceptableEnum<>))
+                else if (genericDef == typeof(ModConfigBase.AcceptableEnum<>))
                 {
-                    values = [.. (IEnumerable)acceptableValuesType.GetProperty(nameof(ModConfig.AcceptableEnum<WorldPresets>.AcceptableValues), BindingFlags.Public | BindingFlags.Instance)
+                    values = [.. (IEnumerable)acceptableValuesType.GetProperty(nameof(ModConfigBase.AcceptableEnum<WorldPresets>.AcceptableValues), BindingFlags.Public | BindingFlags.Instance)
                         .GetValue(entry.Description.AcceptableValues)];
                 }
             }

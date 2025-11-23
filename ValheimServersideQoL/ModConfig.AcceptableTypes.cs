@@ -2,7 +2,7 @@ using BepInEx.Configuration;
 
 namespace Valheim.ServersideQoL;
 
-partial record ModConfig
+partial record ModConfigBase
 {
     internal sealed class AcceptableEnum<T> : AcceptableValueBase
         where T : unmanaged, Enum

@@ -2,6 +2,7 @@
 using UnityEngine;
 using Valheim.ServersideQoL.HarmonyPatches;
 using static Heightmap;
+using static Valheim.ServersideQoL.ModConfigBase.CreaturesConfig;
 
 namespace Valheim.ServersideQoL.Processors;
 
@@ -80,7 +81,7 @@ sealed class CreatureLevelUpProcessor : Processor
             if (!string.IsNullOrEmpty(spawner.m_requiredGlobalKey) && !ZoneSystem.instance.GetGlobalKey(spawner.m_requiredGlobalKey))
                 continue;
 
-            foreach (var biome in ModConfig.AcceptableEnum<Biome>.Default.AcceptableValues)
+            foreach (var biome in ModConfigBase.AcceptableEnum<Biome>.Default.AcceptableValues)
             {
                 if (!spawner.m_biome.HasFlag(biome))
                     continue;
@@ -188,9 +189,9 @@ sealed class CreatureLevelUpProcessor : Processor
             var respawnTime = Config.Creatures.RespawnOneTimeSpawnsAfter.Value;
             if (respawnTime > 0)
             {
-                if (Config.Creatures.RespawnOneTimeSpawnsCondition.Value is ModConfig.CreaturesConfig.RespawnOneTimeSpawnsConditions.Never)
+                if (Config.Creatures.RespawnOneTimeSpawnsCondition.Value is RespawnOneTimeSpawnsConditions.Never)
                     respawnTime = 0;
-                else if (Config.Creatures.RespawnOneTimeSpawnsCondition.Value is ModConfig.CreaturesConfig.RespawnOneTimeSpawnsConditions.AfterBossDefeated)
+                else if (Config.Creatures.RespawnOneTimeSpawnsCondition.Value is RespawnOneTimeSpawnsConditions.AfterBossDefeated)
                 {
                     biome ??= GetBiome(zdo.GetPosition());
                     if (!SharedProcessorState.BossesByBiome.TryGetValue(biome.Value, out var boss) || !ZoneSystem.instance.GetGlobalKey(boss.m_defeatSetGlobalKey))
