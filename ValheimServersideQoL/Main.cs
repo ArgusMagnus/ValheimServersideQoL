@@ -4,11 +4,8 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections;
-using System.Collections.Concurrent;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using Valheim.ServersideQoL.Processors;
 
@@ -33,6 +30,7 @@ public sealed partial class Main : BaseUnityPlugin
     uint _unfinishedProcessingInRow;
     record SectorInfo(List<Peer> Peers, List<ZDO> ZDOs)
     {
+        public int ZdoIndex { get; set; }
         public int InverseWeight { get; set; }
     }
     readonly Stack<SectorInfo> _sectorInfoPool = [];
@@ -350,6 +348,7 @@ public sealed partial class Main : BaseUnityPlugin
 
         foreach (var sectorInfo in _playerSectorsOld.Values)
         {
+            sectorInfo.ZdoIndex = 0;
             sectorInfo.InverseWeight = 0;
             sectorInfo.Peers.Clear();
             sectorInfo.ZDOs.Clear();
@@ -395,11 +394,13 @@ public sealed partial class Main : BaseUnityPlugin
 
             totalZdos += sectorInfo.ZDOs.Count;
 
-            while (sectorInfo is { ZDOs.Count: > 0 } && Time.realtimeSinceStartupAsDouble < executeUntil)
+            for (; sectorInfo.ZdoIndex < sectorInfo.ZDOs.Count; sectorInfo.ZdoIndex++)
             {
+                if (processedZdos % 10 is 0 && Time.realtimeSinceStartupAsDouble >= executeUntil)
+                    break;
+
                 processedZdos++;
-                var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZDOs.Count - 1];
-                sectorInfo.ZDOs.RemoveAt(sectorInfo.ZDOs.Count - 1);
+                var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZdoIndex];
                 if (!zdo.IsValid() || !zdo.HasProcessors /*|| ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy)*/)
                     continue;
 
@@ -444,6 +445,12 @@ public sealed partial class Main : BaseUnityPlugin
                 else if (!destroy && _unregister.Count > 0)
                     zdo.UnregisterProcessors(_unregister);
             }
+
+            if (sectorInfo.ZdoIndex >= sectorInfo.ZDOs.Count)
+            {
+                sectorInfo.ZDOs.Clear();
+                sectorInfo.ZdoIndex = 0;
+            }
         }
 
         //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
@@ -479,7 +486,7 @@ public sealed partial class Main : BaseUnityPlugin
         }
         if (_processingTimes.Count is 0)
             return;
-        _processingTimes.Sort(static (a, b) => Math.Sign(a.Item2 - b.Item2));
+        _processingTimes.Sort(static (a, b) => Math.Sign(b.Item2 - a.Item2));
         Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
     }
 
