@@ -37,7 +37,7 @@ partial record ModConfigBase
                   5: Exponential moving average of ping value in milliseconds
                 """, new AcceptableFormatString([0d, 0d, 0d, 0d, 0f]));
         public ConfigEntry<string> LogZoneOwnerPingFormat { get; } = cfg.BindEx(section,
-            "Ping ({0}): {1:F0} ms (ema: {12:F0} ms, av: {2:F0} ± {3:F0} ms, jitter: {4:F0} ms) + ZoneOwner ({6}): {7:F0} ms (ema: 13:F0} ms, av: {8:F0} ± {9:F0} ms, jitter: {10:F0} ms)", """
+            "Ping ({0}): {1:F0} ms (ema: {12:F0} ms, av: {2:F0} ± {3:F0} ms, jitter: {4:F0} ms) + ZoneOwner ({6}): {7:F0} ms (ema: {13:F0} ms, av: {8:F0} ± {9:F0} ms, jitter: {10:F0} ms)", """
                 Format string for logging player ping.
                 Arguments:
                   0: Player name
