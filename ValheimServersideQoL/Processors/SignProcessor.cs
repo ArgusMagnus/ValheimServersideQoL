@@ -30,6 +30,8 @@ sealed class SignProcessor : Processor
 
     string? _timeText;
 
+    readonly Dictionary<ExtendedZDO, uint> _chestDataRevisions = [];
+
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
@@ -41,6 +43,7 @@ sealed class SignProcessor : Processor
         if (!firstTime)
             return;
 
+        _chestDataRevisions.Clear();
         Instance<ContainerProcessor>().ContainerChanged -= OnContainerChanged;
         Instance<ContainerProcessor>().ContainerChanged += OnContainerChanged;
     }
@@ -49,6 +52,18 @@ sealed class SignProcessor : Processor
     {
         if (!Instance<ContainerProcessor>().SignsByChests.TryGetValue(zdo, out var signs))
             return;
+
+        var dataRevision = zdo.DataRevision;
+        if (!_chestDataRevisions.TryGetValue(zdo, out var lastRevision))
+        {
+            _chestDataRevisions.Add(zdo, dataRevision);
+            zdo.Destroyed += x => _chestDataRevisions.Remove(x);
+        }
+        else if (lastRevision != dataRevision)
+            _chestDataRevisions[zdo] = dataRevision;
+        else
+            return;
+
         var text = zdo.Vars.GetText();
         foreach (var sign in signs)
         {
@@ -188,7 +203,7 @@ sealed class SignProcessor : Processor
             if (newText != text)
                 zdo.Vars.SetText(text = newText);
 
-            if (text != chest.Vars.GetText() ||tag != chest.Vars.GetIntTag())
+            if (text != chest.Vars.GetText() || tag != chest.Vars.GetIntTag())
             {
                 if (!chest.IsOwnerOrUnassigned())
                 {
