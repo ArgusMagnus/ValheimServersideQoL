@@ -733,10 +733,10 @@ public sealed partial class Main : BaseUnityPlugin
             readonly PeersEnumerable _enumerable = enumerable;
             int _index = -2;
 
-            public Peer Current { readonly get; private set; }
+            public Peer Current { readonly get; private set; } = default!;
             readonly object IEnumerator.Current => Current;
 
-            public void Dispose() => Current = default;
+            public void Dispose() => Current = default!;
 
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public bool MoveNext()
@@ -747,17 +747,17 @@ public sealed partial class Main : BaseUnityPlugin
                         ++_index;
                     else
                     {
-                        Current = new(_enumerable._localPeer);
+                        Current = Peer.Get(_enumerable._localPeer);
                         return true;
                     }
                 }
                 
                 if (_index < _enumerable._peers.Count)
                 {
-                    Current = new(_enumerable._peers[_index]);
+                    Current = Peer.Get(_enumerable._peers[_index]);
                     return true;
                 }
-                Current = default;
+                Current = default!;
                 return false;
             }
 
