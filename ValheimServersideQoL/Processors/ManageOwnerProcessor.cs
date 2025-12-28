@@ -92,22 +92,25 @@ sealed class ManageOwnerProcessor : Processor
             (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed())))
         {
             UnregisterZdoProcessor = false;
-            PlayerProcessor.IPeerInfo? closestOwner = null;
-            var minDistSqr = float.MaxValue;
-            foreach (var peer in peers.AsEnumerable())
+            if (zdo.OwnerTimestamp < _maxOwnerTimestamp)
             {
-                if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { } peerInfo)
-                    continue;
-                var distSqr = Utils.DistanceSqr(zdo.GetPosition(), peerInfo.PlayerZDO.GetPosition());
-                if (distSqr < minDistSqr)
+                PlayerProcessor.IPeerInfo? closestOwner = null;
+                var minDistSqr = float.MaxValue;
+                foreach (var peer in peers.AsEnumerable())
                 {
-                    minDistSqr = distSqr;
-                    closestOwner = peerInfo;
+                    if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { } peerInfo)
+                        continue;
+                    var distSqr = Utils.DistanceSqr(zdo.GetPosition(), peerInfo.PlayerZDO.GetPosition());
+                    if (distSqr < minDistSqr)
+                    {
+                        minDistSqr = distSqr;
+                        closestOwner = peerInfo;
+                    }
                 }
-            }
 
-            if (closestOwner is not null)
-                newOwner = closestOwner;
+                if (closestOwner is not null)
+                    newOwner = closestOwner;
+            }
         }
 
         if (newOwner is not null && !ReferenceEquals(owner ??= zdo.OwnerPeerInfo, newOwner))
