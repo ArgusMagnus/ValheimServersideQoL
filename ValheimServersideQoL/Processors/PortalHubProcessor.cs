@@ -19,6 +19,7 @@ sealed class PortalHubProcessor : Processor
     bool _hubEnabled;
     float _hubRadius = 0;
     bool _updateHub;
+    int _lastHubWidth = 0;
     Regex? _includeRegex;
     Regex? _excludeRegex;
 
@@ -159,57 +160,77 @@ sealed class PortalHubProcessor : Processor
 
     void UpdatePortalHub()
     {
-        foreach (var zdo in PlacedObjects)
-            zdo.Destroy();
-        PlacedObjects.Clear();
-
-        if (!_hubEnabled)
-            return;
-
-        IReadOnlyList<PortalState> states = [.. _knownPortals.Values
-            .GroupBy(static x => x.Tag)
-            .Where(static x => x.Count() % 2 is not 0)
-            .Select(static x => x.First())
-            .Concat(Config.General.InWorldConfigRoom.Value ? [new PortalState() { Tag = InGameConfigProcessor.PortalHubTag, HubId = 0, AllowAllItems = true }] : [])
-            .OrderBy(static x => x.Tag)];
+        IReadOnlyList<PortalState> states = [];
+        if (_hubEnabled && _knownPortals.Count > 0)
+        {
+            states = [.. _knownPortals.Values
+                .GroupBy(static x => x.Tag)
+                .Where(static x => x.Count() % 2 is not 0)
+                .Select(static x => x.First())
+                .Concat(Config.General.InWorldConfigRoom.Value ? [new PortalState() { Tag = InGameConfigProcessor.PortalHubTag, HubId = 0, AllowAllItems = true }] : [])
+                .OrderBy(static x => x.Tag)];
+        }
 
         if (states.Count is 0)
+        {
+            foreach (var zdo in PlacedObjects)
+                zdo.Destroy();
+            PlacedObjects.Clear();
             return;
+        }
 
         // 4*(width-1) = count -> width = count/4 + 1
         var width = Math.Max(3, (int)Math.Ceiling(states.Count / 4f + 1));
         _hubRadius = (width + 1) * 4f * Mathf.Sqrt(2);
 
-        PlacePiece(_offset with { y = _offset.y - 2 }, Prefabs.DvergerGuardstone, 0)
-            .Fields<PrivateArea>(true).Set(static () => x => x.m_radius, _hubRadius);
-
-        for (int i = 0; i < width; i++)
+        var dontUpdateFloorAndWalls = width == _lastHubWidth;
+        _lastHubWidth = width;
+        if (dontUpdateFloorAndWalls)
         {
-            var x = (i - width / 2f) * 4;
-            for (int k = 0; k < width; k++)
+            var portals = PlacedObjects.Where(static x => x.GetPrefab() != Prefabs.GraustenFloor4x4 && x.GetPrefab() != Prefabs.GraustenWall4x2 && x.GetPrefab() != Prefabs.DvergerGuardstone).ToList();
+            foreach (var zdo in portals)
             {
-                var z = (k - width / 2f) * 4;
+                zdo.Destroy();
+                PlacedObjects.Remove(zdo);
+            }
+        }
+        else
+        {
+            foreach (var zdo in PlacedObjects)
+                zdo.Destroy();
+            PlacedObjects.Clear();
 
-                var pos = _offset;
-                pos.x += x;
-                pos.z += z;
+            PlacePiece(_offset with { y = _offset.y - 2 }, Prefabs.DvergerGuardstone, 0)
+                .Fields<PrivateArea>(true).Set(static () => x => x.m_radius, _hubRadius);
 
-                PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
-                pos.y += 4.5f;
-                PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
-                pos.y -= 4.5f;
+            for (int i = 0; i < width; i++)
+            {
+                var x = (i - width / 2f) * 4;
+                for (int k = 0; k < width; k++)
+                {
+                    var z = (k - width / 2f) * 4;
+
+                    var pos = _offset;
+                    pos.x += x;
+                    pos.z += z;
+
+                    PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
+                    pos.y += 4.5f;
+                    PlacePiece(pos, Prefabs.GraustenFloor4x4, 0f);
+                    pos.y -= 4.5f;
+                }
             }
         }
 
         var statesEnumerator = states.GetEnumerator();
         for (int k = 0; k < width; k++)
-            PlacePortalAndWalls(0, k, width, statesEnumerator, (_, k) => k < width - 1);
+            PlacePortalAndWalls(0, k, width, dontUpdateFloorAndWalls, statesEnumerator, (_, k) => k < width - 1);
         for (int i = 0; i < width; i++)
-            PlacePortalAndWalls(i, width - 1, width, statesEnumerator, (i, _) => i < width - 1);
+            PlacePortalAndWalls(i, width - 1, width, dontUpdateFloorAndWalls, statesEnumerator, (i, _) => i < width - 1);
         for (int k = width - 1; k >= 0; k--)
-            PlacePortalAndWalls(width - 1, k, width, statesEnumerator, (_, k) => k > 0);
+            PlacePortalAndWalls(width - 1, k, width, dontUpdateFloorAndWalls, statesEnumerator, (_, k) => k > 0);
         for (int i = width - 1; i >= 0; i--)
-            PlacePortalAndWalls(i, 0, width, statesEnumerator, (i, _) => i > 0);
+            PlacePortalAndWalls(i, 0, width, dontUpdateFloorAndWalls, statesEnumerator, (i, _) => i > 0);
 
         if (statesEnumerator.MoveNext())
             throw new Exception("Algorithm failed to place all portals");
@@ -240,7 +261,7 @@ sealed class PortalHubProcessor : Processor
         return torches;
     }
 
-    void PlacePortalAndWalls(int i, int k, int width, IEnumerator<PortalState> statesEnumerator, Func<int, int, bool> placePortal)
+    void PlacePortalAndWalls(int i, int k, int width, bool dontUpdateFloorAndWalls, IEnumerator<PortalState> statesEnumerator, Func<int, int, bool> placePortal)
     {
         var x = (i - width / 2f) * 4;
         var z = (k - width / 2f) * 4;
@@ -333,6 +354,9 @@ sealed class PortalHubProcessor : Processor
                 }
             }
         }
+
+        if (dontUpdateFloorAndWalls)
+            return;
 
         if (iIsEdge)
         {

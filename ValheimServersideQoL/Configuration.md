@@ -27,7 +27,7 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |ContentMassMultiplier|1|From 0 to Infinity|Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
-|DeconstructWithHammer|True|True/False|If enabled, carts can be deconstructed with the build hammer|
+|DeconstructWithHammer|False|True/False|If enabled, carts can be deconstructed with the build hammer|
 </details>
 <details><summary>Containers</summary>
 
@@ -247,7 +247,7 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
-|DeconstructWithHammer|True|True/False|If enabled, ships can be deconstructed with the build hammer|
+|DeconstructWithHammer|False|True/False|If enabled, ships can be deconstructed with the build hammer|
 </details>
 <details><summary>Signs</summary>
 
