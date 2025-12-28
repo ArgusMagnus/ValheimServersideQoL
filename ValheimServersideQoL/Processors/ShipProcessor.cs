@@ -34,6 +34,10 @@ sealed class ShipProcessor : Processor
             return false;
         _ships.Add(zdo);
         zdo.Destroyed += OnShipDestroyed;
+
+        if (zdo.Fields<Piece>().UpdateValue(static () => x => x.m_canBeRemoved, Config.Ships.DeconstructWithHammer.Value))
+            RecreateZdo = true;
+
         return false;
     }
 }

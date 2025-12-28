@@ -7,6 +7,10 @@
     - `BloodmagicMakeSummonsTolerateLavaChanceAtMinSkill`/`BloodmagicMakeSummonsTolerateLavaChanceAtMaxSkill`: Summons gain a chance to gain fire/lava immunity based on the bloodmagic skill
     - `BloodmagicSummonsHPRegenMultiplierAtMinSkill`/`BloodmagicSummonsHPRegenMultiplierAtMaxSkill`: Summons gain a multiplier to their HP regeneration based on the bloodmagic skill
     - `BloodmagicSummonsSpeedMultiplierAtMinSkill`/`BloodmagicSummonsSpeedMultiplierAtMaxSkill`: Summons gain a multiplier to their speed based on the bloodmagic skill
+- New features:
+    - `DeconstructWithHammer`: Allow deconstructing carts/ships with the build hammer
+- Fixed an issue where the text on chest signs could not be changed
+- Various bugfixes and performance improvements
 
 ### v1.6.1008 (BETA)
 - New option for teleporting following tames: `TeleportFollowMinDistance`

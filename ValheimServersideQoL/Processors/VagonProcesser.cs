@@ -14,9 +14,12 @@ sealed class VagonProcesser : Processor
         var fields = zdo.Fields<Vagon>();
         if (Config.Carts.ContentMassMultiplier.Value is 1f || float.IsNaN(Config.Carts.ContentMassMultiplier.Value))
             fields.Reset(static () => x => x.m_itemWeightMassFactor);
-        else if (fields.UpdateValue(static () => x => x.m_itemWeightMassFactor, zdo.PrefabInfo.Vagon.m_itemWeightMassFactor * Config.Carts.ContentMassMultiplier.Value))
+        else if (fields.UpdateValue(static () => x => x.m_itemWeightMassFactor, zdo.PrefabInfo.Vagon.Value.Vagon.m_itemWeightMassFactor * Config.Carts.ContentMassMultiplier.Value))
             RecreateZdo = true;
 
-        return true;
+        if (zdo.Fields<Piece>().UpdateValue(static () => x => x.m_canBeRemoved, Config.Carts.DeconstructWithHammer.Value))
+            RecreateZdo = true;
+
+        return false;
     }
 }

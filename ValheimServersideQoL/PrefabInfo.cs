@@ -17,7 +17,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public Smelter? Smelter { get; } = Get<Smelter>(Components);
     public ShieldGenerator? ShieldGenerator { get; } = Get<ShieldGenerator>(Components);
     public Windmill? Windmill { get; } = Get<Windmill>(Components);
-    public Vagon? Vagon { get; } = Get<Vagon>(Components);
+    public (Vagon Vagon, Piece Piece)? Vagon { get; } = GetTuple<(Vagon, Piece)>(Components);
     public Player? Player { get; } = Get<Player>(Components);
     public TeleportWorld? TeleportWorld { get; } = Get<TeleportWorld>(Components);
     public Door? Door { get; } = Get<Door>(Components);

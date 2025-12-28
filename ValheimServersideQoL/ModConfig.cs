@@ -26,6 +26,7 @@ partial record ModConfigBase(ConfigFile ConfigFile)
     public SmeltersConfig Smelters { get; } = new(ConfigFile, "B - Smelters");
     public WindmillsConfig Windmills { get; } = new(ConfigFile, "B - Windmills");
     public CartsConfig Carts { get; } = new(ConfigFile, "B - Carts");
+    public ShipsConfig Ships { get; } = new(ConfigFile, "B - Ships");
     public DoorsConfig Doors { get; } = new(ConfigFile, "B - Doors");
     public PlayersConfig Players { get; } = new(ConfigFile, "B - Players");
     public TurretsConfig Turrets { get; } = new(ConfigFile, "B - Turrets");

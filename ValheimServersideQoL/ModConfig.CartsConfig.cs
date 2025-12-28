@@ -9,5 +9,8 @@ partial record ModConfigBase
         public ConfigEntry<float> ContentMassMultiplier { get; } = cfg.BindEx(section, 1f,
             "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight",
             new AcceptableValueRange<float>(0, float.PositiveInfinity));
+
+        public ConfigEntry<bool> DeconstructWithHammer { get; } = cfg.BindEx(section, false,
+            "If enabled, carts can be deconstructed with the build hammer");
     }
 }

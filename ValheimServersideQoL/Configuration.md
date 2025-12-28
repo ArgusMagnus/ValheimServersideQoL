@@ -27,6 +27,7 @@
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
 |ContentMassMultiplier|1|From 0 to Infinity|Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight|
+|DeconstructWithHammer|True|True/False|If enabled, carts can be deconstructed with the build hammer|
 </details>
 <details><summary>Containers</summary>
 
@@ -241,6 +242,12 @@
 |Include|*||Only portals with a tag that matches this filter are connected to the portal hub|
 |AutoNameNewPortals|False|True/False|True to automatically name new portals. Has no effect if 'Enable' is false|
 |AutoNameNewPortalsFormat|{0} {1:D2}|.NET Format strings for 2 arguments (String, Int32): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method|Format string for auto-naming portals, the first argument is the biome name, the second is an automatically incremented integer|
+</details>
+<details><summary>Ships</summary>
+
+|Option|Default Value|Acceptable Values|Description|
+|------|-------------|-----------------|-----------|
+|DeconstructWithHammer|True|True/False|If enabled, ships can be deconstructed with the build hammer|
 </details>
 <details><summary>Signs</summary>
 
