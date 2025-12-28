@@ -70,7 +70,7 @@ sealed class ManageOwnerProcessor : Processor
                     foreach (var peer in peers.AsEnumerable())
                     {
                         data.ValidOwners.Add(peer.m_uid);
-                        if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { } peerInfo)
+                        if (peer.Info is not { } peerInfo)
                             continue;
                         if (peerInfo.ConnectionQuality < min)
                         {
@@ -98,7 +98,7 @@ sealed class ManageOwnerProcessor : Processor
                 var minDistSqr = float.MaxValue;
                 foreach (var peer in peers.AsEnumerable())
                 {
-                    if (Instance<PlayerProcessor>().GetPeerInfo(peer.m_uid) is not { } peerInfo)
+                    if (peer.Info is not { } peerInfo)
                         continue;
                     var distSqr = Utils.DistanceSqr(zdo.GetPosition(), peerInfo.PlayerZDO.GetPosition());
                     if (distSqr < minDistSqr)

@@ -554,7 +554,7 @@ sealed class InGameConfigProcessor : Processor
                 try { entry.BoxedValue = TomlTypeConverter.ConvertToValue(text, entry.SettingType); }
                 catch (Exception)
                 {
-                    RPC.ShowMessage(peers.Where(static x => Instance<PlayerProcessor>().GetPeerInfo(x.m_uid) is { IsAdmin: true }),
+                    RPC.ShowMessage(peers.Where(static x => x.Info is { IsAdmin: true }),
                         MessageHud.MessageType.Center, "$invalid_keybind_header");
                 }
                 zdo.Vars.SetText(GetSignText(entry));
