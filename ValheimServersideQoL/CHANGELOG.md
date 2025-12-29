@@ -1,4 +1,4 @@
-### vNext (BETA)
+### v1.6.1021 (BETA)
 - Deprecated `PickaxeAffectsRockDestruction` and introduced `PickaxeRockCollapseThresholdAtMinSkill`/`PickaxeRockCollapseThresholdAtMaxSkill` instead
 - Renamed options in `Skills` section introduced in the last patch
 - New features in the `Skills` section:
@@ -7,8 +7,7 @@
     - `BloodmagicMakeSummonsTolerateLavaChanceAtMinSkill`/`BloodmagicMakeSummonsTolerateLavaChanceAtMaxSkill`: Summons gain a chance to gain fire/lava immunity based on the bloodmagic skill
     - `BloodmagicSummonsHPRegenMultiplierAtMinSkill`/`BloodmagicSummonsHPRegenMultiplierAtMaxSkill`: Summons gain a multiplier to their HP regeneration based on the bloodmagic skill
     - `BloodmagicSummonsSpeedMultiplierAtMinSkill`/`BloodmagicSummonsSpeedMultiplierAtMaxSkill`: Summons gain a multiplier to their speed based on the bloodmagic skill
-- New features:
-    - `DeconstructWithHammer`: Allow deconstructing carts/ships with the build hammer
+- New feature `DeconstructWithHammer`: Allow deconstructing carts/ships with the build hammer
 - Fixed an issue where the text on chest signs could not be changed
 - Various bugfixes and performance improvements
 
