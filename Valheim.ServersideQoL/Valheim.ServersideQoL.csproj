@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>embedded</DebugType>
+		<MinVerTagPrefix>v</MinVerTagPrefix>
+		<MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
+		<ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Dependencies\**" />
+		<None Include="Dependencies\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Valheim.ZDOExtender\Valheim.ZDOExtender.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<RequiredReference Include="assembly_utils">
+			<HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_utils.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="assembly_valheim">
+			<HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_valheim.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="assembly_guiutils">
+			<HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_guiutils.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="BepInEx">
+			<HintPath>$(ValheimDir)BepInEx\core\BepInEx.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="UnityEngine">
+			<HintPath>$(ValheimDir)valheim_server_Data\Managed\UnityEngine.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="UnityEngine.CoreModule">
+			<HintPath>$(ValheimDir)valheim_server_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="0Harmony">
+			<HintPath>$(ValheimDir)BepInEx\core\0Harmony.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="Mono.Cecil">
+			<HintPath>$(ValheimDir)BepInEx\core\Mono.Cecil.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="MonoMod.Utils">
+			<HintPath>$(ValheimDir)BepInEx\core\MonoMod.Utils.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+		<RequiredReference Include="SoftReferenceableAssets">
+			<HintPath>$(ValheimDir)valheim_server_Data\Managed\SoftReferenceableAssets.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)' != 'Debug'">
+		<Reference Include="@(RequiredReference)" HintPath="Dependencies\%(RequiredReference.HintPath.Filename)" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
+		<Reference Include="@(RequiredReference)" />
+		<Reference Include="BepInEx.Harmony">
+			<HintPath>$(ValheimDir)BepInEx\core\BepInEx.Harmony.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="BepInEx.Preloader">
+			<HintPath>$(ValheimDir)BepInEx\core\BepInEx.Preloader.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="HarmonyXInterop">
+			<HintPath>$(ValheimDir)BepInEx\core\HarmonyXInterop.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Mono.Cecil.Mdb">
+			<HintPath>$(ValheimDir)BepInEx\core\Mono.Cecil.Mdb.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Mono.Cecil.Pdb">
+			<HintPath>$(ValheimDir)BepInEx\core\Mono.Cecil.Pdb.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Mono.Cecil.Rocks">
+			<HintPath>$(ValheimDir)BepInEx\core\Mono.Cecil.Rocks.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="MonoMod.RuntimeDetour">
+			<HintPath>$(ValheimDir)BepInEx\core\MonoMod.RuntimeDetour.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.PhysicsModule">
+			<HintPath>$(ValheimDir)valheim_server_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Splatform">
+			<HintPath>$(ValheimDir)valheim_server_Data\Managed\Splatform.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,3 @@
+[submodule "Valheim.ZDOExtender"]
+	path = Valheim.ZDOExtender
+	url = https://github.com/ArgusMagnus/Valheim.ZDOExtender.git
