@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Valheim.ServersideQoL.Signs/Valheim.ServersideQoL.Signs.csproj" />
   <Project Path="Valheim.ServersideQoL/Valheim.ServersideQoL.csproj" />
   <Project Path="Valheim.ZDOExtender/Valheim.ZDOExtender.csproj" />
 </Solution>

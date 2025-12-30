@@ -18,7 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Valheim.ZDOExtender\Valheim.ZDOExtender.csproj" />
+	  <ProjectReference Include="..\Valheim.ServersideQoL\Valheim.ServersideQoL.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -116,7 +116,7 @@
 			<MyTextLines>
 namespace $(RootNamespace)%3B
 
-partial class ServersideQoL
+partial class ServersideQoLSigns
 {
 	public const string PluginVersion = "$(VersionNumber)"%3B
 	public const string PluginInformationalVersion = "$(Version)"%3B

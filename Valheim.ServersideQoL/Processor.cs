@@ -12,6 +12,16 @@ public sealed class ProcessorAttribute : Attribute
 
 public abstract class Processor
 {
+    [Flags]
+    internal protected enum ProcessResult
+    {
+        Default = 0,
+        WaitForZDORevisionChange = 1 << 0,
+        UnregisterProcessor = 1 << 1,
+        DestroyZDO = 1 << 2,
+        RecreateZDO = 1 << 3
+    }
+
     private protected Processor() { }
 
     internal void ValidateProcessorInternal() => ValidateProcessor();
@@ -27,6 +37,12 @@ public abstract class Processor
     public static T Instance<T>()
         where T : Processor, new()
         => InstanceCache<T>.Instance;
+
+    internal abstract ProcessResult Process(IReadOnlyList<Peer> peers, ZDO zdo);
+    internal protected abstract void Initialize(bool firstTime);
+    protected virtual void PreProcess(PeersEnumerable peers) { }
+    internal void PreProcessInternal(PeersEnumerable peers) => PreProcess(peers);
+    internal protected bool ClaimExclusive(ZDO zdo) => throw new NotImplementedException();
 }
 
 public abstract class Processor<TPrefabInfo> : Processor
@@ -39,32 +55,22 @@ public abstract class Processor<TPrefabInfo> : Processor
 
     protected sealed class Inputs
     {
+        public IReadOnlyList<Peer> Peers { get; private set; } = default!;
         public ZDO ZDO { get; private set; } = default!;
         public TPrefabInfo PrefabInfo { get; private set; } = default!;
 
-        internal void Update(ZDO zdo, TPrefabInfo prefabInfo)
+        internal void Update(IReadOnlyList<Peer> peers, ZDO zdo, TPrefabInfo prefabInfo)
         {
+            Peers = peers;
             ZDO = zdo;
             PrefabInfo = prefabInfo;
         }
     }
 
-    protected sealed class Outputs
-    {
-        public bool UnregisterProcessor { get; set; }
-
-        internal void Reset()
-        {
-            UnregisterProcessor = false;
-        }
-    }
-
-    readonly ExtendedZDOInterface<IZDOWithPrefabInfo> _extendedZDOInterface = ZDOExtender.ZDOExtender.AddInterface<IZDOWithPrefabInfo>();
     readonly ConstructorInfo? _prefabInfoCtor;
     readonly ParameterInfo[]? _prefabInfoCtorParameters;
     readonly Dictionary<int, TPrefabInfo?> _prefabInfoByHash = [];
     readonly Inputs _inputs = new();
-    readonly Outputs _outputs = new();
 
     protected Processor()
     {
@@ -72,6 +78,7 @@ public abstract class Processor<TPrefabInfo> : Processor
         {
             _prefabInfoCtor = ctors[0];
             _prefabInfoCtorParameters = _prefabInfoCtor.GetParameters();
+            ZDOExtender.ZDOExtender.AddInterface<IZDOWithPrefabInfo>();
         }
     }
 
@@ -86,24 +93,24 @@ public abstract class Processor<TPrefabInfo> : Processor
         }
     }
 
-    internal void Process(ZDO zdo)
+    internal override ProcessResult Process(IReadOnlyList<Peer> peers, ZDO zdo)
     {
         var extZDO = zdo.GetExtension<IZDOWithPrefabInfo>();
         if (extZDO.PrefabInfo is not { } prefabInfo)
             prefabInfo = GetPrefabInfo(extZDO);
 
-        _outputs.Reset();
-
+        var result = ProcessResult.Default;
         if (prefabInfo is null)
-            _outputs.UnregisterProcessor = true;
+            result |= ProcessResult.UnregisterProcessor;
         else
         {
-            _inputs.Update(zdo, prefabInfo);
-            Process(_inputs, _outputs);
+            _inputs.Update(peers, zdo, prefabInfo);
+            result |= Process(_inputs);
         }
+        return result;
     }
 
-    protected abstract void Process(Inputs inputs, Outputs outputs);
+    protected abstract ProcessResult Process(Inputs inputs);
 
     TPrefabInfo? GetPrefabInfo(IZDOWithPrefabInfo extZDO)
     {
@@ -138,6 +145,7 @@ public abstract class Processor<TPrefabInfo> : Processor
 
         var componentDict = availableComponents.ToDictionary(static c => c.GetType());
         var args = new object?[_prefabInfoCtorParameters!.Length];
+        var any = false;
         for (int i = 0; i < _prefabInfoCtorParameters.Length; i++)
         {
             var par = _prefabInfoCtorParameters[i];
@@ -148,10 +156,14 @@ public abstract class Processor<TPrefabInfo> : Processor
                 return default;
             }
             args[i] = component;
+            any = true;
         }
+        if (!any)
+            return default;
         var prefabInfo = (TPrefabInfo)_prefabInfoCtor!.Invoke(args);
         prefabInfo.PrefabHash = prefabHash;
         prefabInfo.PrefabName = prefab.name;
+        prefabInfo.Components = componentDict;
         return prefabInfo;
     }
 }

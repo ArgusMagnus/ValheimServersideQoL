@@ -3,7 +3,7 @@
 namespace System.Runtime.CompilerServices
 {
     [EditorBrowsable(EditorBrowsableState.Never)]
-    static class IsExternalInit;
+    public static class IsExternalInit;
 
     //
     // Summary:
@@ -11,7 +11,7 @@ namespace System.Runtime.CompilerServices
     //     location where this attribute is applied.
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    sealed class CompilerFeatureRequiredAttribute : Attribute
+    public sealed class CompilerFeatureRequiredAttribute : Attribute
     {
         //
         // Summary:
@@ -56,7 +56,7 @@ namespace System.Runtime.CompilerServices
     //     Specifies that a type has required members or that a member is required.
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    sealed class RequiredMemberAttribute : Attribute;
+    public sealed class RequiredMemberAttribute : Attribute;
 }
 
 namespace System.Diagnostics.CodeAnalysis
@@ -67,14 +67,14 @@ namespace System.Diagnostics.CodeAnalysis
     //     and callers do not need to set any required members themselves.
     [AttributeUsage(AttributeTargets.Constructor, AllowMultiple = false, Inherited = false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    sealed class SetsRequiredMembersAttribute : Attribute;
+    public sealed class SetsRequiredMembersAttribute : Attribute;
 
     //
     // Summary:
     //     Specifies that the method or property will ensure that the listed field and property
     //     members have values that aren't null.
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Property, Inherited = false, AllowMultiple = true)]
-    sealed class MemberNotNullAttribute : Attribute
+    public sealed class MemberNotNullAttribute : Attribute
     {
         //
         // Summary:
