@@ -1,5 +1,4 @@
 ﻿using BepInEx;
-using Valheim.ZDOExtender;
 
 namespace Valheim.ServersideQoL.Signs;
 

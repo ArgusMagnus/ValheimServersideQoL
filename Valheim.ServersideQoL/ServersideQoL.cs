@@ -14,8 +14,9 @@ public sealed partial class ServersideQoL : BaseUnityPlugin
 {
     public const string PluginName = nameof(ServersideQoL);
     public const string PluginGuid = $"argusmagnus.{PluginName}";
+    public static readonly int PluginGuidHash = PluginGuid.GetStableHashCode();
 
-    readonly ExtendedZDOInterface<IZDOWithProcessors> _extendedZDOInterface = ZDOExtender.ZDOExtender.AddInterface<IZDOWithProcessors>();
+    readonly ExtendedZDOInterface<IServersideQoLZDO> _extendedZDOInterface = ZDOExtender.ZDOExtender.AddInterface<IServersideQoLZDO>();
     static Dictionary<Type, Processor>? _processors = [];
     internal static readonly Dictionary<Type, Func<IConfig>> _configFactories = [];
     internal static readonly Dictionary<Type, IConfig> _configs = [];
@@ -434,7 +435,7 @@ public sealed partial class ServersideQoL : BaseUnityPlugin
 
                 processedZdos++;
                 var zdo = sectorInfo.ZDOs[sectorInfo.ZdoIndex];
-                if (!zdo.IsValid() || zdo.GetExtension<IZDOWithProcessors>() is not { HasNoProcessors: false } extZdo /*|| ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy)*/)
+                if (!zdo.IsValid() || zdo.GetExtension<IServersideQoLZDO>() is not { HasNoProcessors: false } extZdo /*|| ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy)*/)
                     continue;
 
                 var processors = extZdo.Processors;
@@ -465,7 +466,7 @@ public sealed partial class ServersideQoL : BaseUnityPlugin
                 {
                     if (!zdo.CheckProcessorDataRevisionChanged(processor))
                         continue;
-                    var result = processor.Process(sectorInfo.Peers, zdo);
+                    var result = processor.ProcessInternal(sectorInfo.Peers, zdo);
                     if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
                         zdo.UpdateProcessorDataRevision(processor);
                     if ((result & Processor.ProcessResult.UnregisterProcessor) is not 0)

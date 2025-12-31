@@ -4,7 +4,8 @@ sealed record PrefabInfo(Sign Sign) : PrefabInfoBase;
 
 sealed class SignProcessor : Processor<PrefabInfo>
 {
-    protected override void Process(Inputs inputs, Outputs outputs)
+    protected override ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
     {
+        throw new NotImplementedException();
     }
 }
