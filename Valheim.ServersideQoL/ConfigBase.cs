@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using System.Runtime.CompilerServices;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Valheim.ServersideQoL;
 
@@ -7,6 +8,8 @@ interface IConfig
 {
     void RaiseInitialized();
     event EventHandler<SettingChangedEventArgs>? ConfigChanged;
+    IServersideQoLPlugin Plugin { get; set; }
+    ConfigEntry<bool> Enabled { get; }
 }
 
 public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : IConfig
@@ -16,10 +19,13 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     public sealed record Deprecated(string Reason, Action<TSelf> AdjustConfig);
     static readonly HashSet<ConfigEntryBase> __deprecatedEntries = [];
 
+    IServersideQoLPlugin IConfig.Plugin { get => field; set => field = value; } = default!;
+
     public static TSelf Instance { get => field ?? throw new InvalidOperationException("Config has not been initialized yet"); private set; }
 
     public ConfigFile ConfigFile { get; } = configFile;
     protected Logger Logger { get; } = logger;
+    public abstract ConfigEntry<bool> Enabled { get; }
 
     EventHandler<SettingChangedEventArgs>? _configChanged;
 

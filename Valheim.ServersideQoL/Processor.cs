@@ -13,6 +13,7 @@ public sealed class ProcessorAttribute : Attribute
 public abstract class Processor
 {
     protected abstract Guid Id { get; }
+    internal IServersideQoLPlugin Plugin { get; set; } = default!;
 
     protected readonly HashSet<ZDO> PlacedObjects = [];
 

@@ -5,11 +5,12 @@ namespace Valheim.ServersideQoL;
 public static partial class ZDOExtensions
 {
     static readonly Dictionary<int, IReadOnlyList<Processor>> _processors = [];
+    static readonly ZPackage _pkg = new();
 
     extension(ZDO @this)
     {
         public IReadOnlyList<Processor> GetProcessors()
-                    {
+        {
             var extZdo = @this.GetExtension<IServersideQoLZDO>();
             if (extZdo.Processors is not { } processors)
             {
@@ -69,6 +70,41 @@ public static partial class ZDOExtensions
             }
         }
 
+        public void Reregister(IReadOnlyList<Processor> processors)
+        {
+            var extZdo = @this.GetExtension<IServersideQoLZDO>();
+            var zdoProcessors = extZdo.Processors;
+            var allProcessors = ServersideQoL.Processors;
+            var unregister = new List<Processor>(allProcessors.Count);
+            foreach (var processor in allProcessors.AsEnumerable())
+            {
+                var found = false;
+                foreach (var keep in processors.AsEnumerable())
+                {
+                    if (ReferenceEquals(processor, keep))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (found)
+                    continue;
+
+                foreach (var keep in zdoProcessors.AsEnumerable())
+                {
+                    if (ReferenceEquals(processor, keep))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                    unregister.Add(processor);
+            }
+            @this.Ungregister(unregister);
+        }
+
         public void UnregisterAllExcept(Processor keep)
         {
             var extZdo = @this.GetExtension<IServersideQoLZDO>();
@@ -99,16 +135,9 @@ public static partial class ZDOExtensions
         public void ReregisterAll()
         {
             var extZdo = @this.GetExtension<IServersideQoLZDO>();
-            var processors = ServersideQoL.Processors;
-            extZdo.Processors = processors;
-            extZdo.HasNoProcessors = processors.Count is 0;
+            extZdo.Processors = null!;
+            extZdo.HasNoProcessors = false;
         }
-
-        public void Reregister(IReadOnlyList<Processor> processors)
-        {
-            throw new NotImplementedException();
-        }
-
 
         public void UpdateProcessorDataRevision(Processor processor)
             => (@this.GetExtension<IServersideQoLZDO>().ProcessorDataRevisions ??= [])[processor] = (@this.DataRevision, @this.OwnerRevision);
@@ -135,11 +164,13 @@ public static partial class ZDOExtensions
             var prefab = @this.GetPrefab();
             var pos = @this.GetPosition();
             var owner = @this.GetOwner();
-            var pkg = new ZPackage();
-            @this.Serialize(pkg);
+            _pkg.Clear();
+            @this.Serialize(_pkg);
+            _pkg.Size(); // force flush
 
             var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
-            zdo.Deserialize(new(pkg.GetArray()));
+            _pkg.SetPos(0);
+            zdo.Deserialize(_pkg);
             zdo.SetOwnerInternal(owner);
             return zdo;
         }
@@ -172,5 +203,17 @@ public static partial class ZDOExtensions
             return true;
         }
         public bool IsModCreator() => @this.IsModCreator(out _);
+
+        public bool IsAnyCloserThan(IReadOnlyList<Peer> peers, float distance)
+        {
+            distance *= distance;
+            var pos = @this.GetPosition();
+            foreach (var peer in peers.AsEnumerable())
+            {
+                if (Utils.DistanceSqr(peer.m_refPos, pos) < distance)
+                    return true;
+            }
+            return false;
+        }
     }
 }

@@ -1,20 +1,19 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 
 namespace Valheim.ServersideQoL.Signs;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 [BepInDependency(ServersideQoL.PluginGuid, ServersideQoL.PluginVersion)]
-public sealed partial class ServersideQoLSigns : BaseUnityPlugin
+public sealed partial class ServersideQoLSigns : ServersideQoLPluginBase<ServersideQoLSigns, Config>
 {
     public const string PluginName = nameof(ServersideQoL);
     public const string PluginGuid = $"argusmagnus.{PluginName}";
 
-    internal static new readonly Logger Logger = new(PluginName);
-    static new Config Config => Config.Instance;
+    protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
     void Awake()
     {
-        ServersideQoL.AddProcessor<SignProcessor>();
-        ServersideQoL.AddConfig(() => new Config(base.Config, Logger));
+        RegisterProcessor<SignProcessor>();
     }
 }

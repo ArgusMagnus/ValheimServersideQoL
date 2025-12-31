@@ -8,47 +8,97 @@ using Valheim.ZDOExtender;
 
 namespace Valheim.ServersideQoL;
 
+interface IServersideQoLPlugin
+{
+    IConfig Config { get; }
+    IReadOnlyCollection<Processor> Processors { get; }
+}
+
+public abstract class ServersideQoLPluginBase<TSelf, TConfig> : BaseUnityPlugin, IServersideQoLPlugin
+    where TSelf : ServersideQoLPluginBase<TSelf, TConfig>
+    where TConfig : ConfigBase<TConfig>
+{
+    protected abstract TConfig CreateConfigSingleton(ConfigFile configFile, Logger logger);
+
+    static TConfig? _config;
+    public static new TConfig Config => _config ?? throw new InvalidOperationException("Config has not been initialized yet");
+    IConfig IServersideQoLPlugin.Config
+    {
+        get
+        {
+            IConfig? cfg = _config;
+            if (cfg is null)
+            {
+                cfg = _config = CreateConfigSingleton(base.Config, Logger);
+                cfg.Plugin = this;
+                cfg.RaiseInitialized();
+            }
+            return cfg;
+        }
+    }
+
+    public static new Logger Logger { get; private set; } = default!;
+
+    readonly HashSet<Processor> _processors = [];
+    IReadOnlyCollection<Processor> IServersideQoLPlugin.Processors => _processors;
+
+    protected ServersideQoLPluginBase()
+    {
+        var pluginName = GetType().GetCustomAttribute<BepInPlugin>().Name;
+        Logger = new(pluginName);
+    }
+
+    protected void RegisterProcessor<T>()
+        where T : Processor, new()
+
+    {
+        ServersideQoL.RegisterPlugin(this);
+        var processor = Processor.Instance<T>();
+        if (_processors.Contains(processor))
+            return;
+
+        processor.Plugin = this;
+        processor.ValidateProcessorInternal();
+        _processors.Add(processor);
+    }
+}
+
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 [BepInDependency(ZDOExtender.ZDOExtender.PluginGuid, ZDOExtender.ZDOExtender.PluginVersion)]
-public sealed partial class ServersideQoL : BaseUnityPlugin
+public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 {
     public const string PluginName = nameof(ServersideQoL);
     public const string PluginGuid = $"argusmagnus.{PluginName}";
     public static readonly int PluginGuidHash = PluginGuid.GetStableHashCode();
 
     readonly ExtendedZDOInterface<IServersideQoLZDO> _extendedZDOInterface = ZDOExtender.ZDOExtender.AddInterface<IServersideQoLZDO>();
-    static Dictionary<Type, Processor>? _processors = [];
-    internal static readonly Dictionary<Type, Func<IConfig>> _configFactories = [];
-    internal static readonly Dictionary<Type, IConfig> _configs = [];
-
-    internal static new readonly Logger Logger = new(PluginName);
-    static new Config Config => Config.Instance;
-
-    public static IReadOnlyList<Processor> Processors => field ??= new Func<IReadOnlyList<Processor>>(static () =>
+    static HashSet<IServersideQoLPlugin>? _plugins = [];
+    static IReadOnlyCollection<IServersideQoLPlugin> Plugins
     {
-        var processors = _processors!;
-        _processors = null;
-        return [.. processors.OrderByDescending(static x => x.Key.GetCustomAttribute<ProcessorAttribute>()?.Priority ?? 0).Select(static x => x.Value)];
-    }).Invoke();
-
-    public static void AddProcessor<T>()
-        where T : Processor, new()
-    {
-        if (_processors is null)
-            throw new InvalidOperationException("Processor registration is closed.");
-
-        var type = typeof(T);
-        if (_processors.ContainsKey(type))
-            return;
-
-        var processor = Processor.Instance<T>();
-        processor.ValidateProcessorInternal();
-        _processors.Add(type, processor);
+        get
+        {
+            if (field is null)
+            {
+                field = _plugins!;
+                _plugins = null;
+            }
+            return field;
+        }
     }
 
-    public static void AddConfig<T>(Func<T> factory)
-        where T : ConfigBase<T>
-        => _configFactories.Add(typeof(T), factory);
+    // todo: filter out processors with Config.Enabled == false
+    static IReadOnlyList<Processor>? __processors;
+    public static IReadOnlyList<Processor> Processors => __processors ??= [.. Plugins
+        .Where(static x => x.Config.Enabled.Value)
+        .SelectMany(static x => x.Processors)
+        .OrderByDescending(static x => x.GetType().GetCustomAttribute<ProcessorAttribute>()?.Priority ?? 0)];
+
+    internal static void RegisterPlugin(IServersideQoLPlugin plugin)
+    {
+        if (_plugins is null)
+            throw new InvalidOperationException("Processor registration is closed.");
+        _plugins.Add(plugin);
+    }
 
     readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221.4");
     const uint ExpectedNetworkVersion = 35;
@@ -56,7 +106,7 @@ public sealed partial class ServersideQoL : BaseUnityPlugin
     const uint ExpectedWorldVersion = 36;
 
     ulong _executeCounter;
-    readonly HashSet<Assembly> _configChanged = [];
+    readonly HashSet<IConfig> _configChanged = [];
     uint _unfinishedProcessingInRow;
     record SectorInfo(List<Peer> Peers, List<ZDO> ZDOs)
     {
@@ -70,10 +120,7 @@ public sealed partial class ServersideQoL : BaseUnityPlugin
 
     readonly List<Processor> _unregister = [];
 
-    void Awake()
-    {
-        AddConfig(() => new Config(base.Config, Logger));
-    }
+    protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
     void Start()
     {
@@ -157,13 +204,10 @@ public sealed partial class ServersideQoL : BaseUnityPlugin
 
     bool Initialize()
     {
-        foreach (var (configType, factory) in _configFactories)
+        foreach (var plugin in Plugins)
         {
-            var config = factory();
-            _configs.Add(configType, config);
-            config.RaiseInitialized();
+            _ = plugin.Config; // Initialize
         }
-        _configFactories.Clear();
 
         //if (_mainConfig is not null)
         //    _mainConfig.ConfigFile.SettingChanged -= OnConfigChanged;
@@ -254,19 +298,21 @@ public sealed partial class ServersideQoL : BaseUnityPlugin
 
     void OnConfigChanged(object sender, SettingChangedEventArgs e)
     {
-        _configChanged.Add(sender.GetType().Assembly);
+        var cfg = (IConfig)sender;
+        _configChanged.Add(cfg);
         if (Config.DiagnosticLogs.Value || ReferenceEquals(e.ChangedSetting, Config.DiagnosticLogs))
             Logger.LogInfo($"Config changed: [{e.ChangedSetting.Definition.Section}].[{e.ChangedSetting.Definition.Key}] = {e.ChangedSetting.BoxedValue}");
         if (ReferenceEquals(e.ChangedSetting, Config.DiagnosticLogs) && Config.DiagnosticLogs.Value)
             Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
+        if (ReferenceEquals(cfg.Enabled, e.ChangedSetting))
+            __processors = null;
     }
 
     void Execute(PeersEnumerable peers, double timeBudgetSeconds)
     {
         var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
         var executeUntil = timeStartSeconds + timeBudgetSeconds;
-        _executeCounter++;
-        if (_configChanged.Count is not 0)
+        if (_executeCounter++ is 0 || _configChanged.Count is not 0)
         {
             //_configChanged = false;
 
@@ -314,29 +360,26 @@ public sealed partial class ServersideQoL : BaseUnityPlugin
             //    }
             //}
 
-            var affectedProcessors = Processors.Where(x => _configChanged.Contains(x.GetType().Assembly)).ToList();
-            _configChanged.Clear();
+            foreach (var zdo in ZDOMan.instance.GetObjects())
+                zdo.ReregisterAll();
 
-            foreach (var processor in affectedProcessors)
-                    processor.Initialize(_executeCounter is 1);
+            foreach (var processor in _configChanged.Where(static x => x.Enabled.Value).SelectMany(static x => x.Plugin.Processors))
+                processor.Initialize(_executeCounter is 1);
+            _configChanged.Clear();
 
             if (_executeCounter is 1)
             {
-//#if DEBUG
-//                GenerateDefaultConfigMarkdown(base.Config);
-//                GenerateDocs();
-//#endif
-                foreach (var cfg in _configs.Values)
+                //#if DEBUG
+                //                GenerateDefaultConfigMarkdown(base.Config);
+                //                GenerateDocs();
+                //#endif
+                foreach (var plugin in Plugins)
                 {
-                    cfg.ConfigChanged -= OnConfigChanged;
-                    cfg.ConfigChanged += OnConfigChanged;
+                    plugin.Config!.ConfigChanged -= OnConfigChanged;
+                    plugin.Config.ConfigChanged += OnConfigChanged;
                 }
             }
-            else
-            {
-                foreach (var zdo in ZDOMan.instance.GetObjects())
-                    zdo.Reregister(affectedProcessors);
-            }
+
             return;
         }
 
