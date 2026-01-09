@@ -187,7 +187,9 @@ sealed class PortalHubProcessor : Processor
         _lastHubWidth = width;
         if (dontUpdateFloorAndWalls)
         {
-            var portals = PlacedObjects.Where(static x => x.GetPrefab() != Prefabs.GraustenFloor4x4 && x.GetPrefab() != Prefabs.GraustenWall4x2 && x.GetPrefab() != Prefabs.DvergerGuardstone).ToList();
+            var portals = PlacedObjects
+                .Where(static x => x.GetPrefab() != Prefabs.GraustenFloor4x4 && x.GetPrefab() != Prefabs.GraustenWall4x2 && x.GetPrefab() != Prefabs.DvergerGuardstone)
+                .ToList();
             foreach (var zdo in portals)
             {
                 zdo.Destroy();

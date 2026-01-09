@@ -179,7 +179,12 @@ sealed partial class ExtendedZDO : ZDO
                 return null;
             var owner = GetOwner();
             if (field?.Owner != owner)
+            {
+                void OnOwnerPlayerZdoDestroyed(ZDO zdo) => field = null;
+                field?.PlayerZDO.Destroyed -= OnOwnerPlayerZdoDestroyed;
                 field = Processor.Instance<PlayerProcessor>().GetPeerInfo(owner);
+                field?.PlayerZDO.Destroyed += OnOwnerPlayerZdoDestroyed;
+            }
             return field;
         }
     }

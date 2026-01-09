@@ -18,7 +18,18 @@ sealed class Peer
     public override bool Equals(object obj) => Equals(_peer, obj);
     public override int GetHashCode() => _peer.GetHashCode();
 
-    public PlayerProcessor.IPeerInfo? Info => field ??= Processor.Instance<PlayerProcessor>().GetPeerInfo(_peer.m_uid);
+    public PlayerProcessor.IPeerInfo? Info
+    {
+        get
+        {
+            if (field is null)
+            {
+                field = Processor.Instance<PlayerProcessor>().GetPeerInfo(_peer.m_uid);
+                field?.PlayerZDO.Destroyed += _ => field = null;
+            }
+            return field;
+        }
+    }
 
     static readonly ConditionalWeakTable<ZNetPeer, Peer> _cache = [];
 

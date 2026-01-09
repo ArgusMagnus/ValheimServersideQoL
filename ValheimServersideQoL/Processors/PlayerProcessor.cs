@@ -83,8 +83,6 @@ sealed class PlayerProcessor : Processor
             return level;
         }
 
-        public SacrificingState SacrificingState { get; set; }
-
         public TimeSpan? LastPing { get; private set; }
         public DateTimeOffset? LastPingTimestamp { get; private set; }
         public TimeSpan? PingMean { get; private set; }
@@ -214,15 +212,6 @@ sealed class PlayerProcessor : Processor
         }
     }
 
-    [Flags]
-    public enum SacrificingState
-    {
-        Margingjord = 1 << 0,
-        CryptKey = 1 << 1,
-        Wishbone = 1 << 2,
-        TornSpirit = 1 << 3
-    }
-
     readonly Dictionary<long, PlayerState> _playerStates = [];
     readonly Dictionary<ZRpc, PlayerState> _statesByRpc = [];
 
@@ -271,13 +260,11 @@ sealed class PlayerProcessor : Processor
         UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger, subscribeSetTrigger);
 
         //UpdateRpcSubscription("Say", OnTalkerSay, true);
-        var sacrificeEnabled =
+        UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever,
             Config.Players.CanSacrificeMegingjord.Value ||
             Config.Players.CanSacrificeCryptKey.Value ||
             Config.Players.CanSacrificeWishbone.Value ||
-            Config.Players.CanSacrificeTornSpirit.Value;
-        UpdateRpcSubscription("RPC_RequestIncinerate", RPC_RequestIncinerate, sacrificeEnabled);
-        UpdateRpcSubscription("RPC_IncinerateRespons", RPC_IncinerateRespons, sacrificeEnabled);
+            Config.Players.CanSacrificeTornSpirit.Value);
 
         Main.HarmonyInstance.Unpatch(_everybodyIsTryingToSleepMethod, _everybodyIsTryingToSleepPrefix);
         if (Config.Sleeping.MinPlayersInBed.Value > 0)
@@ -456,64 +443,59 @@ sealed class PlayerProcessor : Processor
     //    var type = (Talker.Type)ctype;
     //}
 
-    void RPC_RequestIncinerate(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data)
+    void RPC_AnimateLever(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data)
     {
         if (zdo.PrefabInfo.Container is not { Incinerator.Value: not null } || zdo.Vars.GetIntTag() is not 0)
             return;
 
-        if (!_playerStates.TryGetValue(data.m_senderPeerID, out var state))
-        {
-            Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
-            return;
-        }
-
-        state.SacrificingState = default;
+        IPeerInfo? peerInfo = null;
         if (Config.Players.CanSacrificeMegingjord.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Megingjord))
-            state.SacrificingState |= SacrificingState.Margingjord;
+        {
+            peerInfo ??= GetPeerInfo(data.m_senderPeerID);
+            if (peerInfo is null)
+                Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+            else
+            {
+                DataZDO.Vars.SetSacrifiedMegingjord(peerInfo.PlayerID, true);
+                RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Megingjord);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedMegingjord);
+            }
+        }
         if (Config.Players.CanSacrificeCryptKey.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
-            state.SacrificingState |= SacrificingState.CryptKey;
+        {
+            peerInfo ??= GetPeerInfo(data.m_senderPeerID);
+            if (peerInfo is null)
+                Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+            else
+            {
+                DataZDO.Vars.SetSacrifiedCryptKey(peerInfo.PlayerID, true);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedCryptKey);
+            }
+        }
         if (Config.Players.CanSacrificeWishbone.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
-            state.SacrificingState |= SacrificingState.Wishbone;
+        {
+            peerInfo ??= GetPeerInfo(data.m_senderPeerID);
+            if (peerInfo is null)
+                Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+            else
+            {
+                DataZDO.Vars.SetSacrifiedWishbone(peerInfo.PlayerID, true);
+                RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Wishbone);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedWishbone);
+            }
+        }
         if (Config.Players.CanSacrificeTornSpirit.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
-            state.SacrificingState |= SacrificingState.TornSpirit;
-    }
-
-    void RPC_IncinerateRespons(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data, int response)
-    {
-        if (!_playerStates.TryGetValue(data.m_targetPeerID, out var state))
         {
-            Logger.LogError($"Player ZDO with peer ID {data.m_targetPeerID} not found");
-            return;
-        }
-
-        if ((Incinerator.Response)response is Incinerator.Response.Success or Incinerator.Response.Conversion)
-        {
-            if (state.SacrificingState.HasFlag(SacrificingState.Margingjord))
+            peerInfo ??= GetPeerInfo(data.m_senderPeerID);
+            if (peerInfo is null)
+                Logger.LogError($"Player ZDO with peer ID {data.m_senderPeerID} not found");
+            else
             {
-                DataZDO.Vars.SetSacrifiedMegingjord(state.PlayerID, true);
-                RPC.AddStatusEffect(state.PlayerZDO, StatusEffects.Megingjord);
-                RPC.ShowMessage(data.m_targetPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedMegingjord);
-            }
-            if (state.SacrificingState.HasFlag(SacrificingState.CryptKey))
-            {
-                DataZDO.Vars.SetSacrifiedCryptKey(state.PlayerID, true);
-                RPC.ShowMessage(data.m_targetPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedCryptKey);
-            }
-            if (state.SacrificingState.HasFlag(SacrificingState.Wishbone))
-            {
-                DataZDO.Vars.SetSacrifiedWishbone(state.PlayerID, true);
-                RPC.AddStatusEffect(state.PlayerZDO, StatusEffects.Wishbone);
-                RPC.ShowMessage(data.m_targetPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedWishbone);
-            }
-            if (state.SacrificingState.HasFlag(SacrificingState.TornSpirit))
-            {
-                DataZDO.Vars.SetSacrifiedTornSpirit(state.PlayerID, true);
-                RPC.AddStatusEffect(state.PlayerZDO, StatusEffects.Demister);
-                RPC.ShowMessage(data.m_targetPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedTornSpirit);
+                DataZDO.Vars.SetSacrifiedTornSpirit(peerInfo.PlayerID, true);
+                RPC.AddStatusEffect(peerInfo.PlayerZDO, StatusEffects.Demister);
+                RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedTornSpirit);
             }
         }
-
-        state.SacrificingState = default;
     }
 
     bool MoveItems(ExtendedZDO zdo, StackContainerState state, IEnumerable<Peer> peers)

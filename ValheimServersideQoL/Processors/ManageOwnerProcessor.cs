@@ -87,12 +87,11 @@ sealed class ManageOwnerProcessor : Processor
             }
         }
 
-        if (peers.Count > 1 && (
-            (Config.Networking.AssignInteractablesToClosestPlayer.Value && zdo.PrefabInfo is not { Smelter: null, CookingStation: null }) ||
-            (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed())))
+        if ((Config.Networking.AssignInteractablesToClosestPlayer.Value && zdo.PrefabInfo is not { Smelter: null, CookingStation: null }) ||
+            (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed()))
         {
             UnregisterZdoProcessor = false;
-            if (zdo.OwnerTimestamp < _maxOwnerTimestamp)
+            if (peers.Count > 1 && zdo.OwnerTimestamp < _maxOwnerTimestamp)
             {
                 PlayerProcessor.IPeerInfo? closestOwner = null;
                 var minDistSqr = float.MaxValue;
