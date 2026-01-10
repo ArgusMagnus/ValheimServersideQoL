@@ -1,3 +1,7 @@
+### v1.6.1023 (BETA)
+- Changed game version check to ignore the version's patch
+- Various bugfixes and performance improvements
+
 ### v1.6.1021 (BETA)
 - Deprecated `PickaxeAffectsRockDestruction` and introduced `PickaxeRockCollapseThresholdAtMinSkill`/`PickaxeRockCollapseThresholdAtMaxSkill` instead
 - Renamed options in `Skills` section introduced in the last patch

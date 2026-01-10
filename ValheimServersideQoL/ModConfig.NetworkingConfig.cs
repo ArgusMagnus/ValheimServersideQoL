@@ -76,7 +76,7 @@ partial record ModConfigBase
         public ConfigEntry<bool> ReassignOwnershipBasedOnConnectionQuality { get; } = cfg.BindEx(section, false, $"""
                 True to (re)assign zone ownership to the player with the best connection.
                 Requires '{nameof(MeasurePing)}' to be enabled.
-                The connection with the lowest connection quality value is chosen as the best connection,
+                The connection with the lowest connection quality value (lower = better) is chosen as the best connection,
                 where connection quality = ping mean * {nameof(ConnectionQualityPingMeanWeight)} + ping stddev * {nameof(ConnectionQualityPingStdDevWeight)} + ping jitter * {nameof(ConnectionQualityPingJitterWeight)} + ping EMA * {nameof(ConnectionQualityPingEMAWeight)}
                 WARNING: This feature is highly experimental and is likely to cause issues/interfere with other features of this mod and other mods
                 """);

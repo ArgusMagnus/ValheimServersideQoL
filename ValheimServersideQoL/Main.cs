@@ -56,7 +56,7 @@ public sealed partial class Main : BaseUnityPlugin
         HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
     }
 
-    readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221.4");
+    readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221");
     const uint ExpectedNetworkVersion = 35;
     const uint ExpectedItemDataVersion = 106;
     const uint ExpectedWorldVersion = 36;
@@ -182,9 +182,10 @@ public sealed partial class Main : BaseUnityPlugin
 
         var failed = false;
         var abort = false;
-        if (RuntimeInformation.Instance.GameVersion != ExpectedGameVersion)
+        var gameVersion = RuntimeInformation.Instance.GameVersion with { m_patch = 0 };
+        if (gameVersion != ExpectedGameVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported game version: {gameVersion}.x, expected: {ExpectedGameVersion}.x"));
             failed = true;
             abort |= !Config.General.IgnoreGameVersionCheck.Value;
         }
@@ -210,7 +211,7 @@ public sealed partial class Main : BaseUnityPlugin
         if (failed)
         {
             if (!abort)
-                Logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
+                Logger.LogWarning("Version checks failed, but you chose to ignore the checks (config). Continuing...");
             else
             {
                 Logger.LogError("Version checks failed. Mod execution is stopped");
