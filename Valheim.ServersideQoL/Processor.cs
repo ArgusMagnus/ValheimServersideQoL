@@ -26,9 +26,14 @@ public abstract class Processor
 
     private protected Processor() { }
 
+    private protected abstract void ValidateProcessor();
     internal void ValidateProcessorInternal() => ValidateProcessor();
 
-    private protected abstract void ValidateProcessor();
+    private protected abstract bool InitializePrefabInfo(PrefabInfo prefabInfo);
+    internal bool InitializePrefabInfoInternal(PrefabInfo prefabInfo) => InitializePrefabInfo(prefabInfo);
+
+    private protected abstract void AddPrefabInfoInterface(TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder);
+    internal void AddPrefabInfoInterfaceInternal(TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder) => AddPrefabInfoInterface(prefabInfoBuilder);
 
     static class InstanceCache<T>
         where T : Processor, new()
@@ -193,21 +198,6 @@ public abstract class Processor
         zdo.Destroy();
     }
 
-    private protected sealed record PrefabComponents(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehaviour> Components);
-    static readonly Dictionary<int, PrefabComponents?> __prefabComponents = [];
-
-    private protected static PrefabComponents? GetComponents(int prefabHash)
-    {
-        if (!__prefabComponents.TryGetValue(prefabHash, out var components))
-        {
-            if (ZNetScene.instance.GetPrefab(prefabHash) is { } prefab &&
-                prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
-                components = new(prefab, availableComponents.ToDictionary(static x => x.GetType()));
-            __prefabComponents.Add(prefabHash, components);
-        }
-        return components;
-    }
-
     [Flags]
     internal protected enum ProcessResult
     {
@@ -229,9 +219,9 @@ public abstract class Processor
 }
 
 public abstract class Processor<TPrefabInfo> : Processor
-    where TPrefabInfo : PrefabInfoBase
+    where TPrefabInfo : ProcessorPrefabInfo
 {
-    interface IZDOWithPrefabInfo : IExtendedZDO
+    interface IProcessorPrefabInfo : IPrefabInfo
     {
         TPrefabInfo? PrefabInfo { get; set; }
     }
@@ -246,24 +236,23 @@ public abstract class Processor<TPrefabInfo> : Processor
         {
             _prefabInfoCtor = ctors[0];
             _prefabInfoCtorParameters = _prefabInfoCtor.GetParameters();
-            ZDOExtender.ZDOExtender.AddInterface<IZDOWithPrefabInfo>().PrefabChanged += OnZDOPrefabChanged;
         }
     }
 
-    void OnZDOPrefabChanged(IZDOWithPrefabInfo zdo, int oldPrefabHash, int newPrefabHash)
+    private protected override void AddPrefabInfoInterface(TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder)
+        => prefabInfoBuilder.AddInterface<IProcessorPrefabInfo>();
+
+    private protected override bool InitializePrefabInfo(PrefabInfo prefabInfo)
     {
-        if (!_prefabInfoByHash.TryGetValue(newPrefabHash, out var prefabInfo))
-            _prefabInfoByHash.Add(newPrefabHash, prefabInfo = GetPrefabInfo(newPrefabHash));
-        zdo.PrefabInfo = prefabInfo;
-        zdo.ZDO.GetExtension<IServersideQoLZDO>().Components = prefabInfo?.Components;
+        var pi = GetProcessorPrefabInfo(prefabInfo);
+        prefabInfo.GetExtension<IProcessorPrefabInfo>().PrefabInfo = pi;
+        return pi is not null;
     }
 
-    TPrefabInfo? GetPrefabInfo(int prefabHash)
+    TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
     {
-        if (prefabHash is 0 || GetComponents(prefabHash) is not { } prefabComponents)
-            return default;
-
-        var (prefab, components) = prefabComponents;
+        var prefab = prefabInfo.Prefab;
+        var components = prefabInfo.Components;
         var args = new object?[_prefabInfoCtorParameters!.Length];
         var any = false;
         for (int i = 0; i < _prefabInfoCtorParameters.Length; i++)
@@ -280,11 +269,7 @@ public abstract class Processor<TPrefabInfo> : Processor
         }
         if (!any)
             return default;
-        var prefabInfo = (TPrefabInfo)_prefabInfoCtor!.Invoke(args);
-        prefabInfo.PrefabHash = prefabHash;
-        prefabInfo.PrefabName = prefab.name;
-        prefabInfo.Components = components;
-        return prefabInfo;
+        return (TPrefabInfo)_prefabInfoCtor!.Invoke(args);
     }
 
     private protected override void ValidateProcessor()
