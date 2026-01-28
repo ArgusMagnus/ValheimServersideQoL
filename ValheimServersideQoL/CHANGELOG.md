@@ -1,10 +1,5 @@
-### v1.6.1023 (BETA)
-- Changed game version check to ignore the version's patch
-- Various bugfixes and performance improvements
-
-### v1.6.1021 (BETA)
-- Deprecated `PickaxeAffectsRockDestruction` and introduced `PickaxeRockCollapseThresholdAtMinSkill`/`PickaxeRockCollapseThresholdAtMaxSkill` instead
-- Renamed options in `Skills` section introduced in the last patch
+### v1.7.0
+- New option for teleporting following tames: `TeleportFollowMinDistance`
 - New features in the `Skills` section:
     - `BloodmagicSummonsLevelUpChanceAtMinSkill`/`BloodmagicSummonsLevelUpChanceAtMaxSkill`: Creatures gain a chance to be summoned with an increased level based on the bloodmagic skill
     - `BloodmagicMakeSummonsFriendlyChanceAtMinSkill`/`BloodmagicMakeSummonsFriendlyChanceAtMaxSkill`: Hostile summons (like summoned troll) gain a chance to be friendly based on the bloodmagic skill
@@ -12,17 +7,10 @@
     - `BloodmagicSummonsHPRegenMultiplierAtMinSkill`/`BloodmagicSummonsHPRegenMultiplierAtMaxSkill`: Summons gain a multiplier to their HP regeneration based on the bloodmagic skill
     - `BloodmagicSummonsSpeedMultiplierAtMinSkill`/`BloodmagicSummonsSpeedMultiplierAtMaxSkill`: Summons gain a multiplier to their speed based on the bloodmagic skill
 - New feature `DeconstructWithHammer`: Allow deconstructing carts/ships with the build hammer
+- Deprecated `PickaxeAffectsRockDestruction` and introduced `PickaxeRockCollapseThresholdAtMinSkill`/`PickaxeRockCollapseThresholdAtMaxSkill` instead
 - Fixed an issue where the text on chest signs could not be changed
+- Changed game version check to ignore the version's patch
 - Various bugfixes and performance improvements
-
-### v1.6.1008 (BETA)
-- New option for teleporting following tames: `TeleportFollowMinDistance`
-- New features in the `Skills` section:
-    - `BloodmagicSummonsMinLevelUpChance`/`BloodmagicSummonsMaxLevelUpChance`: Creatures gain a chance to be summoned with an increased level based on the bloodmagic skill
-    - `BloodmagicMakeHostileSummonsFriendlyMinChance`/`BloodmagicMakeHostileSummonsFriendlyMaxChance`: Hostile summons (like summoned troll) gain a chance to be friendly based on the bloodmagic skill
-    - `BloodmagicMakeSummonsTolerateLavaMinChance`/`BloodmagicMakeSummonsTolerateLavaMaxChance`: Summons gain a chance to gain fire/lava immunity based on the bloodmagic skill
-    - `BloodmagicSummonsHPRegenMinMultiplier`/`BloodmagicSummonsHPRegenMaxMultiplier`: Summons gain a multiplier to their HP regeneration based on the bloodmagic skill
-- Bugfixes
 
 ### v1.6.0
 - New features:
