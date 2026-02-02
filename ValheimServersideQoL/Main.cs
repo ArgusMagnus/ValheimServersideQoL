@@ -57,9 +57,9 @@ public sealed partial class Main : BaseUnityPlugin
     }
 
     readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221");
-    const uint ExpectedNetworkVersion = 35;
+    const uint ExpectedNetworkVersion = 36;
     const uint ExpectedItemDataVersion = 106;
-    const uint ExpectedWorldVersion = 36;
+    const uint ExpectedWorldVersion = 37;
     internal const string DummyConfigSection = "Z - Dummy";
 
     void Start()
@@ -111,7 +111,7 @@ public sealed partial class Main : BaseUnityPlugin
                     if (ZNet.instance is null)
                         break;
 
-                    var minFps = ZNet.instance.IsDedicated() ? 10 : Game.m_minimumFPSLimit;
+                    var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
                     var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
                     var maxDelta = 1.0 / minFps;
                     var actualFps = 1.0 / Time.unscaledDeltaTime;

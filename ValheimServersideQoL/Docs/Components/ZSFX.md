@@ -5483,12 +5483,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
+|m_maxDelay|System.Single|0.15|
+|m_minDelay|System.Single|0.15|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1438827396|
+|m_hash|System.Int32|-1731706305|
 
 ## fx_QueenPierceGround: SFX (1)
 
@@ -5511,12 +5511,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.15|
-|m_minDelay|System.Single|0.15|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1731706305|
+|m_hash|System.Int32|-1438827396|
 
 ## fx_QueenPierceGround: SFX (2)
 

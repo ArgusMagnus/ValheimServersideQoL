@@ -318,7 +318,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_name|System.String|Grave|
+|m_name|System.String|$piece_tombstone_container|
 |m_width|System.Int32|8|
 |m_height|System.Int32|4|
 |m_checkGuardStone|System.Boolean|False|
@@ -510,6 +510,32 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
 
 ## TreasureChest_meadows: TreasureChest_meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestwood|
+|m_width|System.Int32|4|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|woodchesttop_open|
+|m_closed|UnityEngine.GameObject|woodchesttop_closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+
+## TreasureChest_meadows_01: TreasureChest_meadows_01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestwood|
+|m_width|System.Int32|4|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|woodchesttop_open|
+|m_closed|UnityEngine.GameObject|woodchesttop_closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+
+## TreasureChest_meadows_02: TreasureChest_meadows_02
 
 |Field|Type|Default Value|
 |-----|----|-------------|

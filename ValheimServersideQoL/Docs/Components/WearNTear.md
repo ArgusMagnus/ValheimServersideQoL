@@ -9434,6 +9434,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
 
+## piece_CelebrationGarland: piece_CelebrationGarland
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_noSupportWear|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
 ## piece_chair: piece_chair
 
 |Field|Type|Default Value|
@@ -10033,6 +10057,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
+
+## piece_FairylightGarland: piece_FairylightGarland
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_noSupportWear|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
 
 ## Piece_flametal_beam: Piece_flametal_beam
 
@@ -13538,6 +13586,54 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
 
+## TreasureChest_meadows_01: TreasureChest_meadows_01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_noSupportWear|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## TreasureChest_meadows_02: TreasureChest_meadows_02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_noSupportWear|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
 ## TreasureChest_meadows_buried: TreasureChest_meadows_buried
 
 |Field|Type|Default Value|
@@ -13857,6 +13953,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_new|UnityEngine.GameObject|attach|
 |m_worn|UnityEngine.GameObject|attach|
 |m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_noSupportWear|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## VikingCupcake: VikingCupcake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|pie|
+|m_worn|UnityEngine.GameObject|pie|
+|m_broken|UnityEngine.GameObject|pie|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
 |m_noSupportWear|System.Boolean|True|

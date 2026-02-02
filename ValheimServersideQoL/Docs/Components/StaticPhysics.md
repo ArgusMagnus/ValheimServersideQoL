@@ -254,6 +254,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_checkSolids|System.Boolean|False|
 |m_fallCheckRadius|System.Single|0|
 
+## BigRock: BigRock
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_pushUp|System.Boolean|False|
+|m_fall|System.Boolean|True|
+|m_checkSolids|System.Boolean|True|
+|m_fallCheckRadius|System.Single|2.5|
+
 ## Birch_Sapling: Birch_Sapling
 
 |Field|Type|Default Value|

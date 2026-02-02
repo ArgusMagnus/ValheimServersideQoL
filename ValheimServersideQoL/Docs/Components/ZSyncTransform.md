@@ -1062,7 +1062,37 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## AxeEarly: AxeEarly
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## AxeFlint: AxeFlint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AxeHead1: AxeHead1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AxeHead2: AxeHead2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5833,6 +5863,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## HelmetCarapace: HelmetCarapace
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## HelmetCelebration: HelmetCelebration
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -10879,6 +10919,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncPosition|System.Boolean|True|
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|True|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## VikingCupcake: VikingCupcake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## VikingCupcakeUncooked: VikingCupcakeUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 

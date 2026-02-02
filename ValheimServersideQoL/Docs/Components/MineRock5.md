@@ -420,6 +420,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggerPrivateArea|System.Boolean|False|
 |m_hitEffectAreaCenter|System.Boolean|True|
 
+## rock4_bigrock_frac: rock4_bigrock_frac
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String||
+|m_health|System.Single|30|
+|m_minToolTier|System.Int32|0|
+|m_supportCheck|System.Boolean|True|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_hitEffectAreaCenter|System.Boolean|True|
+
 ## rock4_coast_frac: rock4_coast_frac
 
 |Field|Type|Default Value|

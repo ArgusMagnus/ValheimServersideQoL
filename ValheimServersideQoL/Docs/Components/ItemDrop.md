@@ -830,7 +830,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## AxeEarly: AxeEarly
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## AxeFlint: AxeFlint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AxeHead1: AxeHead1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AxeHead2: AxeHead2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3675,6 +3702,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetCarapace: HelmetCarapace
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## HelmetCelebration: HelmetCelebration
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7131,6 +7167,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## VegvisirShard_Bonemass: VegvisirShard_Bonemass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## VikingCupcake: VikingCupcake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## VikingCupcakeUncooked: VikingCupcakeUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|

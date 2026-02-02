@@ -8,6 +8,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|True|
+|m_isArmorStand|System.Boolean|False|
 
 ## ArmorStand: Player Pose
 
@@ -15,6 +16,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|True|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|True|
 
 ## ArmorStand_Female: Player Pose
 
@@ -22,6 +24,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|True|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|True|
 
 ## ArmorStand_Male: Player Pose
 
@@ -29,6 +32,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|True|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|True|
 
 ## Bonemass: Bonemass
 
@@ -36,6 +40,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Archer: Charred_Archer
 
@@ -43,6 +48,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Archer_Fader: Charred_Archer_Fader
 
@@ -50,6 +56,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Mage: Charred_Mage
 
@@ -57,6 +64,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Melee: Charred_Melee
 
@@ -64,6 +72,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Melee_Dyrnwyn: Charred_Melee_Dyrnwyn
 
@@ -71,6 +80,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Melee_Fader: Charred_Melee_Fader
 
@@ -78,6 +88,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Melee_Ragdoll: Charred_Melee_Ragdoll
 
@@ -85,6 +96,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Twitcher: Charred_Twitcher
 
@@ -92,6 +104,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Charred_Twitcher_Summoned: Charred_Twitcher_Summoned
 
@@ -99,6 +112,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Draugr: Draugr
 
@@ -106,6 +120,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Draugr_Elite: Draugr_Elite
 
@@ -113,6 +128,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Draugr_elite_ragdoll: Draugr_elite_ragdoll
 
@@ -120,6 +136,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Draugr_ragdoll: Draugr_ragdoll
 
@@ -127,6 +144,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Draugr_Ranged: Draugr_Ranged
 
@@ -134,6 +152,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Draugr_ranged_ragdoll: Draugr_ranged_ragdoll
 
@@ -141,6 +160,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Dverger: Dverger
 
@@ -148,6 +168,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Dverger_ragdoll: Dverger_ragdoll
 
@@ -155,6 +176,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## DvergerAshlands: DvergerAshlands
 
@@ -162,6 +184,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## DvergerMage: DvergerMage
 
@@ -169,6 +192,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## DvergerMageFire: DvergerMageFire
 
@@ -176,6 +200,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## DvergerMageIce: DvergerMageIce
 
@@ -183,6 +208,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## DvergerMageSupport: DvergerMageSupport
 
@@ -190,6 +216,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## DvergerTest: DvergerTest
 
@@ -197,6 +224,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Ghost: Ghost
 
@@ -204,6 +232,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Goblin: Goblin
 
@@ -211,6 +240,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Goblin_Dragdoll: Goblin_Dragdoll
 
@@ -218,6 +248,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Goblin_Gem: Goblin_Gem
 
@@ -225,6 +256,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinArcher: GoblinArcher
 
@@ -232,6 +264,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinBrute: GoblinBrute
 
@@ -239,6 +272,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinBrute_Hildir: GoblinBrute_Hildir
 
@@ -246,6 +280,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinBrute_Hildir_ragdoll: GoblinBrute_Hildir_ragdoll
 
@@ -253,6 +288,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinBrute_ragdoll: GoblinBrute_ragdoll
 
@@ -260,6 +296,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinBruteBros: GoblinBruteBros
 
@@ -267,6 +304,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinBruteBros_nochest: GoblinBruteBros_nochest
 
@@ -274,6 +312,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinShaman: GoblinShaman
 
@@ -281,6 +320,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinShaman_Hildir: GoblinShaman_Hildir
 
@@ -288,6 +328,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinShaman_Hildir_nochest: GoblinShaman_Hildir_nochest
 
@@ -295,6 +336,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinShaman_Hildir_ragdoll: GoblinShaman_Hildir_ragdoll
 
@@ -302,6 +344,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## GoblinShaman_ragdoll: GoblinShaman_ragdoll
 
@@ -309,6 +352,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Hive: Hive
 
@@ -316,6 +360,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## piece_TrainingDummy: piece_TrainingDummy
 
@@ -323,6 +368,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Player: Player
 
@@ -330,6 +376,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|True|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Player_ragdoll: Player_ragdoll
 
@@ -337,6 +384,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|True|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Skeleton: Skeleton
 
@@ -344,6 +392,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Skeleton_Friendly: Skeleton_Friendly
 
@@ -351,6 +400,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Skeleton_Hildir: Skeleton_Hildir
 
@@ -358,6 +408,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Skeleton_Hildir_nochest: Skeleton_Hildir_nochest
 
@@ -365,6 +416,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Skeleton_NoArcher: Skeleton_NoArcher
 
@@ -372,6 +424,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Skeleton_Poison: Skeleton_Poison
 
@@ -379,6 +432,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## StoneGolem: StoneGolem
 
@@ -386,6 +440,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|True|
+|m_isArmorStand|System.Boolean|False|
 
 ## TrainingDummy: TrainingDummy
 
@@ -393,6 +448,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Troll: Troll
 
@@ -400,6 +456,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 
 ## Troll_Summoned: Troll_Summoned
 
@@ -407,4 +464,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_isPlayer|System.Boolean|False|
 |m_useAllTrails|System.Boolean|False|
+|m_isArmorStand|System.Boolean|False|
 

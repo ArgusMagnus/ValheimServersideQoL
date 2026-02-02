@@ -1,3 +1,6 @@
+### v1.7.1001 (BETA)
+- Update to Valheim patch 0.221.10
+
 ### v1.7.0
 - New option for teleporting following tames: `TeleportFollowMinDistance`
 - New features in the `Skills` section:

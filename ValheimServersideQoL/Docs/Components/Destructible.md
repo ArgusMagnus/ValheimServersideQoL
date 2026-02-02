@@ -366,6 +366,20 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnWhenDestroyed|UnityEngine.GameObject|*null*|
 |m_autoCreateFragments|System.Boolean|True|
 
+## BigRock: BigRock
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_health|System.Single|1|
+|m_minDamageTreshold|System.Single|0|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_ttl|System.Single|0|
+|m_spawnWhenDestroyed|UnityEngine.GameObject|rock4_bigrock_frac|
+|m_autoCreateFragments|System.Boolean|False|
+
 ## Birch_Sapling: Birch_Sapling
 
 |Field|Type|Default Value|
