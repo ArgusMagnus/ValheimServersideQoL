@@ -1,3 +1,6 @@
+### v1.7.1002 (BETA)
+- Fixed issue/mod conflict which could result in a `ArgumentNullException`
+
 ### v1.7.1001 (BETA)
 - Update to Valheim patch 0.221.10
 

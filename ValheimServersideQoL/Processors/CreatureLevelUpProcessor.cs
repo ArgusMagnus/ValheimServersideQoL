@@ -89,7 +89,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 var prefab = spawner.m_prefab.name.GetStableHashCode();
                 if (!_spawnData.TryGetValue((biome, prefab), out var list))
                     _spawnData.Add((biome, prefab), list = []);
-                list.Add(new(spawner, biomePerBossKey.TryGetValue(spawner.m_requiredGlobalKey, out var b) ? b : null));
+                list.Add(new(spawner, biomePerBossKey.TryGetValue(spawner.m_requiredGlobalKey ?? "", out var b) ? b : null));
             }
         }
 
