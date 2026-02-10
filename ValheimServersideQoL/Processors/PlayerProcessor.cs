@@ -259,6 +259,8 @@ sealed class PlayerProcessor : Processor
             subscribeSetTrigger = Config.Players.InfiniteBuildingStamina.Value || Config.Players.InfiniteFarmingStamina.Value || Config.Players.InfiniteMiningStamina.Value || Config.Players.InfiniteWoodCuttingStamina.Value;
         UpdateRpcSubscription("SetTrigger", OnZSyncAnimationSetTrigger, subscribeSetTrigger);
 
+        UpdateRpcSubscription("OnDeath", RPC_OnDeath, Config.Players.BackpackOnDeath.Value is not ModConfigBase.PlayersConfig.BackPackOnDeathOptions.Keep);
+
         //UpdateRpcSubscription("Say", OnTalkerSay, true);
         UpdateRpcSubscription("RPC_AnimateLever", RPC_AnimateLever,
             Config.Players.CanSacrificeMegingjord.Value ||
@@ -442,6 +444,18 @@ sealed class PlayerProcessor : Processor
     //{
     //    var type = (Talker.Type)ctype;
     //}
+
+    void RPC_OnDeath(ZRoutedRpc.RoutedRPCData data)
+    {
+        if (Config.Players.BackpackOnDeath.Value is ModConfigBase.PlayersConfig.BackPackOnDeathOptions.Destroy)
+        {
+            if (_playerStates.TryGetValue(data.m_senderPeerID, out var state) && state.BackpackContainer is { } backpack)
+            {
+                DestroyObject(backpack);
+                Logger.LogInfo($"Backpack of player '{state.PlayerName}' destroyed on death");
+            }
+        }
+    }
 
     void RPC_AnimateLever(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data)
     {

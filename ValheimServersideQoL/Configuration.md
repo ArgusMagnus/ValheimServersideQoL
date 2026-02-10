@@ -228,6 +228,7 @@
 |InitialBackpackSlots|4||Initial available slots in the backpack|
 |AdditionalBackpackSlotsPerDefeatedBoss|4||Additional backpack slots per defeated boss|
 |MaxBackpackWeight|0||Maximum backpack weight. 0 for no limit.|
+|BackpackOnDeath|Keep|One of Keep, Destroy|What happens to backpack contents on player death|
 |CanSacrificeMegingjord|False|True/False|If true, players can permanently unlock increased carrying weight by sacrificing a megingjord in an obliterator|
 |CanSacrificeCryptKey|False|True/False|If true, players can permanently unlock the ability to open sunken crypt doors by sacrificing a crypt key in an obliterator|
 |CanSacrificeWishbone|False|True/False|If true, players can permanently unlock the ability to sense hidden objects by sacrificing a wishbone in an obliterator|

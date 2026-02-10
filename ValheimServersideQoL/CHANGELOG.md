@@ -1,3 +1,6 @@
+### vNext (BETA)
+- New option to destroy the backpack on death (`BackpackOnDeath`) [#151](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/151)
+
 ### v1.7.1002 (BETA)
 - Fixed issue/mod conflict which could result in a `ArgumentNullException`
 
