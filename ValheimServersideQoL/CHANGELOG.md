@@ -1,4 +1,4 @@
-### v1.7.1004 (BETA)
+### v1.7.1006 (BETA)
 - New option (`BackpackOnDeath`) to destroy the backpack on death [#151](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/151)
 - New option (`MapViewDistance`) to enable the map near map tables in no-map worlds [#160](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/160)
 
