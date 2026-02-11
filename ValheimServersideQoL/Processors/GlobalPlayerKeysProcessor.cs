@@ -4,18 +4,33 @@ sealed class GlobalPlayerKeysProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("f21976ad-a2b6-4aaf-94d1-8f9e65510704");
 
-    readonly Dictionary<Trader, List<string>> _globalKeysToSet = [];
+    readonly record struct GlobalKeyModification(string Key, bool Add);
+
+    readonly Dictionary<Trader, IReadOnlyList<GlobalKeyModification>> _globalKeyModifications = [];
     readonly Dictionary<ZDOID, Peer> _reset = [];
+    IReadOnlyList<GlobalKeyModification> _mapTableModifications => field ??= [new(GlobalKeys.NoMap.ToString().ToLower(), false)];
+    float _mapTableRangeSqr;
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
-        _globalKeysToSet.Clear();
-        foreach(var (trader, cfgList) in Config.Traders.AlwaysUnlock.Select(static x => (x.Key, x.Value)))
+        _globalKeyModifications.Clear();
+        foreach (var (trader, cfgList) in Config.Traders.AlwaysUnlock.Select(static x => (x.Key, x.Value)))
         {
-            var list = cfgList.Where(static x => x.ConfigEntry.Value).Select(static x => x.GlobalKey).ToList();
+            var list = cfgList.Where(static x => x.ConfigEntry.Value).Select(static x => new GlobalKeyModification(x.GlobalKey, true)).ToList();
             if (list.Count > 0)
-                _globalKeysToSet.Add(trader, list);
+                _globalKeyModifications.Add(trader, list);
+        }
+
+        _mapTableRangeSqr = 0;
+        if (Config.MapTables.MapViewDistance is not null)
+        {
+            _mapTableRangeSqr = Config.MapTables.MapViewDistance.Value * Config.MapTables.MapViewDistance.Value;
+            if (!ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoMap))
+            {
+                _mapTableRangeSqr = 0;
+                Logger.LogWarning($"[{Config.MapTables.MapViewDistance.Definition.Section}].[{Config.MapTables.MapViewDistance.Definition.Key}] has no effect unless the {GlobalKeys.NoMap} global key is set");
+            }
         }
 
         if (!firstTime)
@@ -30,19 +45,25 @@ sealed class GlobalPlayerKeysProcessor : Processor
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
-        if (zdo.PrefabInfo.Trader is null || !_globalKeysToSet.TryGetValue(zdo.PrefabInfo.Trader, out var globalKeysToSet))
+        float minDistSqr;
+        if (zdo.PrefabInfo.Trader is not null && _globalKeyModifications.TryGetValue(zdo.PrefabInfo.Trader, out var globalKeyModifications))
+            minDistSqr = zdo.PrefabInfo.Trader.m_standRange * zdo.PrefabInfo.Trader.m_standRange;
+        else if (_mapTableRangeSqr > 0 && zdo.PrefabInfo.MapTable is not null)
+        {
+            minDistSqr = _mapTableRangeSqr;
+            globalKeyModifications = _mapTableModifications;
+        }
+        else
         {
             UnregisterZdoProcessor = true;
             return false;
         }
 
-        float? minDistSqr = null;
         List<string>? serverKeys = null;
         List<string>? keys = null;
-        List<string>? remove = null;
+        List<GlobalKeyModification>? remove = null;
         foreach (var peer in peers)
         {
-            minDistSqr ??= zdo.PrefabInfo.Trader.m_standRange * zdo.PrefabInfo.Trader.m_standRange;
             if (Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistSqr)
             {
                 if (_reset.TryAdd(peer.m_characterID, peer))
@@ -50,12 +71,17 @@ sealed class GlobalPlayerKeysProcessor : Processor
                     if (keys is null)
                     {
                         keys = ZoneSystem.instance.GetGlobalKeys();
-                        foreach (var key in globalKeysToSet)
+                        foreach (var (key, add) in globalKeyModifications)
                         {
-                            if (keys.Contains(key))
-                                (remove ??= []).Add(key);
+                            if (!add)
+                                keys.Remove(key);
                             else
-                                keys.Add(key);
+                            {
+                                if (keys.Contains(key))
+                                    (remove ??= []).Add(new(key, add));
+                                else
+                                    keys.Add(key);
+                            }
                         }
                     }
                     RPC.SendGlobalKeys(peer, keys);
@@ -70,10 +96,11 @@ sealed class GlobalPlayerKeysProcessor : Processor
 
         if (remove is not null)
         {
+            var list = (IList<GlobalKeyModification>)globalKeyModifications;
             foreach (var key in remove)
-                globalKeysToSet.Remove(key);
-            if (globalKeysToSet.Count is 0)
-                _globalKeysToSet.Remove(zdo.PrefabInfo.Trader);
+                list.Remove(key);
+            if (list.Count is 0 && zdo.PrefabInfo.Trader is not null)
+                _globalKeyModifications.Remove(zdo.PrefabInfo.Trader);
         }
 
         return false;

@@ -144,6 +144,7 @@
 |AutoUpdatePortalsInclude|*||Only portals with a tag that matches this filter are added to map tables|
 |AutoUpdateShips|False|True/False|True to update map tables with ship pins|
 |UpdatedMessageType|None|None, TopLeftNear, TopLeftFar, CenterNear, CenterFar, InWorld|Type of message to show when a map table is updated|
+|MapViewDistance|0||Max distance to a map table at which players can view their map.<br>Has no effect unless the NoMap global key is set.<br>0 to disable this feature.|
 </details>
 <details><summary>Networking</summary>
 

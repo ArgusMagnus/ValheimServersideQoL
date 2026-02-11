@@ -17,5 +17,12 @@ partial record ModConfigBase
             "True to update map tables with ship pins");
         public ConfigEntry<MessageTypes> UpdatedMessageType { get; } = cfg.BindEx(section, MessageTypes.None,
             "Type of message to show when a map table is updated", AcceptableEnum<MessageTypes>.Default);
+
+        public ConfigEntry<float>? MapViewDistance { get; } = ZNet.instance.IsServer() && ZNet.instance.IsDedicated() ?
+            cfg.BindEx(section, 0f, $"""
+                Max distance to a map table at which players can view their map.
+                Has no effect unless the {GlobalKeys.NoMap} global key is set.
+                0 to disable this feature.
+                """) : null;
     }
 }
