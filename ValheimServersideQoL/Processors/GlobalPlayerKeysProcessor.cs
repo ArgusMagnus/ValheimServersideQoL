@@ -1,6 +1,6 @@
 ﻿namespace Valheim.ServersideQoL.Processors;
 
-sealed class TraderProcessor : Processor
+sealed class GlobalPlayerKeysProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("f21976ad-a2b6-4aaf-94d1-8f9e65510704");
 
