@@ -26,7 +26,7 @@ sealed class GlobalPlayerKeysProcessor : Processor
         if (Config.MapTables.MapViewDistance is not null)
         {
             _mapTableRangeSqr = Config.MapTables.MapViewDistance.Value * Config.MapTables.MapViewDistance.Value;
-            if (!ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoMap))
+            if (_mapTableRangeSqr > 0 && !ZoneSystem.instance.GetGlobalKey(GlobalKeys.NoMap))
             {
                 _mapTableRangeSqr = 0;
                 Logger.LogWarning($"[{Config.MapTables.MapViewDistance.Definition.Section}].[{Config.MapTables.MapViewDistance.Definition.Key}] has no effect unless the {GlobalKeys.NoMap} global key is set");

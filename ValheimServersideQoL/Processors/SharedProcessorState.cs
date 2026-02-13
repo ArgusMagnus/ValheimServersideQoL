@@ -104,12 +104,18 @@ static class SharedProcessorState
                 try { location.m_prefab.Load(); }
                 catch(Exception ex)
                 {
-                    Main.Instance.Logger.LogError(ex);
+                    Main.Instance.Logger.LogWarning($"Loading location asset {location.m_prefabName} failed: {ex}");
                     continue;
                 }
 
-                var bowl = location.m_prefab.Asset.GetComponentInChildren<OfferingBowl>();
-                if (includeDungeons && bowl is null && location.m_prefab.Asset.GetComponentInChildren<DungeonGenerator>() is { } dungeonGen)
+                if (location.m_prefab.Asset is not { } asset)
+                {
+                    Main.Instance.Logger.LogWarning($"Loading location asset {location.m_prefabName} failed");
+                    continue;
+                }
+
+                var bowl = asset.GetComponentInChildren<OfferingBowl>();
+                if (includeDungeons && bowl is null && asset.GetComponentInChildren<DungeonGenerator>() is { } dungeonGen)
                 {
                     foreach (var roomRef in dungeonGen.GetAvailableRoomPrefabs())
                     {
