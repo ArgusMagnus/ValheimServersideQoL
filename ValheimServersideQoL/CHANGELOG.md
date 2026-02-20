@@ -1,15 +1,9 @@
-### v1.7.1008 (BETA)
-- Fixed NRE when loading location assets
-
-### v1.7.1006 (BETA)
+### v1.8.0
+- Update to Valheim patch 0.221.12
 - New option (`BackpackOnDeath`) to destroy the backpack on death [#151](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/151)
 - New option (`MapViewDistance`) to enable the map near map tables in no-map worlds [#160](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/160)
-
-### v1.7.1002 (BETA)
 - Fixed issue/mod conflict which could result in a `ArgumentNullException`
-
-### v1.7.1001 (BETA)
-- Update to Valheim patch 0.221.10
+- Fixed NRE when loading location assets
 
 ### v1.7.0
 - New option for teleporting following tames: `TeleportFollowMinDistance`

@@ -3973,6 +3973,8 @@
 |settings_reducebg_descr|When the game is not in focus, e.g. while minimized, it will use less resources.|
 |settings_reduceflashinglights|Reduce flashing lights|
 |settings_reduceflashinglights_descr|Reduces the strength of lightning effects.|
+|settings_release_to_use_mode|Release To Use Mode|
+|settings_release_to_use_mode_descr|TODO-TRANSLATE|
 |settings_remove|Deconstruct|
 |settings_renderscale|Render scale|
 |settings_renderscale_descr|Resolution of the game elements other than UIs. Can be used either or both to increase performance or create a more retro look.|
@@ -3991,8 +3993,6 @@
 |settings_show_button_hints_descr|Activates more tooltips informing you about controls in the menus.|
 |settings_showgamepadmap|Show gamepad|
 |settings_showkeyhints|Show key hints|
-|settings_single_use_mode|Single Use Mode|
-|settings_single_use_mode_descr|TODO-TRANSLATE|
 |settings_sit|Sit|
 |settings_softpart|Soft particles|
 |settings_spiral_normal|Normal|

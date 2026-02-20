@@ -183,12 +183,12 @@ public sealed partial class Main : BaseUnityPlugin
         var failed = false;
         var abort = false;
         var gameVersion = RuntimeInformation.Instance.GameVersion with { m_patch = 0 };
-        if (gameVersion != ExpectedGameVersion)
-        {
-            Logger.LogWarning(Invariant($"Unsupported game version: {gameVersion}.x, expected: {ExpectedGameVersion}.x"));
-            failed = true;
-            abort |= !Config.General.IgnoreGameVersionCheck.Value;
-        }
+        //if (gameVersion != ExpectedGameVersion)
+        //{
+        //    Logger.LogWarning(Invariant($"Unsupported game version: {gameVersion}.x, expected: {ExpectedGameVersion}.x"));
+        //    failed = true;
+        //    abort |= !Config.General.IgnoreGameVersionCheck.Value;
+        //}
         if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
         {
             Logger.LogWarning(Invariant($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}"));
