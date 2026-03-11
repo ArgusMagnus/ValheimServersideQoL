@@ -54,7 +54,8 @@ partial record ModConfigBase
         public enum BackPackOnDeathOptions
         {
             Keep,
-            Destroy
+            Destroy,
+            Drop
         }
 
         public ConfigEntry<bool> CanSacrificeMegingjord { get; } = cfg.BindEx(section, false,
