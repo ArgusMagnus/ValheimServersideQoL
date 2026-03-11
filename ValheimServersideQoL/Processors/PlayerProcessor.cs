@@ -455,6 +455,25 @@ sealed class PlayerProcessor : Processor
                 Logger.LogInfo($"Backpack of player '{state.PlayerName}' destroyed on death");
             }
         }
+        else if (Config.Players.BackpackOnDeath.Value is ModConfigBase.PlayersConfig.BackPackOnDeathOptions.Drop)
+        {
+            if (_playerStates.TryGetValue(data.m_senderPeerID, out var state) && state.BackpackContainer is { } backpack)
+            {
+                var dropPos = state.PlayerZDO.GetPosition();
+                var rotation = state.PlayerZDO.GetRotation();
+                foreach (var item in backpack.Inventory.Items.ToList()) 
+                {
+                    var offsetPos = dropPos + new Vector3(
+                        UnityEngine.Random.Range(-2f, 2f),  // Random X offset
+                        0f,                                 // Keep Y level (no vertical scatter)
+                        UnityEngine.Random.Range(-2f, 2f)   // Random Z offset
+                    );
+                    ItemDrop.DropItem(item, 0, offsetPos, rotation);
+                }
+                DestroyObject(backpack);
+                Logger.LogInfo($"Backpack items of player '{state.PlayerName}' dropped at death location.");
+            }
+        }
     }
 
     void RPC_AnimateLever(ExtendedZDO zdo, ZRoutedRpc.RoutedRPCData data)
