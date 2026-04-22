@@ -4,6 +4,9 @@ namespace Valheim.ServersideQoL;
 
 partial record ModConfigBase
 {
+    public const Emotes DisabledEmote = (Emotes)(-1);
+    public const Emotes AnyEmote = (Emotes)(-2);
+
     public sealed class PlayersConfig(ConfigFile cfg, string section)
     {
         static string GetInfiniteXDescription(string action) => Invariant($"""
@@ -20,8 +23,6 @@ partial record ModConfigBase
         public ConfigEntry<bool> InfiniteSneakingStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("sneaking"));
         public ConfigEntry<bool> InfiniteSwimmingStamina { get; } = cfg.BindEx(section, false, GetInfiniteXDescription("swimming"));
 
-        public const Emotes DisabledEmote = (Emotes)(-1);
-        public const Emotes AnyEmote = (Emotes)(-2);
         public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = cfg.BindEx(section, DisabledEmote, $"""
                 Emote to stack inventory into containers.
                 If a player uses this emote, their inventory will be automatically stacked into nearby containers.

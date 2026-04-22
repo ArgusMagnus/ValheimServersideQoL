@@ -1,3 +1,6 @@
+### vNext (BETA)
+- New feature: Configurable build modifiers for admins (ignore support requirements, make pieces indestructible, etc.) [#166](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/166)
+
 ### v1.8.0
 - Update to Valheim patch 0.221.12
 - New option (`BackpackOnDeath`) to destroy the backpack on death [#151](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/151)

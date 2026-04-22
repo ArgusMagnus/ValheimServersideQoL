@@ -1,5 +1,4 @@
 ﻿using BepInEx.Configuration;
-using System.Runtime.CompilerServices;
 
 namespace Valheim.ServersideQoL;
 
@@ -15,6 +14,7 @@ sealed record ModConfig : ModConfigBase
 partial record ModConfigBase(ConfigFile ConfigFile)
 {
     public GeneralConfig General { get; } = new(ConfigFile, "A - General");
+    public AdminsConfig Admins { get; } = new(ConfigFile, "B - Admins");
     public SignsConfig Signs { get; } = new(ConfigFile, "B - Signs");
     public MapTableConfig MapTables { get; } = new(ConfigFile, "B - Map Tables");
     public TamesConfig Tames { get; } = new(ConfigFile, "B - Tames");

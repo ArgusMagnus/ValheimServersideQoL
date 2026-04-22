@@ -10,6 +10,7 @@ namespace Valheim.ServersideQoL.Processors;
 sealed class PlayerProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("159d939c-cb85-4314-ac30-f473d043fdc2");
+
     public interface IPeerInfo
     {
         long Owner { get; }
@@ -20,6 +21,16 @@ sealed class PlayerProcessor : Processor
         float ConnectionQuality { get; }
         float GetEstimatedSkillLevel(SkillType skillType);
         public ItemDrop? LastUsedItem { get; }
+        public BuildModifiers BuildModifiers { get; }
+    }
+
+    [Flags]
+    public enum BuildModifiers
+    {
+        None = 0,
+        DisableRainDamage = 1 << 0,
+        DisableSupportRequirements = 1 << 1,
+        MakeIndestructible = 1 << 2
     }
 
     sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor) : IPeerInfo
@@ -69,6 +80,9 @@ sealed class PlayerProcessor : Processor
         }
 
         public DateTimeOffset? OpenBackpackAfter { get; set; }
+
+        public BuildModifiers BuildModifiers { get; set; }
+        public DateTimeOffset NextBuildModifierMessage { get; set; } = DateTimeOffset.MaxValue;
 
         public ItemDrop? LastUsedItem { get; set; }
         public ItemDrop? CheckSkillItem { get; set; }
@@ -238,6 +252,7 @@ sealed class PlayerProcessor : Processor
 
     public ExtendedZDO? GetPeerCharacter(long peerID) => _playerStates.TryGetValue(peerID, out var state) ? state.PlayerZDO : null;
     public IPeerInfo? GetPeerInfo(long peerID) => _playerStates.TryGetValue(peerID, out var state) ? state : null;
+    public IPeerInfo? GetPeerInfoFromPlayerID(long playerID) => _playersByID.TryGetValue(playerID, out var zdo) && _playerStates.TryGetValue(zdo.GetOwner(), out var state) ? state : null;
     public IReadOnlyCollection<IPeerInfo> PeerInfos => _playerStates.Values;
 
     readonly MethodInfo _everybodyIsTryingToSleepMethod = typeof(Game).GetMethod("EverybodyIsTryingToSleep", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -291,7 +306,7 @@ sealed class PlayerProcessor : Processor
         }
 
         ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateBackpackSlots;
-        if (Config.Players.OpenBackpackEmote.Value is ModConfigBase.PlayersConfig.DisabledEmote)
+        if (Config.Players.OpenBackpackEmote.Value is ModConfigBase.DisabledEmote)
             _backpackSlots = 0;
         else
         {
@@ -794,13 +809,15 @@ sealed class PlayerProcessor : Processor
 #endif
         }
 
-        if (state.NextStaminaCheck < DateTimeOffset.UtcNow)
+        var now = DateTimeOffset.UtcNow;
+
+        if (state.NextStaminaCheck < now)
         {
-            state.NextStaminaCheck = DateTimeOffset.UtcNow.AddSeconds(0.2);
+            state.NextStaminaCheck = now.AddSeconds(0.2);
             var stamina = Mathf.FloorToInt(zdo.Vars.GetStamina());
             if (state.Stamina != stamina)
             {
-                state.StaminaTimestamp = DateTimeOffset.UtcNow;
+                state.StaminaTimestamp = now;
                 state.Stamina = stamina;
             }
             if (stamina < zdo.PrefabInfo.Player.m_encumberedStaminaDrain && Config.Players.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered())
@@ -813,14 +830,14 @@ sealed class PlayerProcessor : Processor
             var eitr = Mathf.FloorToInt(zdo.Vars.GetEitr());
             if (state.Eitr != eitr)
             {
-                state.EitrTimestamp = DateTimeOffset.UtcNow;
+                state.EitrTimestamp = now;
                 state.Eitr = eitr;
             }
         }
 
         if (state.BackpackContainer is not null)
         {
-            if (state.OpenBackpackAfter < DateTimeOffset.UtcNow)
+            if (state.OpenBackpackAfter < now)
             {
                 state.OpenBackpackAfter = null;
                 RPC.OpenResponse(state.BackpackContainer, true);
@@ -883,8 +900,12 @@ sealed class PlayerProcessor : Processor
             }
         }
 
-        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfigBase.PlayersConfig.DisabledEmote ||
-            _backpackSlots > 0)
+        if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfigBase.DisabledEmote ||
+            _backpackSlots > 0 ||
+            state.IsAdmin && (
+                Config.Admins.ToggleDisableRainDamageEmote.Value is not ModConfigBase.DisabledEmote ||
+                Config.Admins.ToggleDisableSupportRequirements.Value is not ModConfigBase.DisabledEmote ||
+                Config.Admins.ToggleMakeIndestructible.Value is not ModConfigBase.DisabledEmote))
         {
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
@@ -892,7 +913,7 @@ sealed class PlayerProcessor : Processor
                 state.LastEmoteId = emoteId;
 
                 static bool CheckEmote(ExtendedZDO player, Emotes emote)
-                    => emote is not ModConfigBase.PlayersConfig.DisabledEmote && (emote is ModConfigBase.PlayersConfig.AnyEmote || emote == player.Vars.GetEmote());
+                    => emote is not ModConfigBase.DisabledEmote && (emote is ModConfigBase.AnyEmote || emote == player.Vars.GetEmote());
 
                 if (CheckEmote(zdo, Config.Players.StackInventoryIntoContainersEmote.Value))
                 {
@@ -941,7 +962,7 @@ sealed class PlayerProcessor : Processor
                 {
                     var backpackPrefab = Prefabs.PrivateChest;
 
-                    state.OpenBackpackAfter = DateTimeOffset.UtcNow + OpenBackpackDelay;
+                    state.OpenBackpackAfter = now + OpenBackpackDelay;
 
                     var pos = zdo.GetPosition();
                     pos.y -= 0.6f;
@@ -1007,7 +1028,32 @@ sealed class PlayerProcessor : Processor
                         RPC.OpenResponse(state.BackpackContainer, true);
                     }
                 }
+                else if (state.IsAdmin)
+                {
+                    if (CheckEmote(zdo, Config.Admins.ToggleDisableRainDamageEmote.Value))
+                    {
+                        state.BuildModifiers ^= BuildModifiers.DisableRainDamage;
+                        state.NextBuildModifierMessage = default;
+                    }
+                    if (CheckEmote(zdo, Config.Admins.ToggleDisableSupportRequirements.Value))
+                    {
+                        state.BuildModifiers ^= BuildModifiers.DisableSupportRequirements;
+                        state.NextBuildModifierMessage = default;
+                    }
+                    if (CheckEmote(zdo, Config.Admins.ToggleMakeIndestructible.Value))
+                    {
+                        state.BuildModifiers ^= BuildModifiers.MakeIndestructible;
+                        state.NextBuildModifierMessage = default;
+                    }
+                }
             }
+        }
+
+        if (state.NextBuildModifierMessage == default ||
+            (state.BuildModifiers != default && state.NextBuildModifierMessage < now && zdo.Vars.GetRightItem() == Prefabs.Hammer))
+        {
+            state.NextBuildModifierMessage = now.AddSeconds(4);
+            RPC.ShowMessage(state.Owner, MessageHud.MessageType.TopLeft, $"Build modifiers: {state.BuildModifiers}");
         }
 
         if (!Config.Tames.TeleportFollow.Value && !Config.Tames.TakeIntoDungeons.Value)

@@ -14,6 +14,14 @@
 |IgnoreItemDataVersionCheck|False|True/False|True to ignore the item data version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption|
 |IgnoreWorldVersionCheck|False|True/False|True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption|
 </details>
+<details><summary>Admins</summary>
+
+|Option|Default Value|Acceptable Values|Description|
+|------|-------------|-----------------|-----------|
+|ToggleDisableRainDamageEmote|-1|-1, -2, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Vibe, LoveYou, Count|Emote admins can use to toggle disabling rain damage for newly built pieces.<br>-1 to disable this feature, -2 to use any emote as trigger.<br>If you use emotes exclusively for this feature, it is recommended to set the value to -2 as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.|
+|ToggleDisableSupportRequirements|-1|-1, -2, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Vibe, LoveYou, Count|Emote admins can use to toggle disabling support requirements for newly built pieces.<br>-1 to disable this feature, -2 to use any emote as trigger.<br>If you use emotes exclusively for this feature, it is recommended to set the value to -2 as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.|
+|ToggleMakeIndestructible|-1|-1, -2, Wave, Sit, Challenge, Cheer, NoNoNo, ThumbsUp, Point, BlowKiss, Bow, Cower, Cry, Despair, Flex, ComeHere, Headbang, Kneel, Laugh, Roar, Shrug, Dance, Relax, Toast, Rest, Vibe, LoveYou, Count|Emote admins can use to toggle making newly built pieces indestructible.<br>-1 to disable this feature, -2 to use any emote as trigger.<br>If you use emotes exclusively for this feature, it is recommended to set the value to -2 as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.|
+</details>
 <details><summary>Build Pieces</summary>
 
 |Option|Default Value|Acceptable Values|Description|

@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
@@ -84,7 +85,7 @@ partial class ExtendedZDO
         public Vector3 GetSpawnPoint(Vector3 defaultValue = default) => _zdo.GetVec3(ZDOVars.s_spawnPoint, defaultValue);
         public void SetSpawnPoint(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_spawnPoint, value); }
         public int GetEmoteID(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_emoteID, defaultValue);
-        public Emotes GetEmote(Emotes defaultValue = ModConfigBase.PlayersConfig.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(ZDOVars.s_emote), true, out var e) ? e : defaultValue;
+        public Emotes GetEmote(Emotes defaultValue = ModConfigBase.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(ZDOVars.s_emote), true, out var e) ? e : defaultValue;
         public bool GetAnimationIsEncumbered(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashEncumbered, defaultValue);
         public bool GetAnimationInWater(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashInWater, defaultValue);
         public bool GetAnimationIsCrouching(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.PlayerAnimationHashCrouching, defaultValue);
@@ -139,6 +140,10 @@ partial class ExtendedZDO
         public void SetSacrifiedTornSpirit(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedTornSpirit", value); }
         public float GetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float defaultValue = default) => _zdo.GetFloat($"player{playerID}_EstimatedSkillLevel_{skill}", defaultValue);
         public void SetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_EstimatedSkillLevel_{skill}", value); }
+
+        static int __adminBuildModifiers = $"{Main.PluginGuid}.AdminBuildModifiers".GetStableHashCode();
+        public PlayerProcessor.BuildModifiers GetAdminBuildModifiers(PlayerProcessor.BuildModifiers defaultValue = default) => (PlayerProcessor.BuildModifiers)_zdo.GetInt(__adminBuildModifiers, (int)defaultValue);
+        public void SetAdminBuildModifiers(PlayerProcessor.BuildModifiers value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__adminBuildModifiers, (int)value); }
 
 #if DEBUG
         static readonly IReadOnlyDictionary<int, string> __namesByHash = new Func<IReadOnlyDictionary<int, string>>(static () =>

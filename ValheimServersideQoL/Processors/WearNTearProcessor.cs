@@ -12,36 +12,60 @@ sealed class WearNTearProcessor : Processor
         if (zdo.PrefabInfo.WearNTear is null)
             return false;
 
-        var fields = zdo.Fields<WearNTear>();
-        var isPlayerBuilt = zdo.PrefabInfo.WearNTear is { Piece.Value: not null, PieceTable.Value: not null } && zdo.Vars.GetCreator() is not 0;
-        if (isPlayerBuilt)
+        const PlayerProcessor.BuildModifiers Unset = (PlayerProcessor.BuildModifiers)(-1);
+        var modifiers = zdo.Vars.GetAdminBuildModifiers(Unset);
+        var creator = zdo.Vars.GetCreator();
+        if (modifiers is Unset)
         {
-            if (!Config.WearNTear.DisableRainDamage.Value)
-                fields.Reset(static () => x => x.m_noRoofWear);
-            else if (fields.UpdateValue(static () => x => x.m_noRoofWear, false))
-                RecreateZdo = true;
-
-            if (!Config.WearNTear.MakeIndestructible.Value)
+            if (Instance<PlayerProcessor>().GetPeerInfoFromPlayerID(creator) is not { } peerInfo)
+                modifiers = PlayerProcessor.BuildModifiers.None;
+            else
             {
-                if (fields.UpdateResetValue(static () => x => x.m_health))
-                    zdo.Vars.RemoveHealth();
-            }
-            else if (fields.UpdateValue(static () => x => x.m_health, -1))
-            {
-                zdo.Vars.SetHealth(-1);
-                RecreateZdo = true;
+                modifiers = peerInfo.BuildModifiers;
+                zdo.Vars.SetAdminBuildModifiers(modifiers);
             }
         }
 
-        var disableSupport = Config.WearNTear.DisableSupportRequirements.Value is DisableSupportRequirementsOptions.None ? false : (
-                (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.PlayerBuilt) && isPlayerBuilt) ||
-                (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.World) && !isPlayerBuilt));
+        var fields = zdo.Fields<WearNTear>();
+        var isPlayerBuilt = zdo.PrefabInfo.WearNTear is { Piece.Value: not null, PieceTable.Value: not null } && creator is not 0;
+        if (isPlayerBuilt)
+        {
+            if (Config.WearNTear.DisableRainDamage.Value)
+                modifiers |= PlayerProcessor.BuildModifiers.DisableRainDamage;
 
-        if (!disableSupport)
+            if (Config.WearNTear.MakeIndestructible.Value)
+                modifiers |= PlayerProcessor.BuildModifiers.MakeIndestructible;
+        }
+
+        if ((modifiers & PlayerProcessor.BuildModifiers.DisableSupportRequirements) is 0 && (
+            Config.WearNTear.DisableSupportRequirements.Value is DisableSupportRequirementsOptions.None ? false : (
+                (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.PlayerBuilt) && isPlayerBuilt) ||
+                (Config.WearNTear.DisableSupportRequirements.Value.HasFlag(DisableSupportRequirementsOptions.World) && !isPlayerBuilt))))
+        {
+            modifiers |= PlayerProcessor.BuildModifiers.DisableSupportRequirements;
+        }
+
+        if ((modifiers & PlayerProcessor.BuildModifiers.DisableRainDamage) is 0)
+            fields.Reset(static () => x => x.m_noRoofWear);
+        else if (fields.UpdateValue(static () => x => x.m_noRoofWear, false))
+            RecreateZdo = true;
+
+        if ((modifiers & PlayerProcessor.BuildModifiers.DisableSupportRequirements) is 0)
             fields.Reset(static () => x => x.m_noSupportWear);
         else if (fields.UpdateValue(static () => x => x.m_noSupportWear, false))
             RecreateZdo = true;
 
-        return true;
+        if ((modifiers & PlayerProcessor.BuildModifiers.MakeIndestructible) is 0)
+        {
+            if (fields.UpdateResetValue(static () => x => x.m_health))
+                zdo.Vars.RemoveHealth();
+        }
+        else if (fields.UpdateValue(static () => x => x.m_health, -1))
+        {
+            zdo.Vars.SetHealth(-1);
+            RecreateZdo = true;
+        }
+
+        return false;
     }
 }
