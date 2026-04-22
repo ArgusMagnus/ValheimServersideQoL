@@ -24,13 +24,19 @@ sealed class PlayerProcessor : Processor
         public BuildModifiers BuildModifiers { get; }
     }
 
+    public BuildModifiers PossibleBuildModifiers { get; private set; }
+
     [Flags]
-    public enum BuildModifiers
+    public enum BuildModifiers : uint
     {
         None = 0,
         DisableRainDamage = 1 << 0,
         DisableSupportRequirements = 1 << 1,
-        MakeIndestructible = 1 << 2
+        MakeIndestructible = 1 << 2,
+        NoWorkbench = 1 << 3,
+        DungeonBuild = 1 << 4,
+        NoBuildCost = 1 << 5,
+        AllPiecesUnlocked = 1 << 6
     }
 
     sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor) : IPeerInfo
@@ -314,6 +320,24 @@ sealed class PlayerProcessor : Processor
             if (Config.Players.AdditionalBackpackSlotsPerDefeatedBoss.Value is not 0)
                 ZoneSystemSendGlobalKeys.GlobalKeysChanged += UpdateBackpackSlots;
         }
+
+        PossibleBuildModifiers = BuildModifiers.None;
+        if (Config.Admins.ToggleDisableRainDamageEmote.Value is not ModConfigBase.DisabledEmote)
+            PossibleBuildModifiers |= BuildModifiers.DisableRainDamage;
+        if (Config.Admins.ToggleDisableSupportRequirements.Value is not ModConfigBase.DisabledEmote)
+            PossibleBuildModifiers |= BuildModifiers.DisableSupportRequirements;
+        if (Config.Admins.ToggleMakeIndestructible.Value is not ModConfigBase.DisabledEmote)
+            PossibleBuildModifiers |= BuildModifiers.MakeIndestructible;
+        if (Config.Admins.ToggleNoWorkbench.Value is not ModConfigBase.DisabledEmote)
+            PossibleBuildModifiers |= BuildModifiers.NoWorkbench;
+        if (Config.Admins.ToggleDungeonBuild.Value is not ModConfigBase.DisabledEmote)
+            PossibleBuildModifiers |= BuildModifiers.DungeonBuild;
+        if (Config.Admins.ToggleNoBuildCost.Value is not ModConfigBase.DisabledEmote)
+            PossibleBuildModifiers |= BuildModifiers.NoBuildCost;
+        if (Config.Admins.ToggleAllPiecesUnlocked.Value is not ModConfigBase.DisabledEmote)
+            PossibleBuildModifiers |= BuildModifiers.AllPiecesUnlocked;
+
+        Logger.DevLog($"Possible build modifiers: {PossibleBuildModifiers}");
 
         if (!firstTime)
             return;
@@ -902,10 +926,7 @@ sealed class PlayerProcessor : Processor
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfigBase.DisabledEmote ||
             _backpackSlots > 0 ||
-            state.IsAdmin && (
-                Config.Admins.ToggleDisableRainDamageEmote.Value is not ModConfigBase.DisabledEmote ||
-                Config.Admins.ToggleDisableSupportRequirements.Value is not ModConfigBase.DisabledEmote ||
-                Config.Admins.ToggleMakeIndestructible.Value is not ModConfigBase.DisabledEmote))
+            (PossibleBuildModifiers is not BuildModifiers.None && state.IsAdmin))
         {
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
@@ -1043,6 +1064,26 @@ sealed class PlayerProcessor : Processor
                     if (CheckEmote(zdo, Config.Admins.ToggleMakeIndestructible.Value))
                     {
                         state.BuildModifiers ^= BuildModifiers.MakeIndestructible;
+                        state.NextBuildModifierMessage = default;
+                    }
+                    if (CheckEmote(zdo, Config.Admins.ToggleNoWorkbench.Value))
+                    {
+                        state.BuildModifiers ^= BuildModifiers.NoWorkbench;
+                        state.NextBuildModifierMessage = default;
+                    }
+                    if (CheckEmote(zdo, Config.Admins.ToggleDungeonBuild.Value))
+                    {
+                        state.BuildModifiers ^= BuildModifiers.DungeonBuild;
+                        state.NextBuildModifierMessage = default;
+                    }
+                    if (CheckEmote(zdo, Config.Admins.ToggleNoBuildCost.Value))
+                    {
+                        state.BuildModifiers ^= BuildModifiers.NoBuildCost;
+                        state.NextBuildModifierMessage = default;
+                    }
+                    if (CheckEmote(zdo, Config.Admins.ToggleAllPiecesUnlocked.Value))
+                    {
+                        state.BuildModifiers ^= BuildModifiers.AllPiecesUnlocked;
                         state.NextBuildModifierMessage = default;
                     }
                 }

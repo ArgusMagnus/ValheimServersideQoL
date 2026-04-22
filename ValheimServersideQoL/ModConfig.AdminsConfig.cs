@@ -1,6 +1,5 @@
 ﻿
 using BepInEx.Configuration;
-using Valheim.ServersideQoL.Processors;
 
 namespace Valheim.ServersideQoL;
 
@@ -22,6 +21,30 @@ partial record ModConfigBase
 
         public ConfigEntry<Emotes> ToggleMakeIndestructible { get; } = cfg.BindEx(section, DisabledEmote, $"""
             Emote admins can use to toggle making newly built pieces indestructible.
+            {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
+            If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
+            """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
+
+        public ConfigEntry<Emotes> ToggleNoWorkbench { get; } = cfg.BindEx(section, DisabledEmote, $"""
+            Emote admins can use to toggle the workbench requirement for building.
+            {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
+            If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
+            """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
+
+        public ConfigEntry<Emotes> ToggleDungeonBuild { get; } = cfg.BindEx(section, DisabledEmote, $"""
+            Emote admins can use to toggle building in dungeons.
+            {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
+            If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
+            """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
+        
+        public ConfigEntry<Emotes> ToggleNoBuildCost { get; } = cfg.BindEx(section, DisabledEmote, $"""
+            Emote admins can use to toggle no build cost.
+            {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
+            If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
+            """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
+
+        public ConfigEntry<Emotes> ToggleAllPiecesUnlocked { get; } = cfg.BindEx(section, DisabledEmote, $"""
+            Emote admins can use to toggle unlocking all building pieces.
             {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
             If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
             """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));

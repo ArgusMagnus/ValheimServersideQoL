@@ -8,8 +8,9 @@ sealed class GlobalPlayerKeysProcessor : Processor
 
     readonly Dictionary<Trader, IReadOnlyList<GlobalKeyModification>> _globalKeyModifications = [];
     readonly Dictionary<ZDOID, Peer> _reset = [];
-    IReadOnlyList<GlobalKeyModification> _mapTableModifications => field ??= [new(GlobalKeys.NoMap.ToString().ToLower(), false)];
+    IReadOnlyList<GlobalKeyModification> _mapTableModifications => field ??= [new($"{GlobalKeys.NoMap}".ToLower(), false)];
     float _mapTableRangeSqr;
+    readonly List<GlobalKeyModification> _modifications = [];
 
     public override void Initialize(bool firstTime)
     {
@@ -53,6 +54,11 @@ sealed class GlobalPlayerKeysProcessor : Processor
             minDistSqr = _mapTableRangeSqr;
             globalKeyModifications = _mapTableModifications;
         }
+        else if (zdo.PrefabInfo.Player is not null && Instance<PlayerProcessor>().PossibleBuildModifiers >= PlayerProcessor.BuildModifiers.NoWorkbench)
+        {
+            minDistSqr = -1;
+            globalKeyModifications = Array.Empty<GlobalKeyModification>();
+        }
         else
         {
             UnregisterZdoProcessor = true;
@@ -60,28 +66,45 @@ sealed class GlobalPlayerKeysProcessor : Processor
         }
 
         List<string>? serverKeys = null;
-        List<string>? keys = null;
         List<GlobalKeyModification>? remove = null;
         foreach (var peer in peers)
         {
-            if (Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistSqr)
+            var skipDistanceCheck = false;
+            if (peer.Info is { BuildModifiers: not PlayerProcessor.BuildModifiers.None } peerInfo && peerInfo.PlayerZDO == zdo)
+            {
+                if (!peer.Info.IsAdmin)
+                {
+                    UnregisterZdoProcessor = true;
+                    return false;
+                }
+                _modifications.Clear();
+                if ((peerInfo.BuildModifiers & PlayerProcessor.BuildModifiers.NoWorkbench) is not 0)
+                    _modifications.Add(new($"{GlobalKeys.NoWorkbench}".ToLower(), true));
+                if ((peerInfo.BuildModifiers & PlayerProcessor.BuildModifiers.DungeonBuild) is not 0)
+                    _modifications.Add(new($"{GlobalKeys.DungeonBuild}".ToLower(), true));
+                if ((peerInfo.BuildModifiers & PlayerProcessor.BuildModifiers.NoBuildCost) is not 0)
+                    _modifications.Add(new($"{GlobalKeys.NoBuildCost}".ToLower(), true));
+                if ((peerInfo.BuildModifiers & PlayerProcessor.BuildModifiers.AllPiecesUnlocked) is not 0)
+                    _modifications.Add(new($"{GlobalKeys.AllPiecesUnlocked}".ToLower(), true));
+                skipDistanceCheck = true;
+                globalKeyModifications = _modifications;
+            }
+
+            if (globalKeyModifications.Count > 0 && (skipDistanceCheck || Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistSqr))
             {
                 if (_reset.TryAdd(peer.m_characterID, peer))
                 {
-                    if (keys is null)
+                    var keys = ZoneSystem.instance.GetGlobalKeys();
+                    foreach (var (key, add) in globalKeyModifications)
                     {
-                        keys = ZoneSystem.instance.GetGlobalKeys();
-                        foreach (var (key, add) in globalKeyModifications)
+                        if (!add)
+                            keys.Remove(key);
+                        else
                         {
-                            if (!add)
-                                keys.Remove(key);
+                            if (keys.Contains(key))
+                                (remove ??= []).Add(new(key, add));
                             else
-                            {
-                                if (keys.Contains(key))
-                                    (remove ??= []).Add(new(key, add));
-                                else
-                                    keys.Add(key);
-                            }
+                                keys.Add(key);
                         }
                     }
                     RPC.SendGlobalKeys(peer, keys);

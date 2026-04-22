@@ -12,7 +12,7 @@ sealed class WearNTearProcessor : Processor
         if (zdo.PrefabInfo.WearNTear is null)
             return false;
 
-        const PlayerProcessor.BuildModifiers Unset = (PlayerProcessor.BuildModifiers)(-1);
+        const PlayerProcessor.BuildModifiers Unset = (PlayerProcessor.BuildModifiers)uint.MaxValue;
         var modifiers = zdo.Vars.GetAdminBuildModifiers(Unset);
         var creator = zdo.Vars.GetCreator();
         if (modifiers is Unset)
