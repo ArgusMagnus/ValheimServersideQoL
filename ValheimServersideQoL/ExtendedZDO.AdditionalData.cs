@@ -91,6 +91,6 @@ partial class ExtendedZDO
         public void UnregisterAll() => Processors = [];
         public void ReregisterAll() => Processors = Processor.DefaultProcessors;
 
-        public static AdditionalData Dummy { get; } = new(PrefabInfo.Dummy);
+        public static AdditionalData Dummy { get; } = new(PrefabInfo.Dummy) { Processors = [] };
     }
 }

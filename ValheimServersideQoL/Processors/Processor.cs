@@ -438,11 +438,13 @@ abstract class Processor
         public const string Barrel = "piece_chest_barrel";
         public const string Incinerator = "incinerator";
         public const string GiantBrain = "giant_brain";
+        public const string Hoe = "Hoe";
     }
 
     public static class Prefabs
     {
         public static int Hammer { get; } = "Hammer".GetStableHashCode();
+        public static int Hoe { get; } = PrefabNames.Hoe.GetStableHashCode();
         public static int GraustenFloor4x4 { get; } = "Piece_grausten_floor_4x4".GetStableHashCode();
         public static int GraustenWall4x2 { get; } = "Piece_grausten_wall_4x2".GetStableHashCode();
         public static int PortalWood { get; } = "portal_wood".GetStableHashCode();

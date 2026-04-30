@@ -58,6 +58,51 @@ sealed class TurretProcessor : Processor
         else if (fields.UpdateValue(static () => x => x.m_targetTamedConfig, false))
             RecreateZdo = true;
 
+#if DEBUG
+        ////var ammoType = "StaffFireball";
+        //var ammoType = "StaffIceShards"; // sometimes hits turret
+        ////var ammoType = "StaffClusterbomb";
+        ////var ammoType = "StaffGreenRoots"; // crashes client
+        ////var ammoType = "StaffLightning"; // always hits turret
+        ////var ammoType = "BombBlob_Poison";
+        ////var ammoType = "DvergerStaffIce";
+        //if (ZNetScene.instance.GetPrefab(ammoType)?.GetComponent<ItemDrop>() is not { } item)
+        //{
+        //    Logger.DevLog($"Item {ammoType} not found in ZNetScene");
+        //    return false;
+        //}
+
+        //var attack = item.m_itemData.m_shared.m_attack;
+        //if (attack.m_attackProjectile is not { } projectile || attack.m_projectileVel <= 0)
+        //{
+        //    Logger.DevLog($"Item {item.name} has no valid attack projectile");
+        //    return false;
+        //}
+
+        //var eitr = attack.m_attackEitr;
+        //if (eitr is 0)
+        //    eitr = attack.m_reloadEitrDrain;
+        //if (eitr is 0)
+        //{
+        //    eitr = 30f;
+        //    //Logger.DevLog($"Item {item.name} has no attack eitr");
+        //    //return false;
+        //}
+
+        //if (fields.UpdateValue(static () => x => x.m_returnAmmoOnDestroy, false))
+        //    RecreateZdo = true;
+        //if (fields.UpdateValue(static () => x => x.m_maxAmmo, 0))
+        //    RecreateZdo = true;
+        //if (fields.UpdateValue(static () => x => x.m_defaultAmmo, item))
+        //    RecreateZdo = true;
+
+        //var cooldown = zdo.PrefabInfo.Turret.Value.Turret.m_attackCooldown * eitr / 30f;
+        //if (fields.UpdateValue(static () => x => x.m_attackCooldown, cooldown))
+        //    RecreateZdo = true;
+
+        //return false;
+#endif
+
         /// <see cref="Turret.RPC_AddAmmo"/>
         if (!Config.Turrets.LoadFromContainers.Value)
         {

@@ -1,5 +1,6 @@
 ﻿using BepInEx.Logging;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Valheim.ServersideQoL.HarmonyPatches;
@@ -22,6 +23,8 @@ sealed class PlayerProcessor : Processor
         float GetEstimatedSkillLevel(SkillType skillType);
         public ItemDrop? LastUsedItem { get; }
         public BuildModifiers BuildModifiers { get; }
+        public LevelGroundModes LevelGroundMode { get; }
+
     }
 
     public BuildModifiers PossibleBuildModifiers { get; private set; }
@@ -37,6 +40,13 @@ sealed class PlayerProcessor : Processor
         DungeonBuild = 1 << 4,
         NoBuildCost = 1 << 5,
         AllPiecesUnlocked = 1 << 6
+    }
+
+    public enum LevelGroundModes
+    {
+        Default,
+        FlattenMedium,
+        FlattenLarge
     }
 
     sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor) : IPeerInfo
@@ -88,6 +98,7 @@ sealed class PlayerProcessor : Processor
         public DateTimeOffset? OpenBackpackAfter { get; set; }
 
         public BuildModifiers BuildModifiers { get; set; }
+        public LevelGroundModes LevelGroundMode { get; set; }
         public DateTimeOffset NextBuildModifierMessage { get; set; } = DateTimeOffset.MaxValue;
 
         public ItemDrop? LastUsedItem { get; set; }
@@ -247,6 +258,15 @@ sealed class PlayerProcessor : Processor
     static TimeSpan OpenBackpackDelay => TimeSpan.FromMilliseconds(200);
     bool _estimateSkillLevels;
     double _emaTau;
+
+    readonly int _numberOfLevelGroundModes = Enum.GetValues(typeof(LevelGroundModes)).Length;
+    readonly int _mudRoadPrefab = "vfx_Place_mud_road".GetStableHashCode();
+
+    ZoneSystem.ZoneLocation DevGround1 => field ??= GetZoneLocation();
+    ZoneSystem.ZoneLocation DevGround2 => field ??= GetZoneLocation();
+
+    static ZoneSystem.ZoneLocation GetZoneLocation([CallerMemberName] string name = default!)
+        => ZoneSystem.instance.GetLocationsByHash()[name.GetStableHashCode()];
 
     sealed record StackContainerState(ExtendedZDO PlayerZDO)
     {
@@ -808,6 +828,33 @@ sealed class PlayerProcessor : Processor
 
             if (zdo.PrefabInfo.SpawnSystem is not null)
                 _zoneControls[zdo.GetSector()] = zdo;
+            else if (zdo.GetPrefab() == _mudRoadPrefab)
+            {
+                float minDistSqr = float.PositiveInfinity;
+                Peer? peer = null;
+                foreach (var p in peers)
+                {
+                    if (p.Info is not { LastUsedItem.name: PrefabNames.Hoe })
+                        continue;
+                    var distSqr = Utils.DistanceSqr(p.m_refPos, zdo.GetPosition());
+                    if (distSqr < minDistSqr)
+                    {
+                        minDistSqr = distSqr;
+                        peer = p;
+                    }
+                }
+
+                var location = peer?.Info switch
+                {
+                    { IsAdmin: true, LevelGroundMode: PlayerProcessor.LevelGroundModes.FlattenMedium } => DevGround1,
+                    { IsAdmin: true, LevelGroundMode: PlayerProcessor.LevelGroundModes.FlattenLarge } => DevGround2,
+                    _ => default
+                };
+
+                /// <see cref="ZoneSystem.instance.TestSpawnLocation"/>
+                if (location is not null)
+                    ZoneSystem.instance.SpawnLocation(location, 0, zdo.GetPosition(), zdo.GetRotation(), ZoneSystem.SpawnMode.Full);
+            }
 
             return false;
         }
@@ -926,7 +973,8 @@ sealed class PlayerProcessor : Processor
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfigBase.DisabledEmote ||
             _backpackSlots > 0 ||
-            (PossibleBuildModifiers is not BuildModifiers.None && state.IsAdmin))
+            (PossibleBuildModifiers is not BuildModifiers.None && state.IsAdmin) ||
+            Config.Admins.CycleLevelGroundMode.Value is not ModConfigBase.DisabledEmote)
         {
             /// <see cref="Emote.DoEmote(Emotes)"/> <see cref="Player.StartEmote(string, bool)"/>
             if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
@@ -1086,15 +1134,21 @@ sealed class PlayerProcessor : Processor
                         state.BuildModifiers ^= BuildModifiers.AllPiecesUnlocked;
                         state.NextBuildModifierMessage = default;
                     }
+                    if (CheckEmote(zdo, Config.Admins.CycleLevelGroundMode.Value))
+                    {
+                        state.LevelGroundMode = (LevelGroundModes)(((int)state.LevelGroundMode + 1) % _numberOfLevelGroundModes);
+                        state.NextBuildModifierMessage = default;
+                    }
                 }
             }
         }
 
-        if (state.NextBuildModifierMessage == default ||
-            (state.BuildModifiers != default && state.NextBuildModifierMessage < now && zdo.Vars.GetRightItem() == Prefabs.Hammer))
+        if (state.NextBuildModifierMessage == default || (state.NextBuildModifierMessage < now && (
+            (state.BuildModifiers != default && zdo.Vars.GetRightItem() == Prefabs.Hammer) ||
+            (state.LevelGroundMode != default && zdo.Vars.GetRightItem() == Prefabs.Hoe))))
         {
             state.NextBuildModifierMessage = now.AddSeconds(4);
-            RPC.ShowMessage(state.Owner, MessageHud.MessageType.TopLeft, $"Build modifiers: {state.BuildModifiers}");
+            RPC.ShowMessage(state.Owner, MessageHud.MessageType.TopLeft, $"Build modifiers: {state.BuildModifiers}, Level ground mode: {state.LevelGroundMode}");
         }
 
         if (!Config.Tames.TeleportFollow.Value && !Config.Tames.TakeIntoDungeons.Value)

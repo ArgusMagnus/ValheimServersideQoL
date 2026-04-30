@@ -148,6 +148,7 @@ partial class Main
 {
     const string PluginVersion = "$(VersionNumber)"%3B
     internal const string PluginInformationalVersion = "$(Version)"%3B
+	internal DateTimeOffset BuildTimestamp { get%3B } = new($([System.DateTimeOffset]::UtcNow.UtcTicks), default)%3B
 #if DEBUG
     const string ConfigMarkdownPath = @"$(ProjectDir)Configuration.md"%3B
 #endif

@@ -1,3 +1,6 @@
+### v1.8.1004 (BETA)
+- New feature: Configurable level ground modes for admins (e.g. flatten ground without regard for normal terrain modification limits)
+
 ### v1.8.1003 (BETA)
 - New feature: Configurable build modifiers for admins (ignore support requirements, make pieces indestructible, etc.) [#166](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/166)
 

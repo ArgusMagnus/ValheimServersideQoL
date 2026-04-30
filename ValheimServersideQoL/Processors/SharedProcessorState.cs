@@ -191,9 +191,8 @@ static class SharedProcessorState
                     }
                 }
             }
-            if (components is null)
-                return null;
-            return new(prefab, components);
+
+            return new(prefab, components ?? ReadOnlyDictionary<Type, MonoBehaviour>.Empty);
         }
 
         static MonoBehaviour? GetComponent(GameObject prefab, Type componentType, IReadOnlyList<MonoBehaviour> availableComponents)

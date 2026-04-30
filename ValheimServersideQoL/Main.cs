@@ -52,7 +52,7 @@ public sealed partial class Main : BaseUnityPlugin
     void Awake()
     {
         if (PluginVersion != PluginInformationalVersion)
-            Logger.LogWarning($"You are running a pre-release version: {PluginInformationalVersion}");
+            Logger.LogWarning($"You are running a pre-release version: {PluginInformationalVersion} ({BuildTimestamp.LocalDateTime})");
         HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
     }
 
@@ -170,7 +170,7 @@ public sealed partial class Main : BaseUnityPlugin
         }
 
         Logger.LogInfo(Invariant($"Enabled: {Config.General.Enabled.Value}, DiagnosticLogs: {Config.General.DiagnosticLogs.Value}"));
-      
+
         if (!Config.General.Enabled.Value)
             return false;
 
@@ -221,6 +221,20 @@ public sealed partial class Main : BaseUnityPlugin
 
 #if DEBUG
         Logger.LogInfo(Invariant($"Registered Processors: {Processor.DefaultProcessors.Count}"));
+
+        //foreach (var item in ObjectDB.instance.m_items.Select(static x => x.GetComponent<ItemDrop>()))
+        //{
+        //    if (item.m_itemData.m_shared.m_buildPieces?.m_pieces is not { } pieces)
+        //        continue;
+        //    foreach (var pieceObject in pieces)
+        //    {
+        //        if (pieceObject.GetComponentInChildren<TerrainOp>() is not { m_settings.m_smooth: true } terrainOp)
+        //            continue;
+
+        //        var prefab = pieceObject.GetComponent<ZNetView>() ?? pieceObject.GetComponent<Piece>().m_placeEffect.m_effectPrefabs.Select(static x => x.m_prefab.GetComponent<ZNetView>()).FirstOrDefault(static x => x is not null);
+        //        Logger.DevLog($"{item.name}: {pieceObject.name}: {terrainOp.name}: {terrainOp.m_settings.m_smoothPower}/{terrainOp.m_settings.m_smoothRadius}: {prefab?.name}");
+        //    }
+        //}
 #endif
         return true;
     }
@@ -405,7 +419,7 @@ public sealed partial class Main : BaseUnityPlugin
 
                 processedZdos++;
                 var zdo = (ExtendedZDO)sectorInfo.ZDOs[sectorInfo.ZdoIndex];
-                if (!zdo.IsValid() || !zdo.HasProcessors /*|| ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy)*/)
+                if (!zdo.IsValid() || !zdo.HasProcessors)
                     continue;
 
                 if (zdo.Processors.Count > 1)
@@ -430,24 +444,26 @@ public sealed partial class Main : BaseUnityPlugin
                 _unregister.Clear();
                 foreach (var processor in zdo.Processors.AsEnumerable())
                 {
-
                     if (!zdo.CheckProcessorDataRevisionChanged(processor))
                         continue;
                     if (processor.Process(zdo, sectorInfo.Peers))
                         zdo.UpdateProcessorDataRevision(processor);
-                    if (processor.UnregisterZdoProcessor)
-                        _unregister.Add(processor);
                     if (destroy = processor.DestroyZdo)
                     {
                         zdo.Destroy();
                         break;
                     }
+                    if (processor.UnregisterZdoProcessor)
+                        _unregister.Add(processor);
                     recreate = recreate || processor.RecreateZdo;
                 }
-                if (!destroy && recreate)
-                    zdo.Recreate();
-                else if (!destroy && _unregister.Count > 0)
-                    zdo.UnregisterProcessors(_unregister);
+                if (!destroy)
+                {
+                    if (recreate)
+                        zdo.Recreate();
+                    else if (_unregister.Count > 0)
+                        zdo.UnregisterProcessors(_unregister);
+                }
             }
 
             if (sectorInfo.ZdoIndex >= sectorInfo.ZDOs.Count)
