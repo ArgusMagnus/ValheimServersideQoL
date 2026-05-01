@@ -1,4 +1,6 @@
-﻿namespace Valheim.ServersideQoL.Processors;
+﻿using Valheim.ServersideQoL.HarmonyPatches;
+
+namespace Valheim.ServersideQoL.Processors;
 
 sealed class GlobalPlayerKeysProcessor : Processor
 {
@@ -40,9 +42,12 @@ sealed class GlobalPlayerKeysProcessor : Processor
         _reset.Clear();
         Instance<PlayerProcessor>().PlayerDestroyed -= OnPlayerDestroyed;
         Instance<PlayerProcessor>().PlayerDestroyed += OnPlayerDestroyed;
+        ZoneSystemSendGlobalKeys.GlobalKeyValuesChanged -= OnGlobalKeyValuesChanged;
+        ZoneSystemSendGlobalKeys.GlobalKeyValuesChanged += OnGlobalKeyValuesChanged;
     }
 
     void OnPlayerDestroyed(ExtendedZDO zdo) => _reset.Remove(zdo.m_uid);
+    void OnGlobalKeyValuesChanged() => _reset.Clear();
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
@@ -57,7 +62,7 @@ sealed class GlobalPlayerKeysProcessor : Processor
         else if (zdo.PrefabInfo.Player is not null && Instance<PlayerProcessor>().PossibleBuildModifiers >= PlayerProcessor.BuildModifiers.NoWorkbench)
         {
             minDistSqr = -1;
-            globalKeyModifications = Array.Empty<GlobalKeyModification>();
+            globalKeyModifications = [];
         }
         else
         {
