@@ -55,7 +55,7 @@ partial record ModConfigBase
         {
             Keep,
             Destroy,
-            Drop
+            DropItems
         }
 
         public ConfigEntry<bool> CanSacrificeMegingjord { get; } = cfg.BindEx(section, false,

@@ -514,20 +514,22 @@ sealed class PlayerProcessor : Processor
                 Logger.LogInfo($"Backpack of player '{state.PlayerName}' destroyed on death");
             }
         }
-        else if (Config.Players.BackpackOnDeath.Value is ModConfigBase.PlayersConfig.BackPackOnDeathOptions.Drop)
+        else if (Config.Players.BackpackOnDeath.Value is ModConfigBase.PlayersConfig.BackPackOnDeathOptions.DropItems)
         {
             if (_playerStates.TryGetValue(data.m_senderPeerID, out var state) && state.BackpackContainer is { } backpack)
             {
-                var dropPos = state.PlayerZDO.GetPosition();
-                var rotation = state.PlayerZDO.GetRotation();
-                foreach (var item in backpack.Inventory.Items.ToList()) 
+                var cfg = Config.Advanced.Players.BackpackOnDeathDropItems;
+                foreach (var item in backpack.Inventory.Items.AsEnumerable()) 
                 {
-                    var offsetPos = dropPos + new Vector3(
-                        UnityEngine.Random.Range(-2f, 2f),  // Random X offset
-                        0f,                                 // Keep Y level (no vertical scatter)
-                        UnityEngine.Random.Range(-2f, 2f)   // Random Z offset
-                    );
-                    ItemDrop.DropItem(item, 0, offsetPos, rotation);
+                    var pos = state.PlayerZDO.GetPosition();
+                    var scatter = UnityEngine.Random.insideUnitCircle * cfg.ScatterRadius;
+                    pos.x += scatter.x;
+                    pos.y += cfg.VerticalOffset;
+                    pos.z += scatter.y;
+                    var zdo = (ExtendedZDO)ItemDrop.DropItem(item, 0, pos, state.PlayerZDO.GetRotation()).GetComponent<ZNetView>().GetZDO();
+                    zdo.Fields<ItemDrop>()
+                        .Set(static () => x => x.m_autoDestroy, !cfg.PreventAutoDestroy)
+                        .Set(static () => x => x.m_autoPickup, !cfg.PreventAutoPickup);
                 }
                 DestroyObject(backpack);
                 Logger.LogInfo($"Backpack items of player '{state.PlayerName}' dropped at death location.");

@@ -47,6 +47,7 @@ static class ExtensionMethods
     }
 
     public static ListEnumerable<T> AsEnumerable<T>(this IReadOnlyList<T> list) => new(list);
+    public static ListEnumerable<T> AsEnumerable<T>(this IList<T> list) => new((IReadOnlyList<T>)list);
     public static IEnumerable<T> AsBoxedEnumerable<T>(this IReadOnlyList<T> list) => Enumerable.AsEnumerable(list);
 
     public readonly struct ListEnumerable<T>(IReadOnlyList<T> list)

@@ -12,6 +12,7 @@ partial record ModConfigBase
         public TamesConfig Tames { get; init; } = new();
         public HostileSummonsConfig HostileSummons { get; init; } = new();
         public ContainerConfig Containers { get; init; } = new();
+        public PlayersConfig Players { get; init; } = new();
 
         public sealed class TamesConfig
         {
@@ -69,6 +70,16 @@ partial record ModConfigBase
 
             [YamlIgnore]
             public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets => field ??= ChestSignOffsetsYaml.ToDictionary(static x => x.Key.GetStableHashCode(), static x => x.Value);
+        }
+
+        public sealed class PlayersConfig
+        {
+            public sealed record BackpackOnDeathDropItemsConfig(float ScatterRadius, float VerticalOffset, bool PreventAutoDestroy, bool PreventAutoPickup)
+            {
+                BackpackOnDeathDropItemsConfig() : this(default, default, default, default) { }
+            }
+
+            public BackpackOnDeathDropItemsConfig BackpackOnDeathDropItems { get; init; } = new(2, 1, true, false);
         }
     }
 
