@@ -53,6 +53,7 @@ partial record ModConfigBase
 
         public enum BackPackOnDeathOptions
         {
+            SameAsInventory,
             Keep,
             Destroy,
             DropItems

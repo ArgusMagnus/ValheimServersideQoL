@@ -504,36 +504,55 @@ sealed class PlayerProcessor : Processor
     //    var type = (Talker.Type)ctype;
     //}
 
+    void DestroyBackpack(long peerID)
+    {
+        if (!_playerStates.TryGetValue(peerID, out var state) || state.BackpackContainer is not { } backpack)
+            return;
+
+        DestroyObject(backpack);
+        Logger.LogInfo($"Backpack of player '{state.PlayerName}' destroyed on death");
+    }
+
+    void DropBackpackItems(long peerID)
+    {
+        if (!_playerStates.TryGetValue(peerID, out var state) || state.BackpackContainer is not { } backpack)
+            return;
+
+        var cfg = Config.Advanced.Players.BackpackOnDeathDropItems;
+        foreach (var item in backpack.Inventory.Items.AsEnumerable())
+        {
+            var pos = state.PlayerZDO.GetPosition();
+            var scatter = UnityEngine.Random.insideUnitCircle * cfg.ScatterRadius;
+            pos.x += scatter.x;
+            pos.y += cfg.VerticalOffset;
+            pos.z += scatter.y;
+            var zdo = (ExtendedZDO)ItemDrop.DropItem(item, 0, pos, state.PlayerZDO.GetRotation()).GetComponent<ZNetView>().GetZDO();
+            zdo.Fields<ItemDrop>()
+                .Set(static () => x => x.m_autoDestroy, !cfg.PreventAutoDestroy)
+                .Set(static () => x => x.m_autoPickup, !cfg.PreventAutoPickup);
+        }
+        DestroyObject(backpack);
+        Logger.LogInfo($"Backpack items of player '{state.PlayerName}' dropped at death location.");
+    }
+
     void RPC_OnDeath(ZRoutedRpc.RoutedRPCData data)
     {
-        if (Config.Players.BackpackOnDeath.Value is ModConfigBase.PlayersConfig.BackPackOnDeathOptions.Destroy)
+        switch (Config.Players.BackpackOnDeath.Value)
         {
-            if (_playerStates.TryGetValue(data.m_senderPeerID, out var state) && state.BackpackContainer is { } backpack)
-            {
-                DestroyObject(backpack);
-                Logger.LogInfo($"Backpack of player '{state.PlayerName}' destroyed on death");
-            }
-        }
-        else if (Config.Players.BackpackOnDeath.Value is ModConfigBase.PlayersConfig.BackPackOnDeathOptions.DropItems)
-        {
-            if (_playerStates.TryGetValue(data.m_senderPeerID, out var state) && state.BackpackContainer is { } backpack)
-            {
-                var cfg = Config.Advanced.Players.BackpackOnDeathDropItems;
-                foreach (var item in backpack.Inventory.Items.AsEnumerable()) 
-                {
-                    var pos = state.PlayerZDO.GetPosition();
-                    var scatter = UnityEngine.Random.insideUnitCircle * cfg.ScatterRadius;
-                    pos.x += scatter.x;
-                    pos.y += cfg.VerticalOffset;
-                    pos.z += scatter.y;
-                    var zdo = (ExtendedZDO)ItemDrop.DropItem(item, 0, pos, state.PlayerZDO.GetRotation()).GetComponent<ZNetView>().GetZDO();
-                    zdo.Fields<ItemDrop>()
-                        .Set(static () => x => x.m_autoDestroy, !cfg.PreventAutoDestroy)
-                        .Set(static () => x => x.m_autoPickup, !cfg.PreventAutoPickup);
-                }
-                DestroyObject(backpack);
-                Logger.LogInfo($"Backpack items of player '{state.PlayerName}' dropped at death location.");
-            }
+            case ModConfigBase.PlayersConfig.BackPackOnDeathOptions.SameAsInventory:
+                if (ZoneSystem.instance.GetGlobalKey(GlobalKeys.DeathDeleteItems) || ZoneSystem.instance.GetGlobalKey(GlobalKeys.DeathDeleteUnequipped))
+                    DestroyBackpack(data.m_senderPeerID);
+                else
+                    DropBackpackItems(data.m_senderPeerID);
+                break;
+
+            case ModConfigBase.PlayersConfig.BackPackOnDeathOptions.Destroy:
+                DestroyBackpack(data.m_senderPeerID);
+                break;
+
+            case ModConfigBase.PlayersConfig.BackPackOnDeathOptions.DropItems:
+                DropBackpackItems(data.m_senderPeerID);
+                break;
         }
     }
 
