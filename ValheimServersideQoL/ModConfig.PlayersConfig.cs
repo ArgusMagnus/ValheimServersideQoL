@@ -49,7 +49,7 @@ partial record ModConfigBase
         public ConfigEntry<int> InitialBackpackSlots { get; } = cfg.BindEx(section, 4, "Initial available slots in the backpack");
         public ConfigEntry<int> AdditionalBackpackSlotsPerDefeatedBoss { get; } = cfg.BindEx(section, 4, "Additional backpack slots per defeated boss");
         public ConfigEntry<int> MaxBackpackWeight { get; } = cfg.BindEx(section, 0, "Maximum backpack weight. 0 for no limit.");
-        public ConfigEntry<BackPackOnDeathOptions> BackpackOnDeath { get; } = cfg.BindEx(section, BackPackOnDeathOptions.Keep, "What happens to backpack contents on player death");
+        public ConfigEntry<BackPackOnDeathOptions> BackpackOnDeath { get; } = cfg.BindEx(section, BackPackOnDeathOptions.SameAsInventory, "What happens to backpack contents on player death");
 
         public enum BackPackOnDeathOptions
         {
