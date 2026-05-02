@@ -46,7 +46,8 @@ sealed class PlayerProcessor : Processor
     {
         Default,
         FlattenMedium,
-        FlattenLarge
+        FlattenLarge,
+        Reset
     }
 
     sealed class PlayerState(ExtendedZDO playerZDO, PlayerProcessor processor) : IPeerInfo
@@ -884,16 +885,37 @@ sealed class PlayerProcessor : Processor
                     }
                 }
 
-                var location = peer?.Info switch
+                if (peer is { Info.LevelGroundMode: LevelGroundModes.Reset })
+                {
+                    var zdos = new List<ZDO>();
+                    ZDOMan.instance.FindSectorObjects(zdo.GetSector(), ZoneSystem.instance.GetActiveArea(), 0, zdos);
+                    foreach (ExtendedZDO x in zdos)
+                    {
+                        if (x.PrefabInfo.LocationProxy is null)
+                            continue;
+                        var hash = x.Vars.GetLocation();
+                        _ = Remove(x, hash, zdo.GetPosition(), DevGround1) || Remove(x, hash, zdo.GetPosition(), DevGround2);
+
+                        static bool Remove(ExtendedZDO zdo, int hash, Vector3 pos, ZoneSystem.ZoneLocation location)
+                        {
+                            if (hash != location.Hash || Utils.DistanceXZ(pos, zdo.GetPosition()) > location.m_exteriorRadius)
+                                return false;
+                            zdo.Destroy();
+                            return true;
+                        }
+                    }
+                }
+                else if (peer?.Info switch
                 {
                     { IsAdmin: true, LevelGroundMode: PlayerProcessor.LevelGroundModes.FlattenMedium } => DevGround1,
                     { IsAdmin: true, LevelGroundMode: PlayerProcessor.LevelGroundModes.FlattenLarge } => DevGround2,
                     _ => default
-                };
-
-                /// <see cref="ZoneSystem.instance.TestSpawnLocation"/>
-                if (location is not null)
-                    ZoneSystem.instance.SpawnLocation(location, 0, zdo.GetPosition(), zdo.GetRotation(), ZoneSystem.SpawnMode.Full);
+                } is { } location)
+                {
+                    /// <see cref="ZoneSystem.instance.TestSpawnLocation"/>
+                    if (location is not null)
+                        ZoneSystem.instance.SpawnLocation(location, 0, zdo.GetPosition(), zdo.GetRotation(), ZoneSystem.SpawnMode.Full);
+                }
             }
 
             return false;
