@@ -37,6 +37,14 @@ partial record ModConfigBase
                 Increasing this value can help with bad connections.
                 """, new AcceptableValueRange<float>(1f, 10f));
 
+        public ConfigEntry<Emotes> OpenCartEmote { get; } = cfg.BindEx(section, DisabledEmote, $"""
+                Emote to open the inventory of an attached cart.
+                {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
+                You can bind emotes to buttons with chat commands.
+                For example, on xbox you can bind the Y-Button to the wave-emote by entering "/bind JoystickButton3 {Emotes.Wave}" in the in-game chat.
+                If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
+                """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
+
         public ConfigEntry<Emotes> OpenBackpackEmote { get; } = cfg.BindEx(section, DisabledEmote, $"""
                 Emote to open the backpack.
                 If a player uses this emote, a virtual container acting as their backpack will open.

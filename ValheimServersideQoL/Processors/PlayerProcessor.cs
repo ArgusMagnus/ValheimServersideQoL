@@ -117,6 +117,12 @@ sealed class PlayerProcessor : Processor
             return level;
         }
 
+        public ExtendedZDO? AttachedCart
+        {
+            get => field;
+            set => (field = value)?.AssertIs<Vagon>();
+        }
+
         public TimeSpan? LastPing { get; private set; }
         public DateTimeOffset? LastPingTimestamp { get; private set; }
         public TimeSpan? PingMean { get; private set; }
@@ -872,6 +878,13 @@ sealed class PlayerProcessor : Processor
 
             if (zdo.PrefabInfo.SpawnSystem is not null)
                 _zoneControls[zdo.GetSector()] = zdo;
+            else if (zdo.PrefabInfo.Vagon is not null && Config.Players.OpenCartEmote.Value is not ModConfigBase.DisabledEmote)
+            {
+                if (_playerStates.TryGetValue(zdo.GetOwner(), out state))
+                    state.AttachedCart = zdo.Vars.GetAttachJoint() ? zdo : null;
+                UnregisterZdoProcessor = false;
+                return true;
+            }
             else if (zdo.GetPrefab() == _mudRoadPrefab && Config.Admins.CycleLevelGroundMode.Value is not ModConfigBase.DisabledEmote)
             {
                 float minDistSqr = float.PositiveInfinity;
@@ -1054,6 +1067,7 @@ sealed class PlayerProcessor : Processor
         }
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfigBase.DisabledEmote ||
+            Config.Players.OpenCartEmote.Value is not ModConfigBase.DisabledEmote ||
             _backpackSlots > 0 ||
             (PossibleBuildModifiers is not BuildModifiers.None && state.IsAdmin) ||
             Config.Admins.CycleLevelGroundMode.Value is not ModConfigBase.DisabledEmote)
@@ -1108,6 +1122,11 @@ sealed class PlayerProcessor : Processor
                         container.Destroyed += OnStackContainerDestroyed;
                         RPC.StackResponse(container, true);
                     }
+                }
+                else if (CheckEmote(zdo, Config.Players.OpenCartEmote.Value) &&
+                    state.AttachedCart is not null && state.AttachedCart.GetOwner() == state.Owner && state.AttachedCart.Vars.GetAttachJoint())
+                {
+                    RPC.OpenResponse(state.AttachedCart, true);
                 }
                 else if (_backpackSlots > 0 && CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value))
                 {
