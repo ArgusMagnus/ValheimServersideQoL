@@ -102,6 +102,7 @@ sealed class PlayerProcessor : Processor
         public BuildModifiers BuildModifiers { get; set; }
         public LevelGroundModes LevelGroundMode { get; set; }
         public DateTimeOffset NextBuildModifierMessage { get; set; } = DateTimeOffset.MaxValue;
+        public DateTimeOffset NextLevelGroundModeMessage { get; set; } = DateTimeOffset.MaxValue;
 
         public ItemDrop? LastUsedItem { get; set; }
         public ItemDrop? CheckSkillItem { get; set; }
@@ -871,7 +872,7 @@ sealed class PlayerProcessor : Processor
 
             if (zdo.PrefabInfo.SpawnSystem is not null)
                 _zoneControls[zdo.GetSector()] = zdo;
-            else if (zdo.GetPrefab() == _mudRoadPrefab)
+            else if (zdo.GetPrefab() == _mudRoadPrefab && Config.Admins.CycleLevelGroundMode.Value is not ModConfigBase.DisabledEmote)
             {
                 float minDistSqr = float.PositiveInfinity;
                 Peer? peer = null;
@@ -906,10 +907,11 @@ sealed class PlayerProcessor : Processor
                                 return true;
                             }
                         }
-                        else if (zdo2.PrefabInfo.TerrainComp is not null)
+                        else if (zdo2.PrefabInfo.TerrainComp is not null && TerrainCompData.Load(zdo2) is { } terrainComp)
                         {
-                            if (TerrainCompData.Load(zdo2) is { } terrainComp)
-                                terrainComp.ResetTerrain(zdo.GetPosition(), 2);
+                            terrainComp.ResetTerrain(zdo.GetPosition(), Config.Advanced.Admins.ResetTerrainRadius);
+                            if (terrainComp.HasModifications is false)
+                                zdo2.Destroy();
                         }
                     }
                 }
@@ -921,8 +923,18 @@ sealed class PlayerProcessor : Processor
                 } is { } location)
                 {
                     /// <see cref="ZoneSystem.instance.TestSpawnLocation"/>
-                    if (location is not null)
-                        ZoneSystem.instance.SpawnLocation(location, 0, zdo.GetPosition(), zdo.GetRotation(), ZoneSystem.SpawnMode.Full);
+                    ZoneSystem.instance.SpawnLocation(location, 0, zdo.GetPosition(), zdo.GetRotation(), ZoneSystem.SpawnMode.Full);
+                    var zdos = new List<ZDO>();
+                    ZDOMan.instance.FindSectorObjects(zdo.GetSector(), ZoneSystem.instance.GetActiveArea(), 0, zdos);
+                    foreach (ExtendedZDO zdo2 in zdos)
+                    {
+                        if (zdo2.PrefabInfo.TerrainComp is not null && TerrainCompData.Load(zdo2) is { } terrainComp)
+                        {
+                            terrainComp.ResetTerrain(zdo.GetPosition(), location.m_exteriorRadius);
+                            if (terrainComp.HasModifications is false)
+                                zdo2.Destroy();
+                        }
+                    }
                 }
             }
 
@@ -1207,18 +1219,24 @@ sealed class PlayerProcessor : Processor
                     if (CheckEmote(zdo, Config.Admins.CycleLevelGroundMode.Value))
                     {
                         state.LevelGroundMode = (LevelGroundModes)(((int)state.LevelGroundMode + 1) % _numberOfLevelGroundModes);
-                        state.NextBuildModifierMessage = default;
+                        state.NextLevelGroundModeMessage = default;
                     }
                 }
             }
         }
 
-        if (state.NextBuildModifierMessage == default || (state.NextBuildModifierMessage < now && (
-            (state.BuildModifiers != default && zdo.Vars.GetRightItem() == Prefabs.Hammer) ||
-            (state.LevelGroundMode != default && zdo.Vars.GetRightItem() == Prefabs.Hoe))))
+        if (state.NextBuildModifierMessage == default || (
+            state.BuildModifiers != default && state.NextBuildModifierMessage < now && zdo.Vars.GetRightItem() == Prefabs.Hammer))
         {
             state.NextBuildModifierMessage = now.AddSeconds(4);
-            RPC.ShowMessage(state.Owner, MessageHud.MessageType.TopLeft, $"Build modifiers: {state.BuildModifiers}, Level ground mode: {state.LevelGroundMode}");
+            RPC.ShowMessage(state.Owner, MessageHud.MessageType.TopLeft, $"Build modifiers: {state.BuildModifiers}");
+        }
+
+        if (state.NextLevelGroundModeMessage == default || (
+            state.LevelGroundMode != default && state.NextLevelGroundModeMessage < now && zdo.Vars.GetRightItem() == Prefabs.Hoe))
+        {
+            state.NextLevelGroundModeMessage = now.AddSeconds(4);
+            RPC.ShowMessage(state.Owner, MessageHud.MessageType.TopLeft, $"Level ground mode: {state.LevelGroundMode}");
         }
 
         if (!Config.Tames.TeleportFollow.Value && !Config.Tames.TakeIntoDungeons.Value)
@@ -1333,6 +1351,8 @@ sealed class PlayerProcessor : Processor
         Vector3 _lastOpPoint;
         float _lastOpRadius;
 
+        public bool? HasModifications { get; private set; }
+
         public static TerrainCompData? Load(ExtendedZDO zdo)
         {
             zdo.AssertIs<TerrainComp>();
@@ -1385,6 +1405,7 @@ sealed class PlayerProcessor : Processor
             _smoothDelta = new float[expectedLength];
             _modifiedPaint = new bool[expectedLength];
             _paintMask = new Color[expectedLength];
+            HasModifications = false;
 
             for (int i = 0; i < num; i++)
             {
@@ -1393,6 +1414,7 @@ sealed class PlayerProcessor : Processor
                 {
                     _levelDelta[i] = zPackage.ReadSingle();
                     _smoothDelta[i] = zPackage.ReadSingle();
+                    HasModifications = true;
                 }
                 else
                 {
@@ -1415,6 +1437,7 @@ sealed class PlayerProcessor : Processor
                         a = zPackage.ReadSingle()
                     };
                     _paintMask[j] = color;
+                    HasModifications = true;
                 }
                 else
                 {
@@ -1457,6 +1480,8 @@ sealed class PlayerProcessor : Processor
             if (_modifiedHeight is null)
                 return;
 
+            HasModifications = false;
+
             ZPackage zPackage = new ZPackage();
             zPackage.Write(TerrainCompVersion);
             zPackage.Write(_operations);
@@ -1470,6 +1495,7 @@ sealed class PlayerProcessor : Processor
                 {
                     zPackage.Write(_levelDelta[i]);
                     zPackage.Write(_smoothDelta[i]);
+                    HasModifications = true;
                 }
             }
 
@@ -1483,6 +1509,7 @@ sealed class PlayerProcessor : Processor
                     zPackage.Write(_paintMask[j].g);
                     zPackage.Write(_paintMask[j].b);
                     zPackage.Write(_paintMask[j].a);
+                    HasModifications = true;
                 }
             }
 

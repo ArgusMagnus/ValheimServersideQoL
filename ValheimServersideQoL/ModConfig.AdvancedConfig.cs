@@ -13,6 +13,7 @@ partial record ModConfigBase
         public HostileSummonsConfig HostileSummons { get; init; } = new();
         public ContainerConfig Containers { get; init; } = new();
         public PlayersConfig Players { get; init; } = new();
+        public AdminsConfig Admins { get; init; } = new();
 
         public sealed class TamesConfig
         {
@@ -80,6 +81,11 @@ partial record ModConfigBase
             }
 
             public BackpackOnDeathDropItemsConfig BackpackOnDeathDropItems { get; init; } = new(2, 1, true, false);
+        }
+
+        public sealed class AdminsConfig
+        {
+            public float ResetTerrainRadius { get; init; } = 3;
         }
     }
 
