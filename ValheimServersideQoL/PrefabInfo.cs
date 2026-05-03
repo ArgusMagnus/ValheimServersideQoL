@@ -43,6 +43,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public SpawnSystem? SpawnSystem { get; } = Get<SpawnSystem>(Components);
     public LocationProxy? LocationProxy { get; } = Get<LocationProxy>(Components);
     public MineRock5? MineRock5 { get; } = Get<MineRock5>(Components);
+    public TerrainComp? TerrainComp { get; } = Get<TerrainComp>(Components);
 
     public static PrefabInfo Dummy { get; } = new(null!, ReadOnlyDictionary<Type, MonoBehaviour>.Empty);
 

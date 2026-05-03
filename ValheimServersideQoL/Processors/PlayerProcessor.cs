@@ -1,4 +1,5 @@
 ﻿using BepInEx.Logging;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
@@ -262,6 +263,7 @@ sealed class PlayerProcessor : Processor
 
     readonly int _numberOfLevelGroundModes = Enum.GetValues(typeof(LevelGroundModes)).Length;
     readonly int _mudRoadPrefab = "vfx_Place_mud_road".GetStableHashCode();
+    //readonly int _terrainCompPrefab = GetHeightmap(default).m_terrainCompilerPrefab.name.GetStableHashCode();
 
     ZoneSystem.ZoneLocation DevGround1 => field ??= GetZoneLocation();
     ZoneSystem.ZoneLocation DevGround2 => field ??= GetZoneLocation();
@@ -889,26 +891,32 @@ sealed class PlayerProcessor : Processor
                 {
                     var zdos = new List<ZDO>();
                     ZDOMan.instance.FindSectorObjects(zdo.GetSector(), ZoneSystem.instance.GetActiveArea(), 0, zdos);
-                    foreach (ExtendedZDO x in zdos)
+                    foreach (ExtendedZDO zdo2 in zdos)
                     {
-                        if (x.PrefabInfo.LocationProxy is null)
-                            continue;
-                        var hash = x.Vars.GetLocation();
-                        _ = Remove(x, hash, zdo.GetPosition(), DevGround1) || Remove(x, hash, zdo.GetPosition(), DevGround2);
-
-                        static bool Remove(ExtendedZDO zdo, int hash, Vector3 pos, ZoneSystem.ZoneLocation location)
+                        if (zdo2.PrefabInfo.LocationProxy is not null)
                         {
-                            if (hash != location.Hash || Utils.DistanceXZ(pos, zdo.GetPosition()) > location.m_exteriorRadius)
-                                return false;
-                            zdo.Destroy();
-                            return true;
+                            var hash = zdo2.Vars.GetLocation();
+                            _ = Remove(zdo2, hash, zdo.GetPosition(), DevGround1) || Remove(zdo2, hash, zdo.GetPosition(), DevGround2);
+
+                            static bool Remove(ExtendedZDO zdo, int hash, Vector3 pos, ZoneSystem.ZoneLocation location)
+                            {
+                                if (hash != location.Hash || Utils.DistanceXZ(pos, zdo.GetPosition()) > location.m_exteriorRadius)
+                                    return false;
+                                zdo.Destroy();
+                                return true;
+                            }
+                        }
+                        else if (zdo2.PrefabInfo.TerrainComp is not null)
+                        {
+                            if (TerrainCompData.Load(zdo2) is { } terrainComp)
+                                terrainComp.ResetTerrain(zdo.GetPosition(), 2);
                         }
                     }
                 }
                 else if (peer?.Info switch
                 {
-                    { IsAdmin: true, LevelGroundMode: PlayerProcessor.LevelGroundModes.FlattenMedium } => DevGround1,
-                    { IsAdmin: true, LevelGroundMode: PlayerProcessor.LevelGroundModes.FlattenLarge } => DevGround2,
+                    { IsAdmin: true, LevelGroundMode: LevelGroundModes.FlattenMedium } => DevGround1,
+                    { IsAdmin: true, LevelGroundMode: LevelGroundModes.FlattenLarge } => DevGround2,
                     _ => default
                 } is { } location)
                 {
@@ -1309,5 +1317,212 @@ sealed class PlayerProcessor : Processor
             Config.Localization.Sleeping.FormatPrompt(total, _playerStates.Count));
 
         return false;
+    }
+
+    sealed class TerrainCompData
+    {
+        const int TerrainCompVersion = 1;
+        readonly ExtendedZDO _zdo;
+        readonly Heightmap _hmap;
+        bool[]? _modifiedHeight;
+        float[] _levelDelta = default!;
+        float[] _smoothDelta = default!;
+        bool[] _modifiedPaint = default!;
+        Color[] _paintMask = default!;
+        int _operations;
+        Vector3 _lastOpPoint;
+        float _lastOpRadius;
+
+        public static TerrainCompData? Load(ExtendedZDO zdo)
+        {
+            zdo.AssertIs<TerrainComp>();
+            if (GetHeightmap(zdo.GetPosition()) is not { } hmap)
+            {
+                Main.Instance.Logger.LogWarning($"Heightmap not found at {zdo.GetPosition()}");
+                return null;
+            }
+            return new(zdo, hmap);
+        }
+
+        TerrainCompData(ExtendedZDO zdo, Heightmap hmap)
+        {
+            _zdo = zdo;
+            _hmap = hmap;
+        }
+
+        [MemberNotNullWhen(true, nameof(_modifiedHeight))]
+        bool Load()
+        {
+            if (_modifiedHeight is not null)
+                return true;
+
+            /// <see cref="TerrainComp.Load"/>
+            byte[] byteArray = _zdo.GetByteArray(ZDOVars.s_TCData);
+            if (byteArray == null)
+                return false;
+
+            var expectedLength = _hmap.m_width + 1;
+            expectedLength *= expectedLength;
+
+            ZPackage zPackage = new ZPackage(Utils.Decompress(byteArray));
+            if (zPackage.ReadInt() is not TerrainCompVersion)
+            {
+                Main.Instance.Logger.LogWarning("Terrain data load error, version missmatch");
+                return false;
+            }
+            _operations = zPackage.ReadInt();
+            _lastOpPoint = zPackage.ReadVector3();
+            _lastOpRadius = zPackage.ReadSingle();
+            int num = zPackage.ReadInt();
+            if (num != expectedLength)
+            {
+                Main.Instance.Logger.LogWarning("Terrain data load error, height array missmatch");
+                return false;
+            }
+
+            _modifiedHeight = new bool[expectedLength];
+            _levelDelta = new float[expectedLength];
+            _smoothDelta = new float[expectedLength];
+            _modifiedPaint = new bool[expectedLength];
+            _paintMask = new Color[expectedLength];
+
+            for (int i = 0; i < num; i++)
+            {
+                _modifiedHeight[i] = zPackage.ReadBool();
+                if (_modifiedHeight[i])
+                {
+                    _levelDelta[i] = zPackage.ReadSingle();
+                    _smoothDelta[i] = zPackage.ReadSingle();
+                }
+                else
+                {
+                    _levelDelta[i] = 0f;
+                    _smoothDelta[i] = 0f;
+                }
+            }
+
+            int num2 = zPackage.ReadInt();
+            for (int j = 0; j < num2; j++)
+            {
+                _modifiedPaint[j] = zPackage.ReadBool();
+                if (_modifiedPaint[j])
+                {
+                    var color = new Color
+                    {
+                        r = zPackage.ReadSingle(),
+                        g = zPackage.ReadSingle(),
+                        b = zPackage.ReadSingle(),
+                        a = zPackage.ReadSingle()
+                    };
+                    _paintMask[j] = color;
+                }
+                else
+                {
+                    _paintMask[j] = Color.black;
+                }
+            }
+
+            if (num2 == _hmap.m_width * _hmap.m_width)
+            {
+                Color[] array = new Color[_paintMask.Length];
+                _paintMask.CopyTo(array, 0);
+                bool[] array2 = new bool[_modifiedPaint.Length];
+                _modifiedPaint.CopyTo(array2, 0);
+                int num3 = _hmap.m_width + 1;
+                for (int k = 0; k < _paintMask.Length; k++)
+                {
+                    int num4 = k / num3;
+                    int num5 = (k + 1) / num3;
+                    int num6 = k - num4;
+                    if (num4 == _hmap.m_width)
+                    {
+                        num6 -= _hmap.m_width;
+                    }
+
+                    if (k > 0 && (k - num4) % _hmap.m_width == 0 && (k + 1 - num5) % _hmap.m_width == 0)
+                    {
+                        num6--;
+                    }
+
+                    _paintMask[k] = array[num6];
+                    _modifiedPaint[k] = array2[num6];
+                }
+            }
+
+            return true;
+        }
+
+        public void Save()
+        {
+            if (_modifiedHeight is null)
+                return;
+
+            ZPackage zPackage = new ZPackage();
+            zPackage.Write(TerrainCompVersion);
+            zPackage.Write(_operations);
+            zPackage.Write(_lastOpPoint);
+            zPackage.Write(_lastOpRadius);
+            zPackage.Write(_modifiedHeight.Length);
+            for (int i = 0; i < _modifiedHeight.Length; i++)
+            {
+                zPackage.Write(_modifiedHeight[i]);
+                if (_modifiedHeight[i])
+                {
+                    zPackage.Write(_levelDelta[i]);
+                    zPackage.Write(_smoothDelta[i]);
+                }
+            }
+
+            zPackage.Write(_modifiedPaint.Length);
+            for (int j = 0; j < _modifiedPaint.Length; j++)
+            {
+                zPackage.Write(_modifiedPaint[j]);
+                if (_modifiedPaint[j])
+                {
+                    zPackage.Write(_paintMask[j].r);
+                    zPackage.Write(_paintMask[j].g);
+                    zPackage.Write(_paintMask[j].b);
+                    zPackage.Write(_paintMask[j].a);
+                }
+            }
+
+            byte[] bytes = Utils.Compress(zPackage.GetArray());
+            _zdo.Set(ZDOVars.s_TCData, bytes);
+        }
+
+        public void ResetTerrain(Vector3 pos, float radius)
+        {
+            _hmap.WorldToVertex(pos, out var x, out var y);
+            float b = pos.y - _zdo.GetPosition().y;
+            float num = radius / _hmap.m_scale;
+            int num2 = Mathf.CeilToInt(num);
+            Vector2 a = new Vector2(x, y);
+            int num3 = _hmap.m_width + 1;
+
+            var save = false;
+            for (int i = y - num2; i <= y + num2; i++)
+            {
+                for (int j = x - num2; j <= x + num2; j++)
+                {
+                    float num4 = Vector2.Distance(a, new Vector2(j, i));
+                    if (!(num4 > num) && j >= 0 && i >= 0 && j < num3 && i < num3)
+                    {
+                        if (!Load())
+                            return;
+
+                        int num7 = i * num3 + j;
+                        _modifiedHeight[num7] = false;
+                        _smoothDelta[num7] = 0;
+                        _levelDelta[num7] = 0;
+                        _modifiedPaint[num7] = false;
+                        _paintMask[num7] = Color.black;
+                        save = true;
+                    }
+                }
+            }
+
+            if (save)
+                Save();
+        }
     }
 }
