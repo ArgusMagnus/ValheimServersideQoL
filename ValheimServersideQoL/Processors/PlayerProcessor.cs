@@ -1475,14 +1475,14 @@ sealed class PlayerProcessor : Processor
             return true;
         }
 
-        public void Save()
+        void Save()
         {
             if (_modifiedHeight is null)
                 return;
 
             HasModifications = false;
 
-            ZPackage zPackage = new ZPackage();
+            ZPackage zPackage = new();
             zPackage.Write(TerrainCompVersion);
             zPackage.Write(_operations);
             zPackage.Write(_lastOpPoint);

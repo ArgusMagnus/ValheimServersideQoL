@@ -1,5 +1,6 @@
-### vNext (BETA)
+### v1.8.1014 (BETA)
 - New option for `BackpackOnDeath`: `SameAsInventory`: Backpack behavior on death will match the inventory behavior, either `DropItems` or `Destroy`, depending on the world modifiers/global keys set.
+- New ground level mode for admins: Reset terrain
 
 ### v1.8.1007 (BETA)
 - New option for `BackpackOnDeath`: `DropItems`: Backpack items are dropped on the ground on death [#165](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/165), [#172](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/172)
