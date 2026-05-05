@@ -66,6 +66,7 @@ sealed class PlayerProcessor : Processor
         bool? _isAdmin;
         public bool IsAdmin => _isAdmin ??= (Player.m_localPlayer?.GetZDOID() == PlayerZDO.m_uid || ZNet.instance.IsAdmin(_peer?.m_socket.GetHostName() ?? ""));
         public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
+        public int LastCraftingAnimation { get; set; } = 0;
         public Vector3? InitialInInteriorPosition { get; set; }
         public DateTimeOffset NextStaminaCheck { get; set; }
         public int Stamina { get; set; }
@@ -120,7 +121,7 @@ sealed class PlayerProcessor : Processor
         public ExtendedZDO? AttachedCart
         {
             get => field;
-            set => (field = value)?.AssertIs<Vagon>();
+            set => (field = value)?.AssertIsAll<Vagon, Container>();
         }
 
         public TimeSpan? LastPing { get; private set; }
@@ -878,7 +879,7 @@ sealed class PlayerProcessor : Processor
 
             if (zdo.PrefabInfo.SpawnSystem is not null)
                 _zoneControls[zdo.GetSector()] = zdo;
-            else if (zdo.PrefabInfo.Vagon is not null && Config.Players.OpenCartEmote.Value is not ModConfigBase.DisabledEmote)
+            else if (zdo.PrefabInfo is { Vagon: not null, Container: not null } && Config.Players.OpenCartEmote.Value is not ModConfigBase.DisabledEmote)
             {
                 if (_playerStates.TryGetValue(zdo.GetOwner(), out state))
                     state.AttachedCart = zdo.Vars.GetAttachJoint() ? zdo : null;
@@ -1064,6 +1065,13 @@ sealed class PlayerProcessor : Processor
                 }
                 state.CheckSkillItem = null;
             }
+        }
+
+        (var lastCraftingAnimation, state.LastCraftingAnimation) = (state.LastCraftingAnimation, zdo.Vars.GetAnimationCrafting());
+        if (lastCraftingAnimation != state.LastCraftingAnimation && state.LastCraftingAnimation is not 0)
+        {
+            if (Instance<ContainerProcessor>().GetClosestContainer(zdo.GetPosition(), Config.CraftingStations.OpenClosestContainerRange.Value, state.PlayerID) is { } container)
+                RPC.RequestOpenFor(zdo, container);
         }
 
         if (Config.Players.StackInventoryIntoContainersEmote.Value is not ModConfigBase.DisabledEmote ||

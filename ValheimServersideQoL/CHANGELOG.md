@@ -1,3 +1,8 @@
+### v1.8.1016 (BETA)
+- New features:
+    - `OpenClosestContainerRange`: Automatically open the closest container when interacting with a crafting station
+    - `OpenCartEmote`: Open the inventory of an attached cart via emote
+
 ### v1.8.1014 (BETA)
 - New option for `BackpackOnDeath`: `SameAsInventory`: Backpack behavior on death will match the inventory behavior, either `DropItems` or `Destroy`, depending on the world modifiers/global keys set.
 - New ground level mode for admins: Reset terrain

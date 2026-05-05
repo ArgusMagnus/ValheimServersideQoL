@@ -89,6 +89,7 @@
 
 |Option|Default Value|Acceptable Values|Description|
 |------|-------------|-----------------|-----------|
+|OpenClosestContainerRange|0||The closest container within this range is automatically opened when a player interacts with a crafting station|
 |ArtisanstationBuildRange|40||Build range of Artisan Table|
 |ArtisanstationExtraBuildRangePerLevel|0||Additional build range per level of Artisan Table|
 |ArtisanstationMaxExtensionDistance|NaN||Max distance an extension can have to the corresponding Artisan Table to increase its level.<br>Increasing this range will only increase the range for already built extensions, you may need to temporarily place additional Artisan Table to be able to place the extension.<br>NaN to use the game's default range. |

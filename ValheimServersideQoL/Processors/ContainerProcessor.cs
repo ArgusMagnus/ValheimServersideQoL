@@ -578,4 +578,26 @@ sealed class ContainerProcessor : Processor
 
         return true;
     }
+
+    public ExtendedZDO? GetClosestContainer(Vector3 pos, float maxDist = float.PositiveInfinity, long playerID = 0)
+    {
+        if (maxDist <= 0)
+            return null;
+
+        var minDistSqr = maxDist * maxDist;
+        ExtendedZDO? result = null;
+        foreach (var zdo in _containers.Keys)
+        {
+            if (playerID is not 0 && zdo.PrefabInfo.Container is { Container.m_privacy: Container.PrivacySetting.Private } &&
+                zdo.Vars.GetCreator() != playerID)
+                continue;
+
+            var distSqr = Utils.DistanceSqr(zdo.GetPosition(), pos);
+            if (distSqr >= minDistSqr)
+                continue;
+            result = zdo;
+            minDistSqr = distSqr;
+        }
+        return result;
+    }
 }

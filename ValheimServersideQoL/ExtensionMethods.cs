@@ -31,12 +31,11 @@ static class ExtensionMethods
 
     [Conditional("DEBUG")]
     public static void AssertIs<T>(this ExtendedZDO zdo) where T : MonoBehaviour
-    {
-#if DEBUG
-        if (zdo.PrefabInfo.Prefab.GetComponentInChildren<T>() is null)
-            throw new ArgumentException();
-#endif
-    }
+        => System.Diagnostics.Debug.Assert(zdo.PrefabInfo.Prefab.GetComponentInChildren<T>() is not null);
+
+    [Conditional("DEBUG")]
+    public static void AssertIsAll<T1, T2>(this ExtendedZDO zdo) where T1 : MonoBehaviour where T2 : MonoBehaviour
+        => System.Diagnostics.Debug.Assert(zdo.PrefabInfo.Prefab.GetComponentInChildren<T1>() is not null && zdo.PrefabInfo.Prefab.GetComponentInChildren<T2>() is not null);
 
     public static void InsertSorted<T>(this List<T> list, T item) where T : IComparable<T>
     {

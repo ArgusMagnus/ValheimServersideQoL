@@ -665,6 +665,14 @@ abstract class Processor
             InvokeRoutedRPC(container.GetOwner(), container.m_uid, "RequestOpen", parameters: [playerID]);
         }
 
+        public static void RequestOpenFor(ExtendedZDO player, ExtendedZDO container)
+        {
+            player.AssertIs<Player>();
+            container.AssertIs<Container>();
+            /// <see cref="Container.RPC_RequestOpen"/>
+            InvokeRoutedRPCAsSender(player.GetOwner(), container.GetOwner(), container.m_uid, "RequestOpen", parameters: [player.Vars.GetPlayerID()]);
+        }
+
         public static void OpenResponse(ExtendedZDO container, bool granted)
         {
             container.AssertIs<Container>();
