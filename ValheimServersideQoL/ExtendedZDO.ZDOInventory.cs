@@ -15,7 +15,6 @@ partial class ExtendedZDO
 
         List<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;
-        string? _lastData;
 
         List<ItemDrop.ItemData> Items
         {
@@ -40,8 +39,6 @@ partial class ExtendedZDO
                 return this;
 
             var data = ZDO.Vars.GetItems();
-            if (_lastData == data)
-                return this;
 
             var fields = ZDO.Fields<Container>();
             var w = fields.GetInt(static () => x => x.m_width);
@@ -52,13 +49,12 @@ partial class ExtendedZDO
                 _items = null;
             }
 
-            if (string.IsNullOrEmpty(data))
-                Items.Clear();
-            else
+            if (data is { Length: > 0 })
                 Inventory.Load(new(data));
+            else
+                Items.Clear();
 
             _dataRevision = ZDO.DataRevision;
-            _lastData = data;
             return this;
         }
 
@@ -67,7 +63,6 @@ partial class ExtendedZDO
             ZDO = zdo;
             _items = default;
             _dataRevision = default;
-            _lastData = default;
             Update();
         }
 
@@ -76,7 +71,7 @@ partial class ExtendedZDO
             var pkg = new ZPackage();
             Inventory.Save(pkg);
             var dataRevision = ZDO.DataRevision;
-            var data = pkg.GetBase64();
+            var data = pkg.GetArray();
             ZDO.Vars.SetItems(data);
             if (dataRevision != ZDO.DataRevision) // items changed
             {
@@ -89,7 +84,6 @@ partial class ExtendedZDO
             }
 
             _dataRevision = ZDO.DataRevision;
-            _lastData = data;
         }
     }
 }

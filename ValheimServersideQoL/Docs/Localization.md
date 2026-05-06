@@ -2387,7 +2387,7 @@
 |menu_cloudstoragefullworldprompt|Would you like to save this world to local storage instead?|
 |menu_cloudstoragelow|Cloud storage low|
 |menu_cloudstoragelownextsave|We can't guarantee future saves of your world or your character as you run low on cloud storage. Please free up some space. This can be done from 'Manage saves' in the main menu.|
-|menu_cloudstorageused|Cloud storage used: $1/$2|
+|menu_cloudstorageused|Cloud storage used: $1|
 |menu_collapse|Collapse|
 |menu_combat|Combat|
 |menu_combat_tooltip|Governs how much damage you give and take. Also governs how likely you are to encounter higher leveled enemies, and how dangerous they are.|

@@ -124,7 +124,7 @@ sealed class ItemDropProcessor : Processor
                 if (item is null)
                 {
                     item = new() { m_shared = shared };
-                    PrivateAccessor.LoadFromZDO(item, zdo);
+                    ItemDrop.LoadFromZDO(item, zdo);
                 }
 
                 var stack = item.m_stack;
@@ -247,7 +247,7 @@ sealed class ItemDropProcessor : Processor
             if (item is null)
             {
                 item = new() { m_shared = shared };
-                PrivateAccessor.LoadFromZDO(item, zdo);
+                ItemDrop.LoadFromZDO(item, zdo);
             }
 
             item.m_dropPrefab = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.gameObject;

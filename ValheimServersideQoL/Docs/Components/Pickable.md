@@ -730,7 +730,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_itemPrefab|UnityEngine.GameObject|Stone|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
-|m_dontScale|System.Boolean|False|
+|m_dontScale|System.Boolean|True|
 |m_overrideName|System.String||
 |m_respawnTimeMinutes|System.Single|0|
 |m_respawnTimeInitMin|System.Single|0|
@@ -1234,7 +1234,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_itemPrefab|UnityEngine.GameObject|StoneRock|
 |m_amount|System.Int32|1|
 |m_minAmountScaled|System.Int32|1|
-|m_dontScale|System.Boolean|False|
+|m_dontScale|System.Boolean|True|
 |m_overrideName|System.String||
 |m_respawnTimeMinutes|System.Single|0|
 |m_respawnTimeInitMin|System.Single|0|

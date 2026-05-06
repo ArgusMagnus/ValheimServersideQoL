@@ -5,6 +5,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections;
 using System.Collections.Concurrent;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -56,10 +57,7 @@ public sealed partial class Main : BaseUnityPlugin
         HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
     }
 
-    readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221");
-    const uint ExpectedNetworkVersion = 36;
-    const Version.Item ExpectedItemDataVersion = Version.Item.Stable;
-    const Version.World ExpectedWorldVersion = Version.World.Celebration;
+    //readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221");
     internal const string DummyConfigSection = "Z - Dummy";
 
     void Start()
@@ -182,27 +180,32 @@ public sealed partial class Main : BaseUnityPlugin
 
         var failed = false;
         var abort = false;
+
+        var networkVersion = (uint)typeof(Version).GetField(nameof(Version.c_networkVersion)).GetValue(null);
+        var itemDataVersion = (Version.Item)typeof(Version).GetField(nameof(Version.c_ItemDataVersion)).GetValue(null);
+        var worldVersion = (Version.World)typeof(Version).GetField(nameof(Version.c_WorldVersion)).GetValue(null);
+
         //if (gameVersion != ExpectedGameVersion)
         //{
         //    Logger.LogWarning(Invariant($"Unsupported game version: {gameVersion}.x, expected: {ExpectedGameVersion}.x"));
         //    failed = true;
         //    abort |= !Config.General.IgnoreGameVersionCheck.Value;
         //}
-        if (Version.c_networkVersion != ExpectedNetworkVersion)
+        if (networkVersion != Version.c_networkVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported network version: {Version.c_networkVersion}, expected: {ExpectedNetworkVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported network version: {networkVersion}, expected: {Version.c_networkVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreNetworkVersionCheck.Value;
         }
-        if (Version.c_ItemDataVersion != ExpectedItemDataVersion)
+        if (itemDataVersion != Version.c_ItemDataVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported item data version: {Version.c_ItemDataVersion}, expected: {ExpectedItemDataVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported item data version: {itemDataVersion}, expected: {Version.c_ItemDataVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreItemDataVersionCheck.Value;
         }
-        if (Version.c_WorldVersion != ExpectedWorldVersion)
+        if (worldVersion != Version.c_WorldVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported world version: {Version.c_WorldVersion}, expected: {ExpectedWorldVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported world version: {worldVersion}, expected: {Version.c_WorldVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreWorldVersionCheck.Value;
         }

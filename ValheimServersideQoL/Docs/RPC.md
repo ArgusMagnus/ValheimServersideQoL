@@ -47,7 +47,7 @@
 |Feast|RPC_EatConfirmation|Int64 sender|
 |Feast|RPC_OnEat|Int64 sender|
 |Feast|RPC_TryEat|Int64 sender|
-|Fermenter|RPC_AddItem|Int64 sender, String name|
+|Fermenter|RPC_AddItem|Int64 sender, Int32 nameHash|
 |Fermenter|RPC_Tap|Int64 sender|
 |Fireplace|RPC_AddFuel|Int64 sender|
 |Fireplace|RPC_AddFuelAmount|Int64 sender, Single amount|
@@ -72,7 +72,7 @@
 |ItemStand|RPC_DestroyAttachment|Int64 sender|
 |ItemStand|RPC_DropItem|Int64 sender|
 |ItemStand|RPC_RequestOwn|Int64 sender|
-|ItemStand|RPC_SetVisualItem|Int64 sender, String itemName, Int32 variant, Int32 quality, Int32 orientation|
+|ItemStand|RPC_SetVisualItem|Int64 sender, Int32 itemHash, Int32 variant, Int32 quality, Int32 orientation|
 |ItemStand|RPC_UpdateVisual|Int64 sender|
 |MapTable|RPC_MapData|Int64 sender, ZPackage pkg|
 |MasterClient|RPC_ServerList|ZRpc rpc, ZPackage pkg|
