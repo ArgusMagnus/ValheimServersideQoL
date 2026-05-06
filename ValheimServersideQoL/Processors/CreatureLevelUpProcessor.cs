@@ -13,7 +13,7 @@ sealed class CreatureLevelUpProcessor : Processor
     protected override Guid Id { get; } = Guid.Parse("26c57b62-c9be-458a-8d2f-18b140f483fb");
 
     readonly Dictionary<Biome, int> _levelIncreasePerBiome = [];
-    readonly Dictionary<Vector2i, SectorState> _sectorStates = [];
+    readonly Dictionary<Vector2s, SectorState> _sectorStates = [];
     readonly Dictionary<(Biome, int Prefab), List<SpawnSystemData>> _spawnData = [];
     readonly Dictionary<string, EventInfo> _spawnDataByEvent = [];
 
@@ -134,8 +134,8 @@ sealed class CreatureLevelUpProcessor : Processor
                         GetEventInfo(currentEvent, out var eventInfo) &&
                         eventInfo.SpawnAreas.Contains(zdo.GetPrefab()))
                     {
-                        var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) - new Vector2i(1, 1);
-                        var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) + new Vector2i(1, 1);
+                        var minEventZone = ZoneSystem.GetZone(currentEvent.m_pos - new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) - new Vector2s(1, 1);
+                        var maxEventZone = ZoneSystem.GetZone(currentEvent.m_pos + new Vector3(currentEvent.m_eventRange, 0, currentEvent.m_eventRange)) + new Vector2s(1, 1);
                         var zone = zdo.GetSector();
                         if (zone.x >= minEventZone.x && zone.x <= maxEventZone.x &&
                             zone.y >= minEventZone.y && zone.y <= maxEventZone.y)
@@ -151,7 +151,7 @@ sealed class CreatureLevelUpProcessor : Processor
                 {
                     for (var y = minZone.y; y <= maxZone.y; y++)
                     {
-                        var sector = new Vector2i(x, y);
+                        var sector = new Vector2s(x, y);
                         if (!_sectorStates.TryGetValue(sector, out var state))
                             _sectorStates.Add(sector, state = new());
 

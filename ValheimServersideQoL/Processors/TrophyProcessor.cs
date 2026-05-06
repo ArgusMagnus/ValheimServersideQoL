@@ -9,11 +9,11 @@ sealed class TrophyProcessor : Processor
     TimeSpan _activationDelay;
     TimeSpan _respawnDelay;
     readonly Dictionary<ExtendedZDO, TrophyState> _stateByTrophy = [];
-    readonly List<(int Prefab, Vector3 Pos, Vector2i Zone, DateTimeOffset DiscardAfter)> _expectedRagdolls = [];
+    readonly List<(int Prefab, Vector3 Pos, Vector2s Zone, DateTimeOffset DiscardAfter)> _expectedRagdolls = [];
     readonly TimeSpan _textDuration = TimeSpan.FromSeconds(DamageText.instance.m_textDuration * 2);
     readonly List<ZDO> _sectorZdos = [];
     readonly Vector3 _dropOffset = new(0, -1000, 0);
-    const float MaxRagdollDistance = ZoneSystem.c_ZoneHalfSize;
+    const float MaxRagdollDistance = ZoneSystem.c_ZoneSizeHalf;
 
     sealed class TrophyState(ExtendedZDO trophy, Character trophyCharacter)
     {
@@ -109,7 +109,7 @@ sealed class TrophyProcessor : Processor
         if (_expectedRagdolls.Count is 0)
             return;
 
-        Vector2i lastZone = new(int.MaxValue, int.MaxValue);
+        Vector2s lastZone = new(int.MaxValue, int.MaxValue);
         for (int i = _expectedRagdolls.Count - 1; i >= 0; i--)
         {
             var (prefab, pos, zone, discardAfter) = _expectedRagdolls[i];

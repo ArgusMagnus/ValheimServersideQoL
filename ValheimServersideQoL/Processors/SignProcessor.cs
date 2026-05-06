@@ -1,5 +1,4 @@
-﻿using BepInEx.Logging;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using static Valheim.ServersideQoL.ModConfigBase.ContainersConfig;
 
 namespace Valheim.ServersideQoL.Processors;

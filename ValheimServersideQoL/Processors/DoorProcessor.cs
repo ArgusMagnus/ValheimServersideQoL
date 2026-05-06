@@ -54,7 +54,7 @@ sealed class DoorProcessor : Processor
                 {
                     foreach (var peer in peers)
                     {
-                        if (Vector3.Distance(peer.m_refPos, zdo.GetPosition()) > ZoneSystem.c_ZoneHalfSize / 2)
+                        if (Vector3.Distance(peer.m_refPos, zdo.GetPosition()) > ZoneSystem.c_ZoneSizeHalf / 2)
                             continue;
                         if (Instance<PlayerProcessor>().Players.TryGetValue(peer.m_characterID, out var player) && DataZDO.Vars.GetSacrifiedCryptKey(player.Vars.GetPlayerID()))
                             _allowedPlayers.Add(player);

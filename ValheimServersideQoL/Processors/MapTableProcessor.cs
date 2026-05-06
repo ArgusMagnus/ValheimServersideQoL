@@ -56,7 +56,7 @@ sealed class MapTableProcessor : Processor
         {
             if (Config.MapTables.AutoUpdatePortals.Value)
             {
-                foreach (ExtendedZDO portal in ZDOMan.instance.GetPortals())
+                foreach (ExtendedZDO portal in ZDOMan.instance.GetPortals().Values.SelectMany(static x => x))
                 {
                     if (portal.IsModCreator())
                         continue;

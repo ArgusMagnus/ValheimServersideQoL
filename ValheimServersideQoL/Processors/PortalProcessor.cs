@@ -37,7 +37,7 @@ sealed class PortalProcessor : Processor
         if (_destroyNewPortals)
         {
             ZoneSystem.instance.RemoveGlobalKey(GlobalKeys.NoPortals);
-            foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
+            foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals().Values.SelectMany(static x => x))
             {
                 _initialPortals.Add(zdo);
                 zdo.Destroyed += OnInitialPortalDestroyed;

@@ -49,7 +49,7 @@ sealed class PortalHubProcessor : Processor
             filter = Config.PortalHub.Exclude.Value.Trim();
             _excludeRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
 
-            foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals())
+            foreach (ExtendedZDO zdo in ZDOMan.instance.GetPortals().Values.SelectMany(static x => x))
             {
                 string? tag = null;
                 if (!zdo.IsModCreator() && CheckFilter(zdo, tag = zdo.Vars.GetTag()))

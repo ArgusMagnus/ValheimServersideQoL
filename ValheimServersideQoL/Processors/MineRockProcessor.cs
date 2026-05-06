@@ -27,7 +27,7 @@ sealed class MineRockProcessor : Processor
         if (zdo.Vars.GetHealthString() is not { Length: > 0 } healthData)
             return true;
 
-        var minDist = ZoneSystem.c_ZoneHalfSize;
+        var minDist = ZoneSystem.c_ZoneSizeHalf;
         PlayerProcessor.IPeerInfo? info = null;
         var skill = float.NaN;
         foreach (var peerInfo in Instance<PlayerProcessor>().PeerInfos)

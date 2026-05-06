@@ -7,7 +7,7 @@ sealed class ManageOwnerProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("9178b9fe-ef1a-4e75-b492-ae392aa6b557");
 
-    readonly Dictionary<Vector2i, (PlayerProcessor.IPeerInfo BestOwner, HashSet<long> ValidOwners)> _zoneData = [];
+    readonly Dictionary<Vector2s, (PlayerProcessor.IPeerInfo BestOwner, HashSet<long> ValidOwners)> _zoneData = [];
     readonly Stack<HashSet<long>> _hashsetCache = [];
     readonly MethodInfo _releaseNearbyZDOSMethod = typeof(ZDOMan).GetMethod("ReleaseNearbyZDOS", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
     readonly MethodInfo _releaseNearbyZDOSPrefix = ((Delegate)ReleaseNearbyZDOSPrefix).Method;

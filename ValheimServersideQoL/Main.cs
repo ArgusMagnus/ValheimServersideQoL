@@ -37,8 +37,8 @@ public sealed partial class Main : BaseUnityPlugin
         public int InverseWeight { get; set; }
     }
     readonly Stack<SectorInfo> _sectorInfoPool = [];
-    Dictionary<Vector2i, SectorInfo> _playerSectors = [];
-    Dictionary<Vector2i, SectorInfo> _playerSectorsOld = [];
+    Dictionary<Vector2s, SectorInfo> _playerSectors = [];
+    Dictionary<Vector2s, SectorInfo> _playerSectorsOld = [];
     List<(Processor, double)>? _processingTimes;
 
     readonly List<Processor> _unregister = [];
@@ -58,8 +58,8 @@ public sealed partial class Main : BaseUnityPlugin
 
     readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221");
     const uint ExpectedNetworkVersion = 36;
-    const uint ExpectedItemDataVersion = 106;
-    const uint ExpectedWorldVersion = 37;
+    const Version.Item ExpectedItemDataVersion = Version.Item.Stable;
+    const Version.World ExpectedWorldVersion = Version.World.Celebration;
     internal const string DummyConfigSection = "Z - Dummy";
 
     void Start()
@@ -147,8 +147,8 @@ public sealed partial class Main : BaseUnityPlugin
 
         if (Config.General.ConfigPerWorld.Value)
         {
-            var path = ZNet.World.GetRootPath(FileHelpers.FileSource.Local);
-            path = $"{path}.{PluginName}.cfg";
+            var path = ZNet.World.GetSaveDirectory(FileHelpers.FileSource.Local);
+            path = Path.Combine(path, $"{PluginName}.cfg");
             if (!File.Exists(path) && File.Exists(base.Config.ConfigFilePath))
                 File.Copy(base.Config.ConfigFilePath, path);
 
@@ -182,28 +182,27 @@ public sealed partial class Main : BaseUnityPlugin
 
         var failed = false;
         var abort = false;
-        var gameVersion = RuntimeInformation.Instance.GameVersion with { m_patch = 0 };
         //if (gameVersion != ExpectedGameVersion)
         //{
         //    Logger.LogWarning(Invariant($"Unsupported game version: {gameVersion}.x, expected: {ExpectedGameVersion}.x"));
         //    failed = true;
         //    abort |= !Config.General.IgnoreGameVersionCheck.Value;
         //}
-        if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
+        if (Version.c_networkVersion != ExpectedNetworkVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported network version: {Version.c_networkVersion}, expected: {ExpectedNetworkVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreNetworkVersionCheck.Value;
         }
-        if (RuntimeInformation.Instance.ItemDataVersion != ExpectedItemDataVersion)
+        if (Version.c_ItemDataVersion != ExpectedItemDataVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported item data version: {Version.c_ItemDataVersion}, expected: {ExpectedItemDataVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreItemDataVersionCheck.Value;
         }
-        if (RuntimeInformation.Instance.WorldVersion != ExpectedWorldVersion)
+        if (Version.c_WorldVersion != ExpectedWorldVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported world version: {Version.c_WorldVersion}, expected: {ExpectedWorldVersion}"));
             failed = true;
             abort |= !Config.General.IgnoreWorldVersionCheck.Value;
         }
@@ -340,7 +339,7 @@ public sealed partial class Main : BaseUnityPlugin
             {
                 for (int y = playerSector.y - zonesAroundPlayers; y <= playerSector.y + zonesAroundPlayers; y++)
                 {
-                    var sector = new Vector2i(x, y);
+                    var sector = new Vector2s(x, y);
                     if (_playerSectorsOld.Remove(sector, out var sectorInfo))
                     {
                         _playerSectors.Add(sector, sectorInfo);

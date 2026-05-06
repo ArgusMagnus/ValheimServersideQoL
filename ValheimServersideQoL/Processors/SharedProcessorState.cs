@@ -209,9 +209,9 @@ static class SharedProcessorState
         }
     }
 
-    static readonly List<(Vector2i ZoneId, GameObject Root)> _zoneRoots = [];
+    static readonly List<(Vector2s ZoneId, GameObject Root)> _zoneRoots = [];
 
-    public static Heightmap CreateHeightmap(Vector2i zoneId)
+    public static Heightmap CreateHeightmap(Vector2s zoneId)
     {
         var zonePos = ZoneSystem.GetZonePos(zoneId);
         //Main.Instance.Logger.DevLog($"Creating hmap for {zoneId}");

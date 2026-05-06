@@ -175,22 +175,23 @@ partial class ExtendedZDO
 
         public string ToDebugString()
         {
-            var ints = ZDOExtraData.GetInts(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-            var longs = ZDOExtraData.GetLongs(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-            var floats = ZDOExtraData.GetFloats(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-            var quats = ZDOExtraData.GetQuaternions(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-            var strings = ZDOExtraData.GetStrings(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-            var vecs = ZDOExtraData.GetVec3s(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-            var byteArrays = ZDOExtraData.GetByteArrays(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-            return $"""
-                ints ({ints.Count}):{string.Join($"{Environment.NewLine}  ", ints.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-                longs ({longs.Count}):{string.Join($"{Environment.NewLine}  ", longs.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-                floats ({floats.Count}):{string.Join($"{Environment.NewLine}  ", floats.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-                quats ({quats.Count}):{string.Join($"{Environment.NewLine}  ", quats.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-                strings ({strings.Count}):{string.Join($"{Environment.NewLine}  ", strings.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-                vecs ({vecs.Count}):{string.Join($"{Environment.NewLine}  ", vecs.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-                byte arrays ({byteArrays.Count}):{string.Join($"{Environment.NewLine}  ", byteArrays.Select(static x => $"{x.Name}: Length={x.Value.Length}").Prepend(""))}
-                """;
+            return "";
+            //var ints = ZDOExtraData.GetInts(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var longs = ZDOExtraData.GetLongs(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var floats = ZDOExtraData.GetFloats(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var quats = ZDOExtraData.GetQuaternions(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var strings = ZDOExtraData.GetStrings(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var vecs = ZDOExtraData.GetVec3s(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var byteArrays = ZDOExtraData.GetByteArrays(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //return $"""
+            //    ints ({ints.Count}):{string.Join($"{Environment.NewLine}  ", ints.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    longs ({longs.Count}):{string.Join($"{Environment.NewLine}  ", longs.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    floats ({floats.Count}):{string.Join($"{Environment.NewLine}  ", floats.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    quats ({quats.Count}):{string.Join($"{Environment.NewLine}  ", quats.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    strings ({strings.Count}):{string.Join($"{Environment.NewLine}  ", strings.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    vecs ({vecs.Count}):{string.Join($"{Environment.NewLine}  ", vecs.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    byte arrays ({byteArrays.Count}):{string.Join($"{Environment.NewLine}  ", byteArrays.Select(static x => $"{x.Name}: Length={x.Value.Length}").Prepend(""))}
+            //    """;
         }
 #endif
     }

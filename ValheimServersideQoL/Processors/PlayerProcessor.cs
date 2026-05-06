@@ -262,7 +262,7 @@ sealed class PlayerProcessor : Processor
     public IReadOnlyDictionary<long, ExtendedZDO> PlayersByID => _playersByID;
     public event Action<ExtendedZDO>? PlayerDestroyed;
 
-    readonly Dictionary<Vector2i, ExtendedZDO> _zoneControls = [];
+    readonly Dictionary<Vector2s, ExtendedZDO> _zoneControls = [];
     readonly Dictionary<ExtendedZDO, PlayerState> _backpacks = [];
     int _backpackSlots;
     static TimeSpan OpenBackpackDelay => TimeSpan.FromMilliseconds(200);
@@ -1299,7 +1299,7 @@ sealed class PlayerProcessor : Processor
         return false;
     }
 
-    bool ShouldTeleport(in Vector2i playerZone, in Vector2i tameZone, ExtendedZDO player, ExtendedZDO tame, PlayerState state)
+    bool ShouldTeleport(in Vector2s playerZone, in Vector2s tameZone, ExtendedZDO player, ExtendedZDO tame, PlayerState state)
     {
         if (Config.Tames.TakeIntoDungeons.Value && Character.InInterior(player.GetPosition()) != Character.InInterior(tame.GetPosition()))
         {
