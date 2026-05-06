@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ValheimServersideQoL.CodeAnalysis\Valheim.ServersideQoL.CodeAnalysis.csproj" OutputItemType="Analyzer" PrivateAssets="all" />
+    <ProjectReference Include="..\ValheimServersideQoL.CodeAnalysis\Valheim.ServersideQoL.CodeAnalysis.csproj" OutputItemType="Analyzer" PrivateAssets="all" Private="False" />
     <ProjectReference Include="..\ValheimServersideQoL.YamlDotNet\YamlDotNet\Valheim.ServersideQoL.YamlDotNet.csproj" />
   </ItemGroup>
 	
@@ -41,7 +41,7 @@
   <ItemGroup>
     <RequiredReference Include="assembly_utils">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_utils.dll</HintPath>
-    <Private>False</Private>
+      <Private>False</Private>
     </RequiredReference>
     <RequiredReference Include="assembly_valheim">
       <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_valheim.dll</HintPath>
@@ -86,7 +86,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-  <Reference Include="@(RequiredReference)" />
+    <Reference Include="@(RequiredReference)" />
     <Reference Include="BepInEx.Harmony">
       <HintPath>$(ValheimDir)BepInEx\core\BepInEx.Harmony.dll</HintPath>
       <Private>False</Private>
