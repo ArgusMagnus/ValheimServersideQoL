@@ -1,3 +1,6 @@
+### v1.8.1019 (BETA)
+- Fix for Valheim patch 0.221.13
+
 ### v1.8.1016 (BETA)
 - New features:
     - `OpenClosestContainerRange`: Automatically open the closest container when interacting with a crafting station
