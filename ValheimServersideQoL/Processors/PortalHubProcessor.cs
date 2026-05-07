@@ -117,7 +117,7 @@ sealed class PortalHubProcessor : Processor
             {
                 var biome = GetBiome(zdo.GetPosition());
                 var biomeText = Localization.instance.Localize($"$biome_{biome.ToString().ToLowerInvariant()}");
-                var knownTags = ZDOMan.instance.GetPortals().Cast<ExtendedZDO>().Select(static x => x.Vars.GetTag()).ToHashSet();
+                var knownTags = ZDOMan.instance.GetPortals().Values.SelectMany(static x => x).Select(static x => ((ExtendedZDO)x).Vars.GetTag()).ToHashSet();
                 foreach (var i in Enumerable.Range(1, 1000))
                 {
                     var newTag = string.Format(Config.PortalHub.AutoNameNewPortalsFormat.Value, biomeText, i);

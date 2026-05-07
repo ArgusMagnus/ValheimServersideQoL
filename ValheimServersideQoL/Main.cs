@@ -199,13 +199,13 @@ public sealed partial class Main : BaseUnityPlugin
         }
         if (itemDataVersion != Version.c_ItemDataVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported item data version: {itemDataVersion}, expected: {Version.c_ItemDataVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported item data version: {itemDataVersion:D} [{itemDataVersion}], expected: {Version.c_ItemDataVersion:D} [{Version.c_ItemDataVersion}]"));
             failed = true;
             abort |= !Config.General.IgnoreItemDataVersionCheck.Value;
         }
         if (worldVersion != Version.c_WorldVersion)
         {
-            Logger.LogWarning(Invariant($"Unsupported world version: {worldVersion}, expected: {Version.c_WorldVersion}"));
+            Logger.LogWarning(Invariant($"Unsupported world version: {worldVersion:D} [{worldVersion}], expected: {Version.c_WorldVersion:D} [{Version.c_WorldVersion}]"));
             failed = true;
             abort |= !Config.General.IgnoreWorldVersionCheck.Value;
         }
