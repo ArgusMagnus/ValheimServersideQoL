@@ -16,7 +16,7 @@ sealed class TameableProcessor : Processor
     sealed record TameableState(ExtendedZDO ZDO) : ITameableState
     {
         public bool IsTamed { get; set; }
-        public DateTimeOffset LastMessage { get; set; }
+        public DateTimeOffset NextMessage { get; set; }
     }
 
     readonly ConcurrentDictionary<ExtendedZDO, TameableState> _states = [];
@@ -47,15 +47,12 @@ sealed class TameableProcessor : Processor
         var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
         var taming = tameTimeLeft < tameTime;
 
-        if (tamed || taming)
+        if ((tamed || taming) && zdo.PrefabInfo.Humanoid is not { Humanoid.m_faction: Character.Faction.Players or Character.Faction.PlayerSpawned })
         {
             if (Config.Tames.FedDurationMultiplier.Value is 1f)
                 fields.Reset(static () => x => x.m_fedDuration);
-            else if (zdo.PrefabInfo.Humanoid is not { Humanoid.m_faction: Character.Faction.Players or Character.Faction.PlayerSpawned }
-                && fields.UpdateValue(static () => x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
-            {
+            else if (fields.UpdateValue(static () => x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
                 RecreateZdo = true;
-            }
         }
 
         if (tamed)
@@ -67,15 +64,18 @@ sealed class TameableProcessor : Processor
             else if (fields.UpdateValue(static () => x => x.m_commandable, true))
                 RecreateZdo = true;
 
-            if (Config.Summons.UnsummonDistanceMultiplier.Value is 1f)
-                fields.Reset(static () => x => x.m_unsummonDistance);
-            else if (fields.UpdateValue(static () => x => x.m_unsummonDistance, tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
-                RecreateZdo = true;
+            if (zdo.PrefabInfo.Humanoid is { Humanoid.m_faction: Character.Faction.Players or Character.Faction.PlayerSpawned })
+            {
+                if (Config.Summons.UnsummonDistanceMultiplier.Value is 1f)
+                    fields.Reset(static () => x => x.m_unsummonDistance);
+                else if (fields.UpdateValue(static () => x => x.m_unsummonDistance, tameable.m_unsummonDistance * Config.Summons.UnsummonDistanceMultiplier.Value))
+                    RecreateZdo = true;
 
-            if (Config.Summons.UnsummonLogoutTimeMultiplier.Value is 1f)
-                fields.Reset(static () => x => x.m_unsummonOnOwnerLogoutSeconds);
-            else if (fields.UpdateValue(static () => x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
-                RecreateZdo = true;
+                if (Config.Summons.UnsummonLogoutTimeMultiplier.Value is 1f)
+                    fields.Reset(static () => x => x.m_unsummonOnOwnerLogoutSeconds);
+                else if (fields.UpdateValue(static () => x => x.m_unsummonOnOwnerLogoutSeconds, tameable.m_unsummonOnOwnerLogoutSeconds * Config.Summons.UnsummonLogoutTimeMultiplier.Value))
+                    RecreateZdo = true;
+            }
 
             if (!RecreateZdo)
             {
@@ -107,9 +107,10 @@ sealed class TameableProcessor : Processor
                     zdo.Destroyed += x => _states.Remove(x, out _);
                 }
 
-                if ((DateTimeOffset.UtcNow - state.LastMessage) > TimeSpan.FromSeconds(DamageText.instance.m_textDuration))
+                var now = DateTimeOffset.UtcNow;
+                if (state.NextMessage < now)
                 {
-                    state.LastMessage = DateTimeOffset.UtcNow;
+                    state.NextMessage = now.AddSeconds(DamageText.instance.m_textDuration);
                     var tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
 
                     var isHungry = false;
