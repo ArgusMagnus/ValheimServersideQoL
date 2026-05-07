@@ -12,7 +12,7 @@ sealed record PrefabInfo(GameObject Prefab, IReadOnlyDictionary<Type, MonoBehavi
     public (Tameable Tameable, MonsterAI MonsterAI)? Tameable { get; } = GetTuple<(Tameable, MonsterAI)>(Components);
     public Fireplace? Fireplace { get; } = Get<Fireplace>(Components);
     public (Container Container, Optional<Piece> Piece, Optional<PieceTable> PieceTable, Optional<Incinerator> Incinerator, Optional<ZSyncTransform> ZSyncTransform)? Container { get; } = GetTuple<(Container, Optional<Piece>, Optional<PieceTable>, Optional<Incinerator>, Optional<ZSyncTransform>)>(Components);
-    public (Ship Ship, Piece Piece)? Ship { get; } = GetTuple<(Ship, Piece)>(Components);
+    public (Ship Ship, Piece Piece, ShipControlls ShipControls)? Ship { get; } = GetTuple<(Ship, Piece, ShipControlls)>(Components);
     public (ItemDrop ItemDrop, Optional<ZSyncTransform> ZSyncTransform, Optional<Piece> Piece, Optional<Floating> Floating, Optional<Fish> Fish)? ItemDrop { get; } = GetTuple<(ItemDrop, Optional<ZSyncTransform>, Optional<Piece>, Optional<Floating>, Optional<Fish>)>(Components);
     public Smelter? Smelter { get; } = Get<Smelter>(Components);
     public ShieldGenerator? ShieldGenerator { get; } = Get<ShieldGenerator>(Components);

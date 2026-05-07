@@ -103,5 +103,9 @@ partial record ModConfigBase
                 True to assign ownership of hostile mobs to the closest player.
                 This should help reduce issues with dodging/parrying due to networking issues.
                 """);
+        public ConfigEntry<bool> AssignShipsToCaptain { get; } = cfg.BindEx(section, false, """
+                True to assign ownership of ships to the player controlling the ship.
+                This should help reduce issues with ship control due to networking issues.
+                """);
     }
 }

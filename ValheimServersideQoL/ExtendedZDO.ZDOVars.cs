@@ -98,6 +98,7 @@ partial class ExtendedZDO
         public int GetLocation(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_location, defaultValue);
         public int GetSeed(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_seed, defaultValue);
         public bool GetAttachJoint(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_attachJointHash, defaultValue);
+        public long GetUser(long defaultValue = 0) => _zdo.GetLong(ZDOVars.s_user, defaultValue);
 
         static int __processorId = $"{Main.PluginGuid}.ProcessorId".GetStableHashCode();
         public Guid GetProcessorId(Guid defaultValue = default) => _zdo.GetByteArray(__processorId, Array.Empty<byte>()) is { Length: > 0 } arr ? new(arr) : defaultValue;

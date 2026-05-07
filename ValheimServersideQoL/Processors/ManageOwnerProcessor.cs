@@ -54,8 +54,50 @@ sealed class ManageOwnerProcessor : Processor
         UnregisterZdoProcessor = true;
         PlayerProcessor.IPeerInfo? owner = null;
         PlayerProcessor.IPeerInfo? newOwner = null;
+        var peerCount = peers.Count;
 
-        if (Config.Networking.MeasurePing.Value && Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value)
+        if (zdo.PrefabInfo.Ship is not null && Config.Networking.AssignShipsToCaptain.Value)
+        {
+            UnregisterZdoProcessor = false;
+            var userPlayerID = zdo.Vars.GetUser();
+            if (userPlayerID is not 0 && peerCount > 1 /*&& zdo.OwnerTimestamp < _maxOwnerTimestamp*/)
+            {
+                foreach (var peer in peers.AsEnumerable())
+                {
+                    if (peer.Info is { } peerInfo && peerInfo.PlayerID == userPlayerID)
+                    {
+                        newOwner = peerInfo;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (newOwner is null && ShouldAssignToClosestPlayer(zdo))
+        {
+            UnregisterZdoProcessor = false;
+            if (peerCount > 1 && zdo.OwnerTimestamp < _maxOwnerTimestamp)
+            {
+                PlayerProcessor.IPeerInfo? closestOwner = null;
+                var minDistSqr = float.MaxValue;
+                foreach (var peer in peers.AsEnumerable())
+                {
+                    if (peer.Info is not { } peerInfo)
+                        continue;
+                    var distSqr = Utils.DistanceSqr(zdo.GetPosition(), peerInfo.PlayerZDO.GetPosition());
+                    if (distSqr < minDistSqr)
+                    {
+                        minDistSqr = distSqr;
+                        closestOwner = peerInfo;
+                    }
+                }
+
+                if (closestOwner is not null)
+                    newOwner = closestOwner;
+            }
+        }
+
+        if (newOwner is null && Config.Networking.MeasurePing.Value && Config.Networking.ReassignOwnershipBasedOnConnectionQuality.Value)
         {
             UnregisterZdoProcessor = false;
 
@@ -87,36 +129,15 @@ sealed class ManageOwnerProcessor : Processor
             }
         }
 
-        if ((Config.Networking.AssignInteractablesToClosestPlayer.Value && zdo.PrefabInfo is not { Smelter: null, CookingStation: null }) ||
-            (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed()))
-        {
-            UnregisterZdoProcessor = false;
-            if (peers.Count > 1 && zdo.OwnerTimestamp < _maxOwnerTimestamp)
-            {
-                PlayerProcessor.IPeerInfo? closestOwner = null;
-                var minDistSqr = float.MaxValue;
-                foreach (var peer in peers.AsEnumerable())
-                {
-                    if (peer.Info is not { } peerInfo)
-                        continue;
-                    var distSqr = Utils.DistanceSqr(zdo.GetPosition(), peerInfo.PlayerZDO.GetPosition());
-                    if (distSqr < minDistSqr)
-                    {
-                        minDistSqr = distSqr;
-                        closestOwner = peerInfo;
-                    }
-                }
-
-                if (closestOwner is not null)
-                    newOwner = closestOwner;
-            }
-        }
-
         if (newOwner is not null && !ReferenceEquals(owner ??= zdo.OwnerPeerInfo, newOwner))
             zdo.SetOwner(newOwner.Owner);
 
         return false;
     }
+
+    bool ShouldAssignToClosestPlayer(ExtendedZDO zdo) =>
+        (Config.Networking.AssignInteractablesToClosestPlayer.Value && zdo.PrefabInfo is not { Smelter: null, CookingStation: null }) ||
+        (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed());
 
     bool SwitchOwner(PlayerProcessor.IPeerInfo currentOwner, PlayerProcessor.IPeerInfo bestCandidate)
     {
