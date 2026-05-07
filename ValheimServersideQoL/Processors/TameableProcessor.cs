@@ -40,26 +40,25 @@ sealed class TameableProcessor : Processor
         }
 
         var fields = zdo.Fields<Tameable>();
+        var tamed = zdo.Vars.GetTamed();
+        
+        /// <see cref="Tameable.GetRemainingTime()"/>
+        var tameTime = fields.GetFloat(static () => x => x.m_tamingTime);
+        var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
+        var taming = tameTimeLeft < tameTime;
 
-        if (Config.Tames.FedDurationMultiplier.Value is 1f)
-            fields.Reset(static () => x => x.m_fedDuration);
-        else if (zdo.PrefabInfo.Humanoid is not { Humanoid.m_faction: Character.Faction.Players or Character.Faction.PlayerSpawned }
-            && fields.UpdateValue(static () => x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
-        { 
-            RecreateZdo = true;
+        if (tamed || taming)
+        {
+            if (Config.Tames.FedDurationMultiplier.Value is 1f)
+                fields.Reset(static () => x => x.m_fedDuration);
+            else if (zdo.PrefabInfo.Humanoid is not { Humanoid.m_faction: Character.Faction.Players or Character.Faction.PlayerSpawned }
+                && fields.UpdateValue(static () => x => x.m_fedDuration, tameable.m_fedDuration * Config.Tames.FedDurationMultiplier.Value))
+            {
+                RecreateZdo = true;
+            }
         }
 
-        if (Config.Tames.TamingTimeMultiplier.Value is 1f)
-            fields.Reset(static () => x => x.m_tamingTime);
-        else if (fields.UpdateValue(static () => x => x.m_tamingTime, tameable.m_tamingTime * Config.Tames.TamingTimeMultiplier.Value))
-            RecreateZdo = true;
-
-        if (Config.Tames.PotionTamingBoostMultiplier.Value is 1f)
-            fields.Reset(static () => x => x.m_tamingBoostMultiplier);
-        else if (fields.UpdateValue(static () => x => x.m_tamingBoostMultiplier, tameable.m_tamingBoostMultiplier * Config.Tames.PotionTamingBoostMultiplier.Value))
-            RecreateZdo = true;
-
-        if (zdo.Vars.GetTamed())
+        if (tamed)
         {
             UnregisterZdoProcessor = true;
 
@@ -88,12 +87,19 @@ sealed class TameableProcessor : Processor
                 state.IsTamed = true;
             }
         }
-        else if (Config.Tames.TamingProgressMessageType.Value is not MessageTypes.None)
+        else if (taming)
         {
-            /// <see cref="Tameable.GetRemainingTime()"/>
-            var tameTime = fields.GetFloat(static () => x => x.m_tamingTime);
-            var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
-            if (tameTimeLeft < tameTime)
+            if (Config.Tames.TamingTimeMultiplier.Value is 1f)
+                fields.Reset(static () => x => x.m_tamingTime);
+            else if (fields.UpdateValue(static () => x => x.m_tamingTime, tameable.m_tamingTime * Config.Tames.TamingTimeMultiplier.Value))
+                RecreateZdo = true;
+
+            if (Config.Tames.PotionTamingBoostMultiplier.Value is 1f)
+                fields.Reset(static () => x => x.m_tamingBoostMultiplier);
+            else if (fields.UpdateValue(static () => x => x.m_tamingBoostMultiplier, tameable.m_tamingBoostMultiplier * Config.Tames.PotionTamingBoostMultiplier.Value))
+                RecreateZdo = true;
+
+            if (Config.Tames.TamingProgressMessageType.Value is not MessageTypes.None)
             {
                 if (!_states.TryGetValue(zdo, out var state))
                 {

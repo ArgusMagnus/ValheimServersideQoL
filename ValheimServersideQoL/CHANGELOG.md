@@ -1,3 +1,7 @@
+### vNext (BETA)
+- Fix portal hub/auto portal naming crashing the mod after patch 0.221.13
+- Fix `FedDurationMultiplier` causing tameables to start taming without eating at all [#135](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/135)
+
 ### v1.8.1019 (BETA)
 - Fix for Valheim patch 0.221.13
 
