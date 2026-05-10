@@ -242,7 +242,9 @@ sealed class ItemDropProcessor : Processor
             zdo.Vars.GetSpawnTime() < ZNet.instance.GetTime().AddSeconds(-2) &&
             GetHeight(zdo.GetPosition()) is < ZoneSystem.c_WaterLevel - 2 && zdo.GetPosition() is { y: < ZoneSystem.c_WaterLevel })
         {
-            var crate = GetCrate(zdo.GetPosition(), zdo.GetRotation());
+            var pos = zdo.GetPosition();
+            pos.y += 1;
+            var crate = GetCrate(pos, zdo.GetRotation());
 
             if (item is null)
             {

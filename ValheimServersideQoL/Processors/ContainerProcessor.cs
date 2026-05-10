@@ -330,53 +330,30 @@ sealed class ContainerProcessor : Processor
             var r = zdo.GetRotation();
             var rot = r.eulerAngles.y + 90;
             var signs = new List<ExtendedZDO>();
-            ExtendedZDO sign;
             p.y += signOffset.Top / 2;
             if (signOptions.HasFlag(SignOptions.Left))
-            {
-                sign = PlacePiece(p + r * Vector3.right * signOffset.Left, Prefabs.Sign, rot);
-                sign.Vars.SetText(text);
-                signs.Add(sign);
-                _chestsBySigns.Add(sign, zdo);
-            }
+                signs.Add(PlacePiece(p + r * Vector3.right * signOffset.Left, Prefabs.Sign, rot));
             if (signOptions.HasFlag(SignOptions.Right))
-            {
-                sign = PlacePiece(p + r * Vector3.left * signOffset.Right, Prefabs.Sign, rot + 180);
-                sign.Vars.SetText(text);
-                signs.Add(sign);
-                _chestsBySigns.Add(sign, zdo);
-            }
+                signs.Add(PlacePiece(p + r * Vector3.left * signOffset.Right, Prefabs.Sign, rot + 180));
             if (signOptions.HasFlag(SignOptions.Front))
-            {
-                sign = PlacePiece(p + r * Vector3.forward * signOffset.Front, Prefabs.Sign, rot + 270);
-                sign.Vars.SetText(text);
-                signs.Add(sign);
-                _chestsBySigns.Add(sign, zdo);
-            }
+                signs.Add(PlacePiece(p + r * Vector3.forward * signOffset.Front, Prefabs.Sign, rot + 270));
             if (signOptions.HasFlag(SignOptions.Back))
-            {
-                sign = PlacePiece(p + r * Vector3.back * signOffset.Back, Prefabs.Sign, rot + 90);
-                sign.Vars.SetText(text);
-                signs.Add(sign);
-                _chestsBySigns.Add(sign, zdo);
-            }
+                signs.Add(PlacePiece(p + r * Vector3.back * signOffset.Back, Prefabs.Sign, rot + 90));
             p = zdo.GetPosition();
             p.y += signOffset.Top;
             if (signOptions.HasFlag(SignOptions.TopLongitudinal))
-            {
-                sign = PlacePiece(p, Prefabs.Sign, Quaternion.Euler(-90, rot - 90, 0));
-                sign.Vars.SetText(text);
-                signs.Add(sign);
-                _chestsBySigns.Add(sign, zdo);
-            }
+                signs.Add(PlacePiece(p, Prefabs.Sign, Quaternion.Euler(-90, rot - 90, 0)));
             if (signOptions.HasFlag(SignOptions.TopLateral))
-            {
-                sign = PlacePiece(p, Prefabs.Sign, Quaternion.Euler(-90, rot, 0));
-                sign.Vars.SetText(text);
-                signs.Add(sign);
-                _chestsBySigns.Add(sign, zdo);
-            }
+                signs.Add(PlacePiece(p, Prefabs.Sign, Quaternion.Euler(-90, rot, 0)));
             _signsByChests.Add(zdo, signs);
+            foreach (var sign in signs)
+            {
+                _chestsBySigns.Add(sign, zdo);
+                sign.Vars.SetText(text);
+                sign.Fields<WearNTear>().Set(static () => x => x.m_supports, false);
+                //sign.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, true);
+                //sign.Destroyed += _ => RPC.Remove(zdo);
+            }
         }
 
         //if (!CheckMinDistance(peers, zdo))

@@ -183,6 +183,7 @@
 |PingEMAHalfLife|2.5||Half-life time in seconds for the exponential moving average of the ping value|
 |AssignInteractablesToClosestPlayer|False|True/False|True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest player.<br>This should help avoiding the loss of ore, etc. due to networking issues.|
 |AssignMobsToClosestPlayer|False|True/False|True to assign ownership of hostile mobs to the closest player.<br>This should help reduce issues with dodging/parrying due to networking issues.|
+|AssignShipsToCaptain|False|True/False|True to assign ownership of ships to the player controlling the ship.<br>This should help reduce issues with ship control due to networking issues.|
 </details>
 <details><summary>Non-teleportable Items</summary>
 
