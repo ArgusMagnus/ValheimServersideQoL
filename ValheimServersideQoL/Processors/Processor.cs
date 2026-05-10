@@ -197,6 +197,17 @@ abstract class Processor
         return true;
     }
 
+    protected static ExtendedZDO Spawn(int prefab, Vector3 pos, Quaternion rot)
+    {
+        var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
+        zdo.SetPrefab(prefab);
+        zdo.Persistent = true;
+        zdo.Distant = false;
+        zdo.Type = ZDO.ObjectType.Default;
+        zdo.SetRotation(rot);
+        return zdo;
+    }
+
     protected ExtendedZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
         => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
 
@@ -465,6 +476,7 @@ abstract class Processor
         public static int StandingIronTorchBlue { get; } = "piece_groundtorch_blue".GetStableHashCode();
         //public static IReadOnlyList<int> Banners { get; } = [.. Enumerable.Range(1, 10).Select(static x => $"piece_banner{x:D2}".GetStableHashCode())];
         public static int MountainRemainsBuried { get; } = "Pickable_MountainRemains01_buried".GetStableHashCode();
+        public static int TombStone { get; } = "Player_tombstone".GetStableHashCode();
     }
 
     protected static class StatusEffects

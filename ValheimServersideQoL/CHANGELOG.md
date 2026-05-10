@@ -1,7 +1,8 @@
 ### vNext (BETA)
 - Fix portal hub/auto portal naming crashing the mod after patch 0.221.13
 - Fix `FedDurationMultiplier` causing tameables to start taming without eating at all [#135](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/135)
-- New feature: `AssignShipsToCaptain`: Assign network ownership of ships to the controlling player [#162](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/162)
+- New features: `AssignShipsToCaptain`: Assign network ownership of ships to the controlling player [#162](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/162)
+- New option for `BackpackOnDeath`: `DropItemTombStone`: Backpack is dropped as an additional tombstone on death [#172](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/172)
 
 ### v1.8.1019 (BETA)
 - Fix for Valheim patch 0.221.13
@@ -12,7 +13,7 @@
     - `OpenCartEmote`: Open the inventory of an attached cart via emote
 
 ### v1.8.1014 (BETA)
-- New option for `BackpackOnDeath`: `SameAsInventory`: Backpack behavior on death will match the inventory behavior, either `DropItems` or `Destroy`, depending on the world modifiers/global keys set.
+- New option for `BackpackOnDeath`: `SameAsInventory`: Backpack behavior on death will match the inventory behavior, either `DropTombStone` or `Destroy`, depending on the world modifiers/global keys set.
 - New ground level mode for admins: Reset terrain
 
 ### v1.8.1007 (BETA)

@@ -99,6 +99,15 @@ partial class ExtendedZDO
         public int GetSeed(int defaultValue = default) => _zdo.GetInt(ZDOVars.s_seed, defaultValue);
         public bool GetAttachJoint(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_attachJointHash, defaultValue);
         public long GetUser(long defaultValue = 0) => _zdo.GetLong(ZDOVars.s_user, defaultValue);
+        public bool GetIsDead(bool defaultValue = default) => _zdo.GetBool(ZDOVars.s_dead, defaultValue);
+        public long GetOwner(long defaultValue = 0) => _zdo.GetLong(ZDOVars.s_owner, defaultValue);
+        public void SetOwner(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_owner, value); }
+        public string GetOwnerName(string defaultValue = "") => _zdo.GetString(ZDOVars.s_ownerName, defaultValue);
+        public void SetOwnerName(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(ZDOVars.s_ownerName, value); }
+        static int __isBackpack = $"{Main.PluginGuid}.IsBackpack".GetStableHashCode();
+        public bool GetIsBackpack(bool defaultValue = default) => _zdo.GetBool(__isBackpack, defaultValue);
+        public void SetIsBackpack(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__isBackpack, value); }
+
 
         static int __processorId = $"{Main.PluginGuid}.ProcessorId".GetStableHashCode();
         public Guid GetProcessorId(Guid defaultValue = default) => _zdo.GetByteArray(__processorId, Array.Empty<byte>()) is { Length: > 0 } arr ? new(arr) : defaultValue;

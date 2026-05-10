@@ -75,11 +75,13 @@ partial record ModConfigBase
 
         public sealed class PlayersConfig
         {
+            public sealed record BackpackOnDeathDropTombStoneConfig(float VerticalOffset, float AutoCollectDistance) { BackpackOnDeathDropTombStoneConfig() : this(default, default) { } }
             public sealed record BackpackOnDeathDropItemsConfig(float ScatterRadius, float VerticalOffset, bool PreventAutoDestroy, bool PreventAutoPickup)
             {
                 BackpackOnDeathDropItemsConfig() : this(default, default, default, default) { }
             }
 
+            public BackpackOnDeathDropTombStoneConfig BackpackOnDeathDropTombStone { get; init; } = new(2, 2);
             public BackpackOnDeathDropItemsConfig BackpackOnDeathDropItems { get; init; } = new(2, 1, true, false);
         }
 

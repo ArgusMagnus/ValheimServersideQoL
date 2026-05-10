@@ -64,6 +64,7 @@ partial record ModConfigBase
             SameAsInventory,
             Keep,
             Destroy,
+            DropTombStone,
             DropItems
         }
 

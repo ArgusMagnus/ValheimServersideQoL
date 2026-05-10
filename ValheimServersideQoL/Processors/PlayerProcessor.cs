@@ -98,6 +98,77 @@ sealed class PlayerProcessor : Processor
                 _backpackContainer = null;
         }
 
+
+        [MemberNotNull(nameof(BackpackContainer))]
+        public bool EnsureBackpackExists()
+        {
+            var backpackPrefab = Prefabs.PrivateChest;
+
+            var pos = PlayerZDO.GetPosition();
+            pos.y -= 0.6f;
+
+            static bool AdjustSize(ExtendedZDO zdo, int slots)
+            {
+                var fields = zdo.Fields<Container>();
+                var actualSlots = Math.Max(slots, zdo.Inventory.Items.Count);
+                var (width, height) = GetBackpackSize(actualSlots);
+                if ((fields.UpdateValue(static () => x => x.m_width, width),
+                    fields.UpdateValue(static () => x => x.m_height, height)) == (false, false))
+                    return false;
+
+                using var enumerator = zdo.Inventory.Items.GetEnumerator();
+                for (int y = 0; y < height; y++)
+                {
+                    for (int x = 0; x < width; x++)
+                    {
+                        if (!enumerator.MoveNext())
+                        {
+                            zdo.ClaimOwnershipInternal();
+                            zdo.Inventory.Save();
+                            return true;
+                        }
+
+                        enumerator.Current.m_gridPos = new(x, y);
+                    }
+                }
+                return true;
+            }
+
+            if (BackpackContainer is null)
+            {
+                BackpackContainer = _processor.PlacedObjects.FirstOrDefault(x => x.PrefabInfo.Container is not null && x.IsModCreator(out var marker) && marker is CreatorMarkers.ProcessorOwned && x.Vars.GetPlayerID() == PlayerID);
+                BackpackContainer?.Fields<Container>().Set(static () => x => x.m_name, _processor.Config.Localization.Players.Backpack.Name);
+            }
+#if DEBUG
+            else if (BackpackContainer.GetPrefab() != backpackPrefab)
+            {
+                _processor.DestroyObject(BackpackContainer);
+                BackpackContainer = null;
+            }
+#endif
+
+            if (BackpackContainer is null)
+            {
+                BackpackContainer = _processor.PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
+                BackpackContainer.Vars.SetPlayerID(PlayerID);
+                BackpackContainer.Fields<Container>().Set(static () => x => x.m_name, _processor.Config.Localization.Players.Backpack.Name);
+                AdjustSize(BackpackContainer, _processor._backpackSlots);
+                BackpackContainer.SetOwnerInternal(Owner);
+            }
+            else if (Vector3.Distance(PlayerZDO.GetPosition(), BackpackContainer.GetPosition()) > InventoryGui.instance.m_autoCloseDistance
+                || AdjustSize(BackpackContainer, _processor._backpackSlots))
+            {
+                BackpackContainer.SetPosition(pos);
+                BackpackContainer.SetOwnerInternal(Owner);
+                BackpackContainer = _processor.RecreatePiece(BackpackContainer);
+            }
+            else
+            {
+                return true;
+            }
+            return false;
+        }
+
         public DateTimeOffset? OpenBackpackAfter { get; set; }
 
         public BuildModifiers BuildModifiers { get; set; }
@@ -524,26 +595,56 @@ sealed class PlayerProcessor : Processor
         Logger.LogInfo($"Backpack of player '{state.PlayerName}' destroyed on death");
     }
 
+    void DropBackpackItem(ItemDrop.ItemData item, ExtendedZDO refPosZdo)
+    {
+        var cfg = Config.Advanced.Players.BackpackOnDeathDropItems;
+        var pos = refPosZdo.GetPosition();
+        var scatter = UnityEngine.Random.insideUnitCircle * cfg.ScatterRadius;
+        pos.x += scatter.x;
+        pos.y += cfg.VerticalOffset;
+        pos.z += scatter.y;
+        var zdo = (ExtendedZDO)ItemDrop.DropItem(item, 0, pos, refPosZdo.GetRotation()).GetComponent<ZNetView>().GetZDO();
+        zdo.Fields<ItemDrop>()
+            .Set(static () => x => x.m_autoDestroy, !cfg.PreventAutoDestroy)
+            .Set(static () => x => x.m_autoPickup, !cfg.PreventAutoPickup);
+    }
+
     void DropBackpackItems(long peerID)
     {
         if (!_playerStates.TryGetValue(peerID, out var state) || state.BackpackContainer is not { } backpack)
             return;
 
-        var cfg = Config.Advanced.Players.BackpackOnDeathDropItems;
         foreach (var item in backpack.Inventory.Items.AsEnumerable())
-        {
-            var pos = state.PlayerZDO.GetPosition();
-            var scatter = UnityEngine.Random.insideUnitCircle * cfg.ScatterRadius;
-            pos.x += scatter.x;
-            pos.y += cfg.VerticalOffset;
-            pos.z += scatter.y;
-            var zdo = (ExtendedZDO)ItemDrop.DropItem(item, 0, pos, state.PlayerZDO.GetRotation()).GetComponent<ZNetView>().GetZDO();
-            zdo.Fields<ItemDrop>()
-                .Set(static () => x => x.m_autoDestroy, !cfg.PreventAutoDestroy)
-                .Set(static () => x => x.m_autoPickup, !cfg.PreventAutoPickup);
-        }
+            DropBackpackItem(item, state.PlayerZDO);
         DestroyObject(backpack);
         Logger.LogInfo($"Backpack items of player '{state.PlayerName}' dropped at death location.");
+    }
+
+    static int BackpackTombstonePrefab => Prefabs.TombStone;
+
+    void DropBackback(long peerID)
+    {
+        if (!_playerStates.TryGetValue(peerID, out var state) || state.BackpackContainer is not { Inventory.Items.Count: > 0 } backpack)
+            return;
+
+        var pos = state.PlayerZDO.GetPosition();
+        pos.y += Config.Advanced.Players.BackpackOnDeathDropTombStone.VerticalOffset;
+        var zdo = Spawn(BackpackTombstonePrefab, pos, state.PlayerZDO.GetRotation());
+        zdo.Vars.SetIsBackpack(true);
+        /// <see cref="TombStone.Setup"/>
+        zdo.Vars.SetOwner(state.PlayerID);
+        zdo.Vars.SetOwnerName($"{state.PlayerName} - {Config.Localization.Players.Backpack.Name}");
+
+        zdo.Fields<Container>()
+            .Set(static () => x => x.m_width, backpack.Inventory.Inventory.GetWidth())
+            .Set(static () => x => x.m_height, backpack.Inventory.Inventory.GetHeight());
+
+        foreach (var item in backpack.Inventory.Items)
+            zdo.Inventory.Items.Add(item);
+        zdo.Inventory.Save();
+
+        DestroyObject(backpack);
+        Logger.LogInfo($"Backpack of player '{state.PlayerName}' dropped at death location.");
     }
 
     void RPC_OnDeath(ZRoutedRpc.RoutedRPCData data)
@@ -554,11 +655,15 @@ sealed class PlayerProcessor : Processor
                 if (ZoneSystem.instance.GetGlobalKey(GlobalKeys.DeathDeleteItems) || ZoneSystem.instance.GetGlobalKey(GlobalKeys.DeathDeleteUnequipped))
                     DestroyBackpack(data.m_senderPeerID);
                 else
-                    DropBackpackItems(data.m_senderPeerID);
+                    DropBackback(data.m_senderPeerID);
                 break;
 
             case ModConfigBase.PlayersConfig.BackPackOnDeathOptions.Destroy:
                 DestroyBackpack(data.m_senderPeerID);
+                break;
+
+            case ModConfigBase.PlayersConfig.BackPackOnDeathOptions.DropTombStone:
+                DropBackback(data.m_senderPeerID);
                 break;
 
             case ModConfigBase.PlayersConfig.BackPackOnDeathOptions.DropItems:
@@ -881,10 +986,29 @@ sealed class PlayerProcessor : Processor
                 _zoneControls[zdo.GetSector()] = zdo;
             else if (zdo.PrefabInfo is { Vagon: not null, Container: not null } && Config.Players.OpenCartEmote.Value is not ModConfigBase.DisabledEmote)
             {
+                UnregisterZdoProcessor = false;
                 if (_playerStates.TryGetValue(zdo.GetOwner(), out state))
                     state.AttachedCart = zdo.Vars.GetAttachJoint() ? zdo : null;
-                UnregisterZdoProcessor = false;
                 return true;
+            }
+            else if (zdo.GetPrefab() == BackpackTombstonePrefab && zdo.Vars.GetIsBackpack())
+            {
+                UnregisterZdoProcessor = false;
+                if (_playersByID.TryGetValue(zdo.Vars.GetOwner(), out var playerZdo) && !playerZdo.Vars.GetIsDead() &&
+                    Vector3.Distance(playerZdo.GetPosition(), zdo.GetPosition()) < Config.Advanced.Players.BackpackOnDeathDropTombStone.AutoCollectDistance &&
+                    _playerStates.TryGetValue(playerZdo.GetOwner(), out state))
+                {
+                    state.EnsureBackpackExists();
+                    foreach (var item in zdo.Inventory.Items.AsEnumerable())
+                    {
+                        if (!state.BackpackContainer.Inventory.Inventory.AddItem(item))
+                            DropBackpackItem(item, zdo);
+                    }
+                    state.BackpackContainer.ClaimOwnershipInternal();
+                    state.BackpackContainer.Inventory.Save();
+                    RPC.ShowMessage(state.Owner, MessageHud.MessageType.Center, $"$piece_tombstone_recovered ({Config.Localization.Players.Backpack.Name})");
+                    zdo.Destroy();
+                }
             }
             else if (zdo.GetPrefab() == _mudRoadPrefab && Config.Admins.CycleLevelGroundMode.Value is not ModConfigBase.DisabledEmote)
             {
@@ -1138,69 +1262,8 @@ sealed class PlayerProcessor : Processor
                 }
                 else if (_backpackSlots > 0 && CheckEmote(zdo, Config.Players.OpenBackpackEmote.Value))
                 {
-                    var backpackPrefab = Prefabs.PrivateChest;
-
                     state.OpenBackpackAfter = now + OpenBackpackDelay;
-
-                    var pos = zdo.GetPosition();
-                    pos.y -= 0.6f;
-
-                    static bool AdjustSize(ExtendedZDO zdo, int slots)
-                    {
-                        var fields = zdo.Fields<Container>();
-                        var actualSlots = Math.Max(slots, zdo.Inventory.Items.Count);
-                        var (width, height) = GetBackpackSize(actualSlots);
-                        if ((fields.UpdateValue(static () => x => x.m_width, width),
-                            fields.UpdateValue(static () => x => x.m_height, height)) == (false, false))
-                            return false;
-
-                        using var enumerator = zdo.Inventory.Items.GetEnumerator();
-                        for (int y = 0; y < height; y++)
-                        {
-                            for (int x = 0; x < width; x++)
-                            {
-                                if (!enumerator.MoveNext())
-                                {
-                                    zdo.ClaimOwnershipInternal();
-                                    zdo.Inventory.Save();
-                                    return true;
-                                }
-
-                                enumerator.Current.m_gridPos = new(x, y);
-                            }
-                        }
-                        return true;
-                    }
-
-                    if (state.BackpackContainer is null)
-                    {
-                        state.BackpackContainer = PlacedObjects.FirstOrDefault(x => x.PrefabInfo.Container is not null && x.IsModCreator(out var marker) && marker is CreatorMarkers.ProcessorOwned && x.Vars.GetPlayerID() == state.PlayerID);
-                        state.BackpackContainer?.Fields<Container>().Set(static () => x => x.m_name, Config.Localization.Players.Backpack.Name);
-                    }
-
-                    if (state.BackpackContainer is null)
-                    {
-                        state.BackpackContainer = PlacePiece(pos, backpackPrefab, 0, CreatorMarkers.ProcessorOwned);
-                        state.BackpackContainer.Vars.SetPlayerID(state.PlayerID);
-                        state.BackpackContainer.Fields<Container>().Set(static () => x => x.m_name, Config.Localization.Players.Backpack.Name);
-                        AdjustSize(state.BackpackContainer, _backpackSlots);
-                        state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
-                    }
-#if DEBUG
-                    else if (state.BackpackContainer.GetPrefab() != backpackPrefab)
-                    {
-                        DestroyObject(state.BackpackContainer);
-                        state.BackpackContainer = null;
-                    }
-#endif
-                    else if (Vector3.Distance(zdo.GetPosition(), state.BackpackContainer.GetPosition()) > InventoryGui.instance.m_autoCloseDistance
-                        || AdjustSize(state.BackpackContainer, _backpackSlots))
-                    {
-                        state.BackpackContainer.SetPosition(pos);
-                        state.BackpackContainer.SetOwnerInternal(zdo.GetOwner());
-                        state.BackpackContainer = RecreatePiece(state.BackpackContainer);
-                    }
-                    else
+                    if (state.EnsureBackpackExists())
                     {
                         state.OpenBackpackAfter = null;
                         RPC.OpenResponse(state.BackpackContainer, true);
