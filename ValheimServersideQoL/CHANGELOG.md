@@ -3,6 +3,7 @@
 - Fix `FedDurationMultiplier` causing tameables to start taming without eating at all [#135](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/135)
 - New features: `AssignShipsToCaptain`: Assign network ownership of ships to the controlling player [#162](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/162)
 - New option for `BackpackOnDeath`: `DropItemTombStone`: Backpack is dropped as an additional tombstone on death [#172](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/172)
+- Allow renaming portals in the portal hub
 
 ### v1.8.1019 (BETA)
 - Fix for Valheim patch 0.221.13

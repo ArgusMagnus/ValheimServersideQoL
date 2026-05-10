@@ -12,6 +12,8 @@ sealed class PortalHubProcessor : Processor
         public required string Tag { get; set; }
         public required int HubId { get; set; }
         public required bool AllowAllItems { get; init; }
+        public ExtendedZDO? HubPortal { get; set; }
+        public ExtendedZDO? HubSign { get; set; }
     }
 
     readonly Dictionary<ExtendedZDO, PortalState> _knownPortals = [];
@@ -103,7 +105,37 @@ sealed class PortalHubProcessor : Processor
             }
             return false;
         }
-        else if (zdo.PrefabInfo.TeleportWorld is null || zdo.IsModCreator())
+        else if (zdo.PrefabInfo.Sign is not null && PlacedObjects.Contains(zdo))
+        {
+            var (portal, state) = _knownPortals.FirstOrDefault(x => x.Value.HubSign == zdo);
+            if (state is not null && zdo.Vars.GetText().RemoveRichTextTags() is { } tag && state.Tag != tag)
+            {
+                state.Tag = tag;
+                portal.Vars.SetTag(tag);
+                state.HubPortal?.Vars.SetTag(tag);
+                state.HubSign?.Vars.SetText($"<color=white>{tag}");
+                _updateHub = true;
+            }
+            return true;
+        }
+        else if (zdo.PrefabInfo.TeleportWorld is null)
+        {
+            UnregisterZdoProcessor = true;
+            return false;
+        }
+        else if (PlacedObjects.Contains(zdo))
+        {
+            var (portal, state) = _knownPortals.FirstOrDefault(x => x.Value.HubPortal == zdo);
+            if (state is not null && zdo.Vars.GetTag() is { } tag && state.Tag != tag)
+            {
+                state.Tag = tag;
+                portal.Vars.SetTag(tag);
+                state.HubSign?.Vars.SetText($"<color=white>{tag}");
+                _updateHub = true;
+            }
+            return true;
+        }
+        else if (zdo.IsModCreator())
         {
             UnregisterZdoProcessor = true;
             return false;
@@ -202,8 +234,8 @@ sealed class PortalHubProcessor : Processor
                 zdo.Destroy();
             PlacedObjects.Clear();
 
-            PlacePiece(_offset with { y = _offset.y - 2 }, Prefabs.DvergerGuardstone, 0)
-                .Fields<PrivateArea>(true).Set(static () => x => x.m_radius, _hubRadius);
+            //PlacePiece(_offset with { y = _offset.y - 2 }, Prefabs.DvergerGuardstone, 0)
+            //    .Fields<PrivateArea>(true).Set(static () => x => x.m_radius, _hubRadius);
 
             for (int i = 0; i < width; i++)
             {
@@ -312,11 +344,10 @@ sealed class PortalHubProcessor : Processor
             var state = statesEnumerator.Current;
             var ofsY = state.AllowAllItems ? -0.25f : 0f;
             pos.y += ofsY;
-            var zdo = PlacePiece(pos, state.AllowAllItems ? Prefabs.Portal : Prefabs.PortalWood, rot);
+            state.HubPortal = PlacePiece(pos, state.AllowAllItems ? Prefabs.Portal : Prefabs.PortalWood, rot);
             pos.y -= ofsY;
-            zdo.Fields<TeleportWorld>().Set(static () => x => x.m_allowAllItems, true);
-            zdo.Vars.SetTag(state.Tag);
-            zdo.UnregisterAllProcessors();
+            state.HubPortal.Fields<TeleportWorld>().Set(static () => x => x.m_allowAllItems, true);
+            state.HubPortal.Vars.SetTag(state.Tag);
 
             if (iIsEdge && kIsEdge)
             {
@@ -329,8 +360,8 @@ sealed class PortalHubProcessor : Processor
                 pos.x += i is 0 ? -0.25f : 0.25f;
 
             pos.y += 2f;
-            var sign = PlacePiece(pos, Prefabs.Sign, rot);
-            sign.Vars.SetText($"<color=white>{state.Tag}");
+            state.HubSign = PlacePiece(pos, Prefabs.Sign, rot);
+            state.HubSign.Vars.SetText($"<color=white>{state.Tag}");
 
             if (GetTorches(state.HubId) is { Count: > 0 } torches)
             {
