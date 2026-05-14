@@ -12,7 +12,7 @@ sealed class PlayerSpawnedProcessor : Processor
     readonly Dictionary<string, SpawnInfo> _spawnInfo = [];
     readonly Dictionary<int, List<ExtendedZDO>> _spawnedByPrefab = [];
     readonly Dictionary<ExtendedZDO, SpawnedState> _spawnedStates = [];
-    PlayerProcessor.IPeerInfo? _lastSummoningPlayer;
+    IPeerInfo? _lastSummoningPlayer;
     bool _canMakeFriendly;
     bool _canLevelUp;
     bool _canTolerateLava;
@@ -23,7 +23,7 @@ sealed class PlayerSpawnedProcessor : Processor
 
     sealed class SpawnedState
     {
-        public PlayerProcessor.IPeerInfo? Summoner { get; set; }
+        public IPeerInfo? Summoner { get; set; }
         public DateTimeOffset NextPatrolPointUpdate { get; set; }
         public bool ChancesEvaluated { get; set; }
     }

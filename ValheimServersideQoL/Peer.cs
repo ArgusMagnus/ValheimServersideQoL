@@ -18,7 +18,7 @@ sealed class Peer
     public override bool Equals(object obj) => Equals(_peer, obj);
     public override int GetHashCode() => _peer.GetHashCode();
 
-    public PlayerProcessor.IPeerInfo? Info
+    public IPeerInfo? Info
     {
         get
         {

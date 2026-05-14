@@ -171,7 +171,7 @@ sealed partial class ExtendedZDO : ZDO
     }
 
     public DateTimeOffset OwnerTimestamp { get; private set; }
-    public PlayerProcessor.IPeerInfo? OwnerPeerInfo
+    public IPeerInfo? OwnerPeerInfo
     {
         get
         {

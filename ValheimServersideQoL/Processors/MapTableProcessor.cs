@@ -88,6 +88,8 @@ sealed class MapTableProcessor : Processor
         if (_pinsHash == _oldPinsHash)
             return false;
 
+        const Version.SharedMap MapDataVersion = Version.SharedMap.PinsAuthor;
+
         _existingPins.Clear();
         ZPackage pkg;
         var data = zdo.Vars.GetData();
@@ -95,10 +97,10 @@ sealed class MapTableProcessor : Processor
         {
             data = Utils.Decompress(data);
             pkg = new ZPackage(data);
-            var version = pkg.ReadInt();
-            if (version is not 3)
+            var version = (Version.SharedMap)pkg.ReadInt();
+            if (version is not MapDataVersion)
             {
-                Logger.LogWarning(Invariant($"MapTable data version {version} is not supported"));
+                Logger.LogWarning(Invariant($"MapTable data version {version:D} [{version}] is not supported"));
                 return false;
             }
             data = pkg.ReadByteArray();
@@ -122,7 +124,7 @@ sealed class MapTableProcessor : Processor
 
         /// taken from <see cref="Minimap.GetSharedMapData"/> and <see cref="MapTable.GetMapData"/> 
         pkg = new ZPackage();
-        pkg.Write(3);
+        pkg.Write((int)MapDataVersion);
 
         pkg.Write(data ?? (_emptyExplored ??= new byte[Minimap.instance.m_textureSize * Minimap.instance.m_textureSize]));
 

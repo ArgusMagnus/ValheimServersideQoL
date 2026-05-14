@@ -7,7 +7,7 @@ sealed class ManageOwnerProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("9178b9fe-ef1a-4e75-b492-ae392aa6b557");
 
-    readonly Dictionary<Vector2s, (PlayerProcessor.IPeerInfo BestOwner, HashSet<long> ValidOwners)> _zoneData = [];
+    readonly Dictionary<Vector2s, (IPeerInfo BestOwner, HashSet<long> ValidOwners)> _zoneData = [];
     readonly Stack<HashSet<long>> _hashsetCache = [];
     readonly MethodInfo _releaseNearbyZDOSMethod = typeof(ZDOMan).GetMethod("ReleaseNearbyZDOS", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
     readonly MethodInfo _releaseNearbyZDOSPrefix = ((Delegate)ReleaseNearbyZDOSPrefix).Method;
@@ -52,8 +52,8 @@ sealed class ManageOwnerProcessor : Processor
             return false;
 
         UnregisterZdoProcessor = true;
-        PlayerProcessor.IPeerInfo? owner = null;
-        PlayerProcessor.IPeerInfo? newOwner = null;
+        IPeerInfo? owner = null;
+        IPeerInfo? newOwner = null;
         var peerCount = peers.Count;
 
         if (zdo.PrefabInfo.Ship is not null && Config.Networking.AssignShipsToCaptain.Value)
@@ -78,7 +78,7 @@ sealed class ManageOwnerProcessor : Processor
             UnregisterZdoProcessor = false;
             if (peerCount > 1 && zdo.OwnerTimestamp < _maxOwnerTimestamp)
             {
-                PlayerProcessor.IPeerInfo? closestOwner = null;
+                IPeerInfo? closestOwner = null;
                 var minDistSqr = float.MaxValue;
                 foreach (var peer in peers.AsEnumerable())
                 {
@@ -139,7 +139,7 @@ sealed class ManageOwnerProcessor : Processor
         (Config.Networking.AssignInteractablesToClosestPlayer.Value && zdo.PrefabInfo is not { Smelter: null, CookingStation: null }) ||
         (Config.Networking.AssignMobsToClosestPlayer.Value && zdo.PrefabInfo.Humanoid is { MonsterAI.Value: not null } && !zdo.Vars.GetTamed());
 
-    bool SwitchOwner(PlayerProcessor.IPeerInfo currentOwner, PlayerProcessor.IPeerInfo bestCandidate)
+    bool SwitchOwner(IPeerInfo currentOwner, IPeerInfo bestCandidate)
     {
         var minDiff = Config.Networking.ReassignOwnershipConnectionQualityHysteresis.Value;
         if (minDiff <= 0f)

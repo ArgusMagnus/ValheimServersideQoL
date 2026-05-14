@@ -28,7 +28,7 @@ sealed class MineRockProcessor : Processor
             return true;
 
         var minDist = ZoneSystem.c_ZoneSizeHalf;
-        PlayerProcessor.IPeerInfo? info = null;
+        IPeerInfo? info = null;
         var skill = float.NaN;
         foreach (var peerInfo in Instance<PlayerProcessor>().PeerInfos)
         {
