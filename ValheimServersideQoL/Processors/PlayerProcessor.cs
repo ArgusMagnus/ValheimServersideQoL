@@ -983,6 +983,14 @@ sealed partial class PlayerProcessor : Processor
                 }
                 else if (state.IsAdmin)
                 {
+                    static void UpdateGlobalKeyModification(PlayerState state, BuildModifiers modifier, GlobalKeys key)
+                    {
+                        if ((state.BuildModifiers & modifier) is 0)
+                            state.RemoveGlobalKeyModification(new(key));
+                        else
+                            state.AddGlobalKeyModification(new(key), true);
+                    }
+
                     if (CheckEmote(zdo, Config.Admins.ToggleDisableRainDamageEmote.Value))
                     {
                         state.BuildModifiers ^= BuildModifiers.DisableRainDamage;
@@ -1002,21 +1010,25 @@ sealed partial class PlayerProcessor : Processor
                     {
                         state.BuildModifiers ^= BuildModifiers.NoWorkbench;
                         state.NextBuildModifierMessage = default;
+                        UpdateGlobalKeyModification(state, BuildModifiers.NoWorkbench, GlobalKeys.NoWorkbench);
                     }
                     if (CheckEmote(zdo, Config.Admins.ToggleDungeonBuild.Value))
                     {
                         state.BuildModifiers ^= BuildModifiers.DungeonBuild;
                         state.NextBuildModifierMessage = default;
+                        UpdateGlobalKeyModification(state, BuildModifiers.DungeonBuild, GlobalKeys.DungeonBuild);
                     }
                     if (CheckEmote(zdo, Config.Admins.ToggleNoBuildCost.Value))
                     {
                         state.BuildModifiers ^= BuildModifiers.NoBuildCost;
                         state.NextBuildModifierMessage = default;
+                        UpdateGlobalKeyModification(state, BuildModifiers.NoBuildCost, GlobalKeys.NoBuildCost);
                     }
                     if (CheckEmote(zdo, Config.Admins.ToggleAllPiecesUnlocked.Value))
                     {
                         state.BuildModifiers ^= BuildModifiers.AllPiecesUnlocked;
                         state.NextBuildModifierMessage = default;
+                        UpdateGlobalKeyModification(state, BuildModifiers.AllPiecesUnlocked, GlobalKeys.AllPiecesUnlocked);
                     }
                     if (CheckEmote(zdo, Config.Admins.CycleLevelGroundMode.Value))
                     {
@@ -1070,6 +1082,8 @@ sealed partial class PlayerProcessor : Processor
             tameState.ZDO.SetPosition(targetPos);
             tameState.ZDO.Recreate();
         }
+
+        state.SendGlobalKeyModifications();
 
         return false;
     }

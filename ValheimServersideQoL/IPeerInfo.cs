@@ -12,8 +12,10 @@ interface IPeerInfo
     bool IsAdmin { get; }
     float ConnectionQuality { get; }
     float GetEstimatedSkillLevel(SkillType skillType);
-    public ItemDrop? LastUsedItem { get; }
-    public BuildModifiers BuildModifiers { get; }
-    public LevelGroundModes LevelGroundMode { get; }
-
+    ItemDrop? LastUsedItem { get; }
+    BuildModifiers BuildModifiers { get; }
+    LevelGroundModes LevelGroundMode { get; }
+    IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications { get; }
+    void AddGlobalKeyModification(GlobalKey key, bool add);
+    void RemoveGlobalKeyModification(GlobalKey key);
 }

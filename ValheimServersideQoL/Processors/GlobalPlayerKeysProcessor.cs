@@ -1,16 +1,14 @@
-﻿using Valheim.ServersideQoL.HarmonyPatches;
-
-namespace Valheim.ServersideQoL.Processors;
+﻿namespace Valheim.ServersideQoL.Processors;
 
 sealed class GlobalPlayerKeysProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("f21976ad-a2b6-4aaf-94d1-8f9e65510704");
 
-    readonly record struct GlobalKeyModification(string Key, bool Add);
+    readonly record struct GlobalKeyModification(GlobalKey Key, bool Add);
 
     readonly Dictionary<Trader, IReadOnlyList<GlobalKeyModification>> _globalKeyModifications = [];
     readonly Dictionary<ZDOID, Peer> _reset = [];
-    IReadOnlyList<GlobalKeyModification> _mapTableModifications => field ??= [new($"{GlobalKeys.NoMap}".ToLower(), false)];
+    IReadOnlyList<GlobalKeyModification> _mapTableModifications => field ??= [new(new(GlobalKeys.NoMap), false)];
     float _mapTableRangeSqr;
     readonly List<GlobalKeyModification> _modifications = [];
 
@@ -20,7 +18,12 @@ sealed class GlobalPlayerKeysProcessor : Processor
         _globalKeyModifications.Clear();
         foreach (var (trader, cfgList) in Config.Traders.AlwaysUnlock.Select(static x => (x.Key, x.Value)))
         {
-            var list = cfgList.Where(static x => x.ConfigEntry.Value).Select(static x => new GlobalKeyModification(x.GlobalKey, true)).ToList();
+            var list = cfgList
+                .Where(static x => x.ConfigEntry.Value)
+                .Select(static x => x.GlobalKey)
+                .Distinct()
+                .Select(static x => new GlobalKeyModification(new(x), true))
+                .ToList();
             if (list.Count > 0)
                 _globalKeyModifications.Add(trader, list);
         }
@@ -42,12 +45,9 @@ sealed class GlobalPlayerKeysProcessor : Processor
         _reset.Clear();
         Instance<PlayerProcessor>().PlayerDestroyed -= OnPlayerDestroyed;
         Instance<PlayerProcessor>().PlayerDestroyed += OnPlayerDestroyed;
-        ZoneSystemSendGlobalKeys.GlobalKeyValuesChanged -= OnGlobalKeyValuesChanged;
-        ZoneSystemSendGlobalKeys.GlobalKeyValuesChanged += OnGlobalKeyValuesChanged;
     }
 
     void OnPlayerDestroyed(ExtendedZDO zdo) => _reset.Remove(zdo.m_uid);
-    void OnGlobalKeyValuesChanged() => _reset.Clear();
 
     protected override bool ProcessCore(ExtendedZDO zdo, IReadOnlyList<Peer> peers)
     {
@@ -59,76 +59,27 @@ sealed class GlobalPlayerKeysProcessor : Processor
             minDistSqr = _mapTableRangeSqr;
             globalKeyModifications = _mapTableModifications;
         }
-        else if (zdo.PrefabInfo.Player is not null && Instance<PlayerProcessor>().PossibleBuildModifiers >= PlayerProcessor.BuildModifiers.NoWorkbench)
-        {
-            minDistSqr = -1;
-            globalKeyModifications = [];
-        }
         else
         {
             UnregisterZdoProcessor = true;
             return false;
         }
 
-        List<string>? serverKeys = null;
-        List<GlobalKeyModification>? remove = null;
-        foreach (var peer in peers)
+        foreach (var peer in peers.AsEnumerable())
         {
-            var skipDistanceCheck = false;
-            if (peer.Info is { BuildModifiers: not PlayerProcessor.BuildModifiers.None } peerInfo && peerInfo.PlayerZDO == zdo)
-            {
-                if (!peer.Info.IsAdmin)
-                {
-                    UnregisterZdoProcessor = true;
-                    return false;
-                }
-                _modifications.Clear();
-                if ((peerInfo.BuildModifiers & PlayerProcessor.BuildModifiers.NoWorkbench) is not 0)
-                    _modifications.Add(new($"{GlobalKeys.NoWorkbench}".ToLower(), true));
-                if ((peerInfo.BuildModifiers & PlayerProcessor.BuildModifiers.DungeonBuild) is not 0)
-                    _modifications.Add(new($"{GlobalKeys.DungeonBuild}".ToLower(), true));
-                if ((peerInfo.BuildModifiers & PlayerProcessor.BuildModifiers.NoBuildCost) is not 0)
-                    _modifications.Add(new($"{GlobalKeys.NoBuildCost}".ToLower(), true));
-                if ((peerInfo.BuildModifiers & PlayerProcessor.BuildModifiers.AllPiecesUnlocked) is not 0)
-                    _modifications.Add(new($"{GlobalKeys.AllPiecesUnlocked}".ToLower(), true));
-                skipDistanceCheck = true;
-                globalKeyModifications = _modifications;
-            }
+            if (peer.Info is not { } peerInfo)
+                continue;
 
-            if (globalKeyModifications.Count > 0 && (skipDistanceCheck || Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistSqr))
+            if (Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistSqr)
             {
-                if (_reset.TryAdd(peer.m_characterID, peer))
-                {
-                    var keys = ZoneSystem.instance.GetGlobalKeys();
-                    foreach (var (key, add) in globalKeyModifications)
-                    {
-                        if (!add)
-                            keys.Remove(key);
-                        else
-                        {
-                            if (keys.Contains(key))
-                                (remove ??= []).Add(new(key, add));
-                            else
-                                keys.Add(key);
-                        }
-                    }
-                    RPC.SendGlobalKeys(peer, keys);
-                }
+                foreach (var (key, add) in globalKeyModifications)
+                    peer.Info.AddGlobalKeyModification(key, add);
             }
-            else if (_reset.Remove(peer.m_characterID))
+            else
             {
-                serverKeys ??= ZoneSystem.instance.GetGlobalKeys();
-                RPC.SendGlobalKeys(peer, serverKeys);
+                foreach (var (key, _) in globalKeyModifications)
+                    peer.Info.RemoveGlobalKeyModification(key);
             }
-        }
-
-        if (remove is not null)
-        {
-            var list = (IList<GlobalKeyModification>)globalKeyModifications;
-            foreach (var key in remove)
-                list.Remove(key);
-            if (list.Count is 0 && zdo.PrefabInfo.Trader is not null)
-                _globalKeyModifications.Remove(zdo.PrefabInfo.Trader);
         }
 
         return false;

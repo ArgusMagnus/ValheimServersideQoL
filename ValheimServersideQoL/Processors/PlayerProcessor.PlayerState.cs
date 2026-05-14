@@ -150,6 +150,32 @@ sealed partial class PlayerProcessor
             set => (field = value)?.AssertIsAll<Vagon, Container>();
         }
 
+        bool _hasChangedGlobalKeyModifications;
+        Dictionary<GlobalKey, bool>? _globalKeyModifications;
+        public IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications => _globalKeyModifications ?? ReadOnlyDictionary<GlobalKey, bool>.Empty;
+
+        public void AddGlobalKeyModification(GlobalKey key, bool add)
+        {
+            _globalKeyModifications ??= [];
+            if (_globalKeyModifications.TryAdd(key, add))
+                _hasChangedGlobalKeyModifications = true;
+        }
+
+        public void RemoveGlobalKeyModification(GlobalKey key)
+        {
+            if (_globalKeyModifications?.Remove(key) is true)
+                _hasChangedGlobalKeyModifications = true;
+        }
+
+        public void SendGlobalKeyModifications()
+        {
+            if (!_hasChangedGlobalKeyModifications)
+                return;
+            _processor.Logger.DevLog($"Sending global key modifications to player {PlayerName}");
+            ZoneSystem.instance.SendGlobalKeys(Owner);
+            _hasChangedGlobalKeyModifications = false;
+        }
+
         public TimeSpan? LastPing { get; private set; }
         public DateTimeOffset? LastPingTimestamp { get; private set; }
         public TimeSpan? PingMean { get; private set; }
