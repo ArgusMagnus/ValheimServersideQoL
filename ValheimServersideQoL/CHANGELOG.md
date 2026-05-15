@@ -1,4 +1,4 @@
-### vNext (BETA)
+### v1.8.1030 (BETA)
 - Fix portal hub/auto portal naming crashing the mod after patch 0.221.13
 - Fix `FedDurationMultiplier` causing tameables to start taming without eating at all [#135](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/135)
 - New features: `AssignShipsToCaptain`: Assign network ownership of ships to the controlling player [#162](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/162)
@@ -6,7 +6,7 @@
 - Allow renaming portals in the portal hub
 
 ### v1.8.1019 (BETA)
-- Fix for Valheim patch 0.221.13
+- Fix for Valheim patch 0.221.13 (PTB)
 
 ### v1.8.1016 (BETA)
 - New features:
