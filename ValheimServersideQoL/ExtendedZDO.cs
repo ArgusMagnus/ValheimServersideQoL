@@ -166,6 +166,12 @@ sealed partial class ExtendedZDO : ZDO
         // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
         _addData?.Recreated?.Invoke(this, zdo);
 
+        if (PrefabInfo.Rigidbody is { useGravity: true })
+        {
+            Main.Instance.Logger.DevLog($"Recreating gravity using rigidbody: {PrefabInfo.PrefabName}");
+            zdo.ReleaseOwnershipInternal(); // required for physics to work again
+        }
+
         Destroy();
         return zdo;
     }

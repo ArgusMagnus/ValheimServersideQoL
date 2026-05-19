@@ -295,7 +295,7 @@ sealed class ContainerProcessor : Processor
         }
 
         var fields = zdo.Fields<Container>();
-        var inventory = zdo.Inventory!;
+        var inventory = zdo.Inventory;
         var width = inventory.Inventory.GetWidth();
         var height = inventory.Inventory.GetHeight();
         if (!_containerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg))
@@ -307,8 +307,6 @@ sealed class ContainerProcessor : Processor
                 fields.Set(static () => x => x.m_width, width = sizeCfg.Width);
                 fields.Set(static () => x => x.m_height, height = sizeCfg.Height);
                 RecreateZdo = true;
-                if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
-                    zdo.ReleaseOwnershipInternal(); // required for physics to work again
                 return false;
             }
         }
@@ -550,8 +548,6 @@ sealed class ContainerProcessor : Processor
 
         if (!RecreateZdo)
             ContainerChanged?.Invoke(zdo);
-        else if (zdo.PrefabInfo.Container is { ZSyncTransform.Value: not null })
-            zdo.ReleaseOwnership(); // required for physics to work again
 
         return true;
     }

@@ -1053,6 +1053,8 @@ sealed partial class PlayerProcessor : Processor
             RPC.ShowMessage(state.Owner, MessageHud.MessageType.TopLeft, $"Level ground mode: {state.LevelGroundMode}");
         }
 
+        state.SendGlobalKeyModifications();
+
         if (!Config.Tames.TeleportFollow.Value && !Config.Tames.TakeIntoDungeons.Value)
             return false;
 
@@ -1082,8 +1084,6 @@ sealed partial class PlayerProcessor : Processor
             tameState.ZDO.SetPosition(targetPos);
             tameState.ZDO.Recreate();
         }
-
-        state.SendGlobalKeyModifications();
 
         return false;
     }
