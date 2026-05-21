@@ -197,7 +197,7 @@ abstract class Processor
         return true;
     }
 
-    protected static ExtendedZDO Spawn(int prefab, Vector3 pos, Quaternion rot)
+    protected static ExtendedZDO Spawn(int prefab, Vector3 pos, Quaternion rot, long owner = 0)
     {
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         zdo.SetPrefab(prefab);
@@ -205,13 +205,15 @@ abstract class Processor
         zdo.Distant = false;
         zdo.Type = ZDO.ObjectType.Default;
         zdo.SetRotation(rot);
+
+        zdo.SetOwnerInternal(owner);
         return zdo;
     }
 
-    protected ExtendedZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
-        => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
+    protected ExtendedZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
+        => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker, owner);
 
-    protected ExtendedZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
+    protected ExtendedZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
     {
         var zdo = (ExtendedZDO)ZDOMan.instance.CreateNewZDO(pos, prefab);
         PlacedObjects.Add(zdo);
@@ -225,6 +227,8 @@ abstract class Processor
         zdo.Vars.SetHealth(-1);
         if (marker.HasFlag(CreatorMarkers.ProcessorOwned))
             zdo.Vars.SetProcessorId(Id);
+
+        zdo.SetOwnerInternal(owner);
 
         return zdo;
     }

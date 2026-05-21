@@ -307,7 +307,7 @@ sealed partial class PlayerProcessor : Processor
         Logger.LogInfo($"Backpack of player '{state.PlayerName}' destroyed on death");
     }
 
-    void DropBackpackItem(ItemDrop.ItemData item, ExtendedZDO refPosZdo)
+    void DropBackpackItem(ItemDrop.ItemData item, ExtendedZDO refPosZdo, long peerID)
     {
         var cfg = Config.Advanced.Players.BackpackOnDeathDropItems;
         var pos = refPosZdo.GetPosition();
@@ -319,6 +319,7 @@ sealed partial class PlayerProcessor : Processor
         zdo.Fields<ItemDrop>()
             .Set(static () => x => x.m_autoDestroy, !cfg.PreventAutoDestroy)
             .Set(static () => x => x.m_autoPickup, !cfg.PreventAutoPickup);
+        zdo.SetOwnerInternal(peerID);
     }
 
     void DropBackpackItems(long peerID)
@@ -327,7 +328,7 @@ sealed partial class PlayerProcessor : Processor
             return;
 
         foreach (var item in backpack.Inventory.Items.AsEnumerable())
-            DropBackpackItem(item, state.PlayerZDO);
+            DropBackpackItem(item, state.PlayerZDO, peerID);
         DestroyObject(backpack);
         Logger.LogInfo($"Backpack items of player '{state.PlayerName}' dropped at death location.");
     }
@@ -341,7 +342,7 @@ sealed partial class PlayerProcessor : Processor
 
         var pos = state.PlayerZDO.GetPosition();
         pos.y += Config.Advanced.Players.BackpackOnDeathDropTombStone.VerticalOffset;
-        var zdo = Spawn(BackpackTombstonePrefab, pos, state.PlayerZDO.GetRotation());
+        var zdo = Spawn(BackpackTombstonePrefab, pos, state.PlayerZDO.GetRotation(), owner: peerID);
         zdo.Vars.SetIsBackpack(true);
         /// <see cref="TombStone.Setup"/>
         zdo.Vars.SetOwner(state.PlayerID);
@@ -714,7 +715,7 @@ sealed partial class PlayerProcessor : Processor
                     foreach (var item in zdo.Inventory.Items.AsEnumerable())
                     {
                         if (!state.BackpackContainer.Inventory.Inventory.AddItem(item))
-                            DropBackpackItem(item, zdo);
+                            DropBackpackItem(item, zdo, state.Owner);
                     }
                     state.BackpackContainer.ClaimOwnershipInternal();
                     state.BackpackContainer.Inventory.Save();
