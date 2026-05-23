@@ -4,11 +4,15 @@ sealed class TurretProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("4b69158e-1790-40be-8dd1-5d1d57197bba");
 
-    readonly List<ExtendedZDO> _turrets = [];
+    readonly SectorDictionary<HashSet<ExtendedZDO>> _turrets = new(1);
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
+
+        if (Config.Turrets.LoadFromContainers.Value)
+            _turrets.Reset(MathF.Max(Config.Turrets.LoadFromContainersRange.Value, Config.Smelters.FeedFromContainersMaxRange.Value));
+
         if (!firstTime)
             return;
 
@@ -27,10 +31,13 @@ sealed class TurretProcessor : Processor
         if (feedRangeSqr is 0f)
             return;
 
-        foreach (var zdo in _turrets)
+        foreach (var turrets in _turrets.EnumerateAdjacent(containerZdo.GetPosition()))
         {
-            if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) <= feedRangeSqr && zdo.Vars.GetAmmo() is 0)
-                zdo.ResetProcessorDataRevision(this);
+            foreach (var zdo in turrets)
+            {
+                if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) <= feedRangeSqr && zdo.Vars.GetAmmo() is 0)
+                    zdo.ResetProcessorDataRevision(this);
+            }
         }
     }
 
@@ -233,11 +240,7 @@ sealed class TurretProcessor : Processor
         else if (currentAmmo is 0)
             ShowMessage(peers, zdo, Config.Localization.Turrets.NoAmmoFound, Config.Turrets.NoAmmoMessageType.Value, DamageText.TextType.Bonus);
 
-        if (!_turrets.Contains(zdo))
-        {
-            _turrets.Add(zdo);
-            zdo.Destroyed += x => _turrets.Remove(x);
-        }
+        _turrets.TryAdd(zdo);
 
         return true;
         //return currentAmmo > 0;

@@ -1,3 +1,8 @@
+### vNext (BETA)
+- Fix boats getting stuck in the air with certain config options enabled [#174](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/174)
+- Fix `MakeAllItemsFloat` not working in many cases [#174](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/174)
+- Performance improvements
+
 ### v1.8.1030 (BETA)
 - Fix portal hub/auto portal naming crashing the mod after patch 0.221.13
 - Fix `FedDurationMultiplier` causing tameables to start taming without eating at all [#135](https://github.com/ArgusMagnus/ValheimServersideQoL/pull/135)

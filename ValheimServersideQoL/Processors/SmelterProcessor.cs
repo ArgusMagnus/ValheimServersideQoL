@@ -6,11 +6,15 @@ sealed class SmelterProcessor : Processor
 {
     protected override Guid Id { get; } = Guid.Parse("fb9d92e2-c7bb-4d9d-9cae-6b23828da3ef");
 
-    readonly List<ExtendedZDO> _smelters = [];
+    readonly SectorDictionary<HashSet<ExtendedZDO>> _smelters = new(1);
 
     public override void Initialize(bool firstTime)
     {
         base.Initialize(firstTime);
+
+        if (Config.Smelters.FeedFromContainers.Value)
+            _smelters.Reset(Mathf.Max(Config.Smelters.FeedFromContainersRange.Value, Config.Smelters.FeedFromContainersMaxRange.Value));
+
         if (!firstTime)
             return;
 
@@ -29,10 +33,13 @@ sealed class SmelterProcessor : Processor
         if (feedRangeSqr is 0f)
             return;
 
-        foreach (var zdo in _smelters)
+        foreach (var smelters in _smelters.EnumerateAdjacent(containerZdo.GetPosition()))
         {
-            if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) <= feedRangeSqr)
-                zdo.ResetProcessorDataRevision(this);
+            foreach (var zdo in smelters)
+            {
+                if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) <= feedRangeSqr)
+                    zdo.ResetProcessorDataRevision(this);
+            }
         }
     }
 
@@ -327,11 +334,7 @@ sealed class SmelterProcessor : Processor
             }
         }
 
-        if (!_smelters.Contains(zdo))
-        {
-            _smelters.Add(zdo);
-            zdo.Destroyed += x => _smelters.Remove(x);
-        }
+        _smelters.TryAdd(zdo);
 
         return true;
     }

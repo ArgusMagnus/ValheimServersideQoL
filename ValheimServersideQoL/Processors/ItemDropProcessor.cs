@@ -45,6 +45,8 @@ sealed class ItemDropProcessor : Processor
 
         var rangeSqr = inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
         rangeSqr *= rangeSqr;
+        if (rangeSqr is 0f)
+            return;
 
         foreach (var itemDrops in _itemDrops.EnumerateAdjacent(containerZdo.GetPosition()))
         {
@@ -310,8 +312,6 @@ sealed class ItemDropProcessor : Processor
                         .Set(static () => x => x.m_width, width)
                         .Set(static () => x => x.m_height, height);
 
-                    Logger.DevLog($"Putting {item.m_dropPrefab.name} in crate ({width}x{height}): stack={item.m_stack}, pos={item.m_gridPos}, items={inventory.Items.Count}");
-
                     using var enumerator = inventory.Items.GetEnumerator();
                     for (var y = 0; y < height; y++)
                     {
@@ -319,7 +319,6 @@ sealed class ItemDropProcessor : Processor
                         {
                             if (!enumerator.MoveNext())
                                 break;
-                            Logger.DevLog($"Setting pos of {enumerator.Current.m_dropPrefab.name} to {x},{y}");
                             enumerator.Current.m_gridPos = new(x, y);
                         }
                     }
@@ -341,9 +340,7 @@ sealed class ItemDropProcessor : Processor
         if (!_crates.TryGetValue(pos, out var crate))
         {
             _crates.Add(pos, crate = PlaceObject(pos, Prefabs.CargoCrate, rot));
-            //PlacedObjects.Remove(crate); // remove exclusive access
             crate.Vars.SetCreator(0);
-            Logger.DevLog($"Created crate for item drop at {crate.GetPosition()}");
         }
         return crate;
     }

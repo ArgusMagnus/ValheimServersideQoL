@@ -80,7 +80,7 @@ sealed class ContainerProcessor : Processor
         if (Config.Smelters.FeedFromContainers.Value)
             maxContainerRange = Mathf.Max(maxContainerRange, Mathf.Max(Config.Smelters.FeedFromContainersRange.Value, Config.Smelters.FeedFromContainersMaxRange.Value));
         if (Config.Turrets.LoadFromContainers.Value)
-            maxContainerRange = Mathf.Max(maxContainerRange, Config.Turrets.LoadFromContainersRange.Value);
+            maxContainerRange = Mathf.Max(maxContainerRange, Mathf.Max(Config.Turrets.LoadFromContainersRange.Value, Config.Smelters.FeedFromContainersMaxRange.Value));
         if (maxContainerRange > 0)
             ContainersByItemName.Reset(maxContainerRange);
 
