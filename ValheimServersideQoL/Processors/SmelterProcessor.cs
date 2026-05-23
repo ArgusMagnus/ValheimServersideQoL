@@ -85,8 +85,11 @@ sealed class SmelterProcessor : Processor
         if (!CheckMinDistance(peers, zdo))
             return false; // player to close
 
-		/// <see cref="Smelter.OnAddFuel"/>
-		{
+        List<ExtendedZDO>? toRemove = null;
+        List<ItemDrop.ItemData>? removeSlots = null;
+
+        /// <see cref="Smelter.OnAddFuel"/>
+        {
             var maxFuel = zdo.PrefabInfo.Smelter is not null ?
                 zdo.Fields<Smelter>().GetInt(static () => x => x.m_maxFuel) :
                 zdo.Fields<ShieldGenerator>().GetInt(static () => x => x.m_maxFuel);
@@ -97,14 +100,14 @@ sealed class SmelterProcessor : Processor
                 foreach (var fuelItem in zdo.PrefabInfo.ShieldGenerator?.m_fuelItems.Select(static x => x.m_itemData) ?? [zdo.PrefabInfo.Smelter!.m_fuelItem.m_itemData])
                 {
                     var addedFuel = 0;
-                    if (Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(fuelItem.m_shared, out var containers))
+                    foreach (var containers in Instance<ContainerProcessor>().ContainersByItemName.EnumerateAdjacent((zdo.GetPosition(), fuelItem.m_shared)))
                     {
-                        List<ItemDrop.ItemData>? removeSlots = null;
+                        toRemove?.Clear();
                         foreach (var containerZdo in containers)
                         {
-                            if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
+                            if (containerZdo.PrefabInfo.Container is null)
                             {
-                                containers.Remove(containerZdo);
+                                (toRemove ??= []).Add(containerZdo);
                                 continue;
                             }
 
@@ -139,7 +142,7 @@ sealed class SmelterProcessor : Processor
                                 addFuel += take;
                                 slot.m_stack -= take;
                                 if (slot.m_stack is 0)
-                                    (removeSlots ??= new()).Add(slot);
+                                    (removeSlots ??= []).Add(slot);
 
                                 maxFuelAdd -= take;
                                 if (maxFuelAdd is 0)
@@ -155,11 +158,7 @@ sealed class SmelterProcessor : Processor
                             if (addFuel is 0)
                             {
                                 if (!found)
-                                {
-                                    containers.Remove(containerZdo);
-                                    if (containers is { Count: 0 })
-                                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
-                                }
+                                    (toRemove ??= []).Add(containerZdo);
                                 continue;
                             }
 
@@ -169,11 +168,7 @@ sealed class SmelterProcessor : Processor
                                     containerZdo.Inventory.Items.Remove(remove);
 
                                 if (containerZdo.Inventory.Items is { Count: 0 })
-                                {
-                                    containers.Remove(containerZdo);
-                                    if (containers is { Count: 0 })
-                                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(fuelItem.m_shared, out _);
-                                }
+                                    (toRemove ??= []).Add(containerZdo);
                             }
 
                             zdo.ReleaseOwnership();
@@ -186,15 +181,26 @@ sealed class SmelterProcessor : Processor
                             if (maxFuelAdd is 0)
                                 break;
                         }
+
+                        if (toRemove is not null)
+                        {
+                            foreach (var containerZdo in toRemove)
+                                containers.Remove(containerZdo);
+                        }
+
                         if (maxFuelAdd is 0)
                             break;
                     }
+
                     if (addedFuel is not 0)
                     {
                         ShowMessage(peers, zdo,
                             Config.Localization.Smelters.FormatFuelAdded(zdo.PrefabInfo.Smelter?.m_name ?? zdo.PrefabInfo.ShieldGenerator!.m_name, fuelItem.m_shared.m_name, addedFuel),
                             Config.Smelters.OreOrFuelAddedMessageType.Value);
                     }
+
+                    if (maxFuelAdd is 0)
+                        break;
                 }
             }
         }
@@ -211,14 +217,14 @@ sealed class SmelterProcessor : Processor
                 {
                     var oreItem = conversion.m_from.m_itemData;
                     var addedOre = 0;
-                    if (Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(oreItem.m_shared, out var containers))
+                    foreach (var containers in Instance<ContainerProcessor>().ContainersByItemName.EnumerateAdjacent((zdo.GetPosition(), oreItem.m_shared)))
                     {
-                        List<ItemDrop.ItemData>? removeSlots = null;
+                        toRemove?.Clear();
                         foreach (var containerZdo in containers)
                         {
                             if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
                             {
-                                containers.Remove(containerZdo);
+                                (toRemove ??= []).Add(containerZdo);
                                 continue;
                             }
 
@@ -269,11 +275,7 @@ sealed class SmelterProcessor : Processor
                             if (addOre is 0)
                             {
                                 if (!found)
-                                {
-                                    containers.Remove(containerZdo);
-                                    if (containers is { Count: 0 })
-                                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(oreItem.m_shared, out _);
-                                }
+                                    (toRemove ??= []).Add(containerZdo);
                                 continue;
                             }
 
@@ -283,11 +285,7 @@ sealed class SmelterProcessor : Processor
                                     containerZdo.Inventory.Items.Remove(remove);
 
                                 if (containerZdo.Inventory.Items is { Count: 0 })
-                                {
-                                    containers.Remove(containerZdo);
-                                    if (containers is { Count: 0 })
-                                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(oreItem.m_shared, out _);
-                                }
+                                    (toRemove ??= []).Add(containerZdo);
                             }
 
                             zdo.ReleaseOwnership();
@@ -303,6 +301,15 @@ sealed class SmelterProcessor : Processor
                             if (maxOreAdd is 0)
                                 break;
                         }
+
+                        if (toRemove is not null)
+                        {
+                            foreach (var containerZdo in toRemove)
+                                containers.Remove(containerZdo);
+                        }
+
+                        if (maxOreAdd is 0)
+                            break;
                     }
 
                     if (addedOre is not 0)
@@ -311,6 +318,9 @@ sealed class SmelterProcessor : Processor
                             Config.Localization.Smelters.FormatOreAdded(zdo.PrefabInfo.Smelter.m_name, oreItem.m_shared.m_name, addedOre),
                             Config.Smelters.OreOrFuelAddedMessageType.Value);
                     }
+
+                    if (maxOreAdd is 0)
+                        break;
                 }
             }
         }

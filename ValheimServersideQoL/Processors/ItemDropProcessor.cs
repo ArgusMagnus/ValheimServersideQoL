@@ -97,11 +97,15 @@ sealed class ItemDropProcessor : Processor
 
             var shared = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.m_itemData.m_shared;
             var requestOwn = false;
+            var excludeFodderCheckComplete = !Config.Containers.AutoPickupExcludeFodder.Value;
+            HashSet<Vector2i>? usedSlots = null;
+            List<ExtendedZDO>? toRemove = null;
 
-            if (Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(shared, out var containers))
+            foreach (var containers in Instance<ContainerProcessor>().ContainersByItemName.EnumerateAdjacent((zdo.GetPosition(), shared)))
             {
-                if (Config.Containers.AutoPickupExcludeFodder.Value)
+                if (containers.Count > 0 && !excludeFodderCheckComplete)
                 {
+                    excludeFodderCheckComplete = true;
                     foreach (var tameState in Instance<TameableProcessor>().Tames)
                     {
                         if (tameState.ZDO.PrefabInfo.Tameable is null)
@@ -128,13 +132,13 @@ sealed class ItemDropProcessor : Processor
                     }
                 }
 
-                HashSet<Vector2i>? usedSlots = null;
+                toRemove?.Clear();
 
                 foreach (var containerZdo in containers)
                 {
-                    if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
+                    if (containerZdo.PrefabInfo.Container is null)
                     {
-                        containers.Remove(containerZdo);
+                        (toRemove ??= []).Add(containerZdo);
                         continue;
                     }
 
@@ -187,9 +191,7 @@ sealed class ItemDropProcessor : Processor
 
                     if (containerItem is null)
                     {
-                        containers.Remove(containerZdo);
-                        if (containers is { Count: 0 })
-                            Instance<ContainerProcessor>().ContainersByItemName.TryRemove(item.m_shared, out _);
+                        (toRemove ??= []).Add(containerZdo);
                         continue;
                     }
 
@@ -241,6 +243,12 @@ sealed class ItemDropProcessor : Processor
 
                     if (item.m_stack is 0)
                         break;
+                }
+
+                if (toRemove is not null)
+                {
+                    foreach (var containerZdo in toRemove)
+                        containers.Remove(containerZdo);
                 }
 
                 if (item?.m_stack is 0)

@@ -31,7 +31,7 @@ sealed class ContainerProcessor : Processor
 
     readonly Dictionary<ExtendedZDO, ContainerState> _containers = [];
     public IReadOnlyCollection<ExtendedZDO> Containers => _containers.Keys;
-    public ConcurrentDictionary<SharedItemDataKey, ConcurrentHashSet<ExtendedZDO>> ContainersByItemName { get; } = new();
+    public SectorDictionary<SharedItemDataKey, HashSet<ExtendedZDO>> ContainersByItemName { get; } = new(1);
     public IReadOnlyDictionary<ExtendedZDO, ExtendedZDO> ChestsBySigns => _chestsBySigns;
     public IReadOnlyDictionary<ExtendedZDO, List<ExtendedZDO>> SignsByChests => _signsByChests;
     bool _openResponseRegistered;
@@ -74,12 +74,21 @@ sealed class ContainerProcessor : Processor
                 match.Groups["g"].Success));
         }
 
+        var maxContainerRange = 0f;
+        if (Config.Containers.AutoPickup.Value)
+            maxContainerRange = Mathf.Max(Config.Containers.AutoPickupRange.Value, Config.Containers.AutoPickupMaxRange.Value);
+        if (Config.Smelters.FeedFromContainers.Value)
+            maxContainerRange = Mathf.Max(maxContainerRange, Mathf.Max(Config.Smelters.FeedFromContainersRange.Value, Config.Smelters.FeedFromContainersMaxRange.Value));
+        if (Config.Turrets.LoadFromContainers.Value)
+            maxContainerRange = Mathf.Max(maxContainerRange, Config.Turrets.LoadFromContainersRange.Value);
+        if (maxContainerRange > 0)
+            ContainersByItemName.Reset(maxContainerRange);
+
         if (!firstTime)
             return;
 
         _stackPerItem.Clear();
         _containers.Clear();
-        ContainersByItemName.Clear();
         _swapContentRequests.Clear();
 
         if (Config.Containers.ObliteratorItemTeleporter.Value is not ObliteratorItemTeleporterOptions.Disabled)
@@ -96,18 +105,7 @@ sealed class ContainerProcessor : Processor
 
     void OnChestDestroyed(ExtendedZDO zdo)
     {
-        if (_containers.Remove(zdo, out var state))
-        {
-            foreach (var key in state.Items)
-            {
-                if (ContainersByItemName.TryGetValue(key, out var set))
-                {
-                    set.Remove(zdo);
-                    if (set.Count is 0)
-                        ContainersByItemName.TryRemove(key, out _);
-                }
-            }
-        }
+        _containers.Remove(zdo, out _);
         if (_signsByChests.Remove(zdo, out var signs))
         {
             foreach (var sign in signs)
@@ -418,10 +416,7 @@ sealed class ContainerProcessor : Processor
         {
             state.Items.Add(item.m_shared);
             if (zdo.PrefabInfo.Container.Value.Container.m_privacy is not Container.PrivacySetting.Private)
-            {
-                var set = ContainersByItemName.GetOrAdd(item.m_shared, static _ => []);
-                set.Add(zdo);
-            }
+                ContainersByItemName.TryAdd(item.m_shared, zdo);
             if (!Config.Containers.AutoSort.Value && !RecreateZdo)
                 continue;
 

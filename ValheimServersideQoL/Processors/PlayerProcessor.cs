@@ -444,116 +444,122 @@ sealed partial class PlayerProcessor : Processor
     {
         var changed = false;
         HashSet<Vector2i>? usedSlots = null;
+        List<ExtendedZDO>? toRemove = null;
         for (int i = zdo.Inventory.Items.Count - 1; i >= 0; i--)
         {
             var item = zdo.Inventory.Items[i];
-            if (!Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(item.m_shared, out var containers))
-                continue;
-
-            foreach (var containerZdo in containers)
+            foreach (var containers in Instance<ContainerProcessor>().ContainersByItemName.EnumerateAdjacent((state.PlayerZDO.GetPosition(), item.m_shared)))
             {
-                if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
+                toRemove?.Clear();
+                foreach (var containerZdo in containers)
                 {
-                    containers.Remove(containerZdo);
-                    continue;
-                }
-
-                if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
-                    continue; // in use or player to close
-
-                var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
-                pickupRangeSqr *= pickupRangeSqr;
-
-                if (pickupRangeSqr is 0f || Utils.DistanceSqr(state.PlayerZDO.GetPosition(), containerZdo.GetPosition()) > pickupRangeSqr)
-                    continue;
-
-                var stack = item.m_stack;
-                usedSlots ??= [];
-                usedSlots.Clear();
-
-                var requestContainerOwn = false;
-
-                ItemDrop.ItemData? containerItem = null;
-                foreach (var slot in containerZdo.Inventory.Items)
-                {
-                    usedSlots.Add(slot.m_gridPos);
-                    if (new ItemDataKey(item) != slot)
-                        continue;
-
-                    containerItem ??= slot;
-
-                    var maxAmount = slot.m_shared.m_maxStackSize - slot.m_stack;
-                    if (maxAmount <= 0)
-                        continue;
-
-                    if (!containerZdo.IsOwnerOrUnassigned())
+                    if (containerZdo.PrefabInfo.Container is null)
                     {
-                        requestContainerOwn = true;
-                        break;
+                        (toRemove ??= []).Add(containerZdo);
+                        continue;
                     }
 
-                    var amount = Math.Min(stack, maxAmount);
-                    slot.m_stack += amount;
-                    stack -= amount;
-                    if (stack is 0)
-                        break;
-                }
+                    if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
+                        continue; // in use or player to close
 
-                if (containerItem is null)
-                {
-                    containers.Remove(containerZdo);
-                    if (containers is { Count: 0 })
-                        Instance<ContainerProcessor>().ContainersByItemName.TryRemove(item.m_shared, out _);
-                    continue;
-                }
+                    var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
+                    pickupRangeSqr *= pickupRangeSqr;
 
-                for (var emptySlots = containerZdo.Inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
-                {
-                    if (!containerZdo.IsOwnerOrUnassigned())
-                        requestContainerOwn = true;
-                    if (requestContainerOwn)
-                        break;
+                    if (pickupRangeSqr is 0f || Utils.DistanceSqr(state.PlayerZDO.GetPosition(), containerZdo.GetPosition()) > pickupRangeSqr)
+                        continue;
 
-                    var amount = Math.Min(stack, item.m_shared.m_maxStackSize);
+                    var stack = item.m_stack;
+                    usedSlots ??= [];
+                    usedSlots.Clear();
 
-                    var slot = containerItem.Clone();
-                    slot.m_stack = amount;
-                    slot.m_gridPos.x = -1;
-                    for (int x = 0; x < containerZdo.Inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
+                    var requestContainerOwn = false;
+
+                    ItemDrop.ItemData? containerItem = null;
+                    foreach (var slot in containerZdo.Inventory.Items)
                     {
-                        for (int y = 0; y < containerZdo.Inventory.Inventory.GetHeight(); y++)
+                        usedSlots.Add(slot.m_gridPos);
+                        if (new ItemDataKey(item) != slot)
+                            continue;
+
+                        containerItem ??= slot;
+
+                        var maxAmount = slot.m_shared.m_maxStackSize - slot.m_stack;
+                        if (maxAmount <= 0)
+                            continue;
+
+                        if (!containerZdo.IsOwnerOrUnassigned())
                         {
-                            if (usedSlots.Add(new(x, y)))
+                            requestContainerOwn = true;
+                            break;
+                        }
+
+                        var amount = Math.Min(stack, maxAmount);
+                        slot.m_stack += amount;
+                        stack -= amount;
+                        if (stack is 0)
+                            break;
+                    }
+
+                    if (containerItem is null)
+                    {
+                        (toRemove ??= []).Add(containerZdo);
+                        continue;
+                    }
+
+                    for (var emptySlots = containerZdo.Inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
+                    {
+                        if (!containerZdo.IsOwnerOrUnassigned())
+                            requestContainerOwn = true;
+                        if (requestContainerOwn)
+                            break;
+
+                        var amount = Math.Min(stack, item.m_shared.m_maxStackSize);
+
+                        var slot = containerItem.Clone();
+                        slot.m_stack = amount;
+                        slot.m_gridPos.x = -1;
+                        for (int x = 0; x < containerZdo.Inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
+                        {
+                            for (int y = 0; y < containerZdo.Inventory.Inventory.GetHeight(); y++)
                             {
-                                (slot.m_gridPos.x, slot.m_gridPos.y) = (x, y);
-                                break;
+                                if (usedSlots.Add(new(x, y)))
+                                {
+                                    (slot.m_gridPos.x, slot.m_gridPos.y) = (x, y);
+                                    break;
+                                }
                             }
                         }
+                        containerZdo.Inventory.Items.Add(slot);
+                        stack -= amount;
                     }
-                    containerZdo.Inventory.Items.Add(slot);
-                    stack -= amount;
+
+                    if (requestContainerOwn)
+                    {
+                        Instance<ContainerProcessor>().RequestOwnership(containerZdo, state.PlayerZDO.Vars.GetPlayerID());
+                        continue;
+                    }
+
+                    if (stack != item.m_stack)
+                    {
+                        containerZdo.Inventory.Save();
+                        (item.m_stack, stack) = (stack, item.m_stack);
+                        changed = true;
+                        ShowMessage(peers, containerZdo,
+                            Config.Localization.Containers.FormatAutoPickup(containerZdo.PrefabInfo.Container.Value.Container.m_name, item.m_shared.m_name, stack),
+                            Config.Containers.PickedUpMessageType.Value);
+                    }
+
+                    if (item.m_stack is 0)
+                    {
+                        zdo.Inventory.Items.RemoveAt(i);
+                        break;
+                    }
                 }
 
-                if (requestContainerOwn)
+                if (toRemove is not null)
                 {
-                    Instance<ContainerProcessor>().RequestOwnership(containerZdo, state.PlayerZDO.Vars.GetPlayerID());
-                    continue;
-                }
-
-                if (stack != item.m_stack)
-                {
-                    containerZdo.Inventory.Save();
-                    (item.m_stack, stack) = (stack, item.m_stack);
-                    changed = true;
-                    ShowMessage(peers, containerZdo,
-                        Config.Localization.Containers.FormatAutoPickup(containerZdo.PrefabInfo.Container.Value.Container.m_name, item.m_shared.m_name, stack),
-                        Config.Containers.PickedUpMessageType.Value);
-                }
-
-                if (item.m_stack is 0)
-                {
-                    zdo.Inventory.Items.RemoveAt(i);
-                    break;
+                    foreach (var containerZdo in toRemove)
+                        containers.Remove(containerZdo);
                 }
             }
         }

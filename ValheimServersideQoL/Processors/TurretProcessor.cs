@@ -123,102 +123,108 @@ sealed class TurretProcessor : Processor
         ItemDrop.ItemData? allowedAmmo = null;
 
         var addedAmmo = 0;
-        
+        List<ExtendedZDO>? toRemove = null;
+        List<ItemDrop.ItemData>? removeSlots = null;
+
         foreach (var ammoItem in zdo.PrefabInfo.Turret.Value.Turret.m_allowedAmmo.Select(static x => x.m_ammo))
         {
             if (!string.IsNullOrEmpty(allowedAmmoDropPrefabName) && ammoItem.name != allowedAmmoDropPrefabName)
                 continue;
 
-            if (!Instance<ContainerProcessor>().ContainersByItemName.TryGetValue(ammoItem.m_itemData.m_shared, out var containers))
-                continue;
-
-            List<ItemDrop.ItemData>? removeSlots = null;
-            foreach (var containerZdo in containers)
+            foreach (var containers in Instance<ContainerProcessor>().ContainersByItemName.EnumerateAdjacent((zdo.GetPosition(), ammoItem.m_itemData.m_shared)))
             {
-                if (!containerZdo.IsValid() || containerZdo.PrefabInfo.Container is null)
+                toRemove?.Clear();
+                foreach (var containerZdo in containers)
                 {
-                    containers.Remove(containerZdo);
-                    continue;
-                }
-
-                var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Turrets.LoadFromContainersRange.Value;
-                feedRangeSqr *= feedRangeSqr;
-                if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > feedRangeSqr)
-                    continue;
-
-                if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
-                    continue; // in use or player to close
-
-                removeSlots?.Clear();
-                var addAmmo = 0;
-                var found = false;
-                var requestOwn = false;
-                foreach (var slot in containerZdo.Inventory.Items.Where(x => new ItemDataKey(x) == ammoItem.m_itemData).OrderBy(static x => x.m_stack))
-                {
-                    found = found || slot is { m_stack: > 0 };
-                    var take = Math.Min(maxAdd, slot.m_stack);
-                    if (take is 0)
-                        continue;
-                    else if (!containerZdo.IsOwnerOrUnassigned())
+                    if (containerZdo.PrefabInfo.Container is null)
                     {
-                        requestOwn = true;
-                        break;
+                        (toRemove ??= []).Add(containerZdo);
+                        continue;
                     }
 
-                    allowedAmmoDropPrefabName = ammoItem.name;
-                    allowedAmmo = ammoItem.m_itemData;
+                    var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Turrets.LoadFromContainersRange.Value;
+                    feedRangeSqr *= feedRangeSqr;
+                    if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > feedRangeSqr)
+                        continue;
 
-                    addAmmo += take;
-                    slot.m_stack -= take;
-                    if (slot.m_stack is 0)
-                        (removeSlots ??= new()).Add(slot);
+                    if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
+                        continue; // in use or player to close
 
-                    maxAdd -= take;
+                    removeSlots?.Clear();
+                    var addAmmo = 0;
+                    var found = false;
+                    var requestOwn = false;
+                    foreach (var slot in containerZdo.Inventory.Items.Where(x => new ItemDataKey(x) == ammoItem.m_itemData).OrderBy(static x => x.m_stack))
+                    {
+                        found = found || slot is { m_stack: > 0 };
+                        var take = Math.Min(maxAdd, slot.m_stack);
+                        if (take is 0)
+                            continue;
+                        else if (!containerZdo.IsOwnerOrUnassigned())
+                        {
+                            requestOwn = true;
+                            break;
+                        }
+
+                        allowedAmmoDropPrefabName = ammoItem.name;
+                        allowedAmmo = ammoItem.m_itemData;
+
+                        addAmmo += take;
+                        slot.m_stack -= take;
+                        if (slot.m_stack is 0)
+                            (removeSlots ??= new()).Add(slot);
+
+                        maxAdd -= take;
+                        if (maxAdd is 0)
+                            break;
+                    }
+
+                    if (requestOwn)
+                    {
+                        Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
+                        continue;
+                    }
+
+                    if (addAmmo is 0)
+                    {
+                        if (!found)
+                            (toRemove ??= []).Add(containerZdo);
+                        continue;
+                    }
+
+                    if (removeSlots is { Count: > 0 })
+                    {
+                        foreach (var remove in removeSlots)
+                            containerZdo.Inventory.Items.Remove(remove);
+
+                        if (containerZdo.Inventory.Items is { Count: 0 })
+                            (toRemove ??= []).Add(containerZdo);
+                    }
+
+                    currentAmmo += addAmmo;
+                    zdo.Vars.SetAmmo(currentAmmo);
+                    zdo.Vars.SetAmmoType(allowedAmmoDropPrefabName!);
+
+                    containerZdo.Inventory.Save();
+
+                    addedAmmo += addAmmo;
+
                     if (maxAdd is 0)
                         break;
                 }
 
-                if (requestOwn)
+                if (toRemove is not null)
                 {
-                    Instance<ContainerProcessor>().RequestOwnership(containerZdo, 0);
-                    continue;
-                }
-
-                if (addAmmo is 0)
-                {
-                    if (!found)
-                    {
+                    foreach (var containerZdo in toRemove)
                         containers.Remove(containerZdo);
-                        if (containers is { Count: 0 })
-                            Instance<ContainerProcessor>().ContainersByItemName.TryRemove(ammoItem.m_itemData.m_shared, out _);
-                    }
-                    continue;
                 }
-
-                if (removeSlots is { Count: > 0 })
-                {
-                    foreach (var remove in removeSlots)
-                        containerZdo.Inventory.Items.Remove(remove);
-
-                    if (containerZdo.Inventory.Items is { Count: 0 })
-                    {
-                        containers.Remove(containerZdo);
-                        if (containers is { Count: 0 })
-                            Instance<ContainerProcessor>().ContainersByItemName.TryRemove(ammoItem.m_itemData.m_shared, out _);
-                    }
-                }
-
-                currentAmmo += addAmmo;
-                zdo.Vars.SetAmmo(currentAmmo);
-                zdo.Vars.SetAmmoType(allowedAmmoDropPrefabName!);
-
-                containerZdo.Inventory.Save();
-
-                addedAmmo += addAmmo;
 
                 if (maxAdd is 0)
                     break;
             }
+
+            if (maxAdd is 0)
+                break;
         }
 
         if (addedAmmo is not 0)
