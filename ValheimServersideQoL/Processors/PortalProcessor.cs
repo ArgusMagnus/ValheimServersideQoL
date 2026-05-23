@@ -101,8 +101,9 @@ sealed class PortalProcessor : Processor
         for (int i = _containers.Count - 1; i >= 0; i--)
         {
             var state = _containers[i];
+            var inventory = state.Container.GetInventory();
 
-            if (state.Container.Inventory.Items.Count is 0)
+            if (inventory.Items.Count is 0)
                 DestroyObject(state.Container);
             else if (state.Stacked)
             {
@@ -130,19 +131,19 @@ sealed class PortalProcessor : Processor
                     }
                 }
             }
-            else if (state.Container.Inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
+            else if (inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
             {
                 int count = 0;
-                for (int k = state.Container.Inventory.Items.Count - 1; k >= 0; k--)
+                for (int k = inventory.Items.Count - 1; k >= 0; k--)
                 {
-                    var item = state.Container.Inventory.Items[k];
+                    var item = inventory.Items[k];
                     if (item.m_gridPos.x is not 0)
                         continue;
                     if (--item.m_stack is 0)
-                        state.Container.Inventory.Items.RemoveAt(k);
+                        inventory.Items.RemoveAt(k);
                     count += item.m_stack;
                 }
-                state.Container.Inventory.Save();
+                inventory.Save();
                 state.Container.Vars.SetReturnContentToCreator(true);
                 state.Container.Vars.SetCreator(state.PlayerID);
                 state.Stacked = true;
@@ -227,16 +228,17 @@ sealed class PortalProcessor : Processor
                 .Set(static () => x => x.m_width, 8)
                 .Set(static () => x => x.m_height, h);
             int y = 0;
+            var inventory = container.GetInventory();
             foreach (var (item, dropPrefab) in TeleportableItems)
             {
                 var clone = item.Clone();
                 clone.m_dropPrefab = dropPrefab;
                 clone.m_stack = 1;
                 clone.m_gridPos = new(0, y++);
-                container.Inventory.Items.Add(clone);
+                inventory.Items.Add(clone);
             }
-            container.Inventory.Save();
-            container.SetOwner(peer.m_uid);
+            inventory.Save();
+            container.SetOwnerInternal(peer.m_uid);
             _containers.Add(new(container, peer, player, zdo) { NextRequest = DateTimeOffset.UtcNow.AddMilliseconds(200) });
             container.Destroyed += OnContainerDestroyed;
             if (!peer.IsServer)

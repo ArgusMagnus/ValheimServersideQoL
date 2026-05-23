@@ -327,7 +327,7 @@ sealed partial class PlayerProcessor : Processor
         if (!_playerStates.TryGetValue(peerID, out var state) || state.BackpackContainer is not { } backpack)
             return;
 
-        foreach (var item in backpack.Inventory.Items.AsEnumerable())
+        foreach (var item in backpack.GetInventory().Items)
             DropBackpackItem(item, state.PlayerZDO, peerID);
         DestroyObject(backpack);
         Logger.LogInfo($"Backpack items of player '{state.PlayerName}' dropped at death location.");
@@ -337,7 +337,7 @@ sealed partial class PlayerProcessor : Processor
 
     void DropBackback(long peerID)
     {
-        if (!_playerStates.TryGetValue(peerID, out var state) || state.BackpackContainer is not { Inventory.Items.Count: > 0 } backpack)
+        if (!_playerStates.TryGetValue(peerID, out var state) || state.BackpackContainer is not { } backpack || backpack.GetInventory() is not { Items.Count: > 0 } backpackInventory)
             return;
 
         var pos = state.PlayerZDO.GetPosition();
@@ -349,12 +349,13 @@ sealed partial class PlayerProcessor : Processor
         zdo.Vars.SetOwnerName($"{state.PlayerName} - {Config.Localization.Players.Backpack.Name}");
 
         zdo.Fields<Container>()
-            .Set(static () => x => x.m_width, backpack.Inventory.Inventory.GetWidth())
-            .Set(static () => x => x.m_height, backpack.Inventory.Inventory.GetHeight());
+            .Set(static () => x => x.m_width, backpackInventory.Inventory.GetWidth())
+            .Set(static () => x => x.m_height, backpackInventory.Inventory.GetHeight());
 
-        foreach (var item in backpack.Inventory.Items)
-            zdo.Inventory.Items.Add(item);
-        zdo.Inventory.Save();
+        var inventory = zdo.GetInventory();
+        foreach (var item in backpackInventory.Items)
+            inventory.Items.Add(item);
+        inventory.Save();
 
         DestroyObject(backpack);
         Logger.LogInfo($"Backpack of player '{state.PlayerName}' dropped at death location.");
@@ -391,7 +392,8 @@ sealed partial class PlayerProcessor : Processor
             return;
 
         IPeerInfo? peerInfo = null;
-        if (Config.Players.CanSacrificeMegingjord.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Megingjord))
+        IZDOInventory? inventory = null;
+        if (Config.Players.CanSacrificeMegingjord.Value && (inventory ??= zdo.GetInventory()).Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Megingjord))
         {
             peerInfo ??= GetPeerInfo(data.m_senderPeerID);
             if (peerInfo is null)
@@ -403,7 +405,7 @@ sealed partial class PlayerProcessor : Processor
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedMegingjord);
             }
         }
-        if (Config.Players.CanSacrificeCryptKey.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
+        if (Config.Players.CanSacrificeCryptKey.Value && (inventory ??= zdo.GetInventory()).Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.CryptKey))
         {
             peerInfo ??= GetPeerInfo(data.m_senderPeerID);
             if (peerInfo is null)
@@ -414,7 +416,7 @@ sealed partial class PlayerProcessor : Processor
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedCryptKey);
             }
         }
-        if (Config.Players.CanSacrificeWishbone.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
+        if (Config.Players.CanSacrificeWishbone.Value && (inventory ??= zdo.GetInventory()).Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.Wishbone))
         {
             peerInfo ??= GetPeerInfo(data.m_senderPeerID);
             if (peerInfo is null)
@@ -426,7 +428,7 @@ sealed partial class PlayerProcessor : Processor
                 RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Localization.Players.SacrificedWishbone);
             }
         }
-        if (Config.Players.CanSacrificeTornSpirit.Value && zdo.Inventory.Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
+        if (Config.Players.CanSacrificeTornSpirit.Value && (inventory ??= zdo.GetInventory()).Items.Any(static x => x.m_dropPrefab?.name is PrefabNames.TornSpirit))
         {
             peerInfo ??= GetPeerInfo(data.m_senderPeerID);
             if (peerInfo is null)
@@ -445,9 +447,10 @@ sealed partial class PlayerProcessor : Processor
         var changed = false;
         HashSet<Vector2i>? usedSlots = null;
         List<ExtendedZDO>? toRemove = null;
-        for (int i = zdo.Inventory.Items.Count - 1; i >= 0; i--)
+        var inventory = zdo.GetInventory();
+        for (int i = inventory.Items.Count - 1; i >= 0; i--)
         {
-            var item = zdo.Inventory.Items[i];
+            var item = inventory.Items[i];
             foreach (var containers in Instance<ContainerProcessor>().ContainersByItemName.EnumerateAdjacent((state.PlayerZDO.GetPosition(), item.m_shared)))
             {
                 toRemove?.Clear();
@@ -462,7 +465,8 @@ sealed partial class PlayerProcessor : Processor
                     if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                         continue; // in use or player to close
 
-                    var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
+                    var containerInventory = containerZdo.GetInventory();
+                    var pickupRangeSqr = containerInventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
                     pickupRangeSqr *= pickupRangeSqr;
 
                     if (pickupRangeSqr is 0f || Utils.DistanceSqr(state.PlayerZDO.GetPosition(), containerZdo.GetPosition()) > pickupRangeSqr)
@@ -475,7 +479,7 @@ sealed partial class PlayerProcessor : Processor
                     var requestContainerOwn = false;
 
                     ItemDrop.ItemData? containerItem = null;
-                    foreach (var slot in containerZdo.Inventory.Items)
+                    foreach (var slot in containerInventory.Items)
                     {
                         usedSlots.Add(slot.m_gridPos);
                         if (new ItemDataKey(item) != slot)
@@ -506,7 +510,7 @@ sealed partial class PlayerProcessor : Processor
                         continue;
                     }
 
-                    for (var emptySlots = containerZdo.Inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
+                    for (var emptySlots = containerInventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
                     {
                         if (!containerZdo.IsOwnerOrUnassigned())
                             requestContainerOwn = true;
@@ -518,9 +522,9 @@ sealed partial class PlayerProcessor : Processor
                         var slot = containerItem.Clone();
                         slot.m_stack = amount;
                         slot.m_gridPos.x = -1;
-                        for (int x = 0; x < containerZdo.Inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
+                        for (int x = 0; x < containerInventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
                         {
-                            for (int y = 0; y < containerZdo.Inventory.Inventory.GetHeight(); y++)
+                            for (int y = 0; y < containerInventory.Inventory.GetHeight(); y++)
                             {
                                 if (usedSlots.Add(new(x, y)))
                                 {
@@ -529,7 +533,7 @@ sealed partial class PlayerProcessor : Processor
                                 }
                             }
                         }
-                        containerZdo.Inventory.Items.Add(slot);
+                        containerInventory.Items.Add(slot);
                         stack -= amount;
                     }
 
@@ -541,7 +545,7 @@ sealed partial class PlayerProcessor : Processor
 
                     if (stack != item.m_stack)
                     {
-                        containerZdo.Inventory.Save();
+                        containerInventory.Save();
                         (item.m_stack, stack) = (stack, item.m_stack);
                         changed = true;
                         ShowMessage(peers, containerZdo,
@@ -551,7 +555,7 @@ sealed partial class PlayerProcessor : Processor
 
                     if (item.m_stack is 0)
                     {
-                        zdo.Inventory.Items.RemoveAt(i);
+                        inventory.Items.RemoveAt(i);
                         break;
                     }
                 }
@@ -565,7 +569,7 @@ sealed partial class PlayerProcessor : Processor
         }
 
         if (changed)
-            zdo.Inventory.Save();
+            inventory.Save();
         return changed;
     }
 
@@ -598,7 +602,8 @@ sealed partial class PlayerProcessor : Processor
     {
         if (_stackContainers.TryGetValue(zdo, out var stackContainerState))
         {
-            if (zdo.Inventory.Items.Count is 0)
+            var inventory = zdo.GetInventory();
+            if (inventory.Items.Count is 0)
                 DestroyObject(zdo);
             else if (stackContainerState.Stacked)
             {
@@ -608,7 +613,7 @@ sealed partial class PlayerProcessor : Processor
                 {
                     zdo.Destroyed -= OnStackContainerDestroyed;
                     _stackContainers.Remove(zdo);
-                    if (zdo.Inventory.Items.Count is 0)
+                    if (inventory.Items.Count is 0)
                         DestroyObject(zdo);
                     else
                     {
@@ -619,17 +624,17 @@ sealed partial class PlayerProcessor : Processor
                 }
                 return false;
             }
-            else if (zdo.Inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
+            else if (inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
             {
-                for (int i = zdo.Inventory.Items.Count - 1; i >= 0; i--)
+                for (int i = inventory.Items.Count - 1; i >= 0; i--)
                 {
-                    var item = zdo.Inventory.Items[i];
+                    var item = inventory.Items[i];
                     if (item.m_gridPos.x is not 0)
                         continue;
                     if (--item.m_stack is 0)
-                        zdo.Inventory.Items.RemoveAt(i);
+                        inventory.Items.RemoveAt(i);
                 }
-                zdo.Inventory.Save();
+                inventory.Save();
                 stackContainerState.Stacked = true;
                 stackContainerState.RemoveAfter = DateTimeOffset.UtcNow.AddSeconds(Config.Players.StackInventoryIntoContainersReturnDelay.Value);
                 zdo.Destroyed -= OnStackContainerDestroyed;
@@ -653,7 +658,7 @@ sealed partial class PlayerProcessor : Processor
             var hasNonTeleportableItems = false;
             var weightLimitExceeded = false;
             var totalWeight = 0f;
-            var inventory = zdo.Inventory;
+            var inventory = zdo.GetInventory();
             var dropPos = state.PlayerZDO.GetPosition();
             dropPos.y += 2;
             for (int i = inventory.Items.Count - 1; i >= 0; i--)
@@ -686,7 +691,7 @@ sealed partial class PlayerProcessor : Processor
             {
                 var owner = zdo.GetOwner();
                 zdo.ClaimOwnershipInternal();
-                zdo.Inventory.Save();
+                inventory.Save();
                 zdo.SetOwnerInternal(owner);
                 state.BackpackContainer = RecreatePiece(zdo);
                 RPC.ShowMessage(owner, MessageHud.MessageType.Center, hasNonTeleportableItems ?
@@ -718,13 +723,15 @@ sealed partial class PlayerProcessor : Processor
                     _playerStates.TryGetValue(playerZdo.GetOwner(), out state))
                 {
                     state.EnsureBackpackExists();
-                    foreach (var item in zdo.Inventory.Items.AsEnumerable())
+                    var inventory = zdo.GetInventory();
+                    var backpackInventory = state.BackpackContainer.GetInventory();
+                    foreach (var item in inventory.Items)
                     {
-                        if (!state.BackpackContainer.Inventory.Inventory.AddItem(item))
+                        if (!backpackInventory.Inventory.AddItem(item))
                             DropBackpackItem(item, zdo, state.Owner);
                     }
                     state.BackpackContainer.ClaimOwnershipInternal();
-                    state.BackpackContainer.Inventory.Save();
+                    backpackInventory.Save();
                     RPC.ShowMessage(state.Owner, MessageHud.MessageType.Center, $"$piece_tombstone_recovered ({Config.Localization.Players.Backpack.Name})");
                     zdo.Destroy();
                 }
@@ -939,7 +946,8 @@ sealed partial class PlayerProcessor : Processor
                         //if (containerZdo.Vars.GetInUse() || !CheckMinDistance(peers, containerZdo))
                         //    continue; // in use or player to close
 
-                        var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
+                        var containerInventory = containerZdo.GetInventory();
+                        var pickupRangeSqr = containerInventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
                         pickupRangeSqr *= pickupRangeSqr;
 
                         if (pickupRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > pickupRangeSqr)
@@ -948,7 +956,7 @@ sealed partial class PlayerProcessor : Processor
                         if (containerZdo.PrefabInfo.Container!.Value.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != zdo.Vars.GetPlayerID())
                             continue; // private container
 
-                        foreach (var item in containerZdo.Inventory.Items)
+                        foreach (var item in containerInventory.Items)
                             (items ??= []).TryAdd(item.m_shared, item);
                     }
 
@@ -960,15 +968,16 @@ sealed partial class PlayerProcessor : Processor
                             .Set(static () => x => x.m_width, 8)
                             .Set(static () => x => x.m_height, h);
                         int y = 0;
+                        var inventory = container.GetInventory();
                         foreach (var item in items.Values)
                         {
                             var clone = item.Clone();
                             clone.m_stack = 1;
                             clone.m_gridPos = new(0, y++);
-                            container.Inventory.Items.Add(clone);
+                            inventory.Items.Add(clone);
                         }
-                        container.Inventory.Save();
-                        container.SetOwner(zdo.GetOwner());
+                        inventory.Save();
+                        container.SetOwnerInternal(zdo.GetOwner());
                         _stackContainers.Add(container, new(zdo));
                         container.Destroyed += OnStackContainerDestroyed;
                         RPC.StackResponse(container, true);

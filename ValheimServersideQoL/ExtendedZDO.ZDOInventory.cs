@@ -16,7 +16,7 @@ partial class ExtendedZDO
         List<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;
 
-        List<ItemDrop.ItemData> Items
+        public List<ItemDrop.ItemData> Items
         {
             get
             {
@@ -30,7 +30,6 @@ partial class ExtendedZDO
 
         public float TotalWeight => Inventory.GetTotalWeight();
 
-        IList<ItemDrop.ItemData> IZDOInventory.Items => Items;
         IReadOnlyList<ItemDrop.ItemData> IZDOInventoryReadOnly.Items => Items;
 
         public ZDOInventory Update()

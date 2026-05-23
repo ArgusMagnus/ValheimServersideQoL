@@ -39,10 +39,11 @@ sealed class ItemDropProcessor : Processor
 
     void OnContainerChanged(ExtendedZDO containerZdo)
     {
-        if (containerZdo.Inventory.Items.Count is 0)
+        var inventory = containerZdo.GetInventory();
+        if (inventory.Items.Count is 0)
             return;
 
-        var rangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
+        var rangeSqr = inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
         rangeSqr *= rangeSqr;
 
         foreach (var itemDrops in _itemDrops.EnumerateAdjacent(containerZdo.GetPosition()))
@@ -145,7 +146,8 @@ sealed class ItemDropProcessor : Processor
                     if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                         continue; // in use or player to close
 
-                    var pickupRangeSqr = containerZdo.Inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
+                    var inventory = containerZdo.GetInventory();
+                    var pickupRangeSqr = inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
                     pickupRangeSqr *= pickupRangeSqr;
 
                     if (pickupRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > pickupRangeSqr)
@@ -163,7 +165,7 @@ sealed class ItemDropProcessor : Processor
                     var requestContainerOwn = false;
 
                     ItemDrop.ItemData? containerItem = null;
-                    foreach (var slot in containerZdo.Inventory.Items)
+                    foreach (var slot in inventory.Items)
                     {
                         usedSlots.Add(slot.m_gridPos);
                         if (new ItemDataKey(item) != slot)
@@ -195,7 +197,7 @@ sealed class ItemDropProcessor : Processor
                         continue;
                     }
 
-                    for (var emptySlots = containerZdo.Inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
+                    for (var emptySlots = inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
                     {
                         if (Config.Containers.AutoPickupRequestOwnership.Value && !zdo.IsOwnerOrUnassigned())
                             requestOwn = true;
@@ -209,9 +211,9 @@ sealed class ItemDropProcessor : Processor
                         var slot = containerItem.Clone();
                         slot.m_stack = amount;
                         slot.m_gridPos.x = -1;
-                        for (int x = 0; x < containerZdo.Inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
+                        for (int x = 0; x < inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
                         {
-                            for (int y = 0; y < containerZdo.Inventory.Inventory.GetHeight(); y++)
+                            for (int y = 0; y < inventory.Inventory.GetHeight(); y++)
                             {
                                 if (usedSlots.Add(new(x, y)))
                                 {
@@ -220,7 +222,7 @@ sealed class ItemDropProcessor : Processor
                                 }
                             }
                         }
-                        containerZdo.Inventory.Items.Add(slot);
+                        inventory.Items.Add(slot);
                         stack -= amount;
                     }
 
@@ -233,7 +235,7 @@ sealed class ItemDropProcessor : Processor
 
                     if (stack != item.m_stack)
                     {
-                        containerZdo.Inventory.Save();
+                        inventory.Save();
                         (item.m_stack, stack) = (stack, item.m_stack);
                         ItemDrop.SaveToZDO(item, zdo);
                         ShowMessage(peers, containerZdo,
@@ -285,7 +287,9 @@ sealed class ItemDropProcessor : Processor
                     ItemDrop.LoadFromZDO(item, zdo);
                 }
 
-                foreach (var slot in crate.Inventory.Items)
+                var inventory = crate.GetInventory();
+
+                foreach (var slot in inventory.Items)
                 {
                     if (ItemDataKeyComparer.Instance.Equals(slot, item))
                     {
@@ -300,27 +304,29 @@ sealed class ItemDropProcessor : Processor
                 if (item.m_stack > 0)
                 {
                     item.m_dropPrefab = zdo.PrefabInfo.ItemDrop.Value.ItemDrop.gameObject;
-                    Logger.DevLog($"Putting {item.m_dropPrefab.name} in crate");
-                    crate.Inventory.Items.Add(item);
-                    var (width, height) = PlayerProcessor.GetBackpackSize(crate.Inventory.Items.Count);
+                    inventory.Items.Add(item);
+                    var (width, height) = PlayerProcessor.GetBackpackSize(inventory.Items.Count);
                     crate.Fields<Container>()
                         .Set(static () => x => x.m_width, width)
                         .Set(static () => x => x.m_height, height);
 
-                    using var enumerator = crate.Inventory.Items.GetEnumerator();
+                    Logger.DevLog($"Putting {item.m_dropPrefab.name} in crate ({width}x{height}): stack={item.m_stack}, pos={item.m_gridPos}, items={inventory.Items.Count}");
+
+                    using var enumerator = inventory.Items.GetEnumerator();
                     for (var y = 0; y < height; y++)
                     {
                         for (var x = 0; x < width; x++)
                         {
                             if (!enumerator.MoveNext())
                                 break;
+                            Logger.DevLog($"Setting pos of {enumerator.Current.m_dropPrefab.name} to {x},{y}");
                             enumerator.Current.m_gridPos = new(x, y);
                         }
                     }
                 }
 
                 crate.ClaimOwnershipInternal();
-                crate.Inventory.Save();
+                inventory.Save();
                 crate.SetOwnerInternal(zdo.GetOwner());
                 DestroyZdo = true;
                 return false;
@@ -332,7 +338,6 @@ sealed class ItemDropProcessor : Processor
 
     ExtendedZDO GetCrate(Vector3 pos, Quaternion rot)
     {
-        // round to 4 meters
         if (!_crates.TryGetValue(pos, out var crate))
         {
             _crates.Add(pos, crate = PlaceObject(pos, Prefabs.CargoCrate, rot));

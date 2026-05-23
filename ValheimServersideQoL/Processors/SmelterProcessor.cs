@@ -21,10 +21,10 @@ sealed class SmelterProcessor : Processor
 
     void OnContainerChanged(ExtendedZDO containerZdo)
     {
-        if (containerZdo.Inventory.Items.Count is 0)
+        if (containerZdo.GetInventory() is not { Items.Count: > 0 } inventory)
             return;
 
-        var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
+        var feedRangeSqr = inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
         feedRangeSqr *= feedRangeSqr;
         if (feedRangeSqr is 0f)
             return;
@@ -114,7 +114,8 @@ sealed class SmelterProcessor : Processor
                             if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
 
-                            var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
+                            var inventory = containerZdo.GetInventory();
+                            var feedRangeSqr = inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
                             feedRangeSqr *= feedRangeSqr;
                             if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > feedRangeSqr)
                                 continue;
@@ -124,7 +125,7 @@ sealed class SmelterProcessor : Processor
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastFuel.Value;
                             var found = false;
                             var requestOwn = false;
-                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemDataKey(x) == fuelItem).OrderBy(static x => x.m_stack))
+                            foreach (var slot in inventory.Items.Where(x => new ItemDataKey(x) == fuelItem).OrderBy(static x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxFuelAdd, slot.m_stack);
@@ -165,16 +166,16 @@ sealed class SmelterProcessor : Processor
                             if (removeSlots is { Count: > 0 })
                             {
                                 foreach (var remove in removeSlots)
-                                    containerZdo.Inventory.Items.Remove(remove);
+                                    inventory.Items.Remove(remove);
 
-                                if (containerZdo.Inventory.Items is { Count: 0 })
+                                if (inventory.Items is { Count: 0 })
                                     (toRemove ??= []).Add(containerZdo);
                             }
 
                             zdo.ReleaseOwnership();
                             currentFuel += addFuel;
                             zdo.Vars.SetFuel(currentFuel);
-                            containerZdo.Inventory.Save();
+                            inventory.Save();
 
                             addedFuel += addFuel;
 
@@ -231,7 +232,8 @@ sealed class SmelterProcessor : Processor
                             if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
                                 continue; // in use or player to close
 
-                            var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
+                            var inventory = containerZdo.GetInventory();
+                            var feedRangeSqr = inventory.FeedRange ?? Config.Smelters.FeedFromContainersRange.Value;
                             feedRangeSqr *= feedRangeSqr;
                             if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > feedRangeSqr)
                                 continue;
@@ -241,7 +243,7 @@ sealed class SmelterProcessor : Processor
                             var leave = Config.Smelters.FeedFromContainersLeaveAtLeastOre.Value;
                             var found = false;
                             var requestOwn = false;
-                            foreach (var slot in containerZdo.Inventory!.Items.Where(x => new ItemDataKey(x) == oreItem).OrderBy(static x => x.m_stack))
+                            foreach (var slot in inventory.Items.Where(x => new ItemDataKey(x) == oreItem).OrderBy(static x => x.m_stack))
                             {
                                 found = found || slot is { m_stack: > 0 };
                                 var take = Math.Min(maxOreAdd, slot.m_stack);
@@ -282,9 +284,9 @@ sealed class SmelterProcessor : Processor
                             if (removeSlots is { Count: > 0 })
                             {
                                 foreach (var remove in removeSlots)
-                                    containerZdo.Inventory.Items.Remove(remove);
+                                    inventory.Items.Remove(remove);
 
-                                if (containerZdo.Inventory.Items is { Count: 0 })
+                                if (inventory.Items is { Count: 0 })
                                     (toRemove ??= []).Add(containerZdo);
                             }
 
@@ -294,7 +296,7 @@ sealed class SmelterProcessor : Processor
                             currentOre += addOre;
                             zdo.Vars.SetQueued(currentOre);
 
-                            containerZdo.Inventory.Save();
+                            inventory.Save();
 
                             addedOre += addOre;
 

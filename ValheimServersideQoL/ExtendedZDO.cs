@@ -12,7 +12,7 @@ interface IZDOInventoryReadOnly
 interface IZDOInventory
 {
     Inventory Inventory { get; }
-    IList<ItemDrop.ItemData> Items { get; }
+    List<ItemDrop.ItemData> Items { get; }
     float TotalWeight { get; }
     void Save();
     int? PickupRange { get; set; }
@@ -54,7 +54,7 @@ sealed partial class ExtendedZDO : ZDO
     public bool IsModCreator() => IsModCreator(out _);
 
     public PrefabInfo PrefabInfo => AddData.PrefabInfo;
-    public IZDOInventory Inventory => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
+    public IZDOInventory GetInventory() => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException())).Update();
     public IZDOInventoryReadOnly InventoryReadOnly => (AddData.Inventory ??= (PrefabInfo.Container is not null ? new(this) : throw new InvalidOperationException()));
 
     static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
@@ -166,7 +166,7 @@ sealed partial class ExtendedZDO : ZDO
         // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
         _addData?.Recreated?.Invoke(this, zdo);
 
-        if (PrefabInfo.Rigidbody is { useGravity: true })
+        if (PrefabInfo is { Character: null, Humanoid: null, Rigidbody.useGravity: true })
         {
             Main.Instance.Logger.DevLog($"Recreating gravity using rigidbody: {PrefabInfo.PrefabName}");
             zdo.ReleaseOwnershipInternal(); // required for physics to work again

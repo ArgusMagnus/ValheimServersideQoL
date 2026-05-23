@@ -65,13 +65,14 @@ sealed partial class PlayerProcessor
             static bool AdjustSize(ExtendedZDO zdo, int slots)
             {
                 var fields = zdo.Fields<Container>();
-                var actualSlots = Math.Max(slots, zdo.Inventory.Items.Count);
+                var inventory = zdo.GetInventory();
+                var actualSlots = Math.Max(slots, inventory.Items.Count);
                 var (width, height) = GetBackpackSize(actualSlots);
                 if ((fields.UpdateValue(static () => x => x.m_width, width),
                     fields.UpdateValue(static () => x => x.m_height, height)) == (false, false))
                     return false;
 
-                using var enumerator = zdo.Inventory.Items.GetEnumerator();
+                using var enumerator = inventory.Items.GetEnumerator();
                 for (int y = 0; y < height; y++)
                 {
                     for (int x = 0; x < width; x++)
@@ -79,7 +80,7 @@ sealed partial class PlayerProcessor
                         if (!enumerator.MoveNext())
                         {
                             zdo.ClaimOwnershipInternal();
-                            zdo.Inventory.Save();
+                            inventory.Save();
                             return true;
                         }
 

@@ -128,9 +128,11 @@ sealed class SignProcessor : Processor
         if (Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
         {
             var newText = text;
+            IZDOInventory? inventory = null;
             if (Config.Containers.AutoPickup.Value)
             {
-                chest.Inventory.PickupRange = null;
+                inventory ??= chest.GetInventory();
+                inventory.PickupRange = null;
                 newText = _chestPickupRangeRegex.Replace(newText, match =>
                 {
                     var result = match.Value;
@@ -140,13 +142,14 @@ sealed class SignProcessor : Processor
                         range = Config.Containers.AutoPickupMaxRange.Value;
                         result = Invariant($"{MagnetEmoji}{range}");
                     }
-                    chest.Inventory.PickupRange = range;
+                    inventory.PickupRange = range;
                     return result;
                 });
             }
             if (Config.Smelters.FeedFromContainers.Value)
             {
-                chest.Inventory.FeedRange = null;
+                inventory ??= chest.GetInventory();
+                inventory.FeedRange = null;
                 newText = _chestFeedRangeRegex.Replace(newText, match =>
                 {
                     var result = match.Value;
@@ -156,7 +159,7 @@ sealed class SignProcessor : Processor
                         range = Config.Smelters.FeedFromContainersMaxRange.Value;
                         result = Invariant($"{LeftRightArrowEmoji}{range}");
                     }
-                    chest.Inventory.FeedRange = range;
+                    inventory.FeedRange = range;
                     return result;
                 });
             }

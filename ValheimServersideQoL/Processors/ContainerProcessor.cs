@@ -39,7 +39,7 @@ sealed class ContainerProcessor : Processor
     sealed record SwapContentRequest(long SenderPeerID, ExtendedZDO From, ExtendedZDO? To)
     {
         public required DateTimeOffset SwapAfter { get; set; }
-        public IReadOnlyList<ItemDrop.ItemData> FromItems { get; } = [.. From.Inventory.Items];
+        public IReadOnlyList<ItemDrop.ItemData> FromItems { get; } = [.. From.GetInventory().Items];
     }
 
     readonly List<SwapContentRequest> _swapContentRequests = [];
@@ -173,7 +173,7 @@ sealed class ContainerProcessor : Processor
             return;
 
         var tag = zdo.Vars.GetIntTag();
-        if (tag is 0 || zdo.Inventory.Items.Count is 0)
+        if (tag is 0 || zdo.GetInventory().Items.Count is 0)
             return;
 
         if (!_containers.TryGetValue(zdo, out var state))
@@ -233,19 +233,21 @@ sealed class ContainerProcessor : Processor
             {
                 if (request.To is null)
                     ShowMessage(peers, request.From, Config.Localization.Containers.ObliteratorItemTeleporter.TargetNotFound, Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
-                else if (CheckForbiddenItems(request.FromItems, request.To.Inventory.Items))
+                else if (CheckForbiddenItems(request.FromItems, request.To.GetInventory().Items))
                     ShowMessage(peers, request.From, Config.Localization.Containers.ObliteratorItemTeleporter.ForbiddenItem, Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Bonus);
                 else
                 {
-                    var toItems = request.To.Inventory.Items.ToList();
-                    request.From.Inventory.Items.Clear();
-                    request.To.Inventory.Items.Clear();
+                    var toInventory = request.To.GetInventory();
+                    var fromInventory = request.From.GetInventory();
+                    var toItems = toInventory.Items.ToList();
+                    fromInventory.Items.Clear();
+                    toInventory.Items.Clear();
                     foreach (var item in request.FromItems)
-                        request.To.Inventory.Items.Add(item);
+                        toInventory.Items.Add(item);
                     foreach (var item in toItems)
-                        request.From.Inventory.Items.Add(item);
-                    request.To.Inventory.Save();
-                    request.From.Inventory.Save();
+                        fromInventory.Items.Add(item);
+                    toInventory.Save();
+                    fromInventory.Save();
                     ShowMessage(peers, request.From, Config.Localization.Containers.ObliteratorItemTeleporter.ItemsTeleported, Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Weak);
                     ShowMessage(peers, request.To, Config.Localization.Containers.ObliteratorItemTeleporter.ItemsTeleported, Config.Containers.ObliteratorItemTeleporterMessageType.Value, DamageText.TextType.Weak);
                 }
@@ -268,7 +270,7 @@ sealed class ContainerProcessor : Processor
         {
             if (Instance<PlayerProcessor>().PlayersByID.TryGetValue(creator.Value, out var player))
             {
-                if (zdo.Inventory.Items.Count is 0)
+                if (zdo.GetInventory().Items.Count is 0)
                     DestroyZdo = true;
                 else if (zdo.GetOwner() != player.GetOwner())
                     zdo.SetOwner(player.GetOwner());
@@ -293,14 +295,14 @@ sealed class ContainerProcessor : Processor
         }
 
         var fields = zdo.Fields<Container>();
-        var inventory = zdo.Inventory;
+        var inventory = zdo.GetInventory();
         var width = inventory.Inventory.GetWidth();
         var height = inventory.Inventory.GetHeight();
         if (!_containerSizes.TryGetValue(zdo.GetPrefab(), out var sizeCfg))
             sizeCfg = new(width, height, false);
         else if ((sizeCfg.Width, sizeCfg.Height) != (width, height))
         {
-            if (zdo.Inventory is { Items.Count: 0 })
+            if (inventory is { Items.Count: 0 })
             {
                 fields.Set(static () => x => x.m_width, width = sizeCfg.Width);
                 fields.Set(static () => x => x.m_height, height = sizeCfg.Height);

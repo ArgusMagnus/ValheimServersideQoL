@@ -19,10 +19,10 @@ sealed class TurretProcessor : Processor
 
     void OnContainerChanged(ExtendedZDO containerZdo)
     {
-        if (containerZdo.Inventory.Items.Count is 0)
+        if (containerZdo.GetInventory() is not { Items.Count: > 0 } inventory)
             return;
 
-        var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Turrets.LoadFromContainersRange.Value;
+        var feedRangeSqr = inventory.FeedRange ?? Config.Turrets.LoadFromContainersRange.Value;
         feedRangeSqr *= feedRangeSqr;
         if (feedRangeSqr is 0f)
             return;
@@ -142,7 +142,8 @@ sealed class TurretProcessor : Processor
                         continue;
                     }
 
-                    var feedRangeSqr = containerZdo.Inventory.FeedRange ?? Config.Turrets.LoadFromContainersRange.Value;
+                    var inventory = containerZdo.GetInventory();
+                    var feedRangeSqr = inventory.FeedRange ?? Config.Turrets.LoadFromContainersRange.Value;
                     feedRangeSqr *= feedRangeSqr;
                     if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > feedRangeSqr)
                         continue;
@@ -154,7 +155,7 @@ sealed class TurretProcessor : Processor
                     var addAmmo = 0;
                     var found = false;
                     var requestOwn = false;
-                    foreach (var slot in containerZdo.Inventory.Items.Where(x => new ItemDataKey(x) == ammoItem.m_itemData).OrderBy(static x => x.m_stack))
+                    foreach (var slot in inventory.Items.Where(x => new ItemDataKey(x) == ammoItem.m_itemData).OrderBy(static x => x.m_stack))
                     {
                         found = found || slot is { m_stack: > 0 };
                         var take = Math.Min(maxAdd, slot.m_stack);
@@ -195,9 +196,9 @@ sealed class TurretProcessor : Processor
                     if (removeSlots is { Count: > 0 })
                     {
                         foreach (var remove in removeSlots)
-                            containerZdo.Inventory.Items.Remove(remove);
+                            inventory.Items.Remove(remove);
 
-                        if (containerZdo.Inventory.Items is { Count: 0 })
+                        if (inventory.Items is { Count: 0 })
                             (toRemove ??= []).Add(containerZdo);
                     }
 
@@ -205,7 +206,7 @@ sealed class TurretProcessor : Processor
                     zdo.Vars.SetAmmo(currentAmmo);
                     zdo.Vars.SetAmmoType(allowedAmmoDropPrefabName!);
 
-                    containerZdo.Inventory.Save();
+                    inventory.Save();
 
                     addedAmmo += addAmmo;
 
