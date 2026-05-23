@@ -1,4 +1,4 @@
-### vNext (BETA)
+### v1.8.1037 (BETA)
 - Fix boats getting stuck in the air with certain config options enabled [#174](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/174)
 - Fix `MakeAllItemsFloat` not working in many cases [#174](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/174)
 - Performance improvements
