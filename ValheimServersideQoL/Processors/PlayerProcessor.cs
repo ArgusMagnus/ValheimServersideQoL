@@ -565,6 +565,9 @@ sealed partial class PlayerProcessor : Processor
                     foreach (var containerZdo in toRemove)
                         containers.Remove(containerZdo);
                 }
+
+                if (item.m_stack is 0)
+                    break;
             }
         }
 
