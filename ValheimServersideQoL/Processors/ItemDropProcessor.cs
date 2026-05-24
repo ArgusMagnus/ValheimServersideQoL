@@ -38,12 +38,11 @@ sealed class ItemDropProcessor : Processor
     }
 
     void OnContainerChanged(ExtendedZDO containerZdo)
-    {
-        var inventory = containerZdo.GetInventory();
-        if (inventory.Items.Count is 0)
-            return;
+	{
+		if (containerZdo.GetInventory() is not { Items.Count: > 0 } inventory)
+			return;
 
-        var rangeSqr = inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
+		var rangeSqr = inventory.PickupRange ?? Config.Containers.AutoPickupRange.Value;
         rangeSqr *= rangeSqr;
         if (rangeSqr is 0f)
             return;

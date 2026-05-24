@@ -151,8 +151,10 @@ partial record ModConfigBase
 
         public override string GetEnumName(Type enumType, string name) => _inner.GetEnumName(enumType, name);
         public override string GetEnumValue(object enumValue) => _inner.GetEnumValue(enumValue);
+		public override object? Parse(string value, Type expectedType) => _inner.Parse(value, expectedType);
+		public override bool HasParseMethod(Type type) => _inner.HasParseMethod(type);
 
-        public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object? container)
+		public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object? container)
         {
             foreach (var prop in _inner.GetProperties(type, container))
             {
