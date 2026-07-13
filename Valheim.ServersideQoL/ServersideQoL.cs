@@ -169,9 +169,9 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
             foreach (var processor in plugin.Processors)
             {
                 processor.AddPrefabInfoInterfaceInternal(prefabInfoBuilder);
-                if (!__processorsById.TryAdd(processor.Id, processor))
+                if (!__processorsById.TryAdd(processor.Attribute.Id, processor))
                 {
-                    var existing = __processorsById[processor.Id];
+                    var existing = __processorsById[processor.Attribute.Id];
                     Logger.LogError($"Processor {processor.GetType().FullName} is using the same ID as {existing.GetType().FullName} and will be ignored");
                     continue;
                 }
@@ -191,8 +191,8 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
             return;
         }
 
-        _enabledProcessors.Sort(static (a, b) => a.Priority - b.Priority);
-        _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Cyclic);
+        SortProcessors(_enabledProcessors);
+        _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
 
         _prefabInfoFactory = prefabInfoBuilder.GetFactory();
         interfaces.Add<IServersideQoLZDO>();
@@ -232,13 +232,13 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
                         if (plugin.Config.Enabled.Value)
                         {
                             prefabInfo.EnabledProcessors.Add(processor);
-                            if (processor.Cyclic)
+                            if (processor.Attribute.Cyclic)
                                 prefabInfo.EnabledCyclicProcessors.Add(processor);
                         }
                     }
                 }
-                prefabInfo.EnabledProcessors.Sort(static (a, b) => a.Priority - b.Priority);
-                prefabInfo.EnabledCyclicProcessors.Sort(static (a, b) => a.Priority - b.Priority);
+                SortProcessors(prefabInfo.EnabledProcessors);
+                SortProcessors(prefabInfo.EnabledCyclicProcessors);
             }
             _prefabInfos.Add(newPrefab, prefabInfo);
         }
@@ -447,18 +447,18 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
                     foreach (var processor in cfg.Plugin.Processors)
                     {
                         prefabInfo.EnabledProcessors.Add(processor);
-                        if (processor.Cyclic)
+                        if (processor.Attribute.Cyclic)
                             prefabInfo.EnabledCyclicProcessors.Add(processor);
                     }
-                    prefabInfo.EnabledProcessors.Sort(static (a, b) => a.Priority - b.Priority);
-                    prefabInfo.EnabledCyclicProcessors.Sort(static (a, b) => a.Priority - b.Priority);
+                    SortProcessors(prefabInfo.EnabledProcessors);
+                    SortProcessors(prefabInfo.EnabledCyclicProcessors);
                 }
                 else
                 {
                     foreach (var processor in cfg.Plugin.Processors)
                     {
                         prefabInfo.EnabledProcessors.Remove(processor);
-                        if (processor.Cyclic)
+                        if (processor.Attribute.Cyclic)
                             prefabInfo.EnabledCyclicProcessors.Remove(processor);
                     }
                 }
@@ -468,14 +468,14 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
             {
                 foreach (var processor in cfg.Plugin.Processors)
                     _enabledProcessors.Add(processor);
-                _enabledProcessors.Sort(static (a, b) => a.Priority - b.Priority);
+                SortProcessors(_enabledProcessors);
             }
             else
             {
                 foreach (var processor in cfg.Plugin.Processors)
                     _enabledProcessors.Remove(processor);
             }
-            _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Cyclic);
+            _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
         }
     }
 
@@ -760,6 +760,75 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
                 zdo.Recreate();
             else if (_unregister.Count > 0)
                 extZdo.Unregister(_unregister);
+        }
+    }
+
+    // priority‑aware topological sort
+    void SortProcessors(List<Processor> processors)
+    {
+        var graph = new Dictionary<Processor, List<Processor>>();
+        var inDegree = new Dictionary<Processor, int>();
+
+        foreach (var p in processors)
+        {
+            graph[p] = [];
+            inDegree[p] = 0;
+        }
+
+        // Build edges from Before/After constraints
+        foreach (var p in processors)
+        {
+            foreach (var idBefore in p.Attribute.RunBeforeIds)
+            {
+                if (!__processorsById.TryGetValue(idBefore, out var before))
+                    continue;
+                graph[p].Add(before);
+                inDegree[before]++;
+            }
+
+            foreach (var idAfter in p.Attribute.RunAfterIds)
+            {
+                if (!__processorsById.TryGetValue(idAfter, out var after))
+                    continue;
+                graph[after].Add(p);
+                inDegree[p]++;
+            }
+        }
+
+        var ready = new List<Processor>();
+
+        foreach (var (processor, degree) in inDegree)
+        {
+            if (degree is 0)
+                ready.Add(processor);
+        }
+
+        var expectedCount = processors.Count;
+        processors.Clear();
+
+        while (ready.Count > 0)
+        {
+            ready.Sort(static (a, b) => b.Attribute.Priority.CompareTo(a.Attribute.Priority));
+
+            var node = ready[^1];
+            ready.RemoveAt(ready.Count - 1);
+            if (node.Attribute.Priority is not 0 && ready.Count > 0 && ready[^1] is { } next && next.Attribute.Priority == node.Attribute.Priority)
+                Logger.LogWarning($"Processors {node.GetType().FullName} and {next.GetType().FullName} share the same non-default priority ({node.Attribute.Priority})");
+
+            processors.Add(node);
+
+            // Reduce in-degree of neighbors
+            foreach (var neighbor in graph[node])
+            {
+                if (--inDegree[neighbor] is 0)
+                    ready.Add(neighbor);
+            }
+        }
+
+        if (processors.Count != expectedCount)
+        {
+            var notAdded = inDegree.Where(static x => x.Value > 0).Select(static x => x.Key.GetType().FullName);
+            Logger.LogError($"The following processors are not used due to cyclic dependencies: {string.Join(", ", notAdded)}");
         }
     }
 }

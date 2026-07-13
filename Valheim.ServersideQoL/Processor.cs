@@ -4,12 +4,21 @@ using Valheim.ZDOExtender;
 
 namespace Valheim.ServersideQoL;
 
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
+public sealed class ProcessorAttribute(string id) : Attribute
+{
+    public Guid Id { get; } = new(id);
+    public bool Cyclic { get; init; }
+    public Guid[] RunBeforeIds { get; private init; } = [];
+    public string[] RunBefore { get; init => RunBeforeIds = [.. (field = value).Select(static x => new Guid(x))]; } = [];
+    public Guid[] RunAfterIds { get; private init; } = [];
+    public string[] RunAfter { get; init => RunAfterIds = [.. (field = value).Select(static x => new Guid(x))]; } = [];
+    public int Priority { get; init; } = 0;
+}
+
 public abstract class Processor
 {
-    protected internal abstract Guid Id { get; }
-    protected internal virtual int Priority => 0;
-    protected internal virtual bool Cyclic => false;
-
+    internal ProcessorAttribute Attribute { get; }
     internal IServersideQoLPlugin Plugin { get; set; } = default!;
 
     protected readonly HashSet<ZDO> PlacedObjects = [];
@@ -21,7 +30,10 @@ public abstract class Processor
     public double ProcessingTimeSeconds { get; private set; }
     public double TotalProcessingTimeSeconds { get; private set; }
 
-    private protected Processor() { }
+    private protected Processor()
+    {
+        Attribute = GetType().GetCustomAttribute<ProcessorAttribute>() ?? throw new Exception($"Required {nameof(ProcessorAttribute)} missing on type {GetType().FullName}");
+    }
 
     private protected abstract void ValidateProcessor();
     internal void ValidateProcessorInternal() => ValidateProcessor();
@@ -154,7 +166,7 @@ public abstract class Processor
         zdo.SetModAsCreator(marker);
         zdo.Vars.SetHealth(-1);
         if (marker.HasFlag(CreatorMarkers.ProcessorOwned))
-            zdo.Vars.SetProcessorId(Id);
+            zdo.Vars.SetProcessorId(Attribute.Id);
 
         return zdo;
     }
@@ -218,7 +230,7 @@ public abstract class Processor<TPrefabInfo> : Processor
 
     readonly ConstructorInfo? _prefabInfoCtor;
     readonly ParameterInfo[]? _prefabInfoCtorParameters;
-    readonly Dictionary<int, TPrefabInfo?> _prefabInfoByHash = [];
+    //readonly Dictionary<int, TPrefabInfo?> _prefabInfoByHash = [];
 
     protected Processor()
     {
