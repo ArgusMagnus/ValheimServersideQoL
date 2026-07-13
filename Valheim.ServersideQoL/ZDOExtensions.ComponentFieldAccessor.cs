@@ -16,10 +16,13 @@ static partial class ZDOExtensions
             var extZDO = @this.GetExtension<IServersideQoLZDO>();
             if (extZDO.ComponentFieldAccessors is not { } accessors || !accessors.TryGetValue(typeof(TComponent), out var accessorObj))
             {
-                if (extZDO.Components is not { } components || !components.TryGetValue(typeof(TComponent), out var component))
+                if (extZDO.PrefabInfo?.Components is not { } components || !components.TryGetValue(typeof(TComponent), out var component))
                     throw new KeyNotFoundException();
                 accessorObj = new ComponentFieldAccessor<TComponent>(@this, (TComponent)component);
-                (extZDO.ComponentFieldAccessors ??= []).Add(typeof(TComponent), accessorObj);
+
+                if (!__componentFieldAccessorCache.TryPop(out accessors))
+                    accessors = [];
+                accessors.Add(typeof(TComponent), accessorObj);
             }
             return (ComponentFieldAccessor<TComponent>)accessorObj;
         }

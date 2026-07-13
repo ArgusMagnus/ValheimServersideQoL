@@ -4,15 +4,12 @@ using Valheim.ZDOExtender;
 
 namespace Valheim.ServersideQoL;
 
-[AttributeUsage(AttributeTargets.Class)]
-public sealed class ProcessorAttribute : Attribute
-{
-    public required int Priority { get; init; }
-}
-
 public abstract class Processor
 {
-    protected abstract Guid Id { get; }
+    protected internal abstract Guid Id { get; }
+    protected internal virtual int Priority => 0;
+    protected internal virtual bool Cyclic => false;
+
     internal IServersideQoLPlugin Plugin { get; set; } = default!;
 
     protected readonly HashSet<ZDO> PlacedObjects = [];
@@ -85,15 +82,8 @@ public abstract class Processor
             }
             if ((marker & CreatorMarkers.ProcessorOwned) is not 0)
             {
-                var id = zdo.Vars.GetProcessorId();
-                foreach (var processor in ServersideQoL.Processors.AsEnumerable())
-                {
-                    if (processor.Id == id)
-                    {
-                        processor.PlacedObjects.Add(zdo);
-                        break;
-                    }
-                }
+                if (ServersideQoL.Processors.TryGetValue(zdo.Vars.GetProcessorId(), out var processor))
+                    processor.PlacedObjects.Add(zdo);
             }
         }
     }
@@ -285,9 +275,10 @@ public abstract class Processor<TPrefabInfo> : Processor
 
     private protected sealed override ProcessResult Process(IReadOnlyList<Peer> peers, ZDO zdo)
     {
-        var extZDO = zdo.GetExtension<IZDOWithPrefabInfo>();
+        // todo: we should already have IServersideQoLZDO when this method is called
+        var extZDO = zdo.GetExtension<IServersideQoLZDO>();
         var result = ProcessResult.Default;
-        if (extZDO.PrefabInfo is not { } prefabInfo)
+        if (extZDO.PrefabInfo?.GetExtension<IProcessorPrefabInfo>().PrefabInfo is not { } prefabInfo)
             result |= ProcessResult.UnregisterProcessor;
         else
             result |= Process(zdo, peers, prefabInfo);

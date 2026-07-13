@@ -12,8 +12,6 @@ public sealed partial class ServersideQoLSigns : ServersideQoLPluginBase<Servers
 
     protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
-    void Awake()
-    {
-        RegisterProcessor<SignProcessor>();
-    }
+    protected override void RegisterProcessors(IProcessorCollection processors)
+        => processors.Add<SignProcessor>();
 }

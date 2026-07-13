@@ -6,7 +6,7 @@ public interface IPrefabInfo
 {
     int PrefabHash { get; }
     string PrefabName { get; }
-    IReadOnlyDictionary<Type, MonoBehaviour>? Components { get; }
+    IReadOnlyDictionary<Type, MonoBehaviour> Components { get; }
 }
 
 public abstract class PrefabInfo : IPrefabInfo
@@ -17,6 +17,7 @@ public abstract class PrefabInfo : IPrefabInfo
     public IReadOnlyDictionary<Type, MonoBehaviour> Components { get; internal set; } = default!;
     internal readonly List<Processor> AvailableProcessors = [];
     internal readonly List<Processor> EnabledProcessors = [];
+    internal readonly List<Processor> EnabledCyclicProcessors = [];
 }
 
 public abstract record ProcessorPrefabInfo;

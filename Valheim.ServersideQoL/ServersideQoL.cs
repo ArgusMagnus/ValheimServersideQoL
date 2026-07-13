@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
+using BepInEx.Logging;
 using System.Reflection;
 using UnityEngine;
 using Valheim.ZDOExtender;
@@ -16,7 +17,7 @@ interface IServersideQoLPlugin
 
 public interface IProcessorCollection
 {
-    void Add<T>() where T : Processor, new();
+    IProcessorCollection Add<T>() where T : Processor, new();
 }
 
 public abstract class ServersideQoLPluginBase<TSelf, TConfig> : BaseUnityPlugin, IServersideQoLPlugin
@@ -75,15 +76,16 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : BaseUnityPlugin,
 
     sealed class ProcessorCollection(ServersideQoLPluginBase<TSelf, TConfig> plugin) : IProcessorCollection
     {
-        public void Add<T>() where T : Processor, new()
+        public IProcessorCollection Add<T>() where T : Processor, new()
         {
             var processor = Processor.Instance<T>();
             if (plugin._processors.Contains(processor))
-                return;
+                return this;
 
             processor.Plugin = plugin;
             processor.ValidateProcessorInternal();
             plugin._processors.Add(processor);
+            return this;
         }
     }
 }
@@ -96,16 +98,21 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
     public const string PluginGuid = $"argusmagnus.{PluginName}";
     public static readonly int PluginGuidHash = PluginGuid.GetStableHashCode();
 
-    static readonly HashSet<IServersideQoLPlugin> _plugins = [];
+    static readonly HashSet<IServersideQoLPlugin> __plugins = [];
+    static readonly Dictionary<Guid, Processor> __processorsById = [];
+    readonly List<Processor> _enabledProcessors = [];
+    bool _hasCyclicProcessors;
 
-    static IReadOnlyList<Processor>? __processors;
-    public static IReadOnlyList<Processor> Processors => __processors ??= [.. _plugins
-        .Where(static x => x.Config.Enabled.Value)
-        .SelectMany(static x => x.Processors)
-        .OrderByDescending(static x => x.GetType().GetCustomAttribute<ProcessorAttribute>()?.Priority ?? 0)];
+    internal static IReadOnlyDictionary<Guid, Processor> Processors => __processorsById;
+
+    //static IReadOnlyList<Processor>? __processors;
+    //public static IReadOnlyList<Processor> Processors => __processors ??= [.. _plugins
+    //    .Where(static x => x.Config.Enabled.Value)
+    //    .SelectMany(static x => x.Processors)
+    //    .OrderByDescending(static x => x.GetType().GetCustomAttribute<ProcessorAttribute>()?.Priority ?? 0)];
 
     internal static void RegisterPlugin(IServersideQoLPlugin plugin)
-        => _plugins.Add(plugin);
+        => __plugins.Add(plugin);
 
     Func<PrefabInfo> _prefabInfoFactory = default!;
     readonly Dictionary<int, PrefabInfo?> _prefabInfos = [];
@@ -125,11 +132,12 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
         public int InverseWeight { get; set; }
     }
     readonly Stack<SectorInfo> _sectorInfoPool = [];
-    Dictionary<Vector2i, SectorInfo> _playerSectors = [];
-    Dictionary<Vector2i, SectorInfo> _playerSectorsOld = [];
+    Dictionary<Vector2s, SectorInfo> _playerSectors = [];
+    Dictionary<Vector2s, SectorInfo> _playerSectorsOld = [];
     List<(Processor, double)>? _processingTimes;
 
     readonly List<Processor> _unregister = [];
+    HashSet<ZDO>? _changed = [];
 
     protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
@@ -142,7 +150,7 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
     {
         List<IServersideQoLPlugin>? remove = null;
         TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder = new();
-        foreach (var plugin in _plugins)
+        foreach (var plugin in __plugins)
         {
             try { plugin.RegisterProcessors(); }
             catch (Exception ex)
@@ -159,12 +167,22 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
             }
 
             foreach (var processor in plugin.Processors)
+            {
                 processor.AddPrefabInfoInterfaceInternal(prefabInfoBuilder);
+                if (!__processorsById.TryAdd(processor.Id, processor))
+                {
+                    var existing = __processorsById[processor.Id];
+                    Logger.LogError($"Processor {processor.GetType().FullName} is using the same ID as {existing.GetType().FullName} and will be ignored");
+                    continue;
+                }
+                if (plugin.Config.Enabled.Value)
+                    _enabledProcessors.Add(processor);
+            }
         }
         if (remove is not null)
         {
             foreach (var plugin in remove)
-                _plugins.Remove(plugin);
+                __plugins.Remove(plugin);
         }
 
         if (!prefabInfoBuilder.HasInterfaces)
@@ -173,6 +191,9 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
             return;
         }
 
+        _enabledProcessors.Sort(static (a, b) => a.Priority - b.Priority);
+        _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Cyclic);
+
         _prefabInfoFactory = prefabInfoBuilder.GetFactory();
         interfaces.Add<IServersideQoLZDO>();
         IExtendedZDO.Events.PrefabChanged += OnPrefabChanged;
@@ -180,7 +201,7 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
         IExtendedZDO.Events.OwnerRevisionChanged += OnOwnerRevisionChanged;
 
 
-        foreach (var plugin in _plugins)
+        foreach (var plugin in __plugins)
             plugin.Config.ConfigChanged += OnConfigChanged;
     }
 
@@ -200,7 +221,7 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
                 prefabInfo.Prefab = prefab;
                 prefabInfo.PrefabHash = newPrefab;
                 prefabInfo.Components = availableComponents.ToDictionary(static x => x.GetType());
-                foreach (var plugin in _plugins)
+                foreach (var plugin in __plugins)
                 {
                     foreach (var processor in plugin.Processors)
                     {
@@ -209,29 +230,29 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
 
                         prefabInfo.AvailableProcessors.Add(processor);
                         if (plugin.Config.Enabled.Value)
+                        {
                             prefabInfo.EnabledProcessors.Add(processor);
+                            if (processor.Cyclic)
+                                prefabInfo.EnabledCyclicProcessors.Add(processor);
+                        }
                     }
                 }
+                prefabInfo.EnabledProcessors.Sort(static (a, b) => a.Priority - b.Priority);
+                prefabInfo.EnabledCyclicProcessors.Sort(static (a, b) => a.Priority - b.Priority);
             }
             _prefabInfos.Add(newPrefab, prefabInfo);
         }
-        zdo.GetExtension<IServersideQoLZDO>().PrefabInfo = prefabInfo;
+        zdo.PrefabInfo = prefabInfo;
     }
 
-    void OnDataRevisionChanged(ZDO zdo)
-    {
-
-    }
-
-    void OnOwnerRevisionChanged(ZDO zdo)
-    {
-    }
+    void OnDataRevisionChanged(ZDO zdo) => _changed?.Add(zdo);
+    void OnOwnerRevisionChanged(ZDO zdo) => _changed?.Add(zdo);
 
     void Start()
     {
-        if (Processors.Count is 0)
+        if (__plugins.Count is 0)
         {
-            Logger.LogWarning("No processors registered");
+            Logger.LogWarning("No plugins registered");
             return;
         }
 
@@ -311,7 +332,7 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
 
     bool Initialize()
     {
-        foreach (var plugin in _plugins)
+        foreach (var plugin in __plugins)
         {
             var config = plugin.Config; // Initialize
             config.ConfigChanged -= OnConfigChanged;
@@ -400,7 +421,7 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
         }
 
 #if DEBUG
-        Logger.LogInfo(Invariant($"Registered Processors: {Processors.Count}"));
+        Logger.LogInfo(Invariant($"Registered plugins: {__plugins.Count}"));
 #endif
         return true;
     }
@@ -415,271 +436,330 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
             Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
         if (ReferenceEquals(cfg.Enabled, e.ChangedSetting))
         {
-            __processors = null;
+            //__processors = null;
             foreach (var prefabInfo in _prefabInfos.Values)
             {
                 if (prefabInfo is null)
                     continue;
-                todo-: update prefabInfo.EnabledProcessors
+
+                if (cfg.Enabled.Value)
+                {
+                    foreach (var processor in cfg.Plugin.Processors)
+                    {
+                        prefabInfo.EnabledProcessors.Add(processor);
+                        if (processor.Cyclic)
+                            prefabInfo.EnabledCyclicProcessors.Add(processor);
+                    }
+                    prefabInfo.EnabledProcessors.Sort(static (a, b) => a.Priority - b.Priority);
+                    prefabInfo.EnabledCyclicProcessors.Sort(static (a, b) => a.Priority - b.Priority);
+                }
+                else
+                {
+                    foreach (var processor in cfg.Plugin.Processors)
+                    {
+                        prefabInfo.EnabledProcessors.Remove(processor);
+                        if (processor.Cyclic)
+                            prefabInfo.EnabledCyclicProcessors.Remove(processor);
+                    }
+                }
             }
+
+            if (cfg.Enabled.Value)
+            {
+                foreach (var processor in cfg.Plugin.Processors)
+                    _enabledProcessors.Add(processor);
+                _enabledProcessors.Sort(static (a, b) => a.Priority - b.Priority);
+            }
+            else
+            {
+                foreach (var processor in cfg.Plugin.Processors)
+                    _enabledProcessors.Remove(processor);
+            }
+            _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Cyclic);
         }
     }
 
-//    void Execute(PeersEnumerable peers, double timeBudgetSeconds)
-//    {
-//        var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
-//        var executeUntil = timeStartSeconds + timeBudgetSeconds;
-//        if (_executeCounter++ is 0 || _configChanged.Count is not 0)
+    //void Execute(PeersEnumerable peers, double timeBudgetSeconds)
+    //{
+    //    (var changed, _changed) = (_changed!, null);
+    //    foreach (var zdo in changed)
+    //    {
+    //        foreach (var processor in zdo.Processors)
+    //            processor.ProcessInternal(peers, zdo);
+    //    }
+    //    changed.Clear();
+    //    _changed = changed;
+
+
+    void Execute(PeersEnumerable peers, double timeBudgetSeconds)
+    {
+        var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
+        var executeUntil = timeStartSeconds + timeBudgetSeconds;
+        _executeCounter++;
+//        if (_configChanged)
 //        {
-//            //_configChanged = false;
+//            _configChanged = false;
 
-//            //if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
-//            //    ZoneSystem.instance.ResetWorldKeys();
+//            if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
+//                ZoneSystem.instance.ResetWorldKeys();
 
-//            //if (Config.WorldModifiers.SetPresetFromConfig.Value)
-//            //{
-//            //    try { MyTerminal.ExecuteCommand("setworldpreset", Invariant($"{Config.WorldModifiers.Preset.Value}")); }
-//            //    catch (Exception ex) { Logger.LogError(ex); }
-//            //}
-
-//            //if (Config.WorldModifiers.SetModifiersFromConfig.Value)
-//            //{
-//            //    foreach (var (modifier, value) in Config.WorldModifiers.Modifiers.Select(static x => (x.Key, x.Value.Value)))
-//            //    {
-//            //        try { MyTerminal.ExecuteCommand("setworldmodifier", Invariant($"{modifier}"), Invariant($"{value}")); }
-//            //        catch (Exception ex) { Logger.LogError(ex); }
-//            //    }
-//            //}
-
-//            //if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
-//            //{
-//            //    /// <see cref="FejdStartup.ParseServerArguments"/>
-//            //    foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Where(static x => !Equals(x.Value.BoxedValue, x.Value.DefaultValue)))
-//            //    {
-//            //        if (entry.BoxedValue is bool boolValue)
-//            //        {
-//            //            if (boolValue)
-//            //                ZoneSystem.instance.SetGlobalKey(key);
-//            //            else
-//            //                ZoneSystem.instance.RemoveGlobalKey(key);
-//            //        }
-//            //        else
-//            //        {
-//            //            float value;
-//            //            try { value = (float)Convert.ChangeType(entry.BoxedValue, typeof(float)); }
-//            //            catch (Exception ex)
-//            //            {
-//            //                Logger.LogError(ex);
-//            //                continue;
-//            //            }
-//            //            ZoneSystem.instance.SetGlobalKey(key, value);
-//            //        }
-//            //    }
-//            //}
-
-//            foreach (var zdo in ZDOMan.instance.GetObjects())
-//                zdo.ReregisterAll();
-
-//            foreach (var processor in _configChanged.Where(static x => x.Enabled.Value).SelectMany(static x => x.Plugin.Processors))
-//                processor.Initialize(_executeCounter is 1);
-//            _configChanged.Clear();
-
-//            if (_executeCounter is 1)
+//            if (Config.WorldModifiers.SetPresetFromConfig.Value)
 //            {
-//                //#if DEBUG
-//                //                GenerateDefaultConfigMarkdown(base.Config);
-//                //                GenerateDocs();
-//                //#endif
+//                try { MyTerminal.ExecuteCommand("setworldpreset", Invariant($"{Config.WorldModifiers.Preset.Value}")); }
+//                catch (Exception ex) { Logger.LogError(ex); }
 //            }
 
-//            return;
-//        }
-
-//        peers.Update();
-
-//        //SharedProcessorState.CleanUp(peers);
-
-//        if (peers.Count is 0)
-//            return;
-
-//        (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
-//        var zonesAroundPlayers = ZoneSystem.instance.m_activeArea - 1;
-//        foreach (var peer in peers)
-//        {
-//            var playerSector = ZoneSystem.GetZone(peer.m_refPos);
-//            for (int x = playerSector.x - zonesAroundPlayers; x <= playerSector.x + zonesAroundPlayers; x++)
+//            if (Config.WorldModifiers.SetModifiersFromConfig.Value)
 //            {
-//                for (int y = playerSector.y - zonesAroundPlayers; y <= playerSector.y + zonesAroundPlayers; y++)
+//                foreach (var (modifier, value) in Config.WorldModifiers.Modifiers.Select(static x => (x.Key, x.Value.Value)))
 //                {
-//                    var sector = new Vector2i(x, y);
-//                    if (_playerSectorsOld.Remove(sector, out var sectorInfo))
+//                    try { MyTerminal.ExecuteCommand("setworldmodifier", Invariant($"{modifier}"), Invariant($"{value}")); }
+//                    catch (Exception ex) { Logger.LogError(ex); }
+//                }
+//            }
+
+//            if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
+//            {
+//                /// <see cref="FejdStartup.ParseServerArguments"/>
+//                foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Where(static x => !Equals(x.Value.BoxedValue, x.Value.DefaultValue)))
+//                {
+//                    if (entry.BoxedValue is bool boolValue)
 //                    {
-//                        _playerSectors.Add(sector, sectorInfo);
-//                        sectorInfo.InverseWeight = 0;
-//                        sectorInfo.Peers.Clear();
-//                        sectorInfo.Peers.Add(peer);
-//                    }
-//                    else if (_playerSectors.TryGetValue(sector, out sectorInfo))
-//                    {
-//                        sectorInfo.Peers.Add(peer);
+//                        if (boolValue)
+//                            ZoneSystem.instance.SetGlobalKey(key);
+//                        else
+//                            ZoneSystem.instance.RemoveGlobalKey(key);
 //                    }
 //                    else
 //                    {
-//                        if (_sectorInfoPool.TryPop(out sectorInfo))
-//                            sectorInfo.Peers.Add(peer);
-//                        else
-//                            sectorInfo = new([peer], []);
-//                        _playerSectors.Add(sector, sectorInfo);
-//                    }
-//                }
-//            }
-//        }
-
-//        foreach (var sectorInfo in _playerSectorsOld.Values)
-//        {
-//            sectorInfo.ZdoIndex = 0;
-//            sectorInfo.InverseWeight = 0;
-//            sectorInfo.Peers.Clear();
-//            sectorInfo.ZDOs.Clear();
-//            _sectorInfoPool.Push(sectorInfo);
-//        }
-//        _playerSectorsOld.Clear();
-
-//        var playerSectors = _playerSectors;
-//        //var playerSectors = _playerSectors.AsEnumerable();
-//        //if (_unfinishedProcessingInRow > 10)
-//        //{
-//        //    // The idea here is to process zones in order of player proximity.
-//        //    // However, if all ZDOs are processed anyway, this ordering is a waste of time.
-//        //    foreach (var peer in peers)
-//        //    {
-//        //        var playerSector = ZoneSystem.GetZone(peer.m_refPos);
-//        //        foreach (var (sector, sectorInfo) in _playerSectors)
-//        //        {
-//        //            var dx = sector.x - playerSector.x;
-//        //            var dy = sector.y - playerSector.y;
-//        //            sectorInfo.InverseWeight += dx * dx + dy * dy;
-//        //        }
-//        //    }
-//        //    playerSectors = playerSectors.OrderBy(static x => x.Value.InverseWeight);
-//        //}
-
-//        foreach (var processor in Processors.AsEnumerable())
-//            processor.PreProcessInternal(peers);
-
-//        int processedSectors = 0;
-//        int processedZdos = 0;
-//        int totalZdos = 0;
-
-//        foreach (var (sector, sectorInfo) in playerSectors)
-//        {
-//            if (Time.realtimeSinceStartupAsDouble > executeUntil)
-//                break;
-
-//            processedSectors++;
-
-//            if (sectorInfo is { ZDOs.Count: 0 })
-//                ZDOMan.instance.FindSectorObjects(sector, 0, 0, sectorInfo.ZDOs);
-
-//            totalZdos += sectorInfo.ZDOs.Count;
-
-//            for (; sectorInfo.ZdoIndex < sectorInfo.ZDOs.Count; sectorInfo.ZdoIndex++)
-//            {
-//                if (processedZdos % 10 is 0 && Time.realtimeSinceStartupAsDouble >= executeUntil)
-//                    break;
-
-//                processedZdos++;
-//                var zdo = sectorInfo.ZDOs[sectorInfo.ZdoIndex];
-//                if (!zdo.IsValid() || zdo.GetExtension<IServersideQoLZDO>() is not { HasNoProcessors: false } extZdo /*|| ReferenceEquals(zdo.PrefabInfo, PrefabInfo.Dummy)*/)
-//                    continue;
-
-//                var processors = extZdo.Processors;
-//                if (processors.Count > 1)
-//                {
-//                    Processor? claimedExclusiveBy = null;
-//                    foreach (var processor in processors.AsEnumerable())
-//                    {
-//                        if (!processor.ClaimExclusive(zdo))
+//                        float value;
+//                        try { value = (float)Convert.ChangeType(entry.BoxedValue, typeof(float)); }
+//                        catch (Exception ex)
+//                        {
+//                            Logger.LogError(ex);
 //                            continue;
-//                        if (claimedExclusiveBy is null)
-//                            claimedExclusiveBy = processor;
-//                        else if (Config.DiagnosticLogs.Value)
-//                            Logger.LogError(Invariant($"ZDO {zdo.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
-//                    }
-
-//                    if (claimedExclusiveBy is not null)
-//                    {
-//                        zdo.UnregisterAllExcept(claimedExclusiveBy);
-//                        processors = extZdo.Processors;
+//                        }
+//                        ZoneSystem.instance.SetGlobalKey(key, value);
 //                    }
 //                }
-
-//                var destroy = false;
-//                var recreate = false;
-//                _unregister.Clear();
-//                foreach (var processor in processors.AsEnumerable())
-//                {
-//                    if (!zdo.CheckProcessorDataRevisionChanged(processor))
-//                        continue;
-//                    var result = processor.ProcessInternal(sectorInfo.Peers, zdo);
-//                    if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
-//                        zdo.UpdateProcessorDataRevision(processor);
-//                    if ((result & Processor.ProcessResult.UnregisterProcessor) is not 0)
-//                        _unregister.Add(processor);
-//                    if (destroy = (result & Processor.ProcessResult.DestroyZDO) is not 0)
-//                    {
-//                        zdo.Destroy();
-//                        break;
-//                    }
-//                    recreate = recreate || (result & Processor.ProcessResult.RecreateZDO) is not 0;
-//                }
-//                if (!destroy && recreate)
-//                    zdo.Recreate();
-//                else if (!destroy && _unregister.Count > 0)
-//                    zdo.Ungregister(_unregister);
 //            }
 
-//            if (sectorInfo.ZdoIndex >= sectorInfo.ZDOs.Count)
+//            foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
+//                processor.Initialize(_executeCounter is 1);
+
+//            if (_executeCounter is 1)
 //            {
-//                sectorInfo.ZDOs.Clear();
-//                sectorInfo.ZdoIndex = 0;
-//            }
-//        }
-
-//        //foreach (var processor in Processors.AsEnumerable())
-//        //    processor.PostProcess();
-
-//        if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
-//            _unfinishedProcessingInRow++;
-//        else
-//            _unfinishedProcessingInRow = 0;
-
 //#if DEBUG
-//        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
-//#else
-//        if (!Config.General.DiagnosticLogs.Value)
-//            return;
-//        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
+//                //GenerateDefaultConfigMarkdown(base.Config);
+//                //GenerateDocs();
 //#endif
 
-//        var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
-//        Logger.Log(logLevel,
-//            Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+//                //base.Config.Bind(DummyConfigSection, "Dummy", "", Invariant($"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}"));
+//                Config.ConfigFile.SettingChanged -= OnConfigChanged;
+//                Config.ConfigFile.SettingChanged += OnConfigChanged;
+//            }
+//            else
+//            {
+//                foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjects())
+//                    zdo.ReregisterAllProcessors();
+//            }
 
-//        if (logLevel is > LogLevel.Info or LogLevel.None)
 //            return;
-
-//        (_processingTimes ??= new(Processors.Count)).Clear();
-//        foreach (var processor in Processors.AsEnumerable())
-//        {
-//            var time = Math.Round(processor.ProcessingTimeSeconds * 1000, 2);
-//            if (time <= 0)
-//                continue;
-//            _processingTimes.Add((processor, time));
 //        }
-//        if (_processingTimes.Count is 0)
-//            return;
-//        _processingTimes.Sort(static (a, b) => Math.Sign(b.Item2 - a.Item2));
-//        Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
-//    }
+
+        peers.Update();
+
+        if (peers.Count is 0)
+            return;
+
+        //SharedProcessorState.CleanUp(peers);
+
+        (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
+        var zonesAroundPlayers = ZoneSystem.instance.m_activeArea; // Config.General.ZonesAroundPlayers.Value;
+        foreach (var peer in peers)
+        {
+            var playerSector = ZoneSystem.GetZone(peer.m_refPos);
+            for (int x = playerSector.x - zonesAroundPlayers; x <= playerSector.x + zonesAroundPlayers; x++)
+            {
+                for (int y = playerSector.y - zonesAroundPlayers; y <= playerSector.y + zonesAroundPlayers; y++)
+                {
+                    var sector = new Vector2s(x, y);
+                    if (_playerSectorsOld.Remove(sector, out var sectorInfo))
+                    {
+                        _playerSectors.Add(sector, sectorInfo);
+                        sectorInfo.InverseWeight = 0;
+                        sectorInfo.Peers.Clear();
+                        sectorInfo.Peers.Add(peer);
+                    }
+                    else if (_playerSectors.TryGetValue(sector, out sectorInfo))
+                    {
+                        sectorInfo.Peers.Add(peer);
+                    }
+                    else
+                    {
+                        if (_sectorInfoPool.TryPop(out sectorInfo))
+                            sectorInfo.Peers.Add(peer);
+                        else
+                            sectorInfo = new([peer], []);
+                        _playerSectors.Add(sector, sectorInfo);
+                    }
+                }
+            }
+        }
+
+        foreach (var sectorInfo in _playerSectorsOld.Values)
+        {
+            sectorInfo.ZdoIndex = 0;
+            sectorInfo.InverseWeight = 0;
+            sectorInfo.Peers.Clear();
+            sectorInfo.ZDOs.Clear();
+            _sectorInfoPool.Push(sectorInfo);
+        }
+        _playerSectorsOld.Clear();
+
+        var playerSectors = _playerSectors;
+
+        foreach (var processor in _enabledProcessors)
+            processor.PreProcessInternal(peers);
+
+        int processedSectors = 0;
+        int processedZdos = 0;
+        int totalZdos = 0;
+
+        (var changed, _changed) = (_changed!, null);
+        foreach (var zdo in changed)
+        {
+            processedZdos++;
+            playerSectors.TryGetValue(zdo.GetSector(), out var sectorInfo);
+            if (!zdo.IsValid() || zdo.GetExtension<IServersideQoLZDO>() is not { HasNoProcessors: false } extZdo)
+                continue;
+            ProcessZdo(sectorInfo?.Peers ?? [], zdo, extZdo, extZdo.Processors!, true);
+        }
+
+        if (_hasCyclicProcessors)
+        {
+            foreach (var (sector, sectorInfo) in playerSectors)
+            {
+                if (Time.realtimeSinceStartupAsDouble > executeUntil)
+                    break;
+
+                processedSectors++;
+
+                if (sectorInfo is { ZDOs.Count: 0 })
+                    ZDOMan.instance.FindSectorObjects(sector, 0, 0, sectorInfo.ZDOs);
+
+                totalZdos += sectorInfo.ZDOs.Count;
+
+                for (; sectorInfo.ZdoIndex < sectorInfo.ZDOs.Count; sectorInfo.ZdoIndex++)
+                {
+                    if (processedZdos % 10 is 0 && Time.realtimeSinceStartupAsDouble >= executeUntil)
+                        break;
+
+                    processedZdos++;
+                    var zdo = sectorInfo.ZDOs[sectorInfo.ZdoIndex];
+                    if (!zdo.IsValid() || zdo.GetExtension<IServersideQoLZDO>() is not { HasNoCyclicProcessors: false } extZdo || changed.Contains(zdo))
+                        continue;
+
+                    ProcessZdo(sectorInfo.Peers, zdo, extZdo, extZdo.CyclicProcessors!, false);
+                }
+
+                if (sectorInfo.ZdoIndex >= sectorInfo.ZDOs.Count)
+                {
+                    sectorInfo.ZDOs.Clear();
+                    sectorInfo.ZdoIndex = 0;
+                }
+            }
+        }
+
+        //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
+        //    processor.PostProcess();
+
+        changed.Clear();
+        _changed = changed;
+
+        if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
+            _unfinishedProcessingInRow++;
+        else
+            _unfinishedProcessingInRow = 0;
+
+#if DEBUG
+        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
+#else
+        if (!Config.DiagnosticLogs.Value)
+            return;
+        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
+#endif
+
+        //var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
+        //Logger.Log(logLevel,
+        //    Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+
+        //if (logLevel is > LogLevel.Info or LogLevel.None)
+        //    return;
+
+        //(_processingTimes ??= new(Processor.DefaultProcessors.Count)).Clear();
+        //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
+        //{
+        //    var time = Math.Round(processor.ProcessingTimeSeconds * 1000, 2);
+        //    if (time <= 0)
+        //        continue;
+        //    _processingTimes.Add((processor, time));
+        //}
+        //if (_processingTimes.Count is 0)
+        //    return;
+        //_processingTimes.Sort(static (a, b) => Math.Sign(b.Item2 - a.Item2));
+        //Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
+    }
+
+    void ProcessZdo(IReadOnlyList<Peer> peers, ZDO zdo, IServersideQoLZDO extZdo, IReadOnlyList<Processor> processors, bool updateDataRevisions)
+    {
+        var allProcessors = extZdo.Processors!;
+        if (allProcessors.Count > 1)
+        {
+            Processor? claimedExclusiveBy = null;
+            foreach (var processor in allProcessors.AsEnumerable())
+            {
+                if (!processor.ClaimExclusive(zdo))
+                    continue;
+                if (claimedExclusiveBy is null)
+                    claimedExclusiveBy = processor;
+                else if (Config.DiagnosticLogs.Value)
+                    Logger.LogError(Invariant($"ZDO {zdo.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
+            }
+
+            if (claimedExclusiveBy is not null)
+                zdo.UnregisterAllExcept(claimedExclusiveBy);
+        }
+
+        var destroy = false;
+        var recreate = false;
+        _unregister.Clear();
+        foreach (var processor in processors.AsEnumerable())
+        {
+            if (!extZdo.CheckProcessorDataRevisionChanged(processor))
+                continue;
+
+            var result = processor.ProcessInternal(peers, zdo);
+            if (destroy = (result & Processor.ProcessResult.DestroyZDO) is not 0)
+            {
+                zdo.Destroy();
+                break;
+            }
+            else if ((result & Processor.ProcessResult.RecreateZDO) is not 0)
+                recreate = true;
+            else if ((result & Processor.ProcessResult.UnregisterProcessor) is not 0)
+                _unregister.Add(processor);
+            else if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
+                extZdo.UpdateProcessorDataRevision(processor);
+            else if (updateDataRevisions)
+                extZdo.UpdateProcessorDataRevision(processor, onlyExisting: true);
+        }
+        if (!destroy)
+        {
+            if (recreate)
+                zdo.Recreate();
+            else if (_unregister.Count > 0)
+                extZdo.Unregister(_unregister);
+        }
+    }
 }

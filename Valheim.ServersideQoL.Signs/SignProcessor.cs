@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Valheim.ServersideQoL.Signs;
 
-sealed record PrefabInfo(Sign Sign) : PrefabInfoBase;
+sealed record PrefabInfo(Sign Sign) : ProcessorPrefabInfo;
 
 sealed class SignProcessor : Processor<PrefabInfo>
 {

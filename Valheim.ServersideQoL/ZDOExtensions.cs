@@ -4,46 +4,21 @@ namespace Valheim.ServersideQoL;
 
 public static partial class ZDOExtensions
 {
-    static readonly Dictionary<int, IReadOnlyList<Processor>> _processors = [];
-    static readonly ZPackage _pkg = new();
+    static readonly Dictionary<int, IReadOnlyList<Processor>> __processors = [];
+    static readonly ZPackage __pkg = new();
+    static readonly Stack<Dictionary<Processor, (uint, uint)>> __dataRevCache = [];
+    static readonly Stack<Dictionary<Type, object>> __componentFieldAccessorCache = [];
 
-    extension(ZDO @this)
+    extension(IServersideQoLZDO @this)
     {
-        public IReadOnlyList<Processor> GetProcessors()
+        internal void Unregister(IReadOnlyList<Processor> processors)
         {
-            var extZdo = @this.GetExtension<IServersideQoLZDO>();
-            if (extZdo.Processors is not { } processors)
+            static IReadOnlyList<Processor> UnregisterCore(IReadOnlyList<Processor> processors, IReadOnlyList<Processor> zdoProcessors)
             {
-                extZdo.Processors = processors = ServersideQoL.Processors;
-                extZdo.HasNoProcessors = processors.Count is 0;
-            }
-            return extZdo.Processors;
-        }
+                if (zdoProcessors.Count is 0)
+                    return zdoProcessors;
 
-        public void Ungregister(IReadOnlyList<Processor> processors)
-        {
-            var extZdo = @this.GetExtension<IServersideQoLZDO>();
-            var zdoProcessors = extZdo.Processors;
-            var hash = 0;
-            foreach (var processor in zdoProcessors.AsEnumerable())
-            {
-                var keep = true;
-                foreach (var remove in processors.AsEnumerable())
-                {
-                    if (ReferenceEquals(processor, remove))
-                    {
-                        keep = false;
-                        break;
-                    }
-                }
-                if (keep)
-                    hash = (hash, processor.GetType()).GetHashCode();
-            }
-
-            if (!_processors.TryGetValue(hash, out var newProcessors))
-            {
-                var list = new List<Processor>();
-                _processors.Add(hash, newProcessors = list);
+                var hash = 0;
                 foreach (var processor in zdoProcessors.AsEnumerable())
                 {
                     var keep = true;
@@ -56,102 +31,250 @@ public static partial class ZDOExtensions
                         }
                     }
                     if (keep)
-                        list.Add(processor);
+                        hash = (hash, processor.GetType()).GetHashCode();
                 }
+
+                if (!__processors.TryGetValue(hash, out var newProcessors))
+                {
+                    var list = new List<Processor>();
+                    __processors.Add(hash, newProcessors = list);
+                    foreach (var processor in zdoProcessors.AsEnumerable())
+                    {
+                        var keep = true;
+                        foreach (var remove in processors.AsEnumerable())
+                        {
+                            if (ReferenceEquals(processor, remove))
+                            {
+                                keep = false;
+                                break;
+                            }
+                        }
+                        if (keep)
+                            list.Add(processor);
+                    }
+                }
+                return newProcessors;
             }
 
-            extZdo.Processors = newProcessors;
-            extZdo.HasNoProcessors = newProcessors.Count is 0;
+            @this.Processors = UnregisterCore(processors, @this.Processors ?? []);
+            @this.HasNoProcessors = @this.Processors.Count is 0;
+            @this.CyclicProcessors = UnregisterCore(processors, @this.CyclicProcessors ?? []);
+            @this.HasNoCyclicProcessors = @this.CyclicProcessors.Count is 0;
 
-            if (extZdo.ProcessorDataRevisions is { } dataRevisions)
+            if (@this.ProcessorDataRevisions is { } dataRevisions)
             {
                 foreach (var processor in processors.AsEnumerable())
                     dataRevisions.Remove(processor);
             }
         }
 
-        public void Reregister(IReadOnlyList<Processor> processors)
+        //internal void Reregister(IReadOnlyList<Processor> processors)
+        //{
+        //    static IReadOnlyList<Processor> ReregisterCore(IReadOnlyList<Processor> processors, IReadOnlyList<Processor> zdoProcessors, IReadOnlyList<Processor> allProcessors)
+        //    {
+
+        //    }
+
+
+        //    // does this implementation make sense?
+        //    var extZdo = @this.GetExtension<IServersideQoLZDO>();
+        //    var zdoProcessors = extZdo.Processors ?? [];
+        //    var allProcessors = extZdo.PrefabInfo?.EnabledProcessors ?? [];
+        //    var unregister = new List<Processor>(allProcessors.Count);
+        //    foreach (var processor in allProcessors.AsEnumerable())
+        //    {
+        //        var found = false;
+        //        foreach (var keep in processors.AsEnumerable())
+        //        {
+        //            if (ReferenceEquals(processor, keep))
+        //            {
+        //                found = true;
+        //                break;
+        //            }
+        //        }
+        //        if (found)
+        //            continue;
+
+        //        foreach (var keep in zdoProcessors.AsEnumerable())
+        //        {
+        //            if (ReferenceEquals(processor, keep))
+        //            {
+        //                found = true;
+        //                break;
+        //            }
+        //        }
+
+        //        if (!found)
+        //            unregister.Add(processor);
+        //    }
+        //    @this.Ungregister(unregister);
+        //}
+
+        internal void UnregisterAllExcept(Processor keep)
         {
-            var extZdo = @this.GetExtension<IServersideQoLZDO>();
-            var zdoProcessors = extZdo.Processors;
-            var allProcessors = ServersideQoL.Processors;
-            var unregister = new List<Processor>(allProcessors.Count);
-            foreach (var processor in allProcessors.AsEnumerable())
+            static IReadOnlyList<Processor> UnregisterAllExceptCore(Processor keep, IReadOnlyList<Processor> zdoProcessors)
             {
-                var found = false;
-                foreach (var keep in processors.AsEnumerable())
-                {
-                    if (ReferenceEquals(processor, keep))
-                    {
-                        found = true;
-                        break;
-                    }
-                }
-                if (found)
-                    continue;
-
-                foreach (var keep in zdoProcessors.AsEnumerable())
-                {
-                    if (ReferenceEquals(processor, keep))
-                    {
-                        found = true;
-                        break;
-                    }
-                }
-
-                if (!found)
-                    unregister.Add(processor);
+                var hash = (0, keep.GetType()).GetHashCode();
+                if (!__processors.TryGetValue(hash, out var processors))
+                    __processors.Add(hash, processors = [keep]);
+                return processors;
             }
-            @this.Ungregister(unregister);
-        }
 
-        public void UnregisterAllExcept(Processor keep)
-        {
-            var extZdo = @this.GetExtension<IServersideQoLZDO>();
-            var zdoProcessors = extZdo.Processors;
-            var hash = (0, keep.GetType()).GetHashCode();
-            if (!_processors.TryGetValue(hash, out var processors))
-                _processors.Add(hash, processors = [keep]);
-            if (extZdo.ProcessorDataRevisions is { } dataRevisions)
+            @this.Processors = UnregisterAllExceptCore(keep, @this.Processors ?? []);
+            @this.HasNoProcessors = @this.Processors.Count is 0;
+            @this.CyclicProcessors = UnregisterAllExceptCore(keep, @this.CyclicProcessors ?? []);
+            @this.HasNoCyclicProcessors = @this.CyclicProcessors.Count is 0;
+
+            if (!@this.HasNoProcessors && @this.ProcessorDataRevisions is { } dataRevisions)
             {
-                foreach (var processor in zdoProcessors.AsEnumerable())
+                foreach (var processor in @this.Processors.AsEnumerable())
                 {
                     if (!ReferenceEquals(processor, keep))
                         dataRevisions.Remove(processor);
                 }
             }
-            extZdo.Processors = processors;
-            extZdo.HasNoProcessors = processors.Count is 0;
-            return;
         }
 
-        public void UnregisterAll()
+        internal void UnregisterAll()
         {
-            var extZdo = @this.GetExtension<IServersideQoLZDO>();
-            extZdo.Processors = [];
-            extZdo.HasNoProcessors = true;
+            @this.Processors = [];
+            @this.HasNoProcessors = true;
         }
 
-        public void ReregisterAll()
+        internal void ReregisterAll()
         {
-            var extZdo = @this.GetExtension<IServersideQoLZDO>();
-            extZdo.Processors = null!;
-            extZdo.HasNoProcessors = false;
+            @this.Processors = @this.PrefabInfo?.EnabledProcessors ?? [];
+            @this.HasNoProcessors = @this.Processors.Count is 0;
+            @this.CyclicProcessors = @this.PrefabInfo?.EnabledCyclicProcessors ?? [];
+            @this.HasNoCyclicProcessors = @this.CyclicProcessors.Count is 0;
         }
 
-        public void UpdateProcessorDataRevision(Processor processor)
-            => (@this.GetExtension<IServersideQoLZDO>().ProcessorDataRevisions ??= [])[processor] = (@this.DataRevision, @this.OwnerRevision);
-
-        public void ResetProcessorDataRevision(Processor processor)
-            => @this.GetExtension<IServersideQoLZDO>().ProcessorDataRevisions?.Remove(processor);
-
-        public bool CheckProcessorDataRevisionChanged(Processor processor)
+        internal void UpdateProcessorDataRevision(Processor processor, bool onlyExisting = false)
         {
-            var dataRevisions = @this.GetExtension<IServersideQoLZDO>().ProcessorDataRevisions;
-            if (dataRevisions is null || !dataRevisions.TryGetValue(processor, out var revision) || revision != (@this.DataRevision, @this.OwnerRevision))
+            if (@this.ProcessorDataRevisions is not { } dataRevisions)
+            {
+                if (onlyExisting)
+                    return;
+                if (!__dataRevCache.TryPop(out dataRevisions))
+                    dataRevisions = [];
+                @this.ProcessorDataRevisions = dataRevisions;
+            }
+
+            if (onlyExisting)
+                dataRevisions.TryAdd(processor, (@this.ZDO.DataRevision, @this.ZDO.OwnerRevision));
+            else
+                dataRevisions[processor] = (@this.ZDO.DataRevision, @this.ZDO.OwnerRevision);
+        }
+
+        internal void ResetProcessorDataRevision(Processor processor)
+            => @this.ProcessorDataRevisions?.Remove(processor);
+
+        internal bool CheckProcessorDataRevisionChanged(Processor processor)
+        {
+            var dataRevisions = @this.ProcessorDataRevisions;
+            if (dataRevisions is null || !dataRevisions.TryGetValue(processor, out var revision) || revision != (@this.ZDO.DataRevision, @this.ZDO.OwnerRevision))
                 return true;
             return false;
         }
+    }
+
+    extension(ZDO @this)
+    {
+        public PrefabInfo? PrefabInfo
+        {
+            get => @this.GetExtension<IServersideQoLZDO>().PrefabInfo;
+            internal set
+            {
+                var extZdo = @this.GetExtension<IServersideQoLZDO>();
+
+                if (extZdo.ProcessorDataRevisions is { } dataRevisions)
+                {
+                    dataRevisions.Clear();
+                    __dataRevCache.Push(dataRevisions);
+                }
+
+                if (extZdo.ComponentFieldAccessors is { } componentFieldAccessors)
+                {
+                    componentFieldAccessors.Clear();
+                    __componentFieldAccessorCache.Push(componentFieldAccessors);
+                }
+
+                extZdo.PrefabInfo = value;
+                extZdo.Processors = value?.EnabledProcessors ?? [];
+                extZdo.HasNoProcessors = extZdo.Processors.Count is 0;
+                extZdo.CyclicProcessors = value?.EnabledCyclicProcessors ?? [];
+                extZdo.HasNoCyclicProcessors = extZdo.CyclicProcessors.Count is 0;
+                extZdo.ProcessorDataRevisions = default;
+                extZdo.HasFields = default;
+                extZdo.ComponentFieldAccessors = default;
+            }
+        }
+
+        //public ListExtensions.ListEnumerable<Processor> Processors => (@this.GetExtension<IServersideQoLZDO>().Processors ?? []).AsEnumerable();
+        //public ListExtensions.ListEnumerable<Processor> CyclicProcessors => (@this.GetExtension<IServersideQoLZDO>().CyclicProcessors ?? []).AsEnumerable();
+
+        public void Unregister(IReadOnlyList<Processor> processors)
+            => @this.GetExtension<IServersideQoLZDO>().Unregister(processors);
+
+        //public void Reregister(IReadOnlyList<Processor> processors)
+        //{
+        //    static IReadOnlyList<Processor> ReregisterCore(IReadOnlyList<Processor> processors, IReadOnlyList<Processor> zdoProcessors, IReadOnlyList<Processor> allProcessors)
+        //    {
+
+        //    }
+
+
+        //    // does this implementation make sense?
+        //    var extZdo = @this.GetExtension<IServersideQoLZDO>();
+        //    var zdoProcessors = extZdo.Processors ?? [];
+        //    var allProcessors = extZdo.PrefabInfo?.EnabledProcessors ?? [];
+        //    var unregister = new List<Processor>(allProcessors.Count);
+        //    foreach (var processor in allProcessors.AsEnumerable())
+        //    {
+        //        var found = false;
+        //        foreach (var keep in processors.AsEnumerable())
+        //        {
+        //            if (ReferenceEquals(processor, keep))
+        //            {
+        //                found = true;
+        //                break;
+        //            }
+        //        }
+        //        if (found)
+        //            continue;
+
+        //        foreach (var keep in zdoProcessors.AsEnumerable())
+        //        {
+        //            if (ReferenceEquals(processor, keep))
+        //            {
+        //                found = true;
+        //                break;
+        //            }
+        //        }
+
+        //        if (!found)
+        //            unregister.Add(processor);
+        //    }
+        //    @this.Ungregister(unregister);
+        //}
+
+        public void UnregisterAllExcept(Processor keep)
+            => @this.GetExtension<IServersideQoLZDO>().UnregisterAllExcept(keep);
+
+        public void UnregisterAll()
+            => @this.GetExtension<IServersideQoLZDO>().UnregisterAll();
+
+        public void ReregisterAll()
+            => @this.GetExtension<IServersideQoLZDO>().ReregisterAll();
+
+        //public void UpdateProcessorDataRevision(Processor processor)
+        //    => @this.GetExtension<IServersideQoLZDO>().UpdateProcessorDataRevision(processor);
+
+        //public void ResetProcessorDataRevision(Processor processor)
+        //    => @this.GetExtension<IServersideQoLZDO>().ResetProcessorDataRevision(processor);
+
+        //public bool CheckProcessorDataRevisionChanged(Processor processor)
+        //    => @this.GetExtension<IServersideQoLZDO>().CheckProcessorDataRevisionChanged(processor);
 
         public void Destroy()
         {
@@ -164,13 +287,13 @@ public static partial class ZDOExtensions
             var prefab = @this.GetPrefab();
             var pos = @this.GetPosition();
             var owner = @this.GetOwner();
-            _pkg.Clear();
-            @this.Serialize(_pkg);
-            _pkg.Size(); // force flush
+            __pkg.Clear();
+            @this.Serialize(__pkg);
+            __pkg.Size(); // force flush
 
             var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
-            _pkg.SetPos(0);
-            zdo.Deserialize(_pkg);
+            __pkg.SetPos(0);
+            zdo.Deserialize(__pkg);
             zdo.SetOwnerInternal(owner);
             return zdo;
         }
