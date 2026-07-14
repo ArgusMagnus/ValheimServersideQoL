@@ -6,7 +6,7 @@ using System.Reflection;
 using UnityEngine;
 using Valheim.ZDOExtender;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 interface IServersideQoLPlugin
 {
@@ -91,7 +91,7 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : BaseUnityPlugin,
 }
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-[BepInDependency(ZDOExtender.ZDOExtender.PluginGuid, ZDOExtender.ZDOExtender.PluginVersion)]
+[BepInDependency(ZDOExtender.PluginGuid, ZDOExtender.PluginVersion)]
 public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 {
     public const string PluginName = nameof(ServersideQoL);
@@ -143,7 +143,7 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
 
     void Awake()
     {
-        ZDOExtender.ZDOExtender.RegisterInterfaces += OnRegisterZDOInterfaces;
+        ZDOExtender.RegisterInterfaces += OnRegisterZDOInterfaces;
     }
 
     void OnRegisterZDOInterfaces(IZDOInterfaceCollection interfaces)

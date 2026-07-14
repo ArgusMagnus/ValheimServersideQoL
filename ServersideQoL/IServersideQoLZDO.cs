@@ -1,6 +1,6 @@
 ﻿using Valheim.ZDOExtender;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 interface IServersideQoLZDO : IExtendedZDO
 {

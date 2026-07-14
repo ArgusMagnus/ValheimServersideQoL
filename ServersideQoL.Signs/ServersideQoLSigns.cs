@@ -1,7 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 
-namespace Valheim.ServersideQoL.Signs;
+namespace ServersideQoL.Signs;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 [BepInDependency(ServersideQoL.PluginGuid, ServersideQoL.PluginVersion)]

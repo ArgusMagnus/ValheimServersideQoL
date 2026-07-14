@@ -2,7 +2,7 @@
 using UnityEngine;
 using Valheim.ZDOExtender;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
 public sealed class ProcessorAttribute(string id) : Attribute

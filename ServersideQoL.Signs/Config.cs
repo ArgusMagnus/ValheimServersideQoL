@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 
-namespace Valheim.ServersideQoL.Signs;
+namespace ServersideQoL.Signs;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {

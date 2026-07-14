@@ -1,9 +1,10 @@
-﻿namespace Valheim.ServersideQoL.CodeAnalysis.Tests;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Testing;
 using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.CSharpAnalyzerVerifier<
-    Valheim.ServersideQoL.CodeAnalysis.ExpressionCacheAnalyzer,
+    ServersideQoL.CodeAnalysis.ExpressionCacheAnalyzer,
     Microsoft.CodeAnalysis.Testing.DefaultVerifier>;
+
+namespace ServersideQoL.CodeAnalysis.Tests;
 
 [TestClass]
 public sealed class ExpressionCacheAnalyzerTests

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using UnityEngine;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 public sealed class Logger(string sourceName) : ILogSource, IDisposable
 {

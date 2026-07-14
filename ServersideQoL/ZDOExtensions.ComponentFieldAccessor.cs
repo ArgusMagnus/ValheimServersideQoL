@@ -1,11 +1,11 @@
-﻿using System.Linq.Expressions;
+﻿using ServersideQoL.CodeAnalysis;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using Valheim.ServersideQoL.CodeAnalysis;
 using Valheim.ZDOExtender;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 static partial class ZDOExtensions
 {

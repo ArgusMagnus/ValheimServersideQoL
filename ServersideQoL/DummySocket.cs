@@ -1,4 +1,4 @@
-﻿namespace Valheim.ServersideQoL;
+﻿namespace ServersideQoL;
 
 sealed class DummySocket : ISocket
 {

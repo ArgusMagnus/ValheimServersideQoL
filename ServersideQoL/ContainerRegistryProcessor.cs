@@ -1,6 +1,6 @@
 ﻿using Valheim.ZDOExtender;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 [Processor(Id, OnlyWhenDependedOn = true)]
 public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProcessor.PrefabInfo>

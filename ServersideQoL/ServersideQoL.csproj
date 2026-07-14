@@ -19,7 +19,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Valheim.ZDOExtender\Valheim.ZDOExtender.csproj" />
-		<ProjectReference Include="..\Valheim.ServersideQoL.CodeAnalysis\Valheim.ServersideQoL.CodeAnalysis.csproj" OutputItemType="Analyzer" PrivateAssets="all" />
+		<ProjectReference Include="..\ServersideQoL.CodeAnalysis\ServersideQoL.CodeAnalysis.csproj" OutputItemType="Analyzer" PrivateAssets="all" />
 		<!--<ProjectReference Include="..\ValheimServersideQoL.YamlDotNet\YamlDotNet\Valheim.ServersideQoL.YamlDotNet.csproj" />-->
 	</ItemGroup>
 

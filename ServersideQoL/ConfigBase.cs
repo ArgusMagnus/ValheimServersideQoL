@@ -1,8 +1,7 @@
 ﻿using BepInEx.Configuration;
 using System.Runtime.CompilerServices;
-using static System.Collections.Specialized.BitVector32;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 interface IConfig
 {

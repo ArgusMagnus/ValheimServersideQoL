@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
 using System.Linq.Expressions;
 
-namespace Valheim.ServersideQoL.CodeAnalysis;
+namespace ServersideQoL.CodeAnalysis;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public sealed class ExpressionFactoryAnalyzer : DiagnosticAnalyzer

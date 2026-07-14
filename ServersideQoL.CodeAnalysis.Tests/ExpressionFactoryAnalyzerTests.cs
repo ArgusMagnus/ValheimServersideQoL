@@ -1,10 +1,10 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Testing;
 using Verifier = Microsoft.CodeAnalysis.CSharp.Testing.CSharpAnalyzerVerifier<
-    Valheim.ServersideQoL.CodeAnalysis.ExpressionFactoryAnalyzer,
+    ServersideQoL.CodeAnalysis.ExpressionFactoryAnalyzer,
     Microsoft.CodeAnalysis.Testing.DefaultVerifier>;
 
-namespace Valheim.ServersideQoL.CodeAnalysis.Tests;
+namespace ServersideQoL.CodeAnalysis.Tests;
 
 [TestClass]
 public sealed class ExpressionFactoryAnalyzerTests

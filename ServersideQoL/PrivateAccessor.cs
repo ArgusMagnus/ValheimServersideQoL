@@ -3,7 +3,7 @@ using System.Reflection;
 using static Terminal;
 using static ZoneSystem;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 static class PrivateAccessor
 {

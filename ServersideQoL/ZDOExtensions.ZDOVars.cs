@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using Valheim.ZDOExtender;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 static partial class ZDOExtensions
 {

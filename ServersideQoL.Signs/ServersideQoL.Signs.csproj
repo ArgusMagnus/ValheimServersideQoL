@@ -18,7 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Valheim.ServersideQoL\Valheim.ServersideQoL.csproj" />
+	  <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

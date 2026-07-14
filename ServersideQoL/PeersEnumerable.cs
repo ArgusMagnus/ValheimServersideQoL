@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Runtime.CompilerServices;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 public sealed class PeersEnumerable(ZNetPeer? localPeer) : IEnumerable<Peer>
 {

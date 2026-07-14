@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 public static class ListExtensions
 {

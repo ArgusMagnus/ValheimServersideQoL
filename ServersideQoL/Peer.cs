@@ -2,7 +2,7 @@
 using UnityEngine;
 using Valheim.ZDOExtender;
 
-namespace Valheim.ServersideQoL;
+namespace ServersideQoL;
 
 public sealed class Peer
 {

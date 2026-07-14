@@ -1,8 +1,6 @@
-﻿
+﻿using System.Text.RegularExpressions;
 
-using System.Text.RegularExpressions;
-
-namespace Valheim.ServersideQoL.Signs;
+namespace ServersideQoL.Signs;
 
 
 [Processor(Id, Cyclic = true)]

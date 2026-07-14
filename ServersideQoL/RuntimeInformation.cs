@@ -1,4 +1,4 @@
-﻿namespace Valheim.ServersideQoL;
+﻿namespace ServersideQoL;
 
 sealed record RuntimeInformation(string ModVersion, GameVersion GameVersion, uint NetworkVersion, int ItemDataVersion, int WorldVersion)
 {

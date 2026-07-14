@@ -3,9 +3,8 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
-using System.Linq.Expressions;
 
-namespace Valheim.ServersideQoL.CodeAnalysis;
+namespace ServersideQoL.CodeAnalysis;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public sealed class ExpressionCacheAnalyzer : DiagnosticAnalyzer
