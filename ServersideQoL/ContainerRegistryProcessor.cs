@@ -11,6 +11,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     readonly Dictionary<ZDO, ContainerInventory> _inventories = [];
     readonly Dictionary<float, SectorDictionary<SharedItemDataKey, HashSet<ZDO>>> _containersByItemNameBySectorWidth = [];
 
+    public event Action<ZDO, IContainerInventory>? ContainerChanged;
+
     public SectorDictionary<SharedItemDataKey, HashSet<ZDO>> GetContainersByItemName(float sectorWidth)
     {
         if (!_containersByItemNameBySectorWidth.TryGetValue(sectorWidth, out var dict))
@@ -32,7 +34,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         return GetInventory(zdo, prefabInfo);
     }
 
-    IContainerInventory GetInventory(ZDO zdo, PrefabInfo prefabInfo)
+    public IContainerInventory GetInventory(ZDO zdo, PrefabInfo prefabInfo)
     {
         if (!_inventories.TryGetValue(zdo, out var inventory))
         {
@@ -65,6 +67,9 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
             foreach (var dict in _containersByItemNameBySectorWidth.Values)
                 dict.TryAdd(key, zdo);
         }
+
+        ContainerChanged?.Invoke(zdo, inventory);
+
         return default;
     }
 

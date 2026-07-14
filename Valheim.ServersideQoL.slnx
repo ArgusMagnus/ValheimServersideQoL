@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="ServersideQoL.AutoStore/ServersideQoL.AutoStore.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis.Tests/ServersideQoL.CodeAnalysis.Tests.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis/ServersideQoL.CodeAnalysis.csproj" />
   <Project Path="ServersideQoL.Signs/ServersideQoL.Signs.csproj" />
