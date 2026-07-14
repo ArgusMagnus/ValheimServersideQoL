@@ -76,6 +76,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
         List<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;
+        byte[]? _data;
 
         public List<ItemDrop.ItemData> Items
         {
@@ -99,6 +100,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
                 return this;
 
             var data = _zdo.Vars.GetItems();
+            if (ReferenceEquals(data, _data)) // review: maybe also check SequenceEquals?
+                return this;
 
             var fields = _zdo.Fields<Container>();
             var w = fields.GetInt(static () => x => x.m_width);
@@ -115,6 +118,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
                 Items.Clear();
 
             _dataRevision = _zdo.DataRevision;
+            _data = data;
             return this;
         }
 
@@ -136,6 +140,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
             }
 
             _dataRevision = _zdo.DataRevision;
+            _data = data;
         }
     }
 }
