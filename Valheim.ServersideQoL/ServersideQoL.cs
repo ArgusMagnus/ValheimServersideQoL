@@ -197,8 +197,8 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
         _prefabInfoFactory = prefabInfoBuilder.GetFactory();
         interfaces.Add<IServersideQoLZDO>();
         IExtendedZDO.Events.PrefabChanged += OnPrefabChanged;
-        IExtendedZDO.Events.DataRevisionChanged += OnDataRevisionChanged;
-        IExtendedZDO.Events.OwnerRevisionChanged += OnOwnerRevisionChanged;
+        IExtendedZDO.Events.DataRevisionChanged += OnDataOrOwnerRevisionChanged;
+        IExtendedZDO.Events.OwnerRevisionChanged += OnDataOrOwnerRevisionChanged;
 
 
         foreach (var plugin in __plugins)
@@ -244,10 +244,16 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
             _prefabInfos.Add(newPrefab, prefabInfo);
         }
         zdo.PrefabInfo = prefabInfo;
+
+        if (_changed is not null && prefabInfo is { EnabledProcessors.Count: > 0 })
+            _changed.Add(zdo);
     }
 
-    void OnDataRevisionChanged(ZDO zdo) => _changed?.Add(zdo);
-    void OnOwnerRevisionChanged(ZDO zdo) => _changed?.Add(zdo);
+    void OnDataOrOwnerRevisionChanged(ZDO zdo)
+    {
+        if (_changed is not null && !zdo.GetExtension<IServersideQoLZDO>().HasNoProcessors)
+            _changed.Add(zdo);
+    }
 
     void Start()
     {
