@@ -8,11 +8,37 @@ namespace Valheim.ServersideQoL;
 public sealed class ProcessorAttribute(string id) : Attribute
 {
     public Guid Id { get; } = new(id);
+
+    /// <summary>
+    /// True if the processor should run cyclically,
+    /// false if the processor should only run when the data or owner revision of a <see cref="ZDO"/> changes
+    /// </summary>
     public bool Cyclic { get; init; }
+
+    /// <summary>
+    /// <see cref="Id"/>s of the processors this processor must run before.
+    /// </summary>
     public Guid[] RunBeforeIds { get; private init; } = [];
+
+    /// <inheritdoc cref="RunBeforeIds"/>
     public string[] RunBefore { get; init => RunBeforeIds = [.. (field = value).Select(static x => new Guid(x))]; } = [];
+
+    /// <summary>
+    /// <see cref="Id"/>s of the processors this processor must run after.
+    /// </summary>
     public Guid[] RunAfterIds { get; private init; } = [];
+
+    /// <inheritdoc cref="RunAfterIds"/>
     public string[] RunAfter { get; init => RunAfterIds = [.. (field = value).Select(static x => new Guid(x))]; } = [];
+
+    /// <summary>
+    /// True to run this processor only if other processors depend on it via <see cref="RunBefore"/>/<see cref="RunAfter"/>
+    /// </summary>
+    public bool OnlyWhenDependedOn { get; init; }
+
+    /// <summary>
+    /// Priority of the processor if no other constraints apply. Processors with lower priority are run first.
+    /// </summary>
     public int Priority { get; init; } = 0;
 }
 
@@ -250,6 +276,9 @@ public abstract class Processor<TPrefabInfo> : Processor
         prefabInfo.GetExtension<IProcessorPrefabInfo>().PrefabInfo = pi;
         return pi is not null;
     }
+
+    protected TPrefabInfo? GetPrefabInfo(ZDO zdo)
+        => zdo.GetExtension<IServersideQoLZDO>().PrefabInfo?.GetExtension<IProcessorPrefabInfo>().PrefabInfo;
 
     TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
     {

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Valheim.ZDOExtender;
 
 namespace Valheim.ServersideQoL;
 

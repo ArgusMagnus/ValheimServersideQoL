@@ -205,7 +205,8 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
             plugin.Config.ConfigChanged += OnConfigChanged;
     }
 
-    protected override void RegisterProcessors(IProcessorCollection processors) { }
+    protected override void RegisterProcessors(IProcessorCollection processors) => processors
+        .Add<ContainerRegistryProcessor>();
 
     void OnPrefabChanged(ZDO zdo, int oldPrefab, int newPrefab)
     {
@@ -769,29 +770,42 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
         var graph = new Dictionary<Processor, List<Processor>>();
         var inDegree = new Dictionary<Processor, int>();
 
-        foreach (var p in processors)
+        HashSet<Guid>? dependents = null;
+
+        for (int i = processors.Count - 1; i >= 0; i--)
         {
-            graph[p] = [];
-            inDegree[p] = 0;
+            var processor = processors[i];
+            if (processor.Attribute.OnlyWhenDependedOn)
+            {
+                dependents ??= processors.SelectMany(static x => x.Attribute.RunBeforeIds.Concat(x.Attribute.RunAfterIds)).ToHashSet();
+                if (!dependents.Contains(processor.Attribute.Id))
+                {
+                    processors.RemoveAt(i);
+                    Logger.DevLog($"Dropping processor {processor.GetType().FullName} because no dependents where found");
+                    continue;
+                }
+            }
+            graph.Add(processor, []);
+            inDegree.Add(processor, 0);
         }
 
         // Build edges from Before/After constraints
-        foreach (var p in processors)
+        foreach (var processor in processors)
         {
-            foreach (var idBefore in p.Attribute.RunBeforeIds)
+            foreach (var idBefore in processor.Attribute.RunBeforeIds)
             {
                 if (!__processorsById.TryGetValue(idBefore, out var before))
                     continue;
-                graph[p].Add(before);
+                graph[processor].Add(before);
                 inDegree[before]++;
             }
 
-            foreach (var idAfter in p.Attribute.RunAfterIds)
+            foreach (var idAfter in processor.Attribute.RunAfterIds)
             {
                 if (!__processorsById.TryGetValue(idAfter, out var after))
                     continue;
-                graph[after].Add(p);
-                inDegree[p]++;
+                graph[after].Add(processor);
+                inDegree[processor]++;
             }
         }
 

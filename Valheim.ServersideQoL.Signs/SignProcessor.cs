@@ -4,11 +4,13 @@ using System.Text.RegularExpressions;
 
 namespace Valheim.ServersideQoL.Signs;
 
-sealed record PrefabInfo(Sign Sign) : ProcessorPrefabInfo;
 
-[Processor("806bdb85-c857-4154-a246-a0b1d0917987")]
-sealed class SignProcessor : Processor<PrefabInfo>
+[Processor(Id, Cyclic = true)]
+public sealed class SignProcessor : Processor<SignProcessor.PrefabInfo>
 {
+    public const string Id = "806bdb85-c857-4154-a246-a0b1d0917987";
+    public sealed record PrefabInfo(Sign Sign) : ProcessorPrefabInfo;
+
     internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
     readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 

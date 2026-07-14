@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Valheim.ZDOExtender;
 
 namespace Valheim.ServersideQoL;
 
@@ -24,7 +25,7 @@ static partial class ZDOExtensions
             //if (_zdo.PrefabInfo.Container is null || _zdo.IsOwnerOrUnassigned() || _zdo.IsModCreator())
             //    return;
 
-            //ServersideQoL.Instance.Logger.LogWarning($"{Path.GetFileName(filePath)} L{lineNo}: Container was modified while it is owned by a client, which can lead to the loss of items.");
+            //Main.Instance.Logger.LogWarning($"{Path.GetFileName(filePath)} L{lineNo}: Container was modified while it is owned by a client, which can lead to the loss of items.");
         }
 
         public int GetState(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_state, defaultValue);
@@ -37,8 +38,8 @@ static partial class ZDOExtensions
         public void SetFuel(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_fuel, value); }
         public bool GetPiece(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_piece, defaultValue);
         public void SetPiece(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_piece, value); }
-        public string GetItems(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_items, defaultValue);
-        public void SetItems(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_items, value); }
+        public byte[]? GetItems(byte[]? defaultValue = null) => _zdo.GetByteArray(global::ZDOVars.s_items, defaultValue);
+        public void SetItems(byte[]? value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_items, value); }
         public string GetTag(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_tag, defaultValue);
         public void SetTag(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_tag, value); }
         public byte[]? GetData(byte[]? defaultValue = null) => _zdo.GetByteArray(global::ZDOVars.s_data, defaultValue);
@@ -89,50 +90,63 @@ static partial class ZDOExtensions
         public Vector3 GetSpawnPoint(Vector3 defaultValue = default) => _zdo.GetVec3(global::ZDOVars.s_spawnPoint, defaultValue);
         public void SetSpawnPoint(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_spawnPoint, value); }
         public int GetEmoteID(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_emoteID, defaultValue);
-        //public Emotes GetEmote(Emotes defaultValue = ModConfigBase.PlayersConfig.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(global::ZDOVars.s_emote), true, out var e) ? e : defaultValue;
-        //public bool GetAnimationIsEncumbered(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashEncumbered, defaultValue);
-        //public bool GetAnimationInWater(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashInWater, defaultValue);
-        //public bool GetAnimationIsCrouching(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.PlayerAnimationHashCrouching, defaultValue);
+        //public Emotes GetEmote(Emotes defaultValue = ModConfigBase.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(global::ZDOVars.s_emote), true, out var e) ? e : defaultValue;
+        public bool GetAnimationIsEncumbered(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashEncumbered, defaultValue);
+        public bool GetAnimationInWater(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashInWater, defaultValue);
+        public bool GetAnimationIsCrouching(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.PlayerAnimationHashCrouching, defaultValue);
+        static readonly int _animationCraftingHash = ZSyncAnimation.GetHash("crafting");
+        public int GetAnimationCrafting(int defaultValue = default) => _zdo.GetInt(PrivateAccessor.ZSyncAnimationZDOSalt + _animationCraftingHash, defaultValue);
         public DateTime GetTameLastFeeding(DateTime defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_tameLastFeeding, defaultValue.Ticks));
         public void SetTameLastFeeding(DateTime value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_tameLastFeeding, value.Ticks); }
         public bool GetEventCreature(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_eventCreature, defaultValue);
         public bool GetInBed(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_inBed, defaultValue);
         public int GetLocation(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_location, defaultValue);
         public int GetSeed(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_seed, defaultValue);
+        public bool GetAttachJoint(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_attachJointHash, defaultValue);
+        public long GetUser(long defaultValue = 0) => _zdo.GetLong(global::ZDOVars.s_user, defaultValue);
+        public bool GetIsDead(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_dead, defaultValue);
+        public long GetOwner(long defaultValue = 0) => _zdo.GetLong(global::ZDOVars.s_owner, defaultValue);
+        public void SetOwner(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_owner, value); }
+        public string GetOwnerName(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_ownerName, defaultValue);
+        public void SetOwnerName(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_ownerName, value); }
+        //static int __isBackpack = $"{Main.PluginGuid}.IsBackpack".GetStableHashCode();
+        //public bool GetIsBackpack(bool defaultValue = default) => _zdo.GetBool(__isBackpack, defaultValue);
+        //public void SetIsBackpack(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__isBackpack, value); }
+
 
         static int __processorId = $"{ServersideQoL.PluginGuid}.ProcessorId".GetStableHashCode();
         public Guid GetProcessorId(Guid defaultValue = default) => _zdo.GetByteArray(__processorId, Array.Empty<byte>()) is { Length: > 0 } arr ? new(arr) : defaultValue;
         public void SetProcessorId(Guid value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__processorId, value == default ? Array.Empty<byte>() : value.ToByteArray()); }
 
-        static int __intTag = $"{ServersideQoL.PluginGuid}.IntTag".GetStableHashCode();
-        public int GetIntTag(int defaultValue = default) => _zdo.GetInt(__intTag, defaultValue);
-        public void SetIntTag(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__intTag, value); }
-        public void RemoveIntTag([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__intTag); }
+        //static int __intTag = $"{Main.PluginGuid}.IntTag".GetStableHashCode();
+        //public int GetIntTag(int defaultValue = default) => _zdo.GetInt(__intTag, defaultValue);
+        //public void SetIntTag(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__intTag, value); }
+        //public void RemoveIntTag([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__intTag); }
 
-        static int __lastSpawnedTime = $"{ServersideQoL.PluginGuid}.LastSpawnedTime".GetStableHashCode();
-        public DateTimeOffset GetLastSpawnedTime(DateTimeOffset defaultValue = default) => new(_zdo.GetLong(__lastSpawnedTime, defaultValue.Ticks), default);
-        public void SetLastSpawnedTime(DateTimeOffset value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__lastSpawnedTime, value.Ticks - value.Offset.Ticks); }
+        //static int __lastSpawnedTime = $"{Main.PluginGuid}.LastSpawnedTime".GetStableHashCode();
+        //public DateTimeOffset GetLastSpawnedTime(DateTimeOffset defaultValue = default) => new(_zdo.GetLong(__lastSpawnedTime, defaultValue.Ticks), default);
+        //public void SetLastSpawnedTime(DateTimeOffset value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__lastSpawnedTime, value.Ticks - value.Offset.Ticks); }
 
-        static int __spawnedByTrophy = $"{ServersideQoL.PluginGuid}.SpawnedByTrophy".GetStableHashCode();
-        public bool GetSpawnedByTrophy(bool defaultValue = default) => _zdo.GetBool(__spawnedByTrophy, defaultValue);
-        public void SetSpawnedByTrophy(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__spawnedByTrophy, value); }
+        //static int __spawnedByTrophy = $"{Main.PluginGuid}.SpawnedByTrophy".GetStableHashCode();
+        //public bool GetSpawnedByTrophy(bool defaultValue = default) => _zdo.GetBool(__spawnedByTrophy, defaultValue);
+        //public void SetSpawnedByTrophy(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__spawnedByTrophy, value); }
 
-        static int __portalHubId = $"{ServersideQoL.PluginGuid}.PortalHubId".GetStableHashCode();
-        public int GetPortalHubId(int defaultValue = default) => _zdo.GetInt(__portalHubId, defaultValue);
-        public void SetPortalHubId(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__portalHubId, value); }
+        //static int __portalHubId = $"{Main.PluginGuid}.PortalHubId".GetStableHashCode();
+        //public int GetPortalHubId(int defaultValue = default) => _zdo.GetInt(__portalHubId, defaultValue);
+        //public void SetPortalHubId(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__portalHubId, value); }
 
-        static int __returnContentToCreator = $"{ServersideQoL.PluginGuid}.ReturnContentToCreator".GetStableHashCode();
-        public bool GetReturnContentToCreator(bool defaultValue = default) => _zdo.GetBool(__returnContentToCreator, defaultValue);
-        public void SetReturnContentToCreator(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__returnContentToCreator, value); }
+        //static int __returnContentToCreator = $"{Main.PluginGuid}.ReturnContentToCreator".GetStableHashCode();
+        //public bool GetReturnContentToCreator(bool defaultValue = default) => _zdo.GetBool(__returnContentToCreator, defaultValue);
+        //public void SetReturnContentToCreator(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__returnContentToCreator, value); }
 
-        static int __initialLevel = $"{ServersideQoL.PluginGuid}.InitialLevel".GetStableHashCode();
-        public int GetInitialLevel(int defaultValue = default) => _zdo.GetInt(__initialLevel, defaultValue);
-        public void SetInitialLevel(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__initialLevel, value); }
-        public void RemoveInitialLevel([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__initialLevel); }
+        //static int __initialLevel = $"{Main.PluginGuid}.InitialLevel".GetStableHashCode();
+        //public int GetInitialLevel(int defaultValue = default) => _zdo.GetInt(__initialLevel, defaultValue);
+        //public void SetInitialLevel(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__initialLevel, value); }
+        //public void RemoveInitialLevel([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__initialLevel); }
 
-        static int __beaconFound = $"{ServersideQoL.PluginGuid}.BeaconState".GetStableHashCode();
-        public bool GetBeaconFound(bool defaultValue = default) => _zdo.GetBool(__beaconFound, defaultValue);
-        public void SetBeaconFound(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__beaconFound, value); }
+        //static int __beaconFound = $"{Main.PluginGuid}.BeaconState".GetStableHashCode();
+        //public bool GetBeaconFound(bool defaultValue = default) => _zdo.GetBool(__beaconFound, defaultValue);
+        //public void SetBeaconFound(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__beaconFound, value); }
 
         public bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);
         public void SetSacrifiedMegingjord(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedMegingjord", value); }
@@ -145,11 +159,15 @@ static partial class ZDOExtensions
         public float GetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float defaultValue = default) => _zdo.GetFloat($"player{playerID}_EstimatedSkillLevel_{skill}", defaultValue);
         public void SetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_EstimatedSkillLevel_{skill}", value); }
 
+        //static int __adminBuildModifiers = $"{Main.PluginGuid}.AdminBuildModifiers".GetStableHashCode();
+        //public PlayerProcessor.BuildModifiers GetAdminBuildModifiers(PlayerProcessor.BuildModifiers defaultValue = default) => (PlayerProcessor.BuildModifiers)_zdo.GetInt(__adminBuildModifiers, (int)defaultValue);
+        //public void SetAdminBuildModifiers(PlayerProcessor.BuildModifiers value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__adminBuildModifiers, (int)value); }
+
 #if DEBUG
         static readonly IReadOnlyDictionary<int, string> __namesByHash = new Func<IReadOnlyDictionary<int, string>>(static () =>
         {
             var result = new Dictionary<int, string>();
-            foreach (var (hash, name) in typeof(ZDOVars).GetFields(BindingFlags.Public | BindingFlags.Static)
+            foreach (var (hash, name) in typeof(global::ZDOVars).GetFields(BindingFlags.Public | BindingFlags.Static)
                 .Concat(typeof(ZDOVars).GetFields(BindingFlags.NonPublic | BindingFlags.Static))
                 .Where(static x => x.FieldType == typeof(int))
                 .Select(static x => ((int)x.GetValue(null), x.Name))
@@ -170,25 +188,26 @@ static partial class ZDOExtensions
 
         static string GetName(int hash) => __namesByHash.TryGetValue(hash, out var name) ? name : $"Unkown ({hash})";
 
-        //public string ToDebugString()
-        //{
-        //    var ints = ZDOExtraData.GetInts(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-        //    var longs = ZDOExtraData.GetLongs(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-        //    var floats = ZDOExtraData.GetFloats(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-        //    var quats = ZDOExtraData.GetQuaternions(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-        //    var strings = ZDOExtraData.GetStrings(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-        //    var vecs = ZDOExtraData.GetVec3s(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-        //    var byteArrays = ZDOExtraData.GetByteArrays(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
-        //    return $"""
-        //        ints ({ints.Count}):{string.Join($"{Environment.NewLine}  ", ints.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-        //        longs ({longs.Count}):{string.Join($"{Environment.NewLine}  ", longs.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-        //        floats ({floats.Count}):{string.Join($"{Environment.NewLine}  ", floats.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-        //        quats ({quats.Count}):{string.Join($"{Environment.NewLine}  ", quats.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-        //        strings ({strings.Count}):{string.Join($"{Environment.NewLine}  ", strings.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-        //        vecs ({vecs.Count}):{string.Join($"{Environment.NewLine}  ", vecs.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
-        //        byte arrays ({byteArrays.Count}):{string.Join($"{Environment.NewLine}  ", byteArrays.Select(static x => $"{x.Name}: Length={x.Value.Length}").Prepend(""))}
-        //        """;
-        //}
+        public string ToDebugString()
+        {
+            return "";
+            //var ints = ZDOExtraData.GetInts(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var longs = ZDOExtraData.GetLongs(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var floats = ZDOExtraData.GetFloats(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var quats = ZDOExtraData.GetQuaternions(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var strings = ZDOExtraData.GetStrings(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var vecs = ZDOExtraData.GetVec3s(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //var byteArrays = ZDOExtraData.GetByteArrays(_zdo.m_uid).Select(static x => (Name: GetName(x.Key), x.Value)).OrderBy(static x => x.Name).ToList();
+            //return $"""
+            //    ints ({ints.Count}):{string.Join($"{Environment.NewLine}  ", ints.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    longs ({longs.Count}):{string.Join($"{Environment.NewLine}  ", longs.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    floats ({floats.Count}):{string.Join($"{Environment.NewLine}  ", floats.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    quats ({quats.Count}):{string.Join($"{Environment.NewLine}  ", quats.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    strings ({strings.Count}):{string.Join($"{Environment.NewLine}  ", strings.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    vecs ({vecs.Count}):{string.Join($"{Environment.NewLine}  ", vecs.Select(static x => $"{x.Name}: {x.Value}").Prepend(""))}
+            //    byte arrays ({byteArrays.Count}):{string.Join($"{Environment.NewLine}  ", byteArrays.Select(static x => $"{x.Name}: Length={x.Value.Length}").Prepend(""))}
+            //    """;
+        }
 #endif
     }
 }
