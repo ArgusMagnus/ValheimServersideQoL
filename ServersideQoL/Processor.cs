@@ -244,15 +244,17 @@ public abstract class Processor
         ProcessorOwned = 1u << 1,
         //Persistent = 1u << 2
     }
+
+    private protected interface IProcessorPrefabInfo<TPrefabInfo> : IPrefabInfo
+        where TPrefabInfo : ProcessorPrefabInfo
+    {
+        TPrefabInfo? PrefabInfo { get; set; }
+    }
 }
 
 public abstract class Processor<TPrefabInfo> : Processor
     where TPrefabInfo : ProcessorPrefabInfo
 {
-    interface IProcessorPrefabInfo : IPrefabInfo
-    {
-        TPrefabInfo? PrefabInfo { get; set; }
-    }
 
     readonly ConstructorInfo? _prefabInfoCtor;
     readonly ParameterInfo[]? _prefabInfoCtorParameters;
@@ -268,17 +270,17 @@ public abstract class Processor<TPrefabInfo> : Processor
     }
 
     private protected override void AddPrefabInfoInterface(TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder)
-        => prefabInfoBuilder.AddInterface<IProcessorPrefabInfo>();
+        => prefabInfoBuilder.AddInterface<IProcessorPrefabInfo<TPrefabInfo>>();
 
     private protected override bool InitializePrefabInfo(PrefabInfo prefabInfo)
     {
-        var pi = GetProcessorPrefabInfo(prefabInfo);
-        prefabInfo.GetExtension<IProcessorPrefabInfo>().PrefabInfo = pi;
-        return pi is not null;
+        var ext = prefabInfo.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>();
+        ext.PrefabInfo ??= GetProcessorPrefabInfo(prefabInfo);
+        return ext.PrefabInfo is not null;
     }
 
     protected TPrefabInfo? GetPrefabInfo(ZDO zdo)
-        => zdo.GetExtension<IServersideQoLZDO>().PrefabInfo?.GetExtension<IProcessorPrefabInfo>().PrefabInfo;
+        => zdo.GetExtension<IServersideQoLZDO>().PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
 
     TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
     {
@@ -319,7 +321,7 @@ public abstract class Processor<TPrefabInfo> : Processor
         // todo: we should already have IServersideQoLZDO when this method is called
         var extZDO = zdo.GetExtension<IServersideQoLZDO>();
         var result = ProcessResult.Default;
-        if (extZDO.PrefabInfo?.GetExtension<IProcessorPrefabInfo>().PrefabInfo is not { } prefabInfo)
+        if (extZDO.PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo is not { } prefabInfo)
             result |= ProcessResult.UnregisterProcessor;
         else
             result |= Process(zdo, peers, prefabInfo);
