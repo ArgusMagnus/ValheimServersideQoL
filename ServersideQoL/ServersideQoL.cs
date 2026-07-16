@@ -2,6 +2,7 @@
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using BepInEx.Logging;
+using HarmonyLib;
 using System.Reflection;
 using UnityEngine;
 using Valheim.ZDOExtender;
@@ -103,6 +104,7 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
     readonly List<Processor> _enabledProcessors = [];
     bool _hasCyclicProcessors;
 
+    internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
     internal static IReadOnlyDictionary<Guid, Processor> Processors => __processorsById;
 
     //static IReadOnlyList<Processor>? __processors;

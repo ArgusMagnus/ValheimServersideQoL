@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Valheim.ZDOExtender;
 
@@ -249,6 +251,48 @@ public abstract class Processor
         where TPrefabInfo : ProcessorPrefabInfo
     {
         TPrefabInfo? PrefabInfo { get; set; }
+    }
+
+    protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
+    {
+        //Main.Instance.Logger.DevLog($"ShowMessage: {message}", LogLevel.Info);
+        switch (type)
+        {
+            case MessageTypes.TopLeftNear:
+            case MessageTypes.CenterNear:
+            case MessageTypes.InWorld:
+                peers = peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance);
+                break;
+
+            case MessageTypes.TopLeftFar:
+            case MessageTypes.CenterFar:
+                peers = peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= Config.Instance.FarMessageRange.Value);
+                break;
+
+            default:
+                return;
+        }
+
+        if (type is MessageTypes.InWorld)
+            RPC.ShowInWorldText(peers.Select(static x => x.m_uid), inWorldTextType, pos, message.RemoveRichTextTags());
+        else
+        {
+            var msgType = type is MessageTypes.TopLeftNear or MessageTypes.TopLeftFar ? MessageHud.MessageType.TopLeft : MessageHud.MessageType.Center;
+            foreach (var peer in peers)
+                RPC.ShowMessage(peer.m_uid, msgType, message);
+        }
+    }
+
+    protected static void ShowMessage(IEnumerable<Peer> peers, ExtendedZDO zdo, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
+        => ShowMessage(peers, zdo.GetPosition(), message, type, inWorldTextType);
+
+
+    [Conditional("DEBUG")]
+    protected static void DevShowMessage(ZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
+    {
+#if DEBUG
+        RPC.ShowInWorldText([0], type, zdo.GetPosition(), $"{Path.GetFileNameWithoutExtension(callerFile)} L{callerLineNo}: {message}");
+#endif
     }
 }
 

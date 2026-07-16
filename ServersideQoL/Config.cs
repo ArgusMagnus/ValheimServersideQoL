@@ -18,4 +18,6 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         "True to ignore the item data version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
     public ConfigEntry<bool> IgnoreWorldVersionCheck { get; } = BindEx(cfg, Section, false,
         "True to ignore the world version check. Turning this off may lead to the mod being run in an untested version and may lead to data loss/world corruption");
+    public ConfigEntry<float> FarMessageRange { get; } = BindEx(cfg, Section, ZoneSystem.c_ZoneSize,
+        $"Max distance a player can have to a modified object to receive messages of type {MessageTypes.TopLeftFar} or {MessageTypes.CenterFar}");
 }

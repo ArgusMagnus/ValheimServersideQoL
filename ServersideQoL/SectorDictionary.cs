@@ -7,18 +7,18 @@ namespace ServersideQoL;
 
 public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Vector3, TValue>, IReadOnlyDictionary<Vector3, TValue>
 {
-    public float SectorWidth { get; private set; } = sectorWidth;
-    float _scale = sectorWidth > 0 ? 1f / sectorWidth : throw new ArgumentOutOfRangeException(nameof(sectorWidth));
+    public float SectorWidth { get; } = sectorWidth;
+    readonly float _scale = sectorWidth > 0 ? 1f / sectorWidth : throw new ArgumentOutOfRangeException(nameof(sectorWidth));
     readonly Dictionary<(int, int), TValue> _sections = [];
 
-    public void Reset(float newSectorWidth)
-    {
-        if (newSectorWidth <= 0)
-            throw new ArgumentOutOfRangeException(nameof(newSectorWidth));
-        SectorWidth = newSectorWidth;
-        _scale = 1f / newSectorWidth;
-        _sections.Clear();
-    }
+    //public void Reset(float newSectorWidth)
+    //{
+    //    if (newSectorWidth <= 0)
+    //        throw new ArgumentOutOfRangeException(nameof(newSectorWidth));
+    //    SectorWidth = newSectorWidth;
+    //    _scale = 1f / newSectorWidth;
+    //    _sections.Clear();
+    //}
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     (int, int) GetKey(Vector3 pos)
@@ -173,18 +173,18 @@ public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Ve
 public sealed class SectorDictionary<TKey, TValue>(float sectorWidth) : IDictionary<(Vector3, TKey), TValue>, IReadOnlyDictionary<(Vector3, TKey), TValue>
         where TKey : notnull
 {
-    public float SectorWidth { get; private set; } = sectorWidth;
-    float _scale = sectorWidth > 0 ? 1f / sectorWidth : throw new ArgumentOutOfRangeException(nameof(sectorWidth));
+    public float SectorWidth { get; } = sectorWidth;
+    readonly float _scale = sectorWidth > 0 ? 1f / sectorWidth : throw new ArgumentOutOfRangeException(nameof(sectorWidth));
     readonly Dictionary<(int, int, TKey), TValue> _sections = [];
 
-    public void Reset(float newSectorWidth)
-    {
-        if (newSectorWidth <= 0)
-            throw new ArgumentOutOfRangeException(nameof(newSectorWidth));
-        SectorWidth = newSectorWidth;
-        _scale = 1f / newSectorWidth;
-        _sections.Clear();
-    }
+    //public void Reset(float newSectorWidth)
+    //{
+    //    if (newSectorWidth <= 0)
+    //        throw new ArgumentOutOfRangeException(nameof(newSectorWidth));
+    //    SectorWidth = newSectorWidth;
+    //    _scale = 1f / newSectorWidth;
+    //    _sections.Clear();
+    //}
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     (int, int, TKey) GetKey((Vector3 pos, TKey key) key)

@@ -1,4 +1,6 @@
-﻿using Valheim.ZDOExtender;
+﻿using System.Diagnostics;
+using UnityEngine;
+using Valheim.ZDOExtender;
 
 namespace ServersideQoL;
 
@@ -338,5 +340,16 @@ public static partial class ZDOExtensions
             }
             return false;
         }
+
+        [Conditional("DEBUG")]
+        public void AssertIs<T>() where T : MonoBehaviour
+            => System.Diagnostics.Debug.Assert(@this.PrefabInfo?.Prefab.GetComponentInChildren<T>() is not null);
+
+        [Conditional("DEBUG")]
+        public void AssertIsAll<T1, T2>() where T1 : MonoBehaviour where T2 : MonoBehaviour
+            => System.Diagnostics.Debug.Assert(@this.PrefabInfo?.Prefab is { } prefab &&
+                prefab.GetComponentInChildren<T1>() is not null &&
+                prefab.GetComponentInChildren<T2>() is not null);
+
     }
 }

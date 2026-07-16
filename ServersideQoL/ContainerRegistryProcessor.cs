@@ -1,4 +1,5 @@
-﻿using Valheim.ZDOExtender;
+﻿using System.Runtime.CompilerServices;
+using Valheim.ZDOExtender;
 
 namespace ServersideQoL;
 
@@ -8,131 +9,182 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     public const string Id = "fe73690f-6790-4cfa-9795-f93136d57286";
     public sealed record PrefabInfo(Container Container, Piece Piece, PieceTable PieceTable, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo;
 
-    readonly Dictionary<ZDO, ContainerInventory> _inventories = [];
-    readonly Dictionary<float, SectorDictionary<SharedItemDataKey, HashSet<ZDO>>> _containersByItemNameBySectorWidth = [];
+    public event Action<ZDO, ContainerState>? ContainerChanged;
 
-    public event Action<ZDO, IContainerInventory>? ContainerChanged;
+    readonly Dictionary<ZDO, ContainerStateImpl> _states = [];
+    readonly Dictionary<float, WeakReference<SectorDictionary<SharedItemDataKey, HashSet<ZDO>>>> _containersByItemNameBySectorWidth = [];
+    bool _openResponseRegistered;
 
     public SectorDictionary<SharedItemDataKey, HashSet<ZDO>> GetContainersByItemName(float sectorWidth)
     {
-        if (!_containersByItemNameBySectorWidth.TryGetValue(sectorWidth, out var dict))
-            _containersByItemNameBySectorWidth.Add(sectorWidth, dict = new(sectorWidth));
+        SectorDictionary<SharedItemDataKey, HashSet<ZDO>> dict;
+        if (!_containersByItemNameBySectorWidth.TryGetValue(sectorWidth, out var weakRef))
+            _containersByItemNameBySectorWidth.Add(sectorWidth, new(dict = new(sectorWidth)));
+        else if (!weakRef.TryGetTarget(out dict))
+            weakRef.SetTarget(dict = new(sectorWidth));
         return dict;
     }
 
-    protected internal override void Initialize(bool firstTime)
-    {
-        base.Initialize(firstTime);
-
-        _containersByItemNameBySectorWidth.Clear();
-    }
-
-    public IContainerInventory? GetInventory(ZDO zdo)
+    public ContainerState? GetState(ZDO zdo)
     {
         if (GetPrefabInfo(zdo) is not { } prefabInfo)
             return default;
-        return GetInventory(zdo, prefabInfo);
+        return GetState(zdo, prefabInfo);
     }
 
-    public IContainerInventory GetInventory(ZDO zdo, PrefabInfo prefabInfo)
+    public ContainerState GetState(ZDO zdo, PrefabInfo prefabInfo)
     {
-        if (!_inventories.TryGetValue(zdo, out var inventory))
+        if (!_states.TryGetValue(zdo, out var inventory))
         {
-            _inventories.Add(zdo, inventory = new(zdo, prefabInfo));
-            zdo.GetExtension<IExtendedZDO>().Destroyed += x => _inventories.Remove(x);
+            _states.Add(zdo, inventory = new(zdo, prefabInfo));
+            zdo.GetExtension<IExtendedZDO>().Destroyed += x => _states.Remove(x);
         }
 
         return inventory.Update();
     }
 
+    public void RequestOwnership(ZDO zdo, long playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+        => RequestOwnership(zdo, playerID, _states[zdo], caller, callerLineNo);
+
+    public void RequestOwnership(ZDO zdo, long playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+    {
+        if (zdo.IsOwnerOrUnassigned() || state is not ContainerStateImpl s || DateTimeOffset.UtcNow < s.NextOwnershipRequest)
+            return;
+
+        if (!_openResponseRegistered && Player.m_localPlayer is not null)
+        {
+            /// <see cref="Container.RPC_OpenRespons"/>
+            RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = true);
+        }
+
+        //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
+        s.NextOwnershipRequest = DateTimeOffset.UtcNow.AddSeconds(1);
+        s.WaitingForResponse = true;
+        s.PreviousOwner = zdo.GetOwner();
+
+
+        //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
+        RPC.RequestOpen(zdo, playerID);
+    }
+
+    protected internal override void Initialize(bool firstTime)
+    {
+        base.Initialize(firstTime);
+        RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = false);
+    }
+
     protected override ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
     {
-        if (zdo.Vars.GetOwner() is 0)
+        if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || zdo.Vars.GetOwner() is 0)
             return ProcessResult.UnregisterProcessor;
 
         if (_containersByItemNameBySectorWidth.Count is 0)
-            return ProcessResult.UnregisterProcessor;
+            return default; // ProcessResult.UnregisterProcessor;
 
         if (zdo.Vars.GetInUse())
             return default;
 
-        var inventory = GetInventory(zdo, prefabInfo);
+        var state = GetState(zdo, prefabInfo);
 
-        foreach (var item in inventory.Items)
+        List<float>? remove = null;
+        foreach (var (key, weakRef) in _containersByItemNameBySectorWidth)
         {
-            if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private)
+            if (!weakRef.TryGetTarget(out var dict))
+            {
+                (remove ??= []).Add(key);
                 continue;
-
-            SharedItemDataKey key = item.m_shared;
-            foreach (var dict in _containersByItemNameBySectorWidth.Values)
-                dict.TryAdd(key, zdo);
+            }
+            foreach (var item in state.InventoryItems)
+                dict.TryAdd(item.m_shared, zdo);
         }
 
-        ContainerChanged?.Invoke(zdo, inventory);
+        if (remove is not null)
+        {
+            foreach (var key in remove)
+                _containersByItemNameBySectorWidth.Remove(key);
+        }
+
+        ContainerChanged?.Invoke(zdo, state);
 
         return default;
     }
 
-    sealed class ContainerInventory(ZDO zdo, PrefabInfo prefabInfo) : IContainerInventory, IContainerInventoryReadOnly
+    bool RPC_OpenResponse(ZDO? zdo, bool granted)
     {
-        public Inventory Inventory { get; private set; } = default!;
+        if (zdo is null || !_states.TryGetValue(zdo, out var state) || !state.WaitingForResponse)
+            return true;
+
+        //Logger.DevLog($"Container {data.m_targetZDO}: OpenResponse: {granted}");
+        state.WaitingForResponse = false;
+        return false;
+    }
+
+    sealed class ContainerStateImpl(ZDO zdo, PrefabInfo prefabInfo) : ContainerState
+    {
+        public DateTimeOffset NextOwnershipRequest { get; set; }
+        public bool WaitingForResponse { get; set; }
+        public long PreviousOwner { get; set; }
+
+        Inventory _inventory = default!;
         readonly ZDO _zdo = zdo;
         readonly PrefabInfo _prefabInfo = prefabInfo;
 
         List<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;
         byte[]? _data;
+        static readonly ZPackage _pkg = new();
 
-        public List<ItemDrop.ItemData> Items
+        public override List<ItemDrop.ItemData> InventoryItems
         {
             get
             {
                 if (_items is null)
-                    _items = Inventory!.GetAllItems();
-                else if (!ReferenceEquals(_items, Inventory!.GetAllItems()))
+                    _items = _inventory!.GetAllItems();
+                else if (!ReferenceEquals(_items, _inventory!.GetAllItems()))
                     throw new Exception("Assumption violated");
                 return _items;
             }
         }
 
-        public float TotalWeight => Inventory.GetTotalWeight();
-
-        IReadOnlyList<ItemDrop.ItemData> IContainerInventoryReadOnly.Items => Items;
-
-        public ContainerInventory Update()
+        public ContainerState Update()
         {
             if (_dataRevision == _zdo.DataRevision)
                 return this;
 
             var data = _zdo.Vars.GetItems();
-            if (ReferenceEquals(data, _data)) // review: maybe also check SequenceEquals?
+            if (ReferenceEquals(data, _data))
+                return this;
+            if (data is not null && _data is not null && data.SequenceEqual(_data))
                 return this;
 
             var fields = _zdo.Fields<Container>();
             var w = fields.GetInt(static () => x => x.m_width);
             var h = fields.GetInt(static () => x => x.m_height);
-            if (Inventory is null || Inventory.GetWidth() != w || Inventory.GetHeight() != h)
+            if (_inventory is null || _inventory.GetWidth() != w || _inventory.GetHeight() != h)
             {
-                Inventory = new(_prefabInfo.Container.m_name, _prefabInfo.Container.m_bkg, w, h);
+                _inventory = new(_prefabInfo.Container.m_name, _prefabInfo.Container.m_bkg, w, h);
                 _items = null;
             }
 
-            if (data is { Length: > 0 })
-                Inventory.Load(new(data));
+            if (data is not { Length: > 0 })
+                InventoryItems.Clear();
             else
-                Items.Clear();
+            {
+                _pkg.Load(data);
+                _inventory.Load(_pkg);
+            }
 
             _dataRevision = _zdo.DataRevision;
             _data = data;
             return this;
         }
 
-        public void Save()
+        public override void SaveIntenvory()
         {
-            var pkg = new ZPackage();
-            Inventory.Save(pkg);
+            _pkg.Clear();
+            _inventory.Save(_pkg);
             var dataRevision = _zdo.DataRevision;
-            var data = pkg.GetArray();
+            var data = _pkg.GetArray();
             _zdo.Vars.SetItems(data);
             if (dataRevision != _zdo.DataRevision) // items changed
             {
@@ -148,18 +200,4 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
             _data = data;
         }
     }
-}
-
-public interface IContainerInventoryReadOnly
-{
-    IReadOnlyList<ItemDrop.ItemData> Items { get; }
-    float TotalWeight { get; }
-}
-
-public interface IContainerInventory
-{
-    Inventory Inventory { get; }
-    List<ItemDrop.ItemData> Items { get; }
-    float TotalWeight { get; }
-    void Save();
 }
