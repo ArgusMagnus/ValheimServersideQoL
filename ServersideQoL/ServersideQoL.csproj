@@ -64,6 +64,10 @@
 			<HintPath>$(ValheimDir)valheim_server_Data\Managed\SoftReferenceableAssets.dll</HintPath>
 			<Private>False</Private>
 		</RequiredReference>
+		<RequiredReference Include="YamlDotNet">
+			<HintPath>$(ValheimDir)BepInEx\plugins\ValheimModding-YamlDotNet\YamlDotNet.dll</HintPath>
+			<Private>False</Private>
+		</RequiredReference>
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)' != 'Debug'">

@@ -146,7 +146,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
             else if (changed)
             {
                 state.SaveIntenvory();
-                ShowMessage(peers, zdo, Config.Localization.Containers.FormatContainerSorted(prefabInfo.Container.m_name), Config.Instance.SortedMessageType.Value);
+                ShowMessage(peers, zdo, Config.Instance.Localization.Value.FormatContainerSorted(prefabInfo.Container.m_name), Config.Instance.SortedMessageType.Value);
             }
         }
 

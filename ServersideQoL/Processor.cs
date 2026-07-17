@@ -283,7 +283,7 @@ public abstract class Processor
         }
     }
 
-    protected static void ShowMessage(IEnumerable<Peer> peers, ExtendedZDO zdo, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
+    protected static void ShowMessage(IEnumerable<Peer> peers, ZDO zdo, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
         => ShowMessage(peers, zdo.GetPosition(), message, type, inWorldTextType);
 
 
