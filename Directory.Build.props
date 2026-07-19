@@ -1,0 +1,14 @@
+<Project>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>embedded</DebugType>
+		<MinVerTagPrefix>v</MinVerTagPrefix>
+		<MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
+		<ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
+		<Authors>ArgusMagnus</Authors>
+	</PropertyGroup>
+</Project>

@@ -1,4 +1,4 @@
-﻿using Valheim.ZDOExtender;
+﻿using ServersideQoL.ZDOExtender;
 
 namespace ServersideQoL;
 

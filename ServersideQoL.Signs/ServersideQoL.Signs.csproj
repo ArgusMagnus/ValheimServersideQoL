@@ -1,22 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
-		<Nullable>enable</Nullable>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<LangVersion>latest</LangVersion>
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>embedded</DebugType>
-		<MinVerTagPrefix>v</MinVerTagPrefix>
-		<MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
-		<ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<Compile Remove="Dependencies\**" />
-		<None Include="Dependencies\**" />
-	</ItemGroup>
-
 	<ItemGroup>
 	  <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" />
 	</ItemGroup>
@@ -107,30 +90,5 @@
 			<Private>False</Private>
 		</Reference>
 	</ItemGroup>
-
-
-	<Target Name="GenerateBuildInfo" BeforeTargets="CoreCompile">
-		<PropertyGroup>
-			<VersionNumber>$(Version.Split('-')[0])</VersionNumber>
-			<BuildInfoFile>$(IntermediateOutputPath)BuildInfo.cs</BuildInfoFile>
-			<MyTextLines>
-namespace $(RootNamespace)%3B
-
-partial class $(MSBuildProjectName.Replace('.',''))
-{
-	public const string PluginVersion = "$(VersionNumber)"%3B
-	public const string PluginInformationalVersion = "$(Version)"%3B
-#if DEBUG
-	const string ConfigMarkdownPath = @"$(ProjectDir)Configuration.md"%3B
-#endif
-}
-			</MyTextLines>
-		</PropertyGroup>
-
-		<WriteLinesToFile File="$(BuildInfoFile)" Overwrite="true" Lines="$(MyTextLines)" />
-
-		<ItemGroup>
-			<Compile Include="$(BuildInfoFile)" />
-		</ItemGroup>
-	</Target>
+	
 </Project>

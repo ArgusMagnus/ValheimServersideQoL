@@ -5,7 +5,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System.Reflection;
 using UnityEngine;
-using Valheim.ZDOExtender;
+using ServersideQoL.ZDOExtender;
 
 namespace ServersideQoL;
 
@@ -92,11 +92,9 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : BaseUnityPlugin,
 }
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-[BepInDependency(ZDOExtender.PluginGuid, ZDOExtender.PluginVersion)]
-public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
+[BepInDependency(ZDOExtender.ZDOExtender.PluginGuid, ZDOExtender.ZDOExtender.PluginVersion)]
+partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 {
-    public const string PluginName = nameof(ServersideQoL);
-    public const string PluginGuid = $"argusmagnus.{PluginName}";
     public static readonly int PluginGuidHash = PluginGuid.GetStableHashCode();
 
     static readonly HashSet<IServersideQoLPlugin> __plugins = [];
@@ -145,7 +143,7 @@ public sealed partial class ServersideQoL : ServersideQoLPluginBase<ServersideQo
 
     void Awake()
     {
-        ZDOExtender.RegisterInterfaces += OnRegisterZDOInterfaces;
+        ZDOExtender.ZDOExtender.RegisterInterfaces += OnRegisterZDOInterfaces;
     }
 
     void OnRegisterZDOInterfaces(IZDOInterfaceCollection interfaces)

@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
+﻿using ServersideQoL.ZDOExtender;
+using System.Diagnostics;
 using UnityEngine;
-using Valheim.ZDOExtender;
 
 namespace ServersideQoL;
 

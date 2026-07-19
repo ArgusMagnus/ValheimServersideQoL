@@ -1,5 +1,5 @@
-﻿using System.Runtime.CompilerServices;
-using Valheim.ZDOExtender;
+﻿using ServersideQoL.ZDOExtender;
+using System.Runtime.CompilerServices;
 
 namespace ServersideQoL;
 

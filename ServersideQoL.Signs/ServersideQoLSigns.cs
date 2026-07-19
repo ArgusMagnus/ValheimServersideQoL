@@ -5,11 +5,8 @@ namespace ServersideQoL.Signs;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 [BepInDependency(ServersideQoL.PluginGuid, ServersideQoL.PluginVersion)]
-public sealed partial class ServersideQoLSigns : ServersideQoLPluginBase<ServersideQoLSigns, Config>
+partial class Signs : ServersideQoLPluginBase<Signs, Config>
 {
-    public const string PluginName = $"{nameof(ServersideQoL)}.Signs";
-    public const string PluginGuid = $"argusmagnus.{PluginName}";
-
     protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
     protected override void RegisterProcessors(IProcessorCollection processors)

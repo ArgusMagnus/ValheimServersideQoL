@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using Valheim.ZDOExtender;
 using static ZRoutedRpc;
 
 namespace ServersideQoL;

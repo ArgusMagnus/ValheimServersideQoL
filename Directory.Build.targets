@@ -1,0 +1,27 @@
+<Project>
+	<Target Name="GenerateBuildInfo" BeforeTargets="CoreCompile">
+		<PropertyGroup>
+			<VersionNumber>$(Version.Split('-')[0])</VersionNumber>
+			<BuildInfoFile>$(IntermediateOutputPath)BuildInfo.cs</BuildInfoFile>
+			<ModName>$([System.Text.RegularExpressions.Regex]::Match('$(RootNamespace)', '[^.]+$').Value)</ModName>
+			<MyTextLines>
+namespace $(RootNamespace)%3B
+
+public sealed partial class $(ModName)
+{
+    public const string Author = "$(Authors)"%3B
+	public const string PluginName = "$(ModName)"%3B
+	public const string PluginGuid = $"{Author}.{PluginName}"%3B
+	public const string PluginVersion = "$(VersionNumber)"%3B
+	public const string PluginInformationalVersion = "$(Version)"%3B
+}
+			</MyTextLines>
+		</PropertyGroup>
+
+		<WriteLinesToFile File="$(BuildInfoFile)" Overwrite="true" Lines="$(MyTextLines)" />
+
+		<ItemGroup>
+			<Compile Include="$(BuildInfoFile)" />
+		</ItemGroup>
+	</Target>  
+</Project>

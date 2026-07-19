@@ -1,6 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using ServersideQoL.ZDOExtender;
+using System.Runtime.CompilerServices;
 using UnityEngine;
-using Valheim.ZDOExtender;
 
 namespace ServersideQoL;
 
