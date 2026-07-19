@@ -51,8 +51,7 @@ public abstract class Processor
 
     protected readonly HashSet<ZDO> PlacedObjects = [];
 
-    static bool __initialized;
-    static ZDO? _dataZDO;
+    static ZDO? __dataZDO;
 
     static bool __enableProcessingTimeMonitoring;
     public double ProcessingTimeSeconds { get; private set; }
@@ -82,22 +81,13 @@ public abstract class Processor
         where T : Processor, new()
         => InstanceCache<T>.Instance;
 
-    internal protected virtual void Initialize(bool firstTime)
+    internal static void StaticInitialize()
     {
         __enableProcessingTimeMonitoring = Config.Instance.DiagnosticLogs.Value;
         //__teleportableItems = null;
         //ZoneSystemSendGlobalKeys.GlobalKeysChanged -= UpdateTeleportableItems;
 
-        if (!firstTime)
-        {
-            __initialized = false;
-            return;
-        }
-
-        if (__initialized)
-            return;
-        __initialized = true;
-        _dataZDO = null;
+        __dataZDO = null;
 
         foreach (var zdo in ZDOMan.instance.GetObjects())
         {
@@ -112,8 +102,8 @@ public abstract class Processor
 
             if ((marker & CreatorMarkers.DataZDO) is not 0)
             {
-                if (_dataZDO is null)
-                    _dataZDO = zdo;
+                if (__dataZDO is null)
+                    __dataZDO = zdo;
                 else
                 {
                     ServersideQoL.Logger.LogError("More then one DataZDO found, destroying the second one");
@@ -128,24 +118,26 @@ public abstract class Processor
         }
     }
 
+    internal protected virtual void Initialize() { }
+
     protected static ZDO DataZDO
     {
         get
         {
-            if (_dataZDO is null)
+            if (__dataZDO is null)
             {
-                _dataZDO = ZDOMan.instance.CreateNewZDO(new(WorldGenerator.waterEdge * 10, -1000f, WorldGenerator.waterEdge * 10), Prefabs.Sconce);
-                _dataZDO.SetPrefab(Prefabs.Sconce);
-                _dataZDO.Persistent = true;
-                _dataZDO.Distant = false;
-                _dataZDO.Type = ZDO.ObjectType.Default;
-                _dataZDO.SetModAsCreator(CreatorMarkers.DataZDO);
-                _dataZDO.Vars.SetHealth(-1);
-                _dataZDO.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
-                _dataZDO.Fields<WearNTear>().Set(static () => x => x.m_noRoofWear, false).Set(static () => x => x.m_noSupportWear, false).Set(static () => x => x.m_health, -1);
-                _dataZDO.UnregisterAll();
+                __dataZDO = ZDOMan.instance.CreateNewZDO(new(WorldGenerator.waterEdge * 10, -1000f, WorldGenerator.waterEdge * 10), Prefabs.Sconce);
+                __dataZDO.SetPrefab(Prefabs.Sconce);
+                __dataZDO.Persistent = true;
+                __dataZDO.Distant = false;
+                __dataZDO.Type = ZDO.ObjectType.Default;
+                __dataZDO.SetModAsCreator(CreatorMarkers.DataZDO);
+                __dataZDO.Vars.SetHealth(-1);
+                __dataZDO.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
+                __dataZDO.Fields<WearNTear>().Set(static () => x => x.m_noRoofWear, false).Set(static () => x => x.m_noSupportWear, false).Set(static () => x => x.m_health, -1);
+                __dataZDO.UnregisterAll();
             }
-            return _dataZDO;
+            return __dataZDO;
         }
     }
 

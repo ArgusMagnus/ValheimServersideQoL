@@ -11,9 +11,8 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     readonly ConfigEntry<bool> _cfgAutoPickup = Config.Instance.AutoPickup;
     SectorDictionary<SharedItemDataKey, HashSet<ZDO>>? _containersByItemName;
 
-    protected override void Initialize(bool firstTime)
+    protected override void Initialize()
     {
-        base.Initialize(firstTime);
         _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(1);
     }
 

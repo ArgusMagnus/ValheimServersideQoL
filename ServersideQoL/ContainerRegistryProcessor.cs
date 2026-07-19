@@ -67,9 +67,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         RPC.RequestOpen(zdo, playerID);
     }
 
-    protected internal override void Initialize(bool firstTime)
+    protected internal override void Initialize()
     {
-        base.Initialize(firstTime);
         RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = false);
     }
 

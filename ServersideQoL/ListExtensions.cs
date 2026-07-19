@@ -4,8 +4,7 @@ namespace ServersideQoL;
 
 public static class ListExtensions
 {
-    public static ListEnumerable<T> AsEnumerable<T>(this IReadOnlyList<T> list) => new(list);
-    public static IEnumerable<T> AsBoxedEnumerable<T>(this IReadOnlyList<T> list) => Enumerable.AsEnumerable(list);
+    public static ListEnumerable<T> Enumerate<T>(this IReadOnlyList<T> list) => new(list);
 
     public readonly struct ListEnumerable<T>(IReadOnlyList<T> list)
     {

@@ -34,7 +34,6 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
     const uint ExpectedWorldVersion = 36;
 
 
-    ulong _executeCounter;
     readonly HashSet<IConfig> _configChanged = [];
     uint _unfinishedProcessingInRow;
     record SectorInfo(List<Peer> Peers, List<ZDO> ZDOs)
@@ -218,52 +217,49 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                     yield return new WaitForSeconds(5);
                     continue;
                 }
+                ZNetPeer? localPeer = null;
+                if (!ZNet.instance.IsDedicated())
+                {
+                    while (Player.m_localPlayer is null)
+                        yield return new WaitForSeconds(0.2f);
 
-                yield break;
+                    localPeer = new(new DummySocket(), true)
+                    {
+                        m_uid = ZDOMan.GetSessionID(),
+                        m_characterID = Player.m_localPlayer.GetZDOID(),
+                        m_server = true
+                    };
+                }
+                var peers = new PeersEnumerable(localPeer);
 
-                //ZNetPeer? localPeer = null;
-                //if (!ZNet.instance.IsDedicated())
-                //{
-                //    while (Player.m_localPlayer is null)
-                //        yield return new WaitForSeconds(0.2f);
+                while (true)
+                {
+                    yield return null;
 
-                //    localPeer = new(new DummySocket(), true)
-                //    {
-                //        m_uid = ZDOMan.GetSessionID(),
-                //        m_characterID = Player.m_localPlayer.GetZDOID(),
-                //        m_server = true
-                //    };
-                //}
-                //var peers = new PeersEnumerable(localPeer);
+                    if (ZNet.instance is null)
+                        break;
 
-                //while (true)
-                //{
-                //    yield return null;
+                    var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
+                    var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
+                    var maxDelta = 1.0 / minFps;
+                    var actualFps = 1.0 / Time.unscaledDeltaTime;
+                    if (Time.unscaledDeltaTime > maxDelta)
+                    {
+                        if (Config.DiagnosticLogs.Value)
+                            Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
+                        continue;
+                    }
+                    var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
+                    var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
 
-                //    if (ZNet.instance is null)
-                //        break;
-
-                //    var minFps = ZNet.instance.IsDedicated() ? 10 : Game.m_minimumFPSLimit;
-                //    var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
-                //    var maxDelta = 1.0 / minFps;
-                //    var actualFps = 1.0 / Time.unscaledDeltaTime;
-                //    if (Time.unscaledDeltaTime > maxDelta)
-                //    {
-                //        if (Config.DiagnosticLogs.Value)
-                //            Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
-                //        continue;
-                //    }
-                //    var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
-                //    var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
-
-                //    try { Execute(peers, budget); }
-                //    catch (OperationCanceledException) { yield break; }
-                //    catch (Exception ex)
-                //    {
-                //        Logger.LogError(ex);
-                //        yield break;
-                //    }
-                //}
+                    try { Execute(peers, budget); }
+                    catch (OperationCanceledException) { yield break; }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex);
+                        yield break;
+                    }
+                }
             }
         }
     }
@@ -282,7 +278,6 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
         //if (_worldConfig is not null)
         //    _worldConfig.ConfigFile.SettingChanged -= OnConfigChanged;
         //_worldConfig = null;
-        _executeCounter = 0;
 
         //if (Config.General.ConfigPerWorld.Value)
         //{
@@ -322,30 +317,30 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 
         var failed = false;
         var abort = false;
-        if (RuntimeInformation.Instance.GameVersion != ExpectedGameVersion)
-        {
-            Logger.LogWarning(Invariant($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}"));
-            failed = true;
-            abort |= !cfg.IgnoreGameVersionCheck.Value;
-        }
-        if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
-        {
-            Logger.LogWarning(Invariant($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}"));
-            failed = true;
-            abort |= !cfg.IgnoreNetworkVersionCheck.Value;
-        }
-        if (RuntimeInformation.Instance.ItemDataVersion != ExpectedItemDataVersion)
-        {
-            Logger.LogWarning(Invariant($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}"));
-            failed = true;
-            abort |= !cfg.IgnoreItemDataVersionCheck.Value;
-        }
-        if (RuntimeInformation.Instance.WorldVersion != ExpectedWorldVersion)
-        {
-            Logger.LogWarning(Invariant($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}"));
-            failed = true;
-            abort |= !cfg.IgnoreWorldVersionCheck.Value;
-        }
+        //if (RuntimeInformation.Instance.GameVersion != ExpectedGameVersion)
+        //{
+        //    Logger.LogWarning(Invariant($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}"));
+        //    failed = true;
+        //    abort |= !cfg.IgnoreGameVersionCheck.Value;
+        //}
+        //if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
+        //{
+        //    Logger.LogWarning(Invariant($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}"));
+        //    failed = true;
+        //    abort |= !cfg.IgnoreNetworkVersionCheck.Value;
+        //}
+        //if (RuntimeInformation.Instance.ItemDataVersion != ExpectedItemDataVersion)
+        //{
+        //    Logger.LogWarning(Invariant($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}"));
+        //    failed = true;
+        //    abort |= !cfg.IgnoreItemDataVersionCheck.Value;
+        //}
+        //if (RuntimeInformation.Instance.WorldVersion != ExpectedWorldVersion)
+        //{
+        //    Logger.LogWarning(Invariant($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}"));
+        //    failed = true;
+        //    abort |= !cfg.IgnoreWorldVersionCheck.Value;
+        //}
 
         if (failed)
         {
@@ -361,6 +356,11 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 #if DEBUG
         Logger.LogInfo(Invariant($"Registered plugins: {__plugins.Count}"));
 #endif
+
+        Processor.StaticInitialize();
+        foreach (var processor in _enabledProcessors)
+            processor.Initialize();
+
         return true;
     }
 
@@ -413,100 +413,29 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                     }
                 }
             }
+
+            if (cfg.Enabled.Value)
+            {
+                foreach (var processor in cfg.Plugin.Processors)
+                    processor.Initialize();
+
+                foreach (var zdo in ZDOMan.instance.GetObjects())
+                {
+                    zdo.ReregisterAll();
+                    OnDataOrOwnerRevisionChanged(zdo);
+                }
+            }
         }
     }
-
-    //void Execute(PeersEnumerable peers, double timeBudgetSeconds)
-    //{
-    //    (var changed, _changed) = (_changed!, null);
-    //    foreach (var zdo in changed)
-    //    {
-    //        foreach (var processor in zdo.Processors)
-    //            processor.ProcessInternal(peers, zdo);
-    //    }
-    //    changed.Clear();
-    //    _changed = changed;
-
 
     void Execute(PeersEnumerable peers, double timeBudgetSeconds)
     {
         var timeStartSeconds = Time.realtimeSinceStartupAsDouble;
         var executeUntil = timeStartSeconds + timeBudgetSeconds;
-        _executeCounter++;
-//        if (_configChanged)
-//        {
-//            _configChanged = false;
-
-//            if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
-//                ZoneSystem.instance.ResetWorldKeys();
-
-//            if (Config.WorldModifiers.SetPresetFromConfig.Value)
-//            {
-//                try { MyTerminal.ExecuteCommand("setworldpreset", Invariant($"{Config.WorldModifiers.Preset.Value}")); }
-//                catch (Exception ex) { Logger.LogError(ex); }
-//            }
-
-//            if (Config.WorldModifiers.SetModifiersFromConfig.Value)
-//            {
-//                foreach (var (modifier, value) in Config.WorldModifiers.Modifiers.Select(static x => (x.Key, x.Value.Value)))
-//                {
-//                    try { MyTerminal.ExecuteCommand("setworldmodifier", Invariant($"{modifier}"), Invariant($"{value}")); }
-//                    catch (Exception ex) { Logger.LogError(ex); }
-//                }
-//            }
-
-//            if (Config.GlobalsKeys.SetGlobalKeysFromConfig.Value)
-//            {
-//                /// <see cref="FejdStartup.ParseServerArguments"/>
-//                foreach (var (key, entry) in Config.GlobalsKeys.KeyConfigs.Where(static x => !Equals(x.Value.BoxedValue, x.Value.DefaultValue)))
-//                {
-//                    if (entry.BoxedValue is bool boolValue)
-//                    {
-//                        if (boolValue)
-//                            ZoneSystem.instance.SetGlobalKey(key);
-//                        else
-//                            ZoneSystem.instance.RemoveGlobalKey(key);
-//                    }
-//                    else
-//                    {
-//                        float value;
-//                        try { value = (float)Convert.ChangeType(entry.BoxedValue, typeof(float)); }
-//                        catch (Exception ex)
-//                        {
-//                            Logger.LogError(ex);
-//                            continue;
-//                        }
-//                        ZoneSystem.instance.SetGlobalKey(key, value);
-//                    }
-//                }
-//            }
-
-//            foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
-//                processor.Initialize(_executeCounter is 1);
-
-//            if (_executeCounter is 1)
-//            {
-//#if DEBUG
-//                //GenerateDefaultConfigMarkdown(base.Config);
-//                //GenerateDocs();
-//#endif
-
-//                //base.Config.Bind(DummyConfigSection, "Dummy", "", Invariant($"Dummy entry which does nothing, it's abused to include runtime information in the config file:{Environment.NewLine}{RuntimeInformation.Instance}"));
-//                Config.ConfigFile.SettingChanged -= OnConfigChanged;
-//                Config.ConfigFile.SettingChanged += OnConfigChanged;
-//            }
-//            else
-//            {
-//                foreach (ExtendedZDO zdo in ZDOMan.instance.GetObjects())
-//                    zdo.ReregisterAllProcessors();
-//            }
-
-//            return;
-//        }
 
         peers.Update();
 
-        if (peers.Count is 0)
+        if (peers.Count is 0 && _changed!.Count is 0)
             return;
 
         //SharedProcessorState.CleanUp(peers);
@@ -654,7 +583,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
         if (allProcessors.Count > 1)
         {
             Processor? claimedExclusiveBy = null;
-            foreach (var processor in allProcessors.AsEnumerable())
+            foreach (var processor in allProcessors.Enumerate())
             {
                 if (!processor.ClaimExclusive(zdo))
                     continue;
@@ -671,7 +600,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
         var destroy = false;
         var recreate = false;
         _unregister.Clear();
-        foreach (var processor in processors.AsEnumerable())
+        foreach (var processor in processors.Enumerate())
         {
             if (!extZdo.CheckProcessorDataRevisionChanged(processor))
                 continue;

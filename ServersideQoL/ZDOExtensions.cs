@@ -21,10 +21,10 @@ public static partial class ZDOExtensions
                     return zdoProcessors;
 
                 var hash = 0;
-                foreach (var processor in zdoProcessors.AsEnumerable())
+                foreach (var processor in zdoProcessors.Enumerate())
                 {
                     var keep = true;
-                    foreach (var remove in processors.AsEnumerable())
+                    foreach (var remove in processors.Enumerate())
                     {
                         if (ReferenceEquals(processor, remove))
                         {
@@ -40,10 +40,10 @@ public static partial class ZDOExtensions
                 {
                     var list = new List<Processor>();
                     __processors.Add(hash, newProcessors = list);
-                    foreach (var processor in zdoProcessors.AsEnumerable())
+                    foreach (var processor in zdoProcessors.Enumerate())
                     {
                         var keep = true;
-                        foreach (var remove in processors.AsEnumerable())
+                        foreach (var remove in processors.Enumerate())
                         {
                             if (ReferenceEquals(processor, remove))
                             {
@@ -65,7 +65,7 @@ public static partial class ZDOExtensions
 
             if (@this.ProcessorDataRevisions is { } dataRevisions)
             {
-                foreach (var processor in processors.AsEnumerable())
+                foreach (var processor in processors.Enumerate())
                     dataRevisions.Remove(processor);
             }
         }
@@ -129,7 +129,7 @@ public static partial class ZDOExtensions
 
             if (!@this.HasNoProcessors && @this.ProcessorDataRevisions is { } dataRevisions)
             {
-                foreach (var processor in @this.Processors.AsEnumerable())
+                foreach (var processor in @this.Processors.Enumerate())
                 {
                     if (!ReferenceEquals(processor, keep))
                         dataRevisions.Remove(processor);
@@ -333,7 +333,7 @@ public static partial class ZDOExtensions
         {
             distance *= distance;
             var pos = @this.GetPosition();
-            foreach (var peer in peers.AsEnumerable())
+            foreach (var peer in peers.Enumerate())
             {
                 if (Utils.DistanceSqr(peer.m_refPos, pos) < distance)
                     return true;
