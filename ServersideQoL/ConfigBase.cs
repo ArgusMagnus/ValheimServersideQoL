@@ -1,10 +1,6 @@
 ﻿using BepInEx.Configuration;
-using Mono.Cecil.Rocks;
 using System.Runtime.CompilerServices;
-using YamlDotNet.Core;
-using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NodeDeserializers;
 using YamlDotNet.Serialization.TypeInspectors;
 
 namespace ServersideQoL;
@@ -21,89 +17,7 @@ public abstract class ConfigBase
 {
     private protected ConfigBase() { }
 
-    static bool _initialized;
-    static readonly Dictionary<string, Dictionary<string, IYamlConfigEntry>> __yaml = [];
-
-    protected static YamlConfigEntry<T> BindYaml<T>(ConfigFile cfg, string fileName, string section)
-        where T : notnull, new()
-    {
-        var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
-        var configPath = Path.Combine(configDir, fileName);
-
-        if (!__yaml.TryGetValue(configPath, out var dict))
-            __yaml.Add(configPath, dict = []);
-
-        var entry = new YamlConfigEntry<T>(new());
-        dict.Add(section, entry);
-        return entry;
-    }
-
-    private protected static void Initialize()
-    {
-        if (_initialized)
-            return;
-        _initialized = true;
-
-        foreach (var (configPath, entries) in __yaml)
-        {
-            var dict = entries.ToDictionary(static x => x.Key, static x => x.Value.Value);
-            var configDir = Path.GetDirectoryName(configPath);
-
-            var serializer = new SerializerBuilder()
-                .IncludeNonPublicProperties()
-                .WithTypeInspector(static x => new MyTypeInspector(x))
-                .Build();
-
-            {
-                Directory.CreateDirectory(configDir);
-                var defaultConfigPath = Path.ChangeExtension(configPath, "default.yml");
-                using var file = new StreamWriter(defaultConfigPath, append: false);
-                file.WriteLine($"# {Path.GetFileName(defaultConfigPath)} contains the default values and is overwritten regularly.");
-                file.WriteLine($"# Rename it to {Path.GetFileName(configPath)} if you want to change values.");
-                file.WriteLine();
-                WriteYamlHeader(file);
-                serializer.Serialize(file, dict);
-            }
-
-            if (!File.Exists(configPath))
-                continue;
-
-            try
-            {
-                var typeMap = dict.ToDictionary(static x => x.Key, static x => x.Value.GetType());
-
-                var deserializer = new DeserializerBuilder()
-                    .IncludeNonPublicProperties()
-                    .EnablePrivateConstructors()
-                    //.WithObjectFactory(new MyObjectFactory())
-                    .WithTypeInspector(static x => new MyTypeInspector(x))
-                    .WithNodeDeserializer(inner => new TypedDictionaryDeserializer(typeMap), static s => s.InsteadOf<ObjectNodeDeserializer>())
-                    .Build();
-
-                using (var stream = new StreamReader(configPath))
-                    dict = deserializer.Deserialize<Dictionary<string, object>>(stream);
-
-                foreach (var (key, value) in dict)
-                    entries[key].Value = value;
-
-                ServersideQoL.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}");
-            }
-            catch (Exception ex)
-            {
-                ServersideQoL.Logger.LogWarning($"{Path.GetFileName(configPath)}: {ex}");
-            }
-        }
-    }
-
-    static void WriteYamlHeader(StreamWriter writer)
-    {
-        writer.WriteLine($"# IMPORTANT:");
-        writer.WriteLine($"#   This file is for advanced tweaks. You are expected to be familiar with YAML and its pitfalls if you decide to edit it.");
-        writer.WriteLine($"#   Check the log for warnings related to this file and DO NOT open issues asking for help on how to format this file.");
-        writer.WriteLine();
-    }
-
-    interface IYamlConfigEntry
+    private protected interface IYamlConfigEntry
     {
         object Value { get; set; }
     }
@@ -120,37 +34,7 @@ public abstract class ConfigBase
         }
     }
 
-    sealed class TypedDictionaryDeserializer(Dictionary<string, Type> typeMap) : INodeDeserializer
-    {
-        readonly Dictionary<string, Type> _typeMap = typeMap;
-
-        bool INodeDeserializer.Deserialize(IParser reader, Type expectedType, Func<IParser, Type, object?> nestedObjectDeserializer, out object? value, ObjectDeserializer rootDeserializer)
-        {
-            if (expectedType != typeof(Dictionary<string, object>))
-            {
-                value = null;
-                return false;
-            }
-
-            reader.Consume<MappingStart>();
-
-            var dict = new Dictionary<string, object?>();
-
-            while (!reader.TryConsume<MappingEnd>(out _))
-            {
-                var key = (string?)nestedObjectDeserializer(reader, typeof(string)) ?? throw new Exception();
-                var valType = _typeMap.TryGetValue(key, out var t) ? t : typeof(object);
-
-                var val = nestedObjectDeserializer(reader, valType);
-                dict[key] = val;
-            }
-
-            value = dict;
-            return true;
-        }
-    }
-
-    sealed class MyTypeInspector(ITypeInspector inner) : TypeInspectorSkeleton
+    private protected sealed class MyTypeInspector(ITypeInspector inner) : TypeInspectorSkeleton
     {
         readonly ITypeInspector _inner = inner;
 
@@ -262,6 +146,8 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     public sealed record Deprecated(string Reason, Action<TSelf> AdjustConfig);
     static readonly HashSet<ConfigEntryBase> __deprecatedEntries = [];
 
+    static Dictionary<string, IYamlConfigEntry>? __yaml = [];
+
     IServersideQoLPlugin IConfig.Plugin { get => field; set => field = value; } = default!;
 
     public static TSelf Instance { get => field ?? throw new InvalidOperationException("Config has not been initialized yet"); private set; }
@@ -291,11 +177,14 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     void OnSettingsChanged(object? sender, SettingChangedEventArgs args)
         => _configChanged?.Invoke(this, args);
 
-
     void IConfig.RaiseInitialized()
     {
         Instance = (TSelf)this;
-        Initialize();
+
+        foreach (var (configPath, entry) in __yaml!)
+            BindYaml(configPath, entry);
+        __yaml = null;
+
         Initialized?.Invoke(ConfigFile, (TSelf)this);
     }
 
@@ -333,5 +222,70 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
             deprecated.AdjustConfig(modCfg);
             modCfg.Logger.LogWarning($"[{cfg.Definition.Section}].[{cfg.Definition.Key}] is deprecated: {deprecated.Reason}");
         }
+    }
+
+    protected static YamlConfigEntry<T> BindYaml<T>(ConfigFile cfg, [CallerMemberName] string fileName = default!)
+        where T : notnull, new()
+    {
+        if (__yaml is null)
+            throw new InvalidOperationException("Config alredy initialized");
+
+        var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
+        var configPath = Path.Combine(configDir, $"{fileName}.yaml");
+
+        var entry = new YamlConfigEntry<T>(new());
+        __yaml.Add(configPath, entry);
+        return entry;
+    }
+
+    static void BindYaml(string configPath, IYamlConfigEntry entry)
+    {
+        var configDir = Path.GetDirectoryName(configPath);
+
+        var serializer = new SerializerBuilder()
+            .IncludeNonPublicProperties()
+            .WithTypeInspector(static x => new MyTypeInspector(x))
+            .Build();
+
+        {
+            Directory.CreateDirectory(configDir);
+            var defaultConfigPath = Path.ChangeExtension(configPath, "default.yml");
+            using var file = new StreamWriter(defaultConfigPath, append: false);
+            file.WriteLine($"# {Path.GetFileName(defaultConfigPath)} contains the default values and is overwritten regularly.");
+            file.WriteLine($"# Rename it to {Path.GetFileName(configPath)} if you want to change values.");
+            file.WriteLine();
+            WriteYamlHeader(file);
+            serializer.Serialize(file, entry.Value);
+        }
+
+        if (!File.Exists(configPath))
+            return;
+
+        try
+        {
+            var deserializer = new DeserializerBuilder()
+                .IncludeNonPublicProperties()
+                .EnablePrivateConstructors()
+                //.WithObjectFactory(new MyObjectFactory())
+                .WithTypeInspector(static x => new MyTypeInspector(x))
+                .Build();
+
+            using (var stream = new StreamReader(configPath))
+                entry.Value = deserializer.Deserialize(stream, entry.Value.GetType()) ?? entry.Value;
+
+            ServersideQoL.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}");
+        }
+        catch (Exception ex)
+        {
+            ServersideQoL.Logger.LogWarning($"{Path.GetFileName(configPath)}: {ex}");
+        }
+    }
+
+    static void WriteYamlHeader(StreamWriter writer)
+    {
+        writer.WriteLine($"# IMPORTANT:");
+        writer.WriteLine($"#   This file is for advanced tweaks. You are expected to be familiar with YAML and its pitfalls if you decide to edit it.");
+        writer.WriteLine($"#   Check the log for warnings related to this file and DO NOT open issues asking for help on how to format this file.");
+        writer.WriteLine();
     }
 }

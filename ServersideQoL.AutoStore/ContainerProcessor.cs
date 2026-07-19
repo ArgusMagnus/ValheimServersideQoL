@@ -8,12 +8,11 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 {
     public const string Id = "e1c6ea7a-996b-4aad-8595-af86f02fe25b";
 
-    readonly ConfigEntry<bool> _cfgAutoSort = Config.Instance.AutoSort;
     readonly Dictionary<ItemDataKey, int> _stackPerItem = [];
 
     protected override ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, ContainerRegistryProcessor.PrefabInfo prefabInfo)
     {
-        if (!_cfgAutoSort.Value)
+        if (!Config.Instance.AutoSort.Value)
             return ProcessResult.UnregisterProcessor;
 
         var state = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo);

@@ -30,7 +30,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = BindEx(cfg, Section, MessageTypes.None,
         "Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default);
 
-    public YamlConfigEntry<Types.Localization> Localization { get; } = BindYaml<Types.Localization>(cfg, "Localization.yaml", Section);
+    public YamlConfigEntry<Types.Localization> Localization { get; } = BindYaml<Types.Localization>(cfg);
 
     public static class Types
     {
