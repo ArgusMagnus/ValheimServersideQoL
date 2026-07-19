@@ -148,15 +148,15 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 
                         prefabInfo.AvailableProcessors.Add(processor);
                         if (plugin.Config.Enabled.Value)
-                        {
                             prefabInfo.EnabledProcessors.Add(processor);
-                            if (processor.Attribute.Cyclic)
-                                prefabInfo.EnabledCyclicProcessors.Add(processor);
-                        }
                     }
                 }
                 SortProcessors(prefabInfo.EnabledProcessors);
-                SortProcessors(prefabInfo.EnabledCyclicProcessors);
+                foreach (var processor in prefabInfo.EnabledProcessors)
+                {
+                    if (processor.Attribute.Cyclic)
+                        prefabInfo.EnabledCyclicProcessors.Add(processor);
+                }
             }
             _prefabInfos.Add(newPrefab, prefabInfo);
         }
@@ -369,13 +369,13 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 if (cfg.Enabled.Value)
                 {
                     foreach (var processor in cfg.Plugin.Processors)
-                    {
                         prefabInfo.EnabledProcessors.Add(processor);
+                    SortProcessors(prefabInfo.EnabledProcessors);
+                    foreach (var processor in prefabInfo.EnabledProcessors)
+                    {
                         if (processor.Attribute.Cyclic)
                             prefabInfo.EnabledCyclicProcessors.Add(processor);
                     }
-                    SortProcessors(prefabInfo.EnabledProcessors);
-                    SortProcessors(prefabInfo.EnabledCyclicProcessors);
                 }
                 else
                 {
