@@ -35,7 +35,7 @@ public sealed partial class $(ModName)
 			<Output TaskParameter="TargetOutputs" ItemName="DependencyPaths" />
 		</MSBuild>
 
-		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -Destination "$(OutDir)..\$(TargetName).zip"' />
+		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "$(StoreDependencies)" -Destination "$(OutDir)..\$(TargetName).zip"' />
 	</Target>
 	
 </Project>

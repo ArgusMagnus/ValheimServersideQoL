@@ -5,6 +5,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<StoreDependencies Include="ValheimModding-YamlDotNet-16.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\ServersideQoL.CodeAnalysis\ServersideQoL.CodeAnalysis.csproj" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />
 		<ProjectReference Include="..\ServersideQoL.ZDOExtender\ServersideQoL.ZDOExtender.csproj" Private="False" PrivateAssets="all" />
 		<!--<ProjectReference Include="..\ValheimServersideQoL.YamlDotNet\YamlDotNet\Valheim.ServersideQoL.YamlDotNet.csproj" />-->

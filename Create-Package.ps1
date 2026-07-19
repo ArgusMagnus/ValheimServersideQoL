@@ -4,6 +4,7 @@ param (
     [Parameter(Mandatory = $true)][string]$Url,
     [Parameter(Mandatory = $true)][string]$Description,
     [Parameter(Mandatory = $false)][string]$Dependencies,
+    [Parameter(Mandatory = $false)][string]$StoreDependencies,
     [Parameter(Mandatory = $true)][string]$Destination
 )
 
@@ -15,7 +16,13 @@ if ($Description.Length -gt 256) {
 
 $dir = Split-Path -LiteralPath $Path
 
-$deps = @('denikson-BepInExPack_Valheim-5.4.2333')
+if ($StoreDependencies) {
+    $deps = $StoreDependencies.Split(';')
+}
+else {
+    $deps = [string[]]@()
+}
+
 if ($Dependencies) {
     $deps += $Dependencies.Split(';') | Get-ItemPropertyValue -Name VersionInfo | ForEach-Object {
         $author = $_.LegalCopyright
