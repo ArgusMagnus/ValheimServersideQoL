@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<ItemGroup>
-	  <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" />
+	  <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" PrivateAssets="all" />
 	</ItemGroup>
 
 	<ItemGroup>

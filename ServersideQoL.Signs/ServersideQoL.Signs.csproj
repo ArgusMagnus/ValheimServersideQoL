@@ -1,7 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+	<PropertyGroup>
+		<Description>Show in-game time on signs and set default sign color</Description>
+	</PropertyGroup>
+
 	<ItemGroup>
-	  <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" />
+	  <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" PrivateAssets="all" />
 	</ItemGroup>
 
 	<ItemGroup>

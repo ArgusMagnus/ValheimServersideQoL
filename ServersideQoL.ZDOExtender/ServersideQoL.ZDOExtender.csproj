@@ -1,4 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+ 
+  <PropertyGroup>
+	<Description>Dependency of ServersideQoL, required by all ServersideQoL mods</Description>
+  </PropertyGroup>
 
   <ItemGroup>
     <RequiredReference Include="assembly_utils">
