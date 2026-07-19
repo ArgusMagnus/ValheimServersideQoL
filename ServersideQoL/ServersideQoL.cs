@@ -22,12 +22,6 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
     internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
     internal static IReadOnlyDictionary<Guid, Processor> Processors => __processorsById;
 
-    //static IReadOnlyList<Processor>? __processors;
-    //public static IReadOnlyList<Processor> Processors => __processors ??= [.. _plugins
-    //    .Where(static x => x.Config.Enabled.Value)
-    //    .SelectMany(static x => x.Processors)
-    //    .OrderByDescending(static x => x.GetType().GetCustomAttribute<ProcessorAttribute>()?.Priority ?? 0)];
-
     internal static void RegisterPlugin(IServersideQoLPlugin plugin)
         => __plugins.Add(plugin);
 
@@ -108,7 +102,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
             return;
         }
 
-        SortProcessors(_enabledProcessors);
+        SortProcessors(_enabledProcessors, true);
         _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
 
         _prefabInfoFactory = prefabInfoBuilder.GetFactory();
@@ -158,6 +152,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
                     components.Add(typeof(PieceTable), [pieceTable]);
                 prefabInfo.Components = components;
+
                 foreach (var plugin in __plugins)
                 {
                     foreach (var processor in plugin.Processors)
@@ -170,7 +165,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                             prefabInfo.EnabledProcessors.Add(processor);
                     }
                 }
-                SortProcessors(prefabInfo.EnabledProcessors);
+                SortProcessors(prefabInfo.EnabledProcessors, false);
                 foreach (var processor in prefabInfo.EnabledProcessors)
                 {
                     if (processor.Attribute.Cyclic)
@@ -379,7 +374,19 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
             Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
         if (ReferenceEquals(cfg.Enabled, e.ChangedSetting))
         {
-            //__processors = null;
+            if (cfg.Enabled.Value)
+            {
+                foreach (var processor in cfg.Plugin.Processors)
+                    _enabledProcessors.Add(processor);
+                SortProcessors(_enabledProcessors, true);
+            }
+            else
+            {
+                foreach (var processor in cfg.Plugin.Processors)
+                    _enabledProcessors.Remove(processor);
+            }
+            _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
+
             foreach (var prefabInfo in _prefabInfos.Values)
             {
                 if (prefabInfo is null)
@@ -389,7 +396,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 {
                     foreach (var processor in cfg.Plugin.Processors)
                         prefabInfo.EnabledProcessors.Add(processor);
-                    SortProcessors(prefabInfo.EnabledProcessors);
+                    SortProcessors(prefabInfo.EnabledProcessors, false);
                     foreach (var processor in prefabInfo.EnabledProcessors)
                     {
                         if (processor.Attribute.Cyclic)
@@ -406,19 +413,6 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                     }
                 }
             }
-
-            if (cfg.Enabled.Value)
-            {
-                foreach (var processor in cfg.Plugin.Processors)
-                    _enabledProcessors.Add(processor);
-                SortProcessors(_enabledProcessors);
-            }
-            else
-            {
-                foreach (var processor in cfg.Plugin.Processors)
-                    _enabledProcessors.Remove(processor);
-            }
-            _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
         }
     }
 
@@ -707,7 +701,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
     }
 
     // priority‑aware topological sort
-    void SortProcessors(List<Processor> processors)
+    void SortProcessors(List<Processor> processors, bool log)
     {
         var graph = new Dictionary<Processor, List<Processor>>();
         var inDegree = new Dictionary<Processor, int>();
@@ -723,7 +717,8 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 if (!dependents.Contains(processor.Attribute.Id))
                 {
                     processors.RemoveAt(i);
-                    Logger.DevLog($"Dropping processor {processor.GetType().FullName} because no dependents where found");
+                    if (log)
+                        Logger.DevLog($"Dropping processor {processor.GetType().FullName} because no dependents where found");
                     continue;
                 }
             }
@@ -768,7 +763,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 
             var node = ready[^1];
             ready.RemoveAt(ready.Count - 1);
-            if (node.Attribute.Priority is not 0 && ready.Count > 0 && ready[^1] is { } next && next.Attribute.Priority == node.Attribute.Priority)
+            if (log && node.Attribute.Priority is not 0 && ready.Count > 0 && ready[^1] is { } next && next.Attribute.Priority == node.Attribute.Priority)
                 Logger.LogWarning($"Processors {node.GetType().FullName} and {next.GetType().FullName} share the same non-default priority ({node.Attribute.Priority})");
 
             processors.Add(node);
@@ -781,7 +776,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
             }
         }
 
-        if (processors.Count != expectedCount)
+        if (log && processors.Count != expectedCount)
         {
             var notAdded = inDegree.Where(static x => x.Value > 0).Select(static x => x.Key.GetType().FullName);
             Logger.LogError($"The following processors are not used due to cyclic dependencies: {string.Join(", ", notAdded)}");
