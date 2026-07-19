@@ -3,8 +3,8 @@ using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
-using UnityEngine;
 using ServersideQoL.ZDOExtender;
+using UnityEngine;
 
 namespace ServersideQoL;
 
@@ -125,6 +125,22 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
     protected override void RegisterProcessors(IProcessorCollection processors) => processors
         .Add<ContainerRegistryProcessor>();
 
+    IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => field ?? new Func<IReadOnlyDictionary<string, PieceTable>>(static () =>
+    {
+        var tables = new HashSet<PieceTable>();
+        var dict = new Dictionary<string, PieceTable>();
+        foreach (var prefab in ZNetScene.instance.m_prefabs)
+        {
+            var table = prefab.GetComponent<ItemDrop>()?.m_itemData.m_shared.m_buildPieces;
+            if (table is null || !tables.Add(table))
+                continue;
+
+            foreach (var piece in table.m_pieces)
+                dict.TryAdd(piece.name, table);
+        }
+        return dict;
+    }).Invoke();
+
     void OnPrefabChanged(ZDO zdo, int oldPrefab, int newPrefab)
     {
         PrefabInfo? prefabInfo;
@@ -138,7 +154,10 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 prefabInfo = _prefabInfoFactory();
                 prefabInfo.Prefab = prefab;
                 prefabInfo.PrefabHash = newPrefab;
-                prefabInfo.Components = availableComponents.ToDictionary(static x => x.GetType());
+                var components = availableComponents.ToDictionary(static x => x.GetType());
+                if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
+                    components.Add(typeof(PieceTable), pieceTable);
+                prefabInfo.Components = components;
                 foreach (var plugin in __plugins)
                 {
                     foreach (var processor in plugin.Processors)
