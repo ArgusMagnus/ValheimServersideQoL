@@ -15,7 +15,7 @@ interface ITestExtendedZDO : IExtendedZDO
 
 public interface IZDOInterfaceCollection
 {
-    void Add<T>() where T : class, IExtendedZDO;
+    IZDOInterfaceCollection Add<T>() where T : class, IExtendedZDO;
 }
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
@@ -28,7 +28,7 @@ partial class ZDOExtender : BaseUnityPlugin
 #pragma warning disable CS0618 // Type or member is obsolete
     static TypeExtensionBuilder<IExtendedZDO, ExtendedZDO>? __zdoTypeBuilder = new();
 #pragma warning restore CS0618 // Type or member is obsolete
-    static Type? __dynamicZdoType;
+    static ConstructorInfo? __dynamicZdoCtor;
 
     static Action<IZDOInterfaceCollection>? _registerInterfaces;
     public static event Action<IZDOInterfaceCollection>? RegisterInterfaces
@@ -80,7 +80,7 @@ partial class ZDOExtender : BaseUnityPlugin
             return;
         }
 
-        __dynamicZdoType = __zdoTypeBuilder.Build();
+        __dynamicZdoCtor = __zdoTypeBuilder.GetConstructorInfo();
         __zdoTypeBuilder = null;
         var zdoPoolGetMethod = typeof(ZDOPool).GetMethod("Get", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic) ?? throw new ArgumentNullException();
         var zdoPoolGetTranspiler = ((Delegate)ZDOPoolGetTranspiler).Method;
@@ -90,7 +90,7 @@ partial class ZDOExtender : BaseUnityPlugin
         static IEnumerable<CodeInstruction> ZDOPoolGetTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             var originalCtor = typeof(ZDO).GetConstructor(Type.EmptyTypes) ?? throw new ArgumentNullException();
-            var newCtor = __dynamicZdoType!.GetConstructor(Type.EmptyTypes) ?? throw new ArgumentNullException();
+            var newCtor = __dynamicZdoCtor ?? throw new ArgumentNullException();
             var success = false;
             foreach (var instruction in instructions)
             {
@@ -109,7 +109,10 @@ partial class ZDOExtender : BaseUnityPlugin
 
     sealed class ZDOInterfaceCollection : IZDOInterfaceCollection
     {
-        public void Add<T>() where T : class, IExtendedZDO
-            => __zdoTypeBuilder!.AddInterface<T>();
+        public IZDOInterfaceCollection Add<T>() where T : class, IExtendedZDO
+        {
+            __zdoTypeBuilder!.AddInterface<T>();
+            return this;
+        }
     }
 }

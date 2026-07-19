@@ -11,7 +11,7 @@ static class TypeExtensionBuilder
         .DefineDynamicAssembly(new(__moduleName), AssemblyBuilderAccess.Run)
         .DefineDynamicModule(__moduleName);
 
-    internal static TypeBuilder DefineType(string name) => __moduleBuilder.DefineType($"{__moduleName}.{name}");
+    internal static TypeBuilder DefineType(string name, Type baseType) => __moduleBuilder.DefineType($"{__moduleName}.{name}", default, baseType);
 }
 
 public sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? typeName = default)
@@ -68,7 +68,7 @@ public sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? type
 
         if (_typeBuilder is null)
         {
-            _typeBuilder = TypeExtensionBuilder.DefineType(_typeName);
+            _typeBuilder = TypeExtensionBuilder.DefineType(_typeName, typeof(TBaseType));
             var ctorBuilder = _typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard, Type.EmptyTypes);
             var cil = ctorBuilder.GetILGenerator();
             cil.Emit(OpCodes.Ldarg_0);
@@ -132,5 +132,5 @@ public sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? type
         => _constructorInfo ??= Build().GetConstructor(Type.EmptyTypes);
 
     public Func<TBaseType> GetFactory()
-        => _factory ??= Expression.Lambda<Func<TBaseType>>(Expression.New(GetConstructorInfo())).Compile();
+        => _factory ??= Expression.Lambda<Func<TBaseType>>(Expression.Convert(Expression.New(GetConstructorInfo()), typeof(TBaseType))).Compile();
 }
