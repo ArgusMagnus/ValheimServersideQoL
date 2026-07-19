@@ -11,7 +11,7 @@ namespace $(RootNamespace)%3B
 public sealed partial class $(ClassName)
 {
     public const string Author = "$(Authors)"%3B
-	public const string PluginName = "$(RootNamespace)"%3B
+	public const string PluginName = "$(MSBuildProjectName)"%3B
 	public const string PluginGuid = $"{Author}.{PluginName}"%3B
 	public const string PluginVersion = "$(VersionNumber)"%3B
 	public const string PluginInformationalVersion = "$(Version)"%3B
@@ -36,6 +36,17 @@ public sealed partial class $(ClassName)
 		</MSBuild>
 
 		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "$(StoreDependencies)" -Destination "$(OutDir)..\$(TargetName).zip"' />
+	</Target>
+
+	<Target Name="CleanPlugins" BeforeTargets="Clean" Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false'">
+		<RemoveDir Directories="$(MSBuildThisFileDirectory)plugins\$(MSBuildProjectName)" />
+	</Target>
+
+	<Target Name="CopyPlugins" AfterTargets="AfterBuild" Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false'">
+		<ItemGroup>
+			<FilesToCopy Include="$(OutDir)**" />
+		</ItemGroup>
+		<Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(MSBuildThisFileDirectory)plugins\$(MSBuildProjectName)" />
 	</Target>
 	
 </Project>
