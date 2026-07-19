@@ -10,5 +10,6 @@
 		<MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
 		<ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
 		<Authors>ArgusMagnus</Authors>
+		<RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
 	</PropertyGroup>
 </Project>
