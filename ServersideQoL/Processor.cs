@@ -332,21 +332,49 @@ public abstract class Processor<TPrefabInfo> : Processor
         var components = prefabInfo.Components;
         var args = new object?[_prefabInfoCtorParameters!.Length];
         var any = false;
+        MethodInfo? createListDef = null;
+        List<Type>? warn = null;
         for (int i = 0; i < _prefabInfoCtorParameters.Length; i++)
         {
             var par = _prefabInfoCtorParameters[i];
-            if (!components.TryGetValue(par.ParameterType, out var component))
+            var type = par.ParameterType;
+            var assignList = false;
+
+            if (type.IsGenericType && type.GetGenericArguments() is { Length: 1 } genericTypes && type.IsAssignableFrom(typeof(IReadOnlyList<>).MakeGenericType(genericTypes)))
+            {
+                type = genericTypes[0];
+                assignList = true;
+            }
+
+            if (!components.TryGetValue(type, out var list))
             {
                 if (par.CustomAttributes.Any(static x => x.AttributeType.FullName is "System.Runtime.CompilerServices.NullableAttribute"))
                     continue;
                 return default;
             }
-            args[i] = component;
+
+            if (assignList)
+               args[i] = (createListDef ??= ((Delegate)CreateList<MonoBehaviour>).Method.GetGenericMethodDefinition()).MakeGenericMethod(type).Invoke(null, [list]);
+            else
+            {
+                args[i] = list[0];
+                if (list.Count is not 0)
+                    (warn ??= []).Add(type);
+            }
+
             any = true;
         }
         if (!any)
+        {
+            if (warn is not null)
+                ServersideQoL.Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");
             return default;
+        }
         return (TPrefabInfo)_prefabInfoCtor!.Invoke(args);
+
+        static IReadOnlyList<T> CreateList<T>(IReadOnlyList<MonoBehaviour> list)
+            where T : MonoBehaviour
+            => [.. list.Cast<T>()];
     }
 
     private protected override void ValidateProcessor()

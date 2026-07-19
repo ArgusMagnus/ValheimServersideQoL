@@ -154,9 +154,9 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 prefabInfo = _prefabInfoFactory();
                 prefabInfo.Prefab = prefab;
                 prefabInfo.PrefabHash = newPrefab;
-                var components = availableComponents.ToDictionary(static x => x.GetType());
+                var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
                 if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
-                    components.Add(typeof(PieceTable), pieceTable);
+                    components.Add(typeof(PieceTable), [pieceTable]);
                 prefabInfo.Components = components;
                 foreach (var plugin in __plugins)
                 {
