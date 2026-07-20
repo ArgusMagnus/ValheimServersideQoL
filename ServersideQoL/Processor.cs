@@ -31,19 +31,21 @@ public sealed class ProcessorAttribute(string id) : Attribute
 public abstract class ProcessorDependencyAttribute : Attribute
 {
     public Guid ProcessorId { get; }
+    public bool Required { get; init; }
     public bool RunBefore { get; }
 
-    ProcessorDependencyAttribute(Guid processorId, bool runBefore)
+    ProcessorDependencyAttribute(Guid processorId, bool required, bool runBefore)
     {
         ProcessorId = processorId;
+        Required = required;
         RunBefore = runBefore;
     }
 
     private protected ProcessorDependencyAttribute(string processorId, bool runBefore)
-        : this(new Guid(processorId), runBefore) { }
+        : this(new Guid(processorId), false, runBefore) { }
 
     private protected ProcessorDependencyAttribute(Type processorType, bool runBefore)
-        : this(processorType.GetCustomAttribute<ProcessorAttribute>()?.Id ?? default, runBefore) { }
+        : this(processorType.GetCustomAttribute<ProcessorAttribute>()?.Id ?? default, true, runBefore) { }
 }
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]

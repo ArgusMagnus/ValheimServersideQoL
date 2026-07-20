@@ -131,6 +131,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         List<ItemDrop.ItemData>? _items;
         uint _dataRevision = uint.MaxValue;
         byte[]? _data;
+        Dictionary<string, float>? _floats;
         static readonly ZPackage _pkg = new();
 
         public override PrefabInfo PrefabInfo => _prefabInfo;
@@ -201,5 +202,16 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
             _dataRevision = _zdo.DataRevision;
             _data = data;
         }
+
+        public override void SetFloat(string key, float? value)
+        {
+            if (value.HasValue)
+                (_floats ??= [])[key] = value.Value;
+            else if (_floats is not null && _floats.Remove(key) && _floats.Count is 0)
+                _floats = null;
+        }
+
+        public override float? GetFloat(string key)
+            => _floats is not null && _floats.TryGetValue(key, out var value) ? value : null;
     }
 }

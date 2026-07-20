@@ -677,8 +677,10 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
             inDegree.Add(processor, 0);
         }
 
-        foreach (var processor in processors)
+        for (int i = processors.Count - 1; i >= 0; i--)
         {
+            var processor = processors[i];
+
             if (!dependencyAttributes.TryGetValue(processor, out var list))
                 continue;
 
@@ -687,14 +689,32 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 if (attr.RunBefore)
                 {
                     if (!__processorsById.TryGetValue(attr.ProcessorId, out var before) || !graph.ContainsKey(before))
+                    {
+                        if (attr.Required)
+                        {
+                            if (log)
+                                Logger.DevLog($"Dropping processor {processor.GetType().FullName} because required dependency ({nameof(RunBeforeAttribute)}) {attr.ProcessorId} is missing");
+                            processors.RemoveAt(i);
+                            break;
+                        }
                         continue;
+                    }
                     graph[processor].Add(before);
                     inDegree[before]++;
                 }
                 else
                 {
                     if (!__processorsById.TryGetValue(attr.ProcessorId, out var after) || !graph.ContainsKey(after))
+                    {
+                        if (attr.Required)
+                        {
+                            if (log)
+                                Logger.DevLog($"Dropping processor {processor.GetType().FullName} because required dependency ({nameof(RunAfterAttribute)}) {attr.ProcessorId} is missing");
+                            processors.RemoveAt(i);
+                            break;
+                        }
                         continue;
+                    }
                     graph[after].Add(processor);
                     inDegree[processor]++;
                 }
