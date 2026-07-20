@@ -7,9 +7,10 @@ namespace ServersideQoL;
 
 public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Vector3, TValue>, IReadOnlyDictionary<Vector3, TValue>
 {
+    public readonly record struct Key(int X, int Z);
     public float SectorWidth { get; } = sectorWidth;
     readonly float _scale = sectorWidth > 0 ? 1f / sectorWidth : throw new ArgumentOutOfRangeException(nameof(sectorWidth));
-    readonly Dictionary<(int, int), TValue> _sections = [];
+    readonly Dictionary<Key, TValue> _sections = [];
 
     //public void Reset(float newSectorWidth)
     //{
@@ -21,13 +22,13 @@ public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Ve
     //}
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    (int, int) GetKey(Vector3 pos)
-        => (Mathf.RoundToInt(pos.x * _scale), Mathf.RoundToInt(pos.z * _scale));
+    Key GetKey(Vector3 pos)
+        => new(Mathf.RoundToInt(pos.x * _scale), Mathf.RoundToInt(pos.z * _scale));
 
     ICollection<Vector3> IDictionary<Vector3, TValue>.Keys => throw new NotSupportedException();
     IEnumerable<Vector3> IReadOnlyDictionary<Vector3, TValue>.Keys => throw new NotSupportedException();
 
-    public Dictionary<(int, int), TValue>.ValueCollection Values => _sections.Values;
+    public Dictionary<Key, TValue>.ValueCollection Values => _sections.Values;
     ICollection<TValue> IDictionary<Vector3, TValue>.Values => _sections.Values;
     IEnumerable<TValue> IReadOnlyDictionary<Vector3, TValue>.Values => _sections.Values;
 
@@ -45,25 +46,25 @@ public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Ve
     public bool TryGetValue(Vector3 key, bool includeAdjacent, out TValue value)
     {
         var (x, y) = GetKey(key);
-        if (_sections.TryGetValue((x, y), out value))
+        if (_sections.TryGetValue(new(x, y), out value))
             return true;
         if (!includeAdjacent)
             return false;
-        if (_sections.TryGetValue((x - 1, y - 1), out value))
+        if (_sections.TryGetValue(new(x - 1, y - 1), out value))
             return true;
-        if (_sections.TryGetValue((x, y - 1), out value))
+        if (_sections.TryGetValue(new(x, y - 1), out value))
             return true;
-        if (_sections.TryGetValue((x + 1, y - 1), out value))
+        if (_sections.TryGetValue(new(x + 1, y - 1), out value))
             return true;
-        if (_sections.TryGetValue((x - 1, y), out value))
+        if (_sections.TryGetValue(new(x - 1, y), out value))
             return true;
-        if (_sections.TryGetValue((x + 1, y), out value))
+        if (_sections.TryGetValue(new(x + 1, y), out value))
             return true;
-        if (_sections.TryGetValue((x - 1, y + 1), out value))
+        if (_sections.TryGetValue(new(x - 1, y + 1), out value))
             return true;
-        if (_sections.TryGetValue((x, y + 1), out value))
+        if (_sections.TryGetValue(new(x, y + 1), out value))
             return true;
-        if (_sections.TryGetValue((x + 1, y + 1), out value))
+        if (_sections.TryGetValue(new(x + 1, y + 1), out value))
             return true;
         return false;
     }
@@ -101,10 +102,10 @@ public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Ve
     public AdjacentEnumerator EnumerateAdjacent(Vector3 key)
         => new(_sections, GetKey(key));
 
-    public struct AdjacentEnumerator(Dictionary<(int, int), TValue> dict, (int x, int y) key) : IEnumerator<TValue>
+    public struct AdjacentEnumerator(Dictionary<Key, TValue> dict, Key key) : IEnumerator<TValue>
     {
-        readonly int _x = key.x;
-        readonly int _y = key.y;
+        readonly int _x = key.X;
+        readonly int _z = key.Z;
         int _idx = -1;
 
         public readonly AdjacentEnumerator GetEnumerator() => this;
@@ -122,39 +123,39 @@ public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Ve
                 switch (++_idx)
                 {
                     case 0:
-                        if (dict.TryGetValue((_x, _y), out value))
+                        if (dict.TryGetValue(new(_x, _z), out value))
                             break;
                         continue;
                     case 1:
-                        if (dict.TryGetValue((_x - 1, _y - 1), out value))
+                        if (dict.TryGetValue(new(_x - 1, _z - 1), out value))
                             break;
                         continue;
                     case 2:
-                        if (dict.TryGetValue((_x, _y - 1), out value))
+                        if (dict.TryGetValue(new(_x, _z - 1), out value))
                             break;
                         continue;
                     case 3:
-                        if (dict.TryGetValue((_x + 1, _y - 1), out value))
+                        if (dict.TryGetValue(new(_x + 1, _z - 1), out value))
                             break;
                         continue;
                     case 4:
-                        if (dict.TryGetValue((_x - 1, _y), out value))
+                        if (dict.TryGetValue(new(_x - 1, _z), out value))
                             break;
                         continue;
                     case 5:
-                        if (dict.TryGetValue((_x + 1, _y), out value))
+                        if (dict.TryGetValue(new(_x + 1, _z), out value))
                             break;
                         continue;
                     case 6:
-                        if (dict.TryGetValue((_x - 1, _y + 1), out value))
+                        if (dict.TryGetValue(new(_x - 1, _z + 1), out value))
                             break;
                         continue;
                     case 7:
-                        if (dict.TryGetValue((_x, _y + 1), out value))
+                        if (dict.TryGetValue(new(_x, _z + 1), out value))
                             break;
                         continue;
                     case 8:
-                        if (dict.TryGetValue((_x + 1, _y + 1), out value))
+                        if (dict.TryGetValue(new(_x + 1, _z + 1), out value))
                             break;
                         continue;
                     default:

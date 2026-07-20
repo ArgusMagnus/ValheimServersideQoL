@@ -4,6 +4,7 @@ using ServersideQoL.ZDOExtender;
 namespace ServersideQoL.AutoStore;
 
 [Processor(Id)]
+[RunAfter<TameableRegistryProcessor>]
 public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 {
     public const string Id = "5f86a765-e449-4047-afc8-a63e4d681a48";
@@ -66,30 +67,33 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
             if (containers.Count > 0 && !excludeFodderCheckComplete)
             {
                 excludeFodderCheckComplete = true;
-                //foreach (var tameState in Instance<TameableProcessor>().Tames)
-                //{
-                //    if (tameState.ZDO.PrefabInfo.Tameable is null)
-                //        continue;
+                foreach (var tameables in Instance<TameableRegistryProcessor>().Tameables.EnumerateAdjacent(zdo.GetPosition()))
+                {
+                    foreach (var tameableZdo in tameables)
+                    {
+                        if (Instance<TameableRegistryProcessor>().GetState(tameableZdo) is not { } tameState)
+                            continue;
 
-                //    /// <see cref="MonsterAI.CanConsume(ItemDrop.ItemData)"/>
-                //    if (!tameState.ZDO.PrefabInfo.Tameable.Value.MonsterAI.m_consumeItems.Any(x => x.m_itemData.m_shared.m_name == shared.m_name))
-                //        continue;
-                //    var rangeSqr = tameState.ZDO.PrefabInfo.Tameable.Value.MonsterAI.m_consumeSearchRange;
-                //    rangeSqr *= rangeSqr;
-                //    if (Utils.DistanceSqr(zdo.GetPosition(), tameState.ZDO.GetPosition()) < rangeSqr)
-                //    {
-                //        if (prefabInfo.ZSyncTransform is not null && zdo.GetTimeSinceSpawned() < TimeSpan.FromSeconds(10))
-                //            return ProcessResult.Repeat;
+                        /// <see cref="MonsterAI.CanConsume(ItemDrop.ItemData)"/>
+                        if (!tameState.PrefabInfo.MonsterAI.m_consumeItems.Any(x => x.m_itemData.m_shared.m_name == shared.m_name))
+                            continue;
+                        var rangeSqr = tameState.PrefabInfo.MonsterAI.m_consumeSearchRange;
+                        rangeSqr *= rangeSqr;
+                        if (Utils.DistanceSqr(zdo.GetPosition(), tameableZdo.GetPosition()) < rangeSqr)
+                        {
+                            if (prefabInfo.ZSyncTransform is not null && zdo.GetTimeSinceSpawned() < TimeSpan.FromSeconds(10))
+                                return ProcessResult.Repeat;
 
-                //        ProcessResult result = ProcessResult.UnregisterProcessor;
-                //        var fields = zdo.Fields<ItemDrop>();
-                //        if (fields.UpdateValue(static () => x => x.m_autoPickup, false))
-                //            result = ProcessResult.RecreateZDO;
-                //        if (fields.UpdateValue(static () => x => x.m_autoDestroy, false))
-                //            result = ProcessResult.RecreateZDO;
-                //        return result;
-                //    }
-                //}
+                            ProcessResult result = ProcessResult.UnregisterProcessor;
+                            var fields = zdo.Fields<ItemDrop>();
+                            if (fields.UpdateValue(static () => x => x.m_autoPickup, false))
+                                result = ProcessResult.RecreateZDO;
+                            if (fields.UpdateValue(static () => x => x.m_autoDestroy, false))
+                                result = ProcessResult.RecreateZDO;
+                            return result;
+                        }
+                    }
+                }
             }
 
             toRemove?.Clear();
