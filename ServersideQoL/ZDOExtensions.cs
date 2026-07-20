@@ -311,6 +311,8 @@ public static partial class ZDOExtensions
             return zdo;
         }
 
+        public TimeSpan GetTimeSinceSpawned() => ZNet.instance.GetTime() - @this.Vars.GetSpawnTime();
+
         public void ClaimOwnership() => @this.SetOwner(ZDOMan.GetSessionID());
         public void ClaimOwnershipInternal() => @this.SetOwnerInternal(ZDOMan.GetSessionID());
         public void ReleaseOwnership() => @this.SetOwner(0);

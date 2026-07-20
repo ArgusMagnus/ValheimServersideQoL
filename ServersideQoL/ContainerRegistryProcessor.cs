@@ -133,6 +133,9 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         byte[]? _data;
         static readonly ZPackage _pkg = new();
 
+        public override PrefabInfo PrefabInfo => _prefabInfo;
+        public override Inventory Inventory => _inventory;
+
         public override List<ItemDrop.ItemData> InventoryItems
         {
             get

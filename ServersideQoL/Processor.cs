@@ -184,10 +184,37 @@ public abstract class Processor
 
     internal protected bool ClaimExclusive(ZDO zdo) => PlacedObjects.Contains(zdo);
 
-    protected ZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
-        => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
+    //protected bool CheckMinDistance(IReadOnlyList<Peer> peers, ZDO zdo)
+    //    => CheckMinDistance(peers, zdo, Config.Instance.MinPlayerDistance.Value);
 
-    protected ZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
+    protected static bool CheckMinDistance(IReadOnlyList<Peer> peers, ZDO zdo, float minDistance)
+    {
+        minDistance *= minDistance;
+        foreach (var peer in peers.AsEnumerable())
+        {
+            if (Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistance)
+                return false;
+        }
+        return true;
+    }
+
+    protected static ZDO Spawn(int prefab, Vector3 pos, Quaternion rot, long owner = 0)
+    {
+        var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
+        zdo.SetPrefab(prefab);
+        zdo.Persistent = true;
+        zdo.Distant = false;
+        zdo.Type = ZDO.ObjectType.Default;
+        zdo.SetRotation(rot);
+
+        zdo.SetOwnerInternal(owner);
+        return zdo;
+    }
+
+    protected ZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
+        => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker, owner);
+
+    protected ZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
     {
         var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
         PlacedObjects.Add(zdo);
@@ -201,6 +228,8 @@ public abstract class Processor
         zdo.Vars.SetHealth(-1);
         if (marker.HasFlag(CreatorMarkers.ProcessorOwned))
             zdo.Vars.SetProcessorId(Attribute.Id);
+
+        zdo.SetOwnerInternal(owner);
 
         return zdo;
     }
@@ -234,6 +263,10 @@ public abstract class Processor
         zdo.Destroy();
     }
 
+    protected TPrefabInfo? GetPrefabInfo<TPrefabInfo>(ZDO zdo)
+        where TPrefabInfo : ProcessorPrefabInfo
+        => zdo.GetExtension<IServersideQoLZDO>().PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
+
     [Flags]
     internal protected enum ProcessResult
     {
@@ -241,7 +274,9 @@ public abstract class Processor
         WaitForZDORevisionChange = 1 << 0,
         UnregisterProcessor = 1 << 1,
         DestroyZDO = 1 << 2,
-        RecreateZDO = 1 << 3
+        RecreateZDO = 1 << 3,
+        SkipOtherProcessors = 1 << 4,
+        Repeat = 1 << 5
     }
 
     [Flags]
@@ -330,7 +365,7 @@ public abstract class Processor<TPrefabInfo> : Processor
     }
 
     protected TPrefabInfo? GetPrefabInfo(ZDO zdo)
-        => zdo.GetExtension<IServersideQoLZDO>().PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
+        => GetPrefabInfo<TPrefabInfo>(zdo);
 
     TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
     {

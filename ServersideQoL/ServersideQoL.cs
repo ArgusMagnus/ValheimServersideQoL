@@ -49,6 +49,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 
     readonly List<Processor> _unregister = [];
     HashSet<ZDO>? _changed = [];
+    readonly HashSet<ZDO> _repeat = [];
 
     protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
@@ -177,6 +178,12 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
         zdo.PrefabInfo = prefabInfo;
 
         if (_changed is not null && prefabInfo is { EnabledProcessors.Count: > 0 })
+            _changed.Add(zdo);
+    }
+
+    void OnDataOrOwnerRevisionChanged(ZDO zdo, IServersideQoLZDO extZdo)
+    {
+        if (_changed is not null && !extZdo.HasNoProcessors)
             _changed.Add(zdo);
     }
 
@@ -436,7 +443,13 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 
         peers.Update();
 
-        if (peers.Count is 0 && _changed!.Count is 0)
+        if (_repeat.Count is not 0)
+        {
+            foreach (var zdo in _repeat)
+                _changed!.Add(zdo);
+            _repeat.Clear();
+        }
+        else if (peers.Count is 0 && _changed!.Count is 0)
             return;
 
         //SharedProcessorState.CleanUp(peers);
@@ -612,14 +625,21 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 zdo.Destroy();
                 break;
             }
-            else if ((result & Processor.ProcessResult.RecreateZDO) is not 0)
+
+            if ((result & Processor.ProcessResult.RecreateZDO) is not 0)
                 recreate = true;
-            else if ((result & Processor.ProcessResult.UnregisterProcessor) is not 0)
+
+            if ((result & Processor.ProcessResult.UnregisterProcessor) is not 0)
                 _unregister.Add(processor);
+            else if ((result & Processor.ProcessResult.Repeat) is not 0)
+                _repeat.Add(zdo);
             else if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
-                extZdo.UpdateProcessorDataRevision(processor);
+                extZdo.UpdateProcessorDataRevision(processor, onlyExisting: !processor.Attribute.Cyclic);
             else if (updateDataRevisions)
                 extZdo.UpdateProcessorDataRevision(processor, onlyExisting: true);
+
+            if ((result & Processor.ProcessResult.SkipOtherProcessors) is not 0)
+                break;
         }
         if (!destroy)
         {
