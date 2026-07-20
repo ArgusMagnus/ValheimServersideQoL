@@ -1,9 +1,7 @@
-﻿using BepInEx.Configuration;
-//using static UnityEngine.Random;
+﻿namespace ServersideQoL.AutoStore;
 
-namespace ServersideQoL.AutoStore;
-
-[Processor(Id, RunBefore = [ContainerRegistryProcessor.Id])]
+[Processor(Id)]
+[RunBefore<ContainerRegistryProcessor>]
 public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.PrefabInfo>
 {
     public const string Id = "e1c6ea7a-996b-4aad-8595-af86f02fe25b";

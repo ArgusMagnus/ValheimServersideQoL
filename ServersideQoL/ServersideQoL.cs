@@ -4,6 +4,7 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using ServersideQoL.ZDOExtender;
+using System.Reflection;
 using UnityEngine;
 
 namespace ServersideQoL;
@@ -629,11 +630,12 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
         }
     }
 
-    // priority‑aware topological sort
+    // Priority‑aware topological sort. Implementation could probably be more efficient, but this method is called seldomly and nowhere near a hot path.
     void SortProcessors(List<Processor> processors, bool log)
     {
         var graph = new Dictionary<Processor, List<Processor>>();
         var inDegree = new Dictionary<Processor, int>();
+        var dependencyAttributes = processors.ToDictionary(static x => x, static x => x.GetType().GetCustomAttributes<ProcessorDependencyAttribute>().ToList());
 
         HashSet<Guid>? dependents = null;
 
@@ -642,7 +644,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
             var processor = processors[i];
             if (processor.Attribute.OnlyWhenDependedOn)
             {
-                dependents ??= processors.SelectMany(static x => x.Attribute.RunBeforeIds.Concat(x.Attribute.RunAfterIds)).ToHashSet();
+                dependents ??= [.. dependencyAttributes.Values.SelectMany(static x => x.Select(static x => x.ProcessorId))];
                 if (!dependents.Contains(processor.Attribute.Id))
                 {
                     processors.RemoveAt(i);
@@ -655,23 +657,27 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
             inDegree.Add(processor, 0);
         }
 
-        // Build edges from Before/After constraints
         foreach (var processor in processors)
         {
-            foreach (var idBefore in processor.Attribute.RunBeforeIds)
-            {
-                if (!__processorsById.TryGetValue(idBefore, out var before))
-                    continue;
-                graph[processor].Add(before);
-                inDegree[before]++;
-            }
+            if (!dependencyAttributes.TryGetValue(processor, out var list))
+                continue;
 
-            foreach (var idAfter in processor.Attribute.RunAfterIds)
+            foreach (var attr in list)
             {
-                if (!__processorsById.TryGetValue(idAfter, out var after))
-                    continue;
-                graph[after].Add(processor);
-                inDegree[processor]++;
+                if (attr.RunBefore)
+                {
+                    if (!__processorsById.TryGetValue(attr.ProcessorId, out var before) || !graph.ContainsKey(before))
+                        continue;
+                    graph[processor].Add(before);
+                    inDegree[before]++;
+                }
+                else
+                {
+                    if (!__processorsById.TryGetValue(attr.ProcessorId, out var after) || !graph.ContainsKey(after))
+                        continue;
+                    graph[after].Add(processor);
+                    inDegree[processor]++;
+                }
             }
         }
 
@@ -697,7 +703,6 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 
             processors.Add(node);
 
-            // Reduce in-degree of neighbors
             foreach (var neighbor in graph[node])
             {
                 if (--inDegree[neighbor] is 0)
@@ -705,10 +710,15 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
             }
         }
 
-        if (log && processors.Count != expectedCount)
+        if (!log)
+            return;
+
+        if (processors.Count != expectedCount)
         {
             var notAdded = inDegree.Where(static x => x.Value > 0).Select(static x => x.Key.GetType().FullName);
             Logger.LogError($"The following processors are not used due to cyclic dependencies: {string.Join(", ", notAdded)}");
         }
+
+        Logger.DevLog(string.Join($"{Environment.NewLine}  - ", processors.Select(static x => x.GetType().FullName).Prepend("Processor order:")));
     }
 }

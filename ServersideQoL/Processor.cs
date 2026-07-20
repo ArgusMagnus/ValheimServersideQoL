@@ -18,22 +18,6 @@ public sealed class ProcessorAttribute(string id) : Attribute
     public bool Cyclic { get; init; }
 
     /// <summary>
-    /// <see cref="Id"/>s of the processors this processor must run before.
-    /// </summary>
-    public Guid[] RunBeforeIds { get; private init; } = [];
-
-    /// <inheritdoc cref="RunBeforeIds"/>
-    public string[] RunBefore { get; init => RunBeforeIds = [.. (field = value).Select(static x => new Guid(x))]; } = [];
-
-    /// <summary>
-    /// <see cref="Id"/>s of the processors this processor must run after.
-    /// </summary>
-    public Guid[] RunAfterIds { get; private init; } = [];
-
-    /// <inheritdoc cref="RunAfterIds"/>
-    public string[] RunAfter { get; init => RunAfterIds = [.. (field = value).Select(static x => new Guid(x))]; } = [];
-
-    /// <summary>
     /// True to run this processor only if other processors depend on it via <see cref="RunBefore"/>/<see cref="RunAfter"/>
     /// </summary>
     public bool OnlyWhenDependedOn { get; init; }
@@ -43,6 +27,36 @@ public sealed class ProcessorAttribute(string id) : Attribute
     /// </summary>
     public int Priority { get; init; } = 0;
 }
+
+public abstract class ProcessorDependencyAttribute : Attribute
+{
+    public Guid ProcessorId { get; }
+    public bool RunBefore { get; }
+
+    ProcessorDependencyAttribute(Guid processorId, bool runBefore)
+    {
+        ProcessorId = processorId;
+        RunBefore = runBefore;
+    }
+
+    private protected ProcessorDependencyAttribute(string processorId, bool runBefore)
+        : this(new Guid(processorId), runBefore) { }
+
+    private protected ProcessorDependencyAttribute(Type processorType, bool runBefore)
+        : this(processorType.GetCustomAttribute<ProcessorAttribute>()?.Id ?? default, runBefore) { }
+}
+
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+public sealed class RunBeforeAttribute(string processorId) : ProcessorDependencyAttribute(processorId, true);
+
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+public sealed class RunBeforeAttribute<T>() : ProcessorDependencyAttribute(typeof(T), true) where T : Processor, new();
+
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+public sealed class RunAfterAttribute(string processorId) : ProcessorDependencyAttribute(processorId, false);
+
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+public sealed class RunAfterAttribute<T>() : ProcessorDependencyAttribute(typeof(T), false) where T : Processor, new();
 
 public abstract class Processor
 {
