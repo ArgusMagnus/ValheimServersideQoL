@@ -633,8 +633,8 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
     // Priority‑aware topological sort. Implementation could probably be more efficient, but this method is called seldomly and nowhere near a hot path.
     void SortProcessors(List<Processor> processors, bool log)
     {
-        var graph = new Dictionary<Processor, List<Processor>>();
-        var inDegree = new Dictionary<Processor, int>();
+        var graph = new Dictionary<Processor, List<Processor>>(processors.Count);
+        var inDegree = new Dictionary<Processor, int>(processors.Count);
         var dependencyAttributes = processors.ToDictionary(static x => x, static x => x.GetType().GetCustomAttributes<ProcessorDependencyAttribute>().ToList());
 
         HashSet<Guid>? dependents = null;
