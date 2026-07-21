@@ -123,7 +123,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   }
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
-      .Add<ContainerRegistryProcessor>();
+    .Add<ContainerRegistryProcessor>()
+    .Add<TameableRegistryProcessor>();
 
   IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => field ?? new Func<IReadOnlyDictionary<string, PieceTable>>(static () =>
   {
@@ -759,11 +760,11 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
     if (processors.Count != expectedCount)
     {
-      var notAdded = inDegree.Where(static x => x.Value > 0).Select(static x => x.Key.GetType().FullName);
+      var notAdded = inDegree.Where(static x => x.Value > 0).Select(static x => $"{x.Key.Attribute.Id} ({x.Key.GetType().FullName})");
       Logger.LogError($"The following processors are not used due to cyclic dependencies: {string.Join(", ", notAdded)}");
     }
 
-    Logger.DevLog(string.Join($"{Environment.NewLine}  - ", processors.Select(static x => x.GetType().FullName).Prepend("Processor order:")));
+    Logger.DevLog(string.Join($"{Environment.NewLine}  - ", processors.Select(static x => $"{x.Attribute.Id} ({x.GetType().FullName})").Prepend("Processor order:")));
   }
 
   internal void ScheduleReprocessing(ZDO zdo) => _repeat.Add(zdo);

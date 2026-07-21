@@ -34,13 +34,13 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   public ContainerState GetState(ZDO zdo, PrefabInfo prefabInfo)
   {
-    if (!_states.TryGetValue(zdo, out var inventory))
+    if (!_states.TryGetValue(zdo, out var state))
     {
-      _states.Add(zdo, inventory = new(zdo, prefabInfo));
+      _states.Add(zdo, state = new(zdo, prefabInfo));
       zdo.GetExtension<IExtendedZDO>().Destroyed += x => _states.Remove(x);
     }
 
-    return inventory.Update();
+    return state.Update();
   }
 
   public void RequestOwnership(ZDO zdo, long playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
@@ -155,10 +155,13 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         return this;
 
       var data = _zdo.Vars.GetItems();
-      if (ReferenceEquals(data, _data))
-        return this;
-      if (data is not null && _data is not null && data.SequenceEqual(_data))
-        return this;
+      if (_inventory is not null)
+      {
+        if (ReferenceEquals(data, _data))
+          return this;
+        if (data is not null && _data is not null && data.SequenceEqual(_data))
+          return this;
+      }
 
       var fields = _zdo.Fields<Container>();
       var w = fields.GetInt(static () => x => x.m_width);

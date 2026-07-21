@@ -13,6 +13,7 @@ partial class AutoStorePlugin : ServersideQoLPluginBase<AutoStorePlugin, Config>
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
-  protected override void RegisterProcessors(IProcessorCollection processors)
-      => processors.Add<ContainerProcessor>();
+  protected override void RegisterProcessors(IProcessorCollection processors) => processors
+    .Add<ContainerProcessor>()
+    .Add<ItemDropProcessor>();
 }
