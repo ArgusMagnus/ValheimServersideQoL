@@ -172,6 +172,12 @@ public abstract class Processor
     }
   }
 
+  protected void ScheduleReprocessing(ZDO zdo)
+  {
+    zdo.GetExtension<IServersideQoLZDO>().ResetProcessorDataRevision(this);
+    ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo);
+  }
+
   private protected abstract ProcessResult Process(IReadOnlyList<Peer> peers, ZDO zdo);
   protected virtual void PreProcess(PeersEnumerable peers) { }
 
@@ -293,7 +299,7 @@ public abstract class Processor
     DestroyZDO = 1 << 2,
     RecreateZDO = 1 << 3,
     SkipOtherProcessors = 1 << 4,
-    Repeat = 1 << 5
+    ScheduleReprocessing = 1 << 5
   }
 
   [Flags]

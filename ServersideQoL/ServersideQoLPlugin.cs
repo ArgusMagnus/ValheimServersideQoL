@@ -19,6 +19,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   readonly List<Processor> _enabledProcessors = [];
   bool _hasCyclicProcessors;
 
+  internal static ServersideQoLPlugin Instance { get; private set; } = default!;
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
   internal static IReadOnlyDictionary<Guid, Processor> Processors => __processorsById;
 
@@ -49,6 +50,11 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   readonly List<Processor> _unregister = [];
   HashSet<ZDO>? _changed = [];
   readonly HashSet<ZDO> _repeat = [];
+
+  public ServersideQoLPlugin()
+  {
+    Instance = this;
+  }
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
@@ -627,11 +633,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       if ((result & Processor.ProcessResult.RecreateZDO) is not 0)
         recreate = true;
-
-      if ((result & Processor.ProcessResult.UnregisterProcessor) is not 0)
+      else if ((result & Processor.ProcessResult.UnregisterProcessor) is not 0)
         _unregister.Add(processor);
-      else if ((result & Processor.ProcessResult.Repeat) is not 0)
-        _repeat.Add(zdo);
+      else if ((result & Processor.ProcessResult.ScheduleReprocessing) is not 0)
+        ScheduleReprocessing(zdo);
       else if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
         extZdo.UpdateProcessorDataRevision(processor, onlyExisting: !processor.Attribute.Cyclic);
       else if (updateDataRevisions)
@@ -760,4 +765,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
     Logger.DevLog(string.Join($"{Environment.NewLine}  - ", processors.Select(static x => x.GetType().FullName).Prepend("Processor order:")));
   }
+
+  internal void ScheduleReprocessing(ZDO zdo) => _repeat.Add(zdo);
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 namespace ServersideQoL.AutoStore;
 
 [Processor(Id)]
+[RunAfter<ContainerRegistryProcessor>]
 [RunAfter<TameableRegistryProcessor>]
 public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 {
@@ -16,10 +17,12 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 
   protected override void Initialize()
   {
+    Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
     if (Config.Instance.AutoPickup.Value)
     {
       _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(Mathf.Max(Config.Instance.AutoPickupRange.Value, Config.Instance.AutoPickupMaxRange.Value));
       _itemDrops = new(_containersByItemName.SectorWidth);
+      Instance<ContainerRegistryProcessor>().ContainerChanged += OnContainerChanged;
     }
     else
     {
@@ -28,6 +31,32 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     }
 
     _eggDropTime.Clear();
+  }
+
+  void OnContainerChanged(ZDO containerZdo, ContainerState containerState)
+  {
+    if (_itemDrops is null)
+    {
+      Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
+      return;
+    }
+
+    if (containerState.InventoryItems.Count is 0)
+      return;
+
+    var rangeSqr = containerState.GetFloat(AutoStorePlugin.ContainerFloats.PickupRange) ?? Config.Instance.AutoPickupRange.Value;
+    rangeSqr *= rangeSqr;
+    if (rangeSqr is 0f)
+      return;
+
+    foreach (var itemDrops in _itemDrops.EnumerateAdjacent(containerZdo.GetPosition()))
+    {
+      foreach (var zdo in itemDrops)
+      {
+        if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) <= rangeSqr)
+          ScheduleReprocessing(zdo);
+      }
+    }
   }
 
   protected override ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
@@ -46,14 +75,14 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
       {
         _eggDropTime.Add(zdo, DateTimeOffset.UtcNow);
         zdo.GetExtension<IExtendedZDO>().Destroyed += x => _eggDropTime.Remove(x);
-        return ProcessResult.Repeat;
+        return ProcessResult.ScheduleReprocessing;
       }
       if (DateTimeOffset.UtcNow - dropTime < TimeSpan.FromSeconds(2 * prefabInfo.EggGrow.m_updateInterval + 2))
-        return ProcessResult.Repeat;
+        return ProcessResult.ScheduleReprocessing;
     }
 
     if (!CheckMinDistance(peers, zdo, Config.Instance.AutoPickupMinPlayerDistance.Value))
-      return ProcessResult.Repeat; // player to close
+      return ProcessResult.ScheduleReprocessing; // player to close
 
     var shared = prefabInfo.ItemDrop.m_itemData.m_shared;
     var requestOwn = false;
@@ -82,7 +111,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
             if (Utils.DistanceSqr(zdo.GetPosition(), tameableZdo.GetPosition()) < rangeSqr)
             {
               if (prefabInfo.ZSyncTransform is not null && zdo.GetTimeSinceSpawned() < TimeSpan.FromSeconds(10))
-                return ProcessResult.Repeat;
+                return ProcessResult.ScheduleReprocessing;
 
               ProcessResult result = ProcessResult.UnregisterProcessor;
               var fields = zdo.Fields<ItemDrop>();
