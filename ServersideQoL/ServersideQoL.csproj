@@ -105,13 +105,4 @@
     </Reference>
   </ItemGroup>
 
-  <Target Name="GetProjectOutputs">
-    <MSBuild Projects="@(ProjectReference)" Targets="GetTargetPath">
-      <Output TaskParameter="TargetOutputs" ItemName="ProjectOutputs" />
-    </MSBuild>
-
-    <Message Importance="high"
-				 Text="Output: %(ProjectOutputs.Identity)" />
-  </Target>
-
 </Project>
