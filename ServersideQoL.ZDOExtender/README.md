@@ -1,0 +1,1 @@
+Dependency of ServersideQoL, required by all ServersideQoL mods. **Does nothing on its own.**

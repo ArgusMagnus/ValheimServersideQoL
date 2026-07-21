@@ -1,6 +1,6 @@
 <Project>
 	
-	<Target Name="GenerateBuildInfo" BeforeTargets="CoreCompile" Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false'">
+	<Target Name="GenerateBuildInfo" BeforeTargets="CoreCompile" Condition="'$(CreatePackage)' == 'true'">
 		<PropertyGroup>
 			<VersionNumber>$(Version.Split('-')[0])</VersionNumber>
 			<BuildInfoFile>$(IntermediateOutputPath)BuildInfo.cs</BuildInfoFile>
@@ -37,7 +37,7 @@ public sealed partial class $(ClassName)Plugin
 		</ItemGroup>
 	</Target>
 
-	<Target Name="CreatePackage" AfterTargets="AfterBuild" Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false'">
+	<Target Name="CreatePackage" AfterTargets="AfterBuild" Condition="'$(CreatePackage)' == 'true'">
 		<ItemGroup>
 			<Dependencies Include="@(ProjectReference)" Condition="'%(ProjectReference.OutputItemType)' == ''" />
 		</ItemGroup>
@@ -46,14 +46,14 @@ public sealed partial class $(ClassName)Plugin
 			<Output TaskParameter="TargetOutputs" ItemName="DependencyPaths" />
 		</MSBuild>
 
-		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(OutDir)..\$(TargetName).zip"' />
+		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName).zip"' />
 	</Target>
 
-	<Target Name="CleanPlugins" BeforeTargets="Clean" Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false'">
+	<Target Name="CleanPlugins" BeforeTargets="Clean" Condition="'$(CreatePackage)' == 'true'">
 		<RemoveDir Directories="$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName)" />
 	</Target>
 
-	<Target Name="CopyPlugins" AfterTargets="AfterBuild" Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false'">
+	<Target Name="CopyPlugins" AfterTargets="AfterBuild" Condition="'$(CreatePackage)' == 'true'">
 		<ItemGroup>
 			<FilesToCopy Include="$(OutDir)**" />
 		</ItemGroup>

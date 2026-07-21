@@ -26,14 +26,14 @@ else {
 if ($Dependencies) {
     $deps += $Dependencies.Split(';') | Get-ItemPropertyValue -Name VersionInfo | ForEach-Object {
         $author = $_.LegalCopyright
-        $name = $_.ProductName
+        $name = $_.ProductName.Replace('.','_')
         $version = $_.ProductVersion.Substring(0, $_.ProductVersion.IndexOfAny(@('-', '+')))
         "$author-$name-$version"
     }
 }
 
 $vi = Get-ItemPropertyValue -LiteralPath $Path -Name VersionInfo
-$name = $vi.ProductName
+$name = $vi.ProductName.Replace('.','_')
 $version = $vi.ProductVersion.Substring(0, $vi.ProductVersion.IndexOf('+'))
 $versionNumber = $version.Split('-')[0]
 
