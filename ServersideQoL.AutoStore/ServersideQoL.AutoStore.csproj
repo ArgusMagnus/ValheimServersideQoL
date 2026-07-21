@@ -5,7 +5,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" PrivateAssets="all" />
+		<ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" PrivateAssets="all" />
+		<ProjectReference Include="..\ServersideQoL.ZDOExtender\ServersideQoL.ZDOExtender.csproj" Private="False" PrivateAssets="all" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -39,7 +39,7 @@ partial class ZDOExtenderPlugin : BaseUnityPlugin
         Instance = this;
     }
 
-    void Awake()
+    partial void OnAwake()
     {
         var znetStart = typeof(ZNet).GetMethod("Start", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic) ?? throw new ArgumentNullException();
         var znetStartPrefix = ((Delegate)ZNetStartPrefix).Method;

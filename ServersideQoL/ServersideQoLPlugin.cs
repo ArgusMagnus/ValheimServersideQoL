@@ -52,7 +52,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
     protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
-    void Awake()
+    partial void OnAwake()
     {
         ZDOExtenderPlugin.RegisterInterfaces += OnRegisterZDOInterfaces;
     }

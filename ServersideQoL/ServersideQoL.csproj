@@ -10,7 +10,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\ServersideQoL.CodeAnalysis\ServersideQoL.CodeAnalysis.csproj" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />
-		<ProjectReference Include="..\ServersideQoL.ZDOExtender\ServersideQoL.ZDOExtender.csproj" Private="False" />
+		<ProjectReference Include="..\ServersideQoL.ZDOExtender\ServersideQoL.ZDOExtender.csproj" Private="False" PrivateAssets="all" />
 		<!--<ProjectReference Include="..\ValheimServersideQoL.YamlDotNet\YamlDotNet\Valheim.ServersideQoL.YamlDotNet.csproj" />-->
 	</ItemGroup>
 

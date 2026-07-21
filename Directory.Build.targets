@@ -16,6 +16,16 @@ public sealed partial class $(ClassName)Plugin
 	public const string PluginGuid = $"{Author}.{PluginName}"%3B
 	public const string PluginVersion = "$(VersionNumber)"%3B
 	public const string PluginInformationalVersion = "$(Version)"%3B
+	DateTimeOffset BuildTimestamp { get%3B } = new($([System.DateTimeOffset]::UtcNow.UtcTicks), default)%3B
+	
+	void Awake()
+	{
+        if (PluginVersion != PluginInformationalVersion)
+            Logger.LogWarning($"You are running a pre-release version: {PluginInformationalVersion} ({BuildTimestamp.LocalDateTime})")%3B
+		OnAwake()%3B
+	}
+	
+	partial void OnAwake()%3B
 }
 			</MyTextLines>
 		</PropertyGroup>
@@ -36,18 +46,18 @@ public sealed partial class $(ClassName)Plugin
 			<Output TaskParameter="TargetOutputs" ItemName="DependencyPaths" />
 		</MSBuild>
 
-		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "$(StoreDependencies)" -Destination "$(OutDir)..\$(TargetName).zip"' />
+		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(OutDir)..\$(TargetName).zip"' />
 	</Target>
 
 	<Target Name="CleanPlugins" BeforeTargets="Clean" Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false'">
-		<RemoveDir Directories="$(MSBuildThisFileDirectory)plugins\$(MSBuildProjectName)" />
+		<RemoveDir Directories="$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName)" />
 	</Target>
 
 	<Target Name="CopyPlugins" AfterTargets="AfterBuild" Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false'">
 		<ItemGroup>
 			<FilesToCopy Include="$(OutDir)**" />
 		</ItemGroup>
-		<Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(MSBuildThisFileDirectory)plugins\$(MSBuildProjectName)" />
+		<Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName)" />
 	</Target>
 	
 </Project>
