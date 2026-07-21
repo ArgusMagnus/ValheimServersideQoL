@@ -11,7 +11,7 @@ namespace $(RootNamespace)%3B
 [BepInEx.BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 public sealed partial class $(ClassName)Plugin
 {
-    public const string Author = "$(Authors)"%3B
+  public const string Author = "$(Authors)"%3B
 	public const string PluginName = "$(MSBuildProjectName)"%3B
 	public const string PluginGuid = $"{Author}.{PluginName}"%3B
 	public const string PluginVersion = "$(VersionNumber)"%3B
@@ -20,8 +20,8 @@ public sealed partial class $(ClassName)Plugin
 	
 	void Awake()
 	{
-        if (PluginVersion != PluginInformationalVersion)
-            Logger.LogWarning($"You are running a pre-release version: {PluginInformationalVersion} ({BuildTimestamp.LocalDateTime})")%3B
+    if (PluginVersion != PluginInformationalVersion)
+      Logger.LogWarning($"You are running a pre-release version: {PluginInformationalVersion} ({BuildTimestamp.LocalDateTime})")%3B
 		OnAwake()%3B
 	}
 	

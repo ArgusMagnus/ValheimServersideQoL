@@ -2,14 +2,14 @@
 
 public abstract class TameableState
 {
-    private protected TameableState() { }
-    public abstract TameableRegistryProcessor.PrefabInfo PrefabInfo { get; }
-    public abstract States State { get; }
+  private protected TameableState() { }
+  public abstract TameableRegistryProcessor.PrefabInfo PrefabInfo { get; }
+  public abstract States State { get; }
 
-    public enum States
-    {
-        Wild,
-        Taming,
-        Tamed
-    }
+  public enum States
+  {
+    Wild,
+    Taming,
+    Tamed
+  }
 }

@@ -9,10 +9,10 @@ namespace ServersideQoL.CodeAnalysis.Tests;
 [TestClass]
 public sealed class ExpressionCacheAnalyzerTests
 {
-    [TestMethod]
-    public async Task TestOk()
-    {
-        var testCode = $$"""
+  [TestMethod]
+  public async Task TestOk()
+  {
+    var testCode = $$"""
             class Class
             {
                 [{{nameof(MustBeOnUniqueLineAttribute)}}]
@@ -31,13 +31,13 @@ public sealed class ExpressionCacheAnalyzerTests
             sealed class {{nameof(MustBeOnUniqueLineAttribute)}} : System.Attribute;
             """;
 
-        await Verifier.VerifyAnalyzerAsync(testCode);
-    }
+    await Verifier.VerifyAnalyzerAsync(testCode);
+  }
 
-    [TestMethod]
-    public async Task TestError()
-    {
-        var testCode = $$"""
+  [TestMethod]
+  public async Task TestError()
+  {
+    var testCode = $$"""
             class Class
             {
                 [{{nameof(MustBeOnUniqueLineAttribute)}}]
@@ -52,8 +52,8 @@ public sealed class ExpressionCacheAnalyzerTests
             sealed class {{nameof(MustBeOnUniqueLineAttribute)}} : System.Attribute;
             """;
 
-        await Verifier.VerifyAnalyzerAsync(testCode,
-            new DiagnosticResult("ARG0001", DiagnosticSeverity.Error).WithSpan(8, 19, 8, 27),
-            new DiagnosticResult("ARG0001", DiagnosticSeverity.Error).WithSpan(9, 9, 9, 17));
-    }
+    await Verifier.VerifyAnalyzerAsync(testCode,
+        new DiagnosticResult("ARG0001", DiagnosticSeverity.Error).WithSpan(8, 19, 8, 27),
+        new DiagnosticResult("ARG0001", DiagnosticSeverity.Error).WithSpan(9, 9, 9, 17));
+  }
 }

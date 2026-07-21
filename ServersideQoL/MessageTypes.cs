@@ -2,10 +2,10 @@
 
 public enum MessageTypes
 {
-    None,
-    TopLeftNear,
-    TopLeftFar,
-    CenterNear,
-    CenterFar,
-    InWorld
+  None,
+  TopLeftNear,
+  TopLeftFar,
+  CenterNear,
+  CenterFar,
+  InWorld
 }

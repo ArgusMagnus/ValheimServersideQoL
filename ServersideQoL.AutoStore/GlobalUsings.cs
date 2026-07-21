@@ -1,1 +1,1 @@
-﻿global using static System.FormattableString;
+﻿

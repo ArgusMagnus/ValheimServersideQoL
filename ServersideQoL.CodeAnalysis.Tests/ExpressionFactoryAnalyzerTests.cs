@@ -9,10 +9,10 @@ namespace ServersideQoL.CodeAnalysis.Tests;
 [TestClass]
 public sealed class ExpressionFactoryAnalyzerTests
 {
-    [TestMethod]
-    public async Task Test()
-    {
-        var testCode = $$"""
+  [TestMethod]
+  public async Task Test()
+  {
+    var testCode = $$"""
             using System;
             using System.Linq.Expressions;
 
@@ -27,7 +27,7 @@ public sealed class ExpressionFactoryAnalyzerTests
             }
             """;
 
-        await Verifier.VerifyAnalyzerAsync(testCode, new DiagnosticResult("ARG0002", DiagnosticSeverity.Error)
-            .WithSpan(10, 49, 10, 67));
-    }
+    await Verifier.VerifyAnalyzerAsync(testCode, new DiagnosticResult("ARG0002", DiagnosticSeverity.Error)
+        .WithSpan(10, 49, 10, 67));
+  }
 }
