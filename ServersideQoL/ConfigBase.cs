@@ -273,11 +273,11 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
             using (var stream = new StreamReader(configPath))
                 entry.Value = deserializer.Deserialize(stream, entry.Value.GetType()) ?? entry.Value;
 
-            ServersideQoL.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}");
+            ServersideQoLPlugin.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}");
         }
         catch (Exception ex)
         {
-            ServersideQoL.Logger.LogWarning($"{Path.GetFileName(configPath)}: {ex}");
+            ServersideQoLPlugin.Logger.LogWarning($"{Path.GetFileName(configPath)}: {ex}");
         }
     }
 

@@ -16,6 +16,6 @@ sealed record RuntimeInformation(string ModVersion, GameVersion GameVersion, uin
         if (versionType.GetField("m_worldVersion")?.GetValue(null) is not int worldVersion)
             worldVersion = default;
 
-        return new(ServersideQoL.PluginInformationalVersion, gameVersion, networkVersion, itemDataVersion, worldVersion);
+        return new(ServersideQoLPlugin.PluginInformationalVersion, gameVersion, networkVersion, itemDataVersion, worldVersion);
     }
 }

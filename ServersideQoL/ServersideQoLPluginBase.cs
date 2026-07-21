@@ -48,13 +48,13 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : BaseUnityPlugin,
     {
         var pluginName = GetType().GetCustomAttribute<BepInPlugin>().Name;
         Logger = new(pluginName);
-        ServersideQoL.RegisterPlugin(this);
+        ServersideQoLPlugin.RegisterPlugin(this);
     }
 
     protected abstract void RegisterProcessors(IProcessorCollection processors);
 
     void IServersideQoLPlugin.RegisterProcessors()
-        => RegisterProcessors(new ProcessorCollection(this));
+        => RegisterProcessors(new ProcessorCollection(this, Logger));
 
     //protected void RegisterProcessor<T>()
     //    where T : Processor, new()
@@ -70,7 +70,7 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : BaseUnityPlugin,
     //    _processors.Add(processor);
     //}
 
-    sealed class ProcessorCollection(ServersideQoLPluginBase<TSelf, TConfig> plugin) : IProcessorCollection
+    sealed class ProcessorCollection(ServersideQoLPluginBase<TSelf, TConfig> plugin, Logger logger) : IProcessorCollection
     {
         public IProcessorCollection Add<T>() where T : Processor, new()
         {
@@ -78,8 +78,7 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : BaseUnityPlugin,
             if (plugin._processors.Contains(processor))
                 return this;
 
-            processor.Plugin = plugin;
-            processor.ValidateProcessorInternal();
+            processor.Init(plugin, logger);
             plugin._processors.Add(processor);
             return this;
         }

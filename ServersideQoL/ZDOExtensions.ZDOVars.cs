@@ -113,8 +113,8 @@ static partial class ZDOExtensions
         //public void SetIsBackpack(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__isBackpack, value); }
 
 
-        static int __processorId = $"{ServersideQoL.PluginGuid}.ProcessorId".GetStableHashCode();
-        public Guid GetProcessorId(Guid defaultValue = default) => _zdo.GetByteArray(__processorId, Array.Empty<byte>()) is { Length: > 0 } arr ? new(arr) : defaultValue;
+        static int __processorId = $"{ServersideQoLPlugin.PluginGuid}.ProcessorId".GetStableHashCode();
+        public Guid GetProcessorId(Guid defaultValue = default) => _zdo.GetByteArray(__processorId, []) is { Length: > 0 } arr ? new(arr) : defaultValue;
         public void SetProcessorId(Guid value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__processorId, value == default ? Array.Empty<byte>() : value.ToByteArray()); }
 
         //static int __intTag = $"{Main.PluginGuid}.IntTag".GetStableHashCode();
@@ -178,7 +178,7 @@ static partial class ZDOExtensions
                     .Select(static x => (x.GetStableHashCode(), x))))
             {
                 if (result.TryGetValue(hash, out var existing))
-                    ServersideQoL.Logger.DevLog($"Duplicate hash: {existing}, {name} (hash = {hash})");
+                    ServersideQoLPlugin.Logger.DevLog($"Duplicate hash: {existing}, {name} (hash = {hash})");
                 else
                     result.Add(hash, name);
             }

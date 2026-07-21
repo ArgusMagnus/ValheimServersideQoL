@@ -192,7 +192,7 @@ public static class RPC
             __invokeCounters[methodName] = ++count;
             __invokeTotalCounter++;
             if (count % 10 is 0)
-                ServersideQoL.Logger.LogInfo($"{nameof(InvokeRoutedRPC)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
+                ServersideQoLPlugin.Logger.LogInfo($"{nameof(InvokeRoutedRPC)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
         }
         ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, methodName, parameters ?? []);
     }
@@ -205,7 +205,7 @@ public static class RPC
             __invokeCounters[methodName] = ++count;
             __invokeTotalCounter++;
             if (count % 10 is 0)
-                ServersideQoL.Logger.LogInfo($"{nameof(InvokeRoutedRPC)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
+                ServersideQoLPlugin.Logger.LogInfo($"{nameof(InvokeRoutedRPC)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
         }
         ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, targetZDO, methodName, parameters ?? []);
     }
@@ -220,7 +220,7 @@ public static class RPC
             __invokeAsSenderCounters[methodName] = ++count;
             __invokeTotalCounter++;
             if (count % 10 is 0)
-                ServersideQoL.Logger.LogInfo($"{nameof(InvokeRoutedRPCAsSender)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
+                ServersideQoLPlugin.Logger.LogInfo($"{nameof(InvokeRoutedRPCAsSender)}: {methodName}: {count} of {__invokeTotalCounter} ({(float)count / __invokeTotalCounter:P0})");
         }
 
         __invokeRouteRPCAsSender ??= GetDelegate();
@@ -308,7 +308,7 @@ public static class RPC
 
                         __loopCounter++;
                         if (__loopCounter > 1)
-                            ServersideQoL.Logger.DevLog($"{rpcMethod.Name}: Loop Counter: {__loopCounter}");
+                            ServersideQoLPlugin.Logger.DevLog($"{rpcMethod.Name}: Loop Counter: {__loopCounter}");
                         var result = del.Delegate.DynamicInvoke(args);
                         __loopCounter--;
 
@@ -317,17 +317,17 @@ public static class RPC
                     }
                     catch (Exception ex)
                     {
-                        ServersideQoL.Logger.LogError($"{rpcMethod.Name}: {del.Delegate.Method.DeclaringType.Name}.{del.Delegate.Method.Name}: {ex}");
-                        ServersideQoL.Logger.LogError($"Arguments: {string.Join(", ", __args.Select(static (x, i) => $"{i}: {x?.GetType().Name}"))}");
+                        ServersideQoLPlugin.Logger.LogError($"{rpcMethod.Name}: {del.Delegate.Method.DeclaringType.Name}.{del.Delegate.Method.Name}: {ex}");
+                        ServersideQoLPlugin.Logger.LogError($"Arguments: {string.Join(", ", __args.Select(static (x, i) => $"{i}: {x?.GetType().Name}"))}");
                         rpcMethod.Delegates.RemoveAt(i--);
                         if (rpcMethod.Delegates.Count is 0 && __methods.Remove(data.m_methodHash) && __methods.Count is 0)
-                            ServersideQoL.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
+                            ServersideQoLPlugin.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
                     }
                 }
             }
             else if (__methods.Count is 0)
             {
-                ServersideQoL.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
+                ServersideQoLPlugin.HarmonyInstance.Unpatch(__handleRoutedRPCMethod, __handleRoutedRPCPrefix);
             }
             return true;
         }
@@ -376,7 +376,7 @@ public static class RPC
             }
 
             if (!patched && __methods.Count > 0)
-                ServersideQoL.HarmonyInstance.Patch(__handleRoutedRPCMethod, prefix: new(__handleRoutedRPCPrefix));
+                ServersideQoLPlugin.HarmonyInstance.Patch(__handleRoutedRPCMethod, prefix: new(__handleRoutedRPCPrefix));
         }
     }
 }

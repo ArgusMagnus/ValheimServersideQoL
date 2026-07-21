@@ -31,7 +31,15 @@ public sealed class ProcessorAttribute(string id) : Attribute
 public abstract class ProcessorDependencyAttribute : Attribute
 {
     public Guid ProcessorId { get; }
+
+    /// <summary>
+    /// If true, processors with this dependency will be dropped if the processor with Id = <see cref="ProcessorId"/> is not found or was dropped itself.
+    /// </summary>
     public bool Required { get; init; }
+
+    /// <summary>
+    /// If true, processors with this dependency will be run before the processor with Id = <see cref="ProcessorId"/>, otherwise they will be run after. 
+    /// </summary>
     public bool RunBefore { get; }
 
     ProcessorDependencyAttribute(Guid processorId, bool required, bool runBefore)
@@ -63,7 +71,8 @@ public sealed class RunAfterAttribute<T>() : ProcessorDependencyAttribute(typeof
 public abstract class Processor
 {
     internal ProcessorAttribute Attribute { get; }
-    internal IServersideQoLPlugin Plugin { get; set; } = default!;
+    internal IServersideQoLPlugin Plugin { get; private set; } = default!;
+    protected Logger Logger { get; private set; } = default!;
 
     protected readonly HashSet<ZDO> PlacedObjects = [];
 
@@ -78,8 +87,14 @@ public abstract class Processor
         Attribute = GetType().GetCustomAttribute<ProcessorAttribute>() ?? throw new Exception($"Required {nameof(ProcessorAttribute)} missing on type {GetType().FullName}");
     }
 
+    internal void Init(IServersideQoLPlugin plugin, Logger logger)
+    {
+        Plugin = plugin;
+        Logger = logger;
+        ValidateProcessor();
+    }
+
     private protected abstract void ValidateProcessor();
-    internal void ValidateProcessorInternal() => ValidateProcessor();
 
     private protected abstract bool InitializePrefabInfo(PrefabInfo prefabInfo);
     internal bool InitializePrefabInfoInternal(PrefabInfo prefabInfo) => InitializePrefabInfo(prefabInfo);
@@ -122,13 +137,13 @@ public abstract class Processor
                     __dataZDO = zdo;
                 else
                 {
-                    ServersideQoL.Logger.LogError("More then one DataZDO found, destroying the second one");
+                    ServersideQoLPlugin.Logger.LogError("More then one DataZDO found, destroying the second one");
                     zdo.Destroy();
                 }
             }
             if ((marker & CreatorMarkers.ProcessorOwned) is not 0)
             {
-                if (ServersideQoL.Processors.TryGetValue(zdo.Vars.GetProcessorId(), out var processor))
+                if (ServersideQoLPlugin.Processors.TryGetValue(zdo.Vars.GetProcessorId(), out var processor))
                     processor.PlacedObjects.Add(zdo);
             }
         }
@@ -410,7 +425,7 @@ public abstract class Processor<TPrefabInfo> : Processor
         if (!any)
         {
             if (warn is not null)
-                ServersideQoL.Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");
+                Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");
             return default;
         }
         return (TPrefabInfo)_prefabInfoCtor!.Invoke(args);

@@ -6,7 +6,7 @@ namespace ServersideQoL.ZDOExtender;
 
 static class TypeExtensionBuilder
 {
-    static string __moduleName = $"{typeof(ZDOExtender).Assembly.GetName().Name}.Dynamic";
+    static string __moduleName = $"{typeof(ZDOExtenderPlugin).Assembly.GetName().Name}.Dynamic";
     static readonly ModuleBuilder __moduleBuilder = AssemblyBuilder
         .DefineDynamicAssembly(new(__moduleName), AssemblyBuilderAccess.Run)
         .DefineDynamicModule(__moduleName);

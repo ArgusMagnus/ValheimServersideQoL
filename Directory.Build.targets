@@ -8,7 +8,8 @@
 			<MyTextLines>
 namespace $(RootNamespace)%3B
 
-public sealed partial class $(ClassName)
+[BepInEx.BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+public sealed partial class $(ClassName)Plugin
 {
     public const string Author = "$(Authors)"%3B
 	public const string PluginName = "$(MSBuildProjectName)"%3B

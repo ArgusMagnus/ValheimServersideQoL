@@ -9,11 +9,10 @@ using UnityEngine;
 
 namespace ServersideQoL;
 
-[BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-[BepInDependency(ZDOExtender.ZDOExtender.PluginGuid, ZDOExtender.ZDOExtender.PluginVersion)]
-partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
+[BepInDependency(ZDOExtenderPlugin.PluginGuid, ZDOExtenderPlugin.PluginVersion)]
+partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin, Config>
 {
-    public static readonly int PluginGuidHash = PluginGuid.GetStableHashCode();
+    public static readonly int PluginGuidHash = "argusmagnus.ServersideQoL".GetStableHashCode(); // use old GUID here to not break existing worlds
 
     static readonly HashSet<IServersideQoLPlugin> __plugins = [];
     static readonly Dictionary<Guid, Processor> __processorsById = [];
@@ -55,7 +54,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
 
     void Awake()
     {
-        ZDOExtender.ZDOExtender.RegisterInterfaces += OnRegisterZDOInterfaces;
+        ZDOExtenderPlugin.RegisterInterfaces += OnRegisterZDOInterfaces;
     }
 
     void OnRegisterZDOInterfaces(IZDOInterfaceCollection interfaces)
@@ -71,7 +70,7 @@ partial class ServersideQoL : ServersideQoLPluginBase<ServersideQoL, Config>
                 (remove ??= []).Add(plugin);
                 continue;
             }
-            if (plugin.Processors.Count is 0 && plugin is not ServersideQoL)
+            if (plugin.Processors.Count is 0 && plugin is not ServersideQoLPlugin)
             {
                 Logger.LogWarning(Invariant($"No processors registered for plugin {plugin.GetType().FullName}"));
                 (remove ??= []).Add(plugin);

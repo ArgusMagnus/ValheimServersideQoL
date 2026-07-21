@@ -320,11 +320,11 @@ public static partial class ZDOExtensions
 
         public bool IsOwnerOrUnassigned() => !@this.HasOwner() || @this.IsOwner();
 
-        public void SetModAsCreator(Processor.CreatorMarkers marker = Processor.CreatorMarkers.None) => @this.Vars.SetCreator((long)ServersideQoL.PluginGuidHash | (long)((ulong)marker << 32));
+        public void SetModAsCreator(Processor.CreatorMarkers marker = Processor.CreatorMarkers.None) => @this.Vars.SetCreator((long)ServersideQoLPlugin.PluginGuidHash | (long)((ulong)marker << 32));
         public bool IsModCreator(out Processor.CreatorMarkers marker)
         {
             marker = Processor.CreatorMarkers.None;
-            if ((int)@this.Vars.GetCreator() != ServersideQoL.PluginGuidHash)
+            if ((int)@this.Vars.GetCreator() != ServersideQoLPlugin.PluginGuidHash)
                 return false;
             marker = (Processor.CreatorMarkers)((ulong)@this.Vars.GetCreator() >> 32);
             return true;

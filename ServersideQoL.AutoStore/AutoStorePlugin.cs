@@ -3,9 +3,8 @@ using BepInEx.Configuration;
 
 namespace ServersideQoL.AutoStore;
 
-[BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-[BepInDependency(ServersideQoL.PluginGuid, ServersideQoL.PluginVersion)]
-partial class AutoStore : ServersideQoLPluginBase<AutoStore, Config>
+[BepInDependency(ServersideQoLPlugin.PluginGuid, ServersideQoLPlugin.PluginVersion)]
+partial class AutoStorePlugin : ServersideQoLPluginBase<AutoStorePlugin, Config>
 {
     public static class ContainerFloats
     {

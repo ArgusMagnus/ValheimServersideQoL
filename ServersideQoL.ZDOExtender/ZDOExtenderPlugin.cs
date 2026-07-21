@@ -6,23 +6,15 @@ using System.Reflection.Emit;
 
 namespace ServersideQoL.ZDOExtender;
 
-#if DEBUG
-interface ITestExtendedZDO : IExtendedZDO
-{
-    int State { get; set; }
-}
-#endif
-
 public interface IZDOInterfaceCollection
 {
     IZDOInterfaceCollection Add<T>() where T : class, IExtendedZDO;
 }
 
-[BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-partial class ZDOExtender : BaseUnityPlugin
+partial class ZDOExtenderPlugin : BaseUnityPlugin
 {
     internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
-    internal static ZDOExtender Instance { get; private set; } = default!;
+    internal static ZDOExtenderPlugin Instance { get; private set; } = default!;
     internal new ManualLogSource Logger => base.Logger;
 
 #pragma warning disable CS0618 // Type or member is obsolete
@@ -42,12 +34,9 @@ partial class ZDOExtender : BaseUnityPlugin
         remove => _registerInterfaces -= value;
     }
 
-    public ZDOExtender()
+    public ZDOExtenderPlugin()
     {
         Instance = this;
-#if DEBUG
-        RegisterInterfaces += static interfaces => interfaces.Add<ITestExtendedZDO>();
-#endif
     }
 
     void Awake()

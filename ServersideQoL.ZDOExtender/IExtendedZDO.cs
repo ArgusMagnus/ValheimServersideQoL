@@ -32,7 +32,7 @@ public interface IExtendedZDO
                 if (!_prefabChangedInitialized)
                 {
                     _prefabChangedInitialized = true;
-                    ZDOExtender.HarmonyInstance.PatchAll(typeof(PrefabChangedPatches));
+                    ZDOExtenderPlugin.HarmonyInstance.PatchAll(typeof(PrefabChangedPatches));
                 }
                 _prefabChanged += value;
             }
@@ -49,7 +49,7 @@ public interface IExtendedZDO
                     _createdInitialized = true;
                     var original = typeof(ZDOMan).GetMethod(nameof(ZDOMan.CreateNewZDO), BindingFlags.Instance | BindingFlags.NonPublic)!;
                     var postfix = ((Delegate)OnCreated).Method;
-                    ZDOExtender.HarmonyInstance.Patch(original, postfix: new(postfix));
+                    ZDOExtenderPlugin.HarmonyInstance.Patch(original, postfix: new(postfix));
                 }
                 _created += value;
             }
@@ -78,7 +78,7 @@ public interface IExtendedZDO
                     var prop = typeof(ZDO).GetProperty(nameof(ZDO.OwnerRevision), BindingFlags.Instance | BindingFlags.Public)!;
                     var setter = prop.SetMethod;
                     var postfix = ((Delegate)OnOwnerRevisionChanged).Method;
-                    ZDOExtender.HarmonyInstance.Patch(setter, postfix: new(postfix));
+                    ZDOExtenderPlugin.HarmonyInstance.Patch(setter, postfix: new(postfix));
                 }
                 _ownerRevisionChanged += value;
             }
@@ -96,7 +96,7 @@ public interface IExtendedZDO
                     var prop = typeof(ZDO).GetProperty(nameof(ZDO.DataRevision), BindingFlags.Instance | BindingFlags.Public)!;
                     var setter = prop.SetMethod;
                     var postfix = ((Delegate)OnDataRevisionChanged).Method;
-                    ZDOExtender.HarmonyInstance.Patch(setter, postfix: new(postfix));
+                    ZDOExtenderPlugin.HarmonyInstance.Patch(setter, postfix: new(postfix));
                 }
                 _dataRevisionChanged += value;
             }
@@ -122,7 +122,7 @@ public interface IExtendedZDO
             }
             catch (Exception ex)
             {
-                ZDOExtender.Instance.Logger.LogError(ex);
+                ZDOExtenderPlugin.Instance.Logger.LogError(ex);
                 throw;
             }
             zdo._destroyed = null;
@@ -134,7 +134,7 @@ public interface IExtendedZDO
             try { _created?.Invoke(__result); }
             catch (Exception ex)
             {
-                ZDOExtender.Instance.Logger.LogError(ex);
+                ZDOExtenderPlugin.Instance.Logger.LogError(ex);
                 throw;
             }
         }
@@ -145,7 +145,7 @@ public interface IExtendedZDO
             try { _ownerRevisionChanged?.Invoke(__instance); }
             catch (Exception ex)
             {
-                ZDOExtender.Instance.Logger.LogError(ex);
+                ZDOExtenderPlugin.Instance.Logger.LogError(ex);
                 throw;
             }
         }
@@ -156,7 +156,7 @@ public interface IExtendedZDO
             try { _dataRevisionChanged?.Invoke(__instance); }
             catch (Exception ex)
             {
-                ZDOExtender.Instance.Logger.LogError(ex);
+                ZDOExtenderPlugin.Instance.Logger.LogError(ex);
                 throw;
             }
         }
@@ -185,7 +185,7 @@ public interface IExtendedZDO
                 try { _prefabChanged?.Invoke(zdo, oldPrefab, newPrefab); }
                 catch (Exception ex)
                 {
-                    ZDOExtender.Instance.Logger.LogError(ex);
+                    ZDOExtenderPlugin.Instance.Logger.LogError(ex);
                     throw;
                 }
                 zdo._prevPrefab = newPrefab;
