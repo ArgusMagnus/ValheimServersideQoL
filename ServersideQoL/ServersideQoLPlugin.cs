@@ -67,6 +67,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   {
     List<IServersideQoLPlugin>? remove = null;
     TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder = new();
+    int processorCount = 0;
     foreach (var plugin in __plugins)
     {
       try { plugin.RegisterProcessors(); }
@@ -85,13 +86,15 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       foreach (var processor in plugin.Processors)
       {
-        processor.AddPrefabInfoInterfaceInternal(prefabInfoBuilder);
         if (!__processorsById.TryAdd(processor.Attribute.Id, processor))
         {
           var existing = __processorsById[processor.Attribute.Id];
           Logger.LogError($"Processor {processor.GetType().FullName} is using the same ID as {existing.GetType().FullName} and will be ignored");
           continue;
         }
+        processor.AddPrefabInfoInterfaceInternal(prefabInfoBuilder);
+        if (plugin is not ServersideQoLPlugin)
+          ++processorCount;
         if (plugin.Config.Enabled.Value)
           _enabledProcessors.Add(processor);
       }
@@ -108,6 +111,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       return;
     }
 
+    if (processorCount is 0)
+    {
+      Logger.LogWarning("No processors registered");
+      return;
+    }
+
     SortProcessors(_enabledProcessors, true);
     _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
 
@@ -117,9 +126,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     IExtendedZDO.Events.DataRevisionChanged += OnDataOrOwnerRevisionChanged;
     IExtendedZDO.Events.OwnerRevisionChanged += OnDataOrOwnerRevisionChanged;
 
-
     foreach (var plugin in __plugins)
       plugin.Config.ConfigChanged += OnConfigChanged;
+
+    StartCoroutine(ExecuteLoop());
   }
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
@@ -199,80 +209,69 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       _changed.Add(zdo);
   }
 
-  void Start()
+  IEnumerator<YieldInstruction?> ExecuteLoop()
   {
-    if (__plugins.Count is 0)
+    while (true)
     {
-      Logger.LogWarning("No plugins registered");
-      return;
-    }
+      while (ZNet.instance is null)
+        yield return new WaitForSeconds(0.2f);
 
-    StartCoroutine(CallExecute());
+      if (ZNet.instance.IsServer() is false)
+      {
+        Logger.LogWarning("Mod should only be installed on the host");
+        yield return new WaitForSeconds(5);
+        continue;
+      }
 
-    IEnumerator<YieldInstruction?> CallExecute()
-    {
+      while (ZDOMan.instance is null || ZNetScene.instance is null || ZNet.World is null)
+        yield return new WaitForSeconds(0.2f);
+
+      if (!Initialize())
+      {
+        yield return new WaitForSeconds(5);
+        continue;
+      }
+      ZNetPeer? localPeer = null;
+      if (!ZNet.instance.IsDedicated())
+      {
+        while (Player.m_localPlayer is null)
+          yield return new WaitForSeconds(0.2f);
+
+        localPeer = new(new DummySocket(), true)
+        {
+          m_uid = ZDOMan.GetSessionID(),
+          m_characterID = Player.m_localPlayer.GetZDOID(),
+          m_server = true
+        };
+      }
+      var peers = new PeersEnumerable(localPeer);
+
       while (true)
       {
-        while (ZNet.instance is null)
-          yield return new WaitForSeconds(0.2f);
+        yield return null;
 
-        if (ZNet.instance.IsServer() is false)
+        if (ZNet.instance is null)
+          break;
+
+        var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
+        var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
+        var maxDelta = 1.0 / minFps;
+        var actualFps = 1.0 / Time.unscaledDeltaTime;
+        if (Time.unscaledDeltaTime > maxDelta)
         {
-          Logger.LogWarning("Mod should only be installed on the host");
-          yield return new WaitForSeconds(5);
+          if (Config.DiagnosticLogs.Value)
+            Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
           continue;
         }
+        var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
+        var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
 
-        while (ZDOMan.instance is null || ZNetScene.instance is null || ZNet.World is null)
-          yield return new WaitForSeconds(0.2f);
-
-        if (!Initialize())
+        try { Execute(peers, budget); }
+        catch (OperationCanceledException) { yield break; }
+        catch (Exception ex)
         {
-          yield return new WaitForSeconds(5);
-          continue;
-        }
-        ZNetPeer? localPeer = null;
-        if (!ZNet.instance.IsDedicated())
-        {
-          while (Player.m_localPlayer is null)
-            yield return new WaitForSeconds(0.2f);
-
-          localPeer = new(new DummySocket(), true)
-          {
-            m_uid = ZDOMan.GetSessionID(),
-            m_characterID = Player.m_localPlayer.GetZDOID(),
-            m_server = true
-          };
-        }
-        var peers = new PeersEnumerable(localPeer);
-
-        while (true)
-        {
-          yield return null;
-
-          if (ZNet.instance is null)
-            break;
-
-          var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
-          var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
-          var maxDelta = 1.0 / minFps;
-          var actualFps = 1.0 / Time.unscaledDeltaTime;
-          if (Time.unscaledDeltaTime > maxDelta)
-          {
-            if (Config.DiagnosticLogs.Value)
-              Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
-            continue;
-          }
-          var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
-          var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
-
-          try { Execute(peers, budget); }
-          catch (OperationCanceledException) { yield break; }
-          catch (Exception ex)
-          {
-            Logger.LogError(ex);
-            yield break;
-          }
+          Logger.LogError(ex);
+          yield break;
         }
       }
     }
@@ -366,10 +365,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         return false;
       }
     }
-
-#if DEBUG
-    Logger.LogInfo(Invariant($"Registered plugins: {__plugins.Count}"));
-#endif
 
     Processor.StaticInitialize();
     foreach (var processor in _enabledProcessors)
