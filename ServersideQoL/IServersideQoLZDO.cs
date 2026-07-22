@@ -6,6 +6,13 @@ public sealed class ServersideQoLZDO(ZDO zdo)
 {
   public ZDO ZDO { get; } = zdo;
   public PrefabInfo? PrefabInfo { get; internal set; }
+  internal bool HasNoProcessors { get; set; }
+  internal IReadOnlyList<Processor>? Processors { get; set; }
+  internal bool HasNoCyclicProcessors { get; set; }
+  internal IReadOnlyList<Processor>? CyclicProcessors { get; set; }
+  internal Dictionary<Processor, (uint Data, uint Owner)>? ProcessorDataRevisions { get; set; }
+  internal bool HasFields { get; set; }
+  internal Dictionary<Type, object>? ComponentFieldAccessors { get; set; }
 }
 
 interface IServersideQoLZDO : IExtendedZDO
