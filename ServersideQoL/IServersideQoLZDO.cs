@@ -2,6 +2,12 @@
 
 namespace ServersideQoL;
 
+public sealed class ServersideQoLZDO(ZDO zdo)
+{
+  public ZDO ZDO { get; } = zdo;
+  public PrefabInfo? PrefabInfo { get; internal set; }
+}
+
 interface IServersideQoLZDO : IExtendedZDO
 {
   PrefabInfo? PrefabInfo { get; set; }

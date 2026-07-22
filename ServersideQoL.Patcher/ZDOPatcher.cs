@@ -1,21 +1,29 @@
 ﻿using Mono.Cecil;
 using Mono.Cecil.Cil;
+using System.Diagnostics;
 
 namespace ServersideQoL.Patcher;
 
 /// <seealso href="https://docs.bepinex.dev/articles/dev_guide/preloader_patchers.html"/>
 static class ZDOPatcher
 {
+  // IMPORTANT:
+  // Be careful to not do anything that will cause ServersideQoL.dll to actually be loaded.
+  // Only use constants/nameof and indirect references.
+
   const string AssemblyName = "assembly_valheim.dll";
-  const string PropertyName = "PrefabInfo";
+  const string PropertyName = nameof(ServersideQoLZDO);
+  const string PropertyTypeNamespace = nameof(ServersideQoL);
+  const string PropertyTypeName = nameof(ServersideQoLZDO);
 
   public static IEnumerable<string> TargetDLLs => [AssemblyName];
 
   public static void Patch(AssemblyDefinition assembly)
   {
-    // IMPORTANT:
-    // Be careful to not do anything that will cause ServersideQoL.dll to actually be loaded.
-    // Only use constants/nameof and indirect references.
+    // todo:
+    // Add:
+    // - CompilerGenerated to backing field/getter/setter
+    // - DebuggerBrowsable(DebuggerBrowsableState.Never) to backing field
 
     var module = assembly.MainModule;
     var zdoType = module.GetType("ZDO") ?? throw new Exception("ZDO type not found");
@@ -23,10 +31,10 @@ static class ZDOPatcher
     var serversideQoLRef = new AssemblyNameReference(ServersideQoLPlugin.PluginName, new(ServersideQoLPlugin.PluginVersion));
     module.AssemblyReferences.Add(serversideQoLRef);
 
-    var propertyTypeReference = new TypeReference(nameof(ServersideQoL), nameof(PrefabInfo), module, serversideQoLRef);
-    var propertyType = module.ImportReference(propertyTypeReference);
+    var propertyType = module.ImportReference(new TypeReference(PropertyTypeNamespace, PropertyTypeName, module, serversideQoLRef));
+    var nullableAttrType = module.ImportReference(new TypeReference("System.Runtime.CompilerServices", "NullableAttribute", module, module.TypeSystem.CoreLibrary));
 
-    var backingField = new FieldDefinition($"_{PropertyName}_backing", FieldAttributes.Private, propertyType);
+    var backingField = new FieldDefinition($"<{PropertyName}>k__BackingField", FieldAttributes.Private, propertyType);
     zdoType.Fields.Add(backingField);
 
     var getMethod = new MethodDefinition($"get_{PropertyName}", MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName, propertyType);
@@ -50,6 +58,19 @@ static class ZDOPatcher
       GetMethod = getMethod,
       SetMethod = setMethod
     };
+
+    var attrCtor = new MethodReference(".ctor", module.TypeSystem.Void, nullableAttrType)
+    {
+      HasThis = true,
+      Parameters = { new ParameterDefinition(module.TypeSystem.Byte) }
+    };
+
+    var attr = new CustomAttribute(attrCtor);
+    attr.ConstructorArguments.Add(
+        new CustomAttributeArgument(module.TypeSystem.Byte, (byte)2) // 2 = nullable
+    );
+
+    property.CustomAttributes.Add(attr);
 
     zdoType.Properties.Add(property);
 
