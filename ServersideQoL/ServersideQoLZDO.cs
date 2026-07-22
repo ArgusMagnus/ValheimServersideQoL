@@ -58,6 +58,10 @@ public sealed class ServersideQoLZDO(ZDO zdo)
 
   public ZDOExtensions.ZDOVars Vars => new(ZDO);
 
+  public TPrefabInfo? GetProcessorPrefabInfo<TPrefabInfo>()
+      where TPrefabInfo : notnull, ProcessorPrefabInfo
+      => PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
+
   internal bool HasProcessors { get; set; }
   internal IReadOnlyList<Processor> Processors { get; set; } = [];
   internal bool HasCyclicProcessors { get; set; }

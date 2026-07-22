@@ -285,10 +285,6 @@ public abstract class Processor
     zdo.Destroy();
   }
 
-  protected TPrefabInfo? GetPrefabInfo<TPrefabInfo>(ServersideQoLZDO zdo)
-      where TPrefabInfo : ProcessorPrefabInfo
-      => zdo.PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
-
   [Flags]
   internal protected enum ProcessResult
   {
@@ -308,12 +304,6 @@ public abstract class Processor
     DataZDO = 1u << 0,
     ProcessorOwned = 1u << 1,
     //Persistent = 1u << 2
-  }
-
-  private protected interface IProcessorPrefabInfo<TPrefabInfo> : IPrefabInfo
-      where TPrefabInfo : ProcessorPrefabInfo
-  {
-    TPrefabInfo? PrefabInfo { get; set; }
   }
 
   protected static void ShowMessage(IEnumerable<Peer> peers, Vector3 pos, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
@@ -358,7 +348,7 @@ public abstract class Processor
 }
 
 public abstract class Processor<TPrefabInfo> : Processor
-    where TPrefabInfo : ProcessorPrefabInfo
+    where TPrefabInfo : notnull, ProcessorPrefabInfo
 {
 
   readonly ConstructorInfo? _prefabInfoCtor;
@@ -385,7 +375,7 @@ public abstract class Processor<TPrefabInfo> : Processor
   }
 
   protected TPrefabInfo? GetPrefabInfo(ServersideQoLZDO zdo)
-      => GetPrefabInfo<TPrefabInfo>(zdo);
+      => zdo.GetProcessorPrefabInfo<TPrefabInfo>();
 
   TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
   {

@@ -22,7 +22,13 @@ public abstract class PrefabInfo : IPrefabInfo
 
 public abstract record ProcessorPrefabInfo;
 
-public static class PrefabInfoExtensions
+interface IProcessorPrefabInfo<TPrefabInfo> : IPrefabInfo
+    where TPrefabInfo : ProcessorPrefabInfo
+{
+  TPrefabInfo? PrefabInfo { get; set; }
+}
+
+static class PrefabInfoExtensions
 {
   public static T GetExtension<T>(this IPrefabInfo prefabInfo)
       where T : class, IPrefabInfo
