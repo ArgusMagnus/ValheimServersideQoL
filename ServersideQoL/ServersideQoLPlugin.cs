@@ -55,7 +55,88 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
-  void OnRegisterZDOInterfaces(/*IZDOInterfaceCollection interfaces*/)
+  void Start()
+  {
+    StartCoroutine(CallExecute());
+
+    IEnumerator<YieldInstruction?> CallExecute()
+    {
+      bool processorsInitialized = false;
+
+      while (true)
+      {
+        while (ZNet.instance is null)
+          yield return new WaitForSeconds(0.2f);
+
+        if (ZNet.instance.IsServer() is false)
+        {
+          Logger.LogWarning("Mod should only be installed on the host");
+          yield return new WaitForSeconds(5);
+          continue;
+        }
+
+        if (!processorsInitialized)
+        {
+          processorsInitialized = true;
+          InitializeProcessors();
+        }
+
+        while (ZDOMan.instance is null || ZNetScene.instance is null || ZNet.World is null)
+          yield return new WaitForSeconds(0.2f);
+
+        if (!Initialize())
+        {
+          yield return new WaitForSeconds(5);
+          continue;
+        }
+        ZNetPeer? localPeer = null;
+        if (!ZNet.instance.IsDedicated())
+        {
+          while (Player.m_localPlayer is null)
+            yield return new WaitForSeconds(0.2f);
+
+          localPeer = new(new DummySocket(), true)
+          {
+            m_uid = ZDOMan.GetSessionID(),
+            m_characterID = Player.m_localPlayer.GetZDOID(),
+            m_server = true
+          };
+        }
+        var peers = new PeersEnumerable(localPeer);
+
+        while (true)
+        {
+          yield return null;
+
+          if (ZNet.instance is null)
+            break;
+
+          var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
+          var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
+          var maxDelta = 1.0 / minFps;
+          var actualFps = 1.0 / Time.unscaledDeltaTime;
+          if (Time.unscaledDeltaTime > maxDelta)
+          {
+            if (Config.DiagnosticLogs.Value)
+              Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
+            continue;
+          }
+          var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
+          var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
+
+          try { Execute(peers, budget); }
+          catch (OperationCanceledException) { yield break; }
+          catch (Exception ex)
+          {
+            Logger.LogError(ex);
+            yield break;
+          }
+        }
+      }
+    }
+  }
+
+  void InitializeProcessors()
   {
     List<IServersideQoLPlugin>? remove = null;
     TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder = new();
@@ -113,15 +194,11 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
 
     _prefabInfoFactory = prefabInfoBuilder.GetFactory();
-    //interfaces.Add<IServersideQoLZDO>();
-    //IExtendedZDO.Events.PrefabChanged += OnPrefabChanged;
-    //IExtendedZDO.Events.DataRevisionChanged += OnDataOrOwnerRevisionChanged;
-    //IExtendedZDO.Events.OwnerRevisionChanged += OnDataOrOwnerRevisionChanged;
 
     foreach (var plugin in __plugins)
       plugin.Config.ConfigChanged += OnConfigChanged;
 
-    StartCoroutine(ExecuteLoop());
+    HarmonyInstance.PatchAll(typeof(ServersideQoLPlugin).Assembly);
   }
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
@@ -144,123 +221,56 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     return dict;
   }).Invoke();
 
-  //void OnPrefabChanged(ZDO zdo, int oldPrefab, int newPrefab)
-  //{
-  //  PrefabInfo? prefabInfo;
-  //  if (newPrefab is 0)
-  //    prefabInfo = null;
-  //  else if (!_prefabInfos.TryGetValue(newPrefab, out prefabInfo))
-  //  {
-  //    if (ZNetScene.instance.GetPrefab(newPrefab) is { } prefab &&
-  //        prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
-  //    {
-  //      prefabInfo = _prefabInfoFactory();
-  //      prefabInfo.Prefab = prefab;
-  //      prefabInfo.PrefabHash = newPrefab;
-  //      var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
-  //      if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
-  //        components.Add(typeof(PieceTable), [pieceTable]);
-  //      prefabInfo.Components = components;
+  void OnPrefabChanged(ServersideQoLZDO zdo)
+  {
+    var newPrefab = zdo.ZDO.GetPrefab();
+    PrefabInfo? prefabInfo;
+    if (newPrefab is 0)
+      prefabInfo = null;
+    else if (!_prefabInfos.TryGetValue(newPrefab, out prefabInfo))
+    {
+      if (ZNetScene.instance.GetPrefab(newPrefab) is { } prefab &&
+          prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
+      {
+        prefabInfo = _prefabInfoFactory();
+        prefabInfo.Prefab = prefab;
+        prefabInfo.PrefabHash = newPrefab;
+        var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
+        if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
+          components.Add(typeof(PieceTable), [pieceTable]);
+        prefabInfo.Components = components;
 
-  //      foreach (var plugin in __plugins)
-  //      {
-  //        foreach (var processor in plugin.Processors)
-  //        {
-  //          if (!processor.InitializePrefabInfoInternal(prefabInfo))
-  //            continue;
+        foreach (var plugin in __plugins)
+        {
+          foreach (var processor in plugin.Processors)
+          {
+            if (!processor.InitializePrefabInfoInternal(prefabInfo))
+              continue;
 
-  //          prefabInfo.AvailableProcessors.Add(processor);
-  //          if (plugin.Config.Enabled.Value)
-  //            prefabInfo.EnabledProcessors.Add(processor);
-  //        }
-  //      }
-  //      SortProcessors(prefabInfo.EnabledProcessors, false);
-  //      foreach (var processor in prefabInfo.EnabledProcessors)
-  //      {
-  //        if (processor.Attribute.Cyclic)
-  //          prefabInfo.EnabledCyclicProcessors.Add(processor);
-  //      }
-  //    }
-  //    _prefabInfos.Add(newPrefab, prefabInfo);
-  //  }
-  //  zdo.PrefabInfo = prefabInfo;
+            prefabInfo.AvailableProcessors.Add(processor);
+            if (plugin.Config.Enabled.Value)
+              prefabInfo.EnabledProcessors.Add(processor);
+          }
+        }
+        SortProcessors(prefabInfo.EnabledProcessors, false);
+        foreach (var processor in prefabInfo.EnabledProcessors)
+        {
+          if (processor.Attribute.Cyclic)
+            prefabInfo.EnabledCyclicProcessors.Add(processor);
+        }
+      }
+      _prefabInfos.Add(newPrefab, prefabInfo);
+    }
+    zdo.PrefabInfo = prefabInfo;
 
-  //  if (_changed is not null && prefabInfo is { EnabledProcessors.Count: > 0 })
-  //    _changed.Add(zdo);
-  //}
+    if (_changed is not null && prefabInfo is { EnabledProcessors.Count: > 0 })
+      _changed.Add(zdo);
+  }
 
   void OnDataOrOwnerRevisionChanged(ServersideQoLZDO zdo)
   {
     if (_changed is not null && zdo.HasProcessors)
       _changed.Add(zdo);
-  }
-
-  IEnumerator<YieldInstruction?> ExecuteLoop()
-  {
-    while (true)
-    {
-      while (ZNet.instance is null)
-        yield return new WaitForSeconds(0.2f);
-
-      if (ZNet.instance.IsServer() is false)
-      {
-        Logger.LogWarning("Mod should only be installed on the host");
-        yield return new WaitForSeconds(5);
-        continue;
-      }
-
-      while (ZDOMan.instance is null || ZNetScene.instance is null || ZNet.World is null)
-        yield return new WaitForSeconds(0.2f);
-
-      if (!Initialize())
-      {
-        yield return new WaitForSeconds(5);
-        continue;
-      }
-      ZNetPeer? localPeer = null;
-      if (!ZNet.instance.IsDedicated())
-      {
-        while (Player.m_localPlayer is null)
-          yield return new WaitForSeconds(0.2f);
-
-        localPeer = new(new DummySocket(), true)
-        {
-          m_uid = ZDOMan.GetSessionID(),
-          m_characterID = Player.m_localPlayer.GetZDOID(),
-          m_server = true
-        };
-      }
-      var peers = new PeersEnumerable(localPeer);
-
-      while (true)
-      {
-        yield return null;
-
-        if (ZNet.instance is null)
-          break;
-
-        var minFps = ZNet.instance.IsDedicated() ? 10 : 30;// Game.m_minimumFPSLimit;
-        var targetFps = Application.targetFrameRate < 0 ? 2 * minFps : Application.targetFrameRate;
-        var maxDelta = 1.0 / minFps;
-        var actualFps = 1.0 / Time.unscaledDeltaTime;
-        if (Time.unscaledDeltaTime > maxDelta)
-        {
-          if (Config.DiagnosticLogs.Value)
-            Logger.LogInfo($"No time budget available, actual FPS: {actualFps}, min FPS: {minFps}, target FPS: {targetFps}");
-          continue;
-        }
-        var fraction = Math.Min(1, (actualFps - minFps) / (targetFps - minFps));
-        var budget = (maxDelta - Time.unscaledDeltaTime) * fraction;
-
-        try { Execute(peers, budget); }
-        catch (OperationCanceledException) { yield break; }
-        catch (Exception ex)
-        {
-          Logger.LogError(ex);
-          yield break;
-        }
-      }
-    }
   }
 
   bool Initialize()
@@ -749,4 +759,42 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   }
 
   internal void ScheduleReprocessing(ServersideQoLZDO zdo) => _repeat.Add(zdo);
+
+  [HarmonyPatch]
+  static class PrefabChangedPatches
+  {
+    [HarmonyTargetMethods]
+    public static IEnumerable<MethodInfo> GetTargetMethods()
+    {
+      var zdo = new ZDO();
+      yield return ((Delegate)zdo.SetPrefab).Method;
+      yield return ((Delegate)zdo.Deserialize).Method;
+      yield return ((Delegate)zdo.Load).Method;
+      yield return ((Delegate)zdo.LoadOldFormat).Method;
+      yield return ((Delegate)zdo.Reset).Method;
+    }
+
+    [HarmonyPostfix]
+    public static void OnPrefabChanged(ZDO __instance)
+    {
+      var zdo = __instance.ServersideQoLZDO;
+      if (zdo.UpdatePrefab())
+        Instance.OnPrefabChanged(zdo);
+    }
+  }
+
+  [HarmonyPatch]
+  static class DataOrOwnerRevisionChangedPatches
+  {
+    [HarmonyTargetMethods]
+    public static IEnumerable<MethodInfo> GetTargetMethods() => [
+      typeof(ZDO).GetProperty(nameof(ZDO.DataRevision), BindingFlags.Instance | BindingFlags.Public)!.SetMethod,
+      typeof(ZDO).GetProperty(nameof(ZDO.OwnerRevision), BindingFlags.Instance | BindingFlags.Public)!.SetMethod];
+
+    [HarmonyPostfix]
+    public static void OnDataOrOwnerRevisionChanged(ZDO __instance)
+    {
+      Instance.OnDataOrOwnerRevisionChanged(__instance.ServersideQoLZDO);
+    }
+  }
 }

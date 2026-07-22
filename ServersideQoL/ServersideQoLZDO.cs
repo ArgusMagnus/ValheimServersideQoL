@@ -66,6 +66,17 @@ public sealed class ServersideQoLZDO(ZDO zdo)
   internal bool HasFields { get; set; }
   internal Dictionary<Type, object>? ComponentFieldAccessors { get; set; }
 
+  int _prevPrefab;
+
+  internal bool UpdatePrefab()
+  {
+    var prefab = ZDO.GetPrefab();
+    if (prefab == _prevPrefab)
+      return false;
+    _prevPrefab = prefab;
+    return true;
+  }
+
   static void OnDestroyed(ZDO zdo)
     => zdo.ServersideQoLZDO._destroyed?.Invoke(zdo.ServersideQoLZDO);
 
