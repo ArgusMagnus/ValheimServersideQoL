@@ -354,9 +354,7 @@ public abstract class Processor
   [Conditional("DEBUG")]
   protected static void DevShowMessage(ZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
   {
-#if DEBUG
     RPC.ShowInWorldText([0], type, zdo.GetPosition(), $"{Path.GetFileNameWithoutExtension(callerFile)} L{callerLineNo}: {message}");
-#endif
   }
 }
 

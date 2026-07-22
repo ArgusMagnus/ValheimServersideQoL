@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <ItemGroup>
+    <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="Mono.Cecil">
+      <HintPath>$(ValheimDir)BepInEx\core\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MonoMod.Utils">
+      <HintPath>$(ValheimDir)BepInEx\core\MonoMod.Utils.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  
+	<Target Name="GenerateBuildInfoPatcher" BeforeTargets="CoreCompile">
+		<PropertyGroup>
+			<VersionNumber>$(Version.Split('-')[0])</VersionNumber>
+			<BuildInfoFile>$(IntermediateOutputPath)BuildInfo.cs</BuildInfoFile>
+			<MyTextLines>
+namespace $(RootNamespace)%3B
+
+static class BuildInfo
+{
+  public const string Author = "$(Authors)"%3B
+	public const string PluginName = "$(MSBuildProjectName)"%3B
+	public const string PluginGuid = $"{Author}.{PluginName}"%3B
+	public const string PluginVersion = "$(VersionNumber)"%3B
+	public const string PluginInformationalVersion = "$(Version)"%3B
+	public static DateTimeOffset BuildTimestamp { get%3B } = new($([System.DateTimeOffset]::UtcNow.UtcTicks), default)%3B
+	
+#if DEBUG
+  public const string DependencyDirectory = @"$(DependencyDirectory)"%3B
+#endif
+}
+			</MyTextLines>
+		</PropertyGroup>
+
+		<WriteLinesToFile File="$(BuildInfoFile)" Overwrite="true" Lines="$(MyTextLines)" />
+
+		<ItemGroup>
+			<Compile Include="$(BuildInfoFile)" />
+		</ItemGroup>
+	</Target>
+  
+</Project>

@@ -8,6 +8,7 @@
   <Project Path="ServersideQoL.AutoStore/ServersideQoL.AutoStore.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis.Tests/ServersideQoL.CodeAnalysis.Tests.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis/ServersideQoL.CodeAnalysis.csproj" />
+  <Project Path="ServersideQoL.Patcher/ServersideQoL.Patcher.csproj" Id="f3503d88-1bde-441c-990c-301659ba7fc3" />
   <Project Path="ServersideQoL.Signs/ServersideQoL.Signs.csproj" />
   <Project Path="ServersideQoL.ZDOExtender/ServersideQoL.ZDOExtender.csproj" />
   <Project Path="ServersideQoL/ServersideQoL.csproj" />

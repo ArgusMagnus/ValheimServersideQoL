@@ -20,7 +20,7 @@
       <Private>False</Private>
     </RequiredReference>
     <RequiredReference Include="assembly_valheim">
-      <HintPath>$(ValheimDir)valheim_server_Data\Managed\assembly_valheim.dll</HintPath>
+      <HintPath>$(DependencyDirectory)assembly_valheim.dll</HintPath>
       <Private>False</Private>
     </RequiredReference>
     <RequiredReference Include="assembly_guiutils">
