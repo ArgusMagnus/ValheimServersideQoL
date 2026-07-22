@@ -1,7 +1,5 @@
 ﻿using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System.Diagnostics;
-using System.Xml.Serialization;
 
 namespace ServersideQoL.Patcher;
 
@@ -9,7 +7,7 @@ namespace ServersideQoL.Patcher;
 static class ZDOPatcher
 {
   // IMPORTANT:
-  // Be careful to not do anything that will cause ServersideQoL.dll to actually be loaded.
+  // Be careful to not do anything that will cause non-patcher types to be loaded.
   // Only use constants/nameof and indirect references.
 
   const string AssemblyName = "assembly_valheim.dll";
@@ -27,9 +25,10 @@ static class ZDOPatcher
     // - DebuggerBrowsable(DebuggerBrowsableState.Never) to backing field
 
     var module = assembly.MainModule;
-    var zdoType = module.GetType("ZDO") ?? throw new Exception("ZDO type not found");
+    var zdoType = module.GetType(nameof(ZDO)) ?? throw new Exception("ZDO type not found");
 
-    var serversideQoLRef = new AssemblyNameReference(ServersideQoLPlugin.PluginName, new(ServersideQoLPlugin.PluginVersion));
+    var assemblyName = typeof(ZDOPatcher).Assembly.GetName();
+    var serversideQoLRef = new AssemblyNameReference(assemblyName.Name, assemblyName.Version);
     module.AssemblyReferences.Add(serversideQoLRef);
 
     var propertyType = module.ImportReference(new TypeReference(PropertyTypeNamespace, PropertyTypeName, module, serversideQoLRef));
@@ -92,8 +91,8 @@ static class ZDOPatcher
     il.InsertBefore(first, il.Create(OpCodes.Stfld, backingField));
 
 #if DEBUG
-    Directory.CreateDirectory(BuildInfo.DependencyDirectory);
-    assembly.Write(Path.Combine(BuildInfo.DependencyDirectory, AssemblyName));
+    Directory.CreateDirectory(ServersideQoLPlugin.DependencyDirectory);
+    assembly.Write(Path.Combine(ServersideQoLPlugin.DependencyDirectory, AssemblyName));
 #endif
   }
 

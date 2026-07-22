@@ -17,6 +17,10 @@ public sealed partial class $(ClassName)Plugin
 	public const string PluginVersion = "$(VersionNumber)"%3B
 	public const string PluginInformationalVersion = "$(Version)"%3B
 	DateTimeOffset BuildTimestamp { get%3B } = new($([System.DateTimeOffset]::UtcNow.UtcTicks), default)%3B
+  
+#if DEBUG
+  internal const string DependencyDirectory = @"$(DependencyDirectory)"%3B
+#endif
 	
 	void Awake()
 	{
@@ -46,7 +50,7 @@ public sealed partial class $(ClassName)Plugin
 			<Output TaskParameter="TargetOutputs" ItemName="DependencyPaths" />
 		</MSBuild>
 
-		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName).zip"' />
+		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName).zip" -HasPatcher "$(HasPatchers)"' />
 	</Target>
 
 	<Target Name="CleanPlugins" BeforeTargets="Clean" Condition="'$(CreatePackage)' == 'true'">
