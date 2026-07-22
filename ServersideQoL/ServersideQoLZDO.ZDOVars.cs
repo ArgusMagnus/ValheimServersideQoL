@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace ServersideQoL;
 
-static partial class ZDOExtensions
+partial class ServersideQoLZDO
 {
-
   public readonly struct ZDOVars(ZDO zdo)
   {
     readonly ZDO _zdo = zdo;

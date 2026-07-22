@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ServersideQoL;
 
-static partial class ZDOExtensions
+partial class ServersideQoLZDO
 {
   sealed class UnityObjectEqualityComparer<T> : EqualityComparer<T>
       where T : UnityEngine.Object

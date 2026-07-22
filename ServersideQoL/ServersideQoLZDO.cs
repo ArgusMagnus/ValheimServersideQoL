@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics;
 using UnityEngine;
-using static ServersideQoL.ZDOExtensions;
 
 namespace ServersideQoL;
 
-public sealed class ServersideQoLZDO(ZDO zdo)
+public sealed partial class ServersideQoLZDO(ZDO zdo)
 {
   static readonly Dictionary<int, IReadOnlyList<Processor>> __processors = [];
   static readonly ZPackage __pkg = new();
@@ -56,7 +55,7 @@ public sealed class ServersideQoLZDO(ZDO zdo)
     remove => _destroyed -= value;
   }
 
-  public ZDOExtensions.ZDOVars Vars => new(ZDO);
+  public ZDOVars Vars => new(ZDO);
 
   public TPrefabInfo? GetProcessorPrefabInfo<TPrefabInfo>()
       where TPrefabInfo : notnull, ProcessorPrefabInfo
