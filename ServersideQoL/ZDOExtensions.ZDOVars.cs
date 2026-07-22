@@ -6,10 +6,6 @@ namespace ServersideQoL;
 
 static partial class ZDOExtensions
 {
-  extension(ZDO @this)
-  {
-    public ZDOVars Vars => new(@this);
-  }
 
   public readonly struct ZDOVars(ZDO zdo)
   {

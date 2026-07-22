@@ -2,11 +2,11 @@
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace ServersideQoL.ZDOExtender;
+namespace ServersideQoL;
 
 static class TypeExtensionBuilder
 {
-  static string __moduleName = $"{typeof(ZDOExtenderPlugin).Assembly.GetName().Name}.Dynamic";
+  static string __moduleName = $"{typeof(ServersideQoLPlugin).Assembly.GetName().Name}.Dynamic";
   static readonly ModuleBuilder __moduleBuilder = AssemblyBuilder
       .DefineDynamicAssembly(new(__moduleName), AssemblyBuilderAccess.Run)
       .DefineDynamicModule(__moduleName);
@@ -76,7 +76,7 @@ public sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? type
       cil.Emit(OpCodes.Ret);
     }
 
-    // MethodAttributes used for explicit interface implementations (private + virtual + final + newslot)
+    // MethodAttributes used for explicit interface implementations: private + virtual + final + newslot
     const MethodAttributes implAttrs = MethodAttributes.Private | MethodAttributes.HideBySig
         | MethodAttributes.NewSlot | MethodAttributes.Virtual | MethodAttributes.Final;
 
@@ -94,7 +94,6 @@ public sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? type
       var getterName = $"{iface.Name}_get_{propName}";
       var getter = _typeBuilder.DefineMethod(getterName, implAttrs, propType, Type.EmptyTypes);
       var getIl = getter.GetILGenerator();
-      // load 'this', load field, return
       getIl.Emit(OpCodes.Ldarg_0);
       getIl.Emit(OpCodes.Ldfld, backingField);
       getIl.Emit(OpCodes.Ret);
@@ -103,7 +102,6 @@ public sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? type
       var setterName = $"{iface.Name}_set_{propName}";
       var setter = _typeBuilder.DefineMethod(setterName, implAttrs, typeof(void), new[] { propType });
       var setIl = setter.GetILGenerator();
-      // this._field = value; return;
       setIl.Emit(OpCodes.Ldarg_0);
       setIl.Emit(OpCodes.Ldarg_1);
       setIl.Emit(OpCodes.Stfld, backingField);

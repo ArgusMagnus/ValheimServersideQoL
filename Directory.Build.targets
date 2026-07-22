@@ -52,16 +52,5 @@ public sealed partial class $(ClassName)Plugin
 
 		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName).zip" -HasPatcher "$(HasPatchers)"' />
 	</Target>
-
-	<Target Name="CleanPlugins" BeforeTargets="Clean" Condition="'$(CreatePackage)' == 'true'">
-		<RemoveDir Directories="$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName)" />
-	</Target>
-
-	<Target Name="CopyPlugins" AfterTargets="AfterBuild" Condition="'$(CreatePackage)' == 'true'">
-		<ItemGroup>
-			<FilesToCopy Include="$(OutDir)**" />
-		</ItemGroup>
-		<Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName)" />
-	</Target>
 	
 </Project>

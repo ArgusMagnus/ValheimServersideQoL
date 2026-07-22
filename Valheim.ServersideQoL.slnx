@@ -9,6 +9,5 @@
   <Project Path="ServersideQoL.CodeAnalysis.Tests/ServersideQoL.CodeAnalysis.Tests.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis/ServersideQoL.CodeAnalysis.csproj" />
   <Project Path="ServersideQoL.Signs/ServersideQoL.Signs.csproj" />
-  <Project Path="ServersideQoL.ZDOExtender/ServersideQoL.ZDOExtender.csproj" />
   <Project Path="ServersideQoL/ServersideQoL.csproj" />
 </Solution>

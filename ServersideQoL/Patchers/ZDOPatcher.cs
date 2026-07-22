@@ -1,7 +1,7 @@
 ﻿using Mono.Cecil;
 using Mono.Cecil.Cil;
 
-namespace ServersideQoL.Patcher;
+namespace ServersideQoL.Patchers;
 
 /// <seealso href="https://docs.bepinex.dev/articles/dev_guide/preloader_patchers.html"/>
 static class ZDOPatcher

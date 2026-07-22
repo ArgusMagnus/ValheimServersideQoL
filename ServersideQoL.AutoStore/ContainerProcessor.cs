@@ -8,7 +8,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
   readonly Dictionary<ItemDataKey, int> _stackPerItem = [];
 
-  protected override ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, ContainerRegistryProcessor.PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ContainerRegistryProcessor.PrefabInfo prefabInfo)
   {
     if (!Config.Instance.AutoSort.Value)
       return ProcessResult.UnregisterProcessor;

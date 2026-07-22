@@ -1,5 +1,4 @@
-﻿using ServersideQoL.ZDOExtender;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 namespace ServersideQoL;
 
@@ -9,15 +8,15 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   public const string Id = "fe73690f-6790-4cfa-9795-f93136d57286";
   public sealed record PrefabInfo(Container Container, Piece Piece, PieceTable PieceTable, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo;
 
-  public event Action<ZDO, ContainerState>? ContainerChanged;
+  public event Action<ServersideQoLZDO, ContainerState>? ContainerChanged;
 
-  readonly Dictionary<ZDO, ContainerStateImpl> _states = [];
-  readonly Dictionary<float, WeakReference<SectorDictionary<SharedItemDataKey, HashSet<ZDO>>>> _containersByItemNameBySectorWidth = [];
+  readonly Dictionary<ServersideQoLZDO, ContainerStateImpl> _states = [];
+  readonly Dictionary<float, WeakReference<SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>>> _containersByItemNameBySectorWidth = [];
   bool _openResponseRegistered;
 
-  public SectorDictionary<SharedItemDataKey, HashSet<ZDO>> GetContainersByItemName(float sectorWidth)
+  public SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>> GetContainersByItemName(float sectorWidth)
   {
-    SectorDictionary<SharedItemDataKey, HashSet<ZDO>> dict;
+    SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>> dict;
     if (!_containersByItemNameBySectorWidth.TryGetValue(sectorWidth, out var weakRef))
       _containersByItemNameBySectorWidth.Add(sectorWidth, new(dict = new(sectorWidth)));
     else if (!weakRef.TryGetTarget(out dict))
@@ -25,28 +24,28 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return dict;
   }
 
-  public ContainerState? GetState(ZDO zdo)
+  public ContainerState? GetState(ServersideQoLZDO zdo)
   {
     if (GetPrefabInfo(zdo) is not { } prefabInfo)
       return default;
     return GetState(zdo, prefabInfo);
   }
 
-  public ContainerState GetState(ZDO zdo, PrefabInfo prefabInfo)
+  public ContainerState GetState(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
   {
     if (!_states.TryGetValue(zdo, out var state))
     {
       _states.Add(zdo, state = new(zdo, prefabInfo));
-      zdo.GetExtension<IExtendedZDO>().Destroyed += x => _states.Remove(x);
+      zdo.Destroyed += x => _states.Remove(x);
     }
 
     return state.Update();
   }
 
-  public void RequestOwnership(ZDO zdo, long playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+  public void RequestOwnership(ServersideQoLZDO zdo, long playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
       => RequestOwnership(zdo, playerID, _states[zdo], caller, callerLineNo);
 
-  public void RequestOwnership(ZDO zdo, long playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+  public void RequestOwnership(ServersideQoLZDO zdo, long playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
   {
     if (zdo.IsOwnerOrUnassigned() || state is not ContainerStateImpl s || DateTimeOffset.UtcNow < s.NextOwnershipRequest)
       return;
@@ -60,7 +59,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
     s.NextOwnershipRequest = DateTimeOffset.UtcNow.AddSeconds(1);
     s.WaitingForResponse = true;
-    s.PreviousOwner = zdo.GetOwner();
+    s.PreviousOwner = zdo.ZDO.GetOwner();
 
 
     //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
@@ -72,7 +71,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = false);
   }
 
-  protected override ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || zdo.Vars.GetOwner() is 0)
       return ProcessResult.UnregisterProcessor;
@@ -108,7 +107,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return default;
   }
 
-  bool RPC_OpenResponse(ZDO? zdo, bool granted)
+  bool RPC_OpenResponse(ServersideQoLZDO? zdo, bool granted)
   {
     if (zdo is null || !_states.TryGetValue(zdo, out var state) || !state.WaitingForResponse)
       return true;
@@ -118,14 +117,14 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return false;
   }
 
-  sealed class ContainerStateImpl(ZDO zdo, PrefabInfo prefabInfo) : ContainerState
+  sealed class ContainerStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo) : ContainerState
   {
     public DateTimeOffset NextOwnershipRequest { get; set; }
     public bool WaitingForResponse { get; set; }
     public long PreviousOwner { get; set; }
 
     Inventory _inventory = default!;
-    readonly ZDO _zdo = zdo;
+    readonly ServersideQoLZDO _zdo = zdo;
     readonly PrefabInfo _prefabInfo = prefabInfo;
 
     List<ItemDrop.ItemData>? _items;
@@ -151,7 +150,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
     public ContainerState Update()
     {
-      if (_dataRevision == _zdo.DataRevision)
+      if (_dataRevision == _zdo.ZDO.DataRevision)
         return this;
 
       var data = _zdo.Vars.GetItems();
@@ -180,7 +179,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         _inventory.Load(_pkg);
       }
 
-      _dataRevision = _zdo.DataRevision;
+      _dataRevision = _zdo.ZDO.DataRevision;
       _data = data;
       return this;
     }
@@ -189,20 +188,20 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     {
       _pkg.Clear();
       _inventory.Save(_pkg);
-      var dataRevision = _zdo.DataRevision;
+      var dataRevision = _zdo.ZDO.DataRevision;
       var data = _pkg.GetArray();
       _zdo.Vars.SetItems(data);
-      if (dataRevision != _zdo.DataRevision) // items changed
+      if (dataRevision != _zdo.ZDO.DataRevision) // items changed
       {
         // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.
         // Not sure about the increment value though...
         if (_prefabInfo.ZSyncTransform is not null)
-          _zdo.DataRevision += 120;
+          _zdo.ZDO.DataRevision += 120;
 
-        ZDOMan.instance.ForceSendZDO(_zdo.m_uid);
+        ZDOMan.instance.ForceSendZDO(_zdo.ZDO.m_uid);
       }
 
-      _dataRevision = _zdo.DataRevision;
+      _dataRevision = _zdo.ZDO.DataRevision;
       _data = data;
     }
 

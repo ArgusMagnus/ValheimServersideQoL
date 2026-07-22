@@ -1,5 +1,4 @@
 ﻿using ServersideQoL.CodeAnalysis;
-using ServersideQoL.ZDOExtender;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -9,26 +8,6 @@ namespace ServersideQoL;
 
 static partial class ZDOExtensions
 {
-  extension(ZDO @this)
-  {
-    public ComponentFieldAccessor<TComponent> Fields<TComponent>() where TComponent : MonoBehaviour
-    {
-      var extZDO = @this.GetExtension<IServersideQoLZDO>();
-      if (extZDO.ComponentFieldAccessors is not { } accessors || !accessors.TryGetValue(typeof(TComponent), out var accessorObj))
-      {
-        if (extZDO.PrefabInfo?.Components is not { } components || !components.TryGetValue(typeof(TComponent), out var componentList))
-          throw new KeyNotFoundException();
-
-        accessorObj = new ComponentFieldAccessor<TComponent>(@this, (TComponent)componentList[0]);
-
-        if (!__componentFieldAccessorCache.TryPop(out accessors))
-          accessors = [];
-        accessors.Add(typeof(TComponent), accessorObj);
-      }
-      return (ComponentFieldAccessor<TComponent>)accessorObj;
-    }
-  }
-
   sealed class UnityObjectEqualityComparer<T> : EqualityComparer<T>
       where T : UnityEngine.Object
   {
@@ -41,21 +20,21 @@ static partial class ZDOExtensions
   delegate void SetHandler<T>(ZDO zdo, int hash, T value) where T : notnull;
   delegate bool RemoveHandler<T>(ZDO zdo, int hash) where T : notnull;
 
-  public sealed class ComponentFieldAccessor<TComponent>(ZDO zdo, TComponent component)
+  public sealed class ComponentFieldAccessor<TComponent>(ServersideQoLZDO zdo, TComponent component)
   {
-    readonly ZDO _zdo = zdo;
+    readonly ServersideQoLZDO _zdo = zdo;
     readonly TComponent _component = component;
     bool? _hasComponentFields;
 
     static readonly int __hasComponentFieldsHash = Invariant($"{ZNetView.CustomFieldsStr}{typeof(TComponent).Name}").GetStableHashCode();
-    public bool HasFields => _zdo.GetExtension<IServersideQoLZDO>().HasFields && (_hasComponentFields ??= _zdo.GetBool(__hasComponentFieldsHash));
+    public bool HasFields => _zdo.HasFields && (_hasComponentFields ??= _zdo.ZDO.GetBool(__hasComponentFieldsHash));
     void SetHasFields(bool value)
     {
-      if (value && _zdo.GetExtension<IServersideQoLZDO>() is { HasFields: false } extZDO)
-        extZDO.HasFields = true;
+      if (value)
+        _zdo.HasFields = true;
 
       if (_hasComponentFields != value)
-        _zdo.Set(__hasComponentFieldsHash, (_hasComponentFields = value).Value);
+        _zdo.ZDO.Set(__hasComponentFieldsHash, (_hasComponentFields = value).Value);
     }
 
     static class ExpressionCache<T> where T : notnull
@@ -173,18 +152,18 @@ static partial class ZDOExtensions
         var defaultValue = _getFieldValue(componentFieldAccessor._component);
         if (!componentFieldAccessor.HasFields)
           return defaultValue;
-        return Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue);
+        return Accessors.Getter(componentFieldAccessor._zdo.ZDO, _hash, defaultValue);
       }
 
       public ComponentFieldAccessor<TComponent> SetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
       {
         if (Accessors.Remover is not null && Accessors.EqualityComparer.Equals(value, _getFieldValue(componentFieldAccessor._component)))
-          Accessors.Remover(componentFieldAccessor._zdo, _hash);
+          Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
         else
         {
           if (!componentFieldAccessor.HasFields)
             componentFieldAccessor.SetHasFields(true);
-          Accessors.Setter(componentFieldAccessor._zdo, _hash, value);
+          Accessors.Setter(componentFieldAccessor._zdo.ZDO, _hash, value);
         }
         return componentFieldAccessor;
       }
@@ -192,18 +171,18 @@ static partial class ZDOExtensions
       public bool UpdateValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
       {
         var defaultValue = _getFieldValue(componentFieldAccessor._component);
-        if (Accessors.EqualityComparer.Equals(value, Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue)))
+        if (Accessors.EqualityComparer.Equals(value, Accessors.Getter(componentFieldAccessor._zdo.ZDO, _hash, defaultValue)))
           return false;
 
         var isDefaultValue = Accessors.EqualityComparer.Equals(value, defaultValue);
 
         if (Accessors.Remover is not null && isDefaultValue)
-          Accessors.Remover(componentFieldAccessor._zdo, _hash);
+          Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
         else
         {
           if (!componentFieldAccessor.HasFields && !isDefaultValue)
             componentFieldAccessor.SetHasFields(true);
-          Accessors.Setter(componentFieldAccessor._zdo, _hash, value);
+          Accessors.Setter(componentFieldAccessor._zdo.ZDO, _hash, value);
         }
         return true;
       }
@@ -214,9 +193,9 @@ static partial class ZDOExtensions
           return componentFieldAccessor;
 
         if (Accessors.Remover is not null)
-          Accessors.Remover(componentFieldAccessor._zdo, _hash);
+          Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
         else
-          Accessors.Setter(componentFieldAccessor._zdo, _hash, _getFieldValue(componentFieldAccessor._component));
+          Accessors.Setter(componentFieldAccessor._zdo.ZDO, _hash, _getFieldValue(componentFieldAccessor._component));
         return componentFieldAccessor;
       }
 
@@ -226,12 +205,12 @@ static partial class ZDOExtensions
           return false;
 
         if (Accessors.Remover is not null)
-          return Accessors.Remover(componentFieldAccessor._zdo, _hash);
+          return Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
 
         var defaultValue = _getFieldValue(componentFieldAccessor._component);
-        if (Accessors.EqualityComparer.Equals(Accessors.Getter(componentFieldAccessor._zdo, _hash, defaultValue), defaultValue))
+        if (Accessors.EqualityComparer.Equals(Accessors.Getter(componentFieldAccessor._zdo.ZDO, _hash, defaultValue), defaultValue))
           return false;
-        Accessors.Setter(componentFieldAccessor._zdo, _hash, defaultValue);
+        Accessors.Setter(componentFieldAccessor._zdo.ZDO, _hash, defaultValue);
         return true;
       }
     }

@@ -1,5 +1,4 @@
-﻿using ServersideQoL.ZDOExtender;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace ServersideQoL;
@@ -9,28 +8,27 @@ public sealed class Peer
   readonly ZNetPeer _peer;
   public long m_uid => _peer.m_uid;
 
-  public ZDO? CharacterZDO
+  public ServersideQoLZDO? CharacterZDO
   {
     get
     {
       if (field is null)
       {
-        field = ZDOMan.instance.GetZDO(_peer.m_characterID);
-        if (field is not null)
-          field.GetExtension<IExtendedZDO>().Destroyed += OnCharacterZDODestroyed;
+        field = ZDOMan.instance.GetZDO(_peer.m_characterID).ServersideQoLZDO;
+        field?.Destroyed += OnCharacterZDODestroyed;
       }
 
       return field;
 
-      void OnCharacterZDODestroyed(ZDO obj)
+      void OnCharacterZDODestroyed(ServersideQoLZDO zdo)
       {
-        obj.GetExtension<IExtendedZDO>().Destroyed -= OnCharacterZDODestroyed;
+        zdo.Destroyed -= OnCharacterZDODestroyed;
         field = null;
       }
     }
   }
 
-  public Vector3 m_refPos => CharacterZDO?.GetPosition() ?? _peer.m_refPos;
+  public Vector3 m_refPos => CharacterZDO?.ZDO.GetPosition() ?? _peer.m_refPos;
   public ZDOID m_characterID => _peer.m_characterID;
   //public bool IsConnected => _peer?.m_socket.IsConnected() ?? default; // potentially takes a long time?
   public bool IsServer => _peer.m_server;

@@ -22,7 +22,7 @@ public sealed class SignProcessor : Processor<SignProcessor.PrefabInfo>
     _timeText = null;
   }
 
-  protected override ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     var cfg = Config.Instance;
     var result = ProcessResult.WaitForZDORevisionChange;

@@ -1,5 +1,4 @@
-﻿using ServersideQoL.ZDOExtender;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -74,9 +73,9 @@ public abstract class Processor
   internal IServersideQoLPlugin Plugin { get; private set; } = default!;
   protected Logger Logger { get; private set; } = default!;
 
-  protected readonly HashSet<ZDO> PlacedObjects = [];
+  protected readonly HashSet<ServersideQoLZDO> PlacedObjects = [];
 
-  static ZDO? __dataZDO;
+  static ServersideQoLZDO? __dataZDO;
 
   static bool __enableProcessingTimeMonitoring;
   public double ProcessingTimeSeconds { get; private set; }
@@ -120,7 +119,7 @@ public abstract class Processor
 
     __dataZDO = null;
 
-    foreach (var zdo in ZDOMan.instance.GetObjects())
+    foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
     {
       if (!zdo.IsModCreator(out var marker))
         continue;
@@ -151,17 +150,17 @@ public abstract class Processor
 
   internal protected virtual void Initialize() { }
 
-  protected static ZDO DataZDO
+  protected static ServersideQoLZDO DataZDO
   {
     get
     {
       if (__dataZDO is null)
       {
-        __dataZDO = ZDOMan.instance.CreateNewZDO(new(WorldGenerator.waterEdge * 10, -1000f, WorldGenerator.waterEdge * 10), Prefabs.Sconce);
-        __dataZDO.SetPrefab(Prefabs.Sconce);
-        __dataZDO.Persistent = true;
-        __dataZDO.Distant = false;
-        __dataZDO.Type = ZDO.ObjectType.Default;
+        __dataZDO = ZDOMan.instance.CreateNewZDO(new(WorldGenerator.waterEdge * 10, -1000f, WorldGenerator.waterEdge * 10), Prefabs.Sconce).ServersideQoLZDO;
+        __dataZDO.ZDO.SetPrefab(Prefabs.Sconce);
+        __dataZDO.ZDO.Persistent = true;
+        __dataZDO.ZDO.Distant = false;
+        __dataZDO.ZDO.Type = ZDO.ObjectType.Default;
         __dataZDO.SetModAsCreator(CreatorMarkers.DataZDO);
         __dataZDO.Vars.SetHealth(-1);
         __dataZDO.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
@@ -172,16 +171,16 @@ public abstract class Processor
     }
   }
 
-  protected void ScheduleReprocessing(ZDO zdo)
+  protected void ScheduleReprocessing(ServersideQoLZDO zdo)
   {
-    zdo.GetExtension<IServersideQoLZDO>().ResetProcessorDataRevision(this);
+    zdo.ResetProcessorDataRevision(this);
     ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo);
   }
 
-  private protected abstract ProcessResult Process(IReadOnlyList<Peer> peers, ZDO zdo);
+  private protected abstract ProcessResult Process(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo);
   protected virtual void PreProcess(PeersEnumerable peers) { }
 
-  internal ProcessResult ProcessInternal(IReadOnlyList<Peer> peers, ZDO zdo)
+  internal ProcessResult ProcessInternal(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo)
   {
     if (!__enableProcessingTimeMonitoring)
       return Process(peers, zdo);
@@ -205,23 +204,23 @@ public abstract class Processor
     }
   }
 
-  internal protected bool ClaimExclusive(ZDO zdo) => PlacedObjects.Contains(zdo);
+  internal protected bool ClaimExclusive(ServersideQoLZDO zdo) => PlacedObjects.Contains(zdo);
 
   //protected bool CheckMinDistance(IReadOnlyList<Peer> peers, ZDO zdo)
   //    => CheckMinDistance(peers, zdo, Config.Instance.MinPlayerDistance.Value);
 
-  protected static bool CheckMinDistance(IReadOnlyList<Peer> peers, ZDO zdo, float minDistance)
+  protected static bool CheckMinDistance(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo, float minDistance)
   {
     minDistance *= minDistance;
     foreach (var peer in peers.AsEnumerable())
     {
-      if (Utils.DistanceSqr(peer.m_refPos, zdo.GetPosition()) < minDistance)
+      if (Utils.DistanceSqr(peer.m_refPos, zdo.ZDO.GetPosition()) < minDistance)
         return false;
     }
     return true;
   }
 
-  protected static ZDO Spawn(int prefab, Vector3 pos, Quaternion rot, long owner = 0)
+  protected static ServersideQoLZDO Spawn(int prefab, Vector3 pos, Quaternion rot, long owner = 0)
   {
     var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
     zdo.SetPrefab(prefab);
@@ -231,36 +230,36 @@ public abstract class Processor
     zdo.SetRotation(rot);
 
     zdo.SetOwnerInternal(owner);
-    return zdo;
+    return zdo.ServersideQoLZDO;
   }
 
-  protected ZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
+  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
       => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker, owner);
 
-  protected ZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
+  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
   {
-    var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
+    var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab).ServersideQoLZDO;
     PlacedObjects.Add(zdo);
 
-    zdo.SetPrefab(prefab);
-    zdo.Persistent = true;
-    zdo.Distant = false;
-    zdo.Type = ZDO.ObjectType.Default;
-    zdo.SetRotation(rot);
+    zdo.ZDO.SetPrefab(prefab);
+    zdo.ZDO.Persistent = true;
+    zdo.ZDO.Distant = false;
+    zdo.ZDO.Type = ZDO.ObjectType.Default;
+    zdo.ZDO.SetRotation(rot);
     zdo.SetModAsCreator(marker);
     zdo.Vars.SetHealth(-1);
     if (marker.HasFlag(CreatorMarkers.ProcessorOwned))
       zdo.Vars.SetProcessorId(Attribute.Id);
 
-    zdo.SetOwnerInternal(owner);
+    zdo.ZDO.SetOwnerInternal(owner);
 
     return zdo;
   }
 
-  protected ZDO PlacePiece(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
+  protected ServersideQoLZDO PlacePiece(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
       => PlacePiece(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
 
-  protected ZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
+  protected ServersideQoLZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
   {
     var zdo = PlaceObject(pos, prefab, rot, marker);
     zdo.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
@@ -271,7 +270,7 @@ public abstract class Processor
     return zdo;
   }
 
-  protected ZDO RecreatePiece(ZDO zdo)
+  protected ServersideQoLZDO RecreatePiece(ServersideQoLZDO zdo)
   {
     if (!PlacedObjects.Remove(zdo))
       throw new ArgumentException();
@@ -279,16 +278,16 @@ public abstract class Processor
     return zdo;
   }
 
-  protected void DestroyObject(ZDO zdo)
+  protected void DestroyObject(ServersideQoLZDO zdo)
   {
     if (!PlacedObjects.Remove(zdo))
       throw new ArgumentException();
     zdo.Destroy();
   }
 
-  protected TPrefabInfo? GetPrefabInfo<TPrefabInfo>(ZDO zdo)
+  protected TPrefabInfo? GetPrefabInfo<TPrefabInfo>(ServersideQoLZDO zdo)
       where TPrefabInfo : ProcessorPrefabInfo
-      => zdo.GetExtension<IServersideQoLZDO>().PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
+      => zdo.PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
 
   [Flags]
   internal protected enum ProcessResult
@@ -347,14 +346,14 @@ public abstract class Processor
     }
   }
 
-  protected static void ShowMessage(IEnumerable<Peer> peers, ZDO zdo, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
-      => ShowMessage(peers, zdo.GetPosition(), message, type, inWorldTextType);
+  protected static void ShowMessage(IEnumerable<Peer> peers, ServersideQoLZDO zdo, string message, MessageTypes type, DamageText.TextType inWorldTextType = DamageText.TextType.Normal)
+      => ShowMessage(peers, zdo.ZDO.GetPosition(), message, type, inWorldTextType);
 
 
   [Conditional("DEBUG")]
-  protected static void DevShowMessage(ZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
+  protected static void DevShowMessage(ServersideQoLZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
   {
-    RPC.ShowInWorldText([0], type, zdo.GetPosition(), $"{Path.GetFileNameWithoutExtension(callerFile)} L{callerLineNo}: {message}");
+    RPC.ShowInWorldText([0], type, zdo.ZDO.GetPosition(), $"{Path.GetFileNameWithoutExtension(callerFile)} L{callerLineNo}: {message}");
   }
 }
 
@@ -385,7 +384,7 @@ public abstract class Processor<TPrefabInfo> : Processor
     return ext.PrefabInfo is not null;
   }
 
-  protected TPrefabInfo? GetPrefabInfo(ZDO zdo)
+  protected TPrefabInfo? GetPrefabInfo(ServersideQoLZDO zdo)
       => GetPrefabInfo<TPrefabInfo>(zdo);
 
   TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
@@ -450,17 +449,15 @@ public abstract class Processor<TPrefabInfo> : Processor
     }
   }
 
-  private protected sealed override ProcessResult Process(IReadOnlyList<Peer> peers, ZDO zdo)
+  private protected sealed override ProcessResult Process(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo)
   {
-    // todo: we should already have IServersideQoLZDO when this method is called
-    var extZDO = zdo.GetExtension<IServersideQoLZDO>();
     var result = ProcessResult.Default;
-    if (extZDO.PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo is not { } prefabInfo)
+    if (zdo.PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo is not { } prefabInfo)
       result |= ProcessResult.UnregisterProcessor;
     else
       result |= Process(zdo, peers, prefabInfo);
     return result;
   }
 
-  protected abstract ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, TPrefabInfo prefabInfo);
+  protected abstract ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, TPrefabInfo prefabInfo);
 }

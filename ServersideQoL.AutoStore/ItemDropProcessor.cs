@@ -1,5 +1,4 @@
-﻿using ServersideQoL.ZDOExtender;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ServersideQoL.AutoStore;
 
@@ -11,9 +10,9 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
   public const string Id = "5f86a765-e449-4047-afc8-a63e4d681a48";
   public sealed record PrefabInfo(ItemDrop ItemDrop, Piece? Piece, EggGrow? EggGrow, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo;
 
-  readonly Dictionary<ZDO, DateTimeOffset> _eggDropTime = [];
-  SectorDictionary<HashSet<ZDO>>? _itemDrops;
-  SectorDictionary<SharedItemDataKey, HashSet<ZDO>>? _containersByItemName;
+  readonly Dictionary<ServersideQoLZDO, DateTimeOffset> _eggDropTime = [];
+  SectorDictionary<HashSet<ServersideQoLZDO>>? _itemDrops;
+  SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>? _containersByItemName;
 
   protected override void Initialize()
   {
@@ -33,7 +32,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     _eggDropTime.Clear();
   }
 
-  void OnContainerChanged(ZDO containerZdo, ContainerState containerState)
+  void OnContainerChanged(ServersideQoLZDO containerZdo, ContainerState containerState)
   {
     if (_itemDrops is null)
     {
@@ -49,17 +48,17 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     if (rangeSqr is 0f)
       return;
 
-    foreach (var itemDrops in _itemDrops.EnumerateAdjacent(containerZdo.GetPosition()))
+    foreach (var itemDrops in _itemDrops.EnumerateAdjacent(containerZdo.ZDO.GetPosition()))
     {
       foreach (var zdo in itemDrops)
       {
-        if (Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) <= rangeSqr)
+        if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) <= rangeSqr)
           ScheduleReprocessing(zdo);
       }
     }
   }
 
-  protected override ProcessResult Process(ZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     if (_containersByItemName is null || _itemDrops is null)
       return ProcessResult.UnregisterProcessor;
@@ -74,7 +73,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
       if (!_eggDropTime.TryGetValue(zdo, out var dropTime))
       {
         _eggDropTime.Add(zdo, DateTimeOffset.UtcNow);
-        zdo.GetExtension<IExtendedZDO>().Destroyed += x => _eggDropTime.Remove(x);
+        zdo.Destroyed += x => _eggDropTime.Remove(x);
         return ProcessResult.ScheduleReprocessing;
       }
       if (DateTimeOffset.UtcNow - dropTime < TimeSpan.FromSeconds(2 * prefabInfo.EggGrow.m_updateInterval + 2))
@@ -88,15 +87,15 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     var requestOwn = false;
     var excludeFodderCheckComplete = !Config.Instance.AutoPickupExcludeFodder.Value;
     HashSet<Vector2i>? usedSlots = null;
-    List<ZDO>? toRemove = null;
+    List<ServersideQoLZDO>? toRemove = null;
     ItemDrop.ItemData? item = null;
 
-    foreach (var containers in _containersByItemName.EnumerateAdjacent((zdo.GetPosition(), shared)))
+    foreach (var containers in _containersByItemName.EnumerateAdjacent((zdo.ZDO.GetPosition(), shared)))
     {
       if (containers.Count > 0 && !excludeFodderCheckComplete)
       {
         excludeFodderCheckComplete = true;
-        foreach (var tameables in Instance<TameableRegistryProcessor>().Tameables.EnumerateAdjacent(zdo.GetPosition()))
+        foreach (var tameables in Instance<TameableRegistryProcessor>().Tameables.EnumerateAdjacent(zdo.ZDO.GetPosition()))
         {
           foreach (var tameableZdo in tameables)
           {
@@ -108,7 +107,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
               continue;
             var rangeSqr = tameState.PrefabInfo.MonsterAI.m_consumeSearchRange;
             rangeSqr *= rangeSqr;
-            if (Utils.DistanceSqr(zdo.GetPosition(), tameableZdo.GetPosition()) < rangeSqr)
+            if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), tameableZdo.ZDO.GetPosition()) < rangeSqr)
             {
               if (prefabInfo.ZSyncTransform is not null && zdo.GetTimeSinceSpawned() < TimeSpan.FromSeconds(10))
                 return ProcessResult.ScheduleReprocessing;
@@ -141,13 +140,13 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
         var pickupRangeSqr = containerState.GetFloat(AutoStorePlugin.ContainerFloats.PickupRange) ?? Config.Instance.AutoPickupRange.Value;
         pickupRangeSqr *= pickupRangeSqr;
 
-        if (pickupRangeSqr is 0f || Utils.DistanceSqr(zdo.GetPosition(), containerZdo.GetPosition()) > pickupRangeSqr)
+        if (pickupRangeSqr is 0f || Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > pickupRangeSqr)
           continue;
 
         if (item is null)
         {
           item = new() { m_shared = shared };
-          ItemDrop.LoadFromZDO(item, zdo);
+          ItemDrop.LoadFromZDO(item, zdo.ZDO);
         }
 
         var stack = item.m_stack;
@@ -228,7 +227,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
         {
           containerState.SaveIntenvory();
           (item.m_stack, stack) = (stack, item.m_stack);
-          ItemDrop.SaveToZDO(item, zdo);
+          ItemDrop.SaveToZDO(item, zdo.ZDO);
           ShowMessage(peers, containerZdo,
               Config.Instance.Localization.Value.FormatAutoPickup(containerState.PrefabInfo.Container.m_name, item.m_shared.m_name, stack),
               Config.Instance.PickedUpMessageType.Value);

@@ -1,5 +1,4 @@
-﻿using ServersideQoL.ZDOExtender;
-using System.Collections;
+﻿using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -348,18 +347,18 @@ public static class SectorDictionary
     return value;
   }
 
-  public static bool TryAdd(this SectorDictionary<HashSet<ZDO>> @this, Vector3 key, ZDO zdo, bool autoRemoveOnDestroyed = true)
+  public static bool TryAdd(this SectorDictionary<HashSet<ServersideQoLZDO>> @this, Vector3 key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
   {
     var set = @this.GetOrAdd(key);
     if (!set.Add(zdo))
       return false;
     if (autoRemoveOnDestroyed)
-      zdo.GetExtension<IExtendedZDO>().Destroyed += x => set.Remove(x);
+      zdo.Destroyed += x => set.Remove(x);
     return true;
   }
 
-  public static bool TryAdd(this SectorDictionary<HashSet<ZDO>> @this, ZDO zdo, bool autoRemoveOnDestroyed = true)
-      => @this.TryAdd(zdo.GetPosition(), zdo, autoRemoveOnDestroyed);
+  public static bool TryAdd(this SectorDictionary<HashSet<ServersideQoLZDO>> @this, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
+      => @this.TryAdd(zdo.ZDO.GetPosition(), zdo, autoRemoveOnDestroyed);
 
   public static bool TryAdd<TValue>(this SectorDictionary<HashSet<TValue>> @this, Vector3 key, TValue value)
       => @this.GetOrAdd(key).Add(value);
@@ -368,34 +367,34 @@ public static class SectorDictionary
       where TCollection : class, ICollection<TValue>, new()
       => @this.GetOrAdd(key).Add(value);
 
-  public static void Add<TCollection>(this SectorDictionary<TCollection> @this, Vector3 key, ZDO zdo, bool autoRemoveOnDestroyed = true)
-      where TCollection : class, ICollection<ZDO>, new()
+  public static void Add<TCollection>(this SectorDictionary<TCollection> @this, Vector3 key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
   {
     var collection = @this.GetOrAdd(key);
     collection.Add(zdo);
     if (autoRemoveOnDestroyed)
-      zdo.GetExtension<IExtendedZDO>().Destroyed += x => collection.Remove(x);
+      zdo.Destroyed += x => collection.Remove(x);
   }
 
-  public static void Add<TCollection>(this SectorDictionary<TCollection> @this, ZDO zdo, bool autoRemoveOnDestroyed = true)
-      where TCollection : class, ICollection<ZDO>, new()
-      => @this.Add(zdo.GetPosition(), zdo, autoRemoveOnDestroyed);
+  public static void Add<TCollection>(this SectorDictionary<TCollection> @this, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
+      => @this.Add(zdo.ZDO.GetPosition(), zdo, autoRemoveOnDestroyed);
 
-  public static bool TryAdd<TCollection>(this SectorDictionary<TCollection> @this, Vector3 key, ZDO zdo, bool autoRemoveOnDestroyed = true)
-      where TCollection : class, ICollection<ZDO>, new()
+  public static bool TryAdd<TCollection>(this SectorDictionary<TCollection> @this, Vector3 key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
   {
     var collection = @this.GetOrAdd(key);
     if (collection.Contains(zdo))
       return false;
     collection.Add(zdo);
     if (autoRemoveOnDestroyed)
-      zdo.GetExtension<IExtendedZDO>().Destroyed += x => collection.Remove(x);
+      zdo.Destroyed += x => collection.Remove(x);
     return true;
   }
 
-  public static bool TryAdd<TCollection>(this SectorDictionary<TCollection> @this, ZDO zdo, bool autoRemoveOnDestroyed = true)
-      where TCollection : class, ICollection<ZDO>, new()
-      => @this.TryAdd(zdo.GetPosition(), zdo, autoRemoveOnDestroyed);
+  public static bool TryAdd<TCollection>(this SectorDictionary<TCollection> @this, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
+      => @this.TryAdd(zdo.ZDO.GetPosition(), zdo, autoRemoveOnDestroyed);
 
   public static bool Remove<TCollection, TValue>(this SectorDictionary<TCollection> @this, Vector3 key, TValue value)
       where TCollection : class, ICollection<TValue>
@@ -409,9 +408,9 @@ public static class SectorDictionary
     return false;
   }
 
-  public static bool Remove<TCollection>(this SectorDictionary<TCollection> @this, ZDO zdo)
-      where TCollection : class, ICollection<ZDO>
-      => @this.Remove(zdo.GetPosition(), zdo);
+  public static bool Remove<TCollection>(this SectorDictionary<TCollection> @this, ServersideQoLZDO zdo)
+      where TCollection : class, ICollection<ServersideQoLZDO>
+      => @this.Remove(zdo.ZDO.GetPosition(), zdo);
 
   public static TValue GetOrAdd<TKey, TValue>(this SectorDictionary<TKey, TValue> @this, (Vector3, TKey) key)
       where TKey : notnull
@@ -422,20 +421,20 @@ public static class SectorDictionary
     return value;
   }
 
-  public static bool TryAdd<TKey>(this SectorDictionary<TKey, HashSet<ZDO>> @this, (Vector3, TKey) key, ZDO zdo, bool autoRemoveOnDestroyed = true)
+  public static bool TryAdd<TKey>(this SectorDictionary<TKey, HashSet<ServersideQoLZDO>> @this, (Vector3, TKey) key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TKey : notnull
   {
     var set = @this.GetOrAdd(key);
     if (!set.Add(zdo))
       return false;
     if (autoRemoveOnDestroyed)
-      zdo.GetExtension<IExtendedZDO>().Destroyed += x => set.Remove(x);
+      zdo.Destroyed += x => set.Remove(x);
     return true;
   }
 
-  public static bool TryAdd<TKey>(this SectorDictionary<TKey, HashSet<ZDO>> @this, TKey key, ZDO zdo, bool autoRemoveOnDestroyed = true)
+  public static bool TryAdd<TKey>(this SectorDictionary<TKey, HashSet<ServersideQoLZDO>> @this, TKey key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TKey : notnull
-      => @this.TryAdd((zdo.GetPosition(), key), zdo, autoRemoveOnDestroyed);
+      => @this.TryAdd((zdo.ZDO.GetPosition(), key), zdo, autoRemoveOnDestroyed);
 
   public static bool TryAdd<TKey, TValue>(this SectorDictionary<TKey, HashSet<TValue>> @this, (Vector3, TKey) key, TValue value)
       where TKey : notnull
@@ -446,38 +445,38 @@ public static class SectorDictionary
       where TCollection : class, ICollection<TValue>, new()
       => @this.GetOrAdd(key).Add(value);
 
-  public static void Add<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, (Vector3, TKey) key, ZDO zdo, bool autoRemoveOnDestroyed = true)
+  public static void Add<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, (Vector3, TKey) key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TKey : notnull
-      where TCollection : class, ICollection<ZDO>, new()
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
   {
     var collection = @this.GetOrAdd(key);
     collection.Add(zdo);
     if (autoRemoveOnDestroyed)
-      zdo.GetExtension<IExtendedZDO>().Destroyed += x => collection.Remove(x);
+      zdo.Destroyed += x => collection.Remove(x);
   }
 
-  public static void Add<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, TKey key, ZDO zdo, bool autoRemoveOnDestroyed = true)
+  public static void Add<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, TKey key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TKey : notnull
-      where TCollection : class, ICollection<ZDO>, new()
-      => @this.Add((zdo.GetPosition(), key), zdo, autoRemoveOnDestroyed);
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
+      => @this.Add((zdo.ZDO.GetPosition(), key), zdo, autoRemoveOnDestroyed);
 
-  public static bool TryAdd<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, (Vector3, TKey) key, ZDO zdo, bool autoRemoveOnDestroyed = true)
+  public static bool TryAdd<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, (Vector3, TKey) key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TKey : notnull
-      where TCollection : class, ICollection<ZDO>, new()
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
   {
     var collection = @this.GetOrAdd(key);
     if (collection.Contains(zdo))
       return false;
     collection.Add(zdo);
     if (autoRemoveOnDestroyed)
-      zdo.GetExtension<IExtendedZDO>().Destroyed += x => collection.Remove(x);
+      zdo.Destroyed += x => collection.Remove(x);
     return true;
   }
 
-  public static bool TryAdd<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, TKey key, ZDO zdo, bool autoRemoveOnDestroyed = true)
+  public static bool TryAdd<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, TKey key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TKey : notnull
-      where TCollection : class, ICollection<ZDO>, new()
-      => @this.TryAdd((zdo.GetPosition(), key), zdo, autoRemoveOnDestroyed);
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
+      => @this.TryAdd((zdo.ZDO.GetPosition(), key), zdo, autoRemoveOnDestroyed);
 
   public static bool Remove<TKey, TCollection, TValue>(this SectorDictionary<TKey, TCollection> @this, (Vector3, TKey) key, TValue value)
       where TKey : notnull
