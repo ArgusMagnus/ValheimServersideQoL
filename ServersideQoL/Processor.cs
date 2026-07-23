@@ -421,6 +421,7 @@ public abstract class Processor<TPrefabInfo> : Processor
         Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");
       return default;
     }
+    Logger.DevLog($"Instantiating {typeof(TPrefabInfo).FullName} for {prefabInfo.PrefabName}...");
     return (TPrefabInfo)_prefabInfoCtor!.Invoke(args);
 
     static IReadOnlyList<T> CreateList<T>(IReadOnlyList<MonoBehaviour> list)
@@ -445,7 +446,10 @@ public abstract class Processor<TPrefabInfo> : Processor
     if (zdo.PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo is not { } prefabInfo)
       result |= ProcessResult.UnregisterProcessor;
     else
+    {
       result |= Process(zdo, peers, prefabInfo);
+      //Logger.DevLog($"{GetType().Name} result: {result}");
+    }
     return result;
   }
 

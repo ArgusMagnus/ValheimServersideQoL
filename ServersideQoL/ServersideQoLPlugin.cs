@@ -142,7 +142,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     int processorCount = 0;
     foreach (var plugin in __plugins)
     {
-      Logger.DevLog($"Registering processors for plugin {plugin.GetType().FullName}...");
       try { plugin.RegisterProcessors(); }
       catch (Exception ex)
       {
@@ -232,40 +231,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     if (newPrefab is 0)
       prefabInfo = null;
     else if (!_prefabInfos.TryGetValue(newPrefab, out prefabInfo))
-    {
-      //if (ZNetScene.instance.GetPrefab(newPrefab) is { } prefab &&
-      //    prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
-      //{
-      //  prefabInfo = _prefabInfoFactory();
-      //  prefabInfo.Prefab = prefab;
-      //  prefabInfo.PrefabHash = newPrefab;
-      //  var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
-      //  if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
-      //    components.Add(typeof(PieceTable), [pieceTable]);
-      //  prefabInfo.Components = components;
-
-      //  foreach (var plugin in __plugins)
-      //  {
-      //    foreach (var processor in plugin.Processors)
-      //    {
-      //      if (!processor.InitializePrefabInfoInternal(prefabInfo))
-      //        continue;
-
-      //      prefabInfo.AvailableProcessors.Add(processor);
-      //      if (plugin.Config.Enabled.Value)
-      //        prefabInfo.EnabledProcessors.Add(processor);
-      //    }
-      //  }
-      //  SortProcessors(prefabInfo.EnabledProcessors, false);
-      //  foreach (var processor in prefabInfo.EnabledProcessors)
-      //  {
-      //    if (processor.Attribute.Cyclic)
-      //      prefabInfo.EnabledCyclicProcessors.Add(processor);
-      //  }
-      //}
-      //_prefabInfos.Add(newPrefab, prefabInfo);
       _changed?.TryAdd(zdo, null);
-    }
 
     zdo.PrefabInfo = prefabInfo;
 
@@ -515,39 +481,43 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     foreach (var zdo in changed.Keys)
     {
       processedZdos++;
+
       if (zdo.PrefabInfo is null)
       {
-        if (ZNetScene.instance.GetPrefab(zdo.ZDO.GetPrefab()) is { } prefab &&
-            prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
+        zdo.PrefabInfo = _prefabInfos.GetOrAdd(zdo.ZDO.GetPrefab(), prefabHash =>
         {
-          zdo.PrefabInfo = _prefabInfoFactory();
-          zdo.PrefabInfo.Prefab = prefab;
-          zdo.PrefabInfo.PrefabHash = zdo.ZDO.GetPrefab();
-          var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
-          if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
-            components.Add(typeof(PieceTable), [pieceTable]);
-          zdo.PrefabInfo.Components = components;
-
-          foreach (var plugin in __plugins)
+          PrefabInfo? prefabInfo = null;
+          if (ZNetScene.instance.GetPrefab(prefabHash) is { } prefab &&
+            prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
           {
-            foreach (var processor in plugin.Processors)
-            {
-              if (!processor.InitializePrefabInfoInternal(zdo.PrefabInfo))
-                continue;
+            prefabInfo = _prefabInfoFactory();
+            var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
+            if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
+              components.Add(typeof(PieceTable), [pieceTable]);
+            prefabInfo.Init(prefab, prefabHash, prefab.name, components);
 
-              zdo.PrefabInfo.AvailableProcessors.Add(processor);
-              if (plugin.Config.Enabled.Value)
-                zdo.PrefabInfo.EnabledProcessors.Add(processor);
+            foreach (var plugin in __plugins)
+            {
+              foreach (var processor in plugin.Processors)
+              {
+                if (!processor.InitializePrefabInfoInternal(prefabInfo))
+                  continue;
+
+                prefabInfo.AvailableProcessors.Add(processor);
+                if (plugin.Config.Enabled.Value)
+                  prefabInfo.EnabledProcessors.Add(processor);
+              }
+            }
+            SortProcessors(prefabInfo.EnabledProcessors, false);
+            foreach (var processor in prefabInfo.EnabledProcessors)
+            {
+              if (processor.Attribute.Cyclic)
+                prefabInfo.EnabledCyclicProcessors.Add(processor);
             }
           }
-          SortProcessors(zdo.PrefabInfo.EnabledProcessors, false);
-          foreach (var processor in zdo.PrefabInfo.EnabledProcessors)
-          {
-            if (processor.Attribute.Cyclic)
-              zdo.PrefabInfo.EnabledCyclicProcessors.Add(processor);
-          }
-        }
-        _prefabInfos.TryAdd(zdo.ZDO.GetPrefab(), zdo.PrefabInfo);
+          return prefabInfo;
+        });
+
         if (zdo.PrefabInfo is null)
           continue;
       }

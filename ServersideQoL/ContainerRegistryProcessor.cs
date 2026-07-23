@@ -73,7 +73,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || zdo.Vars.GetOwner() is 0)
+    if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || zdo.Vars.GetCreator() is 0)
       return ProcessResult.UnregisterProcessor;
 
     if (_containersByItemNameBySectorWidth.Count is 0)

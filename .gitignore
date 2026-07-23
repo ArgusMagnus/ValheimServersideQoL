@@ -4,3 +4,4 @@
 /.idea
 *.DotSettings.user
 /plugins
+/Dependencies/**

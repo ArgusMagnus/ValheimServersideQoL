@@ -14,7 +14,7 @@ public sealed class Peer
     {
       if (field is null)
       {
-        field = ZDOMan.instance.GetZDO(_peer.m_characterID).ServersideQoLZDO;
+        field = ZDOMan.instance.GetZDO(_peer.m_characterID)?.ServersideQoLZDO;
         field?.Destroyed += OnCharacterZDODestroyed;
       }
 
