@@ -353,7 +353,7 @@ public abstract class Processor<TPrefabInfo> : Processor
 
   readonly ConstructorInfo? _prefabInfoCtor;
   readonly ParameterInfo[]? _prefabInfoCtorParameters;
-  //readonly Dictionary<int, TPrefabInfo?> _prefabInfoByHash = [];
+  readonly bool?[]? _prefabInfoCtorParametersNullable;
 
   protected Processor()
   {
@@ -361,6 +361,7 @@ public abstract class Processor<TPrefabInfo> : Processor
     {
       _prefabInfoCtor = ctors[0];
       _prefabInfoCtorParameters = _prefabInfoCtor.GetParameters();
+      _prefabInfoCtorParametersNullable = new bool?[_prefabInfoCtorParameters.Length];
     }
   }
 
@@ -379,12 +380,16 @@ public abstract class Processor<TPrefabInfo> : Processor
 
   TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
   {
+    if (_prefabInfoCtor is null || _prefabInfoCtorParameters is null || _prefabInfoCtorParametersNullable is null)
+      throw new InvalidOperationException();
+
     var prefab = prefabInfo.Prefab;
     var components = prefabInfo.Components;
-    var args = new object?[_prefabInfoCtorParameters!.Length];
+    var args = new object?[_prefabInfoCtorParameters.Length];
     var any = false;
     MethodInfo? createListDef = null;
     List<Type>? warn = null;
+    bool? defaultNullable = null;
     for (int i = 0; i < _prefabInfoCtorParameters.Length; i++)
     {
       var par = _prefabInfoCtorParameters[i];
@@ -399,7 +404,29 @@ public abstract class Processor<TPrefabInfo> : Processor
 
       if (!components.TryGetValue(type, out var list))
       {
-        if (par.CustomAttributes.Any(static x => x.AttributeType.FullName is "System.Runtime.CompilerServices.NullableAttribute"))
+        if (_prefabInfoCtorParametersNullable[i] is not { } nullable)
+        {
+          if (par.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is "System.Runtime.CompilerServices.NullableAttribute") is { } attr)
+            nullable = (byte)attr.ConstructorArguments[0].Value is 2;
+          else
+          {
+            if (defaultNullable is null)
+            {
+              const string AttrName = "System.Runtime.CompilerServices.NullableContextAttribute";
+              var contextAttr = _prefabInfoCtor.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName)
+                ?? _prefabInfoCtor.DeclaringType.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName)
+                ?? _prefabInfoCtor.DeclaringType.Assembly.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName);
+              if (contextAttr is null)
+                defaultNullable = false;
+              else
+                defaultNullable = (byte)contextAttr.ConstructorArguments[0].Value is 2;
+            }
+            nullable = defaultNullable.Value;
+          }
+          _prefabInfoCtorParametersNullable[i] = nullable;
+        }
+
+        if (nullable)
           continue;
         return default;
       }
@@ -409,20 +436,22 @@ public abstract class Processor<TPrefabInfo> : Processor
       else
       {
         args[i] = list[0];
-        if (list.Count is not 0)
+        if (list.Count is not 1)
           (warn ??= []).Add(type);
       }
 
       any = true;
     }
+
     if (!any)
-    {
-      if (warn is not null)
-        Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");
       return default;
-    }
-    Logger.DevLog($"Instantiating {typeof(TPrefabInfo).FullName} for {prefabInfo.PrefabName}...");
-    return (TPrefabInfo)_prefabInfoCtor!.Invoke(args);
+
+    //Logger.DevLog($"Instantiating {typeof(TPrefabInfo).FullName} for {prefabInfo.PrefabName}...");
+
+    if (warn is not null)
+      Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");
+    
+    return (TPrefabInfo)_prefabInfoCtor.Invoke(args);
 
     static IReadOnlyList<T> CreateList<T>(IReadOnlyList<MonoBehaviour> list)
         where T : MonoBehaviour

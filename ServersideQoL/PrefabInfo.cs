@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics;
+using UnityEngine;
 
 namespace ServersideQoL;
 
@@ -9,6 +10,7 @@ public interface IPrefabInfo
   IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>> Components { get; }
 }
 
+[DebuggerDisplay($"{{{nameof(PrefabName)}}}: Processors: {{{nameof(EnabledProcessors)}.{nameof(EnabledProcessors.Count)}}}")]
 public abstract class PrefabInfo : IPrefabInfo
 {
   public GameObject Prefab { get; private set; } = default!;
