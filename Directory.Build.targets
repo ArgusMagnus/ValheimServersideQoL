@@ -1,14 +1,21 @@
 <Project>
 	
-	<Target Name="GenerateBuildInfo" BeforeTargets="CoreCompile" Condition="'$(CreatePackage)' == 'true'">
+	<Target Name="GenerateBuildInfo" BeforeTargets="CoreCompile" Condition="'$(CreatePackage)' == 'true' OR '$(IsPatcher)' == 'true'">
+    <PropertyGroup Condition="'$(IsPatcher)' == 'true'">
+      <DefinePatcherConstant>#define PATCHER</DefinePatcherConstant>
+    </PropertyGroup>
 		<PropertyGroup>
 			<VersionNumber>$(Version.Split('-')[0])</VersionNumber>
 			<BuildInfoFile>$(IntermediateOutputPath)BuildInfo.cs</BuildInfoFile>
 			<ClassName>$([System.Text.RegularExpressions.Regex]::Match('$(RootNamespace)', '[^.]+$').Value)</ClassName>
 			<MyTextLines>
+$(DefinePatcherConstant)
+
 namespace $(RootNamespace)%3B
 
+#if !PATCHER
 [BepInEx.BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+#endif
 public sealed partial class $(ClassName)Plugin
 {
   public const string Author = "$(Authors)"%3B
@@ -22,6 +29,7 @@ public sealed partial class $(ClassName)Plugin
   internal const string DependencyDirectory = @"$(DependencyDirectory)"%3B
 #endif
 	
+#if !PATCHER
 	void Awake()
 	{
     if (PluginVersion != PluginInformationalVersion)
@@ -30,6 +38,7 @@ public sealed partial class $(ClassName)Plugin
 	}
 	
 	partial void OnAwake()%3B
+#endif
 }
 			</MyTextLines>
 		</PropertyGroup>
@@ -50,7 +59,7 @@ public sealed partial class $(ClassName)Plugin
 			<Output TaskParameter="TargetOutputs" ItemName="DependencyPaths" />
 		</MSBuild>
 
-		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName).zip" -HasPatcher "$(HasPatchers)"' />
+		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName).zip"' />
 	</Target>
 	
 </Project>

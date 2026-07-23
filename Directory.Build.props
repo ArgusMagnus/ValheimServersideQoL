@@ -18,7 +18,11 @@
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
 	</PropertyGroup>
 
-  <PropertyGroup Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false' AND $(MSBuildProjectName.Contains('.Patcher')) == 'false'">
+  <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
+    <IsPatcher>true</IsPatcher>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false' AND '$(IsPatcher)' != 'true'">
     <CreatePackage>true</CreatePackage>
   </PropertyGroup>
 

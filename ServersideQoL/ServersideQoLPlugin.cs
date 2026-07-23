@@ -2,6 +2,7 @@
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
+using System.Collections.Concurrent;
 using System.Reflection;
 using UnityEngine;
 
@@ -12,19 +13,19 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   public static readonly int PluginGuidHash = "argusmagnus.ServersideQoL".GetStableHashCode(); // use old GUID here to not break existing worlds
 
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
-  static readonly Dictionary<Guid, Processor> __processorsById = [];
+  readonly Dictionary<Guid, Processor> _processorsById = [];
   readonly List<Processor> _enabledProcessors = [];
   bool _hasCyclicProcessors;
 
   internal static ServersideQoLPlugin Instance { get; private set; } = default!;
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
-  internal static IReadOnlyDictionary<Guid, Processor> Processors => __processorsById;
+  internal IReadOnlyDictionary<Guid, Processor> Processors => _processorsById;
 
   internal static void RegisterPlugin(IServersideQoLPlugin plugin)
       => __plugins.Add(plugin);
 
   Func<PrefabInfo> _prefabInfoFactory = default!;
-  readonly Dictionary<int, PrefabInfo?> _prefabInfos = [];
+  readonly ConcurrentDictionary<int, PrefabInfo?> _prefabInfos = [];
 
   readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221");
   const uint ExpectedNetworkVersion = 35;
@@ -45,13 +46,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   List<(Processor, double)>? _processingTimes;
 
   readonly List<Processor> _unregister = [];
-  HashSet<ServersideQoLZDO>? _changed = [];
+  ConcurrentDictionary<ServersideQoLZDO, object?>? _changed = [];
   readonly HashSet<ServersideQoLZDO> _repeat = [];
 
-  public ServersideQoLPlugin()
-  {
-    Instance = this;
-  }
+  public ServersideQoLPlugin() => Instance = this;
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
@@ -78,7 +76,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         if (!processorsInitialized)
         {
           processorsInitialized = true;
-          InitializeProcessors();
+          if (!InitializeProcessors())
+            yield break;
         }
 
         while (ZDOMan.instance is null || ZNetScene.instance is null || ZNet.World is null)
@@ -136,13 +135,14 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     }
   }
 
-  void InitializeProcessors()
+  bool InitializeProcessors()
   {
     List<IServersideQoLPlugin>? remove = null;
     TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder = new();
     int processorCount = 0;
     foreach (var plugin in __plugins)
     {
+      Logger.DevLog($"Registering processors for plugin {plugin.GetType().FullName}...");
       try { plugin.RegisterProcessors(); }
       catch (Exception ex)
       {
@@ -159,9 +159,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       foreach (var processor in plugin.Processors)
       {
-        if (!__processorsById.TryAdd(processor.Attribute.Id, processor))
+        if (!_processorsById.TryAdd(processor.Attribute.Id, processor))
         {
-          var existing = __processorsById[processor.Attribute.Id];
+          var existing = _processorsById[processor.Attribute.Id];
           Logger.LogError($"Processor {processor.GetType().FullName} is using the same ID as {existing.GetType().FullName} and will be ignored");
           continue;
         }
@@ -181,13 +181,13 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     if (!prefabInfoBuilder.HasInterfaces)
     {
       Logger.LogWarning("No plugins registered");
-      return;
+      return false;
     }
 
     if (processorCount is 0)
     {
       Logger.LogWarning("No processors registered");
-      return;
+      return false;
     }
 
     SortProcessors(_enabledProcessors, true);
@@ -199,6 +199,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       plugin.Config.ConfigChanged += OnConfigChanged;
 
     HarmonyInstance.PatchAll(typeof(ServersideQoLPlugin).Assembly);
+
+    return true;
   }
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
@@ -223,54 +225,60 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   void OnPrefabChanged(ServersideQoLZDO zdo)
   {
+    // may be called from field initializers which may be called from other threads
+
     var newPrefab = zdo.ZDO.GetPrefab();
     PrefabInfo? prefabInfo;
     if (newPrefab is 0)
       prefabInfo = null;
     else if (!_prefabInfos.TryGetValue(newPrefab, out prefabInfo))
     {
-      if (ZNetScene.instance.GetPrefab(newPrefab) is { } prefab &&
-          prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
-      {
-        prefabInfo = _prefabInfoFactory();
-        prefabInfo.Prefab = prefab;
-        prefabInfo.PrefabHash = newPrefab;
-        var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
-        if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
-          components.Add(typeof(PieceTable), [pieceTable]);
-        prefabInfo.Components = components;
+      //if (ZNetScene.instance.GetPrefab(newPrefab) is { } prefab &&
+      //    prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
+      //{
+      //  prefabInfo = _prefabInfoFactory();
+      //  prefabInfo.Prefab = prefab;
+      //  prefabInfo.PrefabHash = newPrefab;
+      //  var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
+      //  if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
+      //    components.Add(typeof(PieceTable), [pieceTable]);
+      //  prefabInfo.Components = components;
 
-        foreach (var plugin in __plugins)
-        {
-          foreach (var processor in plugin.Processors)
-          {
-            if (!processor.InitializePrefabInfoInternal(prefabInfo))
-              continue;
+      //  foreach (var plugin in __plugins)
+      //  {
+      //    foreach (var processor in plugin.Processors)
+      //    {
+      //      if (!processor.InitializePrefabInfoInternal(prefabInfo))
+      //        continue;
 
-            prefabInfo.AvailableProcessors.Add(processor);
-            if (plugin.Config.Enabled.Value)
-              prefabInfo.EnabledProcessors.Add(processor);
-          }
-        }
-        SortProcessors(prefabInfo.EnabledProcessors, false);
-        foreach (var processor in prefabInfo.EnabledProcessors)
-        {
-          if (processor.Attribute.Cyclic)
-            prefabInfo.EnabledCyclicProcessors.Add(processor);
-        }
-      }
-      _prefabInfos.Add(newPrefab, prefabInfo);
+      //      prefabInfo.AvailableProcessors.Add(processor);
+      //      if (plugin.Config.Enabled.Value)
+      //        prefabInfo.EnabledProcessors.Add(processor);
+      //    }
+      //  }
+      //  SortProcessors(prefabInfo.EnabledProcessors, false);
+      //  foreach (var processor in prefabInfo.EnabledProcessors)
+      //  {
+      //    if (processor.Attribute.Cyclic)
+      //      prefabInfo.EnabledCyclicProcessors.Add(processor);
+      //  }
+      //}
+      //_prefabInfos.Add(newPrefab, prefabInfo);
+      _changed?.TryAdd(zdo, null);
     }
+
     zdo.PrefabInfo = prefabInfo;
 
     if (_changed is not null && prefabInfo is { EnabledProcessors.Count: > 0 })
-      _changed.Add(zdo);
+      _changed.TryAdd(zdo, null);
   }
 
   void OnDataOrOwnerRevisionChanged(ServersideQoLZDO zdo)
   {
+    // may be called from field initializers which may be called from other threads
+
     if (_changed is not null && zdo.HasProcessors)
-      _changed.Add(zdo);
+      _changed.TryAdd(zdo, null);
   }
 
   bool Initialize()
@@ -443,7 +451,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     if (_repeat.Count is not 0)
     {
       foreach (var zdo in _repeat)
-        _changed!.Add(zdo);
+        _changed!.TryAdd(zdo, null);
       _repeat.Clear();
     }
     else if (peers.Count is 0 && _changed!.Count is 0)
@@ -504,9 +512,46 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     int totalZdos = 0;
 
     (var changed, _changed) = (_changed!, null);
-    foreach (var zdo in changed)
+    foreach (var zdo in changed.Keys)
     {
       processedZdos++;
+      if (zdo.PrefabInfo is null)
+      {
+        if (ZNetScene.instance.GetPrefab(zdo.ZDO.GetPrefab()) is { } prefab &&
+            prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
+        {
+          zdo.PrefabInfo = _prefabInfoFactory();
+          zdo.PrefabInfo.Prefab = prefab;
+          zdo.PrefabInfo.PrefabHash = zdo.ZDO.GetPrefab();
+          var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
+          if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
+            components.Add(typeof(PieceTable), [pieceTable]);
+          zdo.PrefabInfo.Components = components;
+
+          foreach (var plugin in __plugins)
+          {
+            foreach (var processor in plugin.Processors)
+            {
+              if (!processor.InitializePrefabInfoInternal(zdo.PrefabInfo))
+                continue;
+
+              zdo.PrefabInfo.AvailableProcessors.Add(processor);
+              if (plugin.Config.Enabled.Value)
+                zdo.PrefabInfo.EnabledProcessors.Add(processor);
+            }
+          }
+          SortProcessors(zdo.PrefabInfo.EnabledProcessors, false);
+          foreach (var processor in zdo.PrefabInfo.EnabledProcessors)
+          {
+            if (processor.Attribute.Cyclic)
+              zdo.PrefabInfo.EnabledCyclicProcessors.Add(processor);
+          }
+        }
+        _prefabInfos.TryAdd(zdo.ZDO.GetPrefab(), zdo.PrefabInfo);
+        if (zdo.PrefabInfo is null)
+          continue;
+      }
+
       playerSectors.TryGetValue(zdo.ZDO.GetSector(), out var sectorInfo);
       if (!zdo.ZDO.IsValid() || !zdo.HasProcessors)
         continue;
@@ -534,7 +579,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
           processedZdos++;
           var zdo = sectorInfo.ZDOs[sectorInfo.ZdoIndex].ServersideQoLZDO;
-          if (!zdo.ZDO.IsValid() || !zdo.HasCyclicProcessors || changed.Contains(zdo))
+          if (!zdo.ZDO.IsValid() || !zdo.HasCyclicProcessors || changed.ContainsKey(zdo))
             continue;
 
           ProcessZdo(sectorInfo.Peers, zdo, zdo.CyclicProcessors!, false);
@@ -684,7 +729,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       {
         if (attr.RunBefore)
         {
-          if (!__processorsById.TryGetValue(attr.ProcessorId, out var before) || !graph.ContainsKey(before))
+          if (!_processorsById.TryGetValue(attr.ProcessorId, out var before) || !graph.ContainsKey(before))
           {
             if (attr.Required)
             {
@@ -700,7 +745,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         }
         else
         {
-          if (!__processorsById.TryGetValue(attr.ProcessorId, out var after) || !graph.ContainsKey(after))
+          if (!_processorsById.TryGetValue(attr.ProcessorId, out var after) || !graph.ContainsKey(after))
           {
             if (attr.Required)
             {

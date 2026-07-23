@@ -1,4 +1,4 @@
-<Project Sdk="MSTest.Sdk/3.6.4">
+<Project Sdk="MSTest.Sdk/4.3.2">
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>

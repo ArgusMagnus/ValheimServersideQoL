@@ -142,7 +142,7 @@ public abstract class Processor
       }
       if ((marker & CreatorMarkers.ProcessorOwned) is not 0)
       {
-        if (ServersideQoLPlugin.Processors.TryGetValue(zdo.Vars.GetProcessorId(), out var processor))
+        if (ServersideQoLPlugin.Instance.Processors.TryGetValue(zdo.Vars.GetProcessorId(), out var processor))
           processor.PlacedObjects.Add(zdo);
       }
     }

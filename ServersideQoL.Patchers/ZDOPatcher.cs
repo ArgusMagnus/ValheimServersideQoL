@@ -11,9 +11,9 @@ static class ZDOPatcher
   // Only use constants/nameof and indirect references.
 
   const string AssemblyName = "assembly_valheim.dll";
-  const string PropertyName = nameof(ServersideQoLZDO);
+  const string PropertyName = "ServersideQoLZDO";
   const string PropertyTypeNamespace = nameof(ServersideQoL);
-  const string PropertyTypeName = nameof(ServersideQoLZDO);
+  const string PropertyTypeName = "ServersideQoLZDO";
 
   public static IEnumerable<string> TargetDLLs => [AssemblyName];
 
@@ -25,10 +25,9 @@ static class ZDOPatcher
     // - DebuggerBrowsable(DebuggerBrowsableState.Never) to backing field
 
     var module = assembly.MainModule;
-    var zdoType = module.GetType(nameof(ZDO)) ?? throw new Exception("ZDO type not found");
+    var zdoType = module.GetType("ZDO") ?? throw new Exception("ZDO type not found");
 
-    var assemblyName = typeof(ZDOPatcher).Assembly.GetName();
-    var serversideQoLRef = new AssemblyNameReference(assemblyName.Name, assemblyName.Version);
+    var serversideQoLRef = new AssemblyNameReference(PatchersPlugin.PluginName.Replace(".Patchers", ""), new(PatchersPlugin.PluginVersion));
     module.AssemblyReferences.Add(serversideQoLRef);
 
     var propertyType = module.ImportReference(new TypeReference(PropertyTypeNamespace, PropertyTypeName, module, serversideQoLRef));
@@ -91,9 +90,8 @@ static class ZDOPatcher
     il.InsertBefore(first, il.Create(OpCodes.Stfld, backingField));
 
 #if DEBUG
-    Directory.CreateDirectory(ServersideQoLPlugin.DependencyDirectory);
-    assembly.Write(Path.Combine(ServersideQoLPlugin.DependencyDirectory, AssemblyName));
+    Directory.CreateDirectory(PatchersPlugin.DependencyDirectory);
+    assembly.Write(Path.Combine(PatchersPlugin.DependencyDirectory, AssemblyName));
 #endif
   }
-
 }

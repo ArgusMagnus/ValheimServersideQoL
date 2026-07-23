@@ -5,8 +5,7 @@ param (
     [Parameter(Mandatory = $true)][string]$Description,
     [Parameter(Mandatory = $false)][string]$Dependencies,
     [Parameter(Mandatory = $false)][string]$StoreDependencies,
-    [Parameter(Mandatory = $true)][string]$Destination,
-    [Parameter(Mandatory = $false)][string]$HasPatchers
+    [Parameter(Mandatory = $true)][string]$Destination
 )
 
 $ErrorActionPreference = 'Stop'
@@ -65,12 +64,17 @@ try {
     Get-ChildItem -LiteralPath $dir -File | Copy-Item -Destination $tmpDir
     $dir = $tmpDir.FullName
     
-    if ('true' -eq $HasPatchers) {
+    $patchers = Get-ChildItem -LiteralPath $dir -File -Filter '*.Patchers.dll'
+    if ($patchers) {
         New-Item -Path "$dir\patchers" -ItemType Directory -ErrorAction SilentlyContinue
+        $patchers  | ForEach-Object {
+            $files = Get-ChildItem -LiteralPath $dir -Filter "$($_.BaseName).*" -File
+            $files | ForEach-Object { $_ | Move-Item -Destination "$dir\patchers\$($_.Name)" -Force }
+        }
+        
         New-Item -Path "$dir\plugins" -ItemType Directory -ErrorAction SilentlyContinue
         Get-ChildItem -LiteralPath $dir -Filter '*.dll' -File | ForEach-Object {
             $files = Get-ChildItem -LiteralPath $dir -Filter "$($_.BaseName).*" -File
-            $files | ForEach-Object { $_ | Copy-Item -Destination "$dir\patchers\$($_.Name)" -Force }
             $files | ForEach-Object { $_ | Move-Item -Destination "$dir\plugins\$($_.Name)" -Force }
         }
     }
