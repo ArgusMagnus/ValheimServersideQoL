@@ -30,9 +30,9 @@ if ($Dependencies) {
         $version = $_.ProductVersion.Split('+')[0]
         $versionNumber = $version.Split('-')[0]
         if ($versionNumber -ne $version) {
-            $version += '_BETA'
+            $name += '_BETA'
         }
-        "$author-$name-$version"
+        "$author-$name-$versionNumber"
     }
 }
 
@@ -61,6 +61,10 @@ $manifest = @{
 if ($versionNumber -ne $version) {
     $manifest.description = "(BETA) $($manifest.description)"
     $manifest.name += '_BETA'
+
+    if ($manifest.description.Length -gt 256) {
+        $manifest.description = "$($manifest.description.Substring(0, 253))..."
+    }
 }
 
 $tmpDir = New-Item -Path "${Env:TEMP}\ServersideQoL\$(New-Guid)" -ItemType Directory

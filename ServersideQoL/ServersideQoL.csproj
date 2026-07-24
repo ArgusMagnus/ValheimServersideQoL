@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <StoreDependencies Include="denikson-BepInExPack_Valheim-5.4.2333" />
     <StoreDependencies Include="ValheimModding-YamlDotNet-16.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ServersideQoL.Patchers\ServersideQoL.Patchers.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\ServersideQoL.Patchers\ServersideQoL.Patchers.csproj" PrivateAssets="all" OutputItemType="Analyzer" />
   </ItemGroup>
 
 </Project>

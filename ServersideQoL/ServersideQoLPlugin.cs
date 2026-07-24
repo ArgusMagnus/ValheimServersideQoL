@@ -204,7 +204,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
     .Add<ContainerRegistryProcessor>()
-    .Add<TameableRegistryProcessor>();
+    .Add<TameableRegistryProcessor>()
+    .Add<PlayerRegistryProcessor>();
 
   IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => field ?? new Func<IReadOnlyDictionary<string, PieceTable>>(static () =>
   {
