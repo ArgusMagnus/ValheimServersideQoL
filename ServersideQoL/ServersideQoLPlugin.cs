@@ -485,40 +485,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       if (zdo.PrefabInfo is null)
       {
-        zdo.PrefabInfo = _prefabInfos.GetOrAdd(zdo.ZDO.GetPrefab(), prefabHash =>
-        {
-          PrefabInfo? prefabInfo = null;
-          if (ZNetScene.instance.GetPrefab(prefabHash) is { } prefab &&
-            prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
-          {
-            prefabInfo = _prefabInfoFactory();
-            var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
-            if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
-              components.Add(typeof(PieceTable), [pieceTable]);
-            prefabInfo.Init(prefab, prefabHash, prefab.name, components);
-
-            foreach (var plugin in __plugins)
-            {
-              foreach (var processor in plugin.Processors)
-              {
-                if (!processor.InitializePrefabInfoInternal(prefabInfo))
-                  continue;
-
-                prefabInfo.AvailableProcessors.Add(processor);
-                if (plugin.Config.Enabled.Value)
-                  prefabInfo.EnabledProcessors.Add(processor);
-              }
-            }
-            SortProcessors(prefabInfo.EnabledProcessors, false);
-            foreach (var processor in prefabInfo.EnabledProcessors)
-            {
-              if (processor.Attribute.Cyclic)
-                prefabInfo.EnabledCyclicProcessors.Add(processor);
-            }
-          }
-          return prefabInfo;
-        });
-
+        zdo.PrefabInfo = GetPrefabInfo(zdo.ZDO.GetPrefab());
         if (zdo.PrefabInfo is null)
           continue;
       }
@@ -775,6 +742,40 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   }
 
   internal void ScheduleReprocessing(ServersideQoLZDO zdo) => _repeat.Add(zdo);
+
+  internal PrefabInfo? GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
+  {
+    PrefabInfo? prefabInfo = null;
+    if (ZNetScene.instance.GetPrefab(prefabHash) is { } prefab &&
+      prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
+    {
+      prefabInfo = _prefabInfoFactory();
+      var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
+      if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
+        components.Add(typeof(PieceTable), [pieceTable]);
+      prefabInfo.Init(prefab, prefabHash, prefab.name, components);
+
+      foreach (var plugin in __plugins)
+      {
+        foreach (var processor in plugin.Processors)
+        {
+          if (!processor.InitializePrefabInfoInternal(prefabInfo))
+            continue;
+
+          prefabInfo.AvailableProcessors.Add(processor);
+          if (plugin.Config.Enabled.Value)
+            prefabInfo.EnabledProcessors.Add(processor);
+        }
+      }
+      SortProcessors(prefabInfo.EnabledProcessors, false);
+      foreach (var processor in prefabInfo.EnabledProcessors)
+      {
+        if (processor.Attribute.Cyclic)
+          prefabInfo.EnabledCyclicProcessors.Add(processor);
+      }
+    }
+    return prefabInfo;
+  });
 
   [HarmonyPatch]
   static class PrefabChangedPatches

@@ -230,6 +230,8 @@ public abstract class Processor
     zdo.SetRotation(rot);
 
     zdo.SetOwnerInternal(owner);
+
+    zdo.ServersideQoLZDO.PrefabInfo = ServersideQoLPlugin.Instance.GetPrefabInfo(prefab);
     return zdo.ServersideQoLZDO;
   }
 
@@ -253,6 +255,7 @@ public abstract class Processor
 
     zdo.ZDO.SetOwnerInternal(owner);
 
+    zdo.PrefabInfo = ServersideQoLPlugin.Instance.GetPrefabInfo(prefab);
     return zdo;
   }
 

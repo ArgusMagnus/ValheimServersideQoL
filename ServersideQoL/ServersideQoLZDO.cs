@@ -254,7 +254,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
     if (ComponentFieldAccessors is not { } accessors || !accessors.TryGetValue(typeof(TComponent), out var accessorObj))
     {
       if (PrefabInfo?.Components is not { } components || !components.TryGetValue(typeof(TComponent), out var componentList))
-        throw new KeyNotFoundException();
+        throw new KeyNotFoundException(typeof(TComponent).FullName);
 
       accessorObj = new ComponentFieldAccessor<TComponent>(this, (TComponent)componentList[0]);
 
