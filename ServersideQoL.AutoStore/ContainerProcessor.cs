@@ -17,8 +17,9 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
     var changed = false;
     ItemDrop.ItemData? lastPartialSlot = null;
+    var inventory = state.GetInventory();
     _stackPerItem.Clear();
-    foreach (var item in state.InventoryItems
+    foreach (var item in inventory.Items
         .OrderBy(static x => x.IsEquipable() ? 0 : 1)
         .ThenBy(static x => x.m_shared.m_name)
         .ThenByDescending(static x => x.m_stack))
@@ -49,10 +50,10 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
     if (changed && zdo.IsOwnerOrUnassigned())
     {
-      for (int i = state.InventoryItems.Count - 1; i >= 0; i--)
+      for (int i = inventory.Items.Count - 1; i >= 0; i--)
       {
-        if (state.InventoryItems[i].m_stack is 0)
-          state.InventoryItems.RemoveAt(i);
+        if (inventory.Items[i].m_stack is 0)
+          inventory.Items.RemoveAt(i);
       }
     }
 
@@ -67,7 +68,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         var x = -1;
         var y = 0;
         ItemDataKey? lastKey = null;
-        foreach (var item in state.InventoryItems
+        foreach (var item in inventory.Items
             .OrderBy(static x => x.IsEquipable() ? 0 : 1)
             .ThenBy(static x => x.m_shared.m_name)
             .ThenByDescending(static x => x.m_stack))
@@ -91,7 +92,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         var x = 0;
         var y = height;
         ItemDataKey? lastKey = null;
-        foreach (var item in state.InventoryItems
+        foreach (var item in inventory.Items
             .OrderBy(static x => x.IsEquipable() ? 0 : 1)
             .ThenBy(static x => x.m_shared.m_name)
             .ThenByDescending(static x => x.m_stack))
@@ -114,7 +115,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       {
         var x = 0;
         var y = 0;
-        foreach (var item in state.InventoryItems
+        foreach (var item in inventory.Items
             .OrderBy(static x => x.IsEquipable() ? 0 : 1)
             .ThenBy(static x => x.m_shared.m_name)
             .ThenByDescending(static x => x.m_stack))
@@ -142,7 +143,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       }
       else if (changed)
       {
-        state.SaveIntenvory();
+        inventory.Save();
         ShowMessage(peers, zdo, Config.Instance.Localization.Value.FormatContainerSorted(prefabInfo.Container.m_name), Config.Instance.SortedMessageType.Value);
       }
     }

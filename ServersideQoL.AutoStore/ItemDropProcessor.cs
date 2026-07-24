@@ -40,7 +40,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
       return;
     }
 
-    if (containerState.InventoryItems.Count is 0)
+    if (containerState.GetInventory().Items.Count is 0)
       return;
 
     var rangeSqr = containerState.PickupRange ?? Config.Instance.AutoPickupRange.Value;
@@ -155,7 +155,8 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
         var requestContainerOwn = false;
 
         ItemDrop.ItemData? containerItem = null;
-        foreach (var slot in containerState.InventoryItems)
+        var inventory = containerState.GetInventory();
+        foreach (var slot in inventory.Items)
         {
           usedSlots.Add(slot.m_gridPos);
           if (new ItemDataKey(item) != slot)
@@ -187,7 +188,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
           continue;
         }
 
-        for (var emptySlots = containerState.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
+        for (var emptySlots = inventory.Inventory.GetEmptySlots(); stack > 0 && emptySlots > 0; emptySlots--)
         {
           if (Config.Instance.AutoPickupRequestOwnership.Value && !zdo.IsOwnerOrUnassigned())
             requestOwn = true;
@@ -201,9 +202,9 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
           var slot = containerItem.Clone();
           slot.m_stack = amount;
           slot.m_gridPos.x = -1;
-          for (int x = 0; x < containerState.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
+          for (int x = 0; x < inventory.Inventory.GetWidth() && slot.m_gridPos.x < 0; x++)
           {
-            for (int y = 0; y < containerState.Inventory.GetHeight(); y++)
+            for (int y = 0; y < inventory.Inventory.GetHeight(); y++)
             {
               if (usedSlots.Add(new(x, y)))
               {
@@ -212,7 +213,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
               }
             }
           }
-          containerState.InventoryItems.Add(slot);
+          inventory.Items.Add(slot);
           stack -= amount;
         }
 
@@ -225,7 +226,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 
         if (stack != item.m_stack)
         {
-          containerState.SaveIntenvory();
+          inventory.Save();
           (item.m_stack, stack) = (stack, item.m_stack);
           ItemDrop.SaveToZDO(item, zdo.ZDO);
           ShowMessage(peers, containerZdo,

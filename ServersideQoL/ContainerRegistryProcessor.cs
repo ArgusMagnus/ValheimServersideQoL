@@ -39,7 +39,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       zdo.Destroyed += x => _states.Remove(x);
     }
 
-    return state.Update();
+    return state;
   }
 
   public void RequestOwnership(ServersideQoLZDO zdo, long playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
@@ -85,6 +85,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       return default;
 
     var state = GetState(zdo, prefabInfo);
+    ContainerState.IInventory? inventory = null;
 
     List<float>? remove = null;
     foreach (var (key, weakRef) in _containersByItemNameBySectorWidth)
@@ -94,7 +95,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         (remove ??= []).Add(key);
         continue;
       }
-      foreach (var item in state.InventoryItems)
+      inventory ??= state.GetInventory();
+      foreach (var item in inventory.Items)
         dict.TryAdd(item.m_shared, zdo);
     }
 
@@ -119,7 +121,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return false;
   }
 
-  sealed class ContainerStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo) : ContainerState
+  sealed class ContainerStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo) : ContainerState, ContainerState.IInventory
   {
     public DateTimeOffset NextOwnershipRequest { get; set; }
     public bool WaitingForResponse { get; set; }
@@ -132,25 +134,10 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     List<ItemDrop.ItemData>? _items;
     uint _dataRevision = uint.MaxValue;
     byte[]? _data;
-    Dictionary<string, float>? _floats;
     static readonly ZPackage _pkg = new();
 
     public override PrefabInfo PrefabInfo => _prefabInfo;
-    public override Inventory Inventory => _inventory;
-
-    public override List<ItemDrop.ItemData> InventoryItems
-    {
-      get
-      {
-        if (_items is null)
-          _items = _inventory!.GetAllItems();
-        else if (!ReferenceEquals(_items, _inventory!.GetAllItems()))
-          throw new Exception("Assumption violated");
-        return _items;
-      }
-    }
-
-    public ContainerState Update()
+    public override IInventory GetInventory()
     {
       if (_dataRevision == _zdo.ZDO.DataRevision)
         return this;
@@ -174,7 +161,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       }
 
       if (data is not { Length: > 0 })
-        InventoryItems.Clear();
+        ((IInventory)this).Items.Clear();
       else
       {
         _pkg.Load(data);
@@ -186,7 +173,21 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       return this;
     }
 
-    public override void SaveIntenvory()
+    Inventory IInventory.Inventory => _inventory;
+
+    List <ItemDrop.ItemData> IInventory.Items
+    {
+      get
+      {
+        if (_items is null)
+          _items = _inventory!.GetAllItems();
+        else if (!ReferenceEquals(_items, _inventory!.GetAllItems()))
+          throw new Exception("Assumption violated");
+        return _items;
+      }
+    }
+
+    void IInventory.Save()
     {
       _pkg.Clear();
       _inventory.Save(_pkg);

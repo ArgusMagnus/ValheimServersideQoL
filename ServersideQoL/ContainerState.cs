@@ -5,9 +5,14 @@ public abstract class ContainerState
   private protected ContainerState() { }
 
   public abstract ContainerRegistryProcessor.PrefabInfo PrefabInfo { get; }
-  public abstract Inventory Inventory { get; }
-  public abstract List<ItemDrop.ItemData> InventoryItems { get; }
-  public abstract void SaveIntenvory();
+  public abstract IInventory GetInventory();
 
   public float? PickupRange { get; set; }
+
+  public interface IInventory
+  {
+    Inventory Inventory { get; }
+    List<ItemDrop.ItemData> Items { get; }
+    void Save();
+  }
 }
