@@ -1,46 +1,28 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ServersideQoL;
 
-public sealed class Peer
+public sealed class Peer(ZNetPeer peer)
 {
-  readonly ZNetPeer _peer;
-  public long m_uid => _peer.m_uid;
+  public ZNetPeer ZNetPeer { get; } = peer;
+  public Vector3 RefPos => PlayerState?.ZDO.ZDO.GetPosition() ?? ZNetPeer.m_refPos;
+  //public bool IsConnected => _peer?.m_socket.IsConnected() ?? default; // potentially takes a long time?
+  public string GetHostName() => ZNetPeer.m_socket.GetHostName() ?? "";
+  public IReadOnlyDictionary<string, string> ServerSyncedPlayerData => ZNetPeer is { m_server: false } ? ZNetPeer.m_serverSyncedPlayerData : ZNet.instance.m_serverSyncedPlayerData;
 
-  public ServersideQoLZDO? CharacterZDO
+  public override bool Equals(object obj) => Equals(ZNetPeer, obj);
+  public override int GetHashCode() => ZNetPeer.GetHashCode();
+
+  public PlayerState? PlayerState
   {
     get
     {
       if (field is null)
       {
-        field = ZDOMan.instance.GetZDO(_peer.m_characterID)?.ServersideQoLZDO;
-        field?.Destroyed += OnCharacterZDODestroyed;
+        field = Processor.Instance<PlayerRegistryProcessor>().GetStateForPeerID(ZNetPeer.m_uid);
+        field?.ZDO.Destroyed += _ => field = null;
       }
-
       return field;
-
-      void OnCharacterZDODestroyed(ServersideQoLZDO zdo)
-      {
-        zdo.Destroyed -= OnCharacterZDODestroyed;
-        field = null;
-      }
     }
   }
-
-  public Vector3 m_refPos => CharacterZDO?.ZDO.GetPosition() ?? _peer.m_refPos;
-  public ZDOID m_characterID => _peer.m_characterID;
-  //public bool IsConnected => _peer?.m_socket.IsConnected() ?? default; // potentially takes a long time?
-  public bool IsServer => _peer.m_server;
-  public string GetHostName() => _peer.m_socket.GetHostName() ?? "";
-  public IReadOnlyDictionary<string, string> m_serverSyncedPlayerData => _peer is { m_server: false } ? _peer.m_serverSyncedPlayerData : ZNet.instance.m_serverSyncedPlayerData;
-
-  public override bool Equals(object obj) => Equals(_peer, obj);
-  public override int GetHashCode() => _peer.GetHashCode();
-
-  static readonly ConditionalWeakTable<ZNetPeer, Peer> _cache = [];
-
-  private Peer(ZNetPeer peer) => _peer = peer;
-
-  public static Peer Get(ZNetPeer peer) => _cache.GetValue(peer, static x => new(x));
 }

@@ -214,7 +214,7 @@ public abstract class Processor
     minDistance *= minDistance;
     foreach (var peer in peers.AsEnumerable())
     {
-      if (Utils.DistanceSqr(peer.m_refPos, zdo.ZDO.GetPosition()) < minDistance)
+      if (Utils.DistanceSqr(peer.RefPos, zdo.ZDO.GetPosition()) < minDistance)
         return false;
     }
     return true;
@@ -317,12 +317,12 @@ public abstract class Processor
       case MessageTypes.TopLeftNear:
       case MessageTypes.CenterNear:
       case MessageTypes.InWorld:
-        peers = peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= DamageText.instance.m_maxTextDistance);
+        peers = peers.Where(x => Vector3.Distance(x.RefPos, pos) <= DamageText.instance.m_maxTextDistance);
         break;
 
       case MessageTypes.TopLeftFar:
       case MessageTypes.CenterFar:
-        peers = peers.Where(x => Vector3.Distance(x.m_refPos, pos) <= Config.Instance.FarMessageRange.Value);
+        peers = peers.Where(x => Vector3.Distance(x.RefPos, pos) <= Config.Instance.FarMessageRange.Value);
         break;
 
       default:
@@ -330,12 +330,12 @@ public abstract class Processor
     }
 
     if (type is MessageTypes.InWorld)
-      RPC.ShowInWorldText(peers.Select(static x => x.m_uid), inWorldTextType, pos, message.RemoveRichTextTags());
+      RPC.ShowInWorldText(peers.Select(static x => x.ZNetPeer.m_uid), inWorldTextType, pos, message.RemoveRichTextTags());
     else
     {
       var msgType = type is MessageTypes.TopLeftNear or MessageTypes.TopLeftFar ? MessageHud.MessageType.TopLeft : MessageHud.MessageType.Center;
       foreach (var peer in peers)
-        RPC.ShowMessage(peer.m_uid, msgType, message);
+        RPC.ShowMessage(peer.ZNetPeer.m_uid, msgType, message);
     }
   }
 

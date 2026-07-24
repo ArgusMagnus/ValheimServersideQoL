@@ -21,7 +21,7 @@ public static class RPC
   //    => ShowMessage(ZRoutedRpc.Everybody, type, message);
 
   public static void ShowMessage(Peer peer, MessageHud.MessageType type, string message)
-      => ShowMessage(peer.m_uid, type, message);
+      => ShowMessage(peer.ZNetPeer.m_uid, type, message);
 
   public static void ShowMessage(IEnumerable<Peer> peers, MessageHud.MessageType type, string message)
   {
@@ -39,7 +39,7 @@ public static class RPC
   public static void SendGlobalKeys(Peer peer, List<string> keys)
   {
     /// <see cref="ZoneSystem.SendGlobalKeys"/>
-    InvokeRoutedRPC(peer.m_uid, "GlobalKeys", parameters: [keys]);
+    InvokeRoutedRPC(peer.ZNetPeer.m_uid, "GlobalKeys", parameters: [keys]);
   }
 
   public static void ShowInWorldText(IEnumerable<long> targetPeerIds, DamageText.TextType type, Vector3 pos, string text)
@@ -70,7 +70,7 @@ public static class RPC
   }
 
   public static void TeleportPlayer(Peer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
-      => TeleportPlayer(peer.m_uid, pos, rot, distantTeleport);
+      => TeleportPlayer(peer.ZNetPeer.m_uid, pos, rot, distantTeleport);
 
   public static void TeleportPlayer(ServersideQoLZDO player, Vector3 pos, Quaternion rot, bool distantTeleport)
   {

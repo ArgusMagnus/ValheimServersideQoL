@@ -324,7 +324,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
     var pos = ZDO.GetPosition();
     foreach (var peer in peers.Enumerate())
     {
-      if (Utils.DistanceSqr(peer.m_refPos, pos) < distance)
+      if (Utils.DistanceSqr(peer.RefPos, pos) < distance)
         return true;
     }
     return false;

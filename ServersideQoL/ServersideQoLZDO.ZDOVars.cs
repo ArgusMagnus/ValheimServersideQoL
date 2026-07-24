@@ -84,7 +84,7 @@ partial class ServersideQoLZDO
     public Vector3 GetSpawnPoint(Vector3 defaultValue = default) => _zdo.GetVec3(global::ZDOVars.s_spawnPoint, defaultValue);
     public void SetSpawnPoint(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_spawnPoint, value); }
     public int GetEmoteID(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_emoteID, defaultValue);
-    //public Emotes GetEmote(Emotes defaultValue = ModConfigBase.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(global::ZDOVars.s_emote), true, out var e) ? e : defaultValue;
+    public Emotes GetEmote(Emotes defaultValue = ConfigBase.DisabledEmote) => Enum.TryParse<Emotes>(_zdo.GetString(global::ZDOVars.s_emote), true, out var e) ? e : defaultValue;
     public bool GetAnimationIsEncumbered(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashEncumbered, defaultValue);
     public bool GetAnimationInWater(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.CharacterAnimationHashInWater, defaultValue);
     public bool GetAnimationIsCrouching(bool defaultValue = default) => _zdo.GetBool(PrivateAccessor.ZSyncAnimationZDOSalt + PrivateAccessor.PlayerAnimationHashCrouching, defaultValue);

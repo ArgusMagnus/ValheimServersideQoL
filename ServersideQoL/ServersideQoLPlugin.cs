@@ -430,7 +430,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     var zonesAroundPlayers = ZoneSystem.instance.m_activeArea; // Config.General.ZonesAroundPlayers.Value;
     foreach (var peer in peers)
     {
-      var playerSector = ZoneSystem.GetZone(peer.m_refPos);
+      var playerSector = ZoneSystem.GetZone(peer.RefPos);
       for (int x = playerSector.x - zonesAroundPlayers; x <= playerSector.x + zonesAroundPlayers; x++)
       {
         for (int y = playerSector.y - zonesAroundPlayers; y <= playerSector.y + zonesAroundPlayers; y++)

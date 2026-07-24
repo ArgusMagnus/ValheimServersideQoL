@@ -42,14 +42,14 @@ public sealed class PeersEnumerable(ZNetPeer? localPeer) : IEnumerable<Peer>
           ++_index;
         else
         {
-          Current = Peer.Get(_enumerable._localPeer);
+          Current = _enumerable._localPeer.ServersideQoLPeer;
           return true;
         }
       }
 
       if (_index < _enumerable._peers.Count)
       {
-        Current = Peer.Get(_enumerable._peers[_index]);
+        Current = _enumerable._peers[_index].ServersideQoLPeer;
         return true;
       }
       Current = default!;
