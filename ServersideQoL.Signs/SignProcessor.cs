@@ -17,6 +17,12 @@ public sealed class SignProcessor : Processor<SignProcessor.PrefabInfo>
 
   string? _timeText;
 
+  protected override void Initialize()
+  {
+    _defaultColor = Config.Instance.DefaultColor.Value.StartsWith('#') ? Config.Instance.DefaultColor.Value :
+        string.IsNullOrEmpty(Config.Instance.DefaultColor.Value) ? "" : $"\"{Config.Instance.DefaultColor.Value}\"";
+  }
+
   protected override void PreProcess(PeersEnumerable peers)
   {
     _timeText = null;
