@@ -204,16 +204,5 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       _dataRevision = _zdo.ZDO.DataRevision;
       _data = data;
     }
-
-    public override void SetFloat(string key, float? value)
-    {
-      if (value.HasValue)
-        (_floats ??= [])[key] = value.Value;
-      else if (_floats is not null && _floats.Remove(key) && _floats.Count is 0)
-        _floats = null;
-    }
-
-    public override float? GetFloat(string key)
-        => _floats is not null && _floats.TryGetValue(key, out var value) ? value : null;
   }
 }

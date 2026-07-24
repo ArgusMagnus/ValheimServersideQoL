@@ -43,7 +43,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     if (containerState.InventoryItems.Count is 0)
       return;
 
-    var rangeSqr = containerState.GetFloat(AutoStorePlugin.ContainerFloats.PickupRange) ?? Config.Instance.AutoPickupRange.Value;
+    var rangeSqr = containerState.PickupRange ?? Config.Instance.AutoPickupRange.Value;
     rangeSqr *= rangeSqr;
     if (rangeSqr is 0f)
       return;
@@ -137,7 +137,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
         if (containerZdo.Vars.GetInUse()) // || !CheckMinDistance(peers, containerZdo))
           continue; // in use or player to close
 
-        var pickupRangeSqr = containerState.GetFloat(AutoStorePlugin.ContainerFloats.PickupRange) ?? Config.Instance.AutoPickupRange.Value;
+        var pickupRangeSqr = containerState.PickupRange ?? Config.Instance.AutoPickupRange.Value;
         pickupRangeSqr *= pickupRangeSqr;
 
         if (pickupRangeSqr is 0f || Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > pickupRangeSqr)

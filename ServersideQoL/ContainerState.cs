@@ -9,6 +9,5 @@ public abstract class ContainerState
   public abstract List<ItemDrop.ItemData> InventoryItems { get; }
   public abstract void SaveIntenvory();
 
-  public abstract void SetFloat(string key, float? value);
-  public abstract float? GetFloat(string key);
+  public float? PickupRange { get; set; }
 }
