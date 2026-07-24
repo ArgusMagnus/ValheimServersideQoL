@@ -1,22 +1,22 @@
 <Project>
-	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
-		<Nullable>enable</Nullable>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<LangVersion>latest</LangVersion>
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>embedded</DebugType>
-		<MinVerTagPrefix>v</MinVerTagPrefix>
-		<MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
-		<ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
-		<Authors>ArgusMagnus</Authors>
-		<Copyright>$(Authors)</Copyright>
-		<RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
-		
-		<Version>2.0.0-beta.1</Version>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
+    <ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
+    <Authors>ArgusMagnus</Authors>
+    <Copyright>$(Authors)</Copyright>
+    <RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
+
+    <Version>2.0.0-beta.1</Version>
 
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
-	</PropertyGroup>
+  </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
     <IsPatcher>true</IsPatcher>
@@ -27,9 +27,42 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(CreatePackage)' == 'true'">
+    <ProjectReference Include="$(MSBuildThisFileDirectory)\ServersideQoL.CodeAnalysis\ServersideQoL.CodeAnalysis.csproj" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />
+
     <None Include="$(MSBuildProjectDirectory)\icon.png" CopyToOutputDirectory="Always" />
     <None Include="$(MSBuildProjectDirectory)\README.md" CopyToOutputDirectory="Always" />
     <None Include="$(MSBuildProjectDirectory)\CHANGELOG.md" CopyToOutputDirectory="Always" />
-  </ItemGroup>  
-  
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(CreatePackage)' == 'true'">
+    <RequiredReference Include="assembly_utils" HintPath="$(ValheimDir)valheim_server_Data\Managed\assembly_utils.dll" Private="False" />
+    <RequiredReference Include="assembly_valheim" HintPath="$(DependencyDirectory)assembly_valheim.dll" Private="False" />
+    <RequiredReference Include="assembly_guiutils" HintPath="$(ValheimDir)valheim_server_Data\Managed\assembly_guiutils.dll" Private="False" />
+    <RequiredReference Include="BepInEx" HintPath="$(ValheimDir)BepInEx\core\BepInEx.dll" Private="False" />
+    <RequiredReference Include="UnityEngine" HintPath="$(ValheimDir)valheim_server_Data\Managed\UnityEngine.dll" Private="False" />
+    <RequiredReference Include="UnityEngine.CoreModule" HintPath="$(ValheimDir)valheim_server_Data\Managed\UnityEngine.CoreModule.dll" Private="False" />
+    <RequiredReference Include="0Harmony" HintPath="$(ValheimDir)BepInEx\core\0Harmony.dll" Private="False" />
+    <RequiredReference Include="Mono.Cecil" HintPath="$(ValheimDir)BepInEx\core\Mono.Cecil.dll" Private="False" />
+    <RequiredReference Include="MonoMod.Utils" HintPath="$(ValheimDir)BepInEx\core\MonoMod.Utils.dll" Private="False" />
+    <RequiredReference Include="SoftReferenceableAssets" HintPath="$(ValheimDir)valheim_server_Data\Managed\SoftReferenceableAssets.dll" Private="False" />
+    <RequiredReference Include="YamlDotNet" HintPath="$(ValheimDir)BepInEx\plugins\ValheimModding-YamlDotNet\YamlDotNet.dll" Private="False" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(CreatePackage)' == 'true' AND '$(Configuration)' != 'Debug'">
+    <Reference Include="@(RequiredReference)" HintPath="Dependencies\%(RequiredReference.HintPath.Filename)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(CreatePackage)' == 'true' AND '$(Configuration)' == 'Debug'">
+    <Reference Include="@(RequiredReference)" />
+    <Reference Include="BepInEx.Harmony" HintPath="$(ValheimDir)BepInEx\core\BepInEx.Harmony.dll" Private="False" />
+    <Reference Include="BepInEx.Preloader" HintPath="$(ValheimDir)BepInEx\core\BepInEx.Preloader.dll" Private="False" />
+    <Reference Include="HarmonyXInterop" HintPath="$(ValheimDir)BepInEx\core\HarmonyXInterop.dll" Private="False" />
+    <Reference Include="Mono.Cecil.Mdb" HintPath="$(ValheimDir)BepInEx\core\Mono.Cecil.Mdb.dll" Private="False" />
+    <Reference Include="Mono.Cecil.Pdb" HintPath="$(ValheimDir)BepInEx\core\Mono.Cecil.Pdb.dll" Private="False" />
+    <Reference Include="Mono.Cecil.Rocks" HintPath="$(ValheimDir)BepInEx\core\Mono.Cecil.Rocks.dll" Private="False" />
+    <Reference Include="MonoMod.RuntimeDetour" HintPath="$(ValheimDir)BepInEx\core\MonoMod.RuntimeDetour.dll" Private="False" />
+    <Reference Include="UnityEngine.PhysicsModule" HintPath="$(ValheimDir)valheim_server_Data\Managed\UnityEngine.PhysicsModule.dll" Private="False" />
+    <Reference Include="Splatform" HintPath="$(ValheimDir)valheim_server_Data\Managed\Splatform.dll" Private="False" />
+  </ItemGroup>
+
 </Project>
