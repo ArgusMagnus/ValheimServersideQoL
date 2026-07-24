@@ -128,10 +128,16 @@ public abstract class ConfigBase
 
     public override string ToDescriptionString()
     {
-      if (EnumUtils.IsBitSet<T>())
-        return Invariant($"# Acceptable values: {_default} or combination of {string.Join(", ", AcceptableValues.Where(x => !x.Equals(_default)))}");
-      else
-        return Invariant($"# Acceptable values: {string.Join(", ", AcceptableValues)}");
+      // breaks gale's config editor
+      //if (EnumUtils.IsBitSet<T>())
+      //  return Invariant($"# Acceptable values: {_default} or combination of {string.Join(", ", AcceptableValues.Where(x => !x.Equals(_default)))}");
+
+      if (!EnumUtils.IsBitSet<T>())
+        return $"# Acceptable values: {string.Join(", ", AcceptableValues)}";
+      return Invariant($"""
+        # Acceptable values: {string.Join(", ", AcceptableValues)}
+        # Multiple values can be set at the same time by separating them with , (e.g. Debug, Warning)
+        """);
     }
   }
 
@@ -150,7 +156,7 @@ public abstract class ConfigBase
     public override object Clamp(object value) => value;
 
     public override string ToDescriptionString()
-    => Invariant($"# Acceptable values: .NET Format strings for {testArgs.Length} arguments ({string.Join(", ", testArgs.Select(static x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method");
+    => Invariant($"# Acceptable value formats: .NET Format strings for {testArgs.Length} arguments ({string.Join(", ", testArgs.Select(static x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method");
   }
 }
 
