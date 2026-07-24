@@ -17,6 +17,31 @@ public abstract class ConfigBase
 {
   private protected ConfigBase() { }
 
+  protected static class Shared
+  {
+    public static ConfigEntry<int>? AutoPickupMaxRange
+    {
+      get;
+      set
+      {
+        if (field is not null)
+          throw new Exception($"Shared config {nameof(AutoPickupMaxRange)} already set");
+        field = value;
+      }
+    }
+
+    public static ConfigEntry<int>? FeedFromContainersMaxRange
+    {
+      get;
+      set
+      {
+        if (field is not null)
+          throw new Exception($"Shared config {nameof(FeedFromContainersMaxRange)} already set");
+        field = value;
+      }
+    }
+  }
+
   private protected interface IYamlConfigEntry
   {
     object Value { get; set; }

@@ -8,6 +8,7 @@ public abstract class ContainerState
   public abstract IInventory GetInventory();
 
   public float? PickupRange { get; set; }
+  public float? FeedRange { get; set; }
 
   public interface IInventory
   {
