@@ -27,14 +27,18 @@ if ($Dependencies) {
     $deps += $Dependencies.Split(';') | Get-ItemPropertyValue -Name VersionInfo | ForEach-Object {
         $author = $_.LegalCopyright
         $name = $_.ProductName.Replace('.', '_')
-        $version = $_.ProductVersion.Substring(0, $_.ProductVersion.IndexOfAny(@('-', '+')))
+        $version = $_.ProductVersion.Split('+')[0]
+        $versionNumber = $version.Split('-')[0]
+        if ($versionNumber -ne $version) {
+            $version += '_BETA'
+        }
         "$author-$name-$version"
     }
 }
 
 $vi = Get-ItemPropertyValue -LiteralPath $Path -Name VersionInfo
 $name = $vi.ProductName.Replace('.', '_')
-$version = $vi.ProductVersion.Substring(0, $vi.ProductVersion.IndexOf('+'))
+$version = $vi.ProductVersion.Split('+')[0]
 $versionNumber = $version.Split('-')[0]
 
 # if ($VersionNumber -ne $Version) {
@@ -54,10 +58,10 @@ $manifest = @{
     dependencies   = $deps
 }
 
-# if ($VersionNumber -ne $Version) {
-#     $manifest.description = "This is the public test channel of $($manifest.name)"
-#     $manifest.name += '_BETA'
-# }
+if ($versionNumber -ne $version) {
+    $manifest.description = "(BETA) $($manifest.description)"
+    $manifest.name += '_BETA'
+}
 
 $tmpDir = New-Item -Path "${Env:TEMP}\ServersideQoL\$(New-Guid)" -ItemType Directory
 try {

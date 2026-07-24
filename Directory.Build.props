@@ -13,7 +13,7 @@
     <Copyright>$(Authors)</Copyright>
     <RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
 
-    <Version>2.0.0-beta.1</Version>
+    <Version>1.99.0-beta.1</Version>
 
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
   </PropertyGroup>
