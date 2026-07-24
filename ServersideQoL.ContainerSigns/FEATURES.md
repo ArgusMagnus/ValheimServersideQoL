@@ -1,0 +1,3 @@
+- Automatically put signs on chests
+- Show container content on those signs
+- Configure chests for other ServersideQoL mods via those signs (e.g. auto-store pickup range or auto-smelter-feeding range)

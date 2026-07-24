@@ -4,6 +4,7 @@
     <File Path="Create-Package.ps1" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Build.targets" />
+    <File Path="README.md" />
   </Folder>
   <Project Path="ServersideQoL.AutoStore/ServersideQoL.AutoStore.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis.Tests/ServersideQoL.CodeAnalysis.Tests.csproj" />

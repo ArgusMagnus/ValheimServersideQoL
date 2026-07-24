@@ -63,6 +63,12 @@ $tmpDir = New-Item -Path "${Env:TEMP}\ServersideQoL\$(New-Guid)" -ItemType Direc
 try {
     Get-ChildItem -LiteralPath $dir -File | Copy-Item -Destination $tmpDir
     $dir = $tmpDir.FullName
+
+    $readme = Get-Content -LiteralPath "$PSScriptRoot\README.md" -Raw
+    $readme = $readme.Replace('{PluginName}', $vi.ProductName)
+    $readme = $readme.Replace('{Features}', (Get-Content -LiteralPath "$dir\FEATURES.md" -Raw))
+    Remove-Item -LiteralPath "$dir\FEATURES.md" -Force
+    Set-Content -LiteralPath "$dir\README.md" -Value $readme
     
     $patchers = Get-ChildItem -LiteralPath $dir -File -Filter '*.Patchers.dll'
     if ($patchers) {
