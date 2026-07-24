@@ -18,7 +18,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
     if (Config.Instance.AutoPickup.Value)
     {
-      _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(Mathf.Max(Config.Instance.AutoPickupRange.Value, Config.Instance.AutoPickupMaxRange?.Value ?? 0));
+      _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(Mathf.Max(Config.Instance.AutoPickupRange.Value, Config.Instance.AutoPickupMaxRange ?? 0));
       _itemDrops = new(_containersByItemName.SectorWidth);
       Instance<ContainerRegistryProcessor>().ContainerChanged += OnContainerChanged;
     }

@@ -182,7 +182,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
   //    Ungregister(unregister);
   //}
 
-  internal void UnregisterAllExcept(Processor keep)
+  public void UnregisterAllExcept(Processor keep)
   {
     static IReadOnlyList<Processor> UnregisterAllExceptCore(Processor keep, IReadOnlyList<Processor> zdoProcessors)
     {
@@ -207,13 +207,13 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
     }
   }
 
-  internal void UnregisterAll()
+  public void UnregisterAll()
   {
     Processors = [];
     HasProcessors = false;
   }
 
-  internal void ReregisterAll()
+  public void ReregisterAll()
   {
     Processors = PrefabInfo?.EnabledProcessors ?? [];
     HasProcessors = Processors.Count is not 0;

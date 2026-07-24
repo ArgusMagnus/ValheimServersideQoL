@@ -401,6 +401,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
         {
           zdo.ReregisterAll();
+          zdo.ProcessorDataRevisions?.Clear();
           OnDataOrOwnerRevisionChanged(zdo);
         }
       }

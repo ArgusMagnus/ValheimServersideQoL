@@ -13,11 +13,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<MessageTypes> SortedMessageType { get; } = BindEx(cfg, Section, MessageTypes.None,
     "Type of message to show when a container was sorted", AcceptableEnum<MessageTypes>.Default);
 
-  public ConfigEntry<bool> AutoPickup { get; } = BindEx(cfg, Section, false,
+  public ConfigEntry<bool> AutoPickup { get; } = Shared.AutoPickup = BindEx(cfg, Section, false,
     "True to automatically put dropped items into containers if they already contain said item");
   public ConfigEntry<float> AutoPickupRange { get; } = BindEx(cfg, Section, ZoneSystem.c_ZoneSize,
     $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overridden per chest with the {nameof(ServersideQoL)}.ContainerChests mod.");
-  public ConfigEntry<int>? AutoPickupMaxRange => Shared.AutoPickupMaxRange;
+  public int? AutoPickupMaxRange => Shared.AutoPickupMaxRange?.Value;
   public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = BindEx(cfg, Section, 4f,
     "Min distance all player must have to a dropped item for it to be picked up");
   public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = BindEx(cfg, Section, true,

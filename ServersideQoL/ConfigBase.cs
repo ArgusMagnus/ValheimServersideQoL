@@ -19,26 +19,16 @@ public abstract class ConfigBase
 
   protected static class Shared
   {
-    public static ConfigEntry<int>? AutoPickupMaxRange
-    {
-      get;
-      set
-      {
-        if (field is not null)
-          throw new Exception($"Shared config {nameof(AutoPickupMaxRange)} already set");
-        field = value;
-      }
-    }
+    public static ConfigEntry<bool>? AutoPickup { get; set => Set(ref field, value); }
+    public static ConfigEntry<int>? AutoPickupMaxRange { get; set => Set(ref field, value); }
+    public static ConfigEntry<bool>? FeedFromContainers { get; set => Set(ref field, value); }
+    public static ConfigEntry<int>? FeedFromContainersMaxRange { get; set => Set(ref field, value); }
 
-    public static ConfigEntry<int>? FeedFromContainersMaxRange
+    static void Set<T>(ref T? field, T? value, [CallerMemberName] string configName = default!) where T : class
     {
-      get;
-      set
-      {
-        if (field is not null)
-          throw new Exception($"Shared config {nameof(FeedFromContainersMaxRange)} already set");
-        field = value;
-      }
+      if (field is not null)
+        throw new Exception($"Shared config {configName} already set");
+      field = value;
     }
   }
 
