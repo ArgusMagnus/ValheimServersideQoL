@@ -68,6 +68,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   protected internal override void Initialize()
   {
+    _states.Clear();
+    _containersByItemNameBySectorWidth.Clear();
     RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = false);
   }
 

@@ -14,6 +14,11 @@ public sealed class TameableRegistryProcessor : Processor<TameableRegistryProces
 
   public TameableState? GetState(ServersideQoLZDO zdo) => _states.TryGetValue(zdo, out var state) ? state : null;
 
+  protected internal override void Initialize()
+  {
+    _states.Clear();
+  }
+
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     if (!_states.TryGetValue(zdo, out var state))
