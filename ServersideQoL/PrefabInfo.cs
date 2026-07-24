@@ -30,7 +30,15 @@ public abstract class PrefabInfo : IPrefabInfo
   }
 }
 
-public abstract record ProcessorPrefabInfo;
+public abstract record ProcessorPrefabInfo
+{
+  // Only simple types that are very unlikely to change in the future should be defined here,
+  // because modifying these types potentially affects multiple processors.
+  public static class Shared
+  {
+    public sealed record SignPrefabInfo(Sign Sign) : ProcessorPrefabInfo;
+  }
+}
 
 interface IProcessorPrefabInfo<TPrefabInfo> : IPrefabInfo
     where TPrefabInfo : ProcessorPrefabInfo

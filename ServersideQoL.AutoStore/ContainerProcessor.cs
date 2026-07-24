@@ -1,11 +1,9 @@
 ﻿namespace ServersideQoL.AutoStore;
 
-[Processor(Id)]
+[Processor("e1c6ea7a-996b-4aad-8595-af86f02fe25b")]
 [RunBefore<ContainerRegistryProcessor>]
 public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.PrefabInfo>
 {
-  public const string Id = "e1c6ea7a-996b-4aad-8595-af86f02fe25b";
-
   readonly Dictionary<ItemDataKey, int> _stackPerItem = [];
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ContainerRegistryProcessor.PrefabInfo prefabInfo)

@@ -2,10 +2,9 @@
 
 namespace ServersideQoL;
 
-[Processor(Id, OnlyWhenDependedOn = true)]
+[Processor("c79b3771-b9a8-46e9-b3eb-5ffe6c9708b4", OnlyWhenDependedOn = true)]
 public sealed class TameableRegistryProcessor : Processor<TameableRegistryProcessor.PrefabInfo>
 {
-  public const string Id = "c79b3771-b9a8-46e9-b3eb-5ffe6c9708b4";
   public sealed record PrefabInfo(Tameable Tameable, MonsterAI MonsterAI) : ProcessorPrefabInfo;
 
   readonly Dictionary<ServersideQoLZDO, TameableStateImpl> _states = [];

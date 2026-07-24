@@ -2,10 +2,9 @@
 
 namespace ServersideQoL;
 
-[Processor(Id, OnlyWhenDependedOn = true)]
+[Processor("fe73690f-6790-4cfa-9795-f93136d57286", OnlyWhenDependedOn = true)]
 public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProcessor.PrefabInfo>
 {
-  public const string Id = "fe73690f-6790-4cfa-9795-f93136d57286";
   public sealed record PrefabInfo(Container Container, Piece Piece, PieceTable PieceTable, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo;
 
   public event Action<ServersideQoLZDO, ContainerState>? ContainerChanged;
