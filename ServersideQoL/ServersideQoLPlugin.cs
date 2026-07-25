@@ -574,22 +574,26 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   void ProcessZdo(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo, IReadOnlyList<Processor> processors, bool updateDataRevisions)
   {
-    var allProcessors = zdo.Processors!;
-    if (allProcessors.Count > 1)
+    if (!zdo.ExclusivityCheckDone)
     {
-      Processor? claimedExclusiveBy = null;
-      foreach (var processor in allProcessors.Enumerate())
+      zdo.ExclusivityCheckDone = true;
+      var allProcessors = zdo.Processors!;
+      if (allProcessors.Count > 1)
       {
-        if (!processor.ClaimExclusive(zdo))
-          continue;
-        if (claimedExclusiveBy is null)
-          claimedExclusiveBy = processor;
-        else if (Config.DiagnosticLogs.Value)
-          Logger.LogError(Invariant($"ZDO {zdo.ZDO.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
-      }
+        Processor? claimedExclusiveBy = null;
+        foreach (var processor in allProcessors.Enumerate())
+        {
+          if (!processor.ClaimExclusive(zdo))
+            continue;
+          if (claimedExclusiveBy is null)
+            claimedExclusiveBy = processor;
+          else if (Config.DiagnosticLogs.Value)
+            Logger.LogError(Invariant($"ZDO {zdo.ZDO.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
+        }
 
-      if (claimedExclusiveBy is not null)
-        zdo.UnregisterAllExcept(claimedExclusiveBy);
+        if (claimedExclusiveBy is not null)
+          zdo.UnregisterAllExcept(claimedExclusiveBy);
+      }
     }
 
     var destroy = false;
@@ -666,36 +670,26 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       foreach (var attr in list)
       {
-        if (attr.RunBefore)
+        if (!_processorsById.TryGetValue(attr.ProcessorId, out var dependency) || !graph.ContainsKey(dependency))
         {
-          if (!_processorsById.TryGetValue(attr.ProcessorId, out var before) || !graph.ContainsKey(before))
+          if (attr.Required)
           {
-            if (attr.Required)
-            {
-              if (log)
-                Logger.DevLog($"Dropping processor {processor.GetType().FullName} because required dependency ({nameof(RunBeforeAttribute)}) {attr.ProcessorId} is missing");
-              processors.RemoveAt(i);
-              break;
-            }
-            continue;
+            if (log)
+              Logger.DevLog($"Dropping processor {processor.GetType().FullName} because required dependency ({nameof(RunBeforeAttribute)}) {attr.ProcessorId} is missing");
+            processors.RemoveAt(i);
+            break;
           }
-          graph[processor].Add(before);
-          inDegree[before]++;
+          continue;
         }
-        else
+
+        if (attr.RunBefore is true)
         {
-          if (!_processorsById.TryGetValue(attr.ProcessorId, out var after) || !graph.ContainsKey(after))
-          {
-            if (attr.Required)
-            {
-              if (log)
-                Logger.DevLog($"Dropping processor {processor.GetType().FullName} because required dependency ({nameof(RunAfterAttribute)}) {attr.ProcessorId} is missing");
-              processors.RemoveAt(i);
-              break;
-            }
-            continue;
-          }
-          graph[after].Add(processor);
+          graph[processor].Add(dependency);
+          inDegree[dependency]++;
+        }
+        else if(attr.RunBefore is false)
+        {
+          graph[dependency].Add(processor);
           inDegree[processor]++;
         }
       }

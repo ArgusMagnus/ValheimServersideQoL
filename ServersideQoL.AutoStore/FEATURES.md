@@ -1,3 +1,3 @@
+- Stack player inventory into nearby containers
 - Automatically put dropped items in nearby containers
 - Automatically sort containers
-- *soon(™): Stack player inventory into nearby containers*

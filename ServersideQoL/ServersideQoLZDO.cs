@@ -17,6 +17,9 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
     get;
     internal set
     {
+      if (ReferenceEquals(field, value))
+        return;
+
       if (ProcessorDataRevisions is { } dataRevisions)
       {
         dataRevisions.Clear();
@@ -34,6 +37,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
       HasProcessors = Processors.Count is not 0;
       CyclicProcessors = value?.EnabledCyclicProcessors ?? [];
       HasCyclicProcessors = CyclicProcessors.Count is not 0;
+      ExclusivityCheckDone = false;
       ProcessorDataRevisions = default;
       HasFields = default;
       ComponentFieldAccessors = default;
@@ -65,6 +69,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
   internal IReadOnlyList<Processor> Processors { get; set; } = [];
   internal bool HasCyclicProcessors { get; set; }
   internal IReadOnlyList<Processor> CyclicProcessors { get; set; } = [];
+  internal bool ExclusivityCheckDone { get; set; }
   internal Dictionary<Processor, (uint Data, uint Owner)>? ProcessorDataRevisions { get; set; }
   internal bool HasFields { get; set; }
   internal Dictionary<Type, object>? ComponentFieldAccessors { get; set; }

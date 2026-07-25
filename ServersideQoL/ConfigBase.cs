@@ -32,8 +32,8 @@ public abstract class ConfigBase
     }
   }
 
-  internal protected const Emotes DisabledEmote = (Emotes)(-1);
-  internal protected const Emotes AnyEmote = (Emotes)(-2);
+  public const Emotes DisabledEmote = (Emotes)(-1);
+  public const Emotes AnyEmote = (Emotes)(-2);
 
   private protected interface IYamlConfigEntry
   {

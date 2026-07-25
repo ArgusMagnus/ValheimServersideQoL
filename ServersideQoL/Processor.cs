@@ -39,21 +39,27 @@ public abstract class ProcessorDependencyAttribute : Attribute
   /// <summary>
   /// If true, processors with this dependency will be run before the processor with Id = <see cref="ProcessorId"/>, otherwise they will be run after. 
   /// </summary>
-  public bool RunBefore { get; }
+  public bool? RunBefore { get; }
 
-  ProcessorDependencyAttribute(Guid processorId, bool required, bool runBefore)
+  ProcessorDependencyAttribute(Guid processorId, bool required, bool? runBefore)
   {
     ProcessorId = processorId;
     Required = required;
     RunBefore = runBefore;
   }
 
-  private protected ProcessorDependencyAttribute(string processorId, bool runBefore)
+  private protected ProcessorDependencyAttribute(string processorId, bool? runBefore)
       : this(new Guid(processorId), false, runBefore) { }
 
-  private protected ProcessorDependencyAttribute(Type processorType, bool runBefore)
+  private protected ProcessorDependencyAttribute(Type processorType, bool? runBefore)
       : this(processorType.GetCustomAttribute<ProcessorAttribute>()?.Id ?? default, true, runBefore) { }
 }
+
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+public sealed class DependsOnAttribute(string processorId) : ProcessorDependencyAttribute(processorId, null);
+
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+public sealed class DependsOnAttribute<T>() : ProcessorDependencyAttribute(typeof(T), null) where T : Processor, new();
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
 public sealed class RunBeforeAttribute(string processorId) : ProcessorDependencyAttribute(processorId, true);
@@ -73,7 +79,7 @@ public abstract class Processor
   internal IServersideQoLPlugin Plugin { get; private set; } = default!;
   protected Logger Logger { get; private set; } = default!;
 
-  protected readonly HashSet<ServersideQoLZDO> PlacedObjects = [];
+  protected HashSet<ServersideQoLZDO> PlacedObjects { get; } = [];
 
   static ServersideQoLZDO? __dataZDO;
 
@@ -143,7 +149,10 @@ public abstract class Processor
       if ((marker & CreatorMarkers.ProcessorOwned) is not 0)
       {
         if (ServersideQoLPlugin.Instance.Processors.TryGetValue(zdo.Vars.GetProcessorId(), out var processor))
+        {
           processor.PlacedObjects.Add(zdo);
+          zdo.Destroyed += processor.OnPlacedObjectDestroyed;
+        }
       }
     }
   }
@@ -235,14 +244,14 @@ public abstract class Processor
     return zdo.ServersideQoLZDO;
   }
 
+  void OnPlacedObjectDestroyed(ServersideQoLZDO zdo) => PlacedObjects.Remove(zdo);
+
   protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
       => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker, owner);
 
   protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
   {
     var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab).ServersideQoLZDO;
-    PlacedObjects.Add(zdo);
-
     zdo.ZDO.SetPrefab(prefab);
     zdo.ZDO.Persistent = true;
     zdo.ZDO.Distant = false;
@@ -256,6 +265,8 @@ public abstract class Processor
     zdo.ZDO.SetOwnerInternal(owner);
 
     zdo.PrefabInfo = ServersideQoLPlugin.Instance.GetPrefabInfo(prefab);
+    PlacedObjects.Add(zdo);
+    zdo.Destroyed += OnPlacedObjectDestroyed;
     return zdo;
   }
 
@@ -278,6 +289,7 @@ public abstract class Processor
     if (!PlacedObjects.Remove(zdo))
       throw new ArgumentException();
     PlacedObjects.Add(zdo = zdo.Recreate());
+    zdo.Destroyed += OnPlacedObjectDestroyed;
     return zdo;
   }
 

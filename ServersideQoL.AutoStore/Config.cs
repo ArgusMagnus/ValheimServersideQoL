@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ServersideQoL.AutoStore;
 
@@ -26,6 +27,20 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance");
   public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = BindEx(cfg, Section, MessageTypes.None,
     "Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default);
+
+  public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = BindEx(cfg, Section, DisabledEmote, $"""
+    Emote to stack inventory into containers.
+    If a player uses this emote, their inventory will be automatically stacked into nearby containers.
+    The rules for which containers are used are the same as for auto pickup.
+    {DisabledEmote} to disable this feature, {AnyEmote} to use any emote as trigger.
+    For example, on xbox you can use D-Pad down to execute the {Emotes.Sit} emote.
+    If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
+    """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
+
+  public ConfigEntry<float> StackInventoryIntoContainersReturnDelay { get; } = BindEx(cfg, Section, 1f, """
+    Time in seconds after which items which could not be stacked into containers are returned to the player.
+    Increasing this value can help with bad connections.
+    """, new AcceptableValueRange<float>(1f, 10f));
 
   public YamlConfigEntry<Types.Localization> Localization { get; } = BindYaml<Types.Localization>(cfg);
 

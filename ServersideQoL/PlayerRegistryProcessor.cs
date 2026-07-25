@@ -63,11 +63,11 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     public override ServersideQoLZDO ZDO => _zdo;
 
     readonly ZNetPeer? _peer = ZNet.instance.GetPeer(zdo.ZDO.GetOwner());
-    public long PlayerID { get; } = zdo.Vars.GetPlayerID();
+    public override long PlayerID { get; } = zdo.Vars.GetPlayerID();
     string? _playerName;
-    public string PlayerName => _playerName ??= ZDO.Vars.GetPlayerName();
+    public override string PlayerName => _playerName ??= ZDO.Vars.GetPlayerName();
     bool? _isAdmin;
-    public bool IsAdmin => _isAdmin ??= (Player.m_localPlayer?.GetZDOID() == ZDO.ZDO.m_uid || ZNet.instance.IsAdmin(_peer?.m_socket.GetHostName() ?? ""));
+    public override bool IsAdmin => _isAdmin ??= (Player.m_localPlayer?.GetZDOID() == ZDO.ZDO.m_uid || ZNet.instance.IsAdmin(_peer?.m_socket.GetHostName() ?? ""));
 
     public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
   }

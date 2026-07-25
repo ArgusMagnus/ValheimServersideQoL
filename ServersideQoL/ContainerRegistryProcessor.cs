@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using static ServersideQoL.ContainerState;
 
 namespace ServersideQoL;
 
@@ -11,6 +12,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   readonly Dictionary<ServersideQoLZDO, ContainerStateImpl> _states = [];
   readonly Dictionary<float, WeakReference<SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>>> _containersByItemNameBySectorWidth = [];
+  readonly Dictionary<float, WeakReference<SectorDictionary<HashSet<ServersideQoLZDO>>>> _containersBySectorWidth = [];
   bool _openResponseRegistered;
 
   public SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>> GetContainersByItemName(float sectorWidth)
@@ -18,6 +20,16 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>> dict;
     if (!_containersByItemNameBySectorWidth.TryGetValue(sectorWidth, out var weakRef))
       _containersByItemNameBySectorWidth.Add(sectorWidth, new(dict = new(sectorWidth)));
+    else if (!weakRef.TryGetTarget(out dict))
+      weakRef.SetTarget(dict = new(sectorWidth));
+    return dict;
+  }
+
+  public SectorDictionary<HashSet<ServersideQoLZDO>> GetContainers(float sectorWidth)
+  {
+    SectorDictionary<HashSet<ServersideQoLZDO>> dict;
+    if (!_containersBySectorWidth.TryGetValue(sectorWidth, out var weakRef))
+      _containersBySectorWidth.Add(sectorWidth, new(dict = new(sectorWidth)));
     else if (!weakRef.TryGetTarget(out dict))
       weakRef.SetTarget(dict = new(sectorWidth));
     return dict;
@@ -36,6 +48,23 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     {
       _states.Add(zdo, state = new(zdo, prefabInfo));
       zdo.Destroyed += x => _states.Remove(x);
+
+      List<float>? remove = null;
+      foreach (var (key, weakRef) in _containersBySectorWidth)
+      {
+        if (!weakRef.TryGetTarget(out var dict))
+        {
+          (remove ??= []).Add(key);
+          continue;
+        }
+        dict.Add(zdo);
+      }
+
+      if (remove is not null)
+      {
+        foreach (var key in remove)
+          _containersBySectorWidth.Remove(key);
+      }
     }
 
     return state;
