@@ -189,7 +189,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       return false;
     }
 
-    SortProcessors(_enabledProcessors, true);
+    SortProcessors(_enabledProcessors, isPrefabList: false);
     _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
 
     _prefabInfoFactory = prefabInfoBuilder.GetFactory();
@@ -358,7 +358,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       {
         foreach (var processor in cfg.Plugin.Processors)
           _enabledProcessors.Add(processor);
-        SortProcessors(_enabledProcessors, true);
+        SortProcessors(_enabledProcessors, isPrefabList: false);
       }
       else
       {
@@ -376,7 +376,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         {
           foreach (var processor in cfg.Plugin.Processors)
             prefabInfo.EnabledProcessors.Add(processor);
-          SortProcessors(prefabInfo.EnabledProcessors, false);
+          SortProcessors(prefabInfo.EnabledProcessors, isPrefabList: true);
           foreach (var processor in prefabInfo.EnabledProcessors)
           {
             if (processor.Attribute.Cyclic)
@@ -408,6 +408,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       }
     }
   }
+#if DEBUG
+  static int _playerPrefab = "Player".GetStableHashCode();
+#endif
 
   void Execute(PeersEnumerable peers, double timeBudgetSeconds)
   {
@@ -428,7 +431,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     //SharedProcessorState.CleanUp(peers);
 
     (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
-    var zonesAroundPlayers = ZoneSystem.instance.m_activeArea; // Config.General.ZonesAroundPlayers.Value;
+    var zonesAroundPlayers = ZoneSystem.instance.m_activeArea - 1; // Config.General.ZonesAroundPlayers.Value;
     foreach (var peer in peers)
     {
       var playerSector = ZoneSystem.GetZone(peer.RefPos);
@@ -551,23 +554,23 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
 #endif
 
-    //var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
-    //Logger.Log(logLevel,
-    //    Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+    var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
+    Logger.Log(logLevel,
+        Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
 
-    //if (logLevel is > LogLevel.Info or LogLevel.None)
-    //    return;
+    if (logLevel is > LogLevel.Info or LogLevel.None)
+      return;
 
     //(_processingTimes ??= new(Processor.DefaultProcessors.Count)).Clear();
     //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
     //{
-    //    var time = Math.Round(processor.ProcessingTimeSeconds * 1000, 2);
-    //    if (time <= 0)
-    //        continue;
-    //    _processingTimes.Add((processor, time));
+    //  var time = Math.Round(processor.ProcessingTimeSeconds * 1000, 2);
+    //  if (time <= 0)
+    //    continue;
+    //  _processingTimes.Add((processor, time));
     //}
     //if (_processingTimes.Count is 0)
-    //    return;
+    //  return;
     //_processingTimes.Sort(static (a, b) => Math.Sign(b.Item2 - a.Item2));
     //Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
   }
@@ -635,7 +638,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   }
 
   // Priority‑aware topological sort. Implementation could probably be more efficient, but this method is called seldomly and nowhere near a hot path.
-  void SortProcessors(List<Processor> processors, bool log)
+  void SortProcessors(List<Processor> processors, bool isPrefabList)
   {
     var graph = new Dictionary<Processor, List<Processor>>(processors.Count);
     var inDegree = new Dictionary<Processor, int>(processors.Count);
@@ -646,14 +649,13 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     for (int i = processors.Count - 1; i >= 0; i--)
     {
       var processor = processors[i];
-      if (processor.Attribute.OnlyWhenDependedOn)
+      if (!isPrefabList && processor.Attribute.OnlyWhenDependedOn)
       {
         dependents ??= [.. dependencyAttributes.Values.SelectMany(static x => x.Select(static x => x.ProcessorId))];
         if (!dependents.Contains(processor.Attribute.Id))
         {
           processors.RemoveAt(i);
-          if (log)
-            Logger.DevLog($"Dropping processor {processor.GetType().FullName} because no dependents where found");
+          Logger.DevLog($"Dropping processor {processor.GetType().FullName} because no dependents where found");
           continue;
         }
       }
@@ -672,9 +674,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       {
         if (!_processorsById.TryGetValue(attr.ProcessorId, out var dependency) || !graph.ContainsKey(dependency))
         {
-          if (attr.Required)
+          if (!isPrefabList && attr.Required)
           {
-            if (log)
+            if (!isPrefabList)
               Logger.DevLog($"Dropping processor {processor.GetType().FullName} because required dependency ({nameof(RunBeforeAttribute)}) {attr.ProcessorId} is missing");
             processors.RemoveAt(i);
             break;
@@ -712,7 +714,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       var node = ready[^1];
       ready.RemoveAt(ready.Count - 1);
-      if (log && node.Attribute.Priority is not 0 && ready.Count > 0 && ready[^1] is { } next && next.Attribute.Priority == node.Attribute.Priority)
+      if (!isPrefabList && node.Attribute.Priority is not 0 && ready.Count > 0 && ready[^1] is { } next && next.Attribute.Priority == node.Attribute.Priority)
         Logger.LogWarning($"Processors {node.GetType().FullName} and {next.GetType().FullName} share the same non-default priority ({node.Attribute.Priority})");
 
       processors.Add(node);
@@ -724,7 +726,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       }
     }
 
-    if (!log)
+    if (isPrefabList)
       return;
 
     if (processors.Count != expectedCount)
@@ -762,7 +764,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
             prefabInfo.EnabledProcessors.Add(processor);
         }
       }
-      SortProcessors(prefabInfo.EnabledProcessors, false);
+      SortProcessors(prefabInfo.EnabledProcessors, isPrefabList: true);
       foreach (var processor in prefabInfo.EnabledProcessors)
       {
         if (processor.Attribute.Cyclic)

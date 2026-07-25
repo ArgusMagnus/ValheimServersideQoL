@@ -37,7 +37,9 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       if (zdo.Vars.GetEmoteID() is var emoteId && emoteId != state.LastEmoteId)
       {
         state.LastEmoteId = emoteId;
-        EmoteDetected(zdo, state, zdo.Vars.GetEmote());
+        var emote = zdo.Vars.GetEmote();
+        if (emote is not ConfigBase.DisabledEmote)
+          EmoteDetected(zdo, state, emote);
       }
     }
 

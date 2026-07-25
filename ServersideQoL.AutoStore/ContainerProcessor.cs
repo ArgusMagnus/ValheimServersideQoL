@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using static Version;
 
 namespace ServersideQoL.AutoStore;
 
@@ -165,6 +164,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       if (!zdo.IsOwnerOrUnassigned())
       {
         Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, zdo.Vars.GetCreator(), state);
+        return ProcessResult.ScheduleReprocessing;
       }
       else if (changed)
       {

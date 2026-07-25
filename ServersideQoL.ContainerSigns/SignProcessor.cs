@@ -117,7 +117,7 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPre
       if (!chest.IsOwnerOrUnassigned())
       {
         Instance<ContainerRegistryProcessor>().RequestOwnership(chest, 0);
-        return ProcessResult.WaitForZDORevisionChange;
+        return ProcessResult.ScheduleReprocessing;
       }
 
       chest.Vars.SetText(text);

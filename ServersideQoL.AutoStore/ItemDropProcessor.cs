@@ -249,7 +249,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
       if (requestOwn)
       {
         RPC.RequestOwn(zdo);
-        return ProcessResult.SkipOtherProcessors | ProcessResult.WaitForZDORevisionChange;
+        return ProcessResult.ScheduleReprocessing | ProcessResult.SkipOtherProcessors;
       }
     }
 

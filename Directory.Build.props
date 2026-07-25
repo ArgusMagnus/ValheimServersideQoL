@@ -7,15 +7,14 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <MinVerTagPrefix>v</MinVerTagPrefix>
-    <MinVerDefaultPreReleaseIdentifiers>beta.0</MinVerDefaultPreReleaseIdentifiers>
+    <MinVerDefaultPreReleaseIdentifiers>beta</MinVerDefaultPreReleaseIdentifiers>
     <ValheimDir>$(USERPROFILE)\Games\valheim\</ValheimDir>
     <Authors>ArgusMagnus</Authors>
     <Copyright>$(Authors)</Copyright>
     <RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
-
-    <Version>1.99.0-beta.1</Version>
-
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
+
+    <Version>1.99.1-beta</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
@@ -25,6 +24,10 @@
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.CodeAnalysis')) == 'false' AND '$(IsPatcher)' != 'true'">
     <CreatePackage>true</CreatePackage>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!--<PackageReference Include="MinVer" Version="7.0.0" PrivateAssets="All" />-->
+  </ItemGroup>
 
   <ItemGroup Condition="'$(CreatePackage)' == 'true'">
     <ProjectReference Include="$(MSBuildThisFileDirectory)\ServersideQoL.CodeAnalysis\ServersideQoL.CodeAnalysis.csproj" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />

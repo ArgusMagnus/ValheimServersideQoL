@@ -32,7 +32,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       if (!zdo.IsOwnerOrUnassigned())
       {
         Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, 0);
-        return ProcessResult.SkipOtherProcessors | ProcessResult.WaitForZDORevisionChange;
+        return ProcessResult.ScheduleReprocessing | ProcessResult.SkipOtherProcessors;
       }
       zdo.Vars.SetText(text = cfg.ChestSignsDefaultText.Value);
     }

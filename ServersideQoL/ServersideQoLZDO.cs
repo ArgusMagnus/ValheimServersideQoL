@@ -65,14 +65,14 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
       where TPrefabInfo : notnull, ProcessorPrefabInfo
       => PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
 
-  internal bool HasProcessors { get; set; }
-  internal IReadOnlyList<Processor> Processors { get; set; } = [];
-  internal bool HasCyclicProcessors { get; set; }
-  internal IReadOnlyList<Processor> CyclicProcessors { get; set; } = [];
+  internal bool HasProcessors { get; private set; }
+  internal IReadOnlyList<Processor> Processors { get; private set; } = [];
+  internal bool HasCyclicProcessors { get; private set; }
+  internal IReadOnlyList<Processor> CyclicProcessors { get; private set; } = [];
   internal bool ExclusivityCheckDone { get; set; }
-  internal Dictionary<Processor, (uint Data, uint Owner)>? ProcessorDataRevisions { get; set; }
-  internal bool HasFields { get; set; }
-  internal Dictionary<Type, object>? ComponentFieldAccessors { get; set; }
+  internal Dictionary<Processor, (uint Data, uint Owner)>? ProcessorDataRevisions { get; private set; }
+  internal bool HasFields { get; private set; }
+  internal Dictionary<Type, object>? ComponentFieldAccessors { get; private set; }
 
   int _prevPrefab;
 
