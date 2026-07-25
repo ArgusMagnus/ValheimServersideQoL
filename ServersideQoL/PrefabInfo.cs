@@ -17,9 +17,9 @@ public abstract class PrefabInfo : IPrefabInfo
   public int PrefabHash { get; private set; }
   public string PrefabName { get; private set; } = default!;
   public IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>> Components { get; private set; } = default!;
-  internal readonly List<Processor> AvailableProcessors = [];
-  internal readonly List<Processor> EnabledProcessors = [];
-  internal readonly List<Processor> EnabledCyclicProcessors = [];
+  internal List<Processor> AvailableProcessors { get; } = [];
+  internal List<Processor> EnabledProcessors { get; } = [];
+  internal List<Processor> EnabledCyclicProcessors { get; } = [];
 
   internal void Init(GameObject prefab, int prefabHash, string prefabName, IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>> components)
   {
