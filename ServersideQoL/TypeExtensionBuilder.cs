@@ -100,7 +100,7 @@ public sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? type
       //propertyBuilder.SetGetMethod(getter);
 
       var setterName = $"{iface.Name}_set_{propName}";
-      var setter = _typeBuilder.DefineMethod(setterName, implAttrs, typeof(void), new[] { propType });
+      var setter = _typeBuilder.DefineMethod(setterName, implAttrs, typeof(void), [propType]);
       var setIl = setter.GetILGenerator();
       setIl.Emit(OpCodes.Ldarg_0);
       setIl.Emit(OpCodes.Ldarg_1);
