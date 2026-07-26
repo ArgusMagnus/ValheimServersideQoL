@@ -31,7 +31,7 @@ partial class ServersideQoLZDO
     void SetHasFields(bool value)
     {
       if (value)
-        _zdo.HasFields = true;
+        _zdo.SetHasFields();
 
       if (_hasComponentFields != value)
         _zdo.ZDO.Set(__hasComponentFieldsHash, (_hasComponentFields = value).Value);

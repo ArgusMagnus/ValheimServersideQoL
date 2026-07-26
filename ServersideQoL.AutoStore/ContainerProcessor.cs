@@ -31,13 +31,16 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ContainerRegistryProcessor.PrefabInfo prefabInfo)
   {
+    if (_stackContainers.TryGetValue(zdo, out var stackContainerState))
+      return ProcessStackContainer(zdo, peers, Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo), stackContainerState);
+
     if (!Config.Instance.AutoSort.Value)
       return ProcessResult.UnregisterProcessor;
 
-    var state = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo);
+    if (zdo.Vars.GetInUse())
+      return ProcessResult.WaitForZDORevisionChange;
 
-    if (_stackContainers.TryGetValue(zdo, out var stackContainerState))
-      return ProcessStackContainer(zdo, peers, state, stackContainerState);
+    var state = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo);
 
     var changed = false;
     ItemDrop.ItemData? lastPartialSlot = null;
@@ -218,7 +221,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
     if (items is not null)
     {
-      var container = PlacePiece(zdo.ZDO.GetPosition() with { y = -1000 }, Prefabs.WoodChest, 0);
+      var container = PlacePiece(zdo.ZDO.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
       var h = Math.Max(4, items.Count);
       container.Fields<Container>()
           .Set(static () => x => x.m_width, 8)
@@ -262,7 +265,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         zdo.Destroyed += OnStackContainerDestroyed;
         // stackContainerState.RemoveAfter = DateTimeOffset.UtcNow;
       }
-      return default;
+      return ProcessResult.ScheduleReprocessing;
     }
     else if (inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
     {
@@ -290,7 +293,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     {
       RPC.StackResponse(zdo, true);
     }
-    return default;
+    return ProcessResult.WaitForZDORevisionChange;
   }
 
   bool MoveItems(ServersideQoLZDO zdo, ContainerState state, StackContainerState stackContainerState, IEnumerable<Peer> peers)
@@ -299,6 +302,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     HashSet<Vector2i>? usedSlots = null;
     List<ServersideQoLZDO>? toRemove = null;
     var inventory = state.GetInventory();
+    Logger.DevLog($"Move {inventory.Items.Count} items...");
     for (int i = inventory.Items.Count - 1; i >= 0; i--)
     {
       var item = inventory.Items[i];

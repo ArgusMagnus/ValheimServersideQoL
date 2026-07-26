@@ -227,11 +227,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   {
     // may be called from field initializers which may be called from other threads
 
-    var newPrefab = zdo.ZDO.GetPrefab();
     PrefabInfo? prefabInfo;
-    if (newPrefab is 0)
+    if (!zdo.ZDO.IsValid())
       prefabInfo = null;
-    else if (!_prefabInfos.TryGetValue(newPrefab, out prefabInfo))
+    else if (!_prefabInfos.TryGetValue(zdo.ZDO.GetPrefab(), out prefabInfo))
       _changed?.TryAdd(zdo, null);
 
     zdo.PrefabInfo = prefabInfo;
@@ -243,7 +242,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   void OnDataOrOwnerRevisionChanged(ServersideQoLZDO zdo)
   {
     // may be called from field initializers which may be called from other threads
-
     if (_changed is not null && zdo.HasProcessors)
       _changed.TryAdd(zdo, null);
   }
@@ -408,9 +406,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       }
     }
   }
-#if DEBUG
-  static int _playerPrefab = "Player".GetStableHashCode();
-#endif
 
   void Execute(PeersEnumerable peers, double timeBudgetSeconds)
   {
@@ -497,7 +492,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       playerSectors.TryGetValue(zdo.ZDO.GetSector(), out var sectorInfo);
       if (!zdo.ZDO.IsValid() || !zdo.HasProcessors)
         continue;
-      ProcessZdo(sectorInfo?.Peers ?? [], zdo, zdo.Processors!, true);
+
+      ProcessZdo(sectorInfo?.Peers ?? [], zdo, false);
     }
 
     if (_hasCyclicProcessors)
@@ -524,7 +520,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           if (!zdo.ZDO.IsValid() || !zdo.HasCyclicProcessors || changed.ContainsKey(zdo))
             continue;
 
-          ProcessZdo(sectorInfo.Peers, zdo, zdo.CyclicProcessors!, false);
+          ProcessZdo(sectorInfo.Peers, zdo, true);
         }
 
         if (sectorInfo.ZdoIndex >= sectorInfo.ZDOs.Count)
@@ -546,20 +542,20 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     else
       _unfinishedProcessingInRow = 0;
 
-#if DEBUG
-    var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
-#else
-        if (!Config.DiagnosticLogs.Value)
-            return;
-        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
-#endif
+//#if DEBUG
+//    var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
+//#else
+//        if (!Config.DiagnosticLogs.Value)
+//            return;
+//        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
+//#endif
 
-    var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
-    Logger.Log(logLevel,
-        Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+//    var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
+//    Logger.Log(logLevel,
+//        Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
 
-    if (logLevel is > LogLevel.Info or LogLevel.None)
-      return;
+//    if (logLevel is > LogLevel.Info or LogLevel.None)
+//      return;
 
     //(_processingTimes ??= new(Processor.DefaultProcessors.Count)).Clear();
     //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
@@ -575,7 +571,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     //Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
   }
 
-  void ProcessZdo(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo, IReadOnlyList<Processor> processors, bool updateDataRevisions)
+  void ProcessZdo(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo, bool cyclic)
   {
     if (!zdo.ExclusivityCheckDone)
     {
@@ -602,7 +598,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     var destroy = false;
     var recreate = false;
     _unregister.Clear();
-    foreach (var processor in processors.Enumerate())
+    foreach (var processor in (cyclic ? zdo.CyclicProcessors : zdo.Processors).Enumerate())
     {
       if (!zdo.CheckProcessorDataRevisionChanged(processor))
         continue;
@@ -622,7 +618,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         ScheduleReprocessing(zdo);
       else if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
         zdo.UpdateProcessorDataRevision(processor, onlyExisting: !processor.Attribute.Cyclic);
-      else if (updateDataRevisions)
+      else if (!cyclic)
         zdo.UpdateProcessorDataRevision(processor, onlyExisting: true);
 
       if ((result & Processor.ProcessResult.SkipOtherProcessors) is not 0)
@@ -808,7 +804,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     [HarmonyPostfix]
     public static void OnDataOrOwnerRevisionChanged(ZDO __instance)
     {
-      Instance.OnDataOrOwnerRevisionChanged(__instance.ServersideQoLZDO);
+      var zdo = __instance.ServersideQoLZDO;
+      if (zdo.UpdateOwnerAndDataRevisions())
+        Instance.OnDataOrOwnerRevisionChanged(zdo);
     }
   }
 }

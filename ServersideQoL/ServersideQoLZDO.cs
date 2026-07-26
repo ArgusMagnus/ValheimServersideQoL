@@ -7,7 +7,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
 {
   static readonly Dictionary<int, IReadOnlyList<Processor>> __processors = [];
   static readonly ZPackage __pkg = new();
-  static readonly Stack<Dictionary<Processor, (uint, uint)>> __dataRevCache = [];
+  static readonly Stack<Dictionary<Processor, (uint, ushort)>> __dataRevCache = [];
   static readonly Stack<Dictionary<Type, object>> __componentFieldAccessorCache = [];
   static bool _onDestroyedSubscribed;
 
@@ -39,8 +39,12 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
       HasCyclicProcessors = CyclicProcessors.Count is not 0;
       ExclusivityCheckDone = false;
       ProcessorDataRevisions = default;
-      HasFields = default;
+      _hasFields = default;
       ComponentFieldAccessors = default;
+      _destroyed = default;
+#if DEBUG
+      Debug = default;
+#endif
     }
   }
 
@@ -70,18 +74,39 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
   internal bool HasCyclicProcessors { get; private set; }
   internal IReadOnlyList<Processor> CyclicProcessors { get; private set; } = [];
   internal bool ExclusivityCheckDone { get; set; }
-  internal Dictionary<Processor, (uint Data, uint Owner)>? ProcessorDataRevisions { get; private set; }
-  internal bool HasFields { get; private set; }
+  internal Dictionary<Processor, (uint Data, ushort Owner)>? ProcessorDataRevisions { get; private set; }
+  bool? _hasFields;
+  static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
+  public bool HasFields => _hasFields ??= ZDO.GetBool(__hasFieldsHash);
   internal Dictionary<Type, object>? ComponentFieldAccessors { get; private set; }
 
-  int _prevPrefab;
+#if DEBUG
+  public int Debug { get; set; }
+#endif
 
+  internal void SetHasFields()
+  {
+    if (_hasFields is not true)
+      ZDO.Set(__hasFieldsHash, (_hasFields = true).Value);
+  }
+
+  int _prevPrefab = -1;
   internal bool UpdatePrefab()
   {
     var prefab = ZDO.GetPrefab();
     if (prefab == _prevPrefab)
       return false;
     _prevPrefab = prefab;
+    return true;
+  }
+
+  ushort _prevOwnerRev = ushort.MaxValue;
+  uint _prevDataRev = uint.MaxValue;
+  internal bool UpdateOwnerAndDataRevisions()
+  {
+    if ((ZDO.OwnerRevision, ZDO.DataRevision) == (_prevOwnerRev, _prevDataRev))
+      return false;
+    (_prevOwnerRev, _prevDataRev) = (ZDO.OwnerRevision, ZDO.DataRevision);
     return true;
   }
 
@@ -191,6 +216,8 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
   {
     static IReadOnlyList<Processor> UnregisterAllExceptCore(Processor keep, IReadOnlyList<Processor> zdoProcessors)
     {
+      if (!zdoProcessors.Contains(keep))
+        return [];
       var hash = (0, keep.GetType()).GetHashCode();
       if (!__processors.TryGetValue(hash, out var processors))
         __processors.Add(hash, processors = [keep]);
@@ -216,6 +243,8 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
   {
     Processors = [];
     HasProcessors = false;
+    CyclicProcessors = [];
+    HasCyclicProcessors = false;
   }
 
   public void ReregisterAll()
@@ -237,9 +266,9 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
       ProcessorDataRevisions = dataRevisions;
     }
 
-    if (onlyExisting)
-      dataRevisions.TryAdd(processor, (ZDO.DataRevision, ZDO.OwnerRevision));
-    else
+    if (!onlyExisting)
+      dataRevisions[processor] = (ZDO.DataRevision, ZDO.OwnerRevision);
+    else if (dataRevisions.ContainsKey(processor))
       dataRevisions[processor] = (ZDO.DataRevision, ZDO.OwnerRevision);
   }
 

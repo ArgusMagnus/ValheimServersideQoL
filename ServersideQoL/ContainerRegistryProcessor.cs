@@ -1,5 +1,5 @@
-﻿using System.Runtime.CompilerServices;
-using static ServersideQoL.ContainerState;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace ServersideQoL;
 
@@ -11,15 +11,15 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   public event Action<ServersideQoLZDO, ContainerState>? ContainerChanged;
 
   readonly Dictionary<ServersideQoLZDO, ContainerStateImpl> _states = [];
-  readonly Dictionary<float, WeakReference<SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>>> _containersByItemNameBySectorWidth = [];
-  readonly Dictionary<float, WeakReference<SectorDictionary<HashSet<ServersideQoLZDO>>>> _containersBySectorWidth = [];
+  readonly Dictionary<float, WeakReference<SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>>> _containersByItemName = [];
+  readonly Dictionary<float, WeakReference<SectorDictionary<HashSet<ServersideQoLZDO>>>> _containers = [];
   bool _openResponseRegistered;
 
   public SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>> GetContainersByItemName(float sectorWidth)
   {
     SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>> dict;
-    if (!_containersByItemNameBySectorWidth.TryGetValue(sectorWidth, out var weakRef))
-      _containersByItemNameBySectorWidth.Add(sectorWidth, new(dict = new(sectorWidth)));
+    if (!_containersByItemName.TryGetValue(sectorWidth, out var weakRef))
+      _containersByItemName.Add(sectorWidth, new(dict = new(sectorWidth)));
     else if (!weakRef.TryGetTarget(out dict))
       weakRef.SetTarget(dict = new(sectorWidth));
     return dict;
@@ -28,8 +28,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   public SectorDictionary<HashSet<ServersideQoLZDO>> GetContainers(float sectorWidth)
   {
     SectorDictionary<HashSet<ServersideQoLZDO>> dict;
-    if (!_containersBySectorWidth.TryGetValue(sectorWidth, out var weakRef))
-      _containersBySectorWidth.Add(sectorWidth, new(dict = new(sectorWidth)));
+    if (!_containers.TryGetValue(sectorWidth, out var weakRef))
+      _containers.Add(sectorWidth, new(dict = new(sectorWidth)));
     else if (!weakRef.TryGetTarget(out dict))
       weakRef.SetTarget(dict = new(sectorWidth));
     return dict;
@@ -50,7 +50,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       zdo.Destroyed += x => _states.Remove(x);
 
       List<float>? remove = null;
-      foreach (var (key, weakRef) in _containersBySectorWidth)
+      foreach (var (key, weakRef) in _containers)
       {
         if (!weakRef.TryGetTarget(out var dict))
         {
@@ -63,7 +63,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       if (remove is not null)
       {
         foreach (var key in remove)
-          _containersBySectorWidth.Remove(key);
+          _containers.Remove(key);
       }
     }
 
@@ -97,7 +97,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   protected internal override void Initialize()
   {
     _states.Clear();
-    _containersByItemNameBySectorWidth.Clear();
+    _containersByItemName.Clear();
     RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = false);
   }
 
@@ -106,7 +106,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || zdo.Vars.GetCreator() is 0)
       return ProcessResult.UnregisterProcessor;
 
-    if (_containersByItemNameBySectorWidth.Count is 0)
+    if (_containersByItemName.Count is 0)
       return default; // ProcessResult.UnregisterProcessor;
 
     if (zdo.Vars.GetInUse())
@@ -116,7 +116,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     ContainerState.IInventory? inventory = null;
 
     List<float>? remove = null;
-    foreach (var (key, weakRef) in _containersByItemNameBySectorWidth)
+    foreach (var (key, weakRef) in _containersByItemName)
     {
       if (!weakRef.TryGetTarget(out var dict))
       {
@@ -131,7 +131,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     if (remove is not null)
     {
       foreach (var key in remove)
-        _containersByItemNameBySectorWidth.Remove(key);
+        _containersByItemName.Remove(key);
     }
 
     ContainerChanged?.Invoke(zdo, state);
@@ -155,7 +155,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     public bool WaitingForResponse { get; set; }
     public long PreviousOwner { get; set; }
 
-    Inventory _inventory = default!;
+    Inventory? _inventory;
     readonly ServersideQoLZDO _zdo = zdo;
     readonly PrefabInfo _prefabInfo = prefabInfo;
 
@@ -165,14 +165,17 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     static readonly ZPackage _pkg = new();
 
     public override PrefabInfo PrefabInfo => _prefabInfo;
+
+    [MemberNotNull(nameof(_inventory))]
     public override IInventory GetInventory()
     {
-      if (_dataRevision == _zdo.ZDO.DataRevision)
-        return this;
-
-      var data = _zdo.Vars.GetItems();
+      byte[]? data = default;
       if (_inventory is not null)
       {
+        if (_dataRevision == _zdo.ZDO.DataRevision)
+          return this;
+
+        data = _zdo.Vars.GetItems();
         if (ReferenceEquals(data, _data))
           return this;
         if (data is not null && _data is not null && data.SequenceEqual(_data))
@@ -201,7 +204,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       return this;
     }
 
-    Inventory IInventory.Inventory => _inventory;
+    Inventory IInventory.Inventory => _inventory!;
 
     List <ItemDrop.ItemData> IInventory.Items
     {
@@ -218,7 +221,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     void IInventory.Save()
     {
       _pkg.Clear();
-      _inventory.Save(_pkg);
+      _inventory!.Save(_pkg);
       var dataRevision = _zdo.ZDO.DataRevision;
       var data = _pkg.GetArray();
       _zdo.Vars.SetItems(data);

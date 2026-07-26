@@ -38,4 +38,11 @@ public sealed class Logger(string sourceName) : ILogSource, IDisposable
 
   [Conditional("DEBUG")]
   public void DevLog(string text, LogLevel logLevel = LogLevel.Warning) => Log(logLevel, text);
+
+  [Conditional("DEBUG")]
+  public void DevLogIf(bool condition, string text, LogLevel logLevel = LogLevel.Warning)
+  {
+    if (condition)
+      Log(logLevel, text);
+  }
 }
