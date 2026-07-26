@@ -288,8 +288,10 @@ public abstract class Processor
   {
     if (!PlacedObjects.Remove(zdo))
       throw new ArgumentException();
+    zdo.Destroyed -= OnPlacedObjectDestroyed;
     PlacedObjects.Add(zdo = zdo.Recreate());
     zdo.Destroyed += OnPlacedObjectDestroyed;
+    ScheduleReprocessing(zdo);
     return zdo;
   }
 
@@ -461,7 +463,7 @@ public abstract class Processor<TPrefabInfo> : Processor
     if (!any)
       return default;
 
-    //Logger.DevLog($"Instantiating {typeof(TPrefabInfo).FullName} for {prefabInfo.PrefabName}...");
+    Logger.DevLog($"Instantiating {typeof(TPrefabInfo).FullName} for {prefabInfo.PrefabName}...");
 
     if (warn is not null)
       Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");

@@ -293,7 +293,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     {
       RPC.StackResponse(zdo, true);
     }
-    return ProcessResult.WaitForZDORevisionChange;
+    return ProcessResult.ScheduleReprocessing;
   }
 
   bool MoveItems(ServersideQoLZDO zdo, ContainerState state, StackContainerState stackContainerState, IEnumerable<Peer> peers)

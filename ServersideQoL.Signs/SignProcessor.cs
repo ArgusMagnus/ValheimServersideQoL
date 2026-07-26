@@ -3,7 +3,7 @@
 namespace ServersideQoL.Signs;
 
 
-[Processor("806bdb85-c857-4154-a246-a0b1d0917987", Cyclic = true)]
+[Processor("806bdb85-c857-4154-a246-a0b1d0917987")]
 public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPrefabInfo>
 {
   internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
@@ -34,7 +34,7 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPre
     {
       var newText = _clockRegex.Replace(text, _ =>
       {
-        result = ProcessResult.Default;
+        result = ProcessResult.ScheduleReprocessing;
         if (_timeText is null)
         {
           var dayFraction = EnvMan.instance.GetDayFraction();

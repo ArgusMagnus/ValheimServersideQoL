@@ -43,28 +43,14 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   }
 
   public ContainerState GetState(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
+    => GetStateCore(zdo, prefabInfo);
+
+  ContainerStateImpl GetStateCore(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
   {
     if (!_states.TryGetValue(zdo, out var state))
     {
       _states.Add(zdo, state = new(zdo, prefabInfo));
       zdo.Destroyed += x => _states.Remove(x);
-
-      List<float>? remove = null;
-      foreach (var (key, weakRef) in _containers)
-      {
-        if (!weakRef.TryGetTarget(out var dict))
-        {
-          (remove ??= []).Add(key);
-          continue;
-        }
-        dict.Add(zdo);
-      }
-
-      if (remove is not null)
-      {
-        foreach (var key in remove)
-          _containers.Remove(key);
-      }
     }
 
     return state;
@@ -112,10 +98,30 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     if (zdo.Vars.GetInUse())
       return default;
 
-    var state = GetState(zdo, prefabInfo);
-    ContainerState.IInventory? inventory = null;
-
     List<float>? remove = null;
+    var state = GetStateCore(zdo, prefabInfo);
+    if (!state.AddedToContainers)
+    {
+      state.AddedToContainers = true;
+      foreach (var (key, weakRef) in _containers)
+      {
+        if (!weakRef.TryGetTarget(out var dict))
+        {
+          (remove ??= []).Add(key);
+          continue;
+        }
+        dict.Add(zdo);
+      }
+
+      if (remove is not null)
+      {
+        foreach (var key in remove)
+          _containers.Remove(key);
+      }
+    }
+
+    ContainerState.IInventory? inventory = null;
+    remove?.Clear();
     foreach (var (key, weakRef) in _containersByItemName)
     {
       if (!weakRef.TryGetTarget(out var dict))
@@ -154,6 +160,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     public DateTimeOffset NextOwnershipRequest { get; set; }
     public bool WaitingForResponse { get; set; }
     public long PreviousOwner { get; set; }
+    public bool AddedToContainers { get; set; }
 
     Inventory? _inventory;
     readonly ServersideQoLZDO _zdo = zdo;

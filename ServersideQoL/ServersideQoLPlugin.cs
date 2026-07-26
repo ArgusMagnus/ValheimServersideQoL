@@ -53,13 +53,18 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
+  partial void OnAwake()
+  {
+    HarmonyInstance.PatchAll(typeof(ServersideQoLPlugin).Assembly);
+  }
+
   void Start()
   {
     StartCoroutine(CallExecute());
 
     IEnumerator<YieldInstruction?> CallExecute()
     {
-      bool processorsInitialized = false;
+      bool pluginsInitialized = false;
 
       while (true)
       {
@@ -73,15 +78,18 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           continue;
         }
 
-        if (!processorsInitialized)
-        {
-          processorsInitialized = true;
-          if (!InitializeProcessors())
-            yield break;
-        }
-
         while (ZDOMan.instance is null || ZNetScene.instance is null || ZNet.World is null)
           yield return new WaitForSeconds(0.2f);
+
+        if (!pluginsInitialized)
+        {
+          pluginsInitialized = true;
+          if (!InitializePlugins())
+          {
+            HarmonyInstance.UnpatchSelf();
+            yield break;
+          }
+        }
 
         if (!Initialize())
         {
@@ -135,7 +143,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     }
   }
 
-  bool InitializeProcessors()
+  bool InitializePlugins()
   {
     List<IServersideQoLPlugin>? remove = null;
     TypeExtensionBuilder<IPrefabInfo, PrefabInfo> prefabInfoBuilder = new();
@@ -196,8 +204,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
     foreach (var plugin in __plugins)
       plugin.Config.ConfigChanged += OnConfigChanged;
-
-    HarmonyInstance.PatchAll(typeof(ServersideQoLPlugin).Assembly);
 
     return true;
   }
