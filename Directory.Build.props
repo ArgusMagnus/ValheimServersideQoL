@@ -32,9 +32,9 @@
   <ItemGroup Condition="'$(CreatePackage)' == 'true'">
     <ProjectReference Include="$(MSBuildThisFileDirectory)\ServersideQoL.CodeAnalysis\ServersideQoL.CodeAnalysis.csproj" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />
 
-    <None Include="$(MSBuildProjectDirectory)/icon.png" CopyToOutputDirectory="Always" />
-    <None Include="$(MSBuildProjectDirectory)/FEATURES.md" CopyToOutputDirectory="Always" />
-    <None Include="$(MSBuildProjectDirectory)/CHANGELOG.md" CopyToOutputDirectory="Always" />
+    <None Include="$(MSBuildThisFileDirectory)\icon.png" CopyToOutputDirectory="Always" />
+    <None Include="$(MSBuildProjectDirectory)\FEATURES.md" CopyToOutputDirectory="Always" />
+    <None Include="$(MSBuildProjectDirectory)\CHANGELOG.md" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(CreatePackage)' == 'true'">
