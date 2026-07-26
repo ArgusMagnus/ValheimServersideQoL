@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ServersideQoL;
 
-public sealed partial class ServersideQoLZDO(ZDO zdo)
+public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoLZDO>
 {
   static readonly Dictionary<int, IReadOnlyList<Processor>> __processors = [];
   static readonly ZPackage __pkg = new();
@@ -17,9 +17,6 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
     get;
     internal set
     {
-      if (ReferenceEquals(field, value))
-        return;
-
       if (ProcessorDataRevisions is { } dataRevisions)
       {
         dataRevisions.Clear();
@@ -363,6 +360,10 @@ public sealed partial class ServersideQoLZDO(ZDO zdo)
     }
     return false;
   }
+
+  public bool Equals(ServersideQoLZDO? other) => ZDO.Equals(other?.ZDO);
+  public override bool Equals(object obj) => Equals(obj as ServersideQoLZDO);
+  public override int GetHashCode() => ZDO.GetHashCode();
 
   [Conditional("DEBUG")]
   public void AssertIs<T>() where T : MonoBehaviour

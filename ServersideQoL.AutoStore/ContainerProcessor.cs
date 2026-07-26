@@ -254,7 +254,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     {
       if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
         RPC.TakeAllResponse(zdo, true);
-      else if (MoveItems(zdo, state, stackContainerState, peers))
+      else if (MoveItems(zdo, state, stackContainerState))
       {
         zdo.Destroyed -= OnStackContainerDestroyed;
         _stackContainers.Remove(zdo);
@@ -293,16 +293,15 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     {
       RPC.StackResponse(zdo, true);
     }
-    return ProcessResult.ScheduleReprocessing;
+    return ProcessResult.WaitForZDORevisionChange;
   }
 
-  bool MoveItems(ServersideQoLZDO zdo, ContainerState state, StackContainerState stackContainerState, IEnumerable<Peer> peers)
+  bool MoveItems(ServersideQoLZDO zdo, ContainerState state, StackContainerState stackContainerState)
   {
     var changed = false;
     HashSet<Vector2i>? usedSlots = null;
     List<ServersideQoLZDO>? toRemove = null;
     var inventory = state.GetInventory();
-    Logger.DevLog($"Move {inventory.Items.Count} items...");
     for (int i = inventory.Items.Count - 1; i >= 0; i--)
     {
       var item = inventory.Items[i];
@@ -394,7 +393,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
           if (requestContainerOwn)
           {
-            Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, stackContainerState.PlayerZDO.Vars.GetPlayerID());
+            Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, stackContainerState.PlayerZDO.Vars.GetPlayerID(), containerState);
             continue;
           }
 

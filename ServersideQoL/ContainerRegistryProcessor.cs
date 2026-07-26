@@ -83,7 +83,6 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   protected internal override void Initialize()
   {
     _states.Clear();
-    _containersByItemName.Clear();
     RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = false);
   }
 
@@ -176,13 +175,12 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     [MemberNotNull(nameof(_inventory))]
     public override IInventory GetInventory()
     {
-      byte[]? data = default;
+      if (_inventory is not null && _dataRevision == _zdo.ZDO.DataRevision)
+        return this;
+
+      var data = _zdo.Vars.GetItems();
       if (_inventory is not null)
       {
-        if (_dataRevision == _zdo.ZDO.DataRevision)
-          return this;
-
-        data = _zdo.Vars.GetItems();
         if (ReferenceEquals(data, _data))
           return this;
         if (data is not null && _data is not null && data.SequenceEqual(_data))
