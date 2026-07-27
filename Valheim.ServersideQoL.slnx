@@ -6,6 +6,7 @@
     <File Path="Directory.Build.targets" />
     <File Path="README.md" />
   </Folder>
+  <Project Path="ServersideQoL.AutoProcess/ServersideQoL.AutoProcess.csproj" Id="38ff161d-64b2-4815-9f7f-5e7323a9c7cd" />
   <Project Path="ServersideQoL.AutoStore/ServersideQoL.AutoStore.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis.Tests/ServersideQoL.CodeAnalysis.Tests.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis/ServersideQoL.CodeAnalysis.csproj" />

@@ -31,32 +31,6 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     _eggDropTime.Clear();
   }
 
-  void OnContainerChanged(ServersideQoLZDO containerZdo, ContainerState containerState)
-  {
-    if (_itemDrops is null)
-    {
-      Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
-      return;
-    }
-
-    if (containerState.GetInventory().Items.Count is 0)
-      return;
-
-    var rangeSqr = containerState.PickupRange ?? Config.Instance.AutoPickupRange.Value;
-    rangeSqr *= rangeSqr;
-    if (rangeSqr is 0f)
-      return;
-
-    foreach (var itemDrops in _itemDrops.EnumerateAdjacent(containerZdo.ZDO.GetPosition()))
-    {
-      foreach (var zdo in itemDrops)
-      {
-        if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) <= rangeSqr)
-          ScheduleReprocessing(zdo);
-      }
-    }
-  }
-
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     if (_containersByItemName is null || _itemDrops is null)
@@ -255,5 +229,31 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 
     _itemDrops.TryAdd(zdo);
     return ProcessResult.WaitForZDORevisionChange;
+  }
+
+  void OnContainerChanged(ServersideQoLZDO containerZdo, ContainerState containerState)
+  {
+    if (_itemDrops is null)
+    {
+      Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
+      return;
+    }
+
+    if (containerState.GetInventory().Items.Count is 0)
+      return;
+
+    var rangeSqr = containerState.PickupRange ?? Config.Instance.AutoPickupRange.Value;
+    rangeSqr *= rangeSqr;
+    if (rangeSqr is 0f)
+      return;
+
+    foreach (var itemDrops in _itemDrops.EnumerateAdjacent(containerZdo.ZDO.GetPosition()))
+    {
+      foreach (var zdo in itemDrops)
+      {
+        if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) <= rangeSqr)
+          ScheduleReprocessing(zdo);
+      }
+    }
   }
 }

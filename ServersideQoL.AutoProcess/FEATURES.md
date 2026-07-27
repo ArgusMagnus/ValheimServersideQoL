@@ -1,0 +1,2 @@
+- Automatically feeds processing stations such as smelters, kilns, windmills, etc. from nearby containers
+- Automatically feeds shield generators from nearby containers
