@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace ServersideQoL;
@@ -157,6 +158,11 @@ public abstract class Processor
     }
   }
 
+  internal static void StaticPreProcess(PeersEnumerable peers)
+  {
+    HeightmapUtils.CleanUp(peers);
+  }
+
   internal protected virtual void Initialize() { }
 
   protected static ServersideQoLZDO DataZDO
@@ -301,6 +307,17 @@ public abstract class Processor
     zdo.Destroy();
   }
 
+  protected static Heightmap GetHeightmap(Vector3 pos) => Heightmap.FindHeightmap(pos) ?? HeightmapUtils.CreateHeightmap(pos);
+  protected static Heightmap.Biome GetBiome(Vector3 pos) => GetHeightmap(pos).GetBiome(pos);
+  protected static float GetHeight(Vector3 pos) => GetHeightmap(pos).GetHeight(pos);
+
+  protected static string ConvertToRegexPattern(string searchPattern)
+  {
+    searchPattern = Regex.Escape(searchPattern);
+    searchPattern = searchPattern.Replace("\\*", ".*").Replace("\\?", ".?");
+    return $"(?i)^{searchPattern}$";
+  }
+
   [Flags]
   internal protected enum ProcessResult
   {
@@ -360,6 +377,43 @@ public abstract class Processor
   protected static void DevShowMessage(ServersideQoLZDO zdo, string message, DamageText.TextType type = DamageText.TextType.Normal, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
   {
     RPC.ShowInWorldText([0], type, zdo.ZDO.GetPosition(), $"{Path.GetFileNameWithoutExtension(callerFile)} L{callerLineNo}: {message}");
+  }
+
+  static class HeightmapUtils
+  {
+    static readonly List<(Vector2s ZoneId, GameObject Root)> _zoneRoots = [];
+
+    public static Heightmap CreateHeightmap(Vector2s zoneId)
+    {
+      var zonePos = ZoneSystem.GetZonePos(zoneId);
+      //Main.Instance.Logger.DevLog($"Creating hmap for {zoneId}");
+      var root = UnityEngine.Object.Instantiate(ZoneSystem.instance.m_zonePrefab, zonePos, Quaternion.identity);
+      _zoneRoots.Add((zoneId, root));
+      return root.GetComponentInChildren<Heightmap>();
+    }
+
+    public static Heightmap CreateHeightmap(Vector3 refPos) => CreateHeightmap(ZoneSystem.GetZone(refPos));
+
+    static DateTimeOffset __nextCleanup;
+
+    public static void CleanUp(PeersEnumerable peers)
+    {
+      if (__nextCleanup > DateTimeOffset.UtcNow)
+        return;
+
+      for (int i = _zoneRoots.Count - 1; i >= 0; i--)
+      {
+        var (zone, root) = _zoneRoots[i];
+        if (peers.Any(x => ZNetScene.InActiveArea(zone, x.RefPos)))
+          continue;
+
+        //Main.Instance.Logger.DevLog($"Destroying hmap for {zone}");
+        _zoneRoots.RemoveAt(i);
+        UnityEngine.Object.Destroy(root);
+      }
+
+      __nextCleanup = DateTimeOffset.UtcNow.AddSeconds(2);
+    }
   }
 }
 

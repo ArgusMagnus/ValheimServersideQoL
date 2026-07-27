@@ -488,6 +488,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
     var playerSectors = _playerSectors;
 
+    Processor.StaticPreProcess(peers);
     foreach (var processor in _enabledProcessors)
       processor.PreProcessInternal(peers);
 
