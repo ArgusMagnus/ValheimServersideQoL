@@ -1,4 +1,15 @@
 # Serverside QoL
+
+## BETA Version
+
+This mod is part an early beta version of a major rewrite of ServersideQoL that splits all its
+features up into separate mods. It's compiled against the valheim PTB version on not compatible
+with the current live version.
+
+**DO NOT install unless you want to help with testing, the mod is not ready.**
+
+---
+
 This mod adds some QoL features as a serverside-only mod.
 
 It's designed and tested for **dedicated servers** with **vanilla clients** (e.g. xbox users).
