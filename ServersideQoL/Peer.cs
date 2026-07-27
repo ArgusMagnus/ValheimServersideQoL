@@ -6,6 +6,7 @@ public sealed class Peer(ZNetPeer peer)
 {
   public ZNetPeer ZNetPeer { get; } = peer;
   public Vector3 RefPos => PlayerState?.ZDO.ZDO.GetPosition() ?? ZNetPeer.m_refPos;
+  public Vector2s GetSector() => ZoneSystem.GetZone(RefPos);
   //public bool IsConnected => _peer?.m_socket.IsConnected() ?? default; // potentially takes a long time?
   public string GetHostName() => ZNetPeer.m_socket.GetHostName() ?? "";
   public IReadOnlyDictionary<string, string> ServerSyncedPlayerData => ZNetPeer is { m_server: false } ? ZNetPeer.m_serverSyncedPlayerData : ZNet.instance.m_serverSyncedPlayerData;
