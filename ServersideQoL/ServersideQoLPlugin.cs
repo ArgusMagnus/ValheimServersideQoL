@@ -230,6 +230,14 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     return dict;
   }).Invoke();
 
+  void AddChanged(ServersideQoLZDO zdo)
+  {
+    if (!_ignoreChanged)
+      _changed.Add(zdo);
+    else if (!_changed.Contains(zdo))
+      _repeat.Add(zdo);
+  }
+
   void OnPrefabChanged(ServersideQoLZDO zdo)
   {
     // may be called from field initializers which may be called from other threads
@@ -237,20 +245,20 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     PrefabInfo? prefabInfo;
     if (!zdo.ZDO.IsValid())
       prefabInfo = null;
-    else if (!_prefabInfos.TryGetValue(zdo.ZDO.GetPrefab(), out prefabInfo) && !_ignoreChanged)
-      _changed.Add(zdo);
+    else if (!_prefabInfos.TryGetValue(zdo.ZDO.GetPrefab(), out prefabInfo))
+      AddChanged(zdo);
 
     zdo.PrefabInfo = prefabInfo;
 
-    if (!_ignoreChanged && prefabInfo is { EnabledProcessors.Count: > 0 })
-      _changed.Add(zdo);
+    if (prefabInfo is { EnabledProcessors.Count: > 0 })
+      AddChanged(zdo);
   }
 
   void OnDataOrOwnerRevisionChanged(ServersideQoLZDO zdo)
   {
     // may be called from field initializers which may be called from other threads
-    if (!_ignoreChanged && zdo.HasProcessors)
-      _changed.Add(zdo);
+    if (zdo.HasProcessors)
+      AddChanged(zdo);
   }
 
   bool Initialize()

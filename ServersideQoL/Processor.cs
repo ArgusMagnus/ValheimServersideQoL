@@ -291,7 +291,6 @@ public abstract class Processor
     zdo.Destroyed -= OnPlacedObjectDestroyed;
     PlacedObjects.Add(zdo = zdo.Recreate());
     zdo.Destroyed += OnPlacedObjectDestroyed;
-    ScheduleReprocessing(zdo);
     return zdo;
   }
 
