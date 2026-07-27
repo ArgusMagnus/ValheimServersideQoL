@@ -2,7 +2,7 @@
 
 ## BETA Version
 
-This mod is part an early beta version of a major rewrite of ServersideQoL that splits all its
+This mod is part of an early beta version of a major rewrite of ServersideQoL that splits all its
 features up into separate mods. It's compiled against the valheim PTB version on not compatible
 with the current live version.
 
