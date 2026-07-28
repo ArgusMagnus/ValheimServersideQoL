@@ -350,6 +350,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       }
     }
 
+    foreach (var zdo in _changed)
+    {
+      if (zdo.ZDO.IsValid())
+        zdo.PrefabInfo ??= GetPrefabInfo(zdo.ZDO.GetPrefab());
+    }
+
     Processor.StaticInitialize();
     foreach (var processor in _enabledProcessors)
       processor.Initialize();
@@ -500,6 +506,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     foreach (var zdo in _changed)
     {
       processedZdos++;
+      if (!zdo.ZDO.IsValid())
+        continue;
 
       if (zdo.PrefabInfo is null)
       {
@@ -508,12 +516,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           continue;
       }
 
-      if (!zdo.ZDO.IsValid() || !zdo.HasProcessors)
+      if (!zdo.HasProcessors)
         continue;
 
       if (!playerSectors.TryGetValue(zdo.ZDO.GetSector(), out var sectorInfo))
       {
-        //_repeat.Add(zdo);
+        _repeat.Add(zdo);
         continue;
       }
 
