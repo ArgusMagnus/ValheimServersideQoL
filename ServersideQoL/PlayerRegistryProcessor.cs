@@ -27,6 +27,8 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   protected internal override void Initialize()
   {
     _statesByPeerID.Clear();
+    _statesByPlayerID.Clear();
+    _statesByCharacterID.Clear();
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
