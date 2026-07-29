@@ -27,6 +27,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   {
     public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
     public ContainersConfig Containers { get; init; } = new();
+    public PlayersConfig Players { get; init; } = new();
 
     public sealed class ProcessingDelaysConfig
     {
@@ -37,6 +38,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public sealed class ContainersConfig
     {
       public float MinOwnershipRequestInterval { get; init; } = 1;
+    }
+
+    public sealed class PlayersConfig
+    {
+      public float UpdateStaminaInterval { get; init; } = 0.2f;
     }
   }
 }

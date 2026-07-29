@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using UnityEngine;
 
 namespace ServersideQoL;
 
@@ -13,6 +14,9 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
 
   public event Action<ServersideQoLZDO, PlayerState, Emotes>? EmoteDetected;
 
+  public delegate void StaminaUpdatedHandler(ServersideQoLZDO zdo, PlayerState state, bool staminaValueChanged);
+  public event StaminaUpdatedHandler? StaminaUpdated;
+
   public PlayerState? GetStateForPeerID(long peerID) => _statesByPeerID.TryGetValue(peerID, out var state) ? state : null;
   public PlayerState? GetStateForPlayerID(long playerID) => _statesByPlayerID.TryGetValue(playerID, out var state) ? state : null;
   public PlayerState? GetStateForCharacterID(ZDOID characterID) => _statesByCharacterID.TryGetValue(characterID, out var state) ? state : null;
@@ -20,7 +24,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   public PlayerState GetState(ServersideQoLZDO playerZdo)
   {
     var prefabInfo = GetPrefabInfo(playerZdo);
-    Debug.Assert(prefabInfo is not null);
+    System.Diagnostics.Debug.Assert(prefabInfo is not null);
     return GetStateCore(playerZdo, prefabInfo);
   }
 
@@ -44,6 +48,17 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
         var emote = zdo.Vars.GetEmote();
         if (emote is not ConfigBase.DisabledEmote)
           EmoteDetected(zdo, state, emote);
+      }
+    }
+
+    if (StaminaUpdated is not null)
+    {
+      var now = DateTimeOffset.UtcNow;
+      if (state.NextStaminaCheck < now)
+      {
+        state.NextStaminaCheck = now.AddSeconds(Config.Instance.Advanced.Value.Players.UpdateStaminaInterval);
+        var stamina = Mathf.FloorToInt(zdo.Vars.GetStamina());
+        StaminaUpdated(zdo, state, state.UpdateStamina(stamina, now));
       }
     }
 
@@ -82,6 +97,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     readonly PrefabInfo _prefabInfo = prefabInfo;
 
     public override ServersideQoLZDO ZDO => _zdo;
+    public override PrefabInfo PrefabInfo => _prefabInfo;
 
     readonly ZNetPeer? _peer = ZNet.instance.GetPeer(zdo.ZDO.GetOwner());
     public override long PlayerID { get; } = zdo.Vars.GetPlayerID();
@@ -92,6 +108,19 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
 
     public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
 
+    public DateTimeOffset NextStaminaCheck { get; set; }
+    int _stamina;
+    DateTimeOffset _staminaTimestamp = DateTimeOffset.UtcNow;
+    public override int Stamina => _stamina;
+    public DateTimeOffset StaminaTimestamp => _staminaTimestamp;
+    public bool UpdateStamina(int value, DateTimeOffset timestamp)
+    {
+      if (_stamina == value)
+        return false;
+      _stamina = value;
+      _staminaTimestamp = timestamp;
+      return true;
+    }
 
     bool _hasChangedGlobalKeyModifications;
     Dictionary<GlobalKey, bool>? _globalKeyModifications;

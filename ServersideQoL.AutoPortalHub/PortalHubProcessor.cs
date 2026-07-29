@@ -415,7 +415,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
     }
   }
 
-  static int __portalHubId = $"{AutoPortalHubPlugin.PluginGuid}.PortalHubId".GetStableHashCode();
+  static int __portalHubId = AutoPortalHubPlugin.RegisterServerVar("PortalHubId");
   static int GetPortalHubId(ServersideQoLZDO zdo, int defaultValue = default) => zdo.ZDO.GetInt(__portalHubId, defaultValue);
   static void SetPortalHubId(ServersideQoLZDO zdo, int value) => zdo.ZDO.Set(__portalHubId, value);
 

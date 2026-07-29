@@ -103,59 +103,6 @@ partial class ServersideQoLZDO
     public void SetOwner(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_owner, value); }
     public string GetOwnerName(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_ownerName, defaultValue);
     public void SetOwnerName(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_ownerName, value); }
-    //static int __isBackpack = $"{Main.PluginGuid}.IsBackpack".GetStableHashCode();
-    //public bool GetIsBackpack(bool defaultValue = default) => _zdo.GetBool(__isBackpack, defaultValue);
-    //public void SetIsBackpack(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__isBackpack, value); }
-
-
-    static int __processorId = $"{ServersideQoLPlugin.PluginGuid}.ProcessorId".GetStableHashCode();
-    public Guid GetProcessorId(Guid defaultValue = default) => _zdo.GetByteArray(__processorId, []) is { Length: > 0 } arr ? new(arr) : defaultValue;
-    public void SetProcessorId(Guid value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__processorId, value == default ? Array.Empty<byte>() : value.ToByteArray()); }
-
-    //static int __intTag = $"{Main.PluginGuid}.IntTag".GetStableHashCode();
-    //public int GetIntTag(int defaultValue = default) => _zdo.GetInt(__intTag, defaultValue);
-    //public void SetIntTag(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__intTag, value); }
-    //public void RemoveIntTag([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__intTag); }
-
-    //static int __lastSpawnedTime = $"{Main.PluginGuid}.LastSpawnedTime".GetStableHashCode();
-    //public DateTimeOffset GetLastSpawnedTime(DateTimeOffset defaultValue = default) => new(_zdo.GetLong(__lastSpawnedTime, defaultValue.Ticks), default);
-    //public void SetLastSpawnedTime(DateTimeOffset value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__lastSpawnedTime, value.Ticks - value.Offset.Ticks); }
-
-    //static int __spawnedByTrophy = $"{Main.PluginGuid}.SpawnedByTrophy".GetStableHashCode();
-    //public bool GetSpawnedByTrophy(bool defaultValue = default) => _zdo.GetBool(__spawnedByTrophy, defaultValue);
-    //public void SetSpawnedByTrophy(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__spawnedByTrophy, value); }
-
-    //static int __portalHubId = $"{Main.PluginGuid}.PortalHubId".GetStableHashCode();
-    //public int GetPortalHubId(int defaultValue = default) => _zdo.GetInt(__portalHubId, defaultValue);
-    //public void SetPortalHubId(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__portalHubId, value); }
-
-    //static int __returnContentToCreator = $"{Main.PluginGuid}.ReturnContentToCreator".GetStableHashCode();
-    //public bool GetReturnContentToCreator(bool defaultValue = default) => _zdo.GetBool(__returnContentToCreator, defaultValue);
-    //public void SetReturnContentToCreator(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__returnContentToCreator, value); }
-
-    //static int __initialLevel = $"{Main.PluginGuid}.InitialLevel".GetStableHashCode();
-    //public int GetInitialLevel(int defaultValue = default) => _zdo.GetInt(__initialLevel, defaultValue);
-    //public void SetInitialLevel(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__initialLevel, value); }
-    //public void RemoveInitialLevel([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveInt(__initialLevel); }
-
-    //static int __beaconFound = $"{Main.PluginGuid}.BeaconState".GetStableHashCode();
-    //public bool GetBeaconFound(bool defaultValue = default) => _zdo.GetBool(__beaconFound, defaultValue);
-    //public void SetBeaconFound(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__beaconFound, value); }
-
-    //public bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);
-    //public void SetSacrifiedMegingjord(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedMegingjord", value); }
-    //public bool GetSacrifiedCryptKey(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedCryptKey", defaultValue);
-    //public void SetSacrifiedCryptKey(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedCryptKey", value); }
-    //public bool GetSacrifiedWishbone(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedWishbone", defaultValue);
-    //public void SetSacrifiedWishbone(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedWishbone", value); }
-    //public bool GetSacrifiedTornSpirit(long playerID, bool defaultValue = default) => _zdo.GetBool($"player{playerID}_SacrifiedTornSpirit", defaultValue);
-    //public void SetSacrifiedTornSpirit(long playerID, bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_SacrifiedTornSpirit", value); }
-    //public float GetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float defaultValue = default) => _zdo.GetFloat($"player{playerID}_EstimatedSkillLevel_{skill}", defaultValue);
-    //public void SetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set($"player{playerID}_EstimatedSkillLevel_{skill}", value); }
-
-    //static int __adminBuildModifiers = $"{Main.PluginGuid}.AdminBuildModifiers".GetStableHashCode();
-    //public PlayerProcessor.BuildModifiers GetAdminBuildModifiers(PlayerProcessor.BuildModifiers defaultValue = default) => (PlayerProcessor.BuildModifiers)_zdo.GetInt(__adminBuildModifiers, (int)defaultValue);
-    //public void SetAdminBuildModifiers(PlayerProcessor.BuildModifiers value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(__adminBuildModifiers, (int)value); }
 
 #if DEBUG
     static readonly IReadOnlyDictionary<int, string> __namesByHash = new Func<IReadOnlyDictionary<int, string>>(static () =>

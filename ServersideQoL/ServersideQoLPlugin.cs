@@ -16,7 +16,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   readonly Dictionary<Guid, Processor> _processorsById = [];
   readonly List<Processor> _enabledProcessors = [];
 
-  internal static ServersideQoLPlugin Instance { get; private set; } = default!;
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
   internal IReadOnlyDictionary<Guid, Processor> Processors => _processorsById;
   public event Action? GlobalKeysChanged;
@@ -44,8 +43,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   HashSet<ServersideQoLZDO> _repeat = [];
   HashSet<ServersideQoLZDO> _repeat2 = [];
   bool _ignoreChanged;
-
-  public ServersideQoLPlugin() => Instance = this;
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 

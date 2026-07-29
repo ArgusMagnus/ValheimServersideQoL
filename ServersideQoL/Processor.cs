@@ -143,7 +143,7 @@ public abstract class Processor
       }
       if ((marker & CreatorMarkers.ProcessorOwned) is not 0)
       {
-        if (ServersideQoLPlugin.Instance.Processors.TryGetValue(zdo.Vars.GetProcessorId(), out var processor))
+        if (ServersideQoLPlugin.Instance.Processors.TryGetValue(GetProcessorId(zdo), out var processor))
         {
           processor.PlacedObjects.Add(zdo);
           zdo.Destroyed += processor.OnPlacedObjectDestroyed;
@@ -160,6 +160,12 @@ public abstract class Processor
   protected static IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => ServersideQoLPlugin.Instance.PieceTablesByPieceName;
 
   internal protected virtual void Initialize() { }
+
+
+  static int __processorId = ServersideQoLPlugin.RegisterServerVar("ProcessorId");
+  public static Guid GetProcessorId(ServersideQoLZDO zdo, Guid defaultValue = default) => zdo.ZDO.GetByteArray(__processorId, []) is { Length: > 0 } arr ? new(arr) : defaultValue;
+  public static void SetProcessorId(ServersideQoLZDO zdo, Guid value) => zdo.ZDO.Set(__processorId, value == default ? [] : value.ToByteArray());
+
 
   protected static ServersideQoLZDO DataZDO
   {
@@ -262,7 +268,7 @@ public abstract class Processor
     zdo.SetModAsCreator(marker);
     zdo.Vars.SetHealth(-1);
     if (marker.HasFlag(CreatorMarkers.ProcessorOwned))
-      zdo.Vars.SetProcessorId(Attribute.Id);
+      SetProcessorId(zdo, Attribute.Id);
 
     zdo.ZDO.SetOwnerInternal(owner);
 
