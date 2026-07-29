@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
 
-    <Version>1.99.3-beta</Version>
+    <Version>1.99.4-beta</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
@@ -27,6 +27,10 @@
 
   <ItemGroup>
     <!--<PackageReference Include="MinVer" Version="7.0.0" PrivateAssets="All" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.FormattableString" Static="true"/>
   </ItemGroup>
 
   <ItemGroup Condition="'$(CreatePackage)' == 'true'">
