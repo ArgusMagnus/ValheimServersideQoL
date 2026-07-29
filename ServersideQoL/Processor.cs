@@ -82,6 +82,10 @@ public abstract class Processor
   public double ProcessingTimeSeconds { get; private set; }
   public double TotalProcessingTimeSeconds { get; private set; }
 
+#if DEBUG
+  private protected static readonly Dictionary<int, Type> __prefabInfoTypes = [];
+#endif
+
   private protected Processor()
   {
     Attribute = GetType().GetCustomAttribute<ProcessorAttribute>() ?? throw new Exception($"Required {nameof(ProcessorAttribute)} missing on type {GetType().FullName}");
@@ -477,26 +481,7 @@ public abstract class Processor<TPrefabInfo> : Processor
       if (!components.TryGetValue(type, out var list))
       {
         if (_prefabInfoCtorParametersNullable[i] is not { } nullable)
-        {
-          if (par.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is "System.Runtime.CompilerServices.NullableAttribute") is { } attr)
-            nullable = (byte)attr.ConstructorArguments[0].Value is 2;
-          else
-          {
-            if (defaultNullable is null)
-            {
-              const string AttrName = "System.Runtime.CompilerServices.NullableContextAttribute";
-              var contextAttr = _prefabInfoCtor.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName)
-                ?? _prefabInfoCtor.DeclaringType.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName)
-                ?? _prefabInfoCtor.DeclaringType.Assembly.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName);
-              if (contextAttr is null)
-                defaultNullable = false;
-              else
-                defaultNullable = (byte)contextAttr.ConstructorArguments[0].Value is 2;
-            }
-            nullable = defaultNullable.Value;
-          }
-          _prefabInfoCtorParametersNullable[i] = nullable;
-        }
+          _prefabInfoCtorParametersNullable[i] = nullable = IsNullable(par, ref defaultNullable);
 
         if (nullable)
           continue;
@@ -518,16 +503,50 @@ public abstract class Processor<TPrefabInfo> : Processor
     if (!any)
       return default;
 
-    Logger.DevLog($"Instantiating {typeof(TPrefabInfo).FullName} for {prefabInfo.PrefabName}...");
+    //Logger.DevLog($"Instantiating {typeof(TPrefabInfo).FullName} for {prefabInfo.PrefabName}...");
 
     if (warn is not null)
       Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");
-    
+
+#if DEBUG
+    var set = new HashSet<(Type, bool)>(_prefabInfoCtorParameters.Length);
+    for (int i = 0; i < _prefabInfoCtorParameters.Length; i++)
+      set.Add((_prefabInfoCtorParameters[i].ParameterType, _prefabInfoCtorParametersNullable[i] ??= IsNullable(_prefabInfoCtorParameters[i], ref defaultNullable)));
+
+    var hash = 0;
+    foreach (var item in set)
+      hash = (hash, item).GetHashCode();
+
+    if (!__prefabInfoTypes.TryGetValue(hash, out var otherType))
+      __prefabInfoTypes.Add(hash, typeof(TPrefabInfo));
+    else if (otherType != typeof(TPrefabInfo))
+      Logger.LogWarning($"{typeof(TPrefabInfo).FullName} and {otherType.FullName} use the same parameters, consider using the same type");
+#endif
+
     return (TPrefabInfo)_prefabInfoCtor.Invoke(args);
 
     static IReadOnlyList<T> CreateList<T>(IReadOnlyList<MonoBehaviour> list)
         where T : MonoBehaviour
         => [.. list.Cast<T>()];
+  }
+
+  bool IsNullable(ParameterInfo par, ref bool? defaultNullable)
+  {
+    if (par.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is "System.Runtime.CompilerServices.NullableAttribute") is { } attr)
+      return (byte)attr.ConstructorArguments[0].Value is 2;
+
+    if (defaultNullable is null)
+    {
+      const string AttrName = "System.Runtime.CompilerServices.NullableContextAttribute";
+      var contextAttr = _prefabInfoCtor!.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName)
+        ?? _prefabInfoCtor.DeclaringType.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName)
+        ?? _prefabInfoCtor.DeclaringType.Assembly.CustomAttributes.FirstOrDefault(static x => x.AttributeType.FullName is AttrName);
+      if (contextAttr is null)
+        defaultNullable = false;
+      else
+        defaultNullable = (byte)contextAttr.ConstructorArguments[0].Value is 2;
+    }
+    return defaultNullable.Value;
   }
 
   private protected override void ValidateProcessor()

@@ -2,6 +2,7 @@
 
 namespace ServersideQoL.Player;
 
+[Processor("28b93edf-6ede-4dbe-92ed-99275be3915f")]
 public sealed class CryptDoorProcessor : Processor<CryptDoorProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo(Door Door) : ProcessorPrefabInfo;

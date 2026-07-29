@@ -179,10 +179,38 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
 
     if (!cart.Vars.GetAttachJoint())
       _attachedCartsByPlayer.Remove(playerState.ZDO);
-    else if (_attachedCartsByPlayer.TryAdd(playerState.ZDO, cart))
-      playerState.ZDO.Destroyed += x => _attachedCartsByPlayer.Remove(x);
-    else
+    else if (!_attachedCartsByPlayer.TryAdd(playerState.ZDO, cart))
       _attachedCartsByPlayer[playerState.ZDO] = cart;
+    else
+    {
+      playerState.ZDO.Destroyed += OnPlayerDestroyed;
+      cart.Destroyed += OnCartDestroyed;
+    }
+  }
+
+  void OnPlayerDestroyed(ServersideQoLZDO zdo)
+  {
+    if (_attachedCartsByPlayer.Remove(zdo, out var cart))
+      cart.Destroyed -= OnCartDestroyed;
+  }
+
+  void OnCartDestroyed(ServersideQoLZDO zdo)
+  {
+    List<ServersideQoLZDO>? toRemove = null;
+    foreach (var (player, cart) in _attachedCartsByPlayer)
+    {
+      if (cart == zdo)
+        (toRemove ??= []).Add(player);
+    }
+
+    if (toRemove is null)
+      return;
+
+    foreach (var player in toRemove)
+    {
+      if (_attachedCartsByPlayer.Remove(player, out var cart))
+        player.Destroyed -= OnPlayerDestroyed;
+    }
   }
 
   static bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);

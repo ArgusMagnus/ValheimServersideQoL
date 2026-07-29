@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Configure some apsects around the player (e.g. infinite stamina for various activities)</Description>
+    <Description>Configure some apsects around the player (e.g. infinite stamina for various activities, methods to permanently unlock item effects such as increased carry weight)</Description>
   </PropertyGroup>
 
   <ItemGroup>
