@@ -163,6 +163,8 @@ public abstract class Processor
     HeightmapUtils.CleanUp(peers);
   }
 
+  protected static IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => ServersideQoLPlugin.Instance.PieceTablesByPieceName;
+
   internal protected virtual void Initialize() { }
 
   protected static ServersideQoLZDO DataZDO

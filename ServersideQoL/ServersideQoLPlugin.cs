@@ -214,7 +214,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     .Add<TameableRegistryProcessor>()
     .Add<PlayerRegistryProcessor>();
 
-  IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => field ?? new Func<IReadOnlyDictionary<string, PieceTable>>(static () =>
+  internal IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => field ?? new Func<IReadOnlyDictionary<string, PieceTable>>(static () =>
   {
     var tables = new HashSet<PieceTable>();
     var dict = new Dictionary<string, PieceTable>();

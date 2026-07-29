@@ -35,6 +35,8 @@ public abstract class ConfigBase
   public const Emotes DisabledEmote = (Emotes)(-1);
   public const Emotes AnyEmote = (Emotes)(-2);
 
+  protected static IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => ServersideQoLPlugin.Instance.PieceTablesByPieceName;
+
   private protected interface IYamlConfigEntry
   {
     object Value { get; set; }

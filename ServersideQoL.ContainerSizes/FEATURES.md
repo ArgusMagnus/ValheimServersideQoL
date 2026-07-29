@@ -1,0 +1,2 @@
+- Configure the inventory size of any player-built container (chest, ships, carts, etc.)
+- Option to allow containers to grow indefinitely as long as they contain only one item type

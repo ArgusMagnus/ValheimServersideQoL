@@ -1,1 +1,1 @@
-- Links any unconnected portal to an generated portal hub
+- Connect any unconnected portal to an generated portal hub
