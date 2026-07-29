@@ -31,14 +31,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   const uint ExpectedWorldVersion = 36;
 
   uint _unfinishedProcessingInRow;
-  record SectorInfo(List<Peer> Peers, List<ZDO> ZDOs)
-  {
-    public int ZdoIndex { get; set; }
-    public int InverseWeight { get; set; }
-  }
-  readonly Stack<SectorInfo> _sectorInfoPool = [];
-  Dictionary<Vector2s, SectorInfo> _playerSectors = [];
-  Dictionary<Vector2s, SectorInfo> _playerSectorsOld = [];
+  readonly Stack<List<Peer>> _sectorPeersPool = [];
+  Dictionary<Vector2s, List<Peer>> _playerSectors = [];
+  Dictionary<Vector2s, List<Peer>> _playerSectorsOld = [];
   List<(Processor, double)>? _processingTimes;
 
   readonly List<Processor> _unregister = [];
@@ -451,24 +446,23 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         for (int y = playerSector.y - zonesAroundPlayers; y <= playerSector.y + zonesAroundPlayers; y++)
         {
           var sector = new Vector2s(x, y);
-          if (_playerSectorsOld.Remove(sector, out var sectorInfo))
+          if (_playerSectorsOld.Remove(sector, out var sectorPeers))
           {
-            _playerSectors.Add(sector, sectorInfo);
-            sectorInfo.InverseWeight = 0;
-            sectorInfo.Peers.Clear();
-            sectorInfo.Peers.Add(peer);
+            _playerSectors.Add(sector, sectorPeers);
+            sectorPeers.Clear();
+            sectorPeers.Add(peer);
           }
-          else if (_playerSectors.TryGetValue(sector, out sectorInfo))
+          else if (_playerSectors.TryGetValue(sector, out sectorPeers))
           {
-            sectorInfo.Peers.Add(peer);
+            sectorPeers.Add(peer);
           }
           else
           {
-            if (_sectorInfoPool.TryPop(out sectorInfo))
-              sectorInfo.Peers.Add(peer);
+            if (_sectorPeersPool.TryPop(out sectorPeers))
+              sectorPeers.Add(peer);
             else
-              sectorInfo = new([peer], []);
-            _playerSectors.Add(sector, sectorInfo);
+              sectorPeers = [peer];
+            _playerSectors.Add(sector, sectorPeers);
           }
         }
       }
@@ -476,11 +470,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
     foreach (var sectorInfo in _playerSectorsOld.Values)
     {
-      sectorInfo.ZdoIndex = 0;
-      sectorInfo.InverseWeight = 0;
-      sectorInfo.Peers.Clear();
-      sectorInfo.ZDOs.Clear();
-      _sectorInfoPool.Push(sectorInfo);
+      sectorInfo.Clear();
+      _sectorPeersPool.Push(sectorInfo);
     }
     _playerSectorsOld.Clear();
 
@@ -511,13 +502,13 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       if (!zdo.HasProcessors)
         continue;
 
-      if (!playerSectors.TryGetValue(zdo.ZDO.GetSector(), out var sectorInfo))
+      if (!playerSectors.TryGetValue(zdo.ZDO.GetSector(), out var sectorPeers))
       {
         ScheduleReprocessing(zdo, Config.Advanced.Value.ProcessingDelays.WhenNoNearbyPlayers);
         continue;
       }
 
-      ProcessZdo(sectorInfo.Peers, zdo);
+      ProcessZdo(sectorPeers, zdo);
     }
 
     //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
