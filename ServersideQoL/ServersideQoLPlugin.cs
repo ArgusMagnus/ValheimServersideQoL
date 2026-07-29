@@ -1,6 +1,5 @@
 ﻿using BepInEx.Bootstrap;
 using BepInEx.Configuration;
-using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections.Concurrent;
 using System.Reflection;
@@ -10,7 +9,7 @@ namespace ServersideQoL;
 
 partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin, Config>
 {
-  public static readonly int PluginGuidHash = "argusmagnus.ServersideQoL".GetStableHashCode(); // use old GUID here to not break existing worlds
+  internal static readonly int PluginGuidHash = "argusmagnus.ServersideQoL".GetStableHashCode(); // use old GUID here to not break existing worlds
 
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];
@@ -30,7 +29,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   const uint ExpectedNetworkVersion = 35;
   const uint ExpectedItemDataVersion = 106;
   const uint ExpectedWorldVersion = 36;
-
 
   readonly HashSet<IConfig> _configChanged = [];
   uint _unfinishedProcessingInRow;

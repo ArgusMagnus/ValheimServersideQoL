@@ -5,9 +5,27 @@ public sealed class ShipProcessor : Processor<ShipProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo(Ship Ship, Piece Piece, ShipControlls ShipControls) : ProcessorPrefabInfo;
 
+  readonly HashSet<ServersideQoLZDO> _ships = [];
+  public IReadOnlyCollection<ServersideQoLZDO> Ships => _ships;
+
+  protected override void Initialize()
+  {
+    _ships.Clear();
+    foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
+    {
+      if (GetPrefabInfo(zdo) is null)
+        continue;
+      if (_ships.Add(zdo))
+        zdo.Destroyed += OnShipDestroyed;
+    }
+  }
+
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    Logger.DevLog("Not implemented");
+    if (_ships.Add(zdo))
+      zdo.Destroyed += OnShipDestroyed;
     return ProcessResult.UnregisterProcessor;
   }
+
+  void OnShipDestroyed(ServersideQoLZDO zdo) => _ships.Remove(zdo);
 }
