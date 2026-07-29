@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
 
-    <Version>1.99.4-beta</Version>
+    <Version>1.99.5-beta</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
@@ -55,11 +55,13 @@
     <RequiredReference Include="YamlDotNet" HintPath="$(ValheimDir)BepInEx\plugins\ValheimModding-YamlDotNet\YamlDotNet.dll" Private="False" />
   </ItemGroup>
 
+  <!--
   <ItemGroup Condition="'$(CreatePackage)' == 'true' AND '$(Configuration)' != 'Debug'">
     <Reference Include="@(RequiredReference)" HintPath="Dependencies\%(RequiredReference.HintPath.Filename)" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(CreatePackage)' == 'true' AND '$(Configuration)' == 'Debug'">
+  
+  <ItemGroup Condition="'$(CreatePackage)' == 'true' AND '$(Configuration)' == 'Debug'">-->
+  <ItemGroup Condition="'$(CreatePackage)' == 'true'">
     <Reference Include="@(RequiredReference)" />
     <Reference Include="BepInEx.Harmony" HintPath="$(ValheimDir)BepInEx\core\BepInEx.Harmony.dll" Private="False" />
     <Reference Include="BepInEx.Preloader" HintPath="$(ValheimDir)BepInEx\core\BepInEx.Preloader.dll" Private="False" />

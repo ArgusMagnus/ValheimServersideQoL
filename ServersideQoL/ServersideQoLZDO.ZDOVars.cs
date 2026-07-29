@@ -13,8 +13,8 @@ partial class ServersideQoLZDO
     void ValidateOwnership(string filePath, int lineNo)
     {
 #if !DEBUG
-            if (!ServersideQoL.Instance.Config.General.DiagnosticLogs.Value)
-                return;
+      if (!ServersideQoLPlugin.Instance.Config.DiagnosticLogs.Value)
+        return;
 #endif
       //if (_zdo.PrefabInfo.Container is null || _zdo.IsOwnerOrUnassigned() || _zdo.IsModCreator())
       //    return;
