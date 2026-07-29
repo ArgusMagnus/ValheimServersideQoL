@@ -92,52 +92,56 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || zdo.Vars.GetCreator() is 0)
       return ProcessResult.UnregisterProcessor;
 
-    if (_containersByItemName.Count is 0)
-      return default; // ProcessResult.UnregisterProcessor;
-
     if (zdo.Vars.GetInUse())
       return default;
 
-    List<float>? remove = null;
     var state = GetStateCore(zdo, prefabInfo);
-    if (!state.AddedToContainers)
+
+    List<float>? remove = null;
+    if (_containers.Count is not 0)
     {
-      state.AddedToContainers = true;
-      foreach (var (key, weakRef) in _containers)
+      if (!state.AddedToContainers)
+      {
+        state.AddedToContainers = true;
+        foreach (var (key, weakRef) in _containers)
+        {
+          if (!weakRef.TryGetTarget(out var dict))
+          {
+            (remove ??= []).Add(key);
+            continue;
+          }
+          dict.Add(zdo);
+        }
+
+        if (remove is not null)
+        {
+          foreach (var key in remove)
+            _containers.Remove(key);
+        }
+      }
+    }
+
+    if (_containersByItemName.Count is not 0)
+    {
+      ContainerState.IInventory? inventory = null;
+      remove?.Clear();
+      foreach (var (key, weakRef) in _containersByItemName)
       {
         if (!weakRef.TryGetTarget(out var dict))
         {
           (remove ??= []).Add(key);
           continue;
         }
-        dict.Add(zdo);
+        inventory ??= state.GetInventory();
+        foreach (var item in inventory.Items)
+          dict.TryAdd(item.m_shared, zdo);
       }
 
       if (remove is not null)
       {
         foreach (var key in remove)
-          _containers.Remove(key);
+          _containersByItemName.Remove(key);
       }
-    }
-
-    ContainerState.IInventory? inventory = null;
-    remove?.Clear();
-    foreach (var (key, weakRef) in _containersByItemName)
-    {
-      if (!weakRef.TryGetTarget(out var dict))
-      {
-        (remove ??= []).Add(key);
-        continue;
-      }
-      inventory ??= state.GetInventory();
-      foreach (var item in inventory.Items)
-        dict.TryAdd(item.m_shared, zdo);
-    }
-
-    if (remove is not null)
-    {
-      foreach (var key in remove)
-        _containersByItemName.Remove(key);
     }
 
     ContainerChanged?.Invoke(zdo, state);
