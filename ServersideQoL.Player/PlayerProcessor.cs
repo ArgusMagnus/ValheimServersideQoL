@@ -4,6 +4,8 @@
 [DependsOn<PlayerRegistryProcessor>]
 public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabInfo>
 {
+  readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _attachedCartsByPlayer = [];
+
   protected override void Initialize()
   {
     var subscribeSetTrigger = false;
@@ -20,6 +22,12 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
     Instance<PlayerRegistryProcessor>().StaminaUpdated -= OnPlayerStaminaUpdated;
     if (Config.Instance.InfiniteEncumberedStamina.Value || Config.Instance.InfiniteSneakingStamina.Value || Config.Instance.InfiniteSwimmingStamina.Value)
       Instance<PlayerRegistryProcessor>().StaminaUpdated += OnPlayerStaminaUpdated;
+
+    Instance<PlayerRegistryProcessor>().EmoteDetected -= OnEmoteDetected;
+    if (Config.Instance.OpenCartEmote.Value is not ConfigBase.DisabledEmote)
+      Instance<PlayerRegistryProcessor>().EmoteDetected += OnEmoteDetected;
+
+    _attachedCartsByPlayer.Clear();
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PlayerRegistryProcessor.PrefabInfo prefabInfo)
@@ -153,14 +161,36 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
     }
   }
 
+  void OnEmoteDetected(ServersideQoLZDO zdo, PlayerState state, Emotes emote)
+  {
+    if (Config.Instance.OpenCartEmote.Value is not ConfigBase.AnyEmote && Config.Instance.OpenCartEmote.Value != emote)
+      return;
+
+    if (_attachedCartsByPlayer.TryGetValue(zdo, out var cart) && cart.ZDO.GetOwner() == state.Owner && cart.Vars.GetAttachJoint())
+      RPC.OpenResponse(cart, true);
+  }
+
+  internal void UpdateAttachedCart(ServersideQoLZDO cart)
+  {
+    cart.AssertIsAll<Vagon, Container>();
+
+    if (Instance<PlayerRegistryProcessor>().GetStateForPeerID(cart.ZDO.GetOwner()) is not { } playerState)
+      return;
+
+    if (!cart.Vars.GetAttachJoint())
+      _attachedCartsByPlayer.Remove(playerState.ZDO);
+    else if (_attachedCartsByPlayer.TryAdd(playerState.ZDO, cart))
+      playerState.ZDO.Destroyed += x => _attachedCartsByPlayer.Remove(x);
+    else
+      _attachedCartsByPlayer[playerState.ZDO] = cart;
+  }
+
   static bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);
   static void SetSacrifiedMegingjord(long playerID, bool value) => DataZDO.ZDO.Set($"player{playerID}_SacrifiedMegingjord", value);
-  static bool GetSacrifiedCryptKey(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedCryptKey", defaultValue);
+  internal static bool GetSacrifiedCryptKey(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedCryptKey", defaultValue);
   static void SetSacrifiedCryptKey(long playerID, bool value) => DataZDO.ZDO.Set($"player{playerID}_SacrifiedCryptKey", value);
   static bool GetSacrifiedWishbone(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedWishbone", defaultValue);
   static void SetSacrifiedWishbone(long playerID, bool value) => DataZDO.ZDO.Set($"player{playerID}_SacrifiedWishbone", value);
   static bool GetSacrifiedTornSpirit(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedTornSpirit", defaultValue);
   static void SetSacrifiedTornSpirit(long playerID, bool value) => DataZDO.ZDO.Set($"player{playerID}_SacrifiedTornSpirit", value);
-  static float GetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float defaultValue = default) => DataZDO.ZDO.GetFloat($"player{playerID}_EstimatedSkillLevel_{skill}", defaultValue);
-  static void SetEstimatedSkillLevel(long playerID, Skills.SkillType skill, float value) => DataZDO.ZDO.Set($"player{playerID}_EstimatedSkillLevel_{skill}", value);
 }

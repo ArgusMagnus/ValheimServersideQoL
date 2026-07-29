@@ -8,6 +8,7 @@ public abstract class PlayerState
 
   public abstract ServersideQoLZDO ZDO { get; }
   public abstract PlayerRegistryProcessor.PrefabInfo PrefabInfo { get; }
+  public abstract long Owner { get; }
   public abstract long PlayerID { get; }
   public abstract string PlayerName { get; }
   public abstract bool IsAdmin { get; }

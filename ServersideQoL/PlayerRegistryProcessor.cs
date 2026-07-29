@@ -100,6 +100,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     public override PrefabInfo PrefabInfo => _prefabInfo;
 
     readonly ZNetPeer? _peer = ZNet.instance.GetPeer(zdo.ZDO.GetOwner());
+    public override long Owner { get; } = zdo.ZDO.GetOwner();
     public override long PlayerID { get; } = zdo.Vars.GetPlayerID();
     string? _playerName;
     public override string PlayerName => _playerName ??= ZDO.Vars.GetPlayerName();
