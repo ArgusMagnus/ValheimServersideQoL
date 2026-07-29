@@ -1,0 +1,14 @@
+- Infinite stamina for:
+    - building
+    - farming
+    - mining
+    - wood cutting
+    - sneaking
+    - swimming
+    - when encumbered
+- Sacrifice (destroy) certain items in an obliterator to obtain their effect as lasting buffs:
+    - megingjord for increased carry weight
+    - crypt key for the ability to open sunken crypt doors
+    - wishbone for the ability to sense hidden objects
+    - torn spirit for a wisp companion
+- Open the inventory of an attached cart via emote
