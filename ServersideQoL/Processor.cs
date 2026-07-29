@@ -194,6 +194,12 @@ public abstract class Processor
     ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo);
   }
 
+  protected void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
+  {
+    zdo.ResetProcessorDataRevision(this);
+    ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo, delayInSeconds);
+  }
+
   private protected abstract ProcessResult Process(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo);
   protected virtual void PreProcess(PeersEnumerable peers) { }
 

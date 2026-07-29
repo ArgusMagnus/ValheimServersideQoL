@@ -38,6 +38,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       ProcessorDataRevisions = default;
       _hasFields = default;
       ComponentFieldAccessors = default;
+      ScheduleBefore = float.NaN;
       _destroyed = default;
 #if DEBUG
       Debug = default;
@@ -76,10 +77,18 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
   public bool HasFields => _hasFields ??= ZDO.GetBool(__hasFieldsHash);
   internal Dictionary<Type, object>? ComponentFieldAccessors { get; private set; }
+  internal float ScheduleBefore { get; set; } = float.NaN;
 
 #if DEBUG
   public int Debug { get; set; }
 #endif
+
+  public void SkipProcessingFor(float delayInSeconds)
+  {
+    var scheduleBefore = Time.realtimeSinceStartup + delayInSeconds;
+    if (!(scheduleBefore > ScheduleBefore))
+      ScheduleBefore = scheduleBefore;
+  }
 
   internal void SetHasFields()
   {

@@ -47,7 +47,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   readonly List<Processor> _unregister = [];
   readonly HashSet<ServersideQoLZDO> _changed = [];
-  readonly HashSet<ServersideQoLZDO> _repeat = [];
+  HashSet<ServersideQoLZDO> _repeat = [];
+  HashSet<ServersideQoLZDO> _repeat2 = [];
   bool _ignoreChanged;
 
   public ServersideQoLPlugin() => Instance = this;
@@ -436,16 +437,24 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     if (peers.Count is 0)
       return;
 
-    if (_repeat.Count is not 0)
+    var executeUntil = timeStartSeconds + timeBudgetSeconds;
+
+    (_repeat, _repeat2) = (_repeat2, _repeat);
+    if (_repeat2.Count is not 0)
     {
-      foreach (var zdo in _repeat)
-        _changed.Add(zdo);
-      _repeat.Clear();
+      foreach (var zdo in _repeat2)
+      {
+        if (zdo.ScheduleBefore > executeUntil)
+          _repeat.Add(zdo);
+        else
+          _changed.Add(zdo);
+      }
+      _repeat2.Clear();
     }
-    else if (_changed.Count is 0)
+
+    if (_changed.Count is 0)
       return;
 
-    var executeUntil = timeStartSeconds + timeBudgetSeconds;
 
     //SharedProcessorState.CleanUp(peers);
 
@@ -521,7 +530,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       if (!playerSectors.TryGetValue(zdo.ZDO.GetSector(), out var sectorInfo))
       {
-        _repeat.Add(zdo);
+        ScheduleReprocessing(zdo, 1);
         continue;
       }
 
@@ -605,6 +614,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   void ProcessZdo(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo, bool cyclic)
   {
+    zdo.ScheduleBefore = float.NaN;
+
     if (!zdo.ExclusivityCheckDone)
     {
       zdo.ExclusivityCheckDone = true;
@@ -767,6 +778,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   }
 
   internal void ScheduleReprocessing(ServersideQoLZDO zdo) => _repeat.Add(zdo);
+
+  internal void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
+  {
+    zdo.SkipProcessingFor(delayInSeconds);
+    _repeat.Add(zdo);
+  }
 
   internal PrefabInfo? GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
   {
