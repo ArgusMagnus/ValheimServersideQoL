@@ -40,15 +40,25 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<bool> CanSacrificeTornSpirit { get; } = BindEx(cfg, Section, false,
       "If true, players can permanently unlock a wisp companion by sacrificing a torn spirit in an obliterator. WARNING: Wisp companion cannot be unsummoned and will stay as long as this setting is enabled.");
 
-  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+  public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
 
-  public sealed class AdvancedConfig
+  public sealed class LocalizationConfig
   {
-    //public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
-
-    //public sealed class ProcessingDelaysConfig
-    //{
-    //  public float TimeSigns { get; init; } = 0.5f;
-    //}
+    public string SacrificedMegingjord { get; init; } = "You were permanently granted increased carrying weight";
+    public string SacrificedCryptKey { get; init; } = "You were permanently granted the ability to open sunken crypt doors";
+    public string SacrificedWishbone { get; init; } = "You were permanently granted the ability to sense hidden objects";
+    public string SacrificedTornSpirit { get; init; } = "You were permanently granted a wisp companion";
   }
+
+  //public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+
+  //public sealed class AdvancedConfig
+  //{
+  //  public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
+
+  //  public sealed class ProcessingDelaysConfig
+  //  {
+  //    public float TimeSigns { get; init; } = 0.5f;
+  //  }
+  //}
 }
