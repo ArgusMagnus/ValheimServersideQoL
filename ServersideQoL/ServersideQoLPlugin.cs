@@ -15,7 +15,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];
   readonly List<Processor> _enabledProcessors = [];
-  bool _hasCyclicProcessors;
 
   internal static ServersideQoLPlugin Instance { get; private set; } = default!;
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
@@ -200,7 +199,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     }
 
     SortProcessors(_enabledProcessors, isPrefabList: false);
-    _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
 
     _prefabInfoFactory = prefabInfoBuilder.GetFactory();
 
@@ -385,7 +383,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         foreach (var processor in cfg.Plugin.Processors)
           _enabledProcessors.Remove(processor);
       }
-      _hasCyclicProcessors = _enabledProcessors.Any(static x => x.Attribute.Cyclic);
 
       foreach (var prefabInfo in _prefabInfos.Values)
       {
@@ -397,20 +394,11 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           foreach (var processor in cfg.Plugin.Processors)
             prefabInfo.EnabledProcessors.Add(processor);
           SortProcessors(prefabInfo.EnabledProcessors, isPrefabList: true);
-          foreach (var processor in prefabInfo.EnabledProcessors)
-          {
-            if (processor.Attribute.Cyclic)
-              prefabInfo.EnabledCyclicProcessors.Add(processor);
-          }
         }
         else
         {
           foreach (var processor in cfg.Plugin.Processors)
-          {
             prefabInfo.EnabledProcessors.Remove(processor);
-            if (processor.Attribute.Cyclic)
-              prefabInfo.EnabledCyclicProcessors.Remove(processor);
-          }
         }
       }
 
@@ -422,7 +410,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
         {
           zdo.ReregisterAll();
-          zdo.ProcessorDataRevisions?.Clear();
           OnDataOrOwnerRevisionChanged(zdo);
         }
       }
@@ -534,42 +521,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         continue;
       }
 
-      ProcessZdo(sectorInfo.Peers, zdo, false);
-    }
-
-    if (false && _hasCyclicProcessors)
-    {
-      foreach (var (sector, sectorInfo) in playerSectors)
-      {
-        if (Time.realtimeSinceStartupAsDouble > executeUntil)
-          break;
-
-        processedSectors++;
-
-        if (sectorInfo is { ZDOs.Count: 0 })
-          ZDOMan.instance.FindSectorObjects(sector, 0, 0, sectorInfo.ZDOs);
-
-        totalZdos += sectorInfo.ZDOs.Count;
-
-        for (; sectorInfo.ZdoIndex < sectorInfo.ZDOs.Count; sectorInfo.ZdoIndex++)
-        {
-          if (processedZdos % 10 is 0 && Time.realtimeSinceStartupAsDouble >= executeUntil)
-            break;
-
-          processedZdos++;
-          var zdo = sectorInfo.ZDOs[sectorInfo.ZdoIndex].ServersideQoLZDO;
-          if (!zdo.ZDO.IsValid() || !zdo.HasCyclicProcessors || _changed.Contains(zdo))
-            continue;
-
-          ProcessZdo(sectorInfo.Peers, zdo, true);
-        }
-
-        if (sectorInfo.ZdoIndex >= sectorInfo.ZDOs.Count)
-        {
-          sectorInfo.ZDOs.Clear();
-          sectorInfo.ZdoIndex = 0;
-        }
-      }
+      ProcessZdo(sectorInfo.Peers, zdo);
     }
 
     //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
@@ -612,7 +564,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     //Logger.Log(logLevel, Invariant($"Processing Time: {string.Join($", ", _processingTimes.Select(static x => Invariant($"{x.Item1.GetType().Name}: {x.Item2}ms")))}"));
   }
 
-  void ProcessZdo(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo, bool cyclic)
+  void ProcessZdo(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo)
   {
     zdo.ScheduleBefore = float.NaN;
 
@@ -641,11 +593,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     var destroy = false;
     var recreate = false;
     _unregister.Clear();
-    foreach (var processor in (cyclic ? zdo.CyclicProcessors : zdo.Processors).Enumerate())
+    foreach (var processor in zdo.Processors.Enumerate())
     {
-      if (!zdo.CheckProcessorDataRevisionChanged(processor))
-        continue;
-
       var result = processor.ProcessInternal(peers, zdo);
       if (destroy = (result & Processor.ProcessResult.DestroyZDO) is not 0)
       {
@@ -659,10 +608,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         _unregister.Add(processor);
       else if ((result & Processor.ProcessResult.ScheduleReprocessing) is not 0)
         ScheduleReprocessing(zdo);
-      //else if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
-      //  zdo.UpdateProcessorDataRevision(processor, onlyExisting: !processor.Attribute.Cyclic);
-      else if (!cyclic)
-        zdo.UpdateProcessorDataRevision(processor, onlyExisting: true);
 
       if ((result & Processor.ProcessResult.SkipOtherProcessors) is not 0)
         break;
@@ -810,11 +755,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         }
       }
       SortProcessors(prefabInfo.EnabledProcessors, isPrefabList: true);
-      foreach (var processor in prefabInfo.EnabledProcessors)
-      {
-        if (processor.Attribute.Cyclic)
-          prefabInfo.EnabledCyclicProcessors.Add(processor);
-      }
     }
     return prefabInfo;
   });

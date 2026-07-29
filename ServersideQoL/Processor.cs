@@ -12,12 +12,6 @@ public sealed class ProcessorAttribute(string id) : Attribute
   public Guid Id { get; } = new(id);
 
   /// <summary>
-  /// True if the processor should run cyclically,
-  /// false if the processor should only run when the data or owner revision of a <see cref="ZDO"/> changes
-  /// </summary>
-  public bool Cyclic { get; init; }
-
-  /// <summary>
   /// True to run this processor only if other processors depend on it via <see cref="RunBefore"/>/<see cref="RunAfter"/>
   /// </summary>
   public bool OnlyWhenDependedOn { get; init; }
@@ -189,16 +183,10 @@ public abstract class Processor
   }
 
   protected void ScheduleReprocessing(ServersideQoLZDO zdo)
-  {
-    zdo.ResetProcessorDataRevision(this);
-    ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo);
-  }
+    => ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo);
 
   protected void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
-  {
-    zdo.ResetProcessorDataRevision(this);
-    ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo, delayInSeconds);
-  }
+    => ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo, delayInSeconds);
 
   private protected abstract ProcessResult Process(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo);
   protected virtual void PreProcess(PeersEnumerable peers) { }

@@ -7,7 +7,6 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
 {
   static readonly Dictionary<int, IReadOnlyList<Processor>> __processors = [];
   static readonly ZPackage __pkg = new();
-  static readonly Stack<Dictionary<Processor, (uint, ushort)>> __dataRevCache = [];
   static readonly Stack<Dictionary<Type, object>> __componentFieldAccessorCache = [];
   static bool _onDestroyedSubscribed;
 
@@ -17,12 +16,6 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     get;
     internal set
     {
-      if (ProcessorDataRevisions is { } dataRevisions)
-      {
-        dataRevisions.Clear();
-        __dataRevCache.Push(dataRevisions);
-      }
-
       if (ComponentFieldAccessors is { } componentFieldAccessors)
       {
         componentFieldAccessors.Clear();
@@ -32,10 +25,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       field = value;
       Processors = value?.EnabledProcessors ?? [];
       HasProcessors = Processors.Count is not 0;
-      CyclicProcessors = value?.EnabledCyclicProcessors ?? [];
-      HasCyclicProcessors = CyclicProcessors.Count is not 0;
       ExclusivityCheckDone = false;
-      ProcessorDataRevisions = default;
       _hasFields = default;
       ComponentFieldAccessors = default;
       ScheduleBefore = float.NaN;
@@ -69,10 +59,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
 
   internal bool HasProcessors { get; private set; }
   internal IReadOnlyList<Processor> Processors { get; private set; } = [];
-  internal bool HasCyclicProcessors { get; private set; }
-  internal IReadOnlyList<Processor> CyclicProcessors { get; private set; } = [];
   internal bool ExclusivityCheckDone { get; set; }
-  internal Dictionary<Processor, (uint Data, ushort Owner)>? ProcessorDataRevisions { get; private set; }
   bool? _hasFields;
   static readonly int __hasFieldsHash = ZNetView.CustomFieldsStr.GetStableHashCode();
   public bool HasFields => _hasFields ??= ZDO.GetBool(__hasFieldsHash);
@@ -171,14 +158,6 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
 
     Processors = UnregisterCore(processors, Processors ?? []);
     HasProcessors = Processors.Count is not 0;
-    CyclicProcessors = UnregisterCore(processors, CyclicProcessors ?? []);
-    HasCyclicProcessors = CyclicProcessors.Count is not 0;
-
-    if (ProcessorDataRevisions is { } dataRevisions)
-    {
-      foreach (var processor in processors.Enumerate())
-        dataRevisions.Remove(processor);
-    }
   }
 
   //internal void Reregister(IReadOnlyList<Processor> processors)
@@ -237,61 +216,18 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
 
     Processors = UnregisterAllExceptCore(keep, Processors ?? []);
     HasProcessors = Processors.Count is not 0;
-    CyclicProcessors = UnregisterAllExceptCore(keep, CyclicProcessors ?? []);
-    HasCyclicProcessors = CyclicProcessors.Count is not 0;
-
-    if (HasProcessors && ProcessorDataRevisions is { } dataRevisions)
-    {
-      foreach (var processor in Processors.Enumerate())
-      {
-        if (!ReferenceEquals(processor, keep))
-          dataRevisions.Remove(processor);
-      }
-    }
   }
 
   public void UnregisterAll()
   {
     Processors = [];
     HasProcessors = false;
-    CyclicProcessors = [];
-    HasCyclicProcessors = false;
   }
 
   public void ReregisterAll()
   {
     Processors = PrefabInfo?.EnabledProcessors ?? [];
     HasProcessors = Processors.Count is not 0;
-    CyclicProcessors = PrefabInfo?.EnabledCyclicProcessors ?? [];
-    HasCyclicProcessors = CyclicProcessors.Count is not 0;
-  }
-
-  internal void UpdateProcessorDataRevision(Processor processor, bool onlyExisting = false)
-  {
-    if (ProcessorDataRevisions is not { } dataRevisions)
-    {
-      if (onlyExisting)
-        return;
-      if (!__dataRevCache.TryPop(out dataRevisions))
-        dataRevisions = [];
-      ProcessorDataRevisions = dataRevisions;
-    }
-
-    if (!onlyExisting)
-      dataRevisions[processor] = (ZDO.DataRevision, ZDO.OwnerRevision);
-    else if (dataRevisions.ContainsKey(processor))
-      dataRevisions[processor] = (ZDO.DataRevision, ZDO.OwnerRevision);
-  }
-
-  internal void ResetProcessorDataRevision(Processor processor)
-      => ProcessorDataRevisions?.Remove(processor);
-
-  internal bool CheckProcessorDataRevisionChanged(Processor processor)
-  {
-    var dataRevisions = ProcessorDataRevisions;
-    if (dataRevisions is null || !dataRevisions.TryGetValue(processor, out var revision) || revision != (ZDO.DataRevision, ZDO.OwnerRevision))
-      return true;
-    return false;
   }
 
   public ComponentFieldAccessor<TComponent> Fields<TComponent>() where TComponent : MonoBehaviour
