@@ -1,4 +1,6 @@
-﻿namespace ServersideQoL;
+﻿using System.Diagnostics;
+
+namespace ServersideQoL;
 
 [Processor("b5107f88-1c1f-4323-bfce-9205ae4dfcd9", OnlyWhenDependedOn = true)]
 public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.PrefabInfo>
@@ -15,6 +17,13 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   public PlayerState? GetStateForPlayerID(long playerID) => _statesByPlayerID.TryGetValue(playerID, out var state) ? state : null;
   public PlayerState? GetStateForCharacterID(ZDOID characterID) => _statesByCharacterID.TryGetValue(characterID, out var state) ? state : null;
 
+  public PlayerState GetState(ServersideQoLZDO playerZdo)
+  {
+    var prefabInfo = GetPrefabInfo(playerZdo);
+    Debug.Assert(prefabInfo is not null);
+    return GetStateCore(playerZdo, prefabInfo);
+  }
+
   protected internal override void Initialize()
   {
     _statesByPeerID.Clear();
@@ -22,14 +31,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    var peerID = zdo.ZDO.GetOwner();
-    if (!_statesByPeerID.TryGetValue(peerID, out var state))
-    {
-      _statesByPeerID.Add(peerID, state = new(zdo, prefabInfo));
-      _statesByPlayerID[state.PlayerID] = state;
-      _statesByCharacterID[zdo.ZDO.m_uid] = state;
-      zdo.Destroyed += OnPlayerDestroyed;
-    }
+    var state = GetStateCore(zdo, prefabInfo);
 
     if (EmoteDetected is not null)
     {
@@ -43,7 +45,22 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       }
     }
 
+    state.SendGlobalKeyModifications();
+
     return default;
+  }
+
+  PlayerStateImpl GetStateCore(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
+  {
+    var peerID = zdo.ZDO.GetOwner();
+    if (!_statesByPeerID.TryGetValue(peerID, out var state))
+    {
+      _statesByPeerID.Add(peerID, state = new(zdo, prefabInfo));
+      _statesByPlayerID[state.PlayerID] = state;
+      _statesByCharacterID[zdo.ZDO.m_uid] = state;
+      zdo.Destroyed += OnPlayerDestroyed;
+    }
+    return state;
   }
 
   void OnPlayerDestroyed(ServersideQoLZDO zdo)
@@ -72,5 +89,31 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     public override bool IsAdmin => _isAdmin ??= (Player.m_localPlayer?.GetZDOID() == ZDO.ZDO.m_uid || ZNet.instance.IsAdmin(_peer?.m_socket.GetHostName() ?? ""));
 
     public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
+
+
+    bool _hasChangedGlobalKeyModifications;
+    Dictionary<GlobalKey, bool>? _globalKeyModifications;
+    public override IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications => _globalKeyModifications ?? EmptyReadOnlyCollections<GlobalKey, bool>.Dictionary;
+
+    public override void AddGlobalKeyModification(GlobalKey key, bool add)
+    {
+      _globalKeyModifications ??= [];
+      if (_globalKeyModifications.TryAdd(key, add))
+        _hasChangedGlobalKeyModifications = true;
+    }
+
+    public override void RemoveGlobalKeyModification(GlobalKey key)
+    {
+      if (_globalKeyModifications?.Remove(key) is true)
+        _hasChangedGlobalKeyModifications = true;
+    }
+
+    public void SendGlobalKeyModifications()
+    {
+      if (!_hasChangedGlobalKeyModifications)
+        return;
+      ZoneSystem.instance.SendGlobalKeys(ZDO.ZDO.GetOwner());
+      _hasChangedGlobalKeyModifications = false;
+    }
   }
 }

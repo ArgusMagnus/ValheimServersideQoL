@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using HarmonyLib;
 using System.Collections.Concurrent;
 using System.Reflection;
+using System.Reflection.Emit;
 using UnityEngine;
 
 namespace ServersideQoL;
@@ -18,6 +19,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   internal static ServersideQoLPlugin Instance { get; private set; } = default!;
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
   internal IReadOnlyDictionary<Guid, Processor> Processors => _processorsById;
+  public event Action? GlobalKeysChanged;
+  public event Action? GlobalKeyValuesChanged;
 
   internal static void RegisterPlugin(IServersideQoLPlugin plugin)
       => __plugins.Add(plugin);
@@ -783,6 +786,79 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       var zdo = __instance.ServersideQoLZDO;
       if (zdo.UpdateOwnerAndDataRevisions())
         Instance.OnDataOrOwnerRevisionChanged(zdo);
+    }
+  }
+
+  [HarmonyPatch(typeof(ZoneSystem), "SendGlobalKeys")]
+  static class ZoneSystemSendGlobalKeys
+  {
+    static readonly Dictionary<string, string> __prevKeys = [];
+
+    public static void Prefix(ZoneSystem __instance, long peer)
+    {
+      if (peer != ZRoutedRpc.Everybody)
+        return;
+
+      var changed = false;
+
+      if (Instance.GlobalKeysChanged is not null && !__prevKeys.Keys.SequenceEqual(__instance.m_globalKeysValues.Keys))
+      {
+        changed = true;
+        Logger.DevLog($"Invoking {nameof(GlobalKeysChanged)} event");
+        Instance.GlobalKeysChanged();
+      }
+
+      if (Instance.GlobalKeyValuesChanged is not null && !__prevKeys.SequenceEqual(__instance.m_globalKeysValues))
+      {
+        changed = true;
+        Logger.DevLog($"Invoking {nameof(GlobalKeyValuesChanged)} event");
+        Instance.GlobalKeyValuesChanged();
+      }
+
+      if (!changed)
+        return;
+
+      __prevKeys.Clear();
+      foreach (var (key, value) in __instance.m_globalKeysValues)
+        __prevKeys.Add(key, value);
+    }
+
+    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+      //foreach (var instruction in instructions)
+      //{
+      //    Main.Instance.Logger.DevLog($"{instruction.opcode}: {instruction.operand}");
+      //    yield return instruction;
+      //}
+
+      var listCtor = typeof(List<string>).GetConstructor([typeof(IEnumerable<string>)]);
+      var method = ((Delegate)ModfiyGlobalKeys).Method;
+
+      return new CodeMatcher().Start().Insert(instructions).Start()
+          .MatchForward(false, new CodeMatch(new CodeInstruction(OpCodes.Newobj, listCtor)))
+          .Advance(1)
+          .Insert(
+            // Load "peer" argument
+            new CodeInstruction(OpCodes.Ldarg_1),
+            new CodeInstruction(OpCodes.Call, method)
+          )
+          .ThrowIfInvalid($"Failed to apply patch {nameof(ZoneSystemSendGlobalKeys)}.{nameof(Transpiler)}")
+          .InstructionEnumeration();
+
+      static List<string> ModfiyGlobalKeys(List<string> globalKeys, long peer)
+      {
+        if (Processor.Instance<PlayerRegistryProcessor>().GetStateForPeerID(peer) is not { } state)
+          return globalKeys;
+
+        foreach (var (key, add) in state.GlobalKeyModifications)
+        {
+          if (!add)
+            globalKeys.Remove(key);
+          else if (!globalKeys.Contains(key))
+            globalKeys.Add(key);
+        }
+        return globalKeys;
+      }
     }
   }
 }

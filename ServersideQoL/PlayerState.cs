@@ -1,4 +1,6 @@
-﻿namespace ServersideQoL;
+﻿using System.Collections.ObjectModel;
+
+namespace ServersideQoL;
 
 public abstract class PlayerState
 {
@@ -8,4 +10,9 @@ public abstract class PlayerState
   public abstract long PlayerID { get; }
   public abstract string PlayerName { get; }
   public abstract bool IsAdmin { get; }
+
+
+  public abstract IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications { get; }
+  public abstract void AddGlobalKeyModification(GlobalKey key, bool add);
+  public abstract void RemoveGlobalKeyModification(GlobalKey key);
 }
