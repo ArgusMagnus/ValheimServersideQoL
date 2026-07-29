@@ -26,10 +26,17 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public sealed class AdvancedConfig
   {
     public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
+    public ContainersConfig Containers { get; init; } = new();
 
     public sealed class ProcessingDelaysConfig
     {
       public float WhenNoNearbyPlayers { get; init; } = 2;
+      public float AfterContainerOwnershipRequest { get; init; } = 0.1f;
+    }
+
+    public sealed class ContainersConfig
+    {
+      public float MinOwnershipRequestInterval { get; init; } = 1;
     }
   }
 }

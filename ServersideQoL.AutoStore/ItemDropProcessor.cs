@@ -69,6 +69,8 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     List<ServersideQoLZDO>? toRemove = null;
     ItemDrop.ItemData? item = null;
 
+    var result = ProcessResult.Default;
+
     foreach (var containers in _containersByItemName.EnumerateAdjacent((zdo.ZDO.GetPosition(), shared)))
     {
       if (containers.Count > 0 && !excludeFodderCheckComplete)
@@ -88,10 +90,17 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
             rangeSqr *= rangeSqr;
             if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), tameableZdo.ZDO.GetPosition()) < rangeSqr)
             {
-              if (prefabInfo.ZSyncTransform is not null && zdo.GetTimeSinceSpawned() < TimeSpan.FromSeconds(10))
-                return ProcessResult.ScheduleReprocessing;
+              if (prefabInfo.ZSyncTransform is not null)
+              {
+                var delay = (float)(10 - zdo.GetTimeSinceSpawned().TotalSeconds);
+                if (delay > 0)
+                {
+                  zdo.DelaySchedulingFor(delay);
+                  return ProcessResult.ScheduleReprocessing;
+                }
+              }
 
-              ProcessResult result = ProcessResult.UnregisterProcessor;
+              result = ProcessResult.UnregisterProcessor;
               var fields = zdo.Fields<ItemDrop>();
               if (fields.UpdateValue(static () => x => x.m_autoPickup, false))
                 result = ProcessResult.RecreateZDO;
@@ -199,7 +208,8 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
         if (requestOwn || requestContainerOwn)
         {
           if (requestContainerOwn)
-            Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, 0);
+            zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, 0));
+          result = ProcessResult.ScheduleReprocessing | ProcessResult.SkipOtherProcessors;
           continue;
         }
 
@@ -225,16 +235,16 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 
       if (item?.m_stack is 0)
         return ProcessResult.DestroyZDO;
+    }
 
-      if (requestOwn)
-      {
-        RPC.RequestOwn(zdo);
-        return ProcessResult.ScheduleReprocessing | ProcessResult.SkipOtherProcessors;
-      }
+    if (requestOwn)
+    {
+      zdo.DelaySchedulingFor(Config.Instance.Advanced.Value.ProcessingDelays.AfterItemDropOwnershipRequest);
+      RPC.RequestOwn(zdo);
     }
 
     _itemDrops.TryAdd(zdo);
-    return default;
+    return result;
   }
 
   void OnContainerChanged(ServersideQoLZDO containerZdo, ContainerState containerState)

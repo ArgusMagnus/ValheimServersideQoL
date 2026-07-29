@@ -166,7 +166,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     {
       if (!zdo.IsOwnerOrUnassigned())
       {
-        Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, zdo.Vars.GetCreator(), state);
+        zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, zdo.Vars.GetCreator(), state));
         return ProcessResult.ScheduleReprocessing;
       }
       else if (changed)
@@ -265,6 +265,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         zdo.Destroyed += OnStackContainerDestroyed;
         // stackContainerState.RemoveAfter = DateTimeOffset.UtcNow;
       }
+      zdo.DelaySchedulingFor(Config.Instance.Advanced.Value.ProcessingDelays.StackContainerWhenMovingItems);
       return ProcessResult.ScheduleReprocessing;
     }
     else if (inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))

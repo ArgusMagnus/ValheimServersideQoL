@@ -56,13 +56,13 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return state;
   }
 
-  public void RequestOwnership(ServersideQoLZDO zdo, long playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+  public float RequestOwnership(ServersideQoLZDO zdo, long playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
       => RequestOwnership(zdo, playerID, _states[zdo], caller, callerLineNo);
 
-  public void RequestOwnership(ServersideQoLZDO zdo, long playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+  public float RequestOwnership(ServersideQoLZDO zdo, long playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
   {
     if (zdo.IsOwnerOrUnassigned() || state is not ContainerStateImpl s || DateTimeOffset.UtcNow < s.NextOwnershipRequest)
-      return;
+      return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
 
     if (!_openResponseRegistered && Player.m_localPlayer is not null)
     {
@@ -71,13 +71,14 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     }
 
     //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
-    s.NextOwnershipRequest = DateTimeOffset.UtcNow.AddSeconds(1);
+    s.NextOwnershipRequest = DateTimeOffset.UtcNow.AddSeconds(Config.Instance.Advanced.Value.Containers.MinOwnershipRequestInterval);
     s.WaitingForResponse = true;
     s.PreviousOwner = zdo.ZDO.GetOwner();
 
 
     //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
     RPC.RequestOpen(zdo, playerID);
+    return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
   }
 
   protected internal override void Initialize()

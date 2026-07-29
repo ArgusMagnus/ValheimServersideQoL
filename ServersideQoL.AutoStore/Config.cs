@@ -41,16 +41,25 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     Increasing this value can help with bad connections.
     """, new AcceptableValueRange<float>(1f, 10f));
 
-  public YamlConfigEntry<Types.Localization> Localization { get; } = BindYaml<Types.Localization>(cfg);
+  public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
-  public static class Types
+  public sealed class LocalizationConfig
   {
-    public sealed class Localization
+    string ContainerSorted { get; init; } = "{0} sorted";
+    public string FormatContainerSorted(string containerName) => string.Format(ContainerSorted, containerName);
+    string AutoPickup { get; init; } = "{0}: $msg_added {1} {2}x";
+    public string FormatAutoPickup(string containerName, string itemName, int stack) => string.Format(AutoPickup, containerName, itemName, stack);
+  }
+
+  public sealed class AdvancedConfig
+  {
+    public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
+
+    public sealed class ProcessingDelaysConfig
     {
-      string ContainerSorted { get; init; } = "{0} sorted";
-      public string FormatContainerSorted(string containerName) => string.Format(ContainerSorted, containerName);
-      string AutoPickup { get; init; } = "{0}: $msg_added {1} {2}x";
-      public string FormatAutoPickup(string containerName, string itemName, int stack) => string.Format(AutoPickup, containerName, itemName, stack);
+      public float AfterItemDropOwnershipRequest { get; init; } = 0.1f;
+      public float StackContainerWhenMovingItems { get; init; } = 0.1f;
     }
   }
 }
