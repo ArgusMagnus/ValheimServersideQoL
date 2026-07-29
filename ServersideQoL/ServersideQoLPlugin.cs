@@ -30,7 +30,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   const uint ExpectedItemDataVersion = 106;
   const uint ExpectedWorldVersion = 36;
 
-  readonly HashSet<IConfig> _configChanged = [];
   uint _unfinishedProcessingInRow;
   record SectorInfo(List<Peer> Peers, List<ZDO> ZDOs)
   {
@@ -363,7 +362,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   void OnConfigChanged(object sender, SettingChangedEventArgs e)
   {
     var cfg = (IConfig)sender;
-    _configChanged.Add(cfg);
     if (Config.DiagnosticLogs.Value || ReferenceEquals(e.ChangedSetting, Config.DiagnosticLogs))
       Logger.LogInfo($"Config changed: [{e.ChangedSetting.Definition.Section}].[{e.ChangedSetting.Definition.Key}] = {e.ChangedSetting.BoxedValue}");
     if (ReferenceEquals(e.ChangedSetting, Config.DiagnosticLogs) && Config.DiagnosticLogs.Value)
