@@ -38,7 +38,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       return ProcessResult.UnregisterProcessor;
 
     if (zdo.Vars.GetInUse())
-      return ProcessResult.WaitForZDORevisionChange;
+      return default;
 
     var state = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo);
 
@@ -293,7 +293,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     {
       RPC.StackResponse(zdo, true);
     }
-    return ProcessResult.WaitForZDORevisionChange;
+    return default;
   }
 
   bool MoveItems(ServersideQoLZDO zdo, ContainerState state, StackContainerState stackContainerState)

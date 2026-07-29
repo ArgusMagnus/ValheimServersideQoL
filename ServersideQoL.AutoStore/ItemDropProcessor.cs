@@ -41,16 +41,22 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     if (prefabInfo.EggGrow is not null)
     {
       if (zdo.Vars.GetGrowStart() > 0)
-        return ProcessResult.WaitForZDORevisionChange;
+        return default;
 
+      var delay = 2 * prefabInfo.EggGrow.m_updateInterval + 2;
       if (!_eggDropTime.TryGetValue(zdo, out var dropTime))
       {
         _eggDropTime.Add(zdo, DateTimeOffset.UtcNow);
         zdo.Destroyed += x => _eggDropTime.Remove(x);
+        zdo.DelaySchedulingFor(delay);
         return ProcessResult.ScheduleReprocessing;
       }
-      if (DateTimeOffset.UtcNow - dropTime < TimeSpan.FromSeconds(2 * prefabInfo.EggGrow.m_updateInterval + 2))
+      delay -= (float)(DateTimeOffset.UtcNow - dropTime).TotalSeconds;
+      if (delay > 0)
+      {
+        zdo.DelaySchedulingFor(delay);
         return ProcessResult.ScheduleReprocessing;
+      }
     }
 
     if (!CheckMinDistance(peers, zdo, Config.Instance.AutoPickupMinPlayerDistance.Value))
@@ -228,7 +234,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     }
 
     _itemDrops.TryAdd(zdo);
-    return ProcessResult.WaitForZDORevisionChange;
+    return default;
   }
 
   void OnContainerChanged(ServersideQoLZDO containerZdo, ContainerState containerState)

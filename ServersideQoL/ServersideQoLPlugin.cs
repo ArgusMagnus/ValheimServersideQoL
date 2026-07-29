@@ -530,7 +530,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       if (!playerSectors.TryGetValue(zdo.ZDO.GetSector(), out var sectorInfo))
       {
-        ScheduleReprocessing(zdo, 1);
+        ScheduleReprocessing(zdo, Config.Advanced.Value.ProcessingDelays.WhenNoNearbyPlayers);
         continue;
       }
 
@@ -659,8 +659,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         _unregister.Add(processor);
       else if ((result & Processor.ProcessResult.ScheduleReprocessing) is not 0)
         ScheduleReprocessing(zdo);
-      else if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
-        zdo.UpdateProcessorDataRevision(processor, onlyExisting: !processor.Attribute.Cyclic);
+      //else if ((result & Processor.ProcessResult.WaitForZDORevisionChange) is not 0)
+      //  zdo.UpdateProcessorDataRevision(processor, onlyExisting: !processor.Attribute.Cyclic);
       else if (!cyclic)
         zdo.UpdateProcessorDataRevision(processor, onlyExisting: true);
 
@@ -781,7 +781,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   internal void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
   {
-    zdo.SkipProcessingFor(delayInSeconds);
+    zdo.DelaySchedulingFor(delayInSeconds);
     _repeat.Add(zdo);
   }
 

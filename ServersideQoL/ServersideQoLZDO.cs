@@ -83,7 +83,12 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   public int Debug { get; set; }
 #endif
 
-  public void SkipProcessingFor(float delayInSeconds)
+  /// <summary>
+  /// Delays rescheduling for max <paramref name="delayInSeconds"/>.
+  /// The lowest delay wins if this method is called multiple times.
+  /// Changed instances (owner/data revision changes) are always processed immediatly and are not affected by this delay.
+  /// </summary>
+  public void DelaySchedulingFor(float delayInSeconds)
   {
     var scheduleBefore = Time.realtimeSinceStartup + delayInSeconds;
     if (!(scheduleBefore > ScheduleBefore))

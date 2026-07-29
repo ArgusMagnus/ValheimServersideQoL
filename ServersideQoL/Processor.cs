@@ -330,7 +330,7 @@ public abstract class Processor
   internal protected enum ProcessResult
   {
     Default = 0,
-    WaitForZDORevisionChange = 1 << 0,
+    //WaitForZDORevisionChange = 1 << 0, not needed as long as no cyclic processors exist
     UnregisterProcessor = 1 << 1,
     DestroyZDO = 1 << 2,
     RecreateZDO = 1 << 3,

@@ -57,7 +57,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     return default;
   }
 
-  public YamlConfigEntry<ChestSignOffsetConfig> ChestSignOffsets { get; } = BindYaml<ChestSignOffsetConfig>(cfg);
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
   [Flags]
   public enum SignOptions
@@ -71,7 +71,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     TopLateral = (1 << 5)
   }
 
-  public sealed class ChestSignOffsetConfig
+  public sealed class AdvancedConfig
   {
     public sealed record ChestSignOffset(float Left, float Right, float Front, float Back, float Top) { ChestSignOffset() : this(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN) { } }
 

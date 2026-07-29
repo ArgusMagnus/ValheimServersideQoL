@@ -23,7 +23,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
   {
     var cfg = Config.Instance;
     var signOptions = cfg.GetSignOptions(zdo.ZDO.GetPrefab());
-    if (signOptions is SignOptions.None || !cfg.ChestSignOffsets.Value.ChestSignOffsets.TryGetValue(zdo.ZDO.GetPrefab(), out var signOffset) || _signsByChests.ContainsKey(zdo))
+    if (signOptions is SignOptions.None || !cfg.Advanced.Value.ChestSignOffsets.TryGetValue(zdo.ZDO.GetPrefab(), out var signOffset) || _signsByChests.ContainsKey(zdo))
       return ProcessResult.UnregisterProcessor;
 
     var text = zdo.Vars.GetText(null!);

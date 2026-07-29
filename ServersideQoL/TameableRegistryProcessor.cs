@@ -45,7 +45,7 @@ public sealed class TameableRegistryProcessor : Processor<TameableRegistryProces
         state.SetState(TameableState.States.Wild);
     }
 
-    return ProcessResult.WaitForZDORevisionChange;
+    return default;
   }
 
   sealed class TameableStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo) : TameableState

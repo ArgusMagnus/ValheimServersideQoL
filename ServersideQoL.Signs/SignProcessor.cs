@@ -28,12 +28,13 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPre
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo.Shared.SignPrefabInfo prefabInfo)
   {
     var cfg = Config.Instance;
-    var result = ProcessResult.WaitForZDORevisionChange;
+    var result = ProcessResult.Default;
     var text = zdo.Vars.GetText();
     if (cfg.TimeSigns.Value)
     {
       var newText = _clockRegex.Replace(text, _ =>
       {
+        zdo.DelaySchedulingFor(Config.Instance.Advanced.Value.ProcessingDelays.TimeSigns);
         result = ProcessResult.ScheduleReprocessing;
         if (_timeText is null)
         {

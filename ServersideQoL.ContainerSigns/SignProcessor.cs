@@ -123,7 +123,7 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPre
       chest.Vars.SetText(text);
     }
 
-    return ProcessResult.WaitForZDORevisionChange;
+    return default;
   }
 
   void OnContainerChanged(ServersideQoLZDO zdo, ContainerState state)
