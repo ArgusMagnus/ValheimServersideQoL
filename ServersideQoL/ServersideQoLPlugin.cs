@@ -201,6 +201,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   }
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
+#if DEBUG
+    .Add<TestProcessor>()
+#endif
     .Add<ContainerRegistryProcessor>()
     .Add<TameableRegistryProcessor>()
     .Add<PlayerRegistryProcessor>();
@@ -724,10 +727,20 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
     {
       prefabInfo = _prefabInfoFactory();
-      var components = availableComponents.GroupBy(static x => x.GetType()).ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
+      Dictionary<Type, IReadOnlyList<MonoBehaviour>>? baseComponents = null;
+      var components = availableComponents
+        .Where(static x => x.GetType().Assembly == typeof(ZNetView).Assembly)
+        .GroupBy(static x => x.GetType())
+        .ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
+      foreach (var (key, list) in components)
+      {
+        for (var type = key.BaseType; type != typeof(MonoBehaviour); type = type.BaseType)
+          (baseComponents ??= []).Add(type, list);
+      }
+
       if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
         components.Add(typeof(PieceTable), [pieceTable]);
-      prefabInfo.Init(prefab, prefabHash, prefab.name, components);
+      prefabInfo.Init(prefab, prefabHash, prefab.name, components, baseComponents);
 
       foreach (var plugin in __plugins)
       {

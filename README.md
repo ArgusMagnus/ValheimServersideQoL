@@ -3,10 +3,9 @@
 ## BETA Version
 
 This mod is part of an early beta version of a major rewrite of ServersideQoL that splits all its
-features up into separate mods. It's compiled against the valheim PTB version on not compatible
-with the current live version.
+features up into separate mods. It's compiled against the valheim PTB version.
 
-**DO NOT install unless you want to help with testing, the mod is not ready.**
+**This mod is not compatible with the current live version of valheim and many features of version 1.8 are still missing.**
 
 ---
 

@@ -17,15 +17,21 @@ public abstract class PrefabInfo : IPrefabInfo
   public int PrefabHash { get; private set; }
   public string PrefabName { get; private set; } = default!;
   public IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>> Components { get; private set; } = default!;
+  public IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>> BaseComponents { get; private set; } = default!;
+  public bool ReleaseOwnershipOnRecreate { get; private set; }
   internal List<Processor> AvailableProcessors { get; } = [];
   internal List<Processor> EnabledProcessors { get; } = [];
 
-  internal void Init(GameObject prefab, int prefabHash, string prefabName, IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>> components)
+  internal void Init(GameObject prefab, int prefabHash, string prefabName, IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>>? components, IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>>? baseComponents)
   {
     Prefab = prefab;
     PrefabHash = prefabHash;
     PrefabName = prefabName;
-    Components = components;
+    Components = components is { Count: > 0 } ? components : EmptyReadOnlyCollections<Type, IReadOnlyList<MonoBehaviour>>.Dictionary;
+    BaseComponents = baseComponents is { Count: > 0 } ? baseComponents : EmptyReadOnlyCollections<Type, IReadOnlyList<MonoBehaviour>>.Dictionary;
+    ReleaseOwnershipOnRecreate =
+      (Components.TryGetValue(typeof(ZSyncTransform), out var list) || BaseComponents.TryGetValue(typeof(ZSyncTransform), out list))
+      && list.Cast<ZSyncTransform>().Any(static x => x.m_syncPosition || x.m_syncRotation || x.m_syncBodyVelocity);
   }
 }
 

@@ -275,6 +275,9 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
     //_addData?.Recreated?.Invoke(this, zdo);
 
+    if (PrefabInfo is { ReleaseOwnershipOnRecreate: true })
+      zdo.ReleaseOwnershipInternal(); // required for physics to work again
+
     Destroy();
     return zdo;
   }
