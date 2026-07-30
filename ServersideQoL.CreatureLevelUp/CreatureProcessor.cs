@@ -42,10 +42,12 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
     if (prefabInfo.ZSyncTransform is null)
       return result | ProcessResult.UnregisterProcessor;
 
-    if (zdo.Fields<ZSyncTransform>().UpdateValue(static () => x => x.m_syncScale, true))
+    var scale = 1 + (level - maxLevel) * Config.Instance.SizeIncreasePerStar.Value;
+    if (scale is 1)
+      zdo.Fields<ZSyncTransform>().Reset(static () => x => x.m_syncScale);
+    else if (zdo.Fields<ZSyncTransform>().UpdateValue(static () => x => x.m_syncScale, true))
       return ProcessResult.RecreateZDO;
 
-    var scale = 1 + (level - maxLevel) * Config.Instance.SizeIncreasePerStar.Value;
     if (prefabInfo.SyncsInitialScale)
     {
       if (zdo.ZDO.GetFloat(ZDOVars.s_scaleScalarHash) == scale)
@@ -57,6 +59,10 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
 
     if (scale is 1)
       return result | ProcessResult.UnregisterProcessor;
+
+    /// We need to make sure clients called <see cref="ZSyncTransform.ClientSync"/> at least once with our ZDOVars.s_scaleScalarHash value
+    /// Not too happy with the implementation, but the only one that worked even when disconnecting/reconnecting or
+    /// leaving/reentering the zone through a portal.
 
     _zdos.Add(zdo);
     if (!_zdosPrev.Contains(zdo))
