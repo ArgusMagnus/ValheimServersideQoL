@@ -1,4 +1,5 @@
 ﻿using ServersideQoL.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -20,21 +21,66 @@ partial class ServersideQoLZDO
   delegate void SetHandler<T>(ZDO zdo, int hash, T value) where T : notnull;
   delegate bool RemoveHandler<T>(ZDO zdo, int hash) where T : notnull;
 
-  public sealed class ComponentFieldAccessor<TComponent>(ServersideQoLZDO zdo, TComponent component)
+  interface IComponentFieldAccessor
   {
-    readonly ServersideQoLZDO _zdo = zdo;
-    readonly TComponent _component = component;
-    bool? _hasComponentFields;
+    void Return();
+  }
 
-    static readonly int __hasComponentFieldsHash = Invariant($"{ZNetView.CustomFieldsStr}{typeof(TComponent).Name}").GetStableHashCode();
-    public bool HasFields => _zdo.HasFields && (_hasComponentFields ??= _zdo.ZDO.GetBool(__hasComponentFieldsHash));
+  static class ComponentFieldAccessor
+  {
+    public static ComponentFieldAccessor<TComponent> Get<TComponent>(ServersideQoLZDO zdo, TComponent component)
+      where TComponent : MonoBehaviour
+      => ComponentFieldAccessor<TComponent>.Get(zdo, component);
+  }
+
+  public sealed class ComponentFieldAccessor<TComponent> : IComponentFieldAccessor
+    where TComponent : MonoBehaviour
+  {
+    static readonly Stack<ComponentFieldAccessor<TComponent>> __pool = [];
+    static readonly Dictionary<Type, int> __hasComponentFieldsHashes = [];
+
+    ServersideQoLZDO _zdo = default!;
+    TComponent _component = default!;
+    bool? _hasComponentFields;
+    int _hasComponentFieldsHash;
+
+    private ComponentFieldAccessor() { }
+
+    public static ComponentFieldAccessor<TComponent> Get(ServersideQoLZDO zdo, TComponent component)
+    {
+      if (!__pool.TryPop(out var instance))
+        instance = new();
+      instance.Init(zdo, component);
+      return instance;
+    }
+
+    [MemberNotNull(nameof(_zdo), nameof(_component))]
+    void Init(ServersideQoLZDO zdo, TComponent component)
+    {
+      _zdo = zdo;
+      _component = component;
+      _hasComponentFields = null;
+      var type = component.GetType();
+      if (!__hasComponentFieldsHashes.TryGetValue(type, out _hasComponentFieldsHash))
+        __hasComponentFieldsHashes.Add(type, _hasComponentFieldsHash = Invariant($"{ZNetView.CustomFieldsStr}{type.Name}").GetStableHashCode());
+    }
+
+    void IComponentFieldAccessor.Return()
+    {
+      System.Diagnostics.Debug.Assert(_zdo is not null);
+      _zdo = null!;
+      _component = null!;
+      __pool.Push(this);
+    }
+
+    public bool HasFields => _zdo.HasFields && (_hasComponentFields ??= _zdo.ZDO.GetBool(_hasComponentFieldsHash));
     void SetHasFields(bool value)
     {
       if (value)
         _zdo.SetHasFields();
 
       if (_hasComponentFields != value)
-        _zdo.ZDO.Set(__hasComponentFieldsHash, (_hasComponentFields = value).Value);
+        _zdo.ZDO.Set(_hasComponentFieldsHash, (_hasComponentFields = value).Value);
     }
 
     static class ExpressionCache<T> where T : notnull

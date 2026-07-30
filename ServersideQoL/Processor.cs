@@ -461,7 +461,6 @@ public abstract class Processor<TPrefabInfo> : Processor
 
     var prefab = prefabInfo.Prefab;
     var components = prefabInfo.Components;
-    var baseComponents = prefabInfo.BaseComponents;
     var args = new object?[_prefabInfoCtorParameters.Length];
     var any = false;
     MethodInfo? createListDef = null;
@@ -479,7 +478,7 @@ public abstract class Processor<TPrefabInfo> : Processor
         assignList = true;
       }
 
-      if (!components.TryGetValue(type, out var list) && !baseComponents.TryGetValue(type, out list))
+      if (!components.TryGetValue(type, out var list))
       {
         if (_prefabInfoCtorParametersNullable[i] is not { } nullable)
           _prefabInfoCtorParametersNullable[i] = nullable = IsNullable(par, ref defaultNullable);

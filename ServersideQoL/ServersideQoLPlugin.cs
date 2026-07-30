@@ -727,20 +727,20 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>() is { } availableComponents)
     {
       prefabInfo = _prefabInfoFactory();
-      Dictionary<Type, IReadOnlyList<MonoBehaviour>>? baseComponents = null;
-      var components = availableComponents
+      Dictionary<Type, IReadOnlyList<MonoBehaviour>>? components = null;
+      foreach (var group in availableComponents
         .Where(static x => x.GetType().Assembly == typeof(ZNetView).Assembly)
-        .GroupBy(static x => x.GetType())
-        .ToDictionary(static x => x.Key, static x => (IReadOnlyList<MonoBehaviour>)[.. x]);
-      foreach (var (key, list) in components)
+        .GroupBy(static x => x.GetType()))
       {
-        for (var type = key.BaseType; type != typeof(MonoBehaviour); type = type.BaseType)
-          (baseComponents ??= []).Add(type, list);
+        IReadOnlyList<MonoBehaviour> list = [.. group];
+        (components ??= []).Add(group.Key, list);
+        for (var type = group.Key.BaseType; type != typeof(MonoBehaviour); type = type.BaseType)
+          components.Add(type, list);
       }
 
-      if (prefab.GetComponent<Piece>() is not null && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
+      if (components?.ContainsKey(typeof(Piece)) is true && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
         components.Add(typeof(PieceTable), [pieceTable]);
-      prefabInfo.Init(prefab, prefabHash, prefab.name, components, baseComponents);
+      prefabInfo.Init(prefab, prefabHash, prefab.name, components);
 
       foreach (var plugin in __plugins)
       {

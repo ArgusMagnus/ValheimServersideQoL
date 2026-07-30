@@ -18,6 +18,8 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     {
       if (ComponentFieldAccessors is { } componentFieldAccessors)
       {
+        foreach (IComponentFieldAccessor componentFieldAccessor in componentFieldAccessors.Values)
+          componentFieldAccessor.Return();
         componentFieldAccessors.Clear();
         __componentFieldAccessorCache.Push(componentFieldAccessors);
       }
@@ -234,10 +236,13 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   {
     if (ComponentFieldAccessors is not { } accessors || !accessors.TryGetValue(typeof(TComponent), out var accessorObj))
     {
-      if (PrefabInfo?.Components is not { } components || !components.TryGetValue(typeof(TComponent), out var componentList))
+      if (PrefabInfo is null)
+        throw new InvalidOperationException($"{nameof(PrefabInfo)} is null");
+
+      if (!PrefabInfo.Components.TryGetValue(typeof(TComponent), out var componentList))
         throw new KeyNotFoundException(typeof(TComponent).FullName);
 
-      accessorObj = new ComponentFieldAccessor<TComponent>(this, (TComponent)componentList[0]);
+      accessorObj = ComponentFieldAccessor.Get(this, (TComponent)componentList[0]);
 
       if (!__componentFieldAccessorCache.TryPop(out accessors))
         accessors = [];
