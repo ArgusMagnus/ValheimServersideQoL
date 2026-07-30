@@ -1,0 +1,2 @@
+- Configure the maximum level of creatures
+- Killing bosses can increase the maximum level of creatures in that boss’s biome and any earlier biomes
