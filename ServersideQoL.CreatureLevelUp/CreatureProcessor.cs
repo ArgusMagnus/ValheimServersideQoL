@@ -68,10 +68,10 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
     if (!_zdosPrev.Contains(zdo))
     {
       // not present in previous run
-      zdo.ZDO.RemoveVec3(ZDOVars.s_scaleHash);
+      zdo.Vars.RemoveScale();
       _nextCheck = DateTimeOffset.UtcNow.AddSeconds(1);
       //Logger.DevLog($"Releasing ownership");
-      zdo.ZDO.Set(ZDOVars.s_scaleScalarHash, scale);
+      zdo.Vars.SetScaleScalar(scale);
       zdo.ReleaseOwnership();
     }
 
@@ -83,7 +83,7 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
     if (DateTimeOffset.UtcNow < _nextCheck)
       return result;
 
-    if (!zdo.ZDO.GetVec3(ZDOVars.s_scaleHash, out var scaleVec) || scaleVec.x != scale)
+    if (zdo.Vars.GetScale().x != scale)
       _zdos.Remove(zdo); // trigger in next run
 
     return result;

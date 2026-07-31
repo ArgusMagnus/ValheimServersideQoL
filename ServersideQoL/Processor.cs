@@ -170,6 +170,50 @@ public abstract class Processor
   public static Guid GetProcessorId(ServersideQoLZDO zdo, Guid defaultValue = default) => zdo.ZDO.GetByteArray(__processorId, []) is { Length: > 0 } arr ? new(arr) : defaultValue;
   public static void SetProcessorId(ServersideQoLZDO zdo, Guid value) => zdo.ZDO.Set(__processorId, value == default ? [] : value.ToByteArray());
 
+  protected static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => field ??= new Func<IReadOnlyDictionary<Heightmap.Biome, Character>>(static () =>
+  {
+    var bosses = new Dictionary<Heightmap.Biome, Character>();
+    foreach (var includeDungeons in (IEnumerable<bool>)[false, true])
+    {
+      foreach (var location in ZoneSystem.instance.m_locations)
+      {
+        if (!location.m_enable || !location.m_prioritized || location.m_biome is Heightmap.Biome.None or Heightmap.Biome.All or Heightmap.Biome.Ocean)
+          continue;
+
+        if (bosses.ContainsKey(location.m_biome))
+          continue;
+
+        try { location.m_prefab.Load(); }
+        catch (Exception ex)
+        {
+          ServersideQoLPlugin.Logger.LogWarning($"Loading location asset {location.m_prefabName} failed: {ex}");
+          continue;
+        }
+
+        if (location.m_prefab.Asset is not { } asset)
+        {
+          ServersideQoLPlugin.Logger.LogWarning($"Loading location asset {location.m_prefabName} failed");
+          continue;
+        }
+
+        var bowl = asset.GetComponentInChildren<OfferingBowl>();
+        if (includeDungeons && bowl is null && asset.GetComponentInChildren<DungeonGenerator>() is { } dungeonGen)
+        {
+          foreach (var roomRef in dungeonGen.GetAvailableRoomPrefabs())
+          {
+            roomRef.Load();
+            var room = roomRef.Asset.GetComponent<Room>();
+            bowl = room.GetComponentInChildren<OfferingBowl>();
+            if (bowl is not null)
+              break;
+          }
+        }
+        if (bowl is not null)
+          bosses.Add(location.m_biome, bowl.m_bossPrefab.GetComponent<Character>());
+      }
+    }
+    return bosses;
+  }).Invoke();
 
   protected static ServersideQoLZDO DataZDO
   {

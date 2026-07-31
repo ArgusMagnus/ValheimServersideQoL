@@ -100,8 +100,8 @@ partial class ServersideQoLZDO
       //readonly Expression<Func<TComponent, T>> _fieldExpression;
       readonly int _hash;
       readonly Func<TComponent, T> _getFieldValue;
-      static readonly Dictionary<string, FieldReference<T>> __cacheByFieldName = [];
-      static readonly Dictionary<(string, int), FieldReference<T>> __cacheByLocation = [];
+      static readonly Dictionary<(Type, string), FieldReference<T>> __cacheByFieldName = [];
+      static readonly Dictionary<(Type, string, int), FieldReference<T>> __cacheByLocation = [];
 
       static readonly (GetHandler<T> Getter, SetHandler<T> Setter, RemoveHandler<T>? Remover, IEqualityComparer<T> EqualityComparer) Accessors =
           new Func<(GetHandler<T>, SetHandler<T>, RemoveHandler<T>?, IEqualityComparer<T>)>(static () =>
@@ -167,28 +167,28 @@ partial class ServersideQoLZDO
             }
           }).Invoke();
 
-      FieldReference(FieldInfo field)
+      FieldReference(Type componentType, FieldInfo field)
       {
 #if DEBUG
         if (field.FieldType != typeof(T))
           throw new Exception($"Field type {typeof(T).Name} expected, actual field type is {field.FieldType.Name}");
 #endif
-        _hash = Invariant($"{typeof(TComponent).Name}.{field.Name}").GetStableHashCode();
+        _hash = Invariant($"{componentType.Name}.{field.Name}").GetStableHashCode();
 
         var par = Expression.Parameter(typeof(TComponent));
         _getFieldValue = Expression.Lambda<Func<TComponent, T>>(Expression.Field(par, field), par).Compile();
       }
 
-      public static FieldReference<T> Get(Func<Expression<Func<TComponent, T>>> factory, string callerFilePath, int callerLineNo)
+      public static FieldReference<T> Get(Type type, Func<Expression<Func<TComponent, T>>> factory, string callerFilePath, int callerLineNo)
       {
-        if (!__cacheByLocation.TryGetValue((callerFilePath, callerLineNo), out var result))
+        if (!__cacheByLocation.TryGetValue((type, callerFilePath, callerLineNo), out var result))
         {
           var expression = ExpressionCache<T>.Get(factory, callerFilePath, callerLineNo);
           var body = (MemberExpression)expression.Body;
           var field = (FieldInfo)body.Member;
-          if (!__cacheByFieldName.TryGetValue(field.Name, out result))
-            __cacheByFieldName.Add(field.Name, result = new(field));
-          __cacheByLocation.Add((callerFilePath, callerLineNo), result);
+          if (!__cacheByFieldName.TryGetValue((type, field.Name), out result))
+            __cacheByFieldName.Add((type, field.Name), result = new(type, field));
+          __cacheByLocation.Add((type, callerFilePath, callerLineNo), result);
         }
         return result;
       }
@@ -263,143 +263,143 @@ partial class ServersideQoLZDO
 
     [MustBeOnUniqueLine]
     public bool GetBool(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
+        => FieldReference<bool>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
     [MustBeOnUniqueLine]
     public float GetFloat(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
+        => FieldReference<float>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
     [MustBeOnUniqueLine]
     public int GetInt(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
+        => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
     [MustBeOnUniqueLine]
     public string GetString(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
+        => FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, bool value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
+        => FieldReference<bool>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, float value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
+        => FieldReference<float>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, int value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
+        => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, Vector3>>> fieldExpressionFactory, Vector3 value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<Vector3>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
+        => FieldReference<Vector3>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, string value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
+        => FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, GameObject value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
+        => FieldReference<GameObject>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Set(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, ItemDrop value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
+        => FieldReference<ItemDrop>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).SetValue(this, value);
 
     [MustBeOnUniqueLine]
     public bool UpdateValue(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, bool value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
+        => FieldReference<bool>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
     [MustBeOnUniqueLine]
     public bool UpdateValue(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, float value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
+        => FieldReference<float>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
     [MustBeOnUniqueLine]
     public bool UpdateValue(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, int value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
+        => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
     [MustBeOnUniqueLine]
     public bool UpdateValue(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, string value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
+        => FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
     [MustBeOnUniqueLine]
     public bool UpdateValue(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, GameObject value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
+        => FieldReference<GameObject>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
     [MustBeOnUniqueLine]
     public bool UpdateValue(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, ItemDrop value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
+        => FieldReference<ItemDrop>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
+        => FieldReference<bool>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
+        => FieldReference<float>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
+        => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
+        => FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
+        => FieldReference<GameObject>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
+        => FieldReference<ItemDrop>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
 
     [MustBeOnUniqueLine]
     public bool UpdateResetValue(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => FieldReference<bool>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool UpdateResetValue(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => FieldReference<float>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool UpdateResetValue(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool UpdateResetValue(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool UpdateResetValue(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => FieldReference<GameObject>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool UpdateResetValue(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => FieldReference<ItemDrop>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool SetOrReset(Func<Expression<Func<TComponent, bool>>> fieldExpressionFactory, bool set, bool setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => set ? FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<bool>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => set ? FieldReference<bool>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<bool>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool SetOrReset(Func<Expression<Func<TComponent, float>>> fieldExpressionFactory, bool set, float setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => set ? FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<float>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => set ? FieldReference<float>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<float>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool SetOrReset(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, bool set, int setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => set ? FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<int>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => set ? FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool SetOrReset(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, bool set, string setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => set ? FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<string>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => set ? FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool SetOrReset(Func<Expression<Func<TComponent, GameObject>>> fieldExpressionFactory, bool set, GameObject setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => set ? FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<GameObject>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => set ? FieldReference<GameObject>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<GameObject>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool SetOrReset(Func<Expression<Func<TComponent, ItemDrop>>> fieldExpressionFactory, bool set, ItemDrop setValue, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
-        => set ? FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<ItemDrop>.Get(fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+        => set ? FieldReference<ItemDrop>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, setValue) : FieldReference<ItemDrop>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
   }
 }

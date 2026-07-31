@@ -72,7 +72,7 @@ public abstract class ConfigBase
     }
   }
 
-  protected sealed class AcceptableEnum<T> : AcceptableValueBase
+  public sealed class AcceptableEnum<T> : AcceptableValueBase
       where T : unmanaged, Enum
   {
     public static AcceptableEnum<T> Default { get; } = new(GetDefaultValues());

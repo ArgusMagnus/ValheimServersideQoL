@@ -103,6 +103,12 @@ partial class ServersideQoLZDO
     public void SetOwner(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_owner, value); }
     public string GetOwnerName(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_ownerName, defaultValue);
     public void SetOwnerName(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_ownerName, value); }
+    public float GetScaleScalar(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_scaleScalarHash, defaultValue);
+    public void SetScaleScalar(float value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_scaleScalarHash, value); }
+    public Vector3 GetScale(Vector3 defaultValue = default) => _zdo.GetVec3(global::ZDOVars.s_scaleHash, defaultValue);
+    public void SetScale(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_scaleHash, value); }
+    public void RemoveScale([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveVec3(global::ZDOVars.s_scaleHash); }
+
 
 #if DEBUG
     static readonly IReadOnlyDictionary<int, string> __namesByHash = new Func<IReadOnlyDictionary<int, string>>(static () =>
