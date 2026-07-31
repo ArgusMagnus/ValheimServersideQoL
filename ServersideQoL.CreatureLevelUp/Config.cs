@@ -44,16 +44,14 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     AfterBossDefeated
   }
 
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
-  //public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
-
-  //public sealed class AdvancedConfig
-  //{
-  //  public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
-
-  //  public sealed class ProcessingDelaysConfig
-  //  {
-  //    public float TimeSigns { get; init; } = 0.5f;
-  //  }
-  //}
+  public sealed class AdvancedConfig
+  {
+    public bool ScaleSizeExponentially { get; init; } = true;
+    string Star { get; init; } = "⭐";
+    string HigherLevelStarNameFormat { get; init; } = "<line-height=150%><voffset=-2em>{0}<size=70%><br><color=yellow>{1}</color></size></voffset></line-height>";
+    public string HigherLevelStarName(Character character, int level)
+      => string.Format(HigherLevelStarNameFormat, character.m_name, string.Concat(Enumerable.Repeat(Star, level - 1)));
+  }
 }

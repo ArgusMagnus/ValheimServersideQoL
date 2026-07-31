@@ -328,7 +328,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (level == initialLevel)
       return result;
 
-    Logger.DevLog($"{zdo.PrefabInfo!.PrefabName}: Set level {initialLevel} -> {level} (min: {spawnData.MinLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
+    //Logger.DevLog($"{zdo.PrefabInfo!.PrefabName}: Set level {initialLevel} -> {level} (min: {spawnData.MinLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
     zdo.Vars.SetLevel(level);
     return result | ProcessResult.RecreateZDO;
   }

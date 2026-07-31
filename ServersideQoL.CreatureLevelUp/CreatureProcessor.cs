@@ -1,4 +1,6 @@
-﻿namespace ServersideQoL.CreatureLevelUp;
+﻿using UnityEngine;
+
+namespace ServersideQoL.CreatureLevelUp;
 
 [Processor("0d2b80d6-03bc-49d7-87e0-6b97bd10925e")]
 [RunAfter<CreatureLevelUpProcessor>]
@@ -35,14 +37,16 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
       var fields = zdo.Fields<Character>();
       if (!Config.Instance.ShowHigherLevelStars.Value)
         fields.Reset(static () => x => x.m_name);
-      else if (fields.UpdateValue(static () => x => x.m_name, $"<line-height=150%><voffset=-2em>{prefabInfo.Character.m_name}<size=70%><br><color=yellow>{string.Concat(Enumerable.Repeat("⭐", level - 1))}</color></size></voffset></line-height>"))
+      else if (fields.UpdateValue(static () => x => x.m_name, Config.Instance.Advanced.Value.HigherLevelStarName(prefabInfo.Character, level)))
         result = ProcessResult.RecreateZDO;
     }
 
     if (prefabInfo.ZSyncTransform is null)
       return result | ProcessResult.UnregisterProcessor;
 
-    var scale = 1 + (level - maxLevel) * Config.Instance.SizeIncreasePerStar.Value;
+    var scale = Config.Instance.Advanced.Value.ScaleSizeExponentially ?
+      Mathf.Pow(1 + Config.Instance.SizeIncreasePerStar.Value, level - 1) :
+      1 + (level - 1) * Config.Instance.SizeIncreasePerStar.Value;
     if (scale is 1)
       zdo.Fields<ZSyncTransform>().Reset(static () => x => x.m_syncScale);
     else if (zdo.Fields<ZSyncTransform>().UpdateValue(static () => x => x.m_syncScale, true))
