@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Configure prefabs to your hearts content.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" />
+  </ItemGroup>
+
+</Project>

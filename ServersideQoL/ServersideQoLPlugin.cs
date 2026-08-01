@@ -594,9 +594,11 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       if ((result & Processor.ProcessResult.RecreateZDO) is not 0)
         recreate = true;
-      else if ((result & Processor.ProcessResult.UnregisterProcessor) is not 0)
+      var unregister = (result & Processor.ProcessResult.UnregisterProcessor) is not 0;
+      if (unregister)
         _unregister.Add(processor);
-      else if ((result & Processor.ProcessResult.ScheduleReprocessing) is not 0)
+      
+      if (!recreate && !unregister && (result & Processor.ProcessResult.ScheduleReprocessing) is not 0)
         ScheduleReprocessing(zdo);
 
       if ((result & Processor.ProcessResult.SkipOtherProcessors) is not 0)
@@ -604,10 +606,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     }
     if (!destroy)
     {
+      if (_unregister.Count > 0)
+        zdo.Unregister(_unregister);
       if (recreate)
         zdo.Recreate();
-      else if (_unregister.Count > 0)
-        zdo.Unregister(_unregister);
     }
   }
 

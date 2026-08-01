@@ -503,6 +503,9 @@ public abstract class Processor<TPrefabInfo> : Processor
     if (_prefabInfoCtor is null || _prefabInfoCtorParameters is null || _prefabInfoCtorParametersNullable is null)
       throw new InvalidOperationException();
 
+    if (_prefabInfoCtorParameters.Length is 0)
+      return (TPrefabInfo)_prefabInfoCtor.Invoke([]);
+
     var prefab = prefabInfo.Prefab;
     var components = prefabInfo.Components;
     var args = new object?[_prefabInfoCtorParameters.Length];

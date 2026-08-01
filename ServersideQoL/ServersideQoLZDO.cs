@@ -84,7 +84,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       ScheduleBefore = scheduleBefore;
   }
 
-  internal void SetHasFields()
+  public void SetComponentHasFields()
   {
     if (_hasFields is not true)
       ZDO.Set(__hasFieldsHash, (_hasFields = true).Value);
@@ -257,7 +257,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     ZDOMan.instance.DestroyZDO(ZDO);
   }
 
-  public ServersideQoLZDO CreateClone()
+  public ServersideQoLZDO CreateClone(bool cloneProcessors)
   {
     var prefab = ZDO.GetPrefab();
     var pos = ZDO.GetPosition();
@@ -270,12 +270,19 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     __pkg.SetPos(0);
     zdo.Deserialize(__pkg);
     zdo.SetOwnerInternal(owner);
+    zdo.ServersideQoLZDO.PrefabInfo = PrefabInfo;
+    if (cloneProcessors)
+    {
+      zdo.ServersideQoLZDO.Processors = Processors;
+      zdo.ServersideQoLZDO.HasProcessors = HasProcessors;
+      zdo.ServersideQoLZDO.ExclusivityCheckDone = ExclusivityCheckDone;
+    }
     return zdo.ServersideQoLZDO;
   }
 
   public ServersideQoLZDO Recreate()
   {
-    var zdo = CreateClone();
+    var zdo = CreateClone(true);
 
     // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
     //_addData?.Recreated?.Invoke(this, zdo);

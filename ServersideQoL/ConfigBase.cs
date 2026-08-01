@@ -45,7 +45,8 @@ public abstract class ConfigBase
   public sealed class YamlConfigEntry<T>(T value) : IYamlConfigEntry
     where T : notnull
   {
-    public T Value { get; private set; } = value;
+    public T Value { get; private set { IsDefault = value.Equals(field); field = value; } } = value;
+    public bool IsDefault { get; private set; } = true;
 
     object IYamlConfigEntry.Value
     {
@@ -257,7 +258,7 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
       throw new InvalidOperationException("Config alredy initialized");
 
     var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
-    var configPath = Path.Combine(configDir, $"{fileName}.yaml");
+    var configPath = Path.Combine(configDir, $"{fileName}.yml");
 
     var entry = new YamlConfigEntry<T>(new());
     __yaml.Add(configPath, entry);
@@ -277,8 +278,10 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
       Directory.CreateDirectory(configDir);
       var defaultConfigPath = Path.ChangeExtension(configPath, "default.yml");
       using var file = new StreamWriter(defaultConfigPath, append: false);
-      file.WriteLine($"# {Path.GetFileName(defaultConfigPath)} contains the default values and is overwritten regularly.");
-      file.WriteLine($"# Rename it to {Path.GetFileName(configPath)} if you want to change values.");
+      file.WriteLine($"""
+        # {Path.GetFileName(defaultConfigPath)} contains the default values and is overwritten regularly.
+        # Rename it to {Path.GetFileName(configPath)} if you want to change values.
+        """);
       file.WriteLine();
       WriteYamlHeader(file);
       serializer.Serialize(file, entry.Value);
@@ -307,11 +310,11 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     }
   }
 
-  static void WriteYamlHeader(StreamWriter writer)
-  {
-    writer.WriteLine($"# IMPORTANT:");
-    writer.WriteLine($"#   This file is for advanced tweaks. You are expected to be familiar with YAML and its pitfalls if you decide to edit it.");
-    writer.WriteLine($"#   Check the log for warnings related to this file and DO NOT open issues asking for help on how to format this file.");
-    writer.WriteLine();
-  }
+  static void WriteYamlHeader(StreamWriter writer) => writer.WriteLine("""
+    # IMPORTANT:
+    #   This file is for advanced tweaks.
+    #   You are expected to be familiar with YAML and its pitfalls if you decide to edit it.
+    #   Check the log for warnings related to this file.
+
+    """);
 }
