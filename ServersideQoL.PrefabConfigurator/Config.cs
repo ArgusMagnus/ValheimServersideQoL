@@ -25,7 +25,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public sealed class ComponentConfig
     {
       public required string Component { get; init; }
-      public required string[] PrefabNames { get; init; }
+      public required string[] PrefabNames { get; init; } = [];
       public required Dictionary<string, object?> Fields { get; init; }
     }
 

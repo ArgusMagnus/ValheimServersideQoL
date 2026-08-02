@@ -80,18 +80,21 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
       var component = componentList[0];
       componentType = component.GetType(); // Get the actual type of the component in case it is a subclass of the expected type
 
-      var prefabFound = false;
-      foreach (var prefabName in item.PrefabNames)
+      var prefabFound = item.PrefabNames is not { Length: > 0 };
+      if (!prefabFound)
       {
-        var hash = prefabName.Trim().GetStableHashCode();
-        if (hash != zdo.ZDO.GetPrefab())
+        foreach (var prefabName in item.PrefabNames)
         {
-          if (ZNetScene.instance.GetPrefab(hash) is null)
-            Logger.LogWarning($"Invalid prefab name '{prefabName}' for component '{item.Component}'");
-          continue;
+          var hash = prefabName.Trim().GetStableHashCode();
+          if (hash != zdo.ZDO.GetPrefab())
+          {
+            if (ZNetScene.instance.GetPrefab(hash) is null)
+              Logger.LogWarning($"Invalid prefab name '{prefabName}' for component '{item.Component}'");
+            continue;
+          }
+          prefabFound = true;
+          break;
         }
-        prefabFound = true;
-        break;
       }
 
       if (!prefabFound)
