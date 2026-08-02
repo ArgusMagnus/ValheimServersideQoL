@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using static Skills;
+﻿using static Skills;
 
 namespace ServersideQoL;
 
@@ -19,12 +18,15 @@ public abstract class PlayerState
   /// </summary>
   public abstract int Stamina { get; }
 
+  public abstract int Eitr { get; }
+
   /// <summary>
   /// Only updated if there is at least one subscriber to <see cref="PlayerRegistryProcessor.ItemUsed"/>
+  /// or skill level estimation is enabled (<see cref="PlayerRegistryProcessor.EnableSkillLevelEstimation"/>)
   /// </summary>
   public abstract ItemDrop? LastUsedItem { get; }
   /// <inheritdoc cref="LastUsedItem"/>
-  //public abstract float GetEstimatedSkillLevel(SkillType skillType);
+  public abstract float GetEstimatedSkillLevel(SkillType skillType);
 
   public abstract IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications { get; }
   public abstract void AddGlobalKeyModification(GlobalKey key, bool add);

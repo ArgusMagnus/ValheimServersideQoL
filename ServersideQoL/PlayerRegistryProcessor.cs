@@ -1,5 +1,8 @@
-﻿using System.Text.RegularExpressions;
+﻿using BepInEx.Logging;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using UnityEngine;
+using static Skills;
 
 namespace ServersideQoL;
 
@@ -11,11 +14,11 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   readonly Dictionary<long, PlayerStateImpl> _statesByPeerID = [];
   readonly Dictionary<long, PlayerStateImpl> _statesByPlayerID = [];
   readonly Dictionary<ZDOID, PlayerStateImpl> _statesByCharacterID = [];
+  readonly HashSet<(string, int)> _estimateSkillLevelsFor = [];
+  bool _estimateSkillLevels = false;
 
   public event Action<PlayerState, Emotes>? EmoteDetected;
-
-  public delegate void StaminaUpdatedHandler(PlayerState state, bool staminaValueChanged);
-  public event StaminaUpdatedHandler? StaminaUpdated;
+  public event Action<PlayerState>? StaminaUpdated;
 
   public delegate void ItemUsedHandler(PlayerState state, string animationTriggerName);
   ItemUsedHandler? _itemUsed;
@@ -23,7 +26,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   {
     add
     {
-      if (_itemUsed is null && value is not null)
+      if (_itemUsed is null && value is not null && !_estimateSkillLevels)
         RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, true);
       _itemUsed += value;
     }
@@ -31,7 +34,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     {
       var wasNotNull = _itemUsed is not null;
       _itemUsed -= value;
-      if (_itemUsed is null && wasNotNull)
+      if (_itemUsed is null && wasNotNull && !_estimateSkillLevels)
         RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, false);
     }
   }
@@ -46,6 +49,20 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     var prefabInfo = GetPrefabInfo(playerZdo);
     System.Diagnostics.Debug.Assert(prefabInfo is not null);
     return GetStateCore(playerZdo, prefabInfo);
+  }
+
+  public void EnableSkillLevelEstimation(bool enable, [CallerMemberName] string filename = default!, [CallerLineNumber] int lineNo = 0)
+  {
+    if (enable ? _estimateSkillLevelsFor.Add((filename, lineNo)) : _estimateSkillLevelsFor.Remove((filename, lineNo)))
+    {
+      if (_estimateSkillLevels == (_estimateSkillLevelsFor.Count is not 0))
+        return;
+      _estimateSkillLevels = !_estimateSkillLevels;
+      if (_estimateSkillLevels && _itemUsed is null)
+        RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, true);
+      else if (!_estimateSkillLevels && _itemUsed is null)
+        RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, false);
+    }
   }
 
   protected internal override void Initialize()
@@ -71,14 +88,67 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       }
     }
 
-    if (StaminaUpdated is not null)
+    if (StaminaUpdated is not null || _estimateSkillLevels)
     {
-      var now = DateTimeOffset.UtcNow;
+      var now = Timestamp.Now;
       if (state.NextStaminaCheck < now)
       {
         state.NextStaminaCheck = now.AddSeconds(Config.Instance.Advanced.Value.Players.UpdateStaminaInterval);
         var stamina = Mathf.FloorToInt(zdo.Vars.GetStamina());
-        StaminaUpdated(state, state.UpdateStamina(stamina, now));
+        if (state.UpdateStamina(stamina, now))
+          StaminaUpdated?.Invoke(state);
+
+        state.UpdateEitr(Mathf.FloorToInt(zdo.Vars.GetEitr()), now);
+      }
+    }
+
+    if (_estimateSkillLevels && state.CheckSkillItem is not null)
+    {
+      var usesEitr = state.CheckSkillItem.m_itemData.m_shared.m_attack.m_attackEitr > 0;
+      var staminaOrEitr = usesEitr ? zdo.Vars.GetEitr() : zdo.Vars.GetStamina();
+
+      if (staminaOrEitr < state.CheckSkillStaminaEitr)
+      {
+        var shared = state.CheckSkillItem.m_itemData.m_shared;
+        var max = usesEitr ? shared.m_attack.m_attackEitr : shared.m_attack.m_attackStamina;
+        var eff = state.CheckSkillStaminaEitr - staminaOrEitr;
+        var diff = max - eff;
+        var estSkill = diff / (max * 0.33f);
+        if (estSkill is >= 0f and <= 1f)
+        {
+          const int HalfHistoryWindow = 3;
+          const int HistoryWindow = 2 * HalfHistoryWindow + 1;
+
+          var prevEstSkill = state.GetEstimatedSkillLevel(shared.m_skillType);
+          if (!state.EstimatedSkillLevelHistories.TryGetValue(shared.m_skillType, out var history))
+          {
+            state.EstimatedSkillLevelHistories.Add(shared.m_skillType, history = (new(HistoryWindow), new(HistoryWindow)));
+            if (!float.IsNaN(prevEstSkill))
+            {
+              for (int i = 0; i < HistoryWindow; i++)
+              {
+                history.Queue.Enqueue(prevEstSkill);
+                history.List.Add(prevEstSkill);
+              }
+            }
+          }
+
+          while (history.Queue.Count >= HistoryWindow)
+            history.List.Remove(history.Queue.Dequeue());
+
+          history.Queue.Enqueue(estSkill);
+          history.List.InsertSorted(estSkill);
+          // median
+          estSkill = history.List[history.List.Count / 2];
+
+          state.EstimatedSkillLevels[shared.m_skillType] = estSkill;
+          SetEstimatedSkillLevel(state.PlayerID, shared.m_skillType, estSkill);
+          var intSkill = Mathf.Floor(estSkill * 100);
+          var intPrevSkill = Mathf.Floor(prevEstSkill * 100);
+          if (intSkill != intPrevSkill)
+            Logger.Log(intSkill - intPrevSkill > 1f ? LogLevel.Warning : LogLevel.Info, $"Player {state.PlayerName}: Estimated {shared.m_skillType} skill level: {intSkill}, Previous estimate: {intPrevSkill} (Item: {state.CheckSkillItem.name}, max stamina: {max}, used stamina: {eff})");
+        }
+        state.CheckSkillItem = null;
       }
     }
 
@@ -92,7 +162,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     var peerID = zdo.ZDO.GetOwner();
     if (!_statesByPeerID.TryGetValue(peerID, out var state))
     {
-      _statesByPeerID.Add(peerID, state = new(zdo, prefabInfo));
+      _statesByPeerID.Add(peerID, state = new(zdo, prefabInfo, this));
       _statesByPlayerID[state.PlayerID] = state;
       _statesByCharacterID[zdo.ZDO.m_uid] = state;
       zdo.Destroyed += OnPlayerDestroyed;
@@ -114,7 +184,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
   void OnZSyncAnimationSetTrigger(ZRoutedRpc.RoutedRPCData data, string name)
   {
-    if (Instance<PlayerRegistryProcessor>().GetStateForCharacterID(data.m_targetZDO) is not PlayerStateImpl state || _itemUsed is null)
+    if (Instance<PlayerRegistryProcessor>().GetStateForCharacterID(data.m_targetZDO) is not PlayerStateImpl state)
       return;
 
     var item = GetItem(state.ZDO.Vars.GetRightItem(), state, name) ?? GetItem(state.ZDO.Vars.GetLeftItem(), state, name);
@@ -122,7 +192,41 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       return;
 
     state.SetLastUsedItem(item);
-    _itemUsed(state, name);
+    _itemUsed?.Invoke(state, name);
+
+    if (_estimateSkillLevels)
+    {
+      state.CheckSkillItem = null;
+      var now = Timestamp.Now;
+      if (item.m_itemData.m_shared is { m_attack.m_attackStamina: > 0 } and ({ m_skillType: not SkillType.Swords } or { m_damages.m_slash: > 0 }))
+      {
+        if (state.StaminaTimestamp < now.AddSeconds(-1.5f * state.PrefabInfo.Player.m_staminaRegenDelay))
+        {
+          var stamina = state.ZDO.Vars.GetStamina();
+          var floored = Mathf.FloorToInt(stamina);
+          if (state.UpdateStamina(floored, now))
+            StaminaUpdated?.Invoke(state);
+          else if (stamina >= 2 * item.m_itemData.m_shared.m_attack.m_attackStamina) // infinite stamina feature might interfere
+          {
+            state.CheckSkillStaminaEitr = stamina;
+            state.CheckSkillItem = item;
+          }
+        }
+      }
+      else if (item.m_itemData.m_shared.m_attack.m_attackEitr > 0)
+      {
+        if (state.EitrTimestamp < now.AddSeconds(-1.5f * state.PrefabInfo.Player.m_eitrRegenDelay))
+        {
+          var eitr = state.ZDO.Vars.GetEitr();
+          var floored = Mathf.FloorToInt(eitr);
+          if (!state.UpdateEitr(floored, now))
+          {
+            state.CheckSkillStaminaEitr = eitr;
+            state.CheckSkillItem = item;
+          }
+        }
+      }
+    }
   }
 
   ItemDrop? GetItem(int prefab, PlayerStateImpl state, string triggerName)
@@ -151,10 +255,15 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     return null;
   }
 
-  sealed class PlayerStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo) : PlayerState
+  static float GetEstimatedSkillLevel(long playerID, SkillType skill, float defaultValue = default) => DataZDO.ZDO.GetFloat($"player{playerID}_EstimatedSkillLevel_{skill}", defaultValue);
+  static void SetEstimatedSkillLevel(long playerID, SkillType skill, float value) => DataZDO.ZDO.Set($"player{playerID}_EstimatedSkillLevel_{skill}", value);
+
+
+  sealed class PlayerStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo, PlayerRegistryProcessor processor) : PlayerState
   {
     readonly ServersideQoLZDO _zdo = zdo;
     readonly PrefabInfo _prefabInfo = prefabInfo;
+    readonly PlayerRegistryProcessor _processor = processor;
 
     public override ServersideQoLZDO ZDO => _zdo;
     public override PrefabInfo PrefabInfo => _prefabInfo;
@@ -169,12 +278,12 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
 
     public int LastEmoteId { get; set; } = 0; // Ignore first 'Sit' when logging in
 
-    public DateTimeOffset NextStaminaCheck { get; set; }
+    public Timestamp NextStaminaCheck { get; set; }
     int _stamina;
-    DateTimeOffset _staminaTimestamp = DateTimeOffset.UtcNow;
+    Timestamp _staminaTimestamp;
     public override int Stamina => _stamina;
-    public DateTimeOffset StaminaTimestamp => _staminaTimestamp;
-    public bool UpdateStamina(int value, DateTimeOffset timestamp)
+    public Timestamp StaminaTimestamp => _staminaTimestamp;
+    public bool UpdateStamina(int value, Timestamp timestamp)
     {
       if (_stamina == value)
         return false;
@@ -183,9 +292,36 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       return true;
     }
 
+    int _eitr;
+    Timestamp _eitrTimestamp;
+    public override int Eitr => _eitr;
+    public Timestamp EitrTimestamp => _eitrTimestamp;
+    public bool UpdateEitr(int value, Timestamp timestamp)
+    {
+      if (_eitr == value)
+        return false;
+      _eitr = value;
+      _eitrTimestamp = timestamp;
+      return true;
+    }
+
     ItemDrop? _lastUsedItem;
     public override ItemDrop? LastUsedItem => _lastUsedItem;
     public void SetLastUsedItem(ItemDrop item) => _lastUsedItem = item;
+
+    public ItemDrop? CheckSkillItem { get; set; }
+    public float CheckSkillStaminaEitr { get; set; }
+    public Dictionary<SkillType, float> EstimatedSkillLevels => field ??= [];
+    public Dictionary<SkillType, (Queue<float> Queue, List<float> List)> EstimatedSkillLevelHistories => field ??= [];
+
+    public override float GetEstimatedSkillLevel(SkillType skillType)
+    {
+      if (!_processor._estimateSkillLevels)
+        throw new InvalidOperationException($"{nameof(EnableSkillLevelEstimation)}(true) must be called before calling {nameof(GetEstimatedSkillLevel)}");
+      if (!EstimatedSkillLevels.TryGetValue(skillType, out var level))
+        EstimatedSkillLevels.Add(skillType, level = PlayerRegistryProcessor.GetEstimatedSkillLevel(PlayerID, skillType, float.NaN));
+      return level;
+    }
 
     bool _hasChangedGlobalKeyModifications;
     Dictionary<GlobalKey, bool>? _globalKeyModifications;

@@ -8,11 +8,6 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
 
   protected override void Initialize()
   {
-    var subscribeSetTrigger = false;
-    if (Game.m_staminaRate > 0)
-      subscribeSetTrigger = Config.Instance.InfiniteBuildingStamina.Value || Config.Instance.InfiniteFarmingStamina.Value || Config.Instance.InfiniteMiningStamina.Value || Config.Instance.InfiniteWoodCuttingStamina.Value;
-    RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, subscribeSetTrigger);
-
     RPC.Intercept.UpdateInterception("RPC_AnimateLever", RPC_AnimateLever,
         Config.Instance.CanSacrificeMegingjord.Value ||
         Config.Instance.CanSacrificeCryptKey.Value ||
@@ -22,6 +17,13 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
     Instance<PlayerRegistryProcessor>().StaminaUpdated -= OnPlayerStaminaUpdated;
     if (Config.Instance.InfiniteEncumberedStamina.Value || Config.Instance.InfiniteSneakingStamina.Value || Config.Instance.InfiniteSwimmingStamina.Value)
       Instance<PlayerRegistryProcessor>().StaminaUpdated += OnPlayerStaminaUpdated;
+
+    var subscribeSetTrigger = false;
+    if (Game.m_staminaRate > 0)
+      subscribeSetTrigger = Config.Instance.InfiniteBuildingStamina.Value || Config.Instance.InfiniteFarmingStamina.Value || Config.Instance.InfiniteMiningStamina.Value || Config.Instance.InfiniteWoodCuttingStamina.Value;
+    Instance<PlayerRegistryProcessor>().ItemUsed -= OnPlayerItemUsed;
+    if (subscribeSetTrigger)
+      Instance<PlayerRegistryProcessor>().ItemUsed += OnPlayerItemUsed;
 
     Instance<PlayerRegistryProcessor>().EmoteDetected -= OnEmoteDetected;
     if (Config.Instance.OpenCartEmote.Value is not ConfigBase.DisabledEmote)
@@ -49,11 +51,8 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
     return ProcessResult.UnregisterProcessor;
   }
 
-  void OnPlayerStaminaUpdated(PlayerState state, bool staminaValueChanged)
+  void OnPlayerStaminaUpdated(PlayerState state)
   {
-    if (staminaValueChanged)
-      return;
-
     if (state.Stamina < state.PrefabInfo.Player.m_encumberedStaminaDrain && Config.Instance.InfiniteEncumberedStamina.Value && state.ZDO.Vars.GetAnimationIsEncumbered())
       RPC.UseStamina(state.ZDO, -state.PrefabInfo.Player.m_encumberedStaminaDrain);
     else if (state.Stamina < state.PrefabInfo.Player.m_sneakStaminaDrain && Config.Instance.InfiniteSneakingStamina.Value && state.ZDO.Vars.GetAnimationIsCrouching())
@@ -62,21 +61,8 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
       RPC.UseStamina(state.ZDO, -state.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
   }
 
-  /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
-  void OnZSyncAnimationSetTrigger(ZRoutedRpc.RoutedRPCData data, string name)
+  void OnPlayerItemUsed(PlayerState state, string animationTriggerName)
   {
-    if (Instance<PlayerRegistryProcessor>().GetStateForCharacterID(data.m_targetZDO) is not { } state)
-      return;
-
-    ItemDrop? rightItem = null;
-    var prefab = state.ZDO.Vars.GetRightItem();
-    if (prefab is not 0)
-    {
-      rightItem = ObjectDB.instance.GetItemPrefab(prefab)?.GetComponent<ItemDrop>();
-      if (rightItem is null)
-        Logger.LogWarning($"Player {state.PlayerName}: SetTrigger({name}): Right item prefab '{prefab}' not found");
-    }
-
     static bool CheckStamina(string triggerName)
     {
       switch (triggerName)
@@ -97,9 +83,9 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
       }
     }
 
-    if (rightItem is not null && CheckStamina(name))
+    if (state.LastUsedItem is not null && CheckStamina(animationTriggerName))
     {
-      var requiredStamina = rightItem.m_itemData.m_shared.m_attack.m_attackStamina;
+      var requiredStamina = state.LastUsedItem.m_itemData.m_shared.m_attack.m_attackStamina;
       if (state.ZDO.Vars.GetStamina() < 2 * requiredStamina)
         RPC.UseStamina(state.ZDO, -requiredStamina);
     }
