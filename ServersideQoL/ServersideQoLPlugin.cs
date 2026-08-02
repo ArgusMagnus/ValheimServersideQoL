@@ -33,16 +33,21 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   const uint ExpectedWorldVersion = 36;
 
   uint _unfinishedProcessingInRow;
-  readonly Stack<List<Peer>> _sectorPeersPool = [];
-  Dictionary<Vector2s, List<Peer>> _playerSectors = [];
-  Dictionary<Vector2s, List<Peer>> _playerSectorsOld = [];
-  List<(Processor, double)>? _processingTimes;
+
+  sealed class SectorState
+  {
+    public List<Peer> Peers { get; } = [];
+    public HashSet<ServersideQoLZDO> Changed { get; } = [];
+    public HashSet<ServersideQoLZDO> Repeat { get; } = [];
+  }
+
+  readonly Dictionary<Vector2s, SectorState> _sectors = [];
+  readonly HashSet<SectorState> _sectorsToProcess = [];
+  List<ServersideQoLZDO> _repeat = [];
+  SectorState? _currentlyProcessing;
 
   readonly List<Processor> _unregister = [];
-  readonly HashSet<ServersideQoLZDO> _changed = [];
-  HashSet<ServersideQoLZDO> _repeat = [];
-  HashSet<ServersideQoLZDO> _repeat2 = [];
-  bool _ignoreChanged;
+  List<(Processor, double)>? _processingTimes;
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
@@ -226,10 +231,16 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   void AddChanged(ServersideQoLZDO zdo)
   {
-    if (!_ignoreChanged)
-      _changed.Add(zdo);
-    else if (!_changed.Contains(zdo))
-      _repeat.Add(zdo);
+    var sector = zdo.ZDO.GetSector();
+    if (!_sectors.TryGetValue(sector, out var sectorState))
+    {
+      _sectors.Add(sector, sectorState = new());
+      sectorState.Changed.Add(zdo);
+    }
+    else if (_currentlyProcessing != sectorState)
+      sectorState.Changed.Add(zdo);
+    else if (!sectorState.Changed.Contains(zdo))
+      sectorState.Repeat.Add(zdo);
   }
 
   void OnPrefabChanged(ServersideQoLZDO zdo)
@@ -344,7 +355,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       }
     }
 
-    foreach (var zdo in _changed)
+    foreach (var zdo in _sectors.Values.SelectMany(static x => x.Changed))
     {
       if (zdo.ZDO.IsValid())
         zdo.PrefabInfo ??= GetPrefabInfo(zdo.ZDO.GetPrefab());
@@ -420,26 +431,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
     var executeUntil = timeStartSeconds + timeBudgetSeconds;
 
-    (_repeat, _repeat2) = (_repeat2, _repeat);
-    if (_repeat2.Count is not 0)
-    {
-      foreach (var zdo in _repeat2)
-      {
-        if (zdo.ScheduleBefore > executeUntil)
-          _repeat.Add(zdo);
-        else
-          _changed.Add(zdo);
-      }
-      _repeat2.Clear();
-    }
-
-    if (_changed.Count is 0)
-      return;
-
-
-    //SharedProcessorState.CleanUp(peers);
-
-    (_playerSectors, _playerSectorsOld) = (_playerSectorsOld, _playerSectors);
+    _sectorsToProcess.Clear();
     var zonesAroundPlayers = ZoneSystem.instance.m_activeArea - 1; // Config.General.ZonesAroundPlayers.Value;
     foreach (var peer in peers)
     {
@@ -449,78 +441,79 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         for (int y = playerSector.y - zonesAroundPlayers; y <= playerSector.y + zonesAroundPlayers; y++)
         {
           var sector = new Vector2s(x, y);
-          if (_playerSectorsOld.Remove(sector, out var sectorPeers))
-          {
-            _playerSectors.Add(sector, sectorPeers);
-            sectorPeers.Clear();
-            sectorPeers.Add(peer);
-          }
-          else if (_playerSectors.TryGetValue(sector, out sectorPeers))
-          {
-            sectorPeers.Add(peer);
-          }
-          else
-          {
-            if (_sectorPeersPool.TryPop(out sectorPeers))
-              sectorPeers.Add(peer);
-            else
-              sectorPeers = [peer];
-            _playerSectors.Add(sector, sectorPeers);
-          }
+          if (!_sectors.TryGetValue(sector, out var state) || state is { Changed.Count: 0, Repeat.Count: 0 })
+            continue;
+          state.Peers.Add(peer);
+          _sectorsToProcess.Add(state);
         }
       }
     }
 
-    foreach (var sectorInfo in _playerSectorsOld.Values)
-    {
-      sectorInfo.Clear();
-      _sectorPeersPool.Push(sectorInfo);
-    }
-    _playerSectorsOld.Clear();
-
-    var playerSectors = _playerSectors;
+    if (_sectorsToProcess.Count is 0)
+      return;
 
     Processor.StaticPreProcess(peers);
     foreach (var processor in _enabledProcessors)
       processor.PreProcessInternal(peers);
 
-    int processedSectors = 0;
     int processedZdos = 0;
-    int totalZdos = _changed.Count;
+    int totalZdos = 0;
 
-    _ignoreChanged = true;
-    foreach (var zdo in _changed)
+    foreach (var sectorState in _sectorsToProcess)
     {
-      processedZdos++;
-      if (!zdo.ZDO.IsValid())
-        continue;
-
-      if (zdo.PrefabInfo is null)
+      if (sectorState.Repeat.Count is not 0)
       {
-        zdo.PrefabInfo = GetPrefabInfo(zdo.ZDO.GetPrefab());
-        if (zdo.PrefabInfo is null)
-          continue;
+        foreach (var zdo in sectorState.Repeat)
+        {
+          if (!zdo.ZDO.IsValid())
+            continue;
+
+          if (zdo.ScheduleBefore > executeUntil)
+            _repeat.Add(zdo);
+          else
+            sectorState.Changed.Add(zdo);
+        }
+        sectorState.Repeat.Clear();
+
+        foreach (var zdo in _repeat)
+        {
+          var sector = zdo.ZDO.GetSector();
+          if (!_sectors.TryGetValue(sector, out var state))
+            _sectors.Add(sector, state = new());
+          state.Repeat.Add(zdo);
+        }
+        _repeat.Clear();
       }
 
-      if (!zdo.HasProcessors)
-        continue;
-
-      if (!playerSectors.TryGetValue(zdo.ZDO.GetSector(), out var sectorPeers))
+      if (sectorState.Changed.Count is not 0)
       {
-        ScheduleReprocessing(zdo, Config.Advanced.Value.ProcessingDelays.WhenNoNearbyPlayers);
-        continue;
-      }
+        totalZdos += sectorState.Changed.Count;
+        _currentlyProcessing = sectorState;
+        foreach (var zdo in sectorState.Changed)
+        {
+          processedZdos++;
+          if (!zdo.ZDO.IsValid())
+            continue;
 
-      ProcessZdo(sectorPeers, zdo);
+          if (zdo.PrefabInfo is null)
+          {
+            zdo.PrefabInfo = GetPrefabInfo(zdo.ZDO.GetPrefab());
+            if (zdo.PrefabInfo is null)
+              continue;
+          }
+
+          if (!zdo.HasProcessors)
+            continue;
+
+          ProcessZdo(sectorState.Peers, zdo);
+        }
+        sectorState.Changed.Clear();
+        _currentlyProcessing = null;
+      }
+      sectorState.Peers.Clear();
     }
 
-    //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
-    //    processor.PostProcess();
-
-    _changed.Clear();
-    _ignoreChanged = false;
-
-    if (processedSectors < _playerSectors.Count || processedZdos < totalZdos)
+    if (processedZdos < totalZdos)
       _unfinishedProcessingInRow++;
     else
       _unfinishedProcessingInRow = 0;
@@ -714,12 +707,18 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     Logger.DevLog(string.Join($"{Environment.NewLine}  - ", processors.Select(static x => $"{x.Attribute.Id} ({x.GetType().FullName})").Prepend("Processor order:")));
   }
 
-  internal void ScheduleReprocessing(ServersideQoLZDO zdo) => _repeat.Add(zdo);
+  internal void ScheduleReprocessing(ServersideQoLZDO zdo)
+  {
+    var sector = zdo.ZDO.GetSector();
+    if (!_sectors.TryGetValue(sector, out var state))
+      _sectors.Add(sector, state = new());
+    state.Repeat.Add(zdo);
+  }
 
   internal void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
   {
     zdo.DelaySchedulingFor(delayInSeconds);
-    _repeat.Add(zdo);
+    ScheduleReprocessing(zdo);
   }
 
   internal PrefabInfo? GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
