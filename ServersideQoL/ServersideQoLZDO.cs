@@ -67,6 +67,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   public bool HasFields => _hasFields ??= ZDO.GetBool(__hasFieldsHash);
   internal Dictionary<Type, object>? ComponentFieldAccessors { get; private set; }
   internal float ScheduleBefore { get; set; } = float.NaN;
+  public Timestamp OwnerTimestamp { get; private set; }
 
 #if DEBUG
   public int Debug { get; set; }
@@ -104,7 +105,9 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   uint _prevDataRev = uint.MaxValue;
   internal bool UpdateOwnerAndDataRevisions()
   {
-    if ((ZDO.OwnerRevision, ZDO.DataRevision) == (_prevOwnerRev, _prevDataRev))
+    if (ZDO.OwnerRevision != _prevOwnerRev)
+      OwnerTimestamp = Timestamp.Now;
+    else if (ZDO.DataRevision == _prevDataRev)
       return false;
     (_prevOwnerRev, _prevDataRev) = (ZDO.OwnerRevision, ZDO.DataRevision);
     return true;

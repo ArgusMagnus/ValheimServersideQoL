@@ -16,6 +16,7 @@
   <Project Path="ServersideQoL.ContainerSizes/ServersideQoL.ContainerSizes.csproj" Id="ca153c80-1a24-44c7-bd3b-47e6418fdb86" />
   <Project Path="ServersideQoL.CreatureLevelUp/ServersideQoL.CreatureLevelUp.csproj" Id="f2a68859-193c-48ad-8e71-fef209376160" />
   <Project Path="ServersideQoL.JustSleep/ServersideQoL.JustSleep.csproj" Id="820b4b17-3b02-4b2a-9a2a-13ebc10e58b1" />
+  <Project Path="ServersideQoL.MultiplayerTweaks/ServersideQoL.MultiplayerTweaks.csproj" Id="c4312622-60f1-44c4-a1b9-945e3c4ead34" />
   <Project Path="ServersideQoL.Patchers/ServersideQoL.Patchers.csproj" Id="eec6258e-f364-4478-99d2-6fb6a80cd729" />
   <Project Path="ServersideQoL.Player/ServersideQoL.Player.csproj" Id="75cbd1e3-f114-462c-9c56-cb93a51d2d29" />
   <Project Path="ServersideQoL.PrefabConfigurator/ServersideQoL.PrefabConfigurator.csproj" Id="06cc4b4e-b03b-4f98-9673-a8ea9405fc0d" />
