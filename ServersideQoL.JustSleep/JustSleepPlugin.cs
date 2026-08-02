@@ -1,0 +1,14 @@
+﻿using BepInEx.Configuration;
+using HarmonyLib;
+
+namespace ServersideQoL.JustSleep;
+
+partial class JustSleepPlugin : ServersideQoLPluginBase<JustSleepPlugin, Config>
+{
+  internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
+
+  protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
+
+  protected override void RegisterProcessors(IProcessorCollection processors) => processors
+    .Add<PlayerProcessor>();
+}

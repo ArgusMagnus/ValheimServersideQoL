@@ -1,0 +1,3 @@
+- Allows players to vote to sleep and skip the night by sitting down
+- Configurable minimum number of players in bed to trigger the sleep prompt
+- Configurable percentage of players that must be in bed or sitting to skip the night

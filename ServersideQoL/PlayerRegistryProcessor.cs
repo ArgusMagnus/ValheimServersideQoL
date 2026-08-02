@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ServersideQoL;
 
@@ -20,6 +19,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   public PlayerState? GetStateForPeerID(long peerID) => _statesByPeerID.TryGetValue(peerID, out var state) ? state : null;
   public PlayerState? GetStateForPlayerID(long playerID) => _statesByPlayerID.TryGetValue(playerID, out var state) ? state : null;
   public PlayerState? GetStateForCharacterID(ZDOID characterID) => _statesByCharacterID.TryGetValue(characterID, out var state) ? state : null;
+  public IReadOnlyCollection<PlayerState> PlayerStates => _statesByPeerID.Values;
 
   public PlayerState GetState(ServersideQoLZDO playerZdo)
   {
