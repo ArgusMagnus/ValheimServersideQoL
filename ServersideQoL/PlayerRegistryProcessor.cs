@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace ServersideQoL;
 
@@ -11,10 +12,29 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   readonly Dictionary<long, PlayerStateImpl> _statesByPlayerID = [];
   readonly Dictionary<ZDOID, PlayerStateImpl> _statesByCharacterID = [];
 
-  public event Action<ServersideQoLZDO, PlayerState, Emotes>? EmoteDetected;
+  public event Action<PlayerState, Emotes>? EmoteDetected;
 
-  public delegate void StaminaUpdatedHandler(ServersideQoLZDO zdo, PlayerState state, bool staminaValueChanged);
+  public delegate void StaminaUpdatedHandler(PlayerState state, bool staminaValueChanged);
   public event StaminaUpdatedHandler? StaminaUpdated;
+
+  public delegate void ItemUsedHandler(PlayerState state, string animationTriggerName);
+  ItemUsedHandler? _itemUsed;
+  public event ItemUsedHandler? ItemUsed
+  {
+    add
+    {
+      if (_itemUsed is null && value is not null)
+        RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, true);
+      _itemUsed += value;
+    }
+    remove
+    {
+      var wasNotNull = _itemUsed is not null;
+      _itemUsed -= value;
+      if (_itemUsed is null && wasNotNull)
+        RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, false);
+    }
+  }
 
   public PlayerState? GetStateForPeerID(long peerID) => _statesByPeerID.TryGetValue(peerID, out var state) ? state : null;
   public PlayerState? GetStateForPlayerID(long playerID) => _statesByPlayerID.TryGetValue(playerID, out var state) ? state : null;
@@ -47,7 +67,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
         state.LastEmoteId = emoteId;
         var emote = zdo.Vars.GetEmote();
         if (emote is not ConfigBase.DisabledEmote)
-          EmoteDetected(zdo, state, emote);
+          EmoteDetected(state, emote);
       }
     }
 
@@ -58,7 +78,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       {
         state.NextStaminaCheck = now.AddSeconds(Config.Instance.Advanced.Value.Players.UpdateStaminaInterval);
         var stamina = Mathf.FloorToInt(zdo.Vars.GetStamina());
-        StaminaUpdated(zdo, state, state.UpdateStamina(stamina, now));
+        StaminaUpdated(state, state.UpdateStamina(stamina, now));
       }
     }
 
@@ -89,6 +109,46 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     _statesByCharacterID.Remove(zdo.ZDO.m_uid);
     if (_statesByPlayerID.Remove(state.PlayerID, out var state2) && state2 != state)
       _statesByPlayerID.Add(state.PlayerID, state2);
+  }
+
+  /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
+  void OnZSyncAnimationSetTrigger(ZRoutedRpc.RoutedRPCData data, string name)
+  {
+    if (Instance<PlayerRegistryProcessor>().GetStateForCharacterID(data.m_targetZDO) is not PlayerStateImpl state || _itemUsed is null)
+      return;
+
+    var item = GetItem(state.ZDO.Vars.GetRightItem(), state, name) ?? GetItem(state.ZDO.Vars.GetLeftItem(), state, name);
+    if (item is null)
+      return;
+
+    state.SetLastUsedItem(item);
+    _itemUsed(state, name);
+  }
+
+  ItemDrop? GetItem(int prefab, PlayerStateImpl state, string triggerName)
+  {
+    if (prefab is 0)
+      return null;
+
+    if (ObjectDB.instance.GetItemPrefab(prefab)?.GetComponent<ItemDrop>() is not { } item)
+    {
+      Logger.LogWarning($"Player {state.PlayerName}: SetTrigger({triggerName}): Item prefab '{prefab}' not found");
+      return null;
+    }
+
+    if (item?.m_itemData.m_shared.m_attack is not { } attack)
+      return null;
+
+    /// <see cref="Attack.Start"/>
+    if (attack.m_attackChainLevels > 1 || attack.m_attackRandomAnimations >= 2)
+    {
+      if (Regex.IsMatch(triggerName, $@"^{Regex.Escape(attack.m_attackAnimation)}\d+$"))
+        return item;
+    }
+    else if (triggerName == attack.m_attackAnimation)
+      return item;
+
+    return null;
   }
 
   sealed class PlayerStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo) : PlayerState
@@ -122,6 +182,10 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       _staminaTimestamp = timestamp;
       return true;
     }
+
+    ItemDrop? _lastUsedItem;
+    public override ItemDrop? LastUsedItem => _lastUsedItem;
+    public void SetLastUsedItem(ItemDrop item) => _lastUsedItem = item;
 
     bool _hasChangedGlobalKeyModifications;
     Dictionary<GlobalKey, bool>? _globalKeyModifications;

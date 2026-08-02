@@ -49,17 +49,17 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
     return ProcessResult.UnregisterProcessor;
   }
 
-  void OnPlayerStaminaUpdated(ServersideQoLZDO zdo, PlayerState state, bool staminaValueChanged)
+  void OnPlayerStaminaUpdated(PlayerState state, bool staminaValueChanged)
   {
     if (staminaValueChanged)
       return;
 
-    if (state.Stamina < state.PrefabInfo.Player.m_encumberedStaminaDrain && Config.Instance.InfiniteEncumberedStamina.Value && zdo.Vars.GetAnimationIsEncumbered())
-      RPC.UseStamina(zdo, -state.PrefabInfo.Player.m_encumberedStaminaDrain);
-    else if (state.Stamina < state.PrefabInfo.Player.m_sneakStaminaDrain && Config.Instance.InfiniteSneakingStamina.Value && zdo.Vars.GetAnimationIsCrouching())
-      RPC.UseStamina(zdo, -state.PrefabInfo.Player.m_sneakStaminaDrain);
-    else if (state.Stamina < state.PrefabInfo.Player.m_swimStaminaDrainMinSkill && Config.Instance.InfiniteSwimmingStamina.Value && zdo.Vars.GetAnimationInWater())
-      RPC.UseStamina(zdo, -state.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
+    if (state.Stamina < state.PrefabInfo.Player.m_encumberedStaminaDrain && Config.Instance.InfiniteEncumberedStamina.Value && state.ZDO.Vars.GetAnimationIsEncumbered())
+      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Player.m_encumberedStaminaDrain);
+    else if (state.Stamina < state.PrefabInfo.Player.m_sneakStaminaDrain && Config.Instance.InfiniteSneakingStamina.Value && state.ZDO.Vars.GetAnimationIsCrouching())
+      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Player.m_sneakStaminaDrain);
+    else if (state.Stamina < state.PrefabInfo.Player.m_swimStaminaDrainMinSkill && Config.Instance.InfiniteSwimmingStamina.Value && state.ZDO.Vars.GetAnimationInWater())
+      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
   }
 
   /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
@@ -161,12 +161,12 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
     }
   }
 
-  void OnEmoteDetected(ServersideQoLZDO zdo, PlayerState state, Emotes emote)
+  void OnEmoteDetected(PlayerState state, Emotes emote)
   {
     if (Config.Instance.OpenCartEmote.Value is not ConfigBase.AnyEmote && Config.Instance.OpenCartEmote.Value != emote)
       return;
 
-    if (_attachedCartsByPlayer.TryGetValue(zdo, out var cart) && cart.ZDO.GetOwner() == state.Owner && cart.Vars.GetAttachJoint())
+    if (_attachedCartsByPlayer.TryGetValue(state.ZDO, out var cart) && cart.ZDO.GetOwner() == state.Owner && cart.Vars.GetAttachJoint())
       RPC.OpenResponse(cart, true);
   }
 

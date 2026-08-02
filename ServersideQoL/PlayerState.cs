@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using static Skills;
 
 namespace ServersideQoL;
 
@@ -17,6 +18,13 @@ public abstract class PlayerState
   /// Only updated if there is at least one subscriber to <see cref="PlayerRegistryProcessor.StaminaUpdated"/>
   /// </summary>
   public abstract int Stamina { get; }
+
+  /// <summary>
+  /// Only updated if there is at least one subscriber to <see cref="PlayerRegistryProcessor.ItemUsed"/>
+  /// </summary>
+  public abstract ItemDrop? LastUsedItem { get; }
+  /// <inheritdoc cref="LastUsedItem"/>
+  //public abstract float GetEstimatedSkillLevel(SkillType skillType);
 
   public abstract IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications { get; }
   public abstract void AddGlobalKeyModification(GlobalKey key, bool add);

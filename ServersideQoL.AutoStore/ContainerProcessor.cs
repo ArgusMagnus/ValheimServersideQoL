@@ -179,7 +179,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     return default;
   }
 
-  void OnPlayerEmoteDetected(ServersideQoLZDO zdo, PlayerState state, Emotes emote)
+  void OnPlayerEmoteDetected(PlayerState state, Emotes emote)
   {
     if (Config.Instance.StackInventoryIntoContainersEmote.Value is not ConfigBase.AnyEmote && Config.Instance.StackInventoryIntoContainersEmote.Value != emote)
       return;
@@ -187,7 +187,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     List<ServersideQoLZDO>? toRemove = null;
     Dictionary<SharedItemDataKey, ItemDrop.ItemData>? items = null;
 
-    foreach (var containers in _containers!.EnumerateAdjacent(zdo.ZDO.GetPosition()))
+    foreach (var containers in _containers!.EnumerateAdjacent(state.ZDO.ZDO.GetPosition()))
     {
       toRemove?.Clear();
       foreach (var containerZdo in containers)
@@ -201,10 +201,10 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         var pickupRangeSqr = containerState.PickupRange ?? Config.Instance.AutoPickupRange.Value;
         pickupRangeSqr *= pickupRangeSqr;
 
-        if (pickupRangeSqr is 0f || Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > pickupRangeSqr)
+        if (pickupRangeSqr is 0f || Utils.DistanceSqr(state.ZDO.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > pickupRangeSqr)
           continue;
 
-        if (containerState.PrefabInfo.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != zdo.Vars.GetPlayerID())
+        if (containerState.PrefabInfo.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != state.ZDO.Vars.GetPlayerID())
           continue; // private container
 
         var containerInventory = containerState.GetInventory();
@@ -221,7 +221,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
     if (items is not null)
     {
-      var container = PlacePiece(zdo.ZDO.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
+      var container = PlacePiece(state.ZDO.ZDO.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
       var h = Math.Max(4, items.Count);
       container.Fields<Container>()
           .Set(static () => x => x.m_width, 8)
@@ -236,8 +236,8 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         inventory.Items.Add(clone);
       }
       inventory.Save();
-      container.ZDO.SetOwnerInternal(zdo.ZDO.GetOwner());
-      _stackContainers.Add(container, new(zdo));
+      container.ZDO.SetOwnerInternal(state.ZDO.ZDO.GetOwner());
+      _stackContainers.Add(container, new(state.ZDO));
       container.Destroyed += OnStackContainerDestroyed;
       RPC.StackResponse(container, true);
     }
