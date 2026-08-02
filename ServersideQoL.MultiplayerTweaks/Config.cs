@@ -8,6 +8,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
     "Enables/disables the entire mod");
+  public ConfigEntry<bool> ForcePlayerMapPin { get; } = BindEx(cfg, Section, false,
+    "True to force player map pins to be visible for all players");
   public ConfigEntry<bool> AssignInteractablesToClosestPlayer { get; } = BindEx(cfg, Section, false, """
     True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest player.
     This should help avoiding the loss of ore, etc. due to networking issues.

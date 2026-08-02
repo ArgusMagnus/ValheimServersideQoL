@@ -1,4 +1,6 @@
-﻿namespace ServersideQoL.MultiplayerTweaks;
+﻿using HarmonyLib;
+
+namespace ServersideQoL.MultiplayerTweaks;
 
 [Processor("71988cd7-0b04-4603-8759-21ab8585ac05")]
 [DependsOn<PlayerRegistryProcessor>]
@@ -6,7 +8,17 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
 {
   public sealed record PrefabInfo(Ship? Ship, Smelter? Smelter, CookingStation? CookingStation, Character? Character) : ProcessorPrefabInfo;
 
+  bool _patched;
   Timestamp _maxOwnerTimestamp;
+
+  protected override void Initialize()
+  {
+    if (!_patched && Config.Instance.ForcePlayerMapPin.Value)
+    {
+      _patched = true;
+      MultiplayerTweaksPlugin.HarmonyInstance.PatchAll(typeof(ZNetServerSyncedPlayerDataPatch));
+    }
+  }
 
   protected override void PreProcess(PeersEnumerable peers)
   {
@@ -58,4 +70,17 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
   bool ShouldAssignToClosestPlayer(ServersideQoLZDO zdo, PrefabInfo prefabInfo) =>
       (Config.Instance.AssignInteractablesToClosestPlayer.Value && prefabInfo is not { Smelter: null, CookingStation: null }) ||
       (Config.Instance.AssignMobsToClosestPlayer.Value && prefabInfo.Character is not null && !zdo.Vars.GetTamed());
+
+  [HarmonyPatch(typeof(ZNet), "RPC_ServerSyncedPlayerData")]
+  static class ZNetServerSyncedPlayerDataPatch
+  {
+    [HarmonyPostfix]
+    public static void Postfix(ZNet __instance)
+    {
+      if (!Config.Instance.ForcePlayerMapPin.Value)
+        return;
+      foreach (var peer in __instance.GetPeers())
+        peer.m_publicRefPos = true;
+    }
+  }
 }
