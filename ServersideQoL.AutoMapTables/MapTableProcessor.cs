@@ -4,10 +4,8 @@ using UnityEngine;
 namespace ServersideQoL.AutoMapTables;
 
 [Processor("05450dd6-13bd-42cc-9bd3-b1eed5e501af")]
-public sealed class MapTableProcessor : Processor<MapTableProcessor.PrefabInfo>
+public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
 {
-  public sealed record PrefabInfo(MapTable MapTable) : ProcessorPrefabInfo;
-
   record Pin(long OwnerId, string Tag, Vector3 Pos, Minimap.PinType Type, bool IsChecked, string Author);
   readonly List<Pin> _pins = [];
   readonly List<Pin> _existingPins = [];
@@ -37,7 +35,7 @@ public sealed class MapTableProcessor : Processor<MapTableProcessor.PrefabInfo>
     _existingPins.Clear();
   }
 
-  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<MapTable> prefabInfo)
   {
     var now = DateTimeOffset.UtcNow;
     if (_pinsValidUntil < now)

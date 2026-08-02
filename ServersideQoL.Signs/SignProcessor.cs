@@ -4,7 +4,7 @@ namespace ServersideQoL.Signs;
 
 
 [Processor("806bdb85-c857-4154-a246-a0b1d0917987")]
-public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPrefabInfo>
+public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
 {
   internal static IReadOnlyList<string> ClockEmojis { get; } = ["🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦"];
   readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
@@ -25,7 +25,7 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPre
     _timeText = null;
   }
 
-  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo.Shared.SignPrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<Sign> prefabInfo)
   {
     var cfg = Config.Instance;
     var result = ProcessResult.Default;

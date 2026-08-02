@@ -74,7 +74,7 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
 
       var (componentType, fields) = componentInfo;
 
-      if (!zdo.PrefabInfo!.Components.TryGetValue(componentType, out var componentList))
+      if (!GetPrefabInfo(zdo).Components.TryGetValue(componentType, out var componentList))
         continue;
 
       var component = componentList[0];

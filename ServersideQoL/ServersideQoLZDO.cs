@@ -11,10 +11,10 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   static bool _onDestroyedSubscribed;
 
   public ZDO ZDO { get; } = zdo;
-  public PrefabInfo? PrefabInfo
+  internal PrefabInfo? PrefabInfo
   {
     get;
-    internal set
+    set
     {
       if (ComponentFieldAccessors is { } componentFieldAccessors)
       {

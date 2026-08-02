@@ -37,7 +37,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   public ContainerState? GetState(ServersideQoLZDO zdo)
   {
-    if (GetPrefabInfo(zdo) is not { } prefabInfo)
+    if (GetProcessorPrefabInfo(zdo) is not { } prefabInfo)
       return default;
     return GetState(zdo, prefabInfo);
   }

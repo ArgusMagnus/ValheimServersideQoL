@@ -2,7 +2,7 @@
 
 [Processor("7b156eea-3364-40ca-83ad-417a55fa6e4b")]
 [DependsOn<PlayerRegistryProcessor>]
-public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabInfo>
+public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Player>>
 {
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _attachedCartsByPlayer = [];
 
@@ -32,7 +32,7 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
     _attachedCartsByPlayer.Clear();
   }
 
-  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PlayerRegistryProcessor.PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<global::Player> prefabInfo)
   {
     if (Instance<PlayerRegistryProcessor>().GetState(zdo) is not { } state)
       return ProcessResult.UnregisterProcessor;
@@ -53,12 +53,12 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
 
   void OnPlayerStaminaUpdated(PlayerState state)
   {
-    if (state.Stamina < state.PrefabInfo.Player.m_encumberedStaminaDrain && Config.Instance.InfiniteEncumberedStamina.Value && state.ZDO.Vars.GetAnimationIsEncumbered())
-      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Player.m_encumberedStaminaDrain);
-    else if (state.Stamina < state.PrefabInfo.Player.m_sneakStaminaDrain && Config.Instance.InfiniteSneakingStamina.Value && state.ZDO.Vars.GetAnimationIsCrouching())
-      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Player.m_sneakStaminaDrain);
-    else if (state.Stamina < state.PrefabInfo.Player.m_swimStaminaDrainMinSkill && Config.Instance.InfiniteSwimmingStamina.Value && state.ZDO.Vars.GetAnimationInWater())
-      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Player.m_swimStaminaDrainMinSkill);
+    if (state.Stamina < state.PrefabInfo.Component.m_encumberedStaminaDrain && Config.Instance.InfiniteEncumberedStamina.Value && state.ZDO.Vars.GetAnimationIsEncumbered())
+      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Component.m_encumberedStaminaDrain);
+    else if (state.Stamina < state.PrefabInfo.Component.m_sneakStaminaDrain && Config.Instance.InfiniteSneakingStamina.Value && state.ZDO.Vars.GetAnimationIsCrouching())
+      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Component.m_sneakStaminaDrain);
+    else if (state.Stamina < state.PrefabInfo.Component.m_swimStaminaDrainMinSkill && Config.Instance.InfiniteSwimmingStamina.Value && state.ZDO.Vars.GetAnimationInWater())
+      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Component.m_swimStaminaDrainMinSkill);
   }
 
   void OnPlayerItemUsed(PlayerState state, string animationTriggerName)

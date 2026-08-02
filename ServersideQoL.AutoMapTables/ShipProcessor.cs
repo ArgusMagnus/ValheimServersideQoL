@@ -13,7 +13,7 @@ public sealed class ShipProcessor : Processor<ShipProcessor.PrefabInfo>
     _ships.Clear();
     foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
     {
-      if (GetPrefabInfo(zdo) is null)
+      if (GetProcessorPrefabInfo(zdo) is null)
         continue;
       if (_ships.Add(zdo))
         zdo.Destroyed += OnShipDestroyed;

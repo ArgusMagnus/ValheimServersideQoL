@@ -25,7 +25,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       => __plugins.Add(plugin);
 
   Func<PrefabInfo> _prefabInfoFactory = default!;
-  readonly ConcurrentDictionary<int, PrefabInfo?> _prefabInfos = [];
+  readonly ConcurrentDictionary<int, PrefabInfo> _prefabInfos = [];
 
   readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221");
   const uint ExpectedNetworkVersion = 35;
@@ -501,12 +501,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           if (!zdo.ZDO.IsValid())
             continue;
 
-          if (zdo.PrefabInfo is null)
-          {
-            zdo.PrefabInfo = GetPrefabInfo(zdo.ZDO.GetPrefab());
-            if (zdo.PrefabInfo is null)
-              continue;
-          }
+          zdo.PrefabInfo ??= GetPrefabInfo(zdo.ZDO.GetPrefab());
 
           if (!zdo.HasProcessors)
             continue;
@@ -727,7 +722,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     ScheduleReprocessing(zdo);
   }
 
-  internal PrefabInfo? GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
+  internal PrefabInfo GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
   {
     PrefabInfo? prefabInfo = null;
     if (ZNetScene.instance.GetPrefab(prefabHash) is { } prefab &&
@@ -763,8 +758,15 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       }
       SortProcessors(prefabInfo.EnabledProcessors, isPrefabList: true);
     }
-    return prefabInfo;
+    return prefabInfo ?? DummyPrefabInfo.Instance;
   });
+
+  sealed class DummyPrefabInfo : PrefabInfo
+  {
+    public static DummyPrefabInfo Instance { get; } = new();
+
+    DummyPrefabInfo() { Init(default!, 0, "Dummy", null); }
+  }
 
   [HarmonyPatch]
   static class PrefabChangedPatches

@@ -4,7 +4,7 @@ namespace ServersideQoL.JustSleep;
 
 [Processor("500d524e-2dbc-493d-8231-c8e9f03158bf")]
 [DependsOn<PlayerRegistryProcessor>]
-public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabInfo>
+public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<Player>>
 {
   bool _patched;
   protected override void Initialize()
@@ -15,7 +15,7 @@ public sealed class PlayerProcessor : Processor<PlayerRegistryProcessor.PrefabIn
     JustSleepPlugin.HarmonyInstance.PatchAll(typeof(EverybodyIsTryingToSleepPatch));
   }
 
-  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PlayerRegistryProcessor.PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<Player> prefabInfo)
   {
     // This processor is only used to ensure that the PlayerRegistryProcessor is registered and running.
     return ProcessResult.UnregisterProcessor;

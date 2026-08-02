@@ -285,6 +285,9 @@ public abstract class Processor
     return true;
   }
 
+  protected static PrefabInfo GetPrefabInfo(int prefab) => ServersideQoLPlugin.Instance.GetPrefabInfo(prefab);
+  protected static PrefabInfo GetPrefabInfo(ServersideQoLZDO zdo) => zdo.PrefabInfo ??= ServersideQoLPlugin.Instance.GetPrefabInfo(zdo.ZDO.GetPrefab());
+
   protected static ServersideQoLZDO Spawn(int prefab, Vector3 pos, Quaternion rot, long owner = 0)
   {
     var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
@@ -495,7 +498,7 @@ public abstract class Processor<TPrefabInfo> : Processor
     return ext.PrefabInfo is not null;
   }
 
-  protected TPrefabInfo? GetPrefabInfo(ServersideQoLZDO zdo)
+  protected TPrefabInfo? GetProcessorPrefabInfo(ServersideQoLZDO zdo)
       => zdo.GetProcessorPrefabInfo<TPrefabInfo>();
 
   TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)

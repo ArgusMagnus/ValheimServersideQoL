@@ -77,7 +77,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
             {
               biome = eventInfo.Biome;
               zdo.Vars.SetLevel((int)biome);
-              //Logger.DevLog($"{zdo.PrefabInfo!.PrefabName}: Event spawner: {biome}");
+              //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Event spawner: {biome}");
             }
           }
         }
@@ -202,7 +202,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
         result |= ProcessResult.RecreateZDO;
     }
 
-    //Logger.DevLog($"{zdo.PrefabInfo!.PrefabName}: max: {maxLevel} (+{increase}), chance: {chance:F2}%");
+    //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: max: {maxLevel} (+{increase}), chance: {chance:F2}%");
     return result;
   }
 
@@ -263,7 +263,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     {
       if (RandEventSystem.instance.GetCurrentEvent() is not { } currentEvent)
       {
-        Logger.LogWarning($"{zdo.PrefabInfo!.PrefabName} is an event creature, but no active event was found");
+        Logger.LogWarning($"{GetPrefabInfo(zdo).PrefabName} is an event creature, but no active event was found");
         return result;
       }
 
@@ -272,7 +272,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
 
       if (!eventInfo.SpawnData.TryGetValue(zdo.ZDO.GetPrefab(), out var spawnSystemData))
       {
-        Logger.LogWarning($"{zdo.PrefabInfo!.PrefabName}: Spawn source not found in event {currentEvent.m_name}");
+        Logger.LogWarning($"{GetPrefabInfo(zdo).PrefabName}: Spawn source not found in event {currentEvent.m_name}");
         return result;
       }
 
@@ -296,7 +296,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       {
         var spawnListStr = spawnDataList is null ? "" : string.Join($"{Environment.NewLine}  ", spawnDataList.Select(static x =>
         $"{x.Data.m_prefab.name} ({x.Prefab}): {x.Data.m_biome}, day: {x.Data.m_spawnAtDay}, night: {x.Data.m_spawnAtNight}").Prepend(""));
-        Logger.LogWarning($"{zdo.PrefabInfo!.PrefabName} ({zdo.ZDO.GetPrefab()}): Spawn source not found in {biome}, day: {EnvMan.IsDay()}, night: {EnvMan.IsNight()}{spawnListStr}");
+        Logger.LogWarning($"{GetPrefabInfo(zdo).PrefabName} ({zdo.ZDO.GetPrefab()}): Spawn source not found in {biome}, day: {EnvMan.IsDay()}, night: {EnvMan.IsNight()}{spawnListStr}");
         return result;
       }
 
@@ -328,7 +328,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (level == initialLevel)
       return result;
 
-    //Logger.DevLog($"{zdo.PrefabInfo!.PrefabName}: Set level {initialLevel} -> {level} (min: {spawnData.MinLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
+    //Logger.DevLog($"{GetPrefabInfo(zdo).PrefabName}: Set level {initialLevel} -> {level} (min: {spawnData.MinLevel}, max: {maxLevel} (+{increase} {biome}), chance: {chance:F2}%)");
     zdo.Vars.SetLevel(level);
     return result | ProcessResult.RecreateZDO;
   }

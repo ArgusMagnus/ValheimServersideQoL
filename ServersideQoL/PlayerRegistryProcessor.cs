@@ -7,10 +7,8 @@ using static Skills;
 namespace ServersideQoL;
 
 [Processor("b5107f88-1c1f-4323-bfce-9205ae4dfcd9", OnlyWhenDependedOn = true)]
-public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.PrefabInfo>
+public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Player>>
 {
-  public sealed record PrefabInfo(Player Player) : ProcessorPrefabInfo;
-
   readonly Dictionary<long, PlayerStateImpl> _statesByPeerID = [];
   readonly Dictionary<long, PlayerStateImpl> _statesByPlayerID = [];
   readonly Dictionary<ZDOID, PlayerStateImpl> _statesByCharacterID = [];
@@ -46,7 +44,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
 
   public PlayerState GetState(ServersideQoLZDO playerZdo)
   {
-    var prefabInfo = GetPrefabInfo(playerZdo);
+    var prefabInfo = GetProcessorPrefabInfo(playerZdo);
     System.Diagnostics.Debug.Assert(prefabInfo is not null);
     return GetStateCore(playerZdo, prefabInfo);
   }
@@ -72,7 +70,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     _statesByCharacterID.Clear();
   }
 
-  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<Player> prefabInfo)
   {
     var state = GetStateCore(zdo, prefabInfo);
 
@@ -157,7 +155,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
     return default;
   }
 
-  PlayerStateImpl GetStateCore(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
+  PlayerStateImpl GetStateCore(ServersideQoLZDO zdo, ProcessorPrefabInfo<Player> prefabInfo)
   {
     var peerID = zdo.ZDO.GetOwner();
     if (!_statesByPeerID.TryGetValue(peerID, out var state))
@@ -200,7 +198,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       var now = Timestamp.Now;
       if (item.m_itemData.m_shared is { m_attack.m_attackStamina: > 0 } and ({ m_skillType: not SkillType.Swords } or { m_damages.m_slash: > 0 }))
       {
-        if (state.StaminaTimestamp < now.AddSeconds(-1.5f * state.PrefabInfo.Player.m_staminaRegenDelay))
+        if (state.StaminaTimestamp < now.AddSeconds(-1.5f * state.PrefabInfo.Component.m_staminaRegenDelay))
         {
           var stamina = state.ZDO.Vars.GetStamina();
           var floored = Mathf.FloorToInt(stamina);
@@ -215,7 +213,7 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
       }
       else if (item.m_itemData.m_shared.m_attack.m_attackEitr > 0)
       {
-        if (state.EitrTimestamp < now.AddSeconds(-1.5f * state.PrefabInfo.Player.m_eitrRegenDelay))
+        if (state.EitrTimestamp < now.AddSeconds(-1.5f * state.PrefabInfo.Component.m_eitrRegenDelay))
         {
           var eitr = state.ZDO.Vars.GetEitr();
           var floored = Mathf.FloorToInt(eitr);
@@ -259,14 +257,14 @@ public sealed class PlayerRegistryProcessor : Processor<PlayerRegistryProcessor.
   static void SetEstimatedSkillLevel(long playerID, SkillType skill, float value) => DataZDO.ZDO.Set($"player{playerID}_EstimatedSkillLevel_{skill}", value);
 
 
-  sealed class PlayerStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo, PlayerRegistryProcessor processor) : PlayerState
+  sealed class PlayerStateImpl(ServersideQoLZDO zdo, ProcessorPrefabInfo<Player> prefabInfo, PlayerRegistryProcessor processor) : PlayerState
   {
     readonly ServersideQoLZDO _zdo = zdo;
-    readonly PrefabInfo _prefabInfo = prefabInfo;
+    readonly ProcessorPrefabInfo<Player> _prefabInfo = prefabInfo;
     readonly PlayerRegistryProcessor _processor = processor;
 
     public override ServersideQoLZDO ZDO => _zdo;
-    public override PrefabInfo PrefabInfo => _prefabInfo;
+    public override ProcessorPrefabInfo<Player> PrefabInfo => _prefabInfo;
 
     readonly ZNetPeer? _peer = ZNet.instance.GetPeer(zdo.ZDO.GetOwner());
     public override long Owner { get; } = zdo.ZDO.GetOwner();

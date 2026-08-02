@@ -1,11 +1,10 @@
 ﻿using System.Text.RegularExpressions;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ServersideQoL.ContainerSigns;
 
 [Processor("9091713d-f86e-43ab-bf37-9d64a9649858")]
 [RunAfter("806bdb85-c857-4154-a246-a0b1d0917987")] // Signs.SignProcessor
-public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPrefabInfo>
+public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
 {
   internal const string MagnetEmoji = "🧲";
   readonly Regex _chestPickupRangeRegex = new($@"{Regex.Escape(MagnetEmoji)}\s*(?<R>\d+)");
@@ -32,7 +31,7 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo.Shared.SignPre
     Instance<ContainerRegistryProcessor>().ContainerChanged += OnContainerChanged;
   }
 
-  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo.Shared.SignPrefabInfo prefabInfo)
+  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<Sign> prefabInfo)
   {
     if (!Instance<ContainerProcessor>().ChestsBySigns.TryGetValue(zdo, out var chest))
       return ProcessResult.UnregisterProcessor;

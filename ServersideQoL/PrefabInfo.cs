@@ -13,7 +13,7 @@ public interface IPrefabInfo
 [DebuggerDisplay($"{{{nameof(PrefabName)}}}: Processors: {{{nameof(EnabledProcessors)}.{nameof(EnabledProcessors.Count)}}}")]
 public abstract class PrefabInfo : IPrefabInfo
 {
-  public GameObject Prefab { get; private set; } = default!;
+  public GameObject? Prefab { get; private set; }
   public int PrefabHash { get; private set; }
   public string PrefabName { get; private set; } = default!;
   public IReadOnlyDictionary<Type, IReadOnlyList<MonoBehaviour>> Components { get; private set; } = default!;
@@ -33,15 +33,9 @@ public abstract class PrefabInfo : IPrefabInfo
   }
 }
 
-public abstract record ProcessorPrefabInfo
-{
-  // Only simple types that are very unlikely to change in the future should be defined here,
-  // because modifying these types potentially affects multiple processors.
-  public static class Shared
-  {
-    public sealed record SignPrefabInfo(Sign Sign) : ProcessorPrefabInfo;
-  }
-}
+public abstract record ProcessorPrefabInfo;
+
+public sealed record ProcessorPrefabInfo<T>(T Component) : ProcessorPrefabInfo;
 
 interface IProcessorPrefabInfo<TPrefabInfo> : IPrefabInfo
     where TPrefabInfo : ProcessorPrefabInfo
