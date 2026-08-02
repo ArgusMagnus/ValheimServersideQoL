@@ -11,6 +11,7 @@ interface IConfig
   event EventHandler<SettingChangedEventArgs>? ConfigChanged;
   IServersideQoLPlugin Plugin { get; set; }
   ConfigEntry<bool> Enabled { get; }
+  ConfigFile ConfigFile { get; }
 }
 
 public abstract class ConfigBase

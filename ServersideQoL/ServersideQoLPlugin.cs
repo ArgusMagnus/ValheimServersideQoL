@@ -315,7 +315,13 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       Logger.LogWarning($"Many features are incompatible with {pluginInfo.Metadata.Name}");
 
     if (cfg.DiagnosticLogs.Value)
-      Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
+    {
+      Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. __plugins
+        .Where(static x => x.Config.Enabled.Value)
+        .SelectMany(static x => x.Config.ConfigFile
+          .Where(static x => !x.Value.BoxedValue.Equals(x.Value.DefaultValue))
+          .Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}")))]));
+    }
 
     var failed = false;
     var abort = false;
