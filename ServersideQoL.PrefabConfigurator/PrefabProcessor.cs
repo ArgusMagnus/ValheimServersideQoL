@@ -29,8 +29,6 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
     if (prefabInfo.Skip)
       return ProcessResult.UnregisterProcessor;
 
-    Logger.DevLog($"Setting fields on {zdo.PrefabInfo!.PrefabName}");
-
     zdo.SetComponentHasFields();
     var result = ProcessResult.UnregisterProcessor;
     foreach (var (hash, value, isDefault) in prefabInfo.IntValues ?? [])
@@ -60,7 +58,6 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
   void Initialize(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
   {
     prefabInfo.Initialized = true;
-    Logger.DevLog($"Initializing fields for {zdo.PrefabInfo!.PrefabName}");
 
     List<(int, int, bool)>? intValues = null;
     List<(int, float, bool)>? floatValues = null;
