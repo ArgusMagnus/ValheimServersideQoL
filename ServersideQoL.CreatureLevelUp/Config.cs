@@ -53,5 +53,6 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     string HigherLevelStarNameFormat { get; init; } = "<line-height=150%><voffset=-2em>{0}<size=70%><br><color=yellow>{1}</color></size></voffset></line-height>";
     public string HigherLevelStarName(Character character, int level)
       => string.Format(HigherLevelStarNameFormat, character.m_name, string.Concat(Enumerable.Repeat(Star, level - 1)));
+    public float SizeCheckDelaySeconds { get; init; } = 0.5f;
   }
 }

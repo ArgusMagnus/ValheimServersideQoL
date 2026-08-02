@@ -8,15 +8,15 @@ public sealed class TestProcessor : Processor<TestProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo(BaseAI BaseAI, ZSyncTransform ZSyncTransform) : ProcessorPrefabInfo;
 
-  HashSet<ServersideQoLZDO> _zdos = [];
-  HashSet<ServersideQoLZDO> _zdosPrev = [];
-  DateTimeOffset _nextCheck;
+  //HashSet<ServersideQoLZDO> _zdos = [];
+  //HashSet<ServersideQoLZDO> _zdosPrev = [];
+  //DateTimeOffset _nextCheck;
 
-  protected override void PreProcess(PeersEnumerable peers)
-  {
-    (_zdos, _zdosPrev) = (_zdosPrev, _zdos);
-    _zdos.Clear();
-  }
+  //protected override void PreProcess(PeersEnumerable peers)
+  //{
+  //  (_zdos, _zdosPrev) = (_zdosPrev, _zdos);
+  //  _zdos.Clear();
+  //}
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {

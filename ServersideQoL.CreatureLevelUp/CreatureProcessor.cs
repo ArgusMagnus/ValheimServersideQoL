@@ -47,6 +47,7 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
     var scale = Config.Instance.Advanced.Value.ScaleSizeExponentially ?
       Mathf.Pow(1 + Config.Instance.SizeIncreasePerStar.Value, level - 1) :
       1 + (level - 1) * Config.Instance.SizeIncreasePerStar.Value;
+
     if (scale is 1)
       zdo.Fields<ZSyncTransform>().Reset(static () => x => x.m_syncScale);
     else if (zdo.Fields<ZSyncTransform>().UpdateValue(static () => x => x.m_syncScale, true))
@@ -54,10 +55,10 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
 
     if (prefabInfo.SyncsInitialScale)
     {
-      if (zdo.ZDO.GetFloat(ZDOVars.s_scaleScalarHash) == scale)
+      if (zdo.Vars.GetScaleScalar() == scale)
         return ProcessResult.UnregisterProcessor;
-      zdo.ZDO.RemoveVec3(ZDOVars.s_scaleHash);
-      zdo.ZDO.Set(ZDOVars.s_scaleScalarHash, scale);
+      zdo.Vars.RemoveScale();
+      zdo.Vars.SetScaleScalar(scale);
       return ProcessResult.RecreateZDO;
     }
 
@@ -73,21 +74,23 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
     {
       // not present in previous run
       zdo.Vars.RemoveScale();
-      _nextCheck = DateTimeOffset.UtcNow.AddSeconds(1);
-      //Logger.DevLog($"Releasing ownership");
       zdo.Vars.SetScaleScalar(scale);
       zdo.ReleaseOwnership();
+      //Logger.DevLog($"Releasing ownership");
     }
 
     result |= ProcessResult.ScheduleReprocessing;
 
     if (!zdo.ZDO.HasOwner())
+    {
+      _nextCheck = DateTimeOffset.UtcNow.AddSeconds(Config.Instance.Advanced.Value.SizeCheckDelaySeconds);
       return result;
+    }
 
     if (DateTimeOffset.UtcNow < _nextCheck)
       return result;
 
-    if (zdo.Vars.GetScale().x != scale)
+    if (Mathf.Abs(zdo.Vars.GetScale().x - scale) > 1e-3f)
       _zdos.Remove(zdo); // trigger in next run
 
     return result;
