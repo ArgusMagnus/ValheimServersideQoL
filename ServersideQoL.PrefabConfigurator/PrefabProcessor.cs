@@ -8,6 +8,8 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo : ProcessorPrefabInfo
   {
+    // todo: initialize lists beforehand and set IsValid accordingly. Would make Skip/Initialized obsolete.
+    //public override bool IsValid => base.IsValid;
     internal bool Initialized { get; set; }
     internal bool Skip { get; set; }
     /// <see cref="ZNetView.LoadFields"/>

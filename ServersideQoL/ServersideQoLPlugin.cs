@@ -438,7 +438,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     var executeUntil = timeStartSeconds + timeBudgetSeconds;
 
     _sectorsToProcess.Clear();
-    var zonesAroundPlayers = ZoneSystem.instance.m_activeArea - 1; // Config.General.ZonesAroundPlayers.Value;
+    var zonesAroundPlayers = ZoneSystem.instance.ActiveArea; // Config.General.ZonesAroundPlayers.Value;
     foreach (var peer in peers)
     {
       var playerSector = peer.GetSector();

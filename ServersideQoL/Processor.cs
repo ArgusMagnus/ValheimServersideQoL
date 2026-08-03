@@ -494,8 +494,12 @@ public abstract class Processor<TPrefabInfo> : Processor
   private protected override bool InitializePrefabInfo(PrefabInfo prefabInfo)
   {
     var ext = prefabInfo.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>();
-    ext.PrefabInfo ??= GetProcessorPrefabInfo(prefabInfo);
-    return ext.PrefabInfo is not null;
+    if (ext.PrefabInfo is null)
+    {
+      ext.PrefabInfo = GetProcessorPrefabInfo(prefabInfo);
+      ext.PrefabInfo?.PrefabInfo = prefabInfo;
+    }
+    return ext.PrefabInfo is { IsValid: true };
   }
 
   protected TPrefabInfo? GetProcessorPrefabInfo(ServersideQoLZDO zdo)

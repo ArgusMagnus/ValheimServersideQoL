@@ -31,9 +31,17 @@ public abstract class PrefabInfo : IPrefabInfo
       Components.TryGetValue(typeof(ZSyncTransform), out var list) &&
       list.Cast<ZSyncTransform>().Any(static x => x.m_syncPosition || x.m_syncRotation || x.m_syncBodyVelocity);
   }
+
+  public bool HasComponent<T>() where T : MonoBehaviour => Components.ContainsKey(typeof(T));
+  public T? GetComponent<T>() where T : MonoBehaviour => Components.TryGetValue(typeof(T), out var list) ? (T)list[0] : null;
+  public T GetRequiredComponent<T>() where T : MonoBehaviour => (T)Components[typeof(T)][0];
 }
 
-public abstract record ProcessorPrefabInfo;
+public abstract record ProcessorPrefabInfo
+{
+  public virtual bool IsValid => true;
+  public PrefabInfo PrefabInfo { get; internal set; } = default!;
+}
 
 public sealed record ProcessorPrefabInfo<T>(T Component) : ProcessorPrefabInfo;
 

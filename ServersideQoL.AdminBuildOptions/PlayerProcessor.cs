@@ -8,13 +8,16 @@ namespace ServersideQoL.AdminBuildOptions;
 [RunAfter<PlayerRegistryProcessor>]
 public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
 {
-  public sealed record PrefabInfo(Player? Player, CamShaker? CamShaker) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(Player? Player, CamShaker? CamShaker) : ProcessorPrefabInfo
+  {
+    static readonly int __mudRoadPrefab = "vfx_Place_mud_road".GetStableHashCode();
+    public override bool IsValid => Player is not null || PrefabInfo.PrefabHash == __mudRoadPrefab;
+  }
 
   public BuildModifiers PossibleBuildModifiers { get; private set; }
 
   readonly Dictionary<ServersideQoLZDO, State> _states = [];
   readonly int _numberOfLevelGroundModes = Enum.GetValues(typeof(LevelGroundModes)).Length;
-  readonly int _mudRoadPrefab = "vfx_Place_mud_road".GetStableHashCode();
 
   ZoneSystem.ZoneLocation DevGround1 => field ??= GetZoneLocation();
   ZoneSystem.ZoneLocation DevGround2 => field ??= GetZoneLocation();
@@ -72,9 +75,9 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
         RPC.ShowMessage(state.PlayerState.Owner, MessageHud.MessageType.TopLeft, $"Level ground mode: {state.LevelGroundMode}");
       }
     }
-    else if (prefabInfo.CamShaker is not null)
+    else
     {
-      if (zdo.ZDO.GetPrefab() != _mudRoadPrefab || Config.Instance.CycleLevelGroundMode.Value is ConfigBase.DisabledEmote)
+      if (Config.Instance.CycleLevelGroundMode.Value is ConfigBase.DisabledEmote)
         return ProcessResult.UnregisterProcessor;
 
       if (GetState(zdo.ZDO.GetOwner()) is not { } state)
@@ -83,11 +86,11 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       if (state.LevelGroundMode is LevelGroundModes.Reset )
       {
         var zdos = new List<ZDO>();
-        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZoneSystem.instance.m_activeArea - 1, 0, zdos);
+        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZoneSystem.instance.ActiveArea, 0, zdos);
         foreach (var zdo2 in zdos.Select(static x => x.ServersideQoLZDO))
         {
           var prefabInfo2 = GetPrefabInfo(zdo2);
-          if (prefabInfo2.Prefab?.GetComponent<LocationProxy>() is not null)
+          if (prefabInfo2.HasComponent<LocationProxy>())
           {
             var hash = zdo2.Vars.GetLocation();
             _ = Remove(zdo2, hash, zdo.ZDO.GetPosition(), DevGround1) || Remove(zdo2, hash, zdo.ZDO.GetPosition(), DevGround2);
@@ -100,7 +103,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
               return true;
             }
           }
-          else if (prefabInfo2.Prefab?.GetComponents<TerrainComp>() is not null && TerrainCompData.Load(zdo2) is { } terrainComp)
+          else if (prefabInfo2.HasComponent<TerrainComp>() && TerrainCompData.Load(zdo2) is { } terrainComp)
           {
             terrainComp.ResetTerrain(zdo.ZDO.GetPosition(), Config.Instance.Advanced.Value.ResetTerrainRadius);
             if (terrainComp.HasModifications is false)
@@ -118,10 +121,10 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
         /// <see cref="ZoneSystem.instance.TestSpawnLocation"/>
         ZoneSystem.instance.SpawnLocation(location, 0, zdo.ZDO.GetPosition(), zdo.ZDO.GetRotation(), ZoneSystem.SpawnMode.Full);
         var zdos = new List<ZDO>();
-        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZoneSystem.instance.m_activeArea - 1, 0, zdos);
+        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZoneSystem.instance.ActiveArea, 0, zdos);
         foreach (var zdo2 in zdos.Select(static x => x.ServersideQoLZDO))
         {
-          if (GetPrefabInfo(zdo2).Prefab?.GetComponent<TerrainComp>() is not null && TerrainCompData.Load(zdo2) is { } terrainComp)
+          if (GetPrefabInfo(zdo2).HasComponent<TerrainComp>() && TerrainCompData.Load(zdo2) is { } terrainComp)
           {
             terrainComp.ResetTerrain(zdo.ZDO.GetPosition(), location.m_exteriorRadius);
             if (terrainComp.HasModifications is false)
@@ -130,8 +133,6 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
         }
       }
     }
-    else
-      return ProcessResult.UnregisterProcessor;
 
     return default;
   }
