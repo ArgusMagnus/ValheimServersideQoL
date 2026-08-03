@@ -36,7 +36,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
       List <ComponentConfig> entries = [];
       foreach (var group in ZNetScene.instance.m_prefabs
-        .SelectMany(static x => x.GetComponent<ZNetView>().GetComponentsInChildren<MonoBehaviour>().Select(c => (x.name, component: c)))
+        .SelectMany(static x => x.GetComponent<ZNetView>().GetComponentsInChildren<MonoBehaviour>().Where(static x => x is not ZNetView).Select(c => (x.name, component: c)))
         .GroupBy(static x => x.component.GetType())
         .OrderBy(static x => x.Key.Name))
       {

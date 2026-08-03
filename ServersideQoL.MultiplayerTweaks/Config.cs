@@ -25,9 +25,16 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   //public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
 
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+
   //public sealed class LocalizationConfig
   //{
   //  string Prompt { get; init; } = "{0} of {1} players want to sleep.<br>Sit down if you want to sleep as well";
   //  public string FormatPrompt(int sleepingPlayers, int totalPlayers) => string.Format(Prompt, sleepingPlayers, totalPlayers);
   //}
+
+  public sealed class AdvancedConfig
+  {
+    public float MaxTimeSinceLastPingSeconds { get; init; } = 1.5f;
+  }
 }

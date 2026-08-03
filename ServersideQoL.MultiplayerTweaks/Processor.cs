@@ -43,7 +43,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
       var peerCount = peers.Count;
       if (peerCount > 1 && zdo.OwnerTimestamp < _maxOwnerTimestamp)
       {
-        PlayerState? closest = null;
+        Peer? closest = null;
         var minDistSqr = float.MaxValue;
         foreach (var peer in peers.Enumerate())
         {
@@ -53,12 +53,12 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           if (distSqr < minDistSqr)
           {
             minDistSqr = distSqr;
-            closest = playerState;
+            closest = peer;
           }
         }
 
-        if (closest is not null)
-          zdo.ZDO.SetOwner(closest.Owner);
+        if (closest?.ZNetPeer.m_rpc.GetTimeSinceLastPing() < Config.Instance.Advanced.Value.MaxTimeSinceLastPingSeconds)
+          zdo.ZDO.SetOwner(closest.ZNetPeer.m_uid);
       }
 
       return ProcessResult.ScheduleReprocessing;
