@@ -7,6 +7,7 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="ServersideQoL.AdminBuildOptions/ServersideQoL.AdminBuildOptions.csproj" Id="4f293188-b85f-41c1-9cda-09d1833f219a" />
+  <Project Path="ServersideQoL.AutoDoors/ServersideQoL.AutoDoors.csproj" Id="0520e955-6361-4c3f-b470-6c50503480e2" />
   <Project Path="ServersideQoL.AutoMapTables/ServersideQoL.AutoMapTables.csproj" Id="38c95f02-d7c5-47ee-b2a8-4aa2acb68476" />
   <Project Path="ServersideQoL.AutoPortalHub/ServersideQoL.AutoPortalHub.csproj" Id="ab7c0d3b-3b85-4b50-915c-cbd13f14468c" />
   <Project Path="ServersideQoL.AutoProcess/ServersideQoL.AutoProcess.csproj" Id="38ff161d-64b2-4815-9f7f-5e7323a9c7cd" />

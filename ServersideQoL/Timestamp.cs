@@ -8,6 +8,7 @@ public readonly struct Timestamp : IEquatable<Timestamp>, IComparable<Timestamp>
 
   Timestamp(float realtimeSinceStartup) => _realtimeSinceStartup = realtimeSinceStartup;
   public static Timestamp Now => new(Time.realtimeSinceStartup);
+  public float Seconds => _realtimeSinceStartup;
 
   public Timestamp AddSeconds(float seconds) => new(_realtimeSinceStartup + seconds);
 

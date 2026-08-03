@@ -277,7 +277,7 @@ public abstract class Processor
   protected static bool CheckMinDistance(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo, float minDistance)
   {
     minDistance *= minDistance;
-    foreach (var peer in peers.AsEnumerable())
+    foreach (var peer in peers.Enumerate())
     {
       if (Utils.DistanceSqr(peer.RefPos, zdo.ZDO.GetPosition()) < minDistance)
         return false;
