@@ -8,6 +8,35 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    throw new NotImplementedException();
+    const PlayerProcessor.BuildModifiers Unset = (PlayerProcessor.BuildModifiers)uint.MaxValue;
+    var modifiers = GetAdminBuildModifiers(zdo, Unset);
+    var creator = zdo.Vars.GetCreator();
+    if (modifiers is not Unset)
+      return ProcessResult.UnregisterProcessor;
+
+      modifiers = Instance<PlayerProcessor>().GetBuildModifiers(creator);
+      if (modifiers is not PlayerProcessor.BuildModifiers.None)
+        SetAdminBuildModifiers(zdo, modifiers);
+
+    var fields = zdo.Fields<WearNTear>();
+    var result = ProcessResult.UnregisterProcessor;
+
+    if ((modifiers & PlayerProcessor.BuildModifiers.DisableRainDamage) is not 0 && fields.UpdateValue(static () => x => x.m_noRoofWear, false))
+      result |= ProcessResult.RecreateZDO;
+
+    if ((modifiers & PlayerProcessor.BuildModifiers.DisableSupportRequirements) is not 0 && fields.UpdateValue(static () => x => x.m_noSupportWear, false))
+      result |= ProcessResult.RecreateZDO;
+
+    if ((modifiers & PlayerProcessor.BuildModifiers.MakeIndestructible) is not 0 && fields.UpdateValue(static () => x => x.m_health, -1))
+    {
+      zdo.Vars.SetHealth(-1);
+      result |= ProcessResult.RecreateZDO;
+    }
+
+    return result;
   }
+
+  static readonly int __adminBuildModifiers = AdminBuildOptionsPlugin.RegisterServerVar("AdminBuildModifiers");
+  static PlayerProcessor.BuildModifiers GetAdminBuildModifiers(ServersideQoLZDO zdo, PlayerProcessor.BuildModifiers defaultValue = default) => (PlayerProcessor.BuildModifiers)zdo.ZDO.GetInt(__adminBuildModifiers, (int)defaultValue);
+  static void SetAdminBuildModifiers(ServersideQoLZDO zdo, PlayerProcessor.BuildModifiers value) => zdo.ZDO.Set(__adminBuildModifiers, (int)value);
 }

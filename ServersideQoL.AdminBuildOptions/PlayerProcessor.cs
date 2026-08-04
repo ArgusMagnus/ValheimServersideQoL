@@ -25,7 +25,8 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
   static ZoneSystem.ZoneLocation GetZoneLocation([CallerMemberName] string name = default!)
       => ZoneSystem.instance.GetLocationsByHash()[name.GetStableHashCode()];
 
-  public BuildModifiers GetBuildModifiers(long peerID) => GetState(peerID) is { } state ? state.BuildModifiers : BuildModifiers.None;
+  public BuildModifiers GetBuildModifiers(long playerId)
+    => Instance<PlayerRegistryProcessor>().GetStateForPlayerID(playerId) is { } playerState && _states.TryGetValue(playerState.ZDO, out var state) ? state.BuildModifiers : BuildModifiers.None;
 
   protected override void Initialize()
   {
