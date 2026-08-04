@@ -1,0 +1,1 @@
+- Collapse partially destroyed rocks/ore deposits depending on pickaxe skill level
