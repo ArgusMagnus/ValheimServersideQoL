@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Introduces additional effects with increasing player skill levels</Description>
+    <Description>Supercharges the wishbone so it can find dungeons, vegvisirs and configurably more.</Description>
   </PropertyGroup>
 
   <ItemGroup>

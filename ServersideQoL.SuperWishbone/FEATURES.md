@@ -1,1 +1,4 @@
-- Collapse partially destroyed rocks/ore deposits depending on pickaxe skill level
+Allows the wishbone to find
+- dungeons
+- vegvisir
+- various objects in locations (configurable, e.g. beehives, fuling totems, giant skulls, etc.)
