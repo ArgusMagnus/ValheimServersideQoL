@@ -259,8 +259,8 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     if (__yaml is null)
       throw new InvalidOperationException("Config alredy initialized");
 
-    var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), Path.GetFileNameWithoutExtension(cfg.ConfigFilePath));
-    var configPath = Path.Combine(configDir, $"{fileName}.yml");
+    var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), ServersideQoLPlugin.PluginGuid);
+    var configPath = Path.Combine(configDir, $"{Path.GetFileNameWithoutExtension(cfg.ConfigFilePath)}.{fileName}.yml");
 
     var entry = new YamlConfigEntry<T>(new());
     __yaml.Add(configPath, entry);

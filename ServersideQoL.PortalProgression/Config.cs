@@ -6,6 +6,7 @@ namespace ServersideQoL.PortalProgression;
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
   const string Section = "PortalProgression";
+  internal const string BossKeyNone = "--";
 
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true, """
     Enables/disables the entire mod
@@ -27,7 +28,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public IReadOnlyList<Entry> Entries { get; } = new Func<IReadOnlyList<Entry>>(() =>
   {
-    var acceptableValues = new AcceptableValueList<string>([.. BossesByBiome.Values
+    var acceptableValues = new AcceptableValueList<string>([BossKeyNone, .. BossesByBiome.Values
                 .OrderBy(static x => x.m_health)
                 .Select(static x => x.m_defeatSetGlobalKey)]);
 
@@ -37,7 +38,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       if (item.GetComponent<ItemDrop>() is not { m_itemData.m_shared.m_teleportable: false } itemDrop)
         continue;
 
-      var defaultValue = "";
+      var defaultValue = BossKeyNone;
       if (Regex.IsMatch(item.name, @"copper|tin|bronze", RegexOptions.IgnoreCase))
         defaultValue = BossesByBiome[Heightmap.Biome.BlackForest].m_defeatSetGlobalKey;
       else if (item.name.Contains("iron", StringComparison.OrdinalIgnoreCase))

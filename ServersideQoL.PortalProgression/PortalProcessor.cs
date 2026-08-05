@@ -176,7 +176,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
 
     foreach (var entry in Config.Instance.Entries)
     {
-      if (string.IsNullOrEmpty(entry.Config.Value))
+      if (string.IsNullOrEmpty(entry.Config.Value) || entry.Config.Value is Config.BossKeyNone)
         continue;
 
       if (ZoneSystem.instance.GetGlobalKey(entry.Config.Value))
