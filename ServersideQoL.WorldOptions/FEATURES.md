@@ -1,0 +1,1 @@
+- Remove mist from the Mistlands, optionally only after the Queen is defeated.

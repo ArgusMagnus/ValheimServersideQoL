@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Remove Mistland's mist. And more to come (maybe).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" />
+  </ItemGroup>
+
+</Project>
