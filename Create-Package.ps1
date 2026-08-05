@@ -73,8 +73,8 @@ try {
     $dir = $tmpDir.FullName
 
     $readme = Get-Content -LiteralPath "$PSScriptRoot\README.md" -Raw
-    $readme = $readme.Replace('{PluginName}', $vi.ProductName)
     $readme = $readme.Replace('{Features}', (Get-Content -LiteralPath "$dir\FEATURES.md" -Raw))
+    $readme = $readme.Replace('{PluginName}', $vi.ProductName)
     Remove-Item -LiteralPath "$dir\FEATURES.md" -Force
     Set-Content -LiteralPath "$dir\README.md" -Value $readme
     

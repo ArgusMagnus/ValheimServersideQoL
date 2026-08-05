@@ -2,11 +2,12 @@ Configure every vanilla compatible field in the game.
 
 On startup, a template configuration file with all the available component-prefab combinations and their fields with default values
 will be generated.
+<details>
+  <summary><b>Examples:</b></summary>
 
 Omitting `PrefabNames` will apply the configuration to all prefabs of the specified component.
 
-<details>
-  <summary>Examples:</summary>
+*$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.{PluginName}/Prefabs.yml*:
 
 ```
 Entries:
@@ -56,6 +57,11 @@ Entries:
   - Catapult
   Fields:
     m_canBeRemoved: true
+
+# Ignore wind intensity for windmills (run full power even if there is no wind)
+- Component: Windmill
+  Fields:
+    m_minWindSpeed: -3.4028235E+38
 ```
 
 </details>
