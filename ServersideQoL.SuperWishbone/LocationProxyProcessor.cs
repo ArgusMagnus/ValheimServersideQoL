@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace ServersideQoL.SuperWishbone;
 
+[Processor("82b4ec36-75f1-4924-a202-2934d4144915")]
 public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo(LocationProxy? LocationProxy, Beacon? Beacon) : ProcessorPrefabInfo
