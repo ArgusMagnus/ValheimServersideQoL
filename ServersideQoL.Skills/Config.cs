@@ -9,13 +9,13 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
     "Enables/disables the entire mod");
 
-  public ConfigEntry<int> PickaxeRockCollapseThresholdAtMinSkill { get; } = BindEx(cfg, Section, -1, $"""
+  public ConfigEntry<int> PickaxeRockCollapseThresholdAtMinSkill { get; } = BindEx(cfg, Section, 100, $"""
     The percentage of destroyed parts required to collapse a rock or ore deposit at pickaxe skill level 0.
     The actual required percentage scales linearly between this value and {nameof(PickaxeRockCollapseThresholdAtMaxSkill)} with skill level.
     Set both of these values to -1 to disable this feature.
     """);
 
-  public ConfigEntry<int> PickaxeRockCollapseThresholdAtMaxSkill { get; } = BindEx(cfg, Section, -1, $"""
+  public ConfigEntry<int> PickaxeRockCollapseThresholdAtMaxSkill { get; } = BindEx(cfg, Section, 0, $"""
     The percentage of destroyed parts required to collapse a rock or ore deposit at pickaxe skill level 100.
     The actual required percentage scales linearly between this value and {nameof(PickaxeRockCollapseThresholdAtMinSkill)} with skill level.
     Set both of these values to -1 to disable this feature.

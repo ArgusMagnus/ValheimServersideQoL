@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using static ServersideQoL.WorldOptions.Config;
+﻿using static ServersideQoL.WorldOptions.Config;
 
 namespace ServersideQoL.WorldOptions;
 

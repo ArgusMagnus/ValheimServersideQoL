@@ -319,36 +319,41 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. __plugins
         .Where(static x => x.Config.Enabled.Value)
         .SelectMany(static x => x.Config.ConfigFile
-          .Where(static x => !x.Value.BoxedValue.Equals(x.Value.DefaultValue))
-          .Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}")))]));
+          //.Where(static x => !x.Value.BoxedValue.Equals(x.Value.DefaultValue))
+          .Select(static x => Invariant($"{(!x.Value.BoxedValue.Equals(x.Value.DefaultValue) ? "*" : "")}[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}")))]));
     }
 
     var failed = false;
     var abort = false;
-    //if (RuntimeInformation.Instance.GameVersion != ExpectedGameVersion)
+
+    var networkVersion = (uint)typeof(Version).GetField(nameof(Version.c_networkVersion)).GetValue(null);
+    var itemDataVersion = (Version.Item)typeof(Version).GetField(nameof(Version.c_ItemDataVersion)).GetValue(null);
+    var worldVersion = (Version.World)typeof(Version).GetField(nameof(Version.c_WorldVersion)).GetValue(null);
+
+    //if (gameVersion != ExpectedGameVersion)
     //{
-    //    Logger.LogWarning(Invariant($"Unsupported game version: {RuntimeInformation.Instance.GameVersion}, expected: {ExpectedGameVersion}"));
+    //    Logger.LogWarning(Invariant($"Unsupported game version: {gameVersion}.x, expected: {ExpectedGameVersion}.x"));
     //    failed = true;
-    //    abort |= !cfg.IgnoreGameVersionCheck.Value;
+    //    abort |= !Config.Instance.IgnoreGameVersionCheck.Value;
     //}
-    //if (RuntimeInformation.Instance.NetworkVersion != ExpectedNetworkVersion)
-    //{
-    //    Logger.LogWarning(Invariant($"Unsupported network version: {RuntimeInformation.Instance.NetworkVersion}, expected: {ExpectedNetworkVersion}"));
-    //    failed = true;
-    //    abort |= !cfg.IgnoreNetworkVersionCheck.Value;
-    //}
-    //if (RuntimeInformation.Instance.ItemDataVersion != ExpectedItemDataVersion)
-    //{
-    //    Logger.LogWarning(Invariant($"Unsupported item data version: {RuntimeInformation.Instance.ItemDataVersion}, expected: {ExpectedItemDataVersion}"));
-    //    failed = true;
-    //    abort |= !cfg.IgnoreItemDataVersionCheck.Value;
-    //}
-    //if (RuntimeInformation.Instance.WorldVersion != ExpectedWorldVersion)
-    //{
-    //    Logger.LogWarning(Invariant($"Unsupported world version: {RuntimeInformation.Instance.WorldVersion}, expected: {ExpectedWorldVersion}"));
-    //    failed = true;
-    //    abort |= !cfg.IgnoreWorldVersionCheck.Value;
-    //}
+    if (networkVersion != Version.c_networkVersion)
+    {
+      Logger.LogWarning(Invariant($"Unsupported network version: {networkVersion}, expected: {Version.c_networkVersion}"));
+      failed = true;
+      abort |= !Config.Instance.IgnoreNetworkVersionCheck.Value;
+    }
+    if (itemDataVersion != Version.c_ItemDataVersion)
+    {
+      Logger.LogWarning(Invariant($"Unsupported item data version: {itemDataVersion:D} [{itemDataVersion}], expected: {Version.c_ItemDataVersion:D} [{Version.c_ItemDataVersion}]"));
+      failed = true;
+      abort |= !Config.Instance.IgnoreItemDataVersionCheck.Value;
+    }
+    if (worldVersion != Version.c_WorldVersion)
+    {
+      Logger.LogWarning(Invariant($"Unsupported world version: {worldVersion:D} [{worldVersion}], expected: {Version.c_WorldVersion:D} [{Version.c_WorldVersion}]"));
+      failed = true;
+      abort |= !Config.Instance.IgnoreWorldVersionCheck.Value;
+    }
 
     if (failed)
     {

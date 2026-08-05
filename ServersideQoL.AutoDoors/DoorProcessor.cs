@@ -5,7 +5,7 @@ public sealed class DoorProcessor : Processor<DoorProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo(Door Door) : ProcessorPrefabInfo
   {
-    public override bool IsValid => Door is not { m_keyItem: null, m_canNotBeClosed: false };
+    public override bool IsValid => Door is { m_keyItem: null, m_canNotBeClosed: false };
   }
 
   readonly Dictionary<ServersideQoLZDO, Timestamp> _closeAfter = [];
