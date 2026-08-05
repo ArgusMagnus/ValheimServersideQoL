@@ -5,7 +5,7 @@
 This mod is part of an early beta version of a major rewrite of ServersideQoL that splits all its
 features up into separate mods. It's compiled against the valheim PTB version.
 
-**This mod is not compatible with the current live version of valheim and many features of version 1.8 are still missing.**
+**This mod is not compatible with the current live version of valheim and some features of version 1.8 are still missing.**
 
 ---
 
