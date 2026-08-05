@@ -247,10 +247,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       if (PrefabInfo is null)
         throw new InvalidOperationException($"{nameof(PrefabInfo)} is null");
 
-      if (!PrefabInfo.Components.TryGetValue(typeof(TComponent), out var componentList))
-        throw new KeyNotFoundException(typeof(TComponent).FullName);
-
-      accessorObj = ComponentFieldAccessor.Get(this, (TComponent)componentList[0]);
+      accessorObj = ComponentFieldAccessor.Get(this, PrefabInfo.GetRequiredComponent<TComponent>());
 
       if (!__componentFieldAccessorCache.TryPop(out accessors))
         accessors = [];
