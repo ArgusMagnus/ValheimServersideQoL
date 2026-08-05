@@ -1,5 +1,6 @@
 ﻿namespace ServersideQoL.AutoDoors;
 
+[Processor("f91beb92-c76b-43d5-91d4-82c1f7de2929")]
 public sealed class DoorProcessor : Processor<DoorProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo(Door Door) : ProcessorPrefabInfo
