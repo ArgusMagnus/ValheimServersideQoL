@@ -1,0 +1,1 @@
+- Non-floating items are automatically put into cargo crates if the sink too deep
