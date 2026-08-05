@@ -219,7 +219,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
           (item.m_stack, stack) = (stack, item.m_stack);
           ItemDrop.SaveToZDO(item, zdo.ZDO);
           ShowMessage(peers, containerZdo,
-              Config.Instance.Localization.Value.FormatAutoPickup(containerState.PrefabInfo.Container.m_name, item.m_shared.m_name, stack),
+              Config.Instance.Localization.Value.FormatAutoPickup(containerState.Container.m_name, item.m_shared.m_name, stack),
               Config.Instance.PickedUpMessageType.Value);
         }
 

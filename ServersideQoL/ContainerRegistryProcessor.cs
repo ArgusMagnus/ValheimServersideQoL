@@ -6,7 +6,7 @@ namespace ServersideQoL;
 [Processor("fe73690f-6790-4cfa-9795-f93136d57286", OnlyWhenDependedOn = true)]
 public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProcessor.PrefabInfo>
 {
-  public sealed record PrefabInfo(Container Container, Piece Piece, PieceTable PieceTable, Incinerator? Incinerator, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(Container Container, Piece Piece, PieceTable PieceTable) : ProcessorPrefabInfo;
 
   public event Action<ServersideQoLZDO, ContainerState>? ContainerChanged;
 
@@ -37,13 +37,16 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   public ContainerState? GetState(ServersideQoLZDO zdo)
   {
-    if (GetProcessorPrefabInfo(zdo) is not { } prefabInfo)
-      return default;
-    return GetState(zdo, prefabInfo);
+    if (zdo.PrefabInfo?.GetComponent<Container>() is not { } container)
+      return null;
+    return GetStateCore(zdo, container);
   }
 
-  public ContainerState GetState(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
-    => GetStateCore(zdo, prefabInfo);
+  public ContainerState GetState(ServersideQoLZDO zdo, Container container)
+  {
+    System.Diagnostics.Debug.Assert(zdo.PrefabInfo?.GetComponent<Container>() == container);
+    return GetStateCore(zdo, container);
+  }
 
   static int __returnContentToCreatorHash = ServersideQoLPlugin.RegisterServerVar("ReturnContentToCreator");
   public void SetReturnContentToCreator(ServersideQoLZDO zdo, bool value)
@@ -54,11 +57,11 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   public bool GetReturnContentToCreator(ServersideQoLZDO zdo, bool defaultValue = default) => zdo.ZDO.GetBool(__returnContentToCreatorHash, defaultValue);
 
-  ContainerStateImpl GetStateCore(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
+  ContainerStateImpl GetStateCore(ServersideQoLZDO zdo, Container container)
   {
     if (!_states.TryGetValue(zdo, out var state))
     {
-      _states.Add(zdo, state = new(zdo, prefabInfo));
+      _states.Add(zdo, state = new(zdo, container));
       zdo.Destroyed += x => _states.Remove(x);
     }
 
@@ -108,7 +111,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     {
       if (Instance<PlayerRegistryProcessor>().GetStateForPlayerID(creator) is { } playerState)
       {
-        state = GetStateCore(zdo, prefabInfo);
+        state = GetStateCore(zdo, prefabInfo.Container);
         if (state.GetInventory().Items.Count is 0)
           return ProcessResult.DestroyZDO;
         else if (zdo.ZDO.GetOwner() != playerState.Owner)
@@ -122,7 +125,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     if (zdo.Vars.GetInUse())
       return default;
 
-    state ??= GetStateCore(zdo, prefabInfo);
+    state ??= GetStateCore(zdo, prefabInfo.Container);
 
     List<float>? remove = null;
     if (_containers.Count is not 0)
@@ -186,7 +189,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return false;
   }
 
-  sealed class ContainerStateImpl(ServersideQoLZDO zdo, PrefabInfo prefabInfo) : ContainerState, ContainerState.IInventory
+  sealed class ContainerStateImpl(ServersideQoLZDO zdo, Container container) : ContainerState, ContainerState.IInventory
   {
     public DateTimeOffset NextOwnershipRequest { get; set; }
     public bool WaitingForResponse { get; set; }
@@ -195,14 +198,14 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
     Inventory? _inventory;
     readonly ServersideQoLZDO _zdo = zdo;
-    readonly PrefabInfo _prefabInfo = prefabInfo;
+    readonly Container _container = container;
 
     List<ItemDrop.ItemData>? _items;
     uint _dataRevision = uint.MaxValue;
     byte[]? _data;
     static readonly ZPackage _pkg = new();
 
-    public override PrefabInfo PrefabInfo => _prefabInfo;
+    public override Container Container => _container;
     public override ServersideQoLZDO ZDO => _zdo;
 
     [MemberNotNull(nameof(_inventory))]
@@ -225,7 +228,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       var h = fields.GetInt(static () => x => x.m_height);
       if (_inventory is null || _inventory.GetWidth() != w || _inventory.GetHeight() != h)
       {
-        _inventory = new(_prefabInfo.Container.m_name, _prefabInfo.Container.m_bkg, w, h);
+        _inventory = new(_container.m_name, _container.m_bkg, w, h);
         _items = null;
       }
 
@@ -267,7 +270,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
       {
         // moving ZDO are constantly updated, so we need to get ahead for our changes to stick.
         // Not sure about the increment value though...
-        if (_prefabInfo.ZSyncTransform is not null)
+        if (_zdo.PrefabInfo?.HasComponent<ZSyncTransform>() is true)
           _zdo.ZDO.DataRevision += 120;
 
         ZDOMan.instance.ForceSendZDO(_zdo.ZDO.m_uid);

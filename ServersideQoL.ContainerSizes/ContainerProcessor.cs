@@ -30,7 +30,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ContainerRegistryProcessor.PrefabInfo prefabInfo)
   {
-    var state = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo);
+    var state = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container);
     var fields = zdo.Fields<Container>();
     var inventory = state.GetInventory();
     var width = inventory.Inventory.GetWidth();

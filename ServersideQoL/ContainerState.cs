@@ -4,7 +4,7 @@ public abstract class ContainerState
 {
   private protected ContainerState() { }
 
-  public abstract ContainerRegistryProcessor.PrefabInfo PrefabInfo { get; }
+  public abstract Container Container { get; }
   public abstract ServersideQoLZDO ZDO { get; }
   public abstract IInventory GetInventory();
 

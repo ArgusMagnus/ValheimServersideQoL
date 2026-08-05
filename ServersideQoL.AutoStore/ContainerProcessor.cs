@@ -32,7 +32,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ContainerRegistryProcessor.PrefabInfo prefabInfo)
   {
     if (_stackContainers.TryGetValue(zdo, out var stackContainerState))
-      return ProcessStackContainer(zdo, peers, Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo), stackContainerState);
+      return ProcessStackContainer(zdo, peers, Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container), stackContainerState);
 
     if (!Config.Instance.AutoSort.Value)
       return ProcessResult.UnregisterProcessor;
@@ -40,7 +40,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     if (zdo.Vars.GetInUse())
       return default;
 
-    var state = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo);
+    var state = Instance<ContainerRegistryProcessor>().GetState(zdo, prefabInfo.Container);
 
     var changed = false;
     ItemDrop.ItemData? lastPartialSlot = null;
@@ -204,7 +204,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         if (pickupRangeSqr is 0f || Utils.DistanceSqr(state.ZDO.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > pickupRangeSqr)
           continue;
 
-        if (containerState.PrefabInfo.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != state.ZDO.Vars.GetPlayerID())
+        if (containerState.Container.m_privacy is Container.PrivacySetting.Private && containerZdo.Vars.GetCreator() != state.ZDO.Vars.GetPlayerID())
           continue; // private container
 
         var containerInventory = containerState.GetInventory();

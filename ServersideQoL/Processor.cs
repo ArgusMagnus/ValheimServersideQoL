@@ -432,6 +432,29 @@ public abstract class Processor
     RPC.ShowInWorldText([0], type, zdo.ZDO.GetPosition(), $"{Path.GetFileNameWithoutExtension(callerFile)} L{callerLineNo}: {message}");
   }
 
+  protected internal static (int Width, int Height) GetBackpackSize(int slots)
+  {
+    var height = slots switch
+    {
+      < 4 => 1,
+      < 9 => 2,
+      < 16 => 3,
+      <= 8 * 4 => 4,
+      _ => 0
+    };
+
+    var width = 0;
+    if (height > 0)
+      width = (slots + height - 1) / height;
+    else
+    {
+      width = 8;
+      height = (slots + width - 1) / width;
+    }
+
+    return (width, height);
+  }
+
   static class HeightmapUtils
   {
     static readonly List<(Vector2s ZoneId, GameObject Root)> _zoneRoots = [];

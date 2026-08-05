@@ -93,7 +93,7 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
 
   void RPC_AnimateLever(ServersideQoLZDO zdo, ZRoutedRpc.RoutedRPCData data)
   {
-    if (Instance<ContainerRegistryProcessor>().GetState(zdo) is not { PrefabInfo.Incinerator: not null } state)
+    if (Instance<ContainerRegistryProcessor>().GetState(zdo) is not { } state || !GetPrefabInfo(zdo).HasComponent<Incinerator>())
       return;
 
     PlayerState? playerState = null;
