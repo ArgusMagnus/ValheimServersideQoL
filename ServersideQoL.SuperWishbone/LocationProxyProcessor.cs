@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace ServersideQoL.SuperWishbone;
@@ -15,6 +14,20 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _zdosByBeacon = [];
 
   Regex? _regex;
+
+  protected override void Initialize()
+  {
+    _regex = null;
+    var pattern = Config.Instance.FindLocationObjectRegex.Value.Trim();
+    if (!string.IsNullOrEmpty(pattern))
+    {
+      try { _regex = new(pattern); }
+      catch (Exception ex)
+      {
+        Logger.LogError($"Invalid regex pattern: {pattern}{Environment.NewLine}    {ex}");
+      }
+    }
+  }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
@@ -33,7 +46,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
     if (prefabInfo.LocationProxy is null || Config.Instance.Range.Value <= 0)
       return ProcessResult.UnregisterProcessor;
 
-    if (!Config.Instance.FindDungeons.Value && !Config.Instance.FindVegvisir.Value && _regex is null)
+    if (Config.Instance is { FindDungeons.Value: false, FindVegvisir.Value: false } && _regex is null)
       return ProcessResult.UnregisterProcessor;
 
     if (GetBeaconFound(zdo))
