@@ -180,6 +180,7 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
 
   public static TSelf Instance { get => field ?? throw new InvalidOperationException("Config has not been initialized yet"); private set; }
 
+  protected static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => Processor.BossesByBiome;
   public ConfigFile ConfigFile { get; } = configFile;
   protected Logger Logger { get; } = logger;
   public abstract ConfigEntry<bool> Enabled { get; }

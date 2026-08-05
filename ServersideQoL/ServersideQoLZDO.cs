@@ -59,6 +59,11 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       where TPrefabInfo : notnull, ProcessorPrefabInfo
       => PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;
 
+  [Conditional("DEBUG")]
+  public void AssertHasProcessorPrefabInfo<TPrefabInfo>()
+      where TPrefabInfo : notnull, ProcessorPrefabInfo
+      => System.Diagnostics.Debug.Assert(GetProcessorPrefabInfo<TPrefabInfo>() is not null);
+
   internal bool HasProcessors { get; private set; }
   internal IReadOnlyList<Processor> Processors { get; private set; } = [];
   internal bool ExclusivityCheckDone { get; set; }

@@ -1,0 +1,1 @@
+- Defeating bosses unlocks previously non-teleportable items (e.g. ores/metals) to be taken through portals

@@ -45,6 +45,15 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   public ContainerState GetState(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
     => GetStateCore(zdo, prefabInfo);
 
+  static int __returnContentToCreatorHash = ServersideQoLPlugin.RegisterServerVar("ReturnContentToCreator");
+  public void SetReturnContentToCreator(ServersideQoLZDO zdo, bool value)
+  {
+    AssertHasProcessorPrefabInfo(zdo);
+    zdo.ZDO.Set(__returnContentToCreatorHash, value);
+  }
+
+  public bool GetReturnContentToCreator(ServersideQoLZDO zdo, bool defaultValue = default) => zdo.ZDO.GetBool(__returnContentToCreatorHash, defaultValue);
+
   ContainerStateImpl GetStateCore(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
   {
     if (!_states.TryGetValue(zdo, out var state))
@@ -89,13 +98,31 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || zdo.Vars.GetCreator() is 0)
+    long creator = 0;
+    if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || (creator = zdo.Vars.GetCreator()) is 0)
       return ProcessResult.UnregisterProcessor;
+
+    ContainerStateImpl? state = null;
+
+    if (GetReturnContentToCreator(zdo))
+    {
+      if (Instance<PlayerRegistryProcessor>().GetStateForPlayerID(creator) is { } playerState)
+      {
+        state = GetStateCore(zdo, prefabInfo);
+        if (state.GetInventory().Items.Count is 0)
+          return ProcessResult.DestroyZDO;
+        else if (zdo.ZDO.GetOwner() != playerState.Owner)
+          zdo.ZDO.SetOwner(playerState.Owner);
+        else
+          RPC.TakeAllResponse(zdo, true);
+      }
+      return ProcessResult.ScheduleReprocessing;
+    }
 
     if (zdo.Vars.GetInUse())
       return default;
 
-    var state = GetStateCore(zdo, prefabInfo);
+    state ??= GetStateCore(zdo, prefabInfo);
 
     List<float>? remove = null;
     if (_containers.Count is not 0)
@@ -176,6 +203,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     static readonly ZPackage _pkg = new();
 
     public override PrefabInfo PrefabInfo => _prefabInfo;
+    public override ServersideQoLZDO ZDO => _zdo;
 
     [MemberNotNull(nameof(_inventory))]
     public override IInventory GetInventory()

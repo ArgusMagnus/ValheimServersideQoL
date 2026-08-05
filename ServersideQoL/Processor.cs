@@ -170,7 +170,7 @@ public abstract class Processor
   public static Guid GetProcessorId(ServersideQoLZDO zdo, Guid defaultValue = default) => zdo.ZDO.GetByteArray(__processorId, []) is { Length: > 0 } arr ? new(arr) : defaultValue;
   public static void SetProcessorId(ServersideQoLZDO zdo, Guid value) => zdo.ZDO.Set(__processorId, value == default ? [] : value.ToByteArray());
 
-  protected static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => field ??= new Func<IReadOnlyDictionary<Heightmap.Biome, Character>>(static () =>
+  protected internal static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => field ??= new Func<IReadOnlyDictionary<Heightmap.Biome, Character>>(static () =>
   {
     var bosses = new Dictionary<Heightmap.Biome, Character>();
     foreach (var includeDungeons in (IEnumerable<bool>)[false, true])
@@ -502,8 +502,12 @@ public abstract class Processor<TPrefabInfo> : Processor
     return ext.PrefabInfo is { IsValid: true };
   }
 
-  protected TPrefabInfo? GetProcessorPrefabInfo(ServersideQoLZDO zdo)
-      => zdo.GetProcessorPrefabInfo<TPrefabInfo>();
+  protected static TPrefabInfo? GetProcessorPrefabInfo(ServersideQoLZDO zdo)
+    => zdo.GetProcessorPrefabInfo<TPrefabInfo>();
+
+  [Conditional("DEBUG")]
+  public static void AssertHasProcessorPrefabInfo(ServersideQoLZDO zdo)
+    => zdo.AssertHasProcessorPrefabInfo<TPrefabInfo>();
 
   TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
   {

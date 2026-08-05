@@ -21,6 +21,7 @@
   <Project Path="ServersideQoL.MultiplayerTweaks/ServersideQoL.MultiplayerTweaks.csproj" Id="c4312622-60f1-44c4-a1b9-945e3c4ead34" />
   <Project Path="ServersideQoL.Patchers/ServersideQoL.Patchers.csproj" Id="eec6258e-f364-4478-99d2-6fb6a80cd729" />
   <Project Path="ServersideQoL.Player/ServersideQoL.Player.csproj" Id="75cbd1e3-f114-462c-9c56-cb93a51d2d29" />
+  <Project Path="ServersideQoL.PortalProgression/ServersideQoL.PortalProgression.csproj" Id="256f454c-2a68-4d69-a2e8-62e22cc26402" />
   <Project Path="ServersideQoL.PrefabConfigurator/ServersideQoL.PrefabConfigurator.csproj" Id="06cc4b4e-b03b-4f98-9673-a8ea9405fc0d" />
   <Project Path="ServersideQoL.Signs/ServersideQoL.Signs.csproj" />
   <Project Path="ServersideQoL.Skills/ServersideQoL.Skills.csproj" Id="2ae25c40-7f3f-4c99-ad3f-f44f9a71af04" />
