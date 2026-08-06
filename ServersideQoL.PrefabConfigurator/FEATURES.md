@@ -61,7 +61,22 @@ Entries:
 # Ignore wind intensity for windmills (run full power even if there is no wind)
 - Component: Windmill
   Fields:
-    m_minWindSpeed: -3.4028235E+38
+    m_minWindSpeed: -3.4028235E+38 # float.MinValue
+    
+# Ignore item weight in carts
+- Component: Vagon
+  Fields:
+    m_itemWeightMassFactor: 0
+
+# Various tameable adjustmens, uncomment below
+- Component: Tameable
+  Fields:
+    m_commandable: true # Make all tames commandable (includes friendly summoned skeletons)
+    # m_fedDuration: *2 # Double the time a tameable (tamed or wild) stays fed after feeding)
+    # m_tamingTime: /2 # Halve the time it takes to tame
+    # m_tamingBoostMultiplier: 6 # Give a sixfold decrease in taming time for each nearby player that took the taming potion
+    # m_unsummonDistance: 0 # Disable distance-based unsummoning of summoned skeletons
+    # m_unsummonOnOwnerLogoutSeconds: 0 # Disable logout time-based unsummoning of summoned skeletons
 ```
 
 </details>
