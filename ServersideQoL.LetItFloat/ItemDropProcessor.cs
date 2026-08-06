@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿extern alias AutoStore;
+using UnityEngine;
 
 namespace ServersideQoL.LetItFloat;
 
-[Processor("c421a7d8-e547-46b3-9e3c-d71aefa7ada4")]
-[RunAfter("5f86a765-e449-4047-afc8-a63e4d681a48")] // AutoStore.ItemDropProcessor
+[Processor(Id)]
+[RunAfter(AutoStore::ServersideQoL.AutoStore.ItemDropProcessor.Id)]
 public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 {
+  public const string Id = "c421a7d8-e547-46b3-9e3c-d71aefa7ada4";
+
   public sealed record PrefabInfo(ItemDrop ItemDrop) : ProcessorPrefabInfo
   {
     public override bool IsValid => !PrefabInfo.HasComponent<Floating>() && !PrefabInfo.HasComponent<Fish>();
@@ -76,9 +79,9 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 
   ContainerState GetCrate(Vector3 pos, Quaternion rot)
   {
-    if (!_crates.TryGetValue(pos, out var crate))
+    if (!_crates.TryGetValue(pos, out var crate) || !crate.ZDO.IsValid() || crate.ZDO.GetPrefab() != Prefabs.CargoCrate)
     {
-      _crates.Add(pos, crate = PlaceObject(pos, Prefabs.CargoCrate, rot));
+      _crates[pos] = crate = PlaceObject(pos, Prefabs.CargoCrate, rot);
       crate.Vars.SetCreator(0);
     }
     return Instance<ContainerRegistryProcessor>().GetState(crate)!;

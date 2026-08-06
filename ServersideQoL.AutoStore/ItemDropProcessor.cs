@@ -2,11 +2,12 @@
 
 namespace ServersideQoL.AutoStore;
 
-[Processor("5f86a765-e449-4047-afc8-a63e4d681a48")]
+[Processor(Id)]
 [RunAfter<ContainerRegistryProcessor>]
 [RunAfter<TameableRegistryProcessor>]
 public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 {
+  public const string Id = "5f86a765-e449-4047-afc8-a63e4d681a48";
   public sealed record PrefabInfo(ItemDrop ItemDrop, Piece? Piece, EggGrow? EggGrow, ZSyncTransform? ZSyncTransform) : ProcessorPrefabInfo;
 
   readonly Dictionary<ServersideQoLZDO, DateTimeOffset> _eggDropTime = [];
