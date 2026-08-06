@@ -63,7 +63,7 @@ public sealed class TraderProcessor : Processor<ProcessorPrefabInfo<Trader>>
 
         var key = (string)entry.DefaultValue;
         var isSet = ZoneSystem.instance.GetGlobalKey(key);
-        if (isSet == ZoneSystem.instance.GetGlobalKey(entry.Value))
+        if (isSet == (entry.Value is Config.GlobalKeyNone || ZoneSystem.instance.GetGlobalKey(entry.Value)))
           continue;
 
         var add = !isSet;
