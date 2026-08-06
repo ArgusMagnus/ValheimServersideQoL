@@ -325,17 +325,27 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
     Dictionary<GlobalKey, bool>? _globalKeyModifications;
     public override IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications => _globalKeyModifications ?? EmptyReadOnlyCollections<GlobalKey, bool>.Dictionary;
 
-    public override void AddGlobalKeyModification(GlobalKey key, bool add)
+    void OnGlobalKeyModificationChanged(string callerFilePath)
+    {
+      _hasChangedGlobalKeyModifications = true;
+      if (ZNet.instance.IsDedicated())
+        return;
+
+      var context = Path.GetFileName(Path.GetDirectoryName(callerFilePath));
+      ServersideQoLPlugin.Logger.LogWarning($"Features depending on modifying global keys don't work for the host or in single player (context: {context })");
+    }
+
+    public override void AddGlobalKeyModification(GlobalKey key, bool add, string callerFilePath)
     {
       _globalKeyModifications ??= [];
       if (_globalKeyModifications.TryAdd(key, add))
-        _hasChangedGlobalKeyModifications = true;
+        OnGlobalKeyModificationChanged(callerFilePath);
     }
 
-    public override void RemoveGlobalKeyModification(GlobalKey key)
+    public override void RemoveGlobalKeyModification(GlobalKey key, string callerFilePath)
     {
       if (_globalKeyModifications?.Remove(key) is true)
-        _hasChangedGlobalKeyModifications = true;
+        OnGlobalKeyModificationChanged(callerFilePath);
     }
 
     public void SendGlobalKeyModifications()

@@ -7,5 +7,6 @@ partial class WorldOptionsPlugin : ServersideQoLPluginBase<WorldOptionsPlugin, C
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
-    .Add<MisterProcessor>();
+    .Add<MisterProcessor>()
+    .Add<TraderProcessor>();
 }

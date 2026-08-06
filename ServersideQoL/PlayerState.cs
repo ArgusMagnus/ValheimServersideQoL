@@ -1,4 +1,5 @@
-﻿using static Skills;
+﻿using System.Runtime.CompilerServices;
+using static Skills;
 
 namespace ServersideQoL;
 
@@ -29,6 +30,6 @@ public abstract class PlayerState
   public abstract float GetEstimatedSkillLevel(SkillType skillType);
 
   public abstract IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications { get; }
-  public abstract void AddGlobalKeyModification(GlobalKey key, bool add);
-  public abstract void RemoveGlobalKeyModification(GlobalKey key);
+  public abstract void AddGlobalKeyModification(GlobalKey key, bool add, [CallerFilePath] string callerFilePath = default!);
+  public abstract void RemoveGlobalKeyModification(GlobalKey key, [CallerFilePath] string callerFilePath = default!);
 }
