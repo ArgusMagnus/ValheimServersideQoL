@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Remove Mistland's mist. And more to come (maybe).</Description>
+    <Description>Remove Mistland's mist. Configure trader progression requirements. And more to come (maybe).</Description>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,1 +1,2 @@
-- Remove mist from the Mistlands, optionally only after the Queen is defeated.
+- Remove mist from the Mistlands, optionally only after the Queen is defeated
+- Reconfigure the global keys required for trader to sell certain items
