@@ -16,6 +16,12 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     that cannot be removed by this mod and will remain regardless of this setting.
     """, AcceptableEnum<RemoveMistlandsMistOptions>.Default);
 
+  public ConfigEntry<float> MapTableMapViewDistance { get; } = BindEx(cfg, Section, 0f, $"""
+    Max distance to a map table at which players can view their map.
+    Has no effect unless the {GlobalKeys.NoMap} global key is set.
+    0 to disable this feature.
+    """);
+
   public IReadOnlyDictionary<Trader, IReadOnlyList<ConfigEntry<string>>> TaderProgressRequirements { get; } = GetTaderProgressRequirements(cfg);
 
   static IReadOnlyDictionary<Trader, IReadOnlyList<ConfigEntry<string>>> GetTaderProgressRequirements(ConfigFile cfg)

@@ -5,7 +5,6 @@ If you're missing a feature from v1.8 that you would like to see in v2.0, please
 
 Missing as of this version ({PluginVersion}):
 - In-world config room *
-- Allow players to view the map near a map table in nomap worlds
 - Growing up progress messages for tamed offspring and eggs *
 - Taming progress messages *
 - Taming/Tameables options (fed duration multiplier) *
