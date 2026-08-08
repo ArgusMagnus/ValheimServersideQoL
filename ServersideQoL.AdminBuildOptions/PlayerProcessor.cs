@@ -187,6 +187,8 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       state.LevelGroundMode = (LevelGroundModes)(((int)state.LevelGroundMode + 1) % _numberOfLevelGroundModes);
       state.NextLevelGroundModeMessage = default;
     }
+
+    IEnumerable<string> messageParts = [];
     if (CheckEmote(emote, Config.Instance.DemigodMode.Value))
     {
       state.DemigodMode = !state.DemigodMode;
@@ -194,8 +196,20 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
         state.PlayerState.AddGlobalKeyModification(new(GlobalKeys.EnemyDamage), 0);
       else
         state.PlayerState.RemoveGlobalKeyModification(new(GlobalKeys.EnemyDamage));
-      RPC.ShowMessage(state.PlayerState.Owner, MessageHud.MessageType.TopLeft, $"Demigod mode: {state.DemigodMode}");
+      messageParts = messageParts.Append($"Demigod mode: {state.DemigodMode}");
     }
+    if (CheckEmote(emote, Config.Instance.InfiniteStamina.Value))
+    { 
+      state.InfiniteStamina = !state.InfiniteStamina;
+      if (state.InfiniteStamina)
+        state.PlayerState.AddGlobalKeyModification(new(GlobalKeys.StaminaRate), 0);
+      else
+        state.PlayerState.RemoveGlobalKeyModification(new(GlobalKeys.StaminaRate));
+      messageParts = messageParts.Append($"Infnite stamina: {state.InfiniteStamina}");
+    }
+
+    if (string.Join(", ", messageParts) is { Length: > 0 } message)
+      RPC.ShowMessage(state.PlayerState.Owner, MessageHud.MessageType.TopLeft, message);
   }
 
   State? GetState(long peerID)
@@ -228,6 +242,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
     public BuildModifiers BuildModifiers { get; set; }
     public LevelGroundModes LevelGroundMode { get; set; }
     public bool DemigodMode { get; set; }
+    public bool InfiniteStamina { get; set; }
     public Timestamp NextBuildModifierMessage { get; set; } = Timestamp.Now.AddSeconds(float.PositiveInfinity);
     public Timestamp NextLevelGroundModeMessage { get; set; } = Timestamp.Now.AddSeconds(float.PositiveInfinity);
   }
