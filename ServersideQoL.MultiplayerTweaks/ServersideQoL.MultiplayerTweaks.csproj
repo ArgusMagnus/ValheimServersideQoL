@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Various multiplayer tweaks</Description>
+    <Description>Various multiplayer tweaks. Networking options which help reduce the experienced effects of lag. Force map player pins to always be on.</Description>
   </PropertyGroup>
 
   <ItemGroup>
