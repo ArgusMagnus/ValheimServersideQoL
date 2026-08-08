@@ -6,7 +6,10 @@ namespace ServersideQoL;
 [Processor("66bef8b3-dabf-48f6-a756-955fd999c4e9")]
 public sealed class TestProcessor : Processor<TestProcessor.PrefabInfo>
 {
-  public sealed record PrefabInfo(BaseAI BaseAI, ZSyncTransform ZSyncTransform) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(BaseAI BaseAI, ZSyncTransform ZSyncTransform) : ProcessorPrefabInfo
+  {
+    public override bool IsValid => false;
+  }
 
   //HashSet<ServersideQoLZDO> _zdos = [];
   //HashSet<ServersideQoLZDO> _zdosPrev = [];

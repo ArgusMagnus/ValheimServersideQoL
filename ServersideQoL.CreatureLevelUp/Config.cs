@@ -1,5 +1,4 @@
 ﻿using BepInEx.Configuration;
-using static System.Collections.Specialized.BitVector32;
 
 namespace ServersideQoL.CreatureLevelUp;
 
@@ -11,8 +10,9 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Enables/disables the entire mod");
   public ConfigEntry<bool> ShowHigherLevelStars { get; } = BindEx(cfg, Section, true,
     "True to show stars for higher level creatures (> 2 stars)");
-  public ConfigEntry<float> SizeIncreasePerStar { get; } = BindEx(cfg, Section, 0.1f,
+  public ConfigEntry<float> SizeIncreasePerStar { get; } = BindEx(cfg, Section, 0.15f,
     "The relative size increase a starred creature will have");
+
   public ConfigEntry<int> MaxLevelIncrease { get; } = BindEx(cfg, Section, 0, """
     Amount the max level of creatures is incremented throughout the world.
     The level up chance increases with the max level.
