@@ -1,7 +1,6 @@
 ﻿using BepInEx.Configuration;
-using static System.Collections.Specialized.BitVector32;
 
-namespace ServersideQoL.AdminBuildOptions;
+namespace ServersideQoL.AdminOptions;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {

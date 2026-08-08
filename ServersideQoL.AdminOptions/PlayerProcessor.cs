@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace ServersideQoL.AdminBuildOptions;
+namespace ServersideQoL.AdminOptions;
 
 [Processor("fff17191-3ccc-4b56-9aa0-03e1c38b4175")]
 [RunAfter<PlayerRegistryProcessor>]
@@ -268,7 +268,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       zdo.AssertIs<TerrainComp>();
       if (GetHeightmap(zdo.ZDO.GetPosition()) is not { } hmap)
       {
-        AdminBuildOptionsPlugin.Logger.LogWarning($"Heightmap not found at {zdo.ZDO.GetPosition()}");
+        AdminOptionsPlugin.Logger.LogWarning($"Heightmap not found at {zdo.ZDO.GetPosition()}");
         return null;
       }
       return new(zdo, hmap);
@@ -297,7 +297,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       ZPackage zPackage = new ZPackage(Utils.Decompress(byteArray));
       if (zPackage.ReadInt() is not TerrainCompVersion)
       {
-        AdminBuildOptionsPlugin.Logger.LogWarning("Terrain data load error, version missmatch");
+        AdminOptionsPlugin.Logger.LogWarning("Terrain data load error, version missmatch");
         return false;
       }
       _operations = zPackage.ReadInt();
@@ -306,7 +306,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       int num = zPackage.ReadInt();
       if (num != expectedLength)
       {
-        AdminBuildOptionsPlugin.Logger.LogWarning("Terrain data load error, height array missmatch");
+        AdminOptionsPlugin.Logger.LogWarning("Terrain data load error, height array missmatch");
         return false;
       }
 

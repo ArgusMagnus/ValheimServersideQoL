@@ -1,4 +1,4 @@
-﻿namespace ServersideQoL.AdminBuildOptions;
+﻿namespace ServersideQoL.AdminOptions;
 
 [Processor("256a8351-08e2-4b0f-9c71-f011c7cf846f")]
 [DependsOn<PlayerRegistryProcessor>]
@@ -41,7 +41,7 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     return result;
   }
 
-  static readonly int __adminBuildModifiers = AdminBuildOptionsPlugin.RegisterServerVar("AdminBuildModifiers");
+  static readonly int __adminBuildModifiers = AdminOptionsPlugin.RegisterServerVar("AdminBuildModifiers");
   static PlayerProcessor.BuildModifiers GetAdminBuildModifiers(ServersideQoLZDO zdo, PlayerProcessor.BuildModifiers defaultValue = default) => (PlayerProcessor.BuildModifiers)zdo.ZDO.GetInt(__adminBuildModifiers, (int)defaultValue);
   static void SetAdminBuildModifiers(ServersideQoLZDO zdo, PlayerProcessor.BuildModifiers value) => zdo.ZDO.Set(__adminBuildModifiers, (int)value);
 }

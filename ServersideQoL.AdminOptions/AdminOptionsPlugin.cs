@@ -1,8 +1,8 @@
 ﻿using BepInEx.Configuration;
 
-namespace ServersideQoL.AdminBuildOptions;
+namespace ServersideQoL.AdminOptions;
 
-partial class AdminBuildOptionsPlugin : ServersideQoLPluginBase<AdminBuildOptionsPlugin, Config>
+partial class AdminOptionsPlugin : ServersideQoLPluginBase<AdminOptionsPlugin, Config>
 {
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
