@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Gives admins the ability to change various build/landscaping options and toggle demigod mod/infinite stamina for themselves</Description>
+    <Description>Gives admins on dedicated servers the ability to change various build/landscaping options and toggle demigod mod/infinite stamina for themselves</Description>
   </PropertyGroup>
 
   <ItemGroup>
