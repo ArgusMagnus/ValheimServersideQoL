@@ -1,6 +1,7 @@
 ﻿using BepInEx.Logging;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks.Sources;
 using UnityEngine;
 using static Skills;
 
@@ -322,8 +323,8 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
     }
 
     bool _hasChangedGlobalKeyModifications;
-    Dictionary<GlobalKey, bool>? _globalKeyModifications;
-    public override IReadOnlyDictionary<GlobalKey, bool> GlobalKeyModifications => _globalKeyModifications ?? EmptyReadOnlyCollections<GlobalKey, bool>.Dictionary;
+    Dictionary<GlobalKey, (bool? Add, float? Value)>? _globalKeyModifications;
+    public override IReadOnlyDictionary<GlobalKey, (bool? Add, float? Value)> GlobalKeyModifications => _globalKeyModifications ?? EmptyReadOnlyCollections<GlobalKey, (bool? Add, float? Value)>.Dictionary;
 
     void OnGlobalKeyModificationChanged(string callerFilePath)
     {
@@ -338,7 +339,14 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
     public override void AddGlobalKeyModification(GlobalKey key, bool add, string callerFilePath)
     {
       _globalKeyModifications ??= [];
-      if (_globalKeyModifications.TryAdd(key, add))
+      if (_globalKeyModifications.TryAdd(key, (add, null)))
+        OnGlobalKeyModificationChanged(callerFilePath);
+    }
+
+    public override void AddGlobalKeyModification(GlobalKey key, float value, string callerFilePath)
+    {
+      _globalKeyModifications ??= [];
+      if (_globalKeyModifications.TryAdd(key, (null, value)))
         OnGlobalKeyModificationChanged(callerFilePath);
     }
 

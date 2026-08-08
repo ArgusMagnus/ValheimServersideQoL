@@ -14,8 +14,6 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
     public override bool IsValid => Player is not null || PrefabInfo.PrefabHash == __mudRoadPrefab;
   }
 
-  public BuildModifiers PossibleBuildModifiers { get; private set; }
-
   readonly Dictionary<ServersideQoLZDO, State> _states = [];
   readonly int _numberOfLevelGroundModes = Enum.GetValues(typeof(LevelGroundModes)).Length;
 
@@ -30,22 +28,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
 
   protected override void Initialize()
   {
-    PossibleBuildModifiers = BuildModifiers.None;
-    if (Config.Instance.ToggleDisableRainDamageEmote.Value is not ConfigBase.DisabledEmote)
-      PossibleBuildModifiers |= BuildModifiers.DisableRainDamage;
-    if (Config.Instance.ToggleDisableSupportRequirements.Value is not ConfigBase.DisabledEmote)
-      PossibleBuildModifiers |= BuildModifiers.DisableSupportRequirements;
-    if (Config.Instance.ToggleMakeIndestructible.Value is not ConfigBase.DisabledEmote)
-      PossibleBuildModifiers |= BuildModifiers.MakeIndestructible;
-    if (Config.Instance.ToggleNoWorkbench.Value is not ConfigBase.DisabledEmote)
-      PossibleBuildModifiers |= BuildModifiers.NoWorkbench;
-    if (Config.Instance.ToggleDungeonBuild.Value is not ConfigBase.DisabledEmote)
-      PossibleBuildModifiers |= BuildModifiers.DungeonBuild;
-    if (Config.Instance.ToggleNoBuildCost.Value is not ConfigBase.DisabledEmote)
-      PossibleBuildModifiers |= BuildModifiers.NoBuildCost;
-    if (Config.Instance.ToggleAllPiecesUnlocked.Value is not ConfigBase.DisabledEmote)
-      PossibleBuildModifiers |= BuildModifiers.AllPiecesUnlocked;
-
+    Instance<PlayerRegistryProcessor>().EmoteDetected -= OnEmoteDetected;
     Instance<PlayerRegistryProcessor>().EmoteDetected += OnEmoteDetected;
   }
 
@@ -204,6 +187,15 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       state.LevelGroundMode = (LevelGroundModes)(((int)state.LevelGroundMode + 1) % _numberOfLevelGroundModes);
       state.NextLevelGroundModeMessage = default;
     }
+    if (CheckEmote(emote, Config.Instance.DemigodMode.Value))
+    {
+      state.DemigodMode = !state.DemigodMode;
+      if (state.DemigodMode)
+        state.PlayerState.AddGlobalKeyModification(new(GlobalKeys.EnemyDamage), 0);
+      else
+        state.PlayerState.RemoveGlobalKeyModification(new(GlobalKeys.EnemyDamage));
+      RPC.ShowMessage(state.PlayerState.Owner, MessageHud.MessageType.TopLeft, $"Demigod mode: {state.DemigodMode}");
+    }
   }
 
   State? GetState(long peerID)
@@ -235,6 +227,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
     public PlayerState PlayerState { get; } = playerState;
     public BuildModifiers BuildModifiers { get; set; }
     public LevelGroundModes LevelGroundMode { get; set; }
+    public bool DemigodMode { get; set; }
     public Timestamp NextBuildModifierMessage { get; set; } = Timestamp.Now.AddSeconds(float.PositiveInfinity);
     public Timestamp NextLevelGroundModeMessage { get; set; } = Timestamp.Now.AddSeconds(float.PositiveInfinity);
   }

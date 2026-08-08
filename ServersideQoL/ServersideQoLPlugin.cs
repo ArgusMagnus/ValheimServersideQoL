@@ -874,9 +874,18 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         if (Processor.Instance<PlayerRegistryProcessor>().GetStateForPeerID(peer) is not { } state)
           return globalKeys;
 
-        foreach (var (key, add) in state.GlobalKeyModifications)
+        foreach (var (key, (add, value)) in state.GlobalKeyModifications)
         {
-          if (!add)
+          if (value is not null)
+          {
+            var newKey = Invariant($"{key.Key} {value}");
+            var idx = globalKeys.FindIndex(x => x.Length > key.Key.Length && x[key.Key.Length] is ' ' && x.StartsWith(key.Key));
+            if (idx > -1)
+              globalKeys[idx] = newKey;
+            else
+              globalKeys.Add(newKey);
+          }
+          else if (!add!.Value)
             globalKeys.Remove(key);
           else if (!globalKeys.Contains(key))
             globalKeys.Add(key);
