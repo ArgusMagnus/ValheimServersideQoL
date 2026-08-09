@@ -20,9 +20,9 @@ public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
   {
     if (Config.Instance.Enabled.Value)
     {
-      var filter = Config.Instance.AutoUpdatePortalsInclude.Value.Trim();
+      var filter = Config.Instance.PortalsInclude.Value.Trim();
       _includePortalRegex = string.IsNullOrEmpty(filter.Trim(['*'])) ? null : new(ConvertToRegexPattern(filter));
-      filter = Config.Instance.AutoUpdatePortalsExclude.Value.Trim();
+      filter = Config.Instance.PortalsExclude.Value.Trim();
       _excludePortalRegex = string.IsNullOrEmpty(filter) ? null : new(ConvertToRegexPattern(filter));
     }
     else
@@ -49,7 +49,7 @@ public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
 
     if (_pins is { Count: 0 })
     {
-      if (Config.Instance.AutoUpdatePortals.Value)
+      if (Config.Instance.PortalsPinType.Value is not Minimap.PinType.None)
       {
         foreach (var portal in ZDOMan.instance.GetPortals().Values.SelectMany(static x => x.Select(static x => x.ServersideQoLZDO)))
         {
@@ -58,12 +58,12 @@ public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
           var tag = portal.Vars.GetTag();
           if (_includePortalRegex?.IsMatch(tag) is false || _excludePortalRegex?.IsMatch(tag) is true)
             continue;
-          var pin = new Pin(AutoMapTablesPlugin.PluginGuidHash, tag, portal.ZDO.GetPosition(), Minimap.PinType.Icon4, false, AutoMapTablesPlugin.PluginGuid);
+          var pin = new Pin(AutoMapTablesPlugin.PluginGuidHash, tag, portal.ZDO.GetPosition(), Config.Instance.PortalsPinType.Value, false, AutoMapTablesPlugin.PluginGuid);
           _pins.Add(pin);
           _oldPinsHash = (_oldPinsHash, pin).GetHashCode();
         }
       }
-      if (Config.Instance.AutoUpdateShips.Value)
+      if (Config.Instance.ShipsPinType.Value is not Minimap.PinType.None)
       {
         foreach (var ship in Instance<ShipProcessor>().Ships)
         {
@@ -73,7 +73,7 @@ public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
           pos = new(RoundToMultipleOf5(pos.x), RoundToMultipleOf5(pos.y), RoundToMultipleOf5(pos.z));
 
           var shipPrefabInfo = ship.GetProcessorPrefabInfo<ShipProcessor.PrefabInfo>()!;
-          var pin = new Pin(AutoMapTablesPlugin.PluginGuidHash, shipPrefabInfo.Piece.m_name ?? "", pos, Minimap.PinType.Player, false, AutoMapTablesPlugin.PluginGuid);
+          var pin = new Pin(AutoMapTablesPlugin.PluginGuidHash, shipPrefabInfo.Piece.m_name ?? "", pos, Config.Instance.ShipsPinType.Value, false, AutoMapTablesPlugin.PluginGuid);
           _pins.Add(pin);
           _oldPinsHash = (_oldPinsHash, pin).GetHashCode();
         }
@@ -111,7 +111,7 @@ public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
       if (_existingPins.Capacity < pinCount)
         _existingPins.Capacity = pinCount;
 
-      foreach (var i in Enumerable.Range(0, pinCount))
+      for (int i = 0; i < pinCount; i++)
       {
         var pin = new Pin(pkg.ReadLong(), pkg.ReadString(), pkg.ReadVector3(), (Minimap.PinType)pkg.ReadInt(), pkg.ReadBool(), pkg.ReadString());
         if (pin.OwnerId != AutoMapTablesPlugin.PluginGuidHash)
