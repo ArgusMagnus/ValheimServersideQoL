@@ -148,7 +148,7 @@ public abstract class Processor
       }
       if ((marker & CreatorMarkers.ProcessorOwned) is not 0)
       {
-        if (ServersideQoLPlugin.Instance.Processors.TryGetValue(GetProcessorId(zdo), out var processor))
+        if (ServersideQoLPlugin.Instance.Processors.TryGetValue(__processorIdVar.Get(zdo), out var processor))
         {
           processor.PlacedObjects.Add(zdo);
           zdo.Destroyed += processor.OnPlacedObjectDestroyed;
@@ -167,9 +167,7 @@ public abstract class Processor
   internal protected virtual void Initialize() { }
 
 
-  static int __processorId = ServersideQoLPlugin.RegisterServerVar("ProcessorId");
-  public static Guid GetProcessorId(ServersideQoLZDO zdo, Guid defaultValue = default) => zdo.ZDO.GetByteArray(__processorId, []) is { Length: > 0 } arr ? new(arr) : defaultValue;
-  public static void SetProcessorId(ServersideQoLZDO zdo, Guid value) => zdo.ZDO.Set(__processorId, value == default ? [] : value.ToByteArray());
+  static readonly ServerVar<Guid> __processorIdVar = ServersideQoLPlugin.RegisterServerVar<Guid>("ProcessorId");
 
   protected internal static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => field ??= new Func<IReadOnlyDictionary<Heightmap.Biome, Character>>(static () =>
   {
@@ -320,7 +318,7 @@ public abstract class Processor
     zdo.SetModAsCreator(marker);
     zdo.Vars.SetHealth(-1);
     if (marker.HasFlag(CreatorMarkers.ProcessorOwned))
-      SetProcessorId(zdo, Attribute.Id);
+      __processorIdVar.Set(zdo, Attribute.Id);
 
     zdo.ZDO.SetOwnerInternal(owner);
 
@@ -456,7 +454,8 @@ public abstract class Processor
     return (width, height);
   }
 
-  public abstract class ServerVar<T>
+  [Obsolete("For internal use only", false)]
+  public abstract class ServerVarCore<T> : ServerVar<T>
   {
     static readonly int __serverVarHash = $"{ServersideQoLPlugin.PluginGuid}.ServerVars{typeof(T).Name}".GetStableHashCode();
     static HashSet<int>? __serverVars;
@@ -464,11 +463,11 @@ public abstract class Processor
     protected readonly int _hash;
     bool _usageSaved;
 
-    private protected ServerVar(int hash) => _hash = hash;
+    private protected ServerVarCore(string name) => _hash = name.GetStableHashCode();
 
     protected abstract void SetCore(ServersideQoLZDO zdo, T value);
 
-    public void Set(ServersideQoLZDO zdo, T value)
+    public sealed override void Set(ServersideQoLZDO zdo, T value)
     {
       if (!_usageSaved)
       {

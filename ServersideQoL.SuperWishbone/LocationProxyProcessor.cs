@@ -16,6 +16,8 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
 
   Regex? _regex;
 
+  static readonly ServerVar<bool> __beaconFoundVar = SuperWishbonePlugin.RegisterServerVar<bool>("BeaconState");
+
   protected override void Initialize()
   {
     _regex = null;
@@ -38,7 +40,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       {
         DestroyObject(zdo);
         _zdosByBeacon.Remove(zdo);
-        SetBeaconFound(zdo2, true);
+        __beaconFoundVar.Set(zdo2, true);
       }
       return ProcessResult.ScheduleReprocessing;
     }
@@ -50,7 +52,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
     if (Config.Instance is { FindDungeons.Value: false, FindVegvisir.Value: false } && _regex is null)
       return ProcessResult.UnregisterProcessor;
 
-    if (GetBeaconFound(zdo))
+    if (__beaconFoundVar.Get(zdo))
       return ProcessResult.UnregisterProcessor;
 
     var hash = zdo.Vars.GetLocation();
@@ -159,8 +161,4 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       }
     }
   }
-
-  static int __beaconFound = SuperWishbonePlugin.RegisterServerVar("BeaconState");
-  static bool GetBeaconFound(ServersideQoLZDO zdo, bool defaultValue = default) => zdo.ZDO.GetBool(__beaconFound, defaultValue);
-  static void SetBeaconFound(ServersideQoLZDO zdo, bool value) => zdo.ZDO.Set(__beaconFound, value);
 }

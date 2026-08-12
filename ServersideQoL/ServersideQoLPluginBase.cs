@@ -62,7 +62,11 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : ServersideQoLPlu
     ServersideQoLPlugin.RegisterPlugin(this);
   }
 
-  public static int RegisterServerVar(string name) => $"{BepInPlugin.GUID}.{name}".GetStableHashCode();
+  /// <typeparam name="T">
+  /// Supports all default ZDO variable types plus all unmanaged types and collections of unmanaged types.
+  /// Any other type will cause an exception.
+  /// </typeparam>
+  public static ServerVar<T> RegisterServerVar<T>(string name) => ServerVar.Create<T>($"{BepInPlugin.GUID}.{name}");
 
   protected abstract void RegisterProcessors(IProcessorCollection processors);
 

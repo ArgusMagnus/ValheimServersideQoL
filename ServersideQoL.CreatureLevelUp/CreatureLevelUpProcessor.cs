@@ -19,6 +19,8 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
 
   sealed record SpawnSystemData(SpawnSystem.SpawnData Data, Biome? BiomeOverwrite) : SpawnData(Data.m_prefab.name.GetStableHashCode(), Data.m_minLevel, Data.m_maxLevel, Data.m_overrideLevelupChance);
 
+  static readonly ServerVar<int> __initialLevelVar = CreatureLevelUpPlugin.RegisterServerVar<int>("InitialLevel");
+
   protected override void Initialize()
   {
     _sectorStates.Clear();
@@ -212,13 +214,13 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (character is Player)
       return result;
 
-    var initialLevel = GetInitialLevel(zdo);
+    var initialLevel = __initialLevelVar.Get(zdo);
     if (initialLevel is not 0)
     {
       if (initialLevel > 0 && Config.Instance.MaxLevelIncrease.Value is 0 && Config.Instance.MaxLevelIncreasePerDefeatedBoss.Value is 0)
       {
         zdo.Vars.SetLevel(initialLevel);
-        RemoveInitialLevel(zdo);
+        __initialLevelVar.Remove(zdo);
       }
       return result;
     }
@@ -240,7 +242,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
       initialLevel = zdo.Vars.GetLevel();
     }
 
-    SetInitialLevel(zdo, initialLevel);
+    __initialLevelVar.Set(zdo, initialLevel);
 
     if (initialLevel <= 0)
       return result;
@@ -384,11 +386,6 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     }
     return true;
   }
-
-  static readonly int __initialLevelHash = CreatureLevelUpPlugin.RegisterServerVar("InitialLevel");
-  static int GetInitialLevel(ServersideQoLZDO zdo, int defaultValue = default) => zdo.ZDO.GetInt(__initialLevelHash, defaultValue);
-  static void SetInitialLevel(ServersideQoLZDO zdo, int value) => zdo.ZDO.Set(__initialLevelHash, value);
-  static void RemoveInitialLevel(ServersideQoLZDO zdo) => zdo.ZDO.RemoveInt(__initialLevelHash);
 
   sealed class SectorState
   {

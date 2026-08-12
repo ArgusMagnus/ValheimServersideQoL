@@ -14,14 +14,14 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
       return ProcessResult.UnregisterProcessor;
 
     const PlayerProcessor.BuildModifiers Unset = (PlayerProcessor.BuildModifiers)uint.MaxValue;
-    var modifiers = GetAdminBuildModifiers(zdo, Unset);
+    var modifiers = __adminBuildModifiersVar.Get(zdo, Unset);
     var creator = zdo.Vars.GetCreator();
     if (modifiers is not Unset)
       return ProcessResult.UnregisterProcessor;
 
     modifiers = Instance<PlayerProcessor>().GetBuildModifiers(creator);
     if (modifiers is not PlayerProcessor.BuildModifiers.None)
-      SetAdminBuildModifiers(zdo, modifiers);
+      __adminBuildModifiersVar.Set(zdo, modifiers);
 
     var fields = zdo.Fields<WearNTear>();
     var result = ProcessResult.UnregisterProcessor;
@@ -41,7 +41,5 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     return result;
   }
 
-  static readonly int __adminBuildModifiers = AdminOptionsPlugin.RegisterServerVar("AdminBuildModifiers");
-  static PlayerProcessor.BuildModifiers GetAdminBuildModifiers(ServersideQoLZDO zdo, PlayerProcessor.BuildModifiers defaultValue = default) => (PlayerProcessor.BuildModifiers)zdo.ZDO.GetInt(__adminBuildModifiers, (int)defaultValue);
-  static void SetAdminBuildModifiers(ServersideQoLZDO zdo, PlayerProcessor.BuildModifiers value) => zdo.ZDO.Set(__adminBuildModifiers, (int)value);
+  static readonly ServerVar<PlayerProcessor.BuildModifiers> __adminBuildModifiersVar = AdminOptionsPlugin.RegisterServerVar<PlayerProcessor.BuildModifiers>("AdminBuildModifiers");
 }

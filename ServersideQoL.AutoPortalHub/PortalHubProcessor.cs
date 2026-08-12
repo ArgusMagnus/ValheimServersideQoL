@@ -28,6 +28,8 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
     return pos;
   }).Invoke();
 
+  static readonly ServerVar<int> __portalHubIdVar = AutoPortalHubPlugin.RegisterServerVar<int>("PortalHubId");
+
   protected override void Initialize()
   {
     var changed = _hubEnabled != Config.Instance.Enabled.Value;
@@ -47,7 +49,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
         string? tag = null;
         if (!zdo.IsModCreator() && CheckFilter(tag = zdo.Vars.GetTag()))
         {
-          _knownPortals.Add(zdo, new() { Tag = tag, HubId = GetPortalHubId(zdo), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static () => x => x.m_allowAllItems) });
+          _knownPortals.Add(zdo, new() { Tag = tag, HubId = __portalHubIdVar.Get(zdo), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static () => x => x.m_allowAllItems) });
           zdo.Destroyed += OnKnownPortalDestroyed;
         }
       }
@@ -58,7 +60,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       {
         var ids = state.AllowAllItems ? hubIdsAllItems : hubIds;
         while (!ids.Add(++id)) ;
-        SetPortalHubId(zdo, state.HubId = id);
+        __portalHubIdVar.Set(zdo, state.HubId = id);
       }
     }
 
@@ -146,7 +148,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
           state.Tag = tag;
         else
         {
-          _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = GetPortalHubId(zdo), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static () => x => x.m_allowAllItems) });
+          _knownPortals.Add(zdo, state = new() { Tag = tag, HubId = __portalHubIdVar.Get(zdo), AllowAllItems = zdo.Fields<TeleportWorld>().GetBool(static () => x => x.m_allowAllItems) });
           zdo.Destroyed += OnKnownPortalDestroyed;
 
           if (state.HubId is 0)
@@ -154,7 +156,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
             var hubIds = _knownPortals.Values.Where(x => x.AllowAllItems == state.AllowAllItems).Select(static x => x.HubId).ToHashSet();
             int id = 0;
             while (!hubIds.Add(++id)) ;
-            SetPortalHubId(zdo, state.HubId = id);
+            __portalHubIdVar.Set(zdo, state.HubId = id);
           }
         }
         _updateHub = true;
@@ -414,11 +416,6 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       //    .Fields<Fireplace>().Set(static x => x.m_infiniteFuel, true).Set(static x => x.m_disableCoverCheck, true);
     }
   }
-
-  static int __portalHubId = AutoPortalHubPlugin.RegisterServerVar("PortalHubId");
-  static int GetPortalHubId(ServersideQoLZDO zdo, int defaultValue = default) => zdo.ZDO.GetInt(__portalHubId, defaultValue);
-  static void SetPortalHubId(ServersideQoLZDO zdo, int value) => zdo.ZDO.Set(__portalHubId, value);
-
 
   sealed class PortalState
   {

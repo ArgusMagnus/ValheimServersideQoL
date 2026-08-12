@@ -48,14 +48,14 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return GetStateCore(zdo, container);
   }
 
-  static int __returnContentToCreatorHash = ServersideQoLPlugin.RegisterServerVar("ReturnContentToCreator");
+  static readonly ServerVar<bool> __returnContentToCreatorVar = ServersideQoLPlugin.RegisterServerVar<bool>("ReturnContentToCreator");
+  public bool GetReturnContentToCreator(ServersideQoLZDO zdo, bool defaultValue = default) => __returnContentToCreatorVar.Get(zdo, defaultValue);
+
   public void SetReturnContentToCreator(ServersideQoLZDO zdo, bool value)
   {
     AssertHasProcessorPrefabInfo(zdo);
-    zdo.ZDO.Set(__returnContentToCreatorHash, value);
+    __returnContentToCreatorVar.Set(zdo, value);
   }
-
-  public bool GetReturnContentToCreator(ServersideQoLZDO zdo, bool defaultValue = default) => zdo.ZDO.GetBool(__returnContentToCreatorHash, defaultValue);
 
   ContainerStateImpl GetStateCore(ServersideQoLZDO zdo, Container container)
   {
