@@ -103,8 +103,8 @@ partial class ServersideQoLZDO
       static readonly Dictionary<(Type, string), FieldReference<T>> __cacheByFieldName = [];
       static readonly Dictionary<(Type, string, int), FieldReference<T>> __cacheByLocation = [];
 
-      static readonly (GetHandler<T> Getter, SetHandler<T> Setter, RemoveHandler<T>? Remover, IEqualityComparer<T> EqualityComparer) Accessors =
-          new Func<(GetHandler<T>, SetHandler<T>, RemoveHandler<T>?, IEqualityComparer<T>)>(static () =>
+      static readonly (GetHandler<T> Getter, SetHandler<T> Setter, RemoveHandler<T> Remover, IEqualityComparer<T> EqualityComparer) Accessors =
+          new Func<(GetHandler<T>, SetHandler<T>, RemoveHandler<T>, IEqualityComparer<T>)>(static () =>
           {
             if (typeof(T) == typeof(bool)) return (
                       (GetHandler<T>)(Delegate)new GetHandler<bool>(static (ZDO zdo, int hash, bool defaultValue) => zdo.GetBool(hash, defaultValue)),
@@ -127,7 +127,7 @@ partial class ServersideQoLZDO
             if (typeof(T) == typeof(string)) return (
                       (GetHandler<T>)(Delegate)new GetHandler<string>(static (ZDO zdo, int hash, string defaultValue) => zdo.GetString(hash, defaultValue)),
                       (SetHandler<T>)(Delegate)new SetHandler<string>(static (ZDO zdo, int hash, string value) => zdo.Set(hash, value)),
-                      null,
+                      (RemoveHandler<T>)(Delegate)new RemoveHandler<float>(static (ZDO zdo, int hash) => zdo.RemoveString(hash)),
                       (IEqualityComparer<T>)EqualityComparer<string>.Default);
 
             if (typeof(T) == typeof(Vector3)) return (
@@ -139,13 +139,13 @@ partial class ServersideQoLZDO
             if (typeof(T) == typeof(GameObject)) return (
                       (GetHandler<T>)(Delegate)new GetHandler<GameObject>(GetGameObject),
                       (SetHandler<T>)(Delegate)new SetHandler<GameObject>(static (ZDO zdo, int hash, GameObject value) => zdo.Set(hash, value.name)),
-                      null,
+                      (RemoveHandler<T>)(Delegate)new RemoveHandler<float>(static (ZDO zdo, int hash) => zdo.RemoveString(hash)),
                       (IEqualityComparer<T>)(object)UnityObjectEqualityComparer<GameObject>.Instance);
 
             if (typeof(T) == typeof(ItemDrop)) return (
                       (GetHandler<T>)(Delegate)new GetHandler<ItemDrop>(GetItemDrop),
                       (SetHandler<T>)(Delegate)new SetHandler<ItemDrop>(static (ZDO zdo, int hash, ItemDrop value) => zdo.Set(hash, value.name)),
-                      null,
+                      (RemoveHandler<T>)(Delegate)new RemoveHandler<float>(static (ZDO zdo, int hash) => zdo.RemoveString(hash)),
                       (IEqualityComparer<T>)(object)UnityObjectEqualityComparer<ItemDrop>.Instance);
 
             throw new NotSupportedException();
@@ -203,7 +203,7 @@ partial class ServersideQoLZDO
 
       public ComponentFieldAccessor<TComponent> SetValue(ComponentFieldAccessor<TComponent> componentFieldAccessor, T value)
       {
-        if (Accessors.Remover is not null && Accessors.EqualityComparer.Equals(value, _getFieldValue(componentFieldAccessor._component)))
+        if (Accessors.EqualityComparer.Equals(value, _getFieldValue(componentFieldAccessor._component)))
           Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
         else
         {
@@ -222,7 +222,7 @@ partial class ServersideQoLZDO
 
         var isDefaultValue = Accessors.EqualityComparer.Equals(value, defaultValue);
 
-        if (Accessors.Remover is not null && isDefaultValue)
+        if (isDefaultValue)
           Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
         else
         {
@@ -238,10 +238,7 @@ partial class ServersideQoLZDO
         if (!componentFieldAccessor.HasFields)
           return componentFieldAccessor;
 
-        if (Accessors.Remover is not null)
-          Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
-        else
-          Accessors.Setter(componentFieldAccessor._zdo.ZDO, _hash, _getFieldValue(componentFieldAccessor._component));
+        Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
         return componentFieldAccessor;
       }
 
@@ -249,15 +246,8 @@ partial class ServersideQoLZDO
       {
         if (!componentFieldAccessor.HasFields)
           return false;
-
-        if (Accessors.Remover is not null)
-          return Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
-
-        var defaultValue = _getFieldValue(componentFieldAccessor._component);
-        if (Accessors.EqualityComparer.Equals(Accessors.Getter(componentFieldAccessor._zdo.ZDO, _hash, defaultValue), defaultValue))
-          return false;
-        Accessors.Setter(componentFieldAccessor._zdo.ZDO, _hash, defaultValue);
-        return true;
+        
+        return Accessors.Remover(componentFieldAccessor._zdo.ZDO, _hash);
       }
     }
 
