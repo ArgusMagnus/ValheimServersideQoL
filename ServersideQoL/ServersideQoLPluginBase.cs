@@ -4,7 +4,6 @@ using System.Reflection;
 
 namespace ServersideQoL;
 
-
 interface IServersideQoLPlugin
 {
   IConfig Config { get; }
@@ -69,20 +68,6 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : ServersideQoLPlu
 
   private protected sealed override void RegisterProcessors()
       => RegisterProcessors(new ProcessorCollection(this, Logger));
-
-  //protected void RegisterProcessor<T>()
-  //    where T : Processor, new()
-
-  //{
-  //    ServersideQoL.RegisterPlugin(this);
-  //    var processor = Processor.Instance<T>();
-  //    if (_processors.Contains(processor))
-  //        return;
-
-  //    processor.Plugin = this;
-  //    processor.ValidateProcessorInternal();
-  //    _processors.Add(processor);
-  //}
 
   sealed class ProcessorCollection(ServersideQoLPluginBase<TSelf, TConfig> plugin, Logger logger) : IProcessorCollection
   {

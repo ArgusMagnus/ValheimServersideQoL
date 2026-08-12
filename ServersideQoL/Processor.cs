@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -453,6 +454,61 @@ public abstract class Processor
     }
 
     return (width, height);
+  }
+
+  public abstract class ServerVar<T>
+  {
+    static readonly int __serverVarHash = $"{ServersideQoLPlugin.PluginGuid}.ServerVars{typeof(T).Name}".GetStableHashCode();
+    static HashSet<int>? __serverVars;
+
+    protected readonly int _hash;
+    bool _usageSaved;
+
+    private protected ServerVar(int hash) => _hash = hash;
+
+    protected abstract void SetCore(ServersideQoLZDO zdo, T value);
+
+    public void Set(ServersideQoLZDO zdo, T value)
+    {
+      if (!_usageSaved)
+      {
+        _usageSaved = true;
+
+        if (__serverVars is null)
+        {
+          __serverVars = [];
+          if (__dataZDO?.ZDO.GetByteArray(__serverVarHash) is { Length: > 0 } bytes)
+          {
+            foreach (var hash in MemoryMarshal.Cast<byte, int>(bytes.AsSpan()))
+              __serverVars.Add(hash);
+          }
+        }
+
+        if (__serverVars.Add(_hash))
+        {
+          var bytes = new byte[__serverVars.Count * sizeof(int)];
+          var span = MemoryMarshal.Cast<byte, int>(bytes.AsSpan());
+          foreach (var hash in __serverVars)
+          {
+            span[0] = hash;
+            span = span[1..];
+          }
+          DataZDO.ZDO.Set(__serverVarHash, bytes);
+        }
+      }
+      SetCore(zdo, value);
+    }
+
+    internal static HashSet<int>? GetVars()
+    {
+      if (__serverVars is null && __dataZDO?.ZDO.GetByteArray(__serverVarHash) is { Length: > 0 } bytes)
+      {
+        __serverVars = [];
+        foreach (var hash in MemoryMarshal.Cast<byte, int>(bytes.AsSpan()))
+          __serverVars.Add(hash);
+      }
+      return __serverVars;
+    }
   }
 
   static class HeightmapUtils
