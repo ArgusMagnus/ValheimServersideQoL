@@ -1,7 +1,11 @@
 ﻿namespace ServersideQoL.WorldOptions;
 
+[Processor(Id)]
+[DependsOn<PlayerRegistryProcessor>]
 public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
 {
+  public const string Id = "09966489-a911-4bc0-be43-4dbd01212f19";
+
   float _mapTableRangeSqr;
 
   protected override void Initialize()

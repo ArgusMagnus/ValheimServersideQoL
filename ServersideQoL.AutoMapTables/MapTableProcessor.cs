@@ -1,7 +1,132 @@
-﻿using System.Text.RegularExpressions;
+﻿using BepInEx.Configuration;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace ServersideQoL.AutoMapTables;
+
+//[DependsOn<PlayerRegistryProcessor>]
+//public sealed class Processor : Processor<Processor.PrefabInfo>
+//{
+//  public sealed record PrefabInfo(MapTable? MapTable, TeleportWorld? TeleportWorld, Ship? Ship, MineRock5? MineRock5) : ProcessorPrefabInfo
+//  {
+//    public ConfigEntry<Minimap.PinType>? MineRockPinConfig => field ??= MineRock5 is not null && Config.Instance.AutoUpdateOreDeposits.TryGetValue(PrefabInfo.PrefabHash, out var value) ? value : null;
+//    public override bool IsValid => MineRock5 is null || MineRockPinConfig is not null;
+//  }
+
+//  readonly Dictionary<ServersideQoLZDO, State> _mapTables = [];
+//  readonly HashSet<ServersideQoLZDO> _portals = [];
+//  readonly HashSet<ServersideQoLZDO> _ships = [];
+
+//  protected override void Initialize()
+//  {
+//    //_mapTables.Clear();
+//    //_portals.Clear();
+//    //_ships.Clear();
+//    //_mineRocks.Clear();
+
+//    //foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
+//    //{
+//    //  var set = GetProcessorPrefabInfo(zdo) switch
+//    //  {
+//    //    { MapTable: not null } => _mapTables,
+//    //    { TeleportWorld: not null } => _portals,
+//    //    { Ship: not null } => _ships,
+//    //    { MineRock5: not null } => _mineRocks,
+//    //    _ => throw new Exception()
+//    //  };
+
+//    //  if (set.Add(zdo))
+//    //    zdo.Destroyed += x => set.Remove(x);
+//    //}
+//  }
+
+//  protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
+//  {
+//    if (prefabInfo.MapTable is not null)
+//    {
+//      if (!_mapTables.TryGetValue(zdo, out var state))
+//      {
+//        _mapTables.Add(zdo, state = new(zdo));
+//        zdo.Destroyed += x => _mapTables.Remove(x);
+//      }
+
+//      var updatePortalsAndShips = false;
+//      foreach (var peer in peers.Enumerate())
+//      {
+//        if (peer.PlayerState is not { } playerState)
+//          continue;
+//        if (state.Creator == playerState.PlayerID || state.PlayerIDs.Contains(playerState.PlayerID))
+//          continue;
+//        if (Vector3.Distance(zdo.ZDO.GetPosition(), peer.RefPos) > Config.Instance.RegisterPlayerDistance.Value)
+//          continue;
+
+//        state.PlayerIDs.Add(playerState.PlayerID);
+//        SetPlayerIDs(zdo, state.PlayerIDs);
+//        updatePortalsAndShips = true;
+//      }
+
+//      if (updatePortalsAndShips)
+//        asdf;
+
+//      zdo.DelaySchedulingFor(0.5f);
+//      return ProcessResult.ScheduleReprocessing;
+//    }
+
+//    if (prefabInfo.TeleportWorld is not null)
+//    {
+//      asdf;
+//      return ProcessResult.UnregisterProcessor;
+//    }
+
+//    if (prefabInfo.Ship is not null)
+//    {
+//      asdf;
+//      return default;
+//    }
+
+//    if (prefabInfo.MineRockPinConfig is not null)
+//    {
+//      asdf;
+//      return default;
+//    }
+
+//    Logger.DevLog($"Unexpected prefab: {prefabInfo.PrefabInfo.PrefabName}");
+//    return ProcessResult.UnregisterProcessor;
+//  }
+
+//  static readonly int __playerIDsHash = AutoMapTablesPlugin.RegisterServerVar("PlayerIDs");
+
+//  static void SetPlayerIDs(ServersideQoLZDO zdo, HashSet<long> playerIDs)
+//  {
+//    var value = new byte[playerIDs.Count * sizeof(long)];
+//    var span = MemoryMarshal.Cast<byte, long>(value.AsSpan());
+//    int i = -1;
+//    foreach (var id in playerIDs)
+//      span[++i] = id;
+//    zdo.ZDO.Set(__playerIDsHash, value);
+//  }
+
+//  static HashSet<long> GetPlayerIDs(ServersideQoLZDO zdo)
+//  {
+//    HashSet<long> result = [];
+//    var value = zdo.ZDO.GetByteArray(__playerIDsHash);
+//    if (value is { Length: > 0 })
+//    {
+//      var span = MemoryMarshal.Cast<byte, long>(value.AsSpan());
+//      foreach (var id in span)
+//        result.Add(id);
+//    }
+//    return result;
+//  }
+
+//  sealed class State(ServersideQoLZDO zdo)
+//  {
+//    public ServersideQoLZDO ZDO { get; } = zdo;
+//    public long Creator { get; } = zdo.Vars.GetCreator();
+//    public HashSet<long> PlayerIDs { get; } = GetPlayerIDs(zdo);
+//  }
+//}
 
 [Processor("05450dd6-13bd-42cc-9bd3-b1eed5e501af")]
 public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
