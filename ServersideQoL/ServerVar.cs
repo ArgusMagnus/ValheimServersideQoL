@@ -39,6 +39,8 @@ static class ServerVar
       result = new ServerVarString(name);
     else if (type == typeof(byte[]))
       result = new ServerVarByteArray(name);
+    else if (type.IsArray)
+      result = typeof(ServerVarArray<int>).GetGenericTypeDefinition().MakeGenericType(type.GetElementType()).GetConstructor([typeof(string)]).Invoke(parameters: [name]);
     else if (type.IsGenericType && typeof(IEnumerable).IsAssignableFrom(type))
       result = typeof(ServerVarCollection<int, List<int>>).GetGenericTypeDefinition().MakeGenericType(type.GetGenericArguments()[0], type).GetConstructor([typeof(string)]).Invoke(parameters: [name]);
     else
@@ -169,6 +171,33 @@ static class ServerVar
     }
   }
 
+  sealed class ServerVarArray<T>(string name) : ServerVar<T[]>
+    where T : unmanaged
+  {
+    readonly ServerVarByteArray _var = new(name);
+
+    public override T[]? Get(ServersideQoLZDO zdo, T[]? defaultValue = null)
+    {
+      if (_var.Get(zdo) is not { Length: > 0 } bytes)
+        return defaultValue;
+      return [.. MemoryMarshal.Cast<byte, T>(bytes.AsSpan())];
+    }
+
+    public override bool Remove(ServersideQoLZDO zdo) => _var.Remove(zdo);
+
+    public override void Set(ServersideQoLZDO zdo, T[] value)
+    {
+      var bytes = new byte[value.Length * Unsafe.SizeOf<T>()];
+      var span = MemoryMarshal.Cast<byte, T>(bytes.AsSpan());
+      foreach (var item in value)
+      {
+        span[0] = item;
+        span = span[1..];
+      }
+      _var.Set(zdo, bytes);
+    }
+  }
+
   sealed class ServerVarCollection<T, TCollection>(string name) : ServerVar<TCollection>
     where T : unmanaged
     where TCollection : ICollection<T>, new()
@@ -186,7 +215,7 @@ static class ServerVar
 
     public override void Set(ServersideQoLZDO zdo, TCollection value)
     {
-        var bytes = new byte[value.Count * Unsafe.SizeOf<T>()];
+      var bytes = new byte[value.Count * Unsafe.SizeOf<T>()];
       var span = MemoryMarshal.Cast<byte, T>(bytes.AsSpan());
       foreach (var item in value)
       {
