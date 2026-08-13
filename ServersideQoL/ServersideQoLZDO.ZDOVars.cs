@@ -108,7 +108,7 @@ partial class ServersideQoLZDO
     public Vector3 GetScale(Vector3 defaultValue = default) => _zdo.GetVec3(global::ZDOVars.s_scaleHash, defaultValue);
     public void SetScale(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_scaleHash, value); }
     public void RemoveScale([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveVec3(global::ZDOVars.s_scaleHash); }
-
+    public bool GetEnabled(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_enabled, defaultValue);
 
 #if DEBUG
     static readonly IReadOnlyDictionary<int, string> __namesByHash = new Func<IReadOnlyDictionary<int, string>>(static () =>

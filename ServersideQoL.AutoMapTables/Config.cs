@@ -10,8 +10,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
     "Enables/disables the entire mod");
-  public ConfigEntry<float> RegisterPlayerDistance { get; } = BindEx(cfg, Section, 4f,
-    "Only portals/ships/pins of players who have been within this distance of the map table will be included");
+  public ConfigEntry<float> MapTableRange { get; } = BindEx(cfg, Section, 4f,
+    "If a player enters this range around a map table, their discovered information (portal/ship/ore deposits/etc. position) is transfered to the map table.");
   public ConfigEntry<Minimap.PinType> PortalsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Icon4,
     "The pin type for portals on the map table", __acceptablePins);
   public ConfigEntry<string> PortalsExclude { get; } = BindEx(cfg, Section, "",
@@ -20,12 +20,15 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Only portals with a tag that matches this filter are added to map tables");
   public ConfigEntry<Minimap.PinType> ShipsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Player,
     "The pin type for ships on the map table", new AcceptableEnum<Minimap.PinType>([..__acceptablePins.AcceptableValues, Minimap.PinType.Player]));
-  public ConfigEntry<Minimap.PinType> DungeonsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Icon1, """
-    The pin type for dungeons on the map table.
-    Dungeons will only be added to the map table after they've been entered.
-    """, __acceptablePins);
+  //public ConfigEntry<Minimap.PinType> DungeonsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Icon1, """
+  //  The pin type for dungeons on the map table.
+  //  Dungeons will only be added to the map table after they've been entered.
+  //  """, __acceptablePins);
     
   public IReadOnlyDictionary<int, ConfigEntry<Minimap.PinType>> AutoUpdateOreDeposits { get; } = GetPrefabPinConfig(cfg, logger) ?? EmptyReadOnlyCollections<int, ConfigEntry<Minimap.PinType>>.Dictionary;
+
+  public ConfigEntry<float> OreDepositsDiscoverRange { get; } = BindEx(cfg, Section, ZoneSystem.c_ZoneSizeHalf,
+    "An ore deposit is considered 'discovered by a player' when that player was within this range around the deposit while it was struck by a pickaxe");
 
   public ConfigEntry<MessageTypes> UpdatedMessageType { get; } = BindEx(cfg, Section, MessageTypes.None,
     "Type of message to show when a map table is updated", AcceptableEnum<MessageTypes>.Default);
