@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.ComponentModel;
+using UnityEngine;
 
 namespace ServersideQoL.AutoMapTables;
 
@@ -29,6 +30,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
   byte[]? _emptyExplored;
   float _mapTableRangeSqr;
   float _oreDepositRangeSqr;
+  float _dungeonRangeSqr;
 
   static readonly ServerVar<HashSet<PlayerID>> __playerIDsVar = AutoMapTablesPlugin.RegisterServerVar<HashSet<PlayerID>>("PlayerIDs");
 
@@ -36,6 +38,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
   {
     _mapTableRangeSqr = Config.Instance.MapTableRange.Value * Config.Instance.MapTableRange.Value;
     _oreDepositRangeSqr = Config.Instance.OreDepositsDiscoverRange.Value * Config.Instance.OreDepositsDiscoverRange.Value;
+    _dungeonRangeSqr = Config.Instance.DungeonsDiscoverRange.Value * Config.Instance.DungeonsDiscoverRange.Value;
 
     _oreDepositPins.Clear();
     foreach (var (pin, label) in Config.Instance.AutoUpdateOreDeposits.Values)
@@ -89,7 +92,17 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
             if (__playerIDsVar.Get(zdo) is { } playerIDs)
             {
               foreach (var id in playerIDs)
-                GetOrAddPlayerState(id).Dungeons.Add(zdo);
+                GetOrAddPlayerState(id).Dungeons.Add(zdo, null);
+
+              if (Config.Instance.DungeonsPinType.Value is not Minimap.PinType.None)
+              {
+                var hash = zdo.Vars.GetLocation();
+                if (hash is not 0 && ZoneSystem.instance.GetLocationsByHash().TryGetValue(hash, out var location) &&
+                    location.m_prefab is {IsValid: true, IsLoaded: false, IsLoading: false })
+                {
+                  location.m_prefab.LoadAsync();
+                }
+              }
             }
           }
           break;
@@ -239,8 +252,59 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
 
     if (prefabInfo.LocationProxy is not null)
     {
-      // todo
-      return ProcessResult.UnregisterProcessor;
+      var hash = zdo.Vars.GetLocation();
+      if (hash is 0)
+        return default;
+
+      if (!ZoneSystem.instance.GetLocationsByHash().TryGetValue(hash, out var location) || !location.m_prefab.IsValid)
+        return ProcessResult.UnregisterProcessor;
+
+      if (!location.m_prefab.IsLoaded)
+      {
+        if (!location.m_prefab.IsLoading)
+          location.m_prefab.LoadAsync();
+        return ProcessResult.ScheduleReprocessing;
+      }
+
+      var prefab = location.m_prefab.Asset;
+      var position = prefab.gameObject.transform.position;
+      var rotation = prefab.gameObject.transform.rotation;
+      prefab.gameObject.transform.position = Vector3.zero;
+      prefab.gameObject.transform.rotation = Quaternion.identity;
+
+      HashSet<PlayerID>? ids = null;
+      foreach (var component in prefab.GetComponentsInChildren<Teleport>())
+      {
+        var pos = zdo.ZDO.GetPosition() + zdo.ZDO.GetRotation() * component.gameObject.transform.position;
+        if (Character.InInterior(pos))
+          continue;
+
+        foreach (var peer in peers.Enumerate())
+        {
+          if (peer.PlayerState?.PlayerID is not { } playerID || !_playerStates.TryGetValue(playerID, out var playerState))
+            continue;
+          if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _dungeonRangeSqr)
+            continue;
+          if (!playerState.Dungeons.TryAdd(zdo, (pos, component.m_enterText)))
+            continue;
+          ids ??= __playerIDsVar.Get(zdo) ?? [];
+          ids.Add(playerID);
+          playerState.UpToDateMapTables.Clear();
+          if (Config.Instance.DungeonsPinType.Value is not Minimap.PinType.None)
+            ShowMessage([peer], zdo, Config.Instance.Localization.Value.Discovered(component.m_enterText), Config.Instance.DiscoveredMessageType.Value);
+        }
+
+        break;
+      }
+
+      prefab.gameObject.transform.position = position;
+      prefab.gameObject.transform.rotation = rotation;
+
+      if (ids is not null)
+        __playerIDsVar.Set(zdo, ids);
+
+      zdo.DelaySchedulingFor(0.5f);
+      return ProcessResult.ScheduleReprocessing;
     }
 
     Logger.DevLog($"Unexpected prefab: {prefabInfo.PrefabInfo.PrefabName}");
@@ -353,6 +417,63 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
             _pins.Add(new(playerState.PlayerID.AsModPlayerID(), cfg.Label.Value is Config.DefaultOreDepositName ? mineRock.m_name : cfg.Label.Value, zdo.ZDO.GetPosition(), cfg.PinType.Value, false, AutoMapTablesPlugin.PluginGuid));
         }
       }
+
+      if (Config.Instance.DungeonsPinType.Value is not Minimap.PinType.None)
+      {
+        List<(ServersideQoLZDO, Vector3, string)>? updatedPos = null;
+        foreach (var (zdo, nullableValue) in playerState.Dungeons)
+        {
+          if (nullableValue is not { } value)
+          {
+            var hash = zdo.Vars.GetLocation();
+            if (hash is 0)
+              continue;
+
+            if (!ZoneSystem.instance.GetLocationsByHash().TryGetValue(hash, out var location) || !location.m_prefab.IsValid)
+              continue;
+
+            if (!location.m_prefab.IsLoaded)
+            {
+              if (!location.m_prefab.IsLoading)
+                location.m_prefab.LoadAsync();
+              continue;
+            }
+
+            var prefab = location.m_prefab.Asset;
+            var position = prefab.gameObject.transform.position;
+            var rotation = prefab.gameObject.transform.rotation;
+            prefab.gameObject.transform.position = Vector3.zero;
+            prefab.gameObject.transform.rotation = Quaternion.identity;
+
+            var found = false;
+            value = default;
+            foreach (var component in prefab.GetComponentsInChildren<Teleport>())
+            {
+              var pos = zdo.ZDO.GetPosition() + zdo.ZDO.GetRotation() * component.gameObject.transform.position;
+              if (Character.InInterior(pos))
+                continue;
+              found = true;
+              (updatedPos ??= []).Add((zdo, pos, component.m_enterText));
+              value = (pos, component.m_enterText);
+              break;
+            }
+
+            prefab.gameObject.transform.position = position;
+            prefab.gameObject.transform.rotation = rotation;
+
+            if (!found)
+              continue;
+          }
+
+          _pins.Add(new(playerState.PlayerID.AsModPlayerID(), Config.Instance.DungeonsLabel.Value is Config.DefaultOreDepositName ? value.Item2! : Config.Instance.DungeonsLabel.Value, zdo.ZDO.GetPosition(), Config.Instance.DungeonsPinType.Value, false, AutoMapTablesPlugin.PluginGuid));
+        }
+
+        if (updatedPos is not null)
+        {
+          foreach (var (zdo, pos, text) in updatedPos)
+            playerState.Dungeons[zdo] = (pos, text);
+        }
+      }
     }
 
     pkg.Clear();
@@ -437,7 +558,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
     public HashSet<ServersideQoLZDO> Portals => field ??= [];
     public HashSet<ServersideQoLZDO> Ships => field ??= [];
     public HashSet<ServersideQoLZDO> OreVeins => field ??= [];
-    public HashSet<ServersideQoLZDO> Dungeons => field ??= [];
+    public Dictionary<ServersideQoLZDO, (Vector3, string)?> Dungeons => field ??= [];
   }
 
   sealed class MapTableState(ServersideQoLZDO zdo)
