@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Automatically update map tables with icons for portals and ships</Description>
+    <Description>Automatically update map tables with icons for portals, ships, ore deposits and more.</Description>
   </PropertyGroup>
 
   <ItemGroup>

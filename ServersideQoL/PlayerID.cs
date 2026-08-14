@@ -25,9 +25,11 @@ public readonly record struct PlayerID(long Value)
   const long ModPlayerIDMask = unchecked(-1L << 33);
   const long SignBit33 = 1L << 32;
 
+  public bool IsModPlayerID() => (Value & ModPlayerIDMask) == __modPlayerID;
+
   public bool IsModPlayerID(out PlayerID vanillaPlayerId)
   {
-    if ((Value & ModPlayerIDMask) == __modPlayerID)
+    if (IsModPlayerID())
     {
       vanillaPlayerId = new(Value & ~ModPlayerIDMask);
       if ((vanillaPlayerId.Value & SignBit33) is not 0) // negative value
@@ -40,7 +42,7 @@ public readonly record struct PlayerID(long Value)
 
   public bool IsModPlayerID(out uint lowerBits)
   {
-    if ((Value & ModPlayerIDMask) == __modPlayerID)
+    if (IsModPlayerID())
     {
       lowerBits = (uint)Value;
       return true;
@@ -52,6 +54,8 @@ public readonly record struct PlayerID(long Value)
   public static PlayerID GetModPlayerID() => new(__modPlayerID);
   public static PlayerID GetModPlayerID(PlayerID vanillaPlayerId) => GetModPlayerID(vanillaPlayerId.Value);
   public static PlayerID GetModPlayerID(uint lowerBits) => GetModPlayerID((long)lowerBits);
+
+  public PlayerID AsModPlayerID() => GetModPlayerID(this);
   
   static PlayerID GetModPlayerID(long lowerBits)
   {

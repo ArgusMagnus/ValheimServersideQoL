@@ -9,6 +9,5 @@ partial class AutoMapTablesPlugin : ServersideQoLPluginBase<AutoMapTablesPlugin,
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
-    .Add<MapTableProcessor>()
-    .Add<ShipProcessor>();
+    .Add<AutoMapTablesProcessor>();
 }
