@@ -24,8 +24,8 @@ partial class ServersideQoLZDO
 
     public int GetState(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_state, defaultValue);
     public void SetState(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_state, value); }
-    public long GetCreator(long defaultValue = default) => _zdo.GetLong(global::ZDOVars.s_creator, defaultValue);
-    public void SetCreator(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_creator, value); }
+    public PlayerID GetCreator(PlayerID defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_creator, defaultValue.Value));
+    public void SetCreator(PlayerID value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_creator, value.Value); }
     public bool GetInUse(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_inUse, defaultValue);
     public void SetInUse(bool value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_inUse, value); }
     public float GetFuel(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_fuel, defaultValue);
@@ -40,8 +40,8 @@ partial class ServersideQoLZDO
     public void SetData(byte[]? value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_data, value); }
     public float GetStamina(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_stamina, defaultValue);
     public float GetEitr(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_eitr, defaultValue);
-    public long GetPlayerID(long defaultValue = default) => _zdo.GetLong(global::ZDOVars.s_playerID, defaultValue);
-    public void SetPlayerID(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_playerID, value); }
+    public PlayerID GetPlayerID(PlayerID defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_playerID, defaultValue.Value));
+    public void SetPlayerID(PlayerID value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_playerID, value.Value); }
     public string GetPlayerName(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_playerName, defaultValue);
     public void SetPlayerName(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_playerName, value); }
     public string GetFollow(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_follow, defaultValue);
@@ -97,7 +97,7 @@ partial class ServersideQoLZDO
     public int GetLocation(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_location, defaultValue);
     public int GetSeed(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_seed, defaultValue);
     public bool GetAttachJoint(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_attachJointHash, defaultValue);
-    public long GetUser(long defaultValue = 0) => _zdo.GetLong(global::ZDOVars.s_user, defaultValue);
+    public PlayerID GetUser(PlayerID defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_user, defaultValue.Value));
     public bool GetIsDead(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_dead, defaultValue);
     public long GetOwner(long defaultValue = 0) => _zdo.GetLong(global::ZDOVars.s_owner, defaultValue);
     public void SetOwner(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_owner, value); }

@@ -10,38 +10,6 @@ namespace ServersideQoL;
 
 partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin, Config>
 {
-  /// <summary>
-  /// The player ID used to identify ZDOs created/owned by this mod
-  /// </summary>
-  /// <remarks>
-  /// Valheim generates player IDs with <see cref="Utils.GenerateUID"/> which never sets the upper 31 bits of the returned value.
-  /// Thus using a mod-"player" ID that only uses the upper bits gives us the following advantages:
-  /// - The mod player ID can never conflict with vanilla player IDs
-  /// - The bit-wise combination of the mod-player ID with a vanilla player ID is also guaranteed to be unique.
-  ///   This value can later be split again into mod-player ID and player ID without loss of information (useful e.g. for map table pins).
-  /// </remarks>
-  static readonly long __playerID = unchecked((long)((ulong)PluginGuid.GetStableHashCode() << 33));
-  const long PlayerIDMask = unchecked((long)(ulong.MaxValue << 33));
-
-  public static bool IsPlayerID(long value, out long lowerBits)
-  {
-    if ((value & PlayerIDMask) == __playerID)
-    {
-      lowerBits = value & ~PlayerIDMask;
-      return true;
-    }
-    lowerBits = default;
-    return false;
-  }
-
-  public static long GetPlayerID() => __playerID;
-  public static long GetPlayerID(long lowerBits)
-  {
-    if ((lowerBits & PlayerIDMask) is not 0)
-      throw new ArgumentOutOfRangeException(nameof(lowerBits));
-    return __playerID | lowerBits;
-  }
-
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];
   readonly List<Processor> _enabledProcessors = [];

@@ -31,7 +31,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     {
       if (!zdo.IsOwnerOrUnassigned())
       {
-        zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, 0));
+        zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, default));
         return ProcessResult.ScheduleReprocessing;
       }
       zdo.Vars.SetText(text = cfg.ChestSignsDefaultText.Value);

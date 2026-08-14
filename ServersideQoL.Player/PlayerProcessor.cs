@@ -199,12 +199,12 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
     }
   }
 
-  static bool GetSacrifiedMegingjord(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedMegingjord", defaultValue);
-  static void SetSacrifiedMegingjord(long playerID, bool value) => DataZDO.ZDO.Set($"player{playerID}_SacrifiedMegingjord", value);
-  internal static bool GetSacrifiedCryptKey(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedCryptKey", defaultValue);
-  static void SetSacrifiedCryptKey(long playerID, bool value) => DataZDO.ZDO.Set($"player{playerID}_SacrifiedCryptKey", value);
-  static bool GetSacrifiedWishbone(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedWishbone", defaultValue);
-  static void SetSacrifiedWishbone(long playerID, bool value) => DataZDO.ZDO.Set($"player{playerID}_SacrifiedWishbone", value);
-  static bool GetSacrifiedTornSpirit(long playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID}_SacrifiedTornSpirit", defaultValue);
-  static void SetSacrifiedTornSpirit(long playerID, bool value) => DataZDO.ZDO.Set($"player{playerID}_SacrifiedTornSpirit", value);
+  static bool GetSacrifiedMegingjord(PlayerID playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID.Value}_SacrifiedMegingjord", defaultValue);
+  static void SetSacrifiedMegingjord(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedMegingjord", value);
+  internal static bool GetSacrifiedCryptKey(PlayerID playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID.Value}_SacrifiedCryptKey", defaultValue);
+  static void SetSacrifiedCryptKey(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedCryptKey", value);
+  static bool GetSacrifiedWishbone(PlayerID playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID.Value}_SacrifiedWishbone", defaultValue);
+  static void SetSacrifiedWishbone(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedWishbone", value);
+  static bool GetSacrifiedTornSpirit(PlayerID playerID, bool defaultValue = default) => DataZDO.ZDO.GetBool($"player{playerID.Value}_SacrifiedTornSpirit", defaultValue);
+  static void SetSacrifiedTornSpirit(PlayerID playerID, bool value) => DataZDO.ZDO.Set($"player{playerID.Value}_SacrifiedTornSpirit", value);
 }

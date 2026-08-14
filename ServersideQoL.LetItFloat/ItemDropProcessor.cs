@@ -82,7 +82,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     if (!_crates.TryGetValue(pos, out var crate) || !crate.ZDO.IsValid() || crate.ZDO.GetPrefab() != Prefabs.CargoCrate)
     {
       _crates[pos] = crate = PlaceObject(pos, Prefabs.CargoCrate, rot);
-      crate.Vars.SetCreator(0);
+      crate.Vars.SetCreator(default);
     }
     return Instance<ContainerRegistryProcessor>().GetState(crate)!;
   }

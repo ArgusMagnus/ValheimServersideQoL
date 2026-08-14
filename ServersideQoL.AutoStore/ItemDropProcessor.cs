@@ -209,7 +209,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
         if (requestOwn || requestContainerOwn)
         {
           if (requestContainerOwn)
-            zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, 0));
+            zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default));
           result = ProcessResult.ScheduleReprocessing | ProcessResult.SkipOtherProcessors;
           continue;
         }

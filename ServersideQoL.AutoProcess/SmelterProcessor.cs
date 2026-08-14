@@ -144,7 +144,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
 
               if (requestOwn)
               {
-                zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, 0));
+                zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default));
                 result |= ProcessResult.ScheduleReprocessing;
                 continue;
               }
@@ -263,7 +263,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
 
               if (requestOwn)
               {
-                zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, 0));
+                zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default));
                 result |= ProcessResult.ScheduleReprocessing;
                 continue;
               }

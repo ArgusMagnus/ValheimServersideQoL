@@ -93,15 +93,15 @@ public static class RPC
     InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, "RPC_AddStatusEffect", parameters: [nameHash, resetTime, itemLevel, skillLevel]);
   }
 
-  public static void RequestStack(ServersideQoLZDO container, ServersideQoLZDO player, long playerID = 0)
+  public static void RequestStack(ServersideQoLZDO container, ServersideQoLZDO player, PlayerID playerID = default)
   {
     container.AssertIs<Container>();
     player.AssertIs<Player>();
 
     /// <see cref="Container.RPC_RequestStack"/>
-    if (playerID is 0)
+    if (playerID.Value is 0)
       playerID = player.Vars.GetPlayerID();
-    InvokeRoutedRPCAsSender(player.ZDO.GetOwner(), container.ZDO.GetOwner(), container.ZDO.m_uid, "RPC_RequestStack", parameters: [playerID]);
+    InvokeRoutedRPCAsSender(player.ZDO.GetOwner(), container.ZDO.GetOwner(), container.ZDO.m_uid, "RPC_RequestStack", parameters: [playerID.Value]);
   }
 
   public static void StackResponse(ServersideQoLZDO container, bool granted)
@@ -151,11 +151,11 @@ public static class RPC
     InvokeRoutedRPC(itemDrop.ZDO.GetOwner(), itemDrop.ZDO.m_uid, "RPC_RequestOwn");
   }
 
-  public static void RequestOpen(ServersideQoLZDO container, long playerID)
+  public static void RequestOpen(ServersideQoLZDO container, PlayerID playerID)
   {
     container.AssertIs<Container>();
     /// <see cref="Container.RPC_RequestOpen"/>
-    InvokeRoutedRPC(container.ZDO.GetOwner(), container.ZDO.m_uid, "RequestOpen", parameters: [playerID]);
+    InvokeRoutedRPC(container.ZDO.GetOwner(), container.ZDO.m_uid, "RequestOpen", parameters: [playerID.Value]);
   }
 
   public static void RequestOpenFor(ServersideQoLZDO player, ServersideQoLZDO container)

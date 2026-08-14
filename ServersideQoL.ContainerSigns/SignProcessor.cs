@@ -115,7 +115,7 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
     {
       if (!chest.IsOwnerOrUnassigned())
       {
-        zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(chest, 0));
+        zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(chest, default));
         return ProcessResult.ScheduleReprocessing;
       }
 

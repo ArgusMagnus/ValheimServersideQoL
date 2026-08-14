@@ -11,7 +11,7 @@ namespace ServersideQoL;
 public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Player>>
 {
   readonly Dictionary<long, PlayerStateImpl> _statesByPeerID = [];
-  readonly Dictionary<long, PlayerStateImpl> _statesByPlayerID = [];
+  readonly Dictionary<PlayerID, PlayerStateImpl> _statesByPlayerID = [];
   readonly Dictionary<ZDOID, PlayerStateImpl> _statesByCharacterID = [];
   readonly HashSet<(string, int)> _estimateSkillLevelsFor = [];
   bool _estimateSkillLevels = false;
@@ -39,7 +39,7 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
   }
 
   public PlayerState? GetStateForPeerID(long peerID) => _statesByPeerID.TryGetValue(peerID, out var state) ? state : null;
-  public PlayerState? GetStateForPlayerID(long playerID) => _statesByPlayerID.TryGetValue(playerID, out var state) ? state : null;
+  public PlayerState? GetStateForPlayerID(PlayerID playerID) => _statesByPlayerID.TryGetValue(playerID, out var state) ? state : null;
   public PlayerState? GetStateForCharacterID(ZDOID characterID) => _statesByCharacterID.TryGetValue(characterID, out var state) ? state : null;
   public IReadOnlyCollection<PlayerState> PlayerStates => _statesByPeerID.Values;
 
@@ -254,8 +254,8 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
     return null;
   }
 
-  static float GetEstimatedSkillLevel(long playerID, SkillType skill, float defaultValue = default) => DataZDO.ZDO.GetFloat($"player{playerID}_EstimatedSkillLevel_{skill}", defaultValue);
-  static void SetEstimatedSkillLevel(long playerID, SkillType skill, float value) => DataZDO.ZDO.Set($"player{playerID}_EstimatedSkillLevel_{skill}", value);
+  static float GetEstimatedSkillLevel(PlayerID playerID, SkillType skill, float defaultValue = default) => DataZDO.ZDO.GetFloat($"player{playerID.Value}_EstimatedSkillLevel_{skill}", defaultValue);
+  static void SetEstimatedSkillLevel(PlayerID playerID, SkillType skill, float value) => DataZDO.ZDO.Set($"player{playerID.Value}_EstimatedSkillLevel_{skill}", value);
 
 
   sealed class PlayerStateImpl(ServersideQoLZDO zdo, ProcessorPrefabInfo<Player> prefabInfo, PlayerRegistryProcessor processor) : PlayerState
@@ -269,7 +269,7 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
 
     readonly ZNetPeer? _peer = ZNet.instance.GetPeer(zdo.ZDO.GetOwner());
     public override long Owner { get; } = zdo.ZDO.GetOwner();
-    public override long PlayerID { get; } = zdo.Vars.GetPlayerID();
+    public override PlayerID PlayerID { get; } = zdo.Vars.GetPlayerID();
     string? _playerName;
     public override string PlayerName => _playerName ??= ZDO.Vars.GetPlayerName();
     bool? _isAdmin;

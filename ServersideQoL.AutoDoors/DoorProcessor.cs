@@ -14,7 +14,7 @@ public sealed class DoorProcessor : Processor<DoorProcessor.PrefabInfo>
   {
     const int StateClosed = 0;
 
-    if (zdo.Vars.GetCreator() is 0)
+    if (zdo.Vars.GetCreator().Value is 0)
       return ProcessResult.UnregisterProcessor;
 
     if (zdo.Vars.GetState() is StateClosed)

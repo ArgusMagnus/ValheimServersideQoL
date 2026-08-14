@@ -68,10 +68,10 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     return state;
   }
 
-  public float RequestOwnership(ServersideQoLZDO zdo, long playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+  public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
       => RequestOwnership(zdo, playerID, _states[zdo], caller, callerLineNo);
 
-  public float RequestOwnership(ServersideQoLZDO zdo, long playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+  public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
   {
     if (zdo.IsOwnerOrUnassigned() || state is not ContainerStateImpl s || DateTimeOffset.UtcNow < s.NextOwnershipRequest)
       return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
@@ -101,8 +101,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    long creator = 0;
-    if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || (creator = zdo.Vars.GetCreator()) is 0)
+    PlayerID creator = default;
+    if (prefabInfo.Container.m_privacy is Container.PrivacySetting.Private || (creator = zdo.Vars.GetCreator()).Value is 0)
       return ProcessResult.UnregisterProcessor;
 
     ContainerStateImpl? state = null;
