@@ -307,13 +307,14 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
 
   public bool IsOwnerOrUnassigned() => !ZDO.HasOwner() || ZDO.IsOwner();
 
-  public void SetModAsCreator(Processor.CreatorMarkers marker = Processor.CreatorMarkers.None) => Vars.SetCreator((long)ServersideQoLPlugin.PluginGuidHash | (long)((ulong)marker << 32));
+  public void SetModAsCreator(Processor.CreatorMarkers marker = Processor.CreatorMarkers.None) => Vars.SetCreator(ServersideQoLPlugin.PlayerID | (uint)marker);
   public bool IsModCreator(out Processor.CreatorMarkers marker)
   {
     marker = Processor.CreatorMarkers.None;
-    if ((int)Vars.GetCreator() != ServersideQoLPlugin.PluginGuidHash)
+    var creator = Vars.GetCreator();
+    if (ServersideQoLPlugin.PlayerID != (creator & ServersideQoLPlugin.PlayerIDMask))
       return false;
-    marker = (Processor.CreatorMarkers)((ulong)Vars.GetCreator() >> 32);
+    marker = (Processor.CreatorMarkers)(uint)creator;
     return true;
   }
   public bool IsModCreator() => IsModCreator(out _);

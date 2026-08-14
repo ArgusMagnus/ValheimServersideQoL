@@ -10,7 +10,18 @@ namespace ServersideQoL;
 
 partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin, Config>
 {
-  internal static readonly int PluginGuidHash = "argusmagnus.ServersideQoL".GetStableHashCode(); // use old GUID here to not break existing worlds
+  /// <summary>
+  /// The player ID used to identify ZDOs created/owned by this mod
+  /// </summary>
+  /// <remarks>
+  /// Valheim generates player IDs with <see cref="Utils.GenerateUID"/> which never sets the upper 31 bits of the returned value.
+  /// Thus using a mod-"player" ID that only uses the upper bits gives us the following advantages:
+  /// - The mod player ID can never conflict with vanilla player IDs
+  /// - The bit-wise combination of the mod-player ID with a vanilla player ID is also guaranteed to be unique.
+  ///   This value can later be split again into mod-player ID and player ID without loss of information (useful e.g. for map table pins).
+  /// </remarks>
+  internal static long PlayerID { get; } = unchecked((long)((ulong)PluginGuid.GetStableHashCode() << 33));
+  internal const long PlayerIDMask = unchecked((long)(ulong.MaxValue << 33));
 
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];
