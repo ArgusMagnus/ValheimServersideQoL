@@ -20,8 +20,27 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   /// - The bit-wise combination of the mod-player ID with a vanilla player ID is also guaranteed to be unique.
   ///   This value can later be split again into mod-player ID and player ID without loss of information (useful e.g. for map table pins).
   /// </remarks>
-  internal static long PlayerID { get; } = unchecked((long)((ulong)PluginGuid.GetStableHashCode() << 33));
-  internal const long PlayerIDMask = unchecked((long)(ulong.MaxValue << 33));
+  static readonly long __playerID = unchecked((long)((ulong)PluginGuid.GetStableHashCode() << 33));
+  const long PlayerIDMask = unchecked((long)(ulong.MaxValue << 33));
+
+  public static bool IsPlayerID(long value, out long lowerBits)
+  {
+    if ((value & PlayerIDMask) == __playerID)
+    {
+      lowerBits = value & ~PlayerIDMask;
+      return true;
+    }
+    lowerBits = default;
+    return false;
+  }
+
+  public static long GetPlayerID() => __playerID;
+  public static long GetPlayerID(long lowerBits)
+  {
+    if ((lowerBits & PlayerIDMask) is not 0)
+      throw new ArgumentOutOfRangeException(nameof(lowerBits));
+    return __playerID | lowerBits;
+  }
 
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];
