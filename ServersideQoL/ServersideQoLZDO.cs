@@ -312,9 +312,9 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
   {
     marker = Processor.CreatorMarkers.None;
     var creator = Vars.GetCreator();
-    if (!creator.IsModPlayerID(out var lowerBits))
+    if (!creator.IsModPlayerID(out uint lowerBits))
       return false;
-    marker = (Processor.CreatorMarkers)(uint)lowerBits.Value;
+    marker = (Processor.CreatorMarkers)lowerBits;
     return true;
   }
   public bool IsModCreator() => IsModCreator(out _);
