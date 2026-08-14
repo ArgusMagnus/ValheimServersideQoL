@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using System.Text.RegularExpressions;
 
 namespace ServersideQoL.WorldOptions;
 
@@ -27,20 +28,20 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   static IReadOnlyDictionary<Trader, IReadOnlyList<ConfigEntry<string>>> GetTaderProgressRequirements(ConfigFile cfg)
   {
     List<Trader> traders = [];
-    HashSet<string> keys = [];
+    Dictionary<string, Character?> keys = [];
     foreach (var prefab in ZNetScene.instance.m_prefabs)
     {
       if (prefab.GetComponent<Trader>() is { } trader)
       {
         traders.Add(trader);
         foreach (var key in trader.m_items.Select(static x => x.m_requiredGlobalKey).Where(static x => !string.IsNullOrEmpty(x)))
-          keys.Add(key);
+          keys.TryAdd(key, null);
       }
-      else if (prefab.GetComponent<Character>() is { m_defeatSetGlobalKey: { Length: > 0 } key })
-        keys.Add(key);
+      else if (prefab.GetComponent<Character>() is { m_defeatSetGlobalKey.Length: > 0 } character)
+        keys[character.m_defeatSetGlobalKey] = character;
     }
 
-    var accetableValues = new AcceptableValueList<string>([GlobalKeyNone, .. keys.OrderBy(static x => x)]);
+    var accetableValues = new AcceptableValueList<string>([GlobalKeyNone, .. keys.OrderBy(static x => x.Key).Select(static x => x.Key)]);
 
     Dictionary<Trader, IReadOnlyList<ConfigEntry<string>>>? result = null;
     foreach (var trader in traders)
@@ -49,9 +50,9 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       foreach (var group in trader.m_items
         .Where(static x => !string.IsNullOrEmpty(x.m_requiredGlobalKey))
         .GroupBy(static x => x.m_requiredGlobalKey)
-        .OrderBy(static x => x.Key))
+        .OrderBy(x => keys[x.Key]?.m_health ?? float.MaxValue).ThenBy(static x => x.Key))
       {
-        var cfgKey = $"Set{(entries?.Count ?? 0) + 1}";
+        var cfgKey = $"Set{NormalizeKey(keys[group.Key]?.name ?? group.Key)}";
         var defaultValue = group.Key;
         var itemNames = string.Join(", ", group.Select(static x => global::Localization.instance.Localize(x.m_prefab.m_itemData.m_shared.m_name)));
         (entries ??= []).Add(cfg.Bind($"{trader.name}ProgressionRequirements", cfgKey, defaultValue, new ConfigDescription(
@@ -64,6 +65,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     }
 
     return result ?? EmptyReadOnlyCollections<Trader, IReadOnlyList<ConfigEntry<string>>>.Dictionary;
+
+    static string NormalizeKey(string key) => Regex.Replace(key, @"(?:^|_)([a-z])", static m => m.Groups[1].Value.ToUpperInvariant());
   }
 
   public enum RemoveMistlandsMistOptions
