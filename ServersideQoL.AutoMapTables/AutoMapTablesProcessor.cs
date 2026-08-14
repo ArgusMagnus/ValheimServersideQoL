@@ -123,7 +123,11 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
 
       foreach (var peer in peers.Enumerate())
       {
-        if (peer.PlayerState?.PlayerID is not { } playerID || !_playerStates.TryGetValue(playerID, out var playerState) || playerState.UpToDateMapTables.Contains(zdo))
+        if (peer.PlayerState?.PlayerID is not { } playerID)
+          continue;
+        if (state.Wards is { Count: > 0 } && state.PermittedPlayerIDs?.Contains(playerID) is not true)
+          continue;
+        if (!_playerStates.TryGetValue(playerID, out var playerState) || playerState.UpToDateMapTables.Contains(zdo))
           continue;
         if (Utils.DistanceSqr(zdo.ZDO.GetPosition(), peer.RefPos) > _mapTableRangeSqr)
           continue;

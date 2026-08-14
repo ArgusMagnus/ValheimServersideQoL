@@ -29,8 +29,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public ConfigEntry<MessageTypes> UpdatedMessageType { get; } = BindEx(cfg, Section, MessageTypes.None,
     "Type of message to show when a map table is updated", AcceptableEnum<MessageTypes>.Default);
-  public ConfigEntry<MessageTypes> DiscoveredMessageType { get; } = BindEx(cfg, Section, MessageTypes.TopLeftNear,
-    "Type of message to show to a player when they discovered map information", AcceptableEnum<MessageTypes>.Default);
+  public ConfigEntry<MessageTypes> DiscoveredMessageType { get; } = BindEx(cfg, Section, MessageTypes.TopLeftFar,
+    "Type of message to show to a player when they discovered map information", new AcceptableEnum<MessageTypes>([MessageTypes.None, MessageTypes.TopLeftFar, MessageTypes.CenterFar, MessageTypes.InWorld]));
   public ConfigEntry<bool> DiscardPlayerPins { get; } = BindEx(cfg, Section, false,
     "True to discard custom player pins from map tables");
   public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
