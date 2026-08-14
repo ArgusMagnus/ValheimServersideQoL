@@ -16,10 +16,12 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "The pin type for portals on the map table", __acceptablePins);
   public ConfigEntry<Minimap.PinType> ShipsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Player,
     "The pin type for ships on the map table", new AcceptableEnum<Minimap.PinType>([..__acceptablePins.AcceptableValues, Minimap.PinType.Player]));
-  //public ConfigEntry<Minimap.PinType> DungeonsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Icon1, """
-  //  The pin type for dungeons on the map table.
-  //  Dungeons will only be added to the map table after they've been entered.
-  //  """, __acceptablePins);
+  public ConfigEntry<Minimap.PinType> DungeonsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Icon2,
+    "The pin type for dungeons on the map table", __acceptablePins);
+  public ConfigEntry<string> DungeonsLabel { get; } = BindEx(cfg, Section, DefaultOreDepositName,
+    "The pin label for duengons");
+  public ConfigEntry<float> DungeonsDiscoverRange { get; } = BindEx(cfg, Section, 4f,
+    "A dungeon is considered 'discovered by a player' when that player is detected within this range around the entrance");
 
   public sealed record OreDepositConfig(ConfigEntry<Minimap.PinType> PinType, ConfigEntry<string> Label);
   public IReadOnlyDictionary<int, OreDepositConfig> AutoUpdateOreDeposits { get; } = GetPrefabPinConfig(cfg, logger) ?? EmptyReadOnlyCollections<int, OreDepositConfig>.Dictionary;
@@ -85,7 +87,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
           if (!char.IsUpper(name[0]))
             name = $"{char.ToUpperInvariant(name[0])}{name[1..]}";
           smelterInputs[item] = entry = new(
-            cfg.Bind(Section, $"{name}PinType", Minimap.PinType.None, new ConfigDescription($"""
+            cfg.Bind(Section, $"{name}PinType", Minimap.PinType.Icon3, new ConfigDescription($"""
               The pin icon to use for {(global::Localization.instance.Localize(item.m_itemData.m_shared.m_name))}.
               Pins will only be added to the map table after the ore deposit was hit at least once with a pickaxe.
               """, acctableValues)),
