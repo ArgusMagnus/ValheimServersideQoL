@@ -203,7 +203,6 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     List<ItemDrop.ItemData>? _items;
     uint _dataRevision = uint.MaxValue;
     byte[]? _data;
-    static readonly ZPackage _pkg = new();
 
     public override Container Container => _container;
     public override ServersideQoLZDO ZDO => _zdo;
@@ -236,8 +235,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         ((IInventory)this).Items.Clear();
       else
       {
-        _pkg.Load(data);
-        _inventory.Load(_pkg);
+        SingletonCache<ZPackage>.Instance.Load(data);
+        _inventory.Load(SingletonCache<ZPackage>.Instance);
       }
 
       _dataRevision = _zdo.ZDO.DataRevision;
@@ -261,10 +260,10 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
     void IInventory.Save()
     {
-      _pkg.Clear();
-      _inventory!.Save(_pkg);
+      SingletonCache<ZPackage>.Instance.Clear();
+      _inventory!.Save(SingletonCache<ZPackage>.Instance);
       var dataRevision = _zdo.ZDO.DataRevision;
-      var data = _pkg.GetArray();
+      var data = SingletonCache<ZPackage>.Instance.GetArray();
       _zdo.Vars.SetItems(data);
       if (dataRevision != _zdo.ZDO.DataRevision) // items changed
       {

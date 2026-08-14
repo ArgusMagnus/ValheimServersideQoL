@@ -6,7 +6,6 @@ namespace ServersideQoL;
 public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoLZDO>
 {
   static readonly Dictionary<int, IReadOnlyList<Processor>> __processors = [];
-  static readonly ZPackage __pkg = new();
   static readonly Stack<Dictionary<Type, object>> __componentFieldAccessorCache = [];
   static bool _onDestroyedSubscribed;
 
@@ -267,13 +266,13 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     var prefab = ZDO.GetPrefab();
     var pos = ZDO.GetPosition();
     var owner = ZDO.GetOwner();
-    __pkg.Clear();
-    ZDO.Serialize(__pkg);
-    __pkg.Size(); // force flush
+    SingletonCache<ZPackage>.Instance.Clear();
+    ZDO.Serialize(SingletonCache<ZPackage>.Instance);
+    SingletonCache<ZPackage>.Instance.Size(); // force flush
 
     var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab);
-    __pkg.SetPos(0);
-    zdo.Deserialize(__pkg);
+    SingletonCache<ZPackage>.Instance.SetPos(0);
+    zdo.Deserialize(SingletonCache<ZPackage>.Instance);
     zdo.SetOwnerInternal(owner);
     zdo.ServersideQoLZDO.PrefabInfo = PrefabInfo;
     if (cloneProcessors)

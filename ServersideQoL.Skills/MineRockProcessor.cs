@@ -9,7 +9,6 @@ public sealed class MineRockProcessor : Processor<MineRockProcessor.PrefabInfo>
 {
   public sealed record PrefabInfo(MineRock5 MineRock5) : ProcessorPrefabInfo;
 
-  readonly ZPackage _pkg = new();
   readonly List<(int Idx, float Health)> _notDestroyedIndices = [];
 
   protected override void Initialize()
@@ -54,12 +53,12 @@ public sealed class MineRockProcessor : Processor<MineRockProcessor.PrefabInfo>
     if (!destroy)
     {
       /// <see cref="MineRock5.LoadHealth"/>
-      _pkg.Load(Convert.FromBase64String(healthData));
-      var count = _pkg.ReadInt();
+      SingletonCache<ZPackage>.Instance.Load(Convert.FromBase64String(healthData));
+      var count = SingletonCache<ZPackage>.Instance.ReadInt();
       _notDestroyedIndices.Clear();
       for (int i = 0; i < count; i++)
       {
-        var health = _pkg.ReadSingle();
+        var health = SingletonCache<ZPackage>.Instance.ReadSingle();
         if (health > 0)
           _notDestroyedIndices.Add((i, health));
       }
