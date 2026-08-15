@@ -51,19 +51,15 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
       {
         _eggDropTime.Add(zdo, DateTimeOffset.UtcNow);
         zdo.Destroyed += x => _eggDropTime.Remove(x);
-        zdo.DelaySchedulingFor(delay);
-        return ProcessResult.ScheduleReprocessing;
+        return ScheduleReprocessing(delay);
       }
       delay -= (float)(DateTimeOffset.UtcNow - dropTime).TotalSeconds;
       if (delay > 0)
-      {
-        zdo.DelaySchedulingFor(delay);
-        return ProcessResult.ScheduleReprocessing;
-      }
+        return ScheduleReprocessing(delay);
     }
 
     if (!CheckMinDistance(peers, zdo, Config.Instance.AutoPickupMinPlayerDistance.Value))
-      return ProcessResult.ScheduleReprocessing; // player to close
+      return ScheduleReprocessing(); // player to close
 
     var shared = prefabInfo.ItemDrop.m_itemData.m_shared;
     var requestOwn = false;
@@ -97,10 +93,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
               {
                 var delay = (float)(10 - zdo.GetTimeSinceSpawned().TotalSeconds);
                 if (delay > 0)
-                {
-                  zdo.DelaySchedulingFor(delay);
-                  return ProcessResult.ScheduleReprocessing;
-                }
+                  return ScheduleReprocessing(delay);
               }
 
               result = ProcessResult.UnregisterProcessor;
@@ -210,9 +203,10 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 
         if (requestOwn || requestContainerOwn)
         {
+          var delay = 0f;
           if (requestContainerOwn)
-            zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default));
-          result = ProcessResult.ScheduleReprocessing | ProcessResult.SkipOtherProcessors;
+            delay = Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default);
+          result = ScheduleReprocessing(delay) | ProcessResult.SkipOtherProcessors;
           continue;
         }
 

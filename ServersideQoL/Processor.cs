@@ -83,6 +83,7 @@ public abstract class Processor
   static bool __enableProcessingTimeMonitoring;
   public double ProcessingTimeSeconds { get; private set; }
   public double TotalProcessingTimeSeconds { get; private set; }
+  internal float ScheduleReprocessingDelay { get; private set; }
 
 #if DEBUG
   private protected static readonly Dictionary<int, Type> __prefabInfoTypes = [];
@@ -236,11 +237,14 @@ public abstract class Processor
     }
   }
 
-  protected void ScheduleReprocessing(ServersideQoLZDO zdo)
-    => ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo);
-
-  protected void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
+  protected void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds = 0)
     => ServersideQoLPlugin.Instance.ScheduleReprocessing(zdo, delayInSeconds);
+
+  protected ProcessResult ScheduleReprocessing(float delayInSeconds = 0)
+  {
+    ScheduleReprocessingDelay = delayInSeconds;
+    return ScheduleReprocessingConst;
+  }
 
   private protected abstract ProcessResult Process(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo);
   protected virtual void PreProcess(PeersEnumerable peers) { }
@@ -380,8 +384,13 @@ public abstract class Processor
     DestroyZDO = 1 << 2,
     RecreateZDO = 1 << 3,
     SkipOtherProcessors = 1 << 4,
+    [Obsolete($"Use {nameof(Processor.ScheduleReprocessing)}() instead")]
     ScheduleReprocessing = 1 << 5
   }
+
+#pragma warning disable CS0618 // Type or member is obsolete
+  internal const ProcessResult ScheduleReprocessingConst = ProcessResult.ScheduleReprocessing;
+#pragma warning restore CS0618 // Type or member is obsolete
 
   [Flags]
   public enum CreatorMarkers : uint

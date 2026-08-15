@@ -79,7 +79,7 @@ public sealed class CreatureProcessor : Processor<CreatureProcessor.PrefabInfo>
       //Logger.DevLog($"Releasing ownership");
     }
 
-    result |= ProcessResult.ScheduleReprocessing;
+    result |= ScheduleReprocessing();
 
     if (!zdo.ZDO.HasOwner())
     {

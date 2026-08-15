@@ -27,22 +27,18 @@ public sealed class DoorProcessor : Processor<DoorProcessor.PrefabInfo>
     }
 
     if (!CheckMinDistance(peers, zdo, Config.Instance.AutoCloseMinPlayerDistance.Value))
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing();
 
     if (!_closeAfter.TryGetValue(zdo, out var closeAfter))
     {
       _closeAfter.Add(zdo, closeAfter = Timestamp.Now.AddSeconds(Config.Instance.AutoCloseMinOpenSeconds.Value));
       zdo.Destroyed += OnDoorDestroyed;
-      zdo.DelaySchedulingFor(Config.Instance.AutoCloseMinOpenSeconds.Value);
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing(Config.Instance.AutoCloseMinOpenSeconds.Value);
     }
 
     var delay = closeAfter.Seconds - Timestamp.Now.Seconds;
     if (delay > 0)
-    {
-      zdo.DelaySchedulingFor(delay);
-      return ProcessResult.ScheduleReprocessing;
-    }
+      return ScheduleReprocessing(delay);
 
     zdo.Vars.SetState(StateClosed);
     if (_closeAfter.Remove(zdo))

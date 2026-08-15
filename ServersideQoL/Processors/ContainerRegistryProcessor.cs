@@ -120,7 +120,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         else
           RPC.TakeAllResponse(zdo, true);
       }
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing();
     }
 
     if (zdo.Vars.GetInUse())

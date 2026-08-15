@@ -170,8 +170,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
         _updateList.Clear();
       }
 
-      zdo.DelaySchedulingFor(0.5f);
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing(0.5f);
     }
 
     if (prefabInfo.PrivateArea is not null)
@@ -264,7 +263,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
         return ProcessResult.UnregisterProcessor;
 
       if (loc.Prefab is not { } prefab)
-        return ProcessResult.ScheduleReprocessing;
+        return ScheduleReprocessing();
 
       HashSet<PlayerID>? ids = null;
       foreach (var component in prefab.GetComponentsInChildren<Teleport>())
@@ -294,8 +293,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
       if (ids is not null)
         __playerIDsVar.Set(zdo, ids);
 
-      zdo.DelaySchedulingFor(0.5f);
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing(0.5f);
     }
 
     Logger.DevLog($"Unexpected prefab: {prefabInfo.PrefabInfo.PrefabName}");

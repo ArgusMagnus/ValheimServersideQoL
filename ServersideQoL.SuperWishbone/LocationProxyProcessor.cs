@@ -43,7 +43,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
         _zdosByBeacon.Remove(zdo);
         __beaconFoundVar.Set(zdo2, true);
       }
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing();
     }
 
 
@@ -65,7 +65,7 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
       return ProcessResult.UnregisterProcessor;
 
     if (loc.Prefab is not { } prefab)
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing();
 
     List<RandomSpawn>? activeRandomSpawns = null;
     List<Vector3>? beaconPositions = null;

@@ -23,7 +23,7 @@ public sealed class TraderProcessor : Processor<ProcessorPrefabInfo<Trader>>
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<Trader> prefabInfo)
   {
     if (!_globalKeyModifications.TryGetValue(prefabInfo.Component, out var modifications))
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing();
 
     var minDistSqr = prefabInfo.Component.m_standRange * prefabInfo.Component.m_standRange;
 
@@ -44,7 +44,7 @@ public sealed class TraderProcessor : Processor<ProcessorPrefabInfo<Trader>>
       }
     }
 
-    return ProcessResult.ScheduleReprocessing;
+    return ScheduleReprocessing();
   }
 
   void OnGlobalKeysChanged()

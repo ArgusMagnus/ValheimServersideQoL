@@ -167,15 +167,10 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     if (changed)
     {
       if (!zdo.IsOwnerOrUnassigned())
-      {
-        zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, zdo.Vars.GetCreator(), state));
-        return ProcessResult.ScheduleReprocessing;
-      }
-      else if (changed)
-      {
-        inventory.Save();
-        ShowMessage(peers, zdo, Config.Instance.Localization.Value.FormatContainerSorted(prefabInfo.Container.m_name), Config.Instance.SortedMessageType.Value);
-      }
+        return ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, zdo.Vars.GetCreator(), state));
+
+      inventory.Save();
+      ShowMessage(peers, zdo, Config.Instance.Localization.Value.FormatContainerSorted(prefabInfo.Container.m_name), Config.Instance.SortedMessageType.Value);
     }
 
     return default;
@@ -267,8 +262,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
         zdo.Destroyed += OnStackContainerDestroyed;
         // stackContainerState.RemoveAfter = DateTimeOffset.UtcNow;
       }
-      zdo.DelaySchedulingFor(Config.Instance.Advanced.Value.ProcessingDelays.StackContainerWhenMovingItems);
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing(Config.Instance.Advanced.Value.ProcessingDelays.StackContainerWhenMovingItems);
     }
     else if (inventory.Items.Any(static x => x is { m_gridPos.x: > 0 } or { m_stack: > 1 }))
     {

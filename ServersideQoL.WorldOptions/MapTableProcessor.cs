@@ -33,6 +33,6 @@ public sealed class MapTableProcessor : Processor<ProcessorPrefabInfo<MapTable>>
         playerState.RemoveGlobalKeyModification(new(GlobalKeys.NoMap));
     }
 
-    return ProcessResult.ScheduleReprocessing;
+    return ScheduleReprocessing();
   }
 }

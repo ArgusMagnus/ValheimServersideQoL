@@ -74,10 +74,10 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
     }
 
     if (_smelters is null || _containersByItemName is null)
-      return result | ProcessResult.UnregisterProcessor;
+      return result | ScheduleReprocessing();
 
     if (!CheckMinDistance(peers, zdo, Config.Instance.FeedFromContainersMinPlayerDistance.Value))
-      return result | ProcessResult.ScheduleReprocessing;
+      return result | ScheduleReprocessing();
 
     List<ServersideQoLZDO>? toRemove = null;
     List<ItemDrop.ItemData>? removeSlots = null;
@@ -146,8 +146,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
 
               if (requestOwn)
               {
-                zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default));
-                result |= ProcessResult.ScheduleReprocessing;
+                result |= ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default));
                 continue;
               }
 
@@ -265,8 +264,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
 
               if (requestOwn)
               {
-                zdo.DelaySchedulingFor(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default));
-                result |= ProcessResult.ScheduleReprocessing;
+                result |= ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, default));
                 continue;
               }
 

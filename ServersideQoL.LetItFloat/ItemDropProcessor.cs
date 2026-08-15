@@ -27,10 +27,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
 
     var delay = (float)(zdo.Vars.GetSpawnTime() - ZNet.instance.GetTime()).TotalSeconds + 2;
     if (delay > 0)
-    {
-      zdo.DelaySchedulingFor(delay);
-      return ProcessResult.ScheduleReprocessing;
-    }
+      return ScheduleReprocessing(delay);
 
     var pos = zdo.ZDO.GetPosition();
     pos.y += 1;

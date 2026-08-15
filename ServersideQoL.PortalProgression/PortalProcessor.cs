@@ -126,7 +126,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
       return ProcessResult.UnregisterProcessor;
 
     if (_teleportableItems.Count is 0)
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing();
 
     foreach (var peer in peers.Enumerate())
     {
@@ -164,7 +164,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
       RPC.ShowMessage(player.Owner, MessageHud.MessageType.Center, "");
     }
 
-    return ProcessResult.ScheduleReprocessing;
+    return ScheduleReprocessing();
   }
 
   void UpdateTeleportableItems()

@@ -63,7 +63,7 @@ public sealed class Processor : Processor<Processor.PrefabInfo>
           zdo.ZDO.SetOwner(closest.ZNetPeer.m_uid);
       }
 
-      return ProcessResult.ScheduleReprocessing;
+      return ScheduleReprocessing();
     }
 
     return ProcessResult.UnregisterProcessor;

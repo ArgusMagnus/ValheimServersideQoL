@@ -27,11 +27,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   Func<PrefabInfo> _prefabInfoFactory = default!;
   readonly ConcurrentDictionary<int, PrefabInfo> _prefabInfos = [];
 
-  readonly GameVersion ExpectedGameVersion = GameVersion.ParseGameVersion("0.221");
-  const uint ExpectedNetworkVersion = 35;
-  const uint ExpectedItemDataVersion = 106;
-  const uint ExpectedWorldVersion = 36;
-
   uint _unfinishedProcessingInRow;
 
   sealed class SectorState
@@ -597,8 +592,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       if (unregister)
         _unregister.Add(processor);
       
-      if (!recreate && !unregister && (result & Processor.ProcessResult.ScheduleReprocessing) is not 0)
-        ScheduleReprocessing(zdo);
+      if (!recreate && !unregister && (result & Processor.ScheduleReprocessingConst) is not 0)
+        ScheduleReprocessing(zdo, processor.ScheduleReprocessingDelay);
 
       if ((result & Processor.ProcessResult.SkipOtherProcessors) is not 0)
         break;
@@ -713,18 +708,13 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     Logger.DevLog(string.Join($"{Environment.NewLine}  - ", processors.Select(static x => $"{x.Attribute.Id} ({x.GetType().FullName})").Prepend("Processor order:")));
   }
 
-  internal void ScheduleReprocessing(ServersideQoLZDO zdo)
+  internal void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
   {
+    zdo.DelaySchedulingFor(delayInSeconds);
     var sector = zdo.ZDO.GetSector();
     if (!_sectors.TryGetValue(sector, out var state))
       _sectors.Add(sector, state = new());
     state.Repeat.Add(zdo);
-  }
-
-  internal void ScheduleReprocessing(ServersideQoLZDO zdo, float delayInSeconds)
-  {
-    zdo.DelaySchedulingFor(delayInSeconds);
-    ScheduleReprocessing(zdo);
   }
 
   internal PrefabInfo GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>

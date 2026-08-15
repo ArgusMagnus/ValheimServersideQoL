@@ -34,8 +34,7 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
     {
       var newText = _clockRegex.Replace(text, _ =>
       {
-        zdo.DelaySchedulingFor(Config.Instance.Advanced.Value.ProcessingDelays.TimeSigns);
-        result = ProcessResult.ScheduleReprocessing;
+        result = ScheduleReprocessing(Config.Instance.Advanced.Value.ProcessingDelays.TimeSigns);
         if (_timeText is null)
         {
           var dayFraction = EnvMan.instance.GetDayFraction();
