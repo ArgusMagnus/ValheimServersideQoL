@@ -69,12 +69,12 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
     """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
 
-  public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
+  //public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
   public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
-  public sealed class LocalizationConfig
-  {
-  }
+  //public sealed class LocalizationConfig
+  //{
+  //}
 
   public sealed class AdvancedConfig
   {
