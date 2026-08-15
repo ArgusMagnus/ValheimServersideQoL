@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using UnityEngine;
+using YamlDotNet.Core.Tokens;
 
 namespace ServersideQoL.AutoMapTables;
 
@@ -98,7 +99,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
               {
                 var hash = zdo.Vars.GetLocation();
                 if (hash is not 0 && ZoneSystem.instance.GetLocationsByHash().TryGetValue(hash, out var location) &&
-                    location.m_prefab is {IsValid: true, IsLoaded: false, IsLoading: false })
+                    location.m_prefab is { IsValid: true, IsLoaded: false, IsLoading: false })
                 {
                   location.m_prefab.LoadAsync();
                 }
@@ -256,21 +257,12 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
       if (hash is 0)
         return default;
 
-      if (!ZoneSystem.instance.GetLocationsByHash().TryGetValue(hash, out var location) || !location.m_prefab.IsValid)
+      using var loc = ZoneSystem.instance.GetAndLoadLocationByHash(hash);
+      if (!loc.IsValid)
         return ProcessResult.UnregisterProcessor;
 
-      if (!location.m_prefab.IsLoaded)
-      {
-        if (!location.m_prefab.IsLoading)
-          location.m_prefab.LoadAsync();
+      if (loc.Prefab is not { } prefab)
         return ProcessResult.ScheduleReprocessing;
-      }
-
-      var prefab = location.m_prefab.Asset;
-      var position = prefab.gameObject.transform.position;
-      var rotation = prefab.gameObject.transform.rotation;
-      prefab.gameObject.transform.position = Vector3.zero;
-      prefab.gameObject.transform.rotation = Quaternion.identity;
 
       HashSet<PlayerID>? ids = null;
       foreach (var component in prefab.GetComponentsInChildren<Teleport>())
@@ -296,9 +288,6 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
 
         break;
       }
-
-      prefab.gameObject.transform.position = position;
-      prefab.gameObject.transform.rotation = rotation;
 
       if (ids is not null)
         __playerIDsVar.Set(zdo, ids);
@@ -429,21 +418,9 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
             if (hash is 0)
               continue;
 
-            if (!ZoneSystem.instance.GetLocationsByHash().TryGetValue(hash, out var location) || !location.m_prefab.IsValid)
+            using var loc = ZoneSystem.instance.GetAndLoadLocationByHash(hash);
+            if (loc.Prefab is not { } prefab)
               continue;
-
-            if (!location.m_prefab.IsLoaded)
-            {
-              if (!location.m_prefab.IsLoading)
-                location.m_prefab.LoadAsync();
-              continue;
-            }
-
-            var prefab = location.m_prefab.Asset;
-            var position = prefab.gameObject.transform.position;
-            var rotation = prefab.gameObject.transform.rotation;
-            prefab.gameObject.transform.position = Vector3.zero;
-            prefab.gameObject.transform.rotation = Quaternion.identity;
 
             var found = false;
             value = default;
@@ -457,9 +434,6 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
               value = (pos, component.m_enterText);
               break;
             }
-
-            prefab.gameObject.transform.position = position;
-            prefab.gameObject.transform.rotation = rotation;
 
             if (!found)
               continue;

@@ -117,6 +117,9 @@ public static class PrivateAccessor
 
   public static IReadOnlyDictionary<int, ZoneLocation> GetLocationsByHash(this ZoneSystem instance) => GetLocationsByHashFunc(instance);
 
+  public static Utilities.Location GetAndLoadLocationByHash(this ZoneSystem instance, int hash)
+    => instance.GetLocationsByHash().TryGetValue(hash, out var loc) ? new(loc) : default;
+
   static Func<ZoneSystem, ZoneLocation, int, Vector3, Quaternion, SpawnMode, List<GameObject>, GameObject> SpawnLocationFunc
 #if DEBUG
   { get; } =

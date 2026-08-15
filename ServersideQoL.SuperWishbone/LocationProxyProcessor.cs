@@ -59,21 +59,12 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
     if (hash is 0)
       return default;
 
-    if (!ZoneSystem.instance.GetLocationsByHash().TryGetValue(hash, out var location) || !location.m_prefab.IsValid)
+    using var loc = ZoneSystem.instance.GetAndLoadLocationByHash(hash);
+    if (!loc.IsValid)
       return ProcessResult.UnregisterProcessor;
 
-    if (!location.m_prefab.IsLoaded)
-    {
-      if (!location.m_prefab.IsLoading)
-        location.m_prefab.LoadAsync();
+    if (loc.Prefab is not { } prefab)
       return ProcessResult.ScheduleReprocessing;
-    }
-
-    var prefab = location.m_prefab.Asset;
-    var position = prefab.gameObject.transform.position;
-    var rotation = prefab.gameObject.transform.rotation;
-    prefab.gameObject.transform.position = Vector3.zero;
-    prefab.gameObject.transform.rotation = Quaternion.identity;
 
     List<RandomSpawn>? activeRandomSpawns = null;
     List<Vector3>? beaconPositions = null;
@@ -102,9 +93,6 @@ public sealed class LocationProxyProcessor : Processor<LocationProxyProcessor.Pr
           AddBeaconPosition(ref beaconPositions, c, ref activeRandomSpawns, prefab, zdo);
       }
     }
-
-    prefab.gameObject.transform.position = position;
-    prefab.gameObject.transform.rotation = rotation;
 
     if (beaconPositions is not { Count: > 0 })
       return ProcessResult.UnregisterProcessor;
