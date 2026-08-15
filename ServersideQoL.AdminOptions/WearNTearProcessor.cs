@@ -1,4 +1,7 @@
-﻿namespace ServersideQoL.AdminOptions;
+﻿using ServersideQoL.Processors;
+using ServersideQoL.Utilities;
+
+namespace ServersideQoL.AdminOptions;
 
 [Processor("256a8351-08e2-4b0f-9c71-f011c7cf846f")]
 [DependsOn<PlayerRegistryProcessor>]

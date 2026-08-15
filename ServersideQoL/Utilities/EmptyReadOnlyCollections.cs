@@ -1,4 +1,4 @@
-﻿namespace ServersideQoL;
+﻿namespace ServersideQoL.Utilities;
 
 public static class EmptyReadOnlyCollections<TKey, TValue>
 {

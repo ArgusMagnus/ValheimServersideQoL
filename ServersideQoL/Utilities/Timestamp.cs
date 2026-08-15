@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Utilities;
 
 public readonly struct Timestamp : IEquatable<Timestamp>, IComparable<Timestamp>
 {

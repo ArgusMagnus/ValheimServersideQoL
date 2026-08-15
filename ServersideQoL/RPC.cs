@@ -1,6 +1,7 @@
 ﻿using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using MonoMod.Utils;
+using ServersideQoL.Utilities;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;

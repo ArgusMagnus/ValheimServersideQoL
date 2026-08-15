@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Utilities;
 
 static class TypeExtensionBuilder
 {
@@ -14,7 +14,7 @@ static class TypeExtensionBuilder
   internal static TypeBuilder DefineType(string name, Type baseType) => __moduleBuilder.DefineType($"{__moduleName}.{name}", default, baseType);
 }
 
-public sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? typeName = default)
+sealed class TypeExtensionBuilder<TBaseInterface, TBaseType>(string? typeName = default)
     where TBaseInterface : class
     where TBaseType : class, TBaseInterface
 {

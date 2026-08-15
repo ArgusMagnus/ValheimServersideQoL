@@ -1,4 +1,6 @@
-﻿namespace ServersideQoL.WorldOptions;
+﻿using ServersideQoL.Processors;
+
+namespace ServersideQoL.WorldOptions;
 
 [Processor(Id)]
 [DependsOn<PlayerRegistryProcessor>]

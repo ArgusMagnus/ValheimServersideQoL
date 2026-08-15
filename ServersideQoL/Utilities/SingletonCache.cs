@@ -1,4 +1,4 @@
-﻿namespace ServersideQoL;
+﻿namespace ServersideQoL.Utilities;
 
 public static class SingletonCache<T>
   where T : class, new()

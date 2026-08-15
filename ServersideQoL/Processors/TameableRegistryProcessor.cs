@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using ServersideQoL.Utilities;
+using UnityEngine;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Processors;
 
 [Processor("c79b3771-b9a8-46e9-b3eb-5ffe6c9708b4", OnlyWhenDependedOn = true)]
 public sealed class TameableRegistryProcessor : Processor<TameableRegistryProcessor.PrefabInfo>

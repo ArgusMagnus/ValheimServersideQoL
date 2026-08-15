@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using ServersideQoL.Utilities;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace ServersideQoL;

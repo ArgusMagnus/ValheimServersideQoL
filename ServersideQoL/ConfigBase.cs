@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using ServersideQoL.Utilities;
 using System.Runtime.CompilerServices;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.TypeInspectors;
@@ -96,7 +97,7 @@ public abstract class ConfigBase
     public AcceptableEnum(IEnumerable<T> values)
     : base(typeof(T))
     {
-      if (EnumUtils.IsBitSet<T>())
+      if (SQoLEnumUtils.IsBitSet<T>())
       {
         AcceptableValues = [.. values.Where(static x => x.ExactlyOneBitSet())];
         _default = default;
@@ -113,13 +114,13 @@ public abstract class ConfigBase
       if (value is not T e)
         return _default;
 
-      if (EnumUtils.IsBitSet<T>())
+      if (SQoLEnumUtils.IsBitSet<T>())
       {
         var val = e.ToUInt64();
         ulong result = 0;
         foreach (var flag in AcceptableValues.Select(static x => x.ToUInt64()).Where(x => (val & x) == x))
           result |= flag;
-        return EnumUtils.ToEnum<T>(result);
+        return SQoLEnumUtils.ToEnum<T>(result);
       }
       else if (!AcceptableValues.Any(x => x.Equals(e)))
       {
@@ -139,7 +140,7 @@ public abstract class ConfigBase
       //if (EnumUtils.IsBitSet<T>())
       //  return Invariant($"# Acceptable values: {_default} or combination of {string.Join(", ", AcceptableValues.Where(x => !x.Equals(_default)))}");
 
-      if (!EnumUtils.IsBitSet<T>())
+      if (!SQoLEnumUtils.IsBitSet<T>())
         return $"# Acceptable values: {string.Join(", ", AcceptableValues)}";
       return Invariant($"""
         # Acceptable values: {string.Join(", ", AcceptableValues)}

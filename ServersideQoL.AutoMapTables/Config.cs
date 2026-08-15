@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using ServersideQoL.Utilities;
 
 namespace ServersideQoL.AutoMapTables;
 

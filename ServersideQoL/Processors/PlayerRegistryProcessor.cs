@@ -1,11 +1,12 @@
 ﻿using BepInEx.Logging;
+using ServersideQoL.Utilities;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks.Sources;
 using UnityEngine;
 using static Skills;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Processors;
 
 [Processor("b5107f88-1c1f-4323-bfce-9205ae4dfcd9", OnlyWhenDependedOn = true)]
 public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Player>>

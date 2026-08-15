@@ -1,4 +1,7 @@
-﻿namespace ServersideQoL.Player;
+﻿using ServersideQoL.Processors;
+using ServersideQoL.Utilities;
+
+namespace ServersideQoL.Player;
 
 [Processor("7b156eea-3364-40ca-83ad-417a55fa6e4b")]
 [DependsOn<PlayerRegistryProcessor>]

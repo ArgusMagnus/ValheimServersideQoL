@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Utilities;
 
 static unsafe class Unsafe
 {

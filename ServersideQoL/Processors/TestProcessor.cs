@@ -1,7 +1,7 @@
 ﻿#if DEBUG
 using UnityEngine;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Processors;
 
 [Processor("66bef8b3-dabf-48f6-a756-955fd999c4e9")]
 public sealed class TestProcessor : Processor<TestProcessor.PrefabInfo>

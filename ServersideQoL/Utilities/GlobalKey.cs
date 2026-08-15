@@ -1,4 +1,4 @@
-﻿namespace ServersideQoL;
+﻿namespace ServersideQoL.Utilities;
 
 public readonly record struct GlobalKey(string Key)
 {

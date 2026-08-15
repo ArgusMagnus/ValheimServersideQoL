@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
+using ServersideQoL.Utilities;
 using System.Reflection;
 
 namespace ServersideQoL;

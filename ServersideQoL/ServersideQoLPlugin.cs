@@ -1,6 +1,8 @@
 ﻿using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using HarmonyLib;
+using ServersideQoL.Processors;
+using ServersideQoL.Utilities;
 using System.Collections.Concurrent;
 using System.Reflection;
 using System.Reflection.Emit;

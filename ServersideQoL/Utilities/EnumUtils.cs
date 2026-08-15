@@ -2,14 +2,14 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Utilities;
 
-public static class EnumUtils
+public static class SQoLEnumUtils
 {
   static readonly ConcurrentDictionary<Type, ObjectEnumUtils> __isBitSet = new();
   static class Generic<T> where T : unmanaged, Enum
   {
-    public static bool IsBitSet { get; } = EnumUtils.OfType(typeof(T)).IsBitSet;
+    public static bool IsBitSet { get; } = OfType(typeof(T)).IsBitSet;
 
     public static Func<T, ulong> EnumToUInt64 { get; } = Expression.Lambda<Func<T, ulong>>(
         Expression.ConvertChecked(Expression.Parameter(typeof(T)) is var par ? par : throw new Exception(), typeof(ulong)), par).Compile();

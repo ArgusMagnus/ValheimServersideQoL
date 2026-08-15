@@ -1,4 +1,6 @@
 ﻿using HarmonyLib;
+using ServersideQoL.Processors;
+using ServersideQoL.Utilities;
 
 namespace ServersideQoL.MultiplayerTweaks;
 

@@ -1,4 +1,4 @@
-﻿namespace ServersideQoL;
+﻿namespace ServersideQoL.Utilities;
 
 public readonly record struct ItemDataKey(string Name, int Quality, int Variant)
 {

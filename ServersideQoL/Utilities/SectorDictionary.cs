@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using ServersideQoL.Utilities;
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Utilities;
 
 public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Vector3, TValue>, IReadOnlyDictionary<Vector3, TValue>
 {

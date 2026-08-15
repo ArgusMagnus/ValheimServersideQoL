@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Utilities;
 
 /// <summary>
 /// The point of this class is to (eventually) have an easy hook for optimizing server-only vars (which clients never need),

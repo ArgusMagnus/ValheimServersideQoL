@@ -1,4 +1,4 @@
-﻿namespace ServersideQoL;
+﻿namespace ServersideQoL.Utilities;
 
 sealed class DummySocket : ISocket
 {

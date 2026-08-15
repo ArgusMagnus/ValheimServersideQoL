@@ -1,7 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using ServersideQoL.Utilities;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Processors;
 
 [Processor("fe73690f-6790-4cfa-9795-f93136d57286", OnlyWhenDependedOn = true)]
 public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProcessor.PrefabInfo>

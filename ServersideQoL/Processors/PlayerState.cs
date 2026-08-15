@@ -1,7 +1,8 @@
-﻿using System.Runtime.CompilerServices;
+﻿using ServersideQoL.Utilities;
+using System.Runtime.CompilerServices;
 using static Skills;
 
-namespace ServersideQoL;
+namespace ServersideQoL.Processors;
 
 public abstract class PlayerState
 {
