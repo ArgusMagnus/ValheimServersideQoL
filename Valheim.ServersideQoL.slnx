@@ -27,6 +27,7 @@
   <Project Path="ServersideQoL.Signs/ServersideQoL.Signs.csproj" />
   <Project Path="ServersideQoL.Skills/ServersideQoL.Skills.csproj" Id="2ae25c40-7f3f-4c99-ad3f-f44f9a71af04" />
   <Project Path="ServersideQoL.SuperWishbone/ServersideQoL.SuperWishbone.csproj" Id="70fc10dd-f5f5-487d-8d59-d36414cef9ec" />
+  <Project Path="ServersideQoL.TeleportFollowers/ServersideQoL.TeleportFollowers.csproj" Id="f11d34a2-3061-40f2-9e4a-6c15ea8fd2d2" />
   <Project Path="ServersideQoL.WorldOptions/ServersideQoL.WorldOptions.csproj" Id="c3169757-7601-4940-a069-be179c8a66af" />
   <Project Path="ServersideQoL/ServersideQoL.csproj" />
 </Solution>

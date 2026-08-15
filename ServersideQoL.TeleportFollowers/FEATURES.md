@@ -1,0 +1,2 @@
+- Following creatures (tamed or summoned) are teleported to the player's location if the distance between them gets too big
+- Followers can be taken through portals or into dungeons
