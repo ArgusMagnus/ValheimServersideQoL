@@ -1,7 +1,7 @@
 ﻿using ServersideQoL.Processors;
 using UnityEngine;
 
-namespace ServersideQoL.TeleportFollowers;
+namespace ServersideQoL.TameAssist;
 
 [Processor(Id)]
 [DependsOn<TameableRegistryProcessor>]
@@ -19,6 +19,9 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<Player>>
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ProcessorPrefabInfo<Player> prefabInfo)
   {
+    if (Config.Instance is { TeleportFollowers.Value: false, TakeIntoDungeons.Value: false })
+      return ProcessResult.UnregisterProcessor;
+
     if (!_states.TryGetValue(zdo, out var state))
     {
       _states.Add(zdo, state = new(Instance<PlayerRegistryProcessor>().GetState(zdo)));
@@ -66,9 +69,9 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<Player>>
       return false;
     }
 
-    if (!Character.InInterior(player.ZDO.GetPosition()))
+    if (Config.Instance.TeleportFollowers.Value && !Character.InInterior(player.ZDO.GetPosition()))
     {
-      if (Utils.DistanceXZ(player.ZDO.GetPosition(), tame.ZDO.GetPosition()) >= Config.Instance.MinDistance.Value)
+      if (Utils.DistanceXZ(player.ZDO.GetPosition(), tame.ZDO.GetPosition()) >= Config.Instance.TeleportFollowersMinDistance.Value)
         return true;
       return false;
     }
