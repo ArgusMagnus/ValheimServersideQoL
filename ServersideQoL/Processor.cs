@@ -231,7 +231,10 @@ public abstract class Processor
         __dataZDO.SetModAsCreator(CreatorMarkers.DataZDO);
         __dataZDO.Vars.SetHealth(-1);
         __dataZDO.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
-        __dataZDO.Fields<WearNTear>().Set(static () => x => x.m_noRoofWear, false).Set(static () => x => x.m_noSupportWear, false).Set(static () => x => x.m_health, -1);
+        __dataZDO.Fields<WearNTear>()
+          .Set(static () => x => x.m_noRoofWear, false)
+          .Set(static () => x => x.m_noSupportWear, false)
+          .Set(static () => x => x.m_health, -1);
         __dataZDO.UnregisterAll();
       }
       return __dataZDO;
