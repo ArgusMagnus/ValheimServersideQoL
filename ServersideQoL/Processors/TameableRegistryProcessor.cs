@@ -7,7 +7,7 @@ namespace ServersideQoL.Processors;
 [Processor("c79b3771-b9a8-46e9-b3eb-5ffe6c9708b4", OnlyWhenDependedOn = true)]
 public sealed class TameableRegistryProcessor : Processor<TameableRegistryProcessor.PrefabInfo>
 {
-  public sealed record PrefabInfo(Tameable Tameable, MonsterAI MonsterAI) : ProcessorPrefabInfo;
+  public sealed record PrefabInfo(Tameable Tameable, MonsterAI MonsterAI, Humanoid Humanoid) : ProcessorPrefabInfo;
 
   readonly Dictionary<ServersideQoLZDO, TameableStateImpl> _states = [];
   readonly Dictionary<string, List<TameableState>> _tameablesByFollowPlayerName = [];
@@ -39,7 +39,7 @@ public sealed class TameableRegistryProcessor : Processor<TameableRegistryProces
 
     if (zdo.Vars.GetTamed())
     {
-      state.SetState(TameableState.States.Tamed);
+      state.SetTamed();
       if (state.UpdateFollow(zdo.Vars.GetFollow(), out var oldFollow))
       {
         if (_tameablesByFollowPlayerName.TryGetValue(oldFollow, out var list))
@@ -54,10 +54,7 @@ public sealed class TameableRegistryProcessor : Processor<TameableRegistryProces
       /// <see cref="Tameable.GetRemainingTime()"/>
       var tameTime = zdo.Fields<Tameable>().GetFloat(static () => x => x.m_tamingTime);
       var tameTimeLeft = zdo.Vars.GetTameTimeLeft(tameTime);
-      if (tameTimeLeft < tameTime)
-        state.SetState(TameableState.States.Taming);
-      else
-        state.SetState(TameableState.States.Wild);
+      state.Update(tameTime, tameTimeLeft);
     }
 
     return default;
@@ -77,14 +74,27 @@ public sealed class TameableRegistryProcessor : Processor<TameableRegistryProces
     readonly ServersideQoLZDO _zdo = zdo;
     readonly PrefabInfo _prefabInfo = prefabInfo;
     States _state;
+    float _tameness;
     string _followPlayerName = "";
     public override PrefabInfo PrefabInfo => _prefabInfo;
     public override ServersideQoLZDO ZDO => _zdo;
     public override States State => _state;
+    public override float Tameness => _tameness;
     public override string FollowPlayerName => _followPlayerName;
     public Vector3 LastKey { get; set; }
 
-    public void SetState(States state) => _state = state;
+    public void SetTamed()
+    {
+      _state = States.Tamed;
+      _tameness = 1;
+    }
+
+    public void Update(float tameTime, float tameTimeLeft)
+    {
+      _state = tameTimeLeft < tameTime ? States.Taming : States.Wild;
+      _tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
+    }
+
     public bool UpdateFollow(string playerName, out string oldValue)
     {
       oldValue = _followPlayerName;

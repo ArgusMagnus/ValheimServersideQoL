@@ -7,6 +7,7 @@ public abstract class TameableState
   public abstract TameableRegistryProcessor.PrefabInfo PrefabInfo { get; }
   public abstract ServersideQoLZDO ZDO { get; }
   public abstract States State { get; }
+  public abstract float Tameness { get; }
   public abstract string FollowPlayerName { get; }
 
   public enum States

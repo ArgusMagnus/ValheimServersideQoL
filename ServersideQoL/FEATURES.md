@@ -9,7 +9,6 @@ Missing as of this version ({PluginVersion}):
 - Growing up progress messages for tamed offspring and eggs *
 - Taming progress messages *
 - Taming/Tameables options (fed duration multiplier) *
-- Taking following tames/summons through portals/into dungeons
 - Hostile summons options (make friendly, follow)
 - Bloodmagic skill effects
 - Trap options (auto rearm, self damage multiplier) *

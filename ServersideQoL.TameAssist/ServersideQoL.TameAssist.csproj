@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Configure various aspects around tameable creatures. Allow all tames to follow you, even through portals and into dungeons.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" />
+  </ItemGroup>
+
+</Project>
