@@ -1,3 +1,4 @@
 - Configure various aspects around tameable creatures (fed duration, taming time, etc.)
 - Allow all tames to follow the player (like wolves)
 - Take followers (tames and summoned creatures) through portals and into dungeons
+- Show taming and growing up/hatching progress to nearby players

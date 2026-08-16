@@ -8,5 +8,6 @@ partial class TameAssistPlugin : ServersideQoLPluginBase<TameAssistPlugin, Confi
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
     .Add<TameableProcessor>()
-    .Add<PlayerProcessor>();
+    .Add<PlayerProcessor>()
+    .Add<GrowingProcessor>();
 }
