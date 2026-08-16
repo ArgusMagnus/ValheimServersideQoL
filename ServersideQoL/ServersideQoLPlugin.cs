@@ -15,6 +15,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];
   readonly List<Processor> _enabledProcessors = [];
+  List<Processor>? _preprocessors;
 
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
   internal IReadOnlyDictionary<Guid, Processor> Processors => _processorsById;
@@ -383,6 +384,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. Config.ConfigFile.Select(static x => Invariant($"[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
     if (ReferenceEquals(cfg.Enabled, e.ChangedSetting))
     {
+      _preprocessors = null;
       if (cfg.Enabled.Value)
       {
         foreach (var processor in cfg.Plugin.Processors)
@@ -459,8 +461,21 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       return;
 
     Processor.StaticPreProcess(peers);
-    foreach (var processor in _enabledProcessors)
-      processor.PreProcessInternal(peers);
+    if (_preprocessors is null)
+    {
+      _preprocessors = [];
+      foreach (var processor in _enabledProcessors)
+      {
+        processor.PreProcessInternal(peers);
+        if (processor.HasPreProcessor)
+          _preprocessors.Add(processor);
+      }
+    }
+    else
+    {
+      foreach (var processor in _preprocessors)
+        processor.PreProcessInternal(peers);
+    }
 
     int processedZdos = 0;
     int totalZdos = 0;

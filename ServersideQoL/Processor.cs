@@ -84,6 +84,7 @@ public abstract class Processor
   public double ProcessingTimeSeconds { get; private set; }
   public double TotalProcessingTimeSeconds { get; private set; }
   internal float ScheduleReprocessingDelay { get; private set; }
+  internal bool HasPreProcessor { get; private set; } = true;
 
 #if DEBUG
   private protected static readonly Dictionary<int, Type> __prefabInfoTypes = [];
@@ -247,7 +248,7 @@ public abstract class Processor
   }
 
   private protected abstract ProcessResult Process(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo);
-  protected virtual void PreProcess(PeersEnumerable peers) { }
+  protected virtual void PreProcess(PeersEnumerable peers) => HasPreProcessor = false;
 
   internal ProcessResult ProcessInternal(IReadOnlyList<Peer> peers, ServersideQoLZDO zdo)
   {
