@@ -15,12 +15,12 @@ public sealed class MineRockProcessor : Processor<MineRockProcessor.PrefabInfo>
 
   protected override void Initialize()
   {
-    Instance<PlayerRegistryProcessor>().EnableSkillLevelEstimation(Config.Instance.PickaxeRockCollapseEnabled);
+    Instance<PlayerRegistryProcessor>().EnableSkillLevelEstimation(Config.Instance.Pickaxe.RockCollapseEnabled);
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (!Config.Instance.PickaxeRockCollapseEnabled)
+    if (!Config.Instance.Pickaxe.RockCollapseEnabled)
       return ProcessResult.UnregisterProcessor;
 
     if (zdo.Vars.GetHealthString() is not { Length: > 0 } healthData)
@@ -47,7 +47,7 @@ public sealed class MineRockProcessor : Processor<MineRockProcessor.PrefabInfo>
 
     if (float.IsNaN(skill))
       skill = 0;
-    var threshold = Utils.Lerp(Config.Instance.PickaxeRockCollapseThresholdAtMinSkill.Value, Config.Instance.PickaxeRockCollapseThresholdAtMaxSkill.Value, skill);
+    var threshold = Utils.Lerp(Config.Instance.Pickaxe.RockCollapseThresholdAtMinSkill.Value, Config.Instance.Pickaxe.RockCollapseThresholdAtMaxSkill.Value, skill);
     threshold /= 100;
     if (threshold >= 1)
       return default;

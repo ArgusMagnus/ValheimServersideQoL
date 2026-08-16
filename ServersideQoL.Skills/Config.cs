@@ -1,127 +1,136 @@
 ﻿using BepInEx.Configuration;
+using System.Runtime.CompilerServices;
 
 namespace ServersideQoL.Skills;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  const string Section = "Skills";
-
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, "Skills", true,
     "Enables/disables the entire mod");
 
-  public ConfigEntry<int> PickaxeRockCollapseThresholdAtMinSkill { get; } = BindEx(cfg, Section, 100, $"""
-    The percentage of destroyed parts required to collapse a rock or ore deposit at pickaxe skill level 0.
-    The actual required percentage scales linearly between this value and {nameof(PickaxeRockCollapseThresholdAtMaxSkill)} with skill level.
-    Set both of these values to -1 to disable this feature.
-    """);
+  public PickaxeConfig Pickaxe { get; } = new(cfg);
 
-  public ConfigEntry<int> PickaxeRockCollapseThresholdAtMaxSkill { get; } = BindEx(cfg, Section, 0, $"""
-    The percentage of destroyed parts required to collapse a rock or ore deposit at pickaxe skill level 100.
-    The actual required percentage scales linearly between this value and {nameof(PickaxeRockCollapseThresholdAtMinSkill)} with skill level.
-    Set both of these values to -1 to disable this feature.
-    """);
+  public sealed class PickaxeConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<int> RockCollapseThresholdAtMinSkill { get; } = BindEx(cfg, section, 100, $"""
+      The percentage of destroyed parts required to collapse a rock or ore deposit at pickaxe skill level 0.
+      The actual required percentage scales linearly between this value and {nameof(RockCollapseThresholdAtMaxSkill)} with skill level.
+      Set both of these values to -1 to disable this feature.
+      """);
 
-  public bool PickaxeRockCollapseEnabled => Math.Max(PickaxeRockCollapseThresholdAtMinSkill.Value, PickaxeRockCollapseThresholdAtMaxSkill.Value) > 0;
+    public ConfigEntry<int> RockCollapseThresholdAtMaxSkill { get; } = BindEx(cfg, section, 0, $"""
+      The percentage of destroyed parts required to collapse a rock or ore deposit at pickaxe skill level 100.
+      The actual required percentage scales linearly between this value and {nameof(RockCollapseThresholdAtMinSkill)} with skill level.
+      Set both of these values to -1 to disable this feature.
+      """);
 
-  //public ConfigEntry<int> BloodmagicSummonsLevelUpChanceAtMinSkill { get; } = BindEx(cfg, Section, -1, $"""
-  //  The chance (in percent) at skill level 0 to summon a creature with an increased level.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicSummonsLevelUpChanceAtMaxSkill)} with skill level.
-  //  Set both of these values to -1 to disable this feature.
-  //  """);
+    public bool RockCollapseEnabled => Math.Max(RockCollapseThresholdAtMinSkill.Value, RockCollapseThresholdAtMaxSkill.Value) > 0;
+  }
 
-  //public ConfigEntry<int> BloodmagicSummonsLevelUpChanceAtMaxSkill { get; } = BindEx(cfg, Section, -1, $"""
-  //  The chance (in percent) at skill level 100 to summon a creature with an increased level.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicSummonsLevelUpChanceAtMinSkill)} with skill level.
-  //  Set both of these values to -1 to disable this feature.
-  //  """);
+  public BloodMagicConfig BloodMagic { get; } = new(cfg);
 
-  //public bool BloodmagicSummonsLevelUpEnabled => Math.Max(BloodmagicSummonsLevelUpChanceAtMinSkill.Value, BloodmagicSummonsLevelUpChanceAtMaxSkill.Value) > 0;
+  public sealed class BloodMagicConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<int> SummonsLevelUpChanceAtMinSkill { get; } = BindEx(cfg, section, -1, $"""
+      The chance (in percent) at skill level 0 to summon a creature with an increased level.
+      The actual chance scales linearly between this value and {nameof(SummonsLevelUpChanceAtMaxSkill)} with skill level.
+      Set both of these values to -1 to disable this feature.
+      """);
 
-  //public ConfigEntry<int> BloodmagicSummonsMaxLevel { get; } = BindEx(cfg, Section, 3, """
-  //  The maximum level a summoned creature can reach.
-  //  """, new AcceptableValueRange<int>(2, 9));
+    public ConfigEntry<int> SummonsLevelUpChanceAtMaxSkill { get; } = BindEx(cfg, section, -1, $"""
+      The chance (in percent) at skill level 100 to summon a creature with an increased level.
+      The actual chance scales linearly between this value and {nameof(SummonsLevelUpChanceAtMinSkill)} with skill level.
+      Set both of these values to -1 to disable this feature.
+      """);
 
-  //public ConfigEntry<int> BloodmagicMakeSummonsFriendlyChanceAtMinSkill { get; } = BindEx(cfg, Section, -1, $"""
-  //  The chance (in percent) at skill level 0 for hostile summons to be made friendly.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicMakeSummonsFriendlyChanceAtMaxSkill)} with skill level.
-  //  Set both of these values to -1 to disable this feature.
-  //  This will not affect summons that are already friendly by default.
-  //  """);
+    public bool SummonsLevelUpEnabled => Math.Max(SummonsLevelUpChanceAtMinSkill.Value, SummonsLevelUpChanceAtMaxSkill.Value) > 0;
 
-  //public ConfigEntry<int> BloodmagicMakeSummonsFriendlyChanceAtMaxSkill { get; } = BindEx(cfg, Section, -1, $"""
-  //  The chance (in percent) at skill level 100 for hostile summons to be made friendly.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicMakeSummonsFriendlyChanceAtMinSkill)} with skill level.
-  //  Set both of these values to -1 to disable this feature.
-  //  This will not affect summons that are already friendly by default.
-  //  """);
+    public ConfigEntry<int> SummonsMaxLevel { get; } = BindEx(cfg, section, 3, """
+      The maximum level a summoned creature can reach.
+      """, new AcceptableValueRange<int>(2, 9));
 
-  //public bool BloodmagicMakeSummonsFriendlyEnabled => Math.Max(BloodmagicMakeSummonsFriendlyChanceAtMinSkill.Value, BloodmagicMakeSummonsFriendlyChanceAtMaxSkill.Value) > 0;
+    public ConfigEntry<int> MakeSummonsFriendlyChanceAtMinSkill { get; } = BindEx(cfg, section, -1, $"""
+      The chance (in percent) at skill level 0 for hostile summons to be made friendly.
+      The actual chance scales linearly between this value and {nameof(MakeSummonsFriendlyChanceAtMaxSkill)} with skill level.
+      Set both of these values to -1 to disable this feature.
+      This will not affect summons that are already friendly by default.
+      """);
 
-  //public ConfigEntry<int> BloodmagicMakeSummonsTolerateLavaChanceAtMinSkill { get; } = BindEx(cfg, Section, -1, $"""
-  //  The chance (in percent) at skill level 0 for a summoned creature to tolerate lava.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicMakeSummonsTolerateLavaChanceAtMaxSkill)} with skill level.
-  //  Set both of these values to -1 to disable this feature.
-  //  This will not affect summons that already tolerate lava by default.
-  //  """);
+    public ConfigEntry<int> MakeSummonsFriendlyChanceAtMaxSkill { get; } = BindEx(cfg, section, -1, $"""
+      The chance (in percent) at skill level 100 for hostile summons to be made friendly.
+      The actual chance scales linearly between this value and {nameof(MakeSummonsFriendlyChanceAtMinSkill)} with skill level.
+      Set both of these values to -1 to disable this feature.
+      This will not affect summons that are already friendly by default.
+      """);
 
-  //public ConfigEntry<int> BloodmagicMakeSummonsTolerateLavaChanceAtMaxSkill { get; } = BindEx(cfg, Section, -1, $"""
-  //  The chance (in percent) at skill level 0 for a summoned creature to tolerate lava.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicMakeSummonsTolerateLavaChanceAtMinSkill)} with skill level.
-  //  Set both of these values to -1 to disable this feature.
-  //  This will not affect summons that already tolerate lava by default.
-  //  """);
+    public ConfigEntry<bool> MakeFriendlySummonsFollow { get; } = BindEx(cfg, section, true,
+      "True to make friendly summoned creatures follow the summoner");
 
-  //public bool BloodmagicMakeSummonsTolerateLavaEnabled => Math.Max(BloodmagicMakeSummonsTolerateLavaChanceAtMinSkill.Value, BloodmagicMakeSummonsTolerateLavaChanceAtMaxSkill.Value) > 0;
+    public bool MakeSummonsFriendlyEnabled => Math.Max(MakeSummonsFriendlyChanceAtMinSkill.Value, MakeSummonsFriendlyChanceAtMaxSkill.Value) > 0;
 
-  //public ConfigEntry<float> BloodmagicSummonsHPRegenMultiplierAtMinSkill { get; } = BindEx(cfg, Section, 1f, $"""
-  //  The time it takes for a summoned creature to fully regenerate its health at skill level 0 is multiplied by this factor.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicSummonsHPRegenMultiplierAtMaxSkill)} with skill level.
-  //  Set both of these values to 1 to disable this feature.
-  //  """);
+    public ConfigEntry<int> MakeSummonsTolerateLavaChanceAtMinSkill { get; } = BindEx(cfg, section, -1, $"""
+      The chance (in percent) at skill level 0 for a summoned creature to tolerate lava.
+      The actual chance scales linearly between this value and {nameof(MakeSummonsTolerateLavaChanceAtMaxSkill)} with skill level.
+      Set both of these values to -1 to disable this feature.
+      This will not affect summons that already tolerate lava by default.
+      """);
 
-  //public ConfigEntry<float> BloodmagicSummonsHPRegenMultiplierAtMaxSkill { get; } = BindEx(cfg, Section, 1f, $"""
-  //  The time it takes for a summoned creature to fully regenerate its health at skill level 100 is multiplied by this factor.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicSummonsHPRegenMultiplierAtMinSkill)} with skill level.
-  //  Set both of these values to 1 to disable this feature.
-  //  """);
+    public ConfigEntry<int> MakeSummonsTolerateLavaChanceAtMaxSkill { get; } = BindEx(cfg, section, -1, $"""
+      The chance (in percent) at skill level 0 for a summoned creature to tolerate lava.
+      The actual chance scales linearly between this value and {nameof(MakeSummonsTolerateLavaChanceAtMinSkill)} with skill level.
+      Set both of these values to -1 to disable this feature.
+      This will not affect summons that already tolerate lava by default.
+      """);
 
-  //public bool BloodmagicSummonsHPRegenMultiplierEnabled =>
-  //    (BloodmagicSummonsHPRegenMultiplierAtMinSkill.Value, BloodmagicSummonsHPRegenMultiplierAtMaxSkill.Value)
-  //    is { Item1: > 0, Item2: > 0 } and not { Item1: 1f, Item2: 1f };
+    public bool MakeSummonsTolerateLavaEnabled => Math.Max(MakeSummonsTolerateLavaChanceAtMinSkill.Value, MakeSummonsTolerateLavaChanceAtMaxSkill.Value) > 0;
 
-  //public ConfigEntry<float> BloodmagicSummonsSpeedMultiplierAtMinSkill { get; } = BindEx(cfg, Section, 1f, $"""
-  //  The movement speed of a summoned creature at skill level 0 is multiplied by this factor.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicSummonsSpeedMultiplierAtMaxSkill)} with skill level.
-  //  Set both of these values to 1 to disable this feature.
-  //  """);
+    public ConfigEntry<float> SummonsHPRegenMultiplierAtMinSkill { get; } = BindEx(cfg, section, 1f, $"""
+      The time it takes for a summoned creature to fully regenerate its health at skill level 0 is multiplied by this factor.
+      The actual chance scales linearly between this value and {nameof(SummonsHPRegenMultiplierAtMaxSkill)} with skill level.
+      Set both of these values to 1 to disable this feature.
+      """);
 
-  //public ConfigEntry<float> BloodmagicSummonsSpeedMultiplierAtMaxSkill { get; } = BindEx(cfg, Section, 1f, $"""
-  //  The movement speed of a summoned creature at skill level 0 is multiplied by this factor.
-  //  The actual chance scales linearly between this value and {nameof(BloodmagicSummonsSpeedMultiplierAtMinSkill)} with skill level.
-  //  Set both of these values to 1 to disable this feature.
-  //  """);
+    public ConfigEntry<float> SummonsHPRegenMultiplierAtMaxSkill { get; } = BindEx(cfg, section, 1f, $"""
+      The time it takes for a summoned creature to fully regenerate its health at skill level 100 is multiplied by this factor.
+      The actual chance scales linearly between this value and {nameof(SummonsHPRegenMultiplierAtMinSkill)} with skill level.
+      Set both of these values to 1 to disable this feature.
+      """);
 
-  //public bool BloodmagicSummonsSpeedMultiplierEnabled =>
-  //    (BloodmagicSummonsSpeedMultiplierAtMinSkill.Value, BloodmagicSummonsSpeedMultiplierAtMaxSkill.Value)
-  //    is { Item1: > 0, Item2: > 0 } and not { Item1: 1f, Item2: 1f };
+    public bool SummonsHPRegenMultiplierEnabled =>
+        (SummonsHPRegenMultiplierAtMinSkill.Value, SummonsHPRegenMultiplierAtMaxSkill.Value)
+        is { Item1: > 0, Item2: > 0 } and not { Item1: 1f, Item2: 1f };
 
-  public bool AnyEnbaled =>
-      PickaxeRockCollapseEnabled; // ||
-      //BloodmagicSummonsLevelUpEnabled ||
-      //BloodmagicMakeSummonsFriendlyEnabled ||
-      //BloodmagicMakeSummonsTolerateLavaEnabled ||
-      //BloodmagicSummonsHPRegenMultiplierEnabled ||
-      //BloodmagicSummonsSpeedMultiplierEnabled;
+    public ConfigEntry<float> SummonsSpeedMultiplierAtMinSkill { get; } = BindEx(cfg, section, 1f, $"""
+      The movement speed of a summoned creature at skill level 0 is multiplied by this factor.
+      The actual chance scales linearly between this value and {nameof(SummonsSpeedMultiplierAtMaxSkill)} with skill level.
+      Set both of these values to 1 to disable this feature.
+      """);
 
-  //public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+    public ConfigEntry<float> SummonsSpeedMultiplierAtMaxSkill { get; } = BindEx(cfg, section, 1f, $"""
+      The movement speed of a summoned creature at skill level 0 is multiplied by this factor.
+      The actual chance scales linearly between this value and {nameof(SummonsSpeedMultiplierAtMinSkill)} with skill level.
+      Set both of these values to 1 to disable this feature.
+      """);
 
-  //public sealed class AdvancedConfig
-  //{
-  //  public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
+    public bool SummonsSpeedMultiplierEnabled =>
+        (SummonsSpeedMultiplierAtMinSkill.Value, SummonsSpeedMultiplierAtMaxSkill.Value)
+        is { Item1: > 0, Item2: > 0 } and not { Item1: 1f, Item2: 1f };
 
-  //  public sealed class ProcessingDelaysConfig
-  //  {
-  //    public float TimeSigns { get; init; } = 0.5f;
-  //  }
-  //}
+    public ConfigEntry<float> AllowReplacementSummonMinSkill { get; } = BindEx(cfg, section, float.NaN,
+      "Min skill level required to allow the summoning of new hostile summons (such as summoned trolls) to replace older ones when the limit exceeded");
+  }
+
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+
+  public sealed class AdvancedConfig
+  {
+    public BloodMagicConfig BloodMagic { get; init; } = new();
+
+    public sealed class BloodMagicConfig
+    {
+      public sealed record FollowSummonerConfig(float MoveInterval, float MaxDistance) { FollowSummonerConfig() : this(default, default) { } }
+
+      public FollowSummonerConfig FollowSummoners { get; init; } = new(4, 20);
+    }
+  }
 }
