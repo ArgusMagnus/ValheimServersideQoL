@@ -23,7 +23,7 @@ public sealed class TameableProcessor : Processor<TameableRegistryProcessor.Pref
     if (Instance<TameableRegistryProcessor>().GetState(zdo) is not { } state)
       return ProcessResult.UnregisterProcessor;
 
-    var result = ProcessResult.Default;
+    var result = ProcessResult.UnregisterProcessor;
 
     if (state.State is TameableState.States.Tamed or TameableState.States.Taming && 
         prefabInfo.Humanoid is not { m_faction: Character.Faction.Players or Character.Faction.PlayerSpawned })
@@ -37,14 +37,14 @@ public sealed class TameableProcessor : Processor<TameableRegistryProcessor.Pref
 
     if (state.State is TameableState.States.Tamed)
     {
-      result |= ProcessResult.UnregisterProcessor;
-
       fields ??= zdo.Fields<Tameable>();
 
       if (!Config.Instance.MakeCommandable.Value)
         fields.Reset(static () => x => x.m_commandable);
       else if (fields.UpdateValue(static () => x => x.m_commandable, true))
         result |= ProcessResult.RecreateZDO;
+
+      _states.Remove(zdo);
     }
     else if (state.State is TameableState.States.Taming)
     {
@@ -62,6 +62,8 @@ public sealed class TameableProcessor : Processor<TameableRegistryProcessor.Pref
 
       if (Config.Instance.TamingProgressMessageType.Value is not MessageTypes.None)
       {
+        result &= ~ProcessResult.UnregisterProcessor;
+
         if (!_states.TryGetValue(zdo, out var tamingState))
         {
           _states.Add(zdo, tamingState = new());
