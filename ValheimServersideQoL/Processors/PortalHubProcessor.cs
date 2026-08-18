@@ -208,6 +208,7 @@ sealed class PortalHubProcessor : Processor
             foreach (var zdo in PlacedObjects)
                 zdo.Destroy();
             PlacedObjects.Clear();
+            _lastHubWidth = 0;
             return;
         }
 
