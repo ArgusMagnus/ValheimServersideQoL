@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
 
-    <Version>1.99.8-beta</Version>
+    <Version>1.99.9-beta</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
@@ -36,7 +36,7 @@
   <ItemGroup Condition="'$(CreatePackage)' == 'true'">
     <ProjectReference Include="$(MSBuildThisFileDirectory)\ServersideQoL.CodeAnalysis\ServersideQoL.CodeAnalysis.csproj" Private="False" PrivateAssets="all" OutputItemType="Analyzer" />
 
-    <None Include="$(MSBuildThisFileDirectory)\icon.png" CopyToOutputDirectory="Always" />
+    <None Include="$(MSBuildProjectDirectory)\icon.png" CopyToOutputDirectory="Always" />
     <None Include="$(MSBuildProjectDirectory)\FEATURES.md" CopyToOutputDirectory="Always" />
     <None Include="$(MSBuildProjectDirectory)\CHANGELOG.md" CopyToOutputDirectory="Always" />
   </ItemGroup>
