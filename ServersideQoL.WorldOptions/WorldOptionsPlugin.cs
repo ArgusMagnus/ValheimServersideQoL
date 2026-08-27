@@ -9,5 +9,6 @@ partial class WorldOptionsPlugin : ServersideQoLPluginBase<WorldOptionsPlugin, C
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
     .Add<MisterProcessor>()
     .Add<TraderProcessor>()
-    .Add<MapTableProcessor>();
+    .Add<MapTableProcessor>()
+    .Add<CraftingStationProcessor>();
 }
