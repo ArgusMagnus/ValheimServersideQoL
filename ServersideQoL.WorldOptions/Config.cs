@@ -29,7 +29,6 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     For example, a workbench and a stone cutter with overlapping build radius will enable players to build
     with stone also in the workbench's build range and vice versa.
     """);
-    
 
   public IReadOnlyDictionary<Trader, IReadOnlyList<ConfigEntry<string>>> TaderProgressRequirements { get; } = GetTaderProgressRequirements(cfg);
 
