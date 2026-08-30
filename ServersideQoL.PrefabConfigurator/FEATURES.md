@@ -68,15 +68,11 @@ Entries:
   Fields:
     m_itemWeightMassFactor: 0
 
-# Various tameable adjustmens, uncomment below
+# Disable unsummoning of skeletts
 - Component: Tameable
   Fields:
-    m_commandable: true # Make all tames commandable (includes friendly summoned skeletons)
-    # m_fedDuration: *2 # Double the time a tameable (tamed or wild) stays fed after feeding)
-    # m_tamingTime: /2 # Halve the time it takes to tame
-    # m_tamingBoostMultiplier: 6 # Give a sixfold decrease in taming time for each nearby player that took the taming potion
-    # m_unsummonDistance: 0 # Disable distance-based unsummoning of summoned skeletons
-    # m_unsummonOnOwnerLogoutSeconds: 0 # Disable logout time-based unsummoning of summoned skeletons
+    m_unsummonDistance: 0 # Disable distance-based unsummoning of summoned skeletts
+    m_unsummonOnOwnerLogoutSeconds: 0 # Disable logout time-based unsummoning of summoned skeletts
 ```
 
 </details>
