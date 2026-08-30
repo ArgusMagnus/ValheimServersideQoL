@@ -75,10 +75,20 @@ public sealed class CraftingStationProcessor : Processor<CraftingStationProcesso
       return;
     if (!_infos.TryGetValue(craftingStation, out var info))
       return;
-    if (!info.States.Remove(zdo))
+    if (!info.States.Remove(zdo, out var state))
       return;
-    foreach (var x in info.States.Keys)
-      ScheduleReprocessing(x);
+    if (state.Stations is { Count: > 0 })
+    {
+      foreach (var x in state.Stations.Values)
+        DestroyObject(x);
+    }
+    foreach (var other in _infos.Values)
+    {
+      if (other == info)
+        continue;
+      foreach (var x in other.States.Keys)
+        ScheduleReprocessing(x);
+    }
   }
 
   void OnExtensionDestroyed(ServersideQoLZDO zdo)
