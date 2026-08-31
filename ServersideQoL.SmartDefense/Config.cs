@@ -9,6 +9,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Enables/disables the entire mod");
 
   public TurretsConfig Turrets { get; } = new(cfg);
+  public TrapsConfig Traps { get; } = new(cfg);
 
   public sealed class TurretsConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
   {
@@ -27,6 +28,19 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       "Type of message to show when ammo is added to a turret", AcceptableEnum<MessageTypes>.Default);
     public ConfigEntry<MessageTypes> NoAmmoMessageType { get; } = BindEx(cfg, section, MessageTypes.None,
       "Type of message to show when there is no ammo to add to a turret", AcceptableEnum<MessageTypes>.Default);
+  }
+
+  public sealed class TrapsConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<bool> DisableTriggeredByPlayers { get; } = BindEx(cfg, section, true,
+        "True to stop traps from being triggered by players");
+    //public ConfigEntry<bool> DisableFriendlyFire { get; } = BindEx(cfg, section, true,
+    //    "True to stop traps from damaging players and tames. Does not work reliably (yet).");
+    public ConfigEntry<float> SelfDamageMultiplier { get; } = BindEx(cfg, section, 1f,
+        "Multiply the damage the trap takes when it is triggered by this factor. 0 to make the trap take no damage",
+        new AcceptableValueRange<float>(0, float.PositiveInfinity));
+    public ConfigEntry<bool> AutoRearm { get; } = BindEx(cfg, section, true,
+        "True to automatically rearm traps when they are triggered");
   }
 
   public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);

@@ -7,5 +7,6 @@ partial class SmartDefensePlugin : ServersideQoLPluginBase<SmartDefensePlugin, C
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
-    .Add<TurretProcessor>();
+    .Add<TurretProcessor>()
+    .Add<TrapsProcessor>();
 }

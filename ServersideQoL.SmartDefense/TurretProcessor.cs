@@ -34,6 +34,9 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
+    if (zdo.Vars.GetCreator().Value is 0)
+      return ProcessResult.UnregisterProcessor;
+
     var result = ProcessResult.Default;
 
     var fields = zdo.Fields<Turret>();
