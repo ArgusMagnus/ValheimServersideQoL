@@ -26,6 +26,7 @@
   <Project Path="ServersideQoL.PrefabConfigurator/ServersideQoL.PrefabConfigurator.csproj" Id="06cc4b4e-b03b-4f98-9673-a8ea9405fc0d" />
   <Project Path="ServersideQoL.Signs/ServersideQoL.Signs.csproj" />
   <Project Path="ServersideQoL.Skills/ServersideQoL.Skills.csproj" Id="2ae25c40-7f3f-4c99-ad3f-f44f9a71af04" />
+  <Project Path="ServersideQoL.SmartDefense/ServersideQoL.SmartDefense.csproj" Id="063f429e-801f-49af-bf6b-9c8d373120fa" />
   <Project Path="ServersideQoL.SuperWishbone/ServersideQoL.SuperWishbone.csproj" Id="70fc10dd-f5f5-487d-8d59-d36414cef9ec" />
   <Project Path="ServersideQoL.TameAssist/ServersideQoL.TameAssist.csproj" Id="9b221c72-775e-4765-a65a-c8e202c3774c" />
   <Project Path="ServersideQoL.WorldOptions/ServersideQoL.WorldOptions.csproj" Id="c3169757-7601-4940-a069-be179c8a66af" />

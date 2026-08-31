@@ -1,0 +1,2 @@
+- Ballistas don't target players or tames
+- Ballistas reload from nearby containers

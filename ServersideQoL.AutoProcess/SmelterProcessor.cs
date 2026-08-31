@@ -74,7 +74,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
     }
 
     if (_smelters is null || _containersByItemName is null)
-      return result | ScheduleReprocessing();
+      return result | ProcessResult.UnregisterProcessor;
 
     if (!CheckMinDistance(peers, zdo, Config.Instance.FeedFromContainersMinPlayerDistance.Value))
       return result | ScheduleReprocessing();
@@ -328,7 +328,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
   void OnContainerChanged(ServersideQoLZDO containerZdo, ContainerState state)
   {
     if (_smelters is null)
-      return;
+      throw new Exception("bug");
 
     var feedRangeSqr = state.FeedRange ?? Config.Instance.FeedFromContainersRange.Value;
     feedRangeSqr *= feedRangeSqr;

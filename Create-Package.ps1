@@ -36,14 +36,6 @@ $vi = Get-ItemPropertyValue -LiteralPath $Path -Name VersionInfo
 $name = $vi.ProductName.Replace('.', '_')
 $version = $vi.ProductVersion.Split('+')[0]
 
-# if ($VersionNumber -ne $Version) {
-#     $versionParts = $VersionNumber.Split('.')
-#     $patch = $versionParts[2]
-#     $beta = ($Version -split '-beta.0.')[1].PadLeft(3, '0')
-#     $versionParts[2] = "$patch$beta"
-#     $VersionNumber = $versionParts -join '.'
-# }
-
 $manifest = @{
     name           = $name
     version_number = $version
