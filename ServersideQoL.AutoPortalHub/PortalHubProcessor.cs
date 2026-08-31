@@ -198,6 +198,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       foreach (var zdo in PlacedObjects)
         zdo.Destroy();
       PlacedObjects.Clear();
+      _lastHubWidth = 0;
       return;
     }
 
