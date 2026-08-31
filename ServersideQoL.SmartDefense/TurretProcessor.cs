@@ -19,9 +19,9 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
   {
 
     Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
-    if (Config.Instance.LoadFromContainers.Value)
+    if (Config.Instance.Turrets.LoadFromContainers.Value)
     {
-      _turrets = new(Mathf.Max(Config.Instance.LoadFromContainersRange.Value, Config.Instance.FeedFromContainersMaxRange ?? 0));
+      _turrets = new(Mathf.Max(Config.Instance.Turrets.LoadFromContainersRange.Value, Config.Instance.Turrets.FeedFromContainersMaxRange ?? 0));
       _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(_turrets.SectorWidth);
       Instance<ContainerRegistryProcessor>().ContainerChanged += OnContainerChanged;
     }
@@ -37,29 +37,29 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
     var result = ProcessResult.Default;
 
     var fields = zdo.Fields<Turret>();
-    if (!Config.Instance.DontTargetPlayers.Value)
+    if (!Config.Instance.Turrets.DontTargetPlayers.Value)
       fields.Reset(static () => x => x.m_targetPlayers);
     else if (fields.UpdateValue(static () => x => x.m_targetPlayers, false))
       result |= ProcessResult.RecreateZDO;
 
-    if (!Config.Instance.DontTargetTames.Value)
+    if (!Config.Instance.Turrets.DontTargetTames.Value)
       fields.Reset(static () => x => x.m_targetTamed);
     else if (fields.UpdateValue(static () => x => x.m_targetTamed, false))
       result |= ProcessResult.RecreateZDO;
 
-    if (!Config.Instance.DontTargetTames.Value)
+    if (!Config.Instance.Turrets.DontTargetTames.Value)
       fields.Reset(static () => x => x.m_targetTamedConfig);
     else if (fields.UpdateValue(static () => x => x.m_targetTamedConfig, false))
       result |= ProcessResult.RecreateZDO;
 
 
-    if (!Config.Instance.LoadFromContainers.Value)
+    if (!Config.Instance.Turrets.LoadFromContainers.Value)
       return result | ProcessResult.UnregisterProcessor;
 
     if (_turrets is null || _containersByItemName is null)
       return result | ProcessResult.UnregisterProcessor;
 
-    if (!CheckMinDistance(peers, zdo, Config.Instance.LoadFromContainersMinPlayerDistance.Value))
+    if (!CheckMinDistance(peers, zdo, Config.Instance.Turrets.LoadFromContainersMinPlayerDistance.Value))
       return result | ScheduleReprocessing();
 
     /// <see cref="Turret.RPC_AddAmmo"/>
@@ -93,7 +93,7 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
             continue;
           }
 
-          var feedRangeSqr = containerState.FeedRange ?? Config.Instance.LoadFromContainersRange.Value;
+          var feedRangeSqr = containerState.FeedRange ?? Config.Instance.Turrets.LoadFromContainersRange.Value;
           feedRangeSqr *= feedRangeSqr;
           if (feedRangeSqr is 0f || Utils.DistanceSqr(zdo.ZDO.GetPosition(), containerZdo.ZDO.GetPosition()) > feedRangeSqr)
             continue;
@@ -180,9 +180,9 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
     }
 
     if (addedAmmo is not 0)
-      ShowMessage(peers, zdo, Config.Instance.Localization.Value.FormatAmmoAdded(prefabInfo.Piece.m_name, allowedAmmo!.m_shared.m_name, addedAmmo), Config.Instance.AmmoAddedMessageType.Value);
+      ShowMessage(peers, zdo, Config.Instance.Localization.Value.Turrets.FormatAmmoAdded(prefabInfo.Piece.m_name, allowedAmmo!.m_shared.m_name, addedAmmo), Config.Instance.Turrets.AmmoAddedMessageType.Value);
     else if (currentAmmo is 0)
-      ShowMessage(peers, zdo, Config.Instance.Localization.Value.NoAmmoFound, Config.Instance.NoAmmoMessageType.Value, DamageText.TextType.Bonus);
+      ShowMessage(peers, zdo, Config.Instance.Localization.Value.Turrets.NoAmmoFound, Config.Instance.Turrets.NoAmmoMessageType.Value, DamageText.TextType.Bonus);
 
     _turrets.TryAdd(zdo);
 
@@ -194,7 +194,7 @@ public sealed class TurretProcessor : Processor<TurretProcessor.PrefabInfo>
     if (_turrets is null)
       throw new Exception("bug");
 
-    var feedRangeSqr = state.FeedRange ?? Config.Instance.LoadFromContainersRange.Value;
+    var feedRangeSqr = state.FeedRange ?? Config.Instance.Turrets.LoadFromContainersRange.Value;
     feedRangeSqr *= feedRangeSqr;
     if (feedRangeSqr is 0f)
       return;
