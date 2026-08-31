@@ -28,18 +28,13 @@ if ($Dependencies) {
         $author = $_.LegalCopyright
         $name = $_.ProductName.Replace('.', '_')
         $version = $_.ProductVersion.Split('+')[0]
-        $versionNumber = $version.Split('-')[0]
-        if ($versionNumber -ne $version) {
-            $name += '_BETA'
-        }
-        "$author-$name-$versionNumber"
+        "$author-$name-$version"
     }
 }
 
 $vi = Get-ItemPropertyValue -LiteralPath $Path -Name VersionInfo
 $name = $vi.ProductName.Replace('.', '_')
 $version = $vi.ProductVersion.Split('+')[0]
-$versionNumber = $version.Split('-')[0]
 
 # if ($VersionNumber -ne $Version) {
 #     $versionParts = $VersionNumber.Split('.')
@@ -51,20 +46,10 @@ $versionNumber = $version.Split('-')[0]
 
 $manifest = @{
     name           = $name
-    version_number = $versionNumber
-    version        = $version
+    version_number = $version
     website_url    = $Url
     description    = $Description
     dependencies   = $deps
-}
-
-if ($versionNumber -ne $version) {
-    $manifest.description = "(BETA) $($manifest.description)"
-    $manifest.name += '_BETA'
-
-    if ($manifest.description.Length -gt 256) {
-        $manifest.description = "$($manifest.description.Substring(0, 253))..."
-    }
 }
 
 $tmpDir = New-Item -Path "${Env:TEMP}\ServersideQoL\$(New-Guid)" -ItemType Directory
