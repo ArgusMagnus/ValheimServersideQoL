@@ -48,10 +48,10 @@ public sealed class TrapsProcessor : Processor<TrapsProcessor.PrefabInfo>
     }
 
     var fields = zdo.Fields<Aoe>();
-    //if (!Config.Instance.Traps.DisableFriendlyFire.Value)
-    //  fields.Reset(static () => x => x.m_hitFriendly);
-    //else if (fields.UpdateValue(static () => x => x.m_hitFriendly, false)) // hitFriendly does not seem to be respected by sharp stakes
-    //  result |= ProcessResult.RecreateZDO;
+    if (!Config.Instance.Traps.DisableFriendlyFire.Value)
+      fields.Reset(static () => x => x.m_hitFriendly);
+    else if (fields.UpdateValue(static () => x => x.m_hitFriendly, false)) // hitFriendly does not seem to be respected by sharp stakes
+      result |= ProcessResult.RecreateZDO;
 
     if (fields.UpdateValue(static () => x => x.m_damageSelf, prefabInfo.Aoe.m_damageSelf * Config.Instance.Traps.SelfDamageMultiplier.Value))
       result |= ProcessResult.RecreateZDO;
