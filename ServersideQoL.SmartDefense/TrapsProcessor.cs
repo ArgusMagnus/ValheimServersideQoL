@@ -20,10 +20,7 @@ public sealed class TrapsProcessor : Processor<TrapsProcessor.PrefabInfo>
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (zdo.Vars.GetCreator().Value is 0)
-      return ProcessResult.UnregisterProcessor;
-
-    if (_rearmAfter.Remove(zdo, out var rearmAfter))
+    if (Config.Instance.Traps.AutoRearm.Value && _rearmAfter.Remove(zdo, out var rearmAfter))
     {
       var now = Timestamp.Now;
       if (now < rearmAfter)
@@ -36,6 +33,9 @@ public sealed class TrapsProcessor : Processor<TrapsProcessor.PrefabInfo>
         RPC.RequestStateChange(zdo, 1); /// <see cref="Trap.TrapState.Armed"/>
       return default;
     }
+
+    if (zdo.Vars.GetCreator().Value is 0)
+      return ProcessResult.UnregisterProcessor;
 
     var result = ProcessResult.Default;
 
