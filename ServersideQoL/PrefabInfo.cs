@@ -35,7 +35,7 @@ public abstract class PrefabInfo : IPrefabInfo
 
   public bool HasComponent<T>() where T : MonoBehaviour => Components.ContainsKey(typeof(T));
   public T? GetComponent<T>() where T : MonoBehaviour => Components.TryGetValue(typeof(T), out var list) ? (T)list[0] : null;
-  public T GetRequiredComponent<T>() where T : MonoBehaviour => (T)Components[typeof(T)][0];
+  public T GetRequiredComponent<T>() where T : MonoBehaviour => GetComponent<T>() ?? throw new InvalidOperationException($"Prefab {PrefabName} does not have required component {typeof(T).Name}");
 }
 
 public abstract record ProcessorPrefabInfo

@@ -10,7 +10,7 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
 {
   public const string Id = "b41745c8-07ee-4ae1-897f-68391c136102";
 
-  public sealed record PrefabInfo(Humanoid Humanoid, Tameable? Tameable) : ProcessorPrefabInfo
+  public sealed record PrefabInfo(Humanoid Humanoid, MonsterAI MonsterAI, Tameable? Tameable) : ProcessorPrefabInfo
   {
     public override bool IsValid => Humanoid.m_faction is Character.Faction.Players or Character.Faction.PlayerSpawned;
   }
@@ -113,7 +113,7 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
 
     var result = EvaluateChances(zdo, state, tamed, prefabInfo);
 
-    var follow = Config.Instance.BloodMagic.MakeFriendlySummonsFollow.Value || (Config.Instance.BloodMagic.MakeSummonsFriendlyEnabled && tamed);
+    var follow = tamed && Config.Instance.BloodMagic.MakeFriendlySummonsFollow.Value;
     if (follow && prefabInfo.Tameable is null)
     {
       var cfg = Config.Instance.Advanced.Value.BloodMagic.FollowSummoners;
