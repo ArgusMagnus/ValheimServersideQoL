@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using UnityEngine;
 
 namespace ServersideQoL.DropControl;
@@ -89,13 +90,28 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     }
   }
 
+  float _dropArea;
+
+  protected override void Initialize()
+  {
+    _dropArea = (float)typeof(CharacterDrop).GetField("m_dropArea", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance).GetRawConstantValue();
+  }
+
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     var result = ProcessResult.UnregisterProcessor;
     if (prefabInfo.Ragdoll is not null)
     {
-      var drops = prefabInfo.CharacterDrop.GenerateDropList();
-      /// todo: set zdo vars, <see cref="Ragdoll.Setup"/>
+      var list = prefabInfo.CharacterDrop.GenerateDropList();
+      /// <see cref="Ragdoll.Setup"/>
+      zdo.ZDO.Set(ZDOVars.s_drops, list.Count);
+      for (int i = 0; i < list.Count; i++)
+      {
+        KeyValuePair<GameObject, int> keyValuePair = list[i];
+        int prefabHash = ZNetScene.instance.GetPrefabHash(keyValuePair.Key);
+        zdo.ZDO.Set("drop_hash" + i, prefabHash);
+        zdo.ZDO.Set("drop_amount" + i, keyValuePair.Value);
+      }
       zdo.ZDO.DataRevision += 100;
     }
     else if (prefabInfo.CharacterDrop is not null)
@@ -104,8 +120,9 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       if (zdo.Fields<CharacterDrop>().UpdateValue(static () => x => x.m_spawnOffset, new Vector3(offset, 0, offset)))
         result |= ProcessResult.RecreateZDO;
 
-      var drops = prefabInfo.CharacterDrop.GenerateDropList();
-      // todo: manually spawn
+      var list = prefabInfo.CharacterDrop.GenerateDropList();
+      /// <see cref="CharacterDrop.OnDeath"/>
+      CharacterDrop.DropItems(list, zdo.ZDO.GetPosition() + prefabInfo.CharacterDrop.m_spawnOffset, _dropArea);
     }
     return result;
   }
