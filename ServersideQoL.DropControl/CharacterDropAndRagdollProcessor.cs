@@ -102,15 +102,15 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     var result = ProcessResult.UnregisterProcessor;
     if (prefabInfo.Ragdoll is not null)
     {
-      var list = prefabInfo.CharacterDrop.GenerateDropList();
+      var drops = prefabInfo.CharacterDrop.GenerateDropList();
       /// <see cref="Ragdoll.Setup"/>
-      zdo.ZDO.Set(ZDOVars.s_drops, list.Count);
-      for (int i = 0; i < list.Count; i++)
+      zdo.ZDO.Set(ZDOVars.s_drops, drops.Count);
+      for (int i = 0; i < drops.Count; i++)
       {
-        KeyValuePair<GameObject, int> keyValuePair = list[i];
-        int prefabHash = ZNetScene.instance.GetPrefabHash(keyValuePair.Key);
+        var (prefab, amount) = drops[i];
+        int prefabHash = ZNetScene.instance.GetPrefabHash(prefab);
         zdo.ZDO.Set("drop_hash" + i, prefabHash);
-        zdo.ZDO.Set("drop_amount" + i, keyValuePair.Value);
+        zdo.ZDO.Set("drop_amount" + i, amount);
       }
       zdo.ZDO.DataRevision += 100;
     }
@@ -120,9 +120,9 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       if (zdo.Fields<CharacterDrop>().UpdateValue(static () => x => x.m_spawnOffset, new Vector3(offset, 0, offset)))
         result |= ProcessResult.RecreateZDO;
 
-      var list = prefabInfo.CharacterDrop.GenerateDropList();
+      var drops = prefabInfo.CharacterDrop.GenerateDropList();
       /// <see cref="CharacterDrop.OnDeath"/>
-      CharacterDrop.DropItems(list, zdo.ZDO.GetPosition() + prefabInfo.CharacterDrop.m_spawnOffset, _dropArea);
+      CharacterDrop.DropItems(drops, zdo.ZDO.GetPosition() + prefabInfo.CharacterDrop.m_spawnOffset, _dropArea);
     }
     return result;
   }
