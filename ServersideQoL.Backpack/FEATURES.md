@@ -1,0 +1,2 @@
+- Adds a backpack players can open via emoting
+- The backpack's capacity can be configured to grow with progression

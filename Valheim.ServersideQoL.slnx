@@ -12,6 +12,7 @@
   <Project Path="ServersideQoL.AutoPortalHub/ServersideQoL.AutoPortalHub.csproj" Id="ab7c0d3b-3b85-4b50-915c-cbd13f14468c" />
   <Project Path="ServersideQoL.AutoProcess/ServersideQoL.AutoProcess.csproj" Id="38ff161d-64b2-4815-9f7f-5e7323a9c7cd" />
   <Project Path="ServersideQoL.AutoStore/ServersideQoL.AutoStore.csproj" />
+  <Project Path="ServersideQoL.Backpack/ServersideQoL.Backpack.csproj" Id="32e998a9-2058-4ffa-8ff5-05a84e5ad9cc" />
   <Project Path="ServersideQoL.CodeAnalysis.Tests/ServersideQoL.CodeAnalysis.Tests.csproj" />
   <Project Path="ServersideQoL.CodeAnalysis/ServersideQoL.CodeAnalysis.csproj" />
   <Project Path="ServersideQoL.ContainerSigns/ServersideQoL.ContainerSigns.csproj" Id="a404522a-e98d-4ec1-aa75-185d843ec8b3" />

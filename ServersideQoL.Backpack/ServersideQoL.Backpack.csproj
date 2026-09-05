@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Adds a backpack with progressively larger storage capacity</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ServersideQoL\ServersideQoL.csproj" Private="False" />
+  </ItemGroup>
+
+</Project>
