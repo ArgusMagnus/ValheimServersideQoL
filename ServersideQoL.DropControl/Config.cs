@@ -24,7 +24,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         if (prefab.GetComponent<CharacterDrop>() is not { } characterDrop)
           continue;
 
-        if (prefab.GetComponent<Character>() is { } character && character.m_deathEffects.m_effectPrefabs
+        var character = prefab.GetComponent<Character>();
+        if (character?.m_deathEffects.m_effectPrefabs
             .Select(static x => x.m_prefab.GetComponent<Ragdoll>())
             .FirstOrDefault(static x => x is not null)
             is { } ragdoll)
@@ -36,6 +37,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         result.Add(new()
         {
           Name = characterDrop.gameObject.name,
+          DisplayName = character is null ? null : Localization.instance.Localize(character.m_name).RemoveRichTextTags(),
           Drops = [..characterDrop.m_drops.Select(static x => new DropConfig.Drop
           {
             Prefab = x.m_prefab.name,
@@ -54,6 +56,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public sealed class DropConfig
     {
       public required string Name { get; init; }
+      public required string? DisplayName { get; init; }
       public required List<Drop> Drops { get; init; }
 
       public sealed class Drop
