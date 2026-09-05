@@ -120,10 +120,18 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       if (zdo.Fields<CharacterDrop>().UpdateValue(static () => x => x.m_spawnOffset, new Vector3(offset, 0, offset)))
         result |= ProcessResult.RecreateZDO;
 
-      var drops = prefabInfo.CharacterDrop.GenerateDropList();
-      /// <see cref="CharacterDrop.OnDeath"/>
-      CharacterDrop.DropItems(drops, zdo.ZDO.GetPosition() + prefabInfo.CharacterDrop.m_spawnOffset, _dropArea);
+      zdo.Destroyed += OnCharacterDropDestroyed;
     }
     return result;
+  }
+
+  void OnCharacterDropDestroyed(ServersideQoLZDO zdo)
+  {
+    if (GetProcessorPrefabInfo(zdo)?.CharacterDrop is not { } characterDrop)
+      return;
+
+    var drops = characterDrop.GenerateDropList();
+    /// <see cref="CharacterDrop.OnDeath"/>
+    CharacterDrop.DropItems(drops, zdo.ZDO.GetPosition() + characterDrop.m_spawnOffset, _dropArea);
   }
 }
