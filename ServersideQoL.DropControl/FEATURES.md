@@ -1,0 +1,1 @@
+- Configure mob drop tables

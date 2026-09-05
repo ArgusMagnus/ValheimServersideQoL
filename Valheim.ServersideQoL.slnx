@@ -18,6 +18,7 @@
   <Project Path="ServersideQoL.ContainerSigns/ServersideQoL.ContainerSigns.csproj" Id="a404522a-e98d-4ec1-aa75-185d843ec8b3" />
   <Project Path="ServersideQoL.ContainerSizes/ServersideQoL.ContainerSizes.csproj" Id="ca153c80-1a24-44c7-bd3b-47e6418fdb86" />
   <Project Path="ServersideQoL.CreatureLevelUp/ServersideQoL.CreatureLevelUp.csproj" Id="f2a68859-193c-48ad-8e71-fef209376160" />
+  <Project Path="ServersideQoL.DropControl/ServersideQoL.DropControl.csproj" Id="d3715063-4c86-40f1-86cc-f002ad18f810" />
   <Project Path="ServersideQoL.JustSleep/ServersideQoL.JustSleep.csproj" Id="820b4b17-3b02-4b2a-9a2a-13ebc10e58b1" />
   <Project Path="ServersideQoL.LetItFloat/ServersideQoL.LetItFloat.csproj" Id="aff806c9-63f9-4563-9403-1d57f8b6145c" />
   <Project Path="ServersideQoL.MultiplayerTweaks/ServersideQoL.MultiplayerTweaks.csproj" Id="c4312622-60f1-44c4-a1b9-945e3c4ead34" />

@@ -264,6 +264,10 @@ partial class ServersideQoLZDO
         => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
     [MustBeOnUniqueLine]
+    public Vector3 GetVector3(Func<Expression<Func<TComponent, Vector3>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+        => FieldReference<Vector3>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
+
+    [MustBeOnUniqueLine]
     public string GetString(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
         => FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).GetValue(this);
 
@@ -308,6 +312,10 @@ partial class ServersideQoLZDO
         => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
     [MustBeOnUniqueLine]
+    public bool UpdateValue(Func<Expression<Func<TComponent, Vector3>>> fieldExpressionFactory, Vector3 value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+        => FieldReference<Vector3>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
+
+    [MustBeOnUniqueLine]
     public bool UpdateValue(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, string value, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
         => FieldReference<string>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateValue(this, value);
 
@@ -330,6 +338,10 @@ partial class ServersideQoLZDO
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
         => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
+
+    [MustBeOnUniqueLine]
+    public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, Vector3>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+        => FieldReference<Vector3>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).ResetValue(this);
 
     [MustBeOnUniqueLine]
     public ComponentFieldAccessor<TComponent> Reset(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
@@ -355,6 +367,10 @@ partial class ServersideQoLZDO
     [MustBeOnUniqueLine]
     public bool UpdateResetValue(Func<Expression<Func<TComponent, int>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
         => FieldReference<int>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
+
+    [MustBeOnUniqueLine]
+    public bool UpdateResetValue(Func<Expression<Func<TComponent, Vector3>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
+        => FieldReference<Vector3>.Get(_component.GetType(), fieldExpressionFactory, callerFilePath, callerLineNo).UpdateResetValue(this);
 
     [MustBeOnUniqueLine]
     public bool UpdateResetValue(Func<Expression<Func<TComponent, string>>> fieldExpressionFactory, [CallerFilePath] string callerFilePath = default!, [CallerLineNumber] int callerLineNo = -1)
