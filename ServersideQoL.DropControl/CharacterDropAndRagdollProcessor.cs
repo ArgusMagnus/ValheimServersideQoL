@@ -15,7 +15,8 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     public Ragdoll? Ragdoll { get; private init; }
     public Config.DropsConfig.DropConfig DropConfig { get; private init; }
 
-    static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig>? __dropsByName;
+    static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig> DropsByName
+      => field ??= Config.Instance.Drops.Value.Entries.ToDictionary(static x => x.Name);
     static IReadOnlyDictionary<Ragdoll, CharacterDrop>? __characterDropByRagdoll;
 
     public PrefabInfo(CharacterDrop? characterDrop, Ragdoll? ragdoll)
@@ -37,11 +38,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       CharacterDrop = characterDrop!;
       Ragdoll = ragdoll;
       DropConfig = default!;
-      if (characterDrop is null)
-        return;
-
-      __dropsByName ??= Config.Instance.Drops.Value.Entries.ToDictionary(static x => x.Name);
-      if (!__dropsByName.TryGetValue(characterDrop.gameObject.name, out var cfg))
+      if (characterDrop is null || !DropsByName.TryGetValue(characterDrop.gameObject.name, out var cfg))
         return;
 
       DropConfig = cfg;
@@ -84,7 +81,10 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
           is not { } ragdoll)
           continue;
 
-        dict.TryAdd(ragdoll, characterDrop);
+        if (DropsByName.ContainsKey(characterDrop.gameObject.name))
+          dict[ragdoll] = characterDrop;
+        else
+          dict.TryAdd(ragdoll, characterDrop);
       }
       __characterDropByRagdoll = dict;
     }
