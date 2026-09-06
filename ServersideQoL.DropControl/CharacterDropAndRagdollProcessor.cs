@@ -1,6 +1,4 @@
-﻿using BepInEx.Logging;
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
+﻿using System.Reflection;
 using UnityEngine;
 
 namespace ServersideQoL.DropControl;
@@ -15,8 +13,9 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     public ItemDrop? ItemDrop { get; }
     public CharacterDrop CharacterDrop { get; private set; }
     public Ragdoll? Ragdoll { get; private init; }
-    public Config.DropsConfig.DropConfig DropConfig { get; private set; }
+    public Config.DropsConfig.DropConfig DropConfig { get; private set; } = default!;
     public bool HasQualityIncreaseChance { get; private set; }
+    public IReadOnlyDictionary<int, CharacterDrop.Drop> OriginalDropsByHash { get; private set; } = default!;
 
     static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig> DropsByName
       => field ??= Config.Instance.Drops.Value.Entries.Where(static x => x.Enabled).ToDictionary(static x => x.Name);
@@ -28,7 +27,6 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       ItemDrop = itemDrop;
       CharacterDrop = characterDrop!;
       Ragdoll = ragdoll;
-      DropConfig = default!;
     }
 
     public override bool IsValid
@@ -57,6 +55,9 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
           return false;
 
         DropConfig = cfg;
+        OriginalDropsByHash = characterDrop.m_drops
+          .Where(static x => x.m_levelMultiplier && !x.m_onePerPlayer)
+          .ToDictionary(static x => ZNetScene.instance.GetPrefabHash(x.m_prefab));
         characterDrop.m_drops.Clear();
         foreach (var drop in cfg.Drops)
         {
@@ -126,10 +127,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     if (prefabInfo.ItemDrop is not null)
     {
       if (zdo.ZDO.GetPosition().y > DestroyHeight)
-      {
-        Logger.DevLog($"Drop destroyed: {prefabInfo.PrefabInfo.PrefabName}");
         return ProcessResult.DestroyZDO;
-      }
       return result;
     }
 
@@ -137,6 +135,36 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     {
       if (prefabInfo.HasQualityIncreaseChance)
       {
+        var minLevelMultiplier = int.MinValue;
+        var maxLevelMultiplier = int.MaxValue;
+        for (var i = 0; i < zdo.ZDO.GetInt(ZDOVars.s_drops); i++)
+        {
+          var hash = zdo.ZDO.GetInt("drop_hash" + i);
+          if (!prefabInfo.OriginalDropsByHash.TryGetValue(hash, out var drop))
+            continue;
+          var amount = zdo.ZDO.GetInt("drop_amount" + i);
+          if (drop.m_dontScale)
+          {
+            minLevelMultiplier = Math.Max(minLevelMultiplier, amount / drop.m_amountMax);
+            maxLevelMultiplier = Math.Min(maxLevelMultiplier, amount / drop.m_amountMin);
+          }
+          else
+          {
+            var minAmount = Mathf.Ceil((amount - 0.5f) / Game.m_resourceRate);
+            var maxAmount = Mathf.Floor((amount + 0.5f) / Game.m_resourceRate);
+            minLevelMultiplier = Math.Max(minLevelMultiplier, Mathf.CeilToInt(minAmount / drop.m_amountMax));
+            maxLevelMultiplier = Math.Min(maxLevelMultiplier, Mathf.FloorToInt(maxAmount / drop.m_amountMin));
+          }
+          if (minLevelMultiplier >= maxLevelMultiplier)
+            break;
+        }
+        if (minLevelMultiplier <= 0)
+          Logger.DevLog($"Ragdoll drop level multiplier could not be determined (min: {minLevelMultiplier}, max: {maxLevelMultiplier}): {prefabInfo.PrefabInfo.PrefabName}");
+        else
+        {
+          var level = (int)Mathf.Log(minLevelMultiplier, 2) + 1;
+          zdo.Vars.SetLevel(level);
+        }
         zdo.ZDO.Set(ZDOVars.s_drops, 0);
         zdo.Destroyed += OnCharacterDropDestroyed;
       }
@@ -197,7 +225,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
 
         float chance = drop.m_chance;
         if (drop.m_levelMultiplier)
-          chance *= (float)levelMultiplier;
+          chance *= levelMultiplier;
 
         if (UnityEngine.Random.value > chance)
           continue;
