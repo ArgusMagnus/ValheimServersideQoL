@@ -12,17 +12,20 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
 
   public sealed record PrefabInfo : ProcessorPrefabInfo
   {
+    public ItemDrop? ItemDrop { get; }
     public CharacterDrop CharacterDrop { get; private set; }
     public Ragdoll? Ragdoll { get; private init; }
     public Config.DropsConfig.DropConfig DropConfig { get; private set; }
+    public bool HasQualityIncreaseChance { get; private set; }
 
     static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig> DropsByName
-      => field ??= Config.Instance.Drops.Value.Entries.ToDictionary(static x => x.Name);
+      => field ??= Config.Instance.Drops.Value.Entries.Where(static x => x.Enabled).ToDictionary(static x => x.Name);
     static IReadOnlyDictionary<Ragdoll, CharacterDrop> CharacterDropByRagdoll
       => field ??= GetCharacterDropByRagdoll();
 
-    public PrefabInfo(CharacterDrop? characterDrop, Ragdoll? ragdoll)
+    public PrefabInfo(ItemDrop? itemDrop, CharacterDrop? characterDrop, Ragdoll? ragdoll)
     {
+      ItemDrop = itemDrop;
       CharacterDrop = characterDrop!;
       Ragdoll = ragdoll;
       DropConfig = default!;
@@ -32,6 +35,9 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     {
       get
       {
+        if (ItemDrop is not null)
+          return true;
+
         CharacterDrop? characterDrop = CharacterDrop;
         if (CharacterDrop is not null)
         {
@@ -70,6 +76,9 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
             m_levelMultiplier = drop.LevelMultiplier,
             m_dontScale = drop.DontScale
           });
+
+          if (!HasQualityIncreaseChance && drop is { QualityIncreaseChance: > 0 } and ({ MaxQuality: > 1 } or { LevelAffectsMaxQuality: true}))
+            HasQualityIncreaseChance = true;
         }
         return true;
       }
@@ -99,33 +108,56 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
   }
 
   float _dropArea;
+  Vector3 _ragdollDropOffset;
 
   protected override void Initialize()
   {
     _dropArea = (float)typeof(CharacterDrop).GetField("m_dropArea", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance).GetRawConstantValue();
+    _ragdollDropOffset = Vector3.up * (float)typeof(Ragdoll).GetField("m_dropOffset", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance).GetRawConstantValue();
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
+    const float DestroySpawnHeight = 100_000;
+    const float DestroyHeight = DestroySpawnHeight - 10_000;
+
     var result = ProcessResult.UnregisterProcessor;
+
+    if (prefabInfo.ItemDrop is not null)
+    {
+      if (zdo.ZDO.GetPosition().y > DestroyHeight)
+      {
+        Logger.DevLog($"Drop destroyed: {prefabInfo.PrefabInfo.PrefabName}");
+        return ProcessResult.DestroyZDO;
+      }
+      return result;
+    }
+
     if (prefabInfo.Ragdoll is not null)
     {
-      var drops = prefabInfo.CharacterDrop.GenerateDropList();
-      /// <see cref="Ragdoll.Setup"/>
-      zdo.ZDO.Set(ZDOVars.s_drops, drops.Count);
-      for (int i = 0; i < drops.Count; i++)
+      if (prefabInfo.HasQualityIncreaseChance)
       {
-        var (prefab, amount) = drops[i];
-        int prefabHash = ZNetScene.instance.GetPrefabHash(prefab);
-        zdo.ZDO.Set("drop_hash" + i, prefabHash);
-        zdo.ZDO.Set("drop_amount" + i, amount);
+        zdo.ZDO.Set(ZDOVars.s_drops, 0);
+        zdo.Destroyed += OnCharacterDropDestroyed;
+      }
+      else
+      {
+        var drops = prefabInfo.CharacterDrop.GenerateDropList();
+        /// <see cref="Ragdoll.Setup"/>
+        zdo.ZDO.Set(ZDOVars.s_drops, drops.Count);
+        for (int i = 0; i < drops.Count; i++)
+        {
+          var (prefab, amount) = drops[i];
+          int prefabHash = ZNetScene.instance.GetPrefabHash(prefab);
+          zdo.ZDO.Set("drop_hash" + i, prefabHash);
+          zdo.ZDO.Set("drop_amount" + i, amount);
+        }
       }
       zdo.ZDO.DataRevision += 100;
     }
     else if (prefabInfo.CharacterDrop is not null)
     {
-      var offset = WorldGenerator.worldSize * 2;
-      if (zdo.Fields<CharacterDrop>().UpdateValue(static () => x => x.m_spawnOffset, new Vector3(offset, 0, offset)))
+      if (zdo.Fields<CharacterDrop>().UpdateValue(static () => x => x.m_spawnOffset, new Vector3(0, DestroySpawnHeight, 0)))
         result |= ProcessResult.RecreateZDO;
 
       zdo.Destroyed += OnCharacterDropDestroyed;
@@ -135,13 +167,96 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
 
   void OnCharacterDropDestroyed(ServersideQoLZDO zdo)
   {
-    if (GetProcessorPrefabInfo(zdo)?.CharacterDrop is not { } characterDrop)
+    if (GetProcessorPrefabInfo(zdo) is not { CharacterDrop: not null } prefabInfo)
       return;
-    if (zdo.Vars.GetHealth(1) > 0)
+    if (prefabInfo.Ragdoll is null && zdo.Vars.GetHealth(1) > 0)
       return;
 
-    var drops = characterDrop.GenerateDropList();
-    /// <see cref="CharacterDrop.OnDeath"/>
-    CharacterDrop.DropItems(drops, zdo.ZDO.GetPosition() + characterDrop.m_spawnOffset, _dropArea);
+    var offset = prefabInfo.Ragdoll is not null ? _ragdollDropOffset : prefabInfo.CharacterDrop.m_spawnOffset;
+
+    if (prefabInfo.HasQualityIncreaseChance)
+      SpawnDrops(zdo, prefabInfo, offset, _dropArea);
+    else
+    {
+      var drops = prefabInfo.CharacterDrop.GenerateDropList();
+      /// <see cref="CharacterDrop.OnDeath"/>
+      CharacterDrop.DropItems(drops, zdo.ZDO.GetPosition() + offset, _dropArea);
+    }
+
+    static void SpawnDrops(ServersideQoLZDO zdo, PrefabInfo prefabInfo, Vector3 offset, float dropArea)
+    {
+      /// <see cref="CharacterDrop.GenerateDropList"/>
+
+      var level = zdo.Vars.GetLevel();
+      int levelMultiplier = Mathf.Max(1, (int)Mathf.Pow(2f, level - 1));
+      for (var i = 0; i < prefabInfo.CharacterDrop.m_drops.Count; i++)
+      {
+        var drop = prefabInfo.CharacterDrop.m_drops[i];
+        if (drop.m_prefab == null)
+          continue;
+
+        float chance = drop.m_chance;
+        if (drop.m_levelMultiplier)
+          chance *= (float)levelMultiplier;
+
+        if (UnityEngine.Random.value > chance)
+          continue;
+
+        int amount = (drop.m_dontScale ? UnityEngine.Random.Range(drop.m_amountMin, drop.m_amountMax) : Game.instance.ScaleDrops(drop.m_prefab, drop.m_amountMin, drop.m_amountMax));
+        if (drop.m_levelMultiplier)
+          amount *= levelMultiplier;
+
+        if (drop.m_onePerPlayer)
+          amount = ZNet.instance.GetNrOfPlayers();
+
+        if (amount > 100)
+          amount = 100;
+
+        if (amount > 0)
+          SpawnDrop(drop, prefabInfo.DropConfig.Drops[i], amount, level, levelMultiplier, zdo.ZDO.GetPosition() + offset, dropArea);
+      }
+    }
+
+    static void SpawnDrop(CharacterDrop.Drop drop, Config.DropsConfig.DropConfig.Drop cfg, int amount, int level, float levelMultiplier, Vector3 centerPos, float dropArea)
+    {
+      /// <see cref="CharacterDrop.DropItems"/>
+
+      for (int i = 0; i < amount; i++)
+      {
+        Quaternion rotation = Quaternion.Euler(0f, UnityEngine.Random.Range(0, 360), 0f);
+        Vector3 vector = UnityEngine.Random.insideUnitSphere * dropArea;
+        GameObject gameObject = UnityEngine.Object.Instantiate(drop.m_prefab, centerPos + vector, rotation);
+        if (gameObject.GetComponent<ItemDrop>() is { } itemDrop)
+        {
+          itemDrop.m_itemData.m_worldLevel = (byte)Game.m_worldLevel;
+          var chance = cfg.QualityIncreaseChance;
+          if (cfg.LevelAffectsQualityIncreaseChance)
+            chance *= levelMultiplier;
+          var maxQuality = cfg.MaxQuality;
+          if (cfg.LevelAffectsMaxQuality && levelMultiplier > 1)
+            maxQuality *= level;
+
+          var quality = 0;
+          while (++quality < maxQuality && UnityEngine.Random.value <= chance) ;
+          if (quality > 1)
+          {
+            itemDrop.SetQuality(quality);
+            ItemDrop.SaveToZDO(itemDrop.m_itemData, itemDrop.GetComponent<ZNetView>().GetZDO());
+          }
+        }
+
+        Rigidbody component2 = gameObject.GetComponent<Rigidbody>();
+        if ((bool)component2)
+        {
+          Vector3 insideUnitSphere = UnityEngine.Random.insideUnitSphere;
+          if (insideUnitSphere.y < 0f)
+          {
+            insideUnitSphere.y = 0f - insideUnitSphere.y;
+          }
+
+          component2.AddForce(insideUnitSphere * 5f, ForceMode.VelocityChange);
+        }
+      }
+    }
   }
 }

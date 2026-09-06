@@ -57,6 +57,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     {
       public required string Name { get; init; }
       public required string? DisplayName { get; init; }
+      public bool Enabled { get; init; }
       public required List<Drop> Drops { get; init; }
 
       public sealed class Drop
@@ -68,6 +69,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         public required bool OnePerPlayer { get; init; }
         public required bool LevelMultiplier { get; init; }
         public required bool DontScale { get; init; }
+
+        public float QualityIncreaseChance { get; init; } = 0;
+        public bool LevelAffectsQualityIncreaseChance { get; init; } = true;
+        public int MaxQuality { get; init; } = 1;
+        public bool LevelAffectsMaxQuality { get; init; } = true;
       }
     }
   }
