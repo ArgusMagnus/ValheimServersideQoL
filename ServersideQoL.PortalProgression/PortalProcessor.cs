@@ -215,7 +215,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
           state.Container.ZDO.ReleaseOwnershipInternal();
           state.Container.ZDO.ZDO.SetPosition(state.InitialPosition with { y = -1000 });
           state.Container.ZDO.Fields<Container>().Set(static () => x => x.m_autoDestroyEmpty, true);
-          state.Container.ZDO.CreateClone(false);
+          state.Container.ZDO.CreateClone(false, false);
           DestroyObject(state.Container.ZDO); // release exclusive claim
         }
         _containers.RemoveAt(i);

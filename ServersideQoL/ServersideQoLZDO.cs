@@ -262,7 +262,7 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     ZDOMan.instance.DestroyZDO(ZDO);
   }
 
-  public ServersideQoLZDO CreateClone(bool cloneProcessors)
+  public ServersideQoLZDO CreateClone(bool cloneProcessors, bool cloneDestroyedHandler)
   {
     var prefab = ZDO.GetPrefab();
     var pos = ZDO.GetPosition();
@@ -282,12 +282,14 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
       zdo.ServersideQoLZDO.HasProcessors = HasProcessors;
       zdo.ServersideQoLZDO.ExclusivityCheckDone = ExclusivityCheckDone;
     }
+    if (cloneDestroyedHandler)
+      zdo.ServersideQoLZDO._destroyed = _destroyed;
     return zdo.ServersideQoLZDO;
   }
 
   public ServersideQoLZDO Recreate()
   {
-    var zdo = CreateClone(true);
+    var zdo = CreateClone(true, true);
 
     // Call before Destroy and thus before ZDOMan.instance.m_onZDODestroyed
     //_addData?.Recreated?.Invoke(this, zdo);

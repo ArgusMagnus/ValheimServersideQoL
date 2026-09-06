@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using BepInEx.Logging;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using UnityEngine;
 
@@ -11,63 +12,70 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
 
   public sealed record PrefabInfo : ProcessorPrefabInfo
   {
-    public CharacterDrop CharacterDrop { get; private init; }
+    public CharacterDrop CharacterDrop { get; private set; }
     public Ragdoll? Ragdoll { get; private init; }
-    public Config.DropsConfig.DropConfig DropConfig { get; private init; }
+    public Config.DropsConfig.DropConfig DropConfig { get; private set; }
 
     static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig> DropsByName
       => field ??= Config.Instance.Drops.Value.Entries.ToDictionary(static x => x.Name);
-    static IReadOnlyDictionary<Ragdoll, CharacterDrop>? __characterDropByRagdoll;
+    static IReadOnlyDictionary<Ragdoll, CharacterDrop> CharacterDropByRagdoll
+      => field ??= GetCharacterDropByRagdoll();
 
     public PrefabInfo(CharacterDrop? characterDrop, Ragdoll? ragdoll)
     {
-      if (CharacterDrop is not null)
-      {
-        if (PrefabInfo.GetComponent<Character>()?.m_deathEffects.m_effectPrefabs
-          .Select(static x => x.m_prefab.GetComponent<Ragdoll>())
-          .FirstOrDefault(static x => x is not null) is not null)
-          characterDrop = null;
-      }
-      else if (Ragdoll is not null)
-      {
-        if (__characterDropByRagdoll is null)
-          InitializeCharacterDropByRagdoll();
-        characterDrop = __characterDropByRagdoll.GetValueOrDefault(Ragdoll);
-      }
-
       CharacterDrop = characterDrop!;
       Ragdoll = ragdoll;
       DropConfig = default!;
-      if (characterDrop is null || !DropsByName.TryGetValue(characterDrop.gameObject.name, out var cfg))
-        return;
+    }
 
-      DropConfig = cfg;
-      characterDrop.m_drops.Clear();
-      foreach (var drop in cfg.Drops)
+    public override bool IsValid
+    {
+      get
       {
-        if (ZNetScene.instance.GetPrefab(drop.Prefab) is not { } prefab)
+        CharacterDrop? characterDrop = CharacterDrop;
+        if (CharacterDrop is not null)
         {
-          Instance<CharacterDropAndRagdollProcessor>().Logger.LogWarning($"Invalid prefab name: {drop.Prefab}");
-          continue;
+          if (PrefabInfo.GetComponent<Character>()?.m_deathEffects.m_effectPrefabs
+            .Select(static x => x.m_prefab.GetComponent<Ragdoll>())
+            .FirstOrDefault(static x => x is not null) is not null)
+            characterDrop = null;
+        }
+        else if (Ragdoll is not null)
+        {
+          characterDrop = CharacterDropByRagdoll.GetValueOrDefault(Ragdoll);
         }
 
-        characterDrop.m_drops.Add(new()
+        CharacterDrop = characterDrop!;
+        DropConfig = default!;
+        if (characterDrop is null || !DropsByName.TryGetValue(characterDrop.gameObject.name, out var cfg))
+          return false;
+
+        DropConfig = cfg;
+        characterDrop.m_drops.Clear();
+        foreach (var drop in cfg.Drops)
         {
-          m_prefab = prefab,
-          m_amountMin = drop.AmountMin,
-          m_amountMax = drop.AmountMax,
-          m_chance = drop.Chance,
-          m_onePerPlayer = drop.OnePerPlayer,
-          m_levelMultiplier = drop.LevelMultiplier,
-          m_dontScale = drop.DontScale
-        });
+          if (ZNetScene.instance.GetPrefab(drop.Prefab) is not { } prefab)
+          {
+            Instance<CharacterDropAndRagdollProcessor>().Logger.LogWarning($"Invalid prefab name: {drop.Prefab}");
+            continue;
+          }
+
+          characterDrop.m_drops.Add(new()
+          {
+            m_prefab = prefab,
+            m_amountMin = drop.AmountMin,
+            m_amountMax = drop.AmountMax,
+            m_chance = drop.Chance,
+            m_onePerPlayer = drop.OnePerPlayer,
+            m_levelMultiplier = drop.LevelMultiplier,
+            m_dontScale = drop.DontScale
+          });
+        }
+        return true;
       }
     }
 
-    public override bool IsValid => CharacterDrop is not null && DropConfig is not null;
-
-    [MemberNotNull(nameof(__characterDropByRagdoll))]
-    static void InitializeCharacterDropByRagdoll()
+    static IReadOnlyDictionary<Ragdoll, CharacterDrop> GetCharacterDropByRagdoll()
     {
       var dict = new Dictionary<Ragdoll, CharacterDrop>();
       foreach (var prefab in ZNetScene.instance.m_prefabs)
@@ -86,7 +94,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         else
           dict.TryAdd(ragdoll, characterDrop);
       }
-      __characterDropByRagdoll = dict;
+      return dict;
     }
   }
 
@@ -128,6 +136,8 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
   void OnCharacterDropDestroyed(ServersideQoLZDO zdo)
   {
     if (GetProcessorPrefabInfo(zdo)?.CharacterDrop is not { } characterDrop)
+      return;
+    if (zdo.Vars.GetHealth(1) > 0)
       return;
 
     var drops = characterDrop.GenerateDropList();
