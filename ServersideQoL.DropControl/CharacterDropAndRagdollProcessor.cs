@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using ServersideQoL.Utilities;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using UnityEngine;
 
 namespace ServersideQoL.DropControl;
@@ -11,11 +13,19 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
   public sealed record PrefabInfo : ProcessorPrefabInfo
   {
     public ItemDrop? ItemDrop { get; }
-    public CharacterDrop CharacterDrop { get; private set; }
-    public Ragdoll? Ragdoll { get; private init; }
+
+    [MemberNotNullWhen(true, nameof(CharacterDrop))]
+    public bool IsCharacterDrop { get; }
+    public CharacterDrop? CharacterDrop { get; private set; }
+
+    [MemberNotNullWhen(true, nameof(Ragdoll), nameof(CharacterDrop))]
+    public bool IsRagdoll { get; }
+    public Ragdoll? Ragdoll { get; private set; }
+
     public Config.DropsConfig.DropConfig DropConfig { get; private set; } = default!;
     public bool HasQualityIncreaseChance { get; private set; }
     public IReadOnlyDictionary<int, CharacterDrop.Drop> OriginalDropsByHash { get; private set; } = default!;
+    public bool HasRagdoll { get; private set; }
 
     static IReadOnlyDictionary<string, Config.DropsConfig.DropConfig> DropsByName
       => field ??= Config.Instance.Drops.Value.Entries.Where(static x => x.Enabled).ToDictionary(static x => x.Name);
@@ -25,8 +35,10 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     public PrefabInfo(ItemDrop? itemDrop, CharacterDrop? characterDrop, Ragdoll? ragdoll)
     {
       ItemDrop = itemDrop;
-      CharacterDrop = characterDrop!;
+      CharacterDrop = characterDrop;
+      IsCharacterDrop = characterDrop is not null;
       Ragdoll = ragdoll;
+      IsRagdoll = ragdoll is not null;
     }
 
     public override bool IsValid
@@ -36,29 +48,26 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         if (ItemDrop is not null)
           return true;
 
-        CharacterDrop? characterDrop = CharacterDrop;
         if (CharacterDrop is not null)
         {
-          if (PrefabInfo.GetComponent<Character>()?.m_deathEffects.m_effectPrefabs
+          Ragdoll = PrefabInfo.GetComponent<Character>()?.m_deathEffects.m_effectPrefabs
             .Select(static x => x.m_prefab.GetComponent<Ragdoll>())
-            .FirstOrDefault(static x => x is not null) is not null)
-            characterDrop = null;
+            .FirstOrDefault(static x => x is not null);
         }
         else if (Ragdoll is not null)
         {
-          characterDrop = CharacterDropByRagdoll.GetValueOrDefault(Ragdoll);
+          CharacterDrop = CharacterDropByRagdoll.GetValueOrDefault(Ragdoll);
         }
 
-        CharacterDrop = characterDrop!;
         DropConfig = default!;
-        if (characterDrop is null || !DropsByName.TryGetValue(characterDrop.gameObject.name, out var cfg))
+        if (CharacterDrop is null || !DropsByName.TryGetValue(CharacterDrop.gameObject.name, out var cfg))
           return false;
 
         DropConfig = cfg;
-        OriginalDropsByHash = characterDrop.m_drops
+        OriginalDropsByHash = CharacterDrop.m_drops
           .Where(static x => x.m_levelMultiplier && !x.m_onePerPlayer)
           .ToDictionary(static x => ZNetScene.instance.GetPrefabHash(x.m_prefab));
-        characterDrop.m_drops.Clear();
+        CharacterDrop.m_drops.Clear();
         foreach (var drop in cfg.Drops)
         {
           if (ZNetScene.instance.GetPrefab(drop.Prefab) is not { } prefab)
@@ -67,7 +76,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
             continue;
           }
 
-          characterDrop.m_drops.Add(new()
+          CharacterDrop.m_drops.Add(new()
           {
             m_prefab = prefab,
             m_amountMin = drop.AmountMin,
@@ -110,6 +119,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
 
   float _dropArea;
   Vector3 _ragdollDropOffset;
+  SectorDictionary<Ragdoll, List<(CharacterDrop, int)>> _characterDropsByRagdoll = new(1);
 
   protected override void Initialize()
   {
@@ -127,14 +137,29 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     if (prefabInfo.ItemDrop is not null)
     {
       if (zdo.ZDO.GetPosition().y > DestroyHeight)
-        return ProcessResult.DestroyZDO;
-      return result;
+        result = ProcessResult.DestroyZDO;
     }
-
-    if (prefabInfo.Ragdoll is not null)
+    else if (prefabInfo.IsCharacterDrop)
     {
-      if (prefabInfo.HasQualityIncreaseChance)
+      if (prefabInfo.Ragdoll is not null)
+        zdo.Destroyed += OnCharacterDropWithRagdollDestroyed;
+      else
       {
+        if (zdo.Fields<CharacterDrop>().UpdateValue(static () => x => x.m_spawnOffset, new Vector3(0, DestroySpawnHeight, 0)))
+          result |= ProcessResult.RecreateZDO;
+
+        zdo.Destroyed += OnCharacterDropDestroyed;
+      }
+    }
+    else if (prefabInfo.IsRagdoll)
+    {
+      var characterDrop = prefabInfo.CharacterDrop;
+      var level = 1;
+      if (_characterDropsByRagdoll.TryPop((zdo.ZDO.GetPosition(), prefabInfo.Ragdoll), out var characterDropAndLevel))
+        (characterDrop, level) = characterDropAndLevel;
+      else
+      {
+        Logger.DevLog($"CharacterDrop for Ragdoll not found: {prefabInfo.PrefabInfo.PrefabName}");
         var minLevelMultiplier = 0;
         var maxLevelMultiplierSaturated = int.MaxValue;
         var maxLevelMultiplierUnsaturated = int.MaxValue;
@@ -165,7 +190,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
             break;
         }
 
-        if (minLevelMultiplier <= 0)
+        if (maxLevelMultiplierUnsaturated is int.MaxValue)
         {
           maxLevelMultiplierUnsaturated = maxLevelMultiplierSaturated;
           Logger.DevLog($"Ragdoll drop amounts exceeded 100, level multiplier could not be determined exactly (min: {minLevelMultiplier}, max: {maxLevelMultiplierUnsaturated}): {prefabInfo.PrefabInfo.PrefabName}");
@@ -174,16 +199,19 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         if (minLevelMultiplier <= 0)
           Logger.DevLog($"Ragdoll drop level multiplier could not be determined (min: {minLevelMultiplier}, max: {maxLevelMultiplierUnsaturated}): {prefabInfo.PrefabInfo.PrefabName}");
         else
-        {
-          var level = (int)Mathf.Log(minLevelMultiplier, 2) + 1;
+          level = (int)Mathf.Log(minLevelMultiplier, 2) + 1;
+      }
+
+      if (prefabInfo.HasQualityIncreaseChance)
+      {
+        if (level > 1)
           zdo.Vars.SetLevel(level);
-        }
         zdo.Vars.SetDrops(0);
         zdo.Destroyed += OnCharacterDropDestroyed;
       }
       else
       {
-        var drops = prefabInfo.CharacterDrop.GenerateDropList();
+        var drops = GenerateDropList(characterDrop, level);
         /// <see cref="Ragdoll.Setup"/>
         zdo.Vars.SetDrops(drops.Count);
         for (int i = 0; i < drops.Count; i++)
@@ -196,14 +224,30 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       }
       zdo.ZDO.DataRevision += 100;
     }
-    else if (prefabInfo.CharacterDrop is not null)
-    {
-      if (zdo.Fields<CharacterDrop>().UpdateValue(static () => x => x.m_spawnOffset, new Vector3(0, DestroySpawnHeight, 0)))
-        result |= ProcessResult.RecreateZDO;
 
-      zdo.Destroyed += OnCharacterDropDestroyed;
-    }
     return result;
+  }
+
+  void OnCharacterDropWithRagdollDestroyed(ServersideQoLZDO zdo)
+  {
+    if (GetProcessorPrefabInfo(zdo) is not { CharacterDrop: { } characterDrop, Ragdoll: { } ragdoll })
+      return;
+    _characterDropsByRagdoll.Add((zdo.ZDO.GetPosition(), ragdoll), (characterDrop, zdo.Vars.GetLevel()));
+  }
+
+  static List<KeyValuePair<GameObject,int>> GenerateDropList(CharacterDrop characterDrop, int level)
+  {
+    var character = characterDrop.GetComponent<Character>();
+    var lvlBkp = character.GetLevel();
+    character.SetLevel(level);
+    try
+    {
+      return characterDrop.GenerateDropList();
+    }
+    finally
+    {
+      character.SetLevel(lvlBkp);
+    }
   }
 
   void OnCharacterDropDestroyed(ServersideQoLZDO zdo)
@@ -216,23 +260,23 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     var offset = prefabInfo.Ragdoll is not null ? _ragdollDropOffset : prefabInfo.CharacterDrop.m_spawnOffset;
 
     if (prefabInfo.HasQualityIncreaseChance)
-      SpawnDrops(zdo, prefabInfo, offset, _dropArea);
+      SpawnDrops(zdo, prefabInfo.CharacterDrop, prefabInfo.DropConfig, offset, _dropArea);
     else
     {
-      var drops = prefabInfo.CharacterDrop.GenerateDropList();
+      var drops = GenerateDropList(prefabInfo.CharacterDrop, zdo.Vars.GetLevel());
       /// <see cref="CharacterDrop.OnDeath"/>
       CharacterDrop.DropItems(drops, zdo.ZDO.GetPosition() + offset, _dropArea);
     }
 
-    static void SpawnDrops(ServersideQoLZDO zdo, PrefabInfo prefabInfo, Vector3 offset, float dropArea)
+    static void SpawnDrops(ServersideQoLZDO zdo, CharacterDrop characterDrop, Config.DropsConfig.DropConfig dropConfig, Vector3 offset, float dropArea)
     {
       /// <see cref="CharacterDrop.GenerateDropList"/>
 
       var level = zdo.Vars.GetLevel();
       int levelMultiplier = Mathf.Max(1, (int)Mathf.Pow(2f, level - 1));
-      for (var i = 0; i < prefabInfo.CharacterDrop.m_drops.Count; i++)
+      for (var i = 0; i < characterDrop.m_drops.Count; i++)
       {
-        var drop = prefabInfo.CharacterDrop.m_drops[i];
+        var drop = characterDrop.m_drops[i];
         if (drop.m_prefab == null)
           continue;
 
@@ -254,7 +298,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
           amount = 100;
 
         if (amount > 0)
-          SpawnDrop(drop, prefabInfo.DropConfig.Drops[i], amount, level, levelMultiplier, zdo.ZDO.GetPosition() + offset, dropArea);
+          SpawnDrop(drop, dropConfig.Drops[i], amount, level, levelMultiplier, zdo.ZDO.GetPosition() + offset, dropArea);
       }
     }
 
@@ -279,7 +323,9 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
           {
             maxQuality *= level;
             // keep max quality chance the same
-            chance = Mathf.Pow(chance, (cfg.MaxQuality - 1f) / (maxQuality - 1f));
+            if (cfg.MaxQuality > 1)
+              chance = Mathf.Pow(chance, cfg.MaxQuality - 1f);
+            chance = Mathf.Pow(chance, 1f / (maxQuality - 1f));
           }
 
           var quality = 0;

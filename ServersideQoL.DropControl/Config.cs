@@ -18,21 +18,12 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     static List<DropConfig> GetDrops()
     {
       var result = new List<DropConfig>();
-      var ragdolls = new HashSet<Ragdoll>();
       foreach (var prefab in ZNetScene.instance.m_prefabs)
       {
         if (prefab.GetComponent<CharacterDrop>() is not { } characterDrop)
           continue;
 
         var character = prefab.GetComponent<Character>();
-        if (character?.m_deathEffects.m_effectPrefabs
-            .Select(static x => x.m_prefab.GetComponent<Ragdoll>())
-            .FirstOrDefault(static x => x is not null)
-            is { } ragdoll)
-        {
-          if (!ragdolls.Add(ragdoll))
-            continue;
-        }
 
         result.Add(new()
         {

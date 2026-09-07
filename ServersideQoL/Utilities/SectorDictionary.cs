@@ -1,5 +1,6 @@
 ﻿using ServersideQoL.Utilities;
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -340,8 +341,28 @@ public sealed class SectorDictionary<TKey, TValue>(float sectorWidth) : IDiction
 
 public static class SectorDictionary
 {
+  static class CollectionPool<TCollection, TValue>
+      where TCollection : class, ICollection<TValue>, new()
+  {
+    static readonly Stack<TCollection> __pool = [];
+
+    public static TCollection Get() => __pool.TryPop(out var x) ? x : new();
+    public static void Return(TCollection collection)
+    {
+      collection.Clear();
+      __pool.Push(collection);
+    }
+  }
+
+  public static TValue GetOrAdd<TValue>(this SectorDictionary<TValue> @this, Vector3 key, Func<TValue> valueFactory)
+  {
+    if (!@this.TryGetValue(key, out var value))
+      @this.Add(key, value = valueFactory());
+    return value;
+  }
+
   public static TValue GetOrAdd<TValue>(this SectorDictionary<TValue> @this, Vector3 key)
-      where TValue : new()
+    where TValue : new()
   {
     if (!@this.TryGetValue(key, out var value))
       @this.Add(key, value = new());
@@ -350,11 +371,20 @@ public static class SectorDictionary
 
   public static bool TryAdd(this SectorDictionary<HashSet<ServersideQoLZDO>> @this, Vector3 key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
   {
-    var set = @this.GetOrAdd(key);
+    var set = @this.GetOrAdd(key, CollectionPool<HashSet<ServersideQoLZDO>, ServersideQoLZDO>.Get);
     if (!set.Add(zdo))
       return false;
     if (autoRemoveOnDestroyed)
-      zdo.Destroyed += x => set.Remove(x);
+    {
+      zdo.Destroyed += zdo =>
+      {
+        if (set.Remove(zdo) && set.Count is 0)
+        {
+          @this.Remove(key, out _);
+          CollectionPool<HashSet<ServersideQoLZDO>, ServersideQoLZDO>.Return(set);
+        }
+      };
+    }
     return true;
   }
 
@@ -362,19 +392,28 @@ public static class SectorDictionary
       => @this.TryAdd(zdo.ZDO.GetPosition(), zdo, autoRemoveOnDestroyed);
 
   public static bool TryAdd<TValue>(this SectorDictionary<HashSet<TValue>> @this, Vector3 key, TValue value)
-      => @this.GetOrAdd(key).Add(value);
+      => @this.GetOrAdd(key, CollectionPool<HashSet<TValue>, TValue>.Get).Add(value);
 
   public static void Add<TCollection, TValue>(this SectorDictionary<TCollection> @this, Vector3 key, TValue value)
       where TCollection : class, ICollection<TValue>, new()
-      => @this.GetOrAdd(key).Add(value);
+      => @this.GetOrAdd(key, CollectionPool<TCollection, TValue>.Get).Add(value);
 
   public static void Add<TCollection>(this SectorDictionary<TCollection> @this, Vector3 key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TCollection : class, ICollection<ServersideQoLZDO>, new()
   {
-    var collection = @this.GetOrAdd(key);
+    var collection = @this.GetOrAdd(key, CollectionPool<TCollection, ServersideQoLZDO>.Get);
     collection.Add(zdo);
     if (autoRemoveOnDestroyed)
-      zdo.Destroyed += x => collection.Remove(x);
+    {
+      zdo.Destroyed += zdo =>
+      {
+        if (collection.Remove(zdo) && collection.Count is 0)
+        {
+          @this.Remove(key, out _);
+          CollectionPool<TCollection, ServersideQoLZDO>.Return(collection);
+        }
+      };
+    }
   }
 
   public static void Add<TCollection>(this SectorDictionary<TCollection> @this, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
@@ -384,12 +423,21 @@ public static class SectorDictionary
   public static bool TryAdd<TCollection>(this SectorDictionary<TCollection> @this, Vector3 key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TCollection : class, ICollection<ServersideQoLZDO>, new()
   {
-    var collection = @this.GetOrAdd(key);
+    var collection = @this.GetOrAdd(key, CollectionPool<TCollection, ServersideQoLZDO>.Get);
     if (collection.Contains(zdo))
       return false;
     collection.Add(zdo);
     if (autoRemoveOnDestroyed)
-      zdo.Destroyed += x => collection.Remove(x);
+    {
+      zdo.Destroyed += zdo =>
+      {
+        if (collection.Remove(zdo) && collection.Count is 0)
+        {
+          @this.Remove(key, out _);
+          CollectionPool<TCollection, ServersideQoLZDO>.Return(collection);
+        }
+      };
+    }
     return true;
   }
 
@@ -398,19 +446,22 @@ public static class SectorDictionary
       => @this.TryAdd(zdo.ZDO.GetPosition(), zdo, autoRemoveOnDestroyed);
 
   public static bool Remove<TCollection, TValue>(this SectorDictionary<TCollection> @this, Vector3 key, TValue value)
-      where TCollection : class, ICollection<TValue>
+      where TCollection : class, ICollection<TValue>, new()
   {
     if (@this.TryGetValue(key, out var collection) && collection.Remove(value))
     {
       if (collection.Count is 0)
+      {
         @this.Remove(key, out _);
+        CollectionPool<TCollection, TValue>.Return(collection);
+      }
       return true;
     }
     return false;
   }
 
   public static bool Remove<TCollection>(this SectorDictionary<TCollection> @this, ServersideQoLZDO zdo)
-      where TCollection : class, ICollection<ServersideQoLZDO>
+      where TCollection : class, ICollection<ServersideQoLZDO>, new()
       => @this.Remove(zdo.ZDO.GetPosition(), zdo);
 
   public static TValue GetOrAdd<TKey, TValue>(this SectorDictionary<TKey, TValue> @this, (Vector3, TKey) key)
@@ -422,14 +473,31 @@ public static class SectorDictionary
     return value;
   }
 
+  public static TValue GetOrAdd<TKey, TValue>(this SectorDictionary<TKey, TValue> @this, (Vector3, TKey) key, Func<TValue> valueFactory)
+      where TKey : notnull
+  {
+    if (!@this.TryGetValue(key, out var value))
+      @this.Add(key, value = valueFactory());
+    return value;
+  }
+
   public static bool TryAdd<TKey>(this SectorDictionary<TKey, HashSet<ServersideQoLZDO>> @this, (Vector3, TKey) key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TKey : notnull
   {
-    var set = @this.GetOrAdd(key);
+    var set = @this.GetOrAdd(key, CollectionPool<HashSet<ServersideQoLZDO>, ServersideQoLZDO>.Get);
     if (!set.Add(zdo))
       return false;
     if (autoRemoveOnDestroyed)
-      zdo.Destroyed += x => set.Remove(x);
+    {
+      zdo.Destroyed += zdo =>
+      {
+        if (set.Remove(zdo) && set.Count is 0)
+        {
+          @this.Remove(key, out _);
+          CollectionPool<HashSet<ServersideQoLZDO>, ServersideQoLZDO>.Return(set);
+        }
+      };
+    }
     return true;
   }
 
@@ -439,21 +507,30 @@ public static class SectorDictionary
 
   public static bool TryAdd<TKey, TValue>(this SectorDictionary<TKey, HashSet<TValue>> @this, (Vector3, TKey) key, TValue value)
       where TKey : notnull
-      => @this.GetOrAdd(key).Add(value);
+      => @this.GetOrAdd(key, CollectionPool<HashSet<TValue>, TValue>.Get).Add(value);
 
   public static void Add<TKey, TCollection, TValue>(this SectorDictionary<TKey, TCollection> @this, (Vector3, TKey) key, TValue value)
       where TKey : notnull
       where TCollection : class, ICollection<TValue>, new()
-      => @this.GetOrAdd(key).Add(value);
+      => @this.GetOrAdd(key, CollectionPool<TCollection, TValue>.Get).Add(value);
 
   public static void Add<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, (Vector3, TKey) key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
       where TKey : notnull
       where TCollection : class, ICollection<ServersideQoLZDO>, new()
   {
-    var collection = @this.GetOrAdd(key);
+    var collection = @this.GetOrAdd(key, CollectionPool<TCollection, ServersideQoLZDO>.Get);
     collection.Add(zdo);
     if (autoRemoveOnDestroyed)
-      zdo.Destroyed += x => collection.Remove(x);
+    {
+      zdo.Destroyed += zdo =>
+      {
+        if (collection.Remove(zdo) && collection.Count is 0)
+        {
+          @this.Remove(key, out _);
+          CollectionPool<TCollection, ServersideQoLZDO>.Return(collection);
+        }
+      };
+    }
   }
 
   public static void Add<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, TKey key, ServersideQoLZDO zdo, bool autoRemoveOnDestroyed = true)
@@ -465,12 +542,21 @@ public static class SectorDictionary
       where TKey : notnull
       where TCollection : class, ICollection<ServersideQoLZDO>, new()
   {
-    var collection = @this.GetOrAdd(key);
+    var collection = @this.GetOrAdd(key, CollectionPool<TCollection, ServersideQoLZDO>.Get);
     if (collection.Contains(zdo))
       return false;
     collection.Add(zdo);
     if (autoRemoveOnDestroyed)
-      zdo.Destroyed += x => collection.Remove(x);
+    {
+      zdo.Destroyed += zdo =>
+      {
+        if (collection.Remove(zdo) && collection.Count is 0)
+        {
+          @this.Remove(key, out _);
+          CollectionPool<TCollection, ServersideQoLZDO>.Return(collection);
+        }
+      };
+    }
     return true;
   }
 
@@ -481,19 +567,41 @@ public static class SectorDictionary
 
   public static bool Remove<TKey, TCollection, TValue>(this SectorDictionary<TKey, TCollection> @this, (Vector3, TKey) key, TValue value)
       where TKey : notnull
-      where TCollection : class, ICollection<TValue>
+      where TCollection : class, ICollection<TValue>, new()
   {
     if (@this.TryGetValue(key, out var collection) && collection.Remove(value))
     {
       if (collection.Count is 0)
+      {
         @this.Remove(key, out _);
+        CollectionPool<TCollection, TValue>.Return(collection);
+      }
       return true;
     }
     return false;
   }
 
   public static bool Remove<TKey, TCollection>(this SectorDictionary<TKey, TCollection> @this, TKey key, ZDO zdo)
-      where TKey : notnull
-      where TCollection : class, ICollection<ZDO>
-      => @this.Remove((zdo.GetPosition(), key), zdo);
+    where TKey : notnull
+    where TCollection : class, ICollection<ZDO>, new()
+    => @this.Remove((zdo.GetPosition(), key), zdo);
+
+  public static bool TryPop<TKey, TValue>(this SectorDictionary<TKey, List<TValue>> @this, (Vector3, TKey) key, [NotNullWhen(true)] out TValue? value)
+    where TKey : notnull
+    where TValue : notnull
+  {
+    if (@this.TryGetValue(key, out var stack) && stack.Count > 0)
+    {
+      value = stack[^1];
+      stack.RemoveAt(stack.Count - 1);
+      if (stack.Count is 0)
+      {
+        @this.Remove(key, out _);
+        CollectionPool<List<TValue>, TValue>.Return(stack);
+      }
+      return true;
+    }
+    value = default;
+    return false;
+  }
 }
