@@ -155,7 +155,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     {
       var characterDrop = prefabInfo.CharacterDrop;
       var level = 1;
-      if (_characterDropsByRagdoll.TryPop((zdo.ZDO.GetPosition(), prefabInfo.Ragdoll), out var characterDropAndLevel))
+      if (_characterDropsByRagdoll.TryPop((zdo.ZDO.GetPosition(), prefabInfo.Ragdoll), true, out var characterDropAndLevel))
         (characterDrop, level) = characterDropAndLevel;
       else
       {

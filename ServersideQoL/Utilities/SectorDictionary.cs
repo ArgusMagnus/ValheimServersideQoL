@@ -51,19 +51,19 @@ public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Ve
       return true;
     if (!includeAdjacent)
       return false;
-    if (_sections.TryGetValue(new(x - 1, y - 1), out value))
-      return true;
     if (_sections.TryGetValue(new(x, y - 1), out value))
       return true;
-    if (_sections.TryGetValue(new(x + 1, y - 1), out value))
+    if (_sections.TryGetValue(new(x, y + 1), out value))
       return true;
     if (_sections.TryGetValue(new(x - 1, y), out value))
       return true;
     if (_sections.TryGetValue(new(x + 1, y), out value))
       return true;
-    if (_sections.TryGetValue(new(x - 1, y + 1), out value))
+    if (_sections.TryGetValue(new(x - 1, y - 1), out value))
       return true;
-    if (_sections.TryGetValue(new(x, y + 1), out value))
+    if (_sections.TryGetValue(new(x + 1, y - 1), out value))
+      return true;
+    if (_sections.TryGetValue(new(x - 1, y + 1), out value))
       return true;
     if (_sections.TryGetValue(new(x + 1, y + 1), out value))
       return true;
@@ -128,31 +128,31 @@ public sealed class SectorDictionary<TValue>(float sectorWidth) : IDictionary<Ve
               break;
             continue;
           case 1:
-            if (dict.TryGetValue(new(_x - 1, _z - 1), out value))
-              break;
-            continue;
-          case 2:
             if (dict.TryGetValue(new(_x, _z - 1), out value))
               break;
             continue;
-          case 3:
-            if (dict.TryGetValue(new(_x + 1, _z - 1), out value))
+          case 2:
+            if (dict.TryGetValue(new(_x, _z + 1), out value))
               break;
             continue;
-          case 4:
+          case 3:
             if (dict.TryGetValue(new(_x - 1, _z), out value))
               break;
             continue;
-          case 5:
+          case 4:
             if (dict.TryGetValue(new(_x + 1, _z), out value))
               break;
             continue;
+          case 5:
+            if (dict.TryGetValue(new(_x - 1, _z - 1), out value))
+              break;
+            continue;
           case 6:
-            if (dict.TryGetValue(new(_x - 1, _z + 1), out value))
+            if (dict.TryGetValue(new(_x + 1, _z - 1), out value))
               break;
             continue;
           case 7:
-            if (dict.TryGetValue(new(_x, _z + 1), out value))
+            if (dict.TryGetValue(new(_x - 1, _z + 1), out value))
               break;
             continue;
           case 8:
@@ -217,19 +217,19 @@ public sealed class SectorDictionary<TKey, TValue>(float sectorWidth) : IDiction
       return true;
     if (!includeAdjacent)
       return false;
-    if (_sections.TryGetValue((x - 1, y - 1, k), out value))
-      return true;
     if (_sections.TryGetValue((x, y - 1, k), out value))
       return true;
-    if (_sections.TryGetValue((x + 1, y - 1, k), out value))
+    if (_sections.TryGetValue((x, y + 1, k), out value))
       return true;
     if (_sections.TryGetValue((x - 1, y, k), out value))
       return true;
     if (_sections.TryGetValue((x + 1, y, k), out value))
       return true;
-    if (_sections.TryGetValue((x - 1, y + 1, k), out value))
+    if (_sections.TryGetValue((x - 1, y - 1, k), out value))
       return true;
-    if (_sections.TryGetValue((x, y + 1, k), out value))
+    if (_sections.TryGetValue((x + 1, y - 1, k), out value))
+      return true;
+    if (_sections.TryGetValue((x - 1, y + 1, k), out value))
       return true;
     if (_sections.TryGetValue((x + 1, y + 1, k), out value))
       return true;
@@ -295,31 +295,31 @@ public sealed class SectorDictionary<TKey, TValue>(float sectorWidth) : IDiction
               break;
             continue;
           case 1:
-            if (dict.TryGetValue((_x - 1, _y - 1, _k), out value))
-              break;
-            continue;
-          case 2:
             if (dict.TryGetValue((_x, _y - 1, _k), out value))
               break;
             continue;
-          case 3:
-            if (dict.TryGetValue((_x + 1, _y - 1, _k), out value))
+          case 2:
+            if (dict.TryGetValue((_x, _y + 1, _k), out value))
               break;
             continue;
-          case 4:
+          case 3:
             if (dict.TryGetValue((_x - 1, _y, _k), out value))
               break;
             continue;
-          case 5:
+          case 4:
             if (dict.TryGetValue((_x + 1, _y, _k), out value))
               break;
             continue;
+          case 5:
+            if (dict.TryGetValue((_x - 1, _y - 1, _k), out value))
+              break;
+            continue;
           case 6:
-            if (dict.TryGetValue((_x - 1, _y + 1, _k), out value))
+            if (dict.TryGetValue((_x + 1, _y - 1, _k), out value))
               break;
             continue;
           case 7:
-            if (dict.TryGetValue((_x, _y + 1, _k), out value))
+            if (dict.TryGetValue((_x - 1, _y + 1, _k), out value))
               break;
             continue;
           case 8:
@@ -586,11 +586,11 @@ public static class SectorDictionary
     where TCollection : class, ICollection<ZDO>, new()
     => @this.Remove((zdo.GetPosition(), key), zdo);
 
-  public static bool TryPop<TKey, TValue>(this SectorDictionary<TKey, List<TValue>> @this, (Vector3, TKey) key, [NotNullWhen(true)] out TValue? value)
+  public static bool TryPop<TKey, TValue>(this SectorDictionary<TKey, List<TValue>> @this, (Vector3, TKey) key, bool includeAdjacent, [NotNullWhen(true)] out TValue? value)
     where TKey : notnull
     where TValue : notnull
   {
-    if (@this.TryGetValue(key, out var stack) && stack.Count > 0)
+    if (@this.TryGetValue(key, includeAdjacent, out var stack) && stack.Count > 0)
     {
       value = stack[^1];
       stack.RemoveAt(stack.Count - 1);
@@ -604,4 +604,9 @@ public static class SectorDictionary
     value = default;
     return false;
   }
+
+  public static bool TryPop<TKey, TValue>(this SectorDictionary<TKey, List<TValue>> @this, (Vector3, TKey) key, [NotNullWhen(true)] out TValue? value)
+    where TKey : notnull
+    where TValue : notnull
+    => @this.TryPop(key, false, out value);
 }
