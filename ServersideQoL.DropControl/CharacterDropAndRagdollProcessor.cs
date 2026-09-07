@@ -135,50 +135,63 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     {
       if (prefabInfo.HasQualityIncreaseChance)
       {
-        var minLevelMultiplier = int.MinValue;
-        var maxLevelMultiplier = int.MaxValue;
-        for (var i = 0; i < zdo.ZDO.GetInt(ZDOVars.s_drops); i++)
+        var minLevelMultiplier = 0;
+        var maxLevelMultiplierSaturated = int.MaxValue;
+        var maxLevelMultiplierUnsaturated = int.MaxValue;
+        for (var i = 0; i < zdo.Vars.GetDrops(); i++)
         {
-          var hash = zdo.ZDO.GetInt("drop_hash" + i);
+          var hash = zdo.Vars.GetDropHash(i);
           if (!prefabInfo.OriginalDropsByHash.TryGetValue(hash, out var drop))
             continue;
-          var amount = zdo.ZDO.GetInt("drop_amount" + i);
-          if (drop.m_dontScale)
+          var amount = zdo.Vars.GetDropAmount(i);
+          // minAmount*levelMultiplier <= amount <= maxAmount*levelMultiplier
+          if (drop.m_dontScale || Game.m_resourceRate is 1)
           {
             minLevelMultiplier = Math.Max(minLevelMultiplier, amount / drop.m_amountMax);
-            maxLevelMultiplier = Math.Min(maxLevelMultiplier, amount / drop.m_amountMin);
+            maxLevelMultiplierSaturated = Math.Min(maxLevelMultiplierSaturated, amount / drop.m_amountMin);
           }
           else
           {
             var minAmount = Mathf.Ceil((amount - 0.5f) / Game.m_resourceRate);
             var maxAmount = Mathf.Floor((amount + 0.5f) / Game.m_resourceRate);
             minLevelMultiplier = Math.Max(minLevelMultiplier, Mathf.CeilToInt(minAmount / drop.m_amountMax));
-            maxLevelMultiplier = Math.Min(maxLevelMultiplier, Mathf.FloorToInt(maxAmount / drop.m_amountMin));
+            maxLevelMultiplierSaturated = Math.Min(maxLevelMultiplierSaturated, Mathf.FloorToInt(maxAmount / drop.m_amountMin));
           }
-          if (minLevelMultiplier >= maxLevelMultiplier)
+
+          if (amount < 100)
+            maxLevelMultiplierUnsaturated = Math.Min(maxLevelMultiplierUnsaturated, maxLevelMultiplierSaturated);
+
+          if (minLevelMultiplier >= maxLevelMultiplierUnsaturated)
             break;
         }
+
         if (minLevelMultiplier <= 0)
-          Logger.DevLog($"Ragdoll drop level multiplier could not be determined (min: {minLevelMultiplier}, max: {maxLevelMultiplier}): {prefabInfo.PrefabInfo.PrefabName}");
+        {
+          maxLevelMultiplierUnsaturated = maxLevelMultiplierSaturated;
+          Logger.DevLog($"Ragdoll drop amounts exceeded 100, level multiplier could not be determined exactly (min: {minLevelMultiplier}, max: {maxLevelMultiplierUnsaturated}): {prefabInfo.PrefabInfo.PrefabName}");
+        }
+
+        if (minLevelMultiplier <= 0)
+          Logger.DevLog($"Ragdoll drop level multiplier could not be determined (min: {minLevelMultiplier}, max: {maxLevelMultiplierUnsaturated}): {prefabInfo.PrefabInfo.PrefabName}");
         else
         {
           var level = (int)Mathf.Log(minLevelMultiplier, 2) + 1;
           zdo.Vars.SetLevel(level);
         }
-        zdo.ZDO.Set(ZDOVars.s_drops, 0);
+        zdo.Vars.SetDrops(0);
         zdo.Destroyed += OnCharacterDropDestroyed;
       }
       else
       {
         var drops = prefabInfo.CharacterDrop.GenerateDropList();
         /// <see cref="Ragdoll.Setup"/>
-        zdo.ZDO.Set(ZDOVars.s_drops, drops.Count);
+        zdo.Vars.SetDrops(drops.Count);
         for (int i = 0; i < drops.Count; i++)
         {
           var (prefab, amount) = drops[i];
           int prefabHash = ZNetScene.instance.GetPrefabHash(prefab);
-          zdo.ZDO.Set("drop_hash" + i, prefabHash);
-          zdo.ZDO.Set("drop_amount" + i, amount);
+          zdo.Vars.SetDropHash(i, prefabHash);
+          zdo.Vars.SetDropAmount(i, amount);
         }
       }
       zdo.ZDO.DataRevision += 100;

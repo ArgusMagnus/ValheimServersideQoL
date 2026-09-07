@@ -110,6 +110,12 @@ partial class ServersideQoLZDO
     public void SetScale(Vector3 value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_scaleHash, value); }
     public void RemoveScale([CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.RemoveVec3(global::ZDOVars.s_scaleHash); }
     public bool GetEnabled(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_enabled, defaultValue);
+    public int GetDrops(int defaultValue = default) => _zdo.GetInt(global::ZDOVars.s_drops, defaultValue);
+    public void SetDrops(int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_drops, value); }
+    public int GetDropHash(int index, int defaultValue = default) => _zdo.GetInt(Invariant($"drop_hash{index}"), defaultValue);
+    public void SetDropHash(int index, int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(Invariant($"drop_hash{index}"), value); }
+    public int GetDropAmount(int index, int defaultValue = default) => _zdo.GetInt(Invariant($"drop_amount{index}"), defaultValue);
+    public void SetDropAmount(int index, int value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(Invariant($"drop_amount{index}"), value); }
 
 #if DEBUG
     static readonly IReadOnlyDictionary<int, string> __namesByHash = new Func<IReadOnlyDictionary<int, string>>(static () =>
