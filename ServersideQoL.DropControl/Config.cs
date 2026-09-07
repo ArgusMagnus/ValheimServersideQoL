@@ -45,8 +45,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
             AmountMax = x.m_amountMax,
             Chance = x.m_chance,
             OnePerPlayer = x.m_onePerPlayer,
-            LevelMultiplier = x.m_levelMultiplier,
-            DontScale = x.m_dontScale
+            DoubleAmountAndChancePerLevel = x.m_levelMultiplier,
+            IgnoreWorldResourceRate = x.m_dontScale
           })]
         });
       }
@@ -67,13 +67,13 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         public required int AmountMax { get; init; }
         public required float Chance { get; init; }
         public required bool OnePerPlayer { get; init; }
-        public required bool LevelMultiplier { get; init; }
-        public required bool DontScale { get; init; }
+        public required bool DoubleAmountAndChancePerLevel { get; init; }
+        public required bool IgnoreWorldResourceRate { get; init; }
 
         public float QualityIncreaseChance { get; init; } = 0;
-        public bool LevelAffectsQualityIncreaseChance { get; init; } = true;
+        public bool DoubleQualityIncreaseChancePerLevel { get; init; } = true;
         public int MaxQuality { get; init; } = 1;
-        public bool LevelAffectsMaxQuality { get; init; } = true;
+        public bool MultiplyMaxQualityByLevel { get; init; } = false;
       }
     }
   }

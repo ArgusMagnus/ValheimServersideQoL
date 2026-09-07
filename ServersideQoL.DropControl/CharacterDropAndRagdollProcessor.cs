@@ -74,11 +74,11 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
             m_amountMax = drop.AmountMax,
             m_chance = drop.Chance,
             m_onePerPlayer = drop.OnePerPlayer,
-            m_levelMultiplier = drop.LevelMultiplier,
-            m_dontScale = drop.DontScale
+            m_levelMultiplier = drop.DoubleAmountAndChancePerLevel,
+            m_dontScale = drop.IgnoreWorldResourceRate
           });
 
-          if (!HasQualityIncreaseChance && drop is { QualityIncreaseChance: > 0 } and ({ MaxQuality: > 1 } or { LevelAffectsMaxQuality: true}))
+          if (!HasQualityIncreaseChance && drop is { QualityIncreaseChance: > 0 } and ({ MaxQuality: > 1 } or { MultiplyMaxQualityByLevel: true}))
             HasQualityIncreaseChance = true;
         }
         return true;
@@ -271,11 +271,16 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         {
           itemDrop.m_itemData.m_worldLevel = (byte)Game.m_worldLevel;
           var chance = cfg.QualityIncreaseChance;
-          if (cfg.LevelAffectsQualityIncreaseChance)
+          if (cfg.DoubleQualityIncreaseChancePerLevel)
             chance *= levelMultiplier;
+
           var maxQuality = cfg.MaxQuality;
-          if (cfg.LevelAffectsMaxQuality && levelMultiplier > 1)
+          if (cfg.MultiplyMaxQualityByLevel && level > 1)
+          {
             maxQuality *= level;
+            // keep max quality chance the same
+            chance = Mathf.Pow(chance, (cfg.MaxQuality - 1f) / (maxQuality - 1f));
+          }
 
           var quality = 0;
           while (++quality < maxQuality && UnityEngine.Random.value <= chance) ;
