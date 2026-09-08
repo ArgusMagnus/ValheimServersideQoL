@@ -61,6 +61,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
         public required bool DoubleAmountAndChancePerLevel { get; init; }
         public required bool IgnoreWorldResourceRate { get; init; }
 
+        public int? MinLevel { get; init; }
+        public int? MaxLevel { get; init; }
+        public string? RequiredGlobalKey { get; init; }
+        public string? ForbiddenGlobalKey { get; init; }
+
         public float QualityIncreaseChance { get; init; } = 0;
         public bool DoubleQualityIncreaseChancePerLevel { get; init; } = true;
         public int MaxQuality { get; init; } = 1;

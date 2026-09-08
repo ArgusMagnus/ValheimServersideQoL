@@ -23,7 +23,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     public Ragdoll? Ragdoll { get; private set; }
 
     public Config.DropsConfig.DropConfig DropConfig { get; private set; } = default!;
-    public bool HasQualityIncreaseChance { get; private set; }
+    public bool RequiresCustomSpawnDrops { get; private set; }
     public IReadOnlyDictionary<int, CharacterDrop.Drop> OriginalDropsByHash { get; private set; } = default!;
     public bool HasRagdoll { get; private set; }
 
@@ -87,8 +87,10 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
             m_dontScale = drop.IgnoreWorldResourceRate
           });
 
-          if (!HasQualityIncreaseChance && drop is { QualityIncreaseChance: > 0 } and ({ MaxQuality: > 1 } or { MultiplyMaxQualityByLevel: true}))
-            HasQualityIncreaseChance = true;
+          if (!RequiresCustomSpawnDrops && drop is
+            { QualityIncreaseChance: > 0 } and ({ MaxQuality: > 1 } or { MultiplyMaxQualityByLevel: true}) or
+            not { MinLevel: null, MaxLevel: null, RequiredGlobalKey: null or { Length: 0 }, ForbiddenGlobalKey: null or { Length: 0 } })
+            RequiresCustomSpawnDrops = true;
         }
         return true;
       }
@@ -202,7 +204,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
           level = (int)Mathf.Log(minLevelMultiplier, 2) + 1;
       }
 
-      if (prefabInfo.HasQualityIncreaseChance)
+      if (prefabInfo.RequiresCustomSpawnDrops)
       {
         if (level > 1)
           zdo.Vars.SetLevel(level);
@@ -259,7 +261,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
 
     var offset = prefabInfo.Ragdoll is not null ? _ragdollDropOffset : prefabInfo.CharacterDrop.m_spawnOffset;
 
-    if (prefabInfo.HasQualityIncreaseChance)
+    if (prefabInfo.RequiresCustomSpawnDrops)
       SpawnDrops(zdo, prefabInfo.CharacterDrop, prefabInfo.DropConfig, offset, _dropArea);
     else
     {
@@ -276,8 +278,15 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
       int levelMultiplier = Mathf.Max(1, (int)Mathf.Pow(2f, level - 1));
       for (var i = 0; i < characterDrop.m_drops.Count; i++)
       {
-        var drop = characterDrop.m_drops[i];
-        if (drop.m_prefab == null)
+        if (characterDrop.m_drops[i] is not { m_prefab: not null } drop)
+          continue;
+
+        var cfg = dropConfig.Drops[i];
+        if (level < cfg.MinLevel || level > cfg.MaxLevel)
+          continue;
+        if (!string.IsNullOrEmpty(cfg.RequiredGlobalKey) && !ZoneSystem.instance.GetGlobalKey(cfg.RequiredGlobalKey))
+          continue;
+        if (!string.IsNullOrEmpty(cfg.ForbiddenGlobalKey) && ZoneSystem.instance.GetGlobalKey(cfg.ForbiddenGlobalKey))
           continue;
 
         float chance = drop.m_chance;
@@ -298,7 +307,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
           amount = 100;
 
         if (amount > 0)
-          SpawnDrop(drop, dropConfig.Drops[i], amount, level, levelMultiplier, zdo.ZDO.GetPosition() + offset, dropArea);
+          SpawnDrop(drop, cfg, amount, level, levelMultiplier, zdo.ZDO.GetPosition() + offset, dropArea);
       }
     }
 

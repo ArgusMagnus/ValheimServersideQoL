@@ -11,6 +11,10 @@ On startup, a template configuration file will be generated.
 |OnePerPlayer|If true, exactly one item per player is dropped, other fields which influence the dropped amount are ignored.|
 |DoubleAmountAndChancePerLevel|If true, `AmountMin`,`AmountMax` and `Chance` are doubled for each additional level (star) of the killed creature.|
 |IgnoreWorldResourceRate|If true, world modifiers that change the amount of resources dropped have no effect for this drop.|
+|MinLevel|If set, the minimum level the killed creature needs to have for this drop.|
+|MaxLevel|If set, the maximum level the killed creature needs to have for this drop.| 
+|RequiredGlobalKey|If set, the global key that needs to be set for this drop.| 
+|ForbiddenGlobalKey|If set, the global key must not be set for this drop.| 
 |QualityIncreaseChance|The probability for the dropped item to gain an additional quality level (upgrade level of gear/level of fish/level of eggs). 0 = 0%, 1 = 100%|
 |DoubleQualityIncreaseChancePerLevel|If true, `QualityIncreaseChance` is doubled for each additional level (star) of the killed creature.|
 |MaxQuality|The maximum quality the drop can be.|
@@ -26,7 +30,7 @@ Entries:
 # Give Zil & Thungr a chance to drop a chicken egg with a chance for quality increase based on their level (number of stars)
 - Name: GoblinBruteBros
   DisplayName: Zil & Thungr
-  Enabled: false
+  Enabled: true
   Drops:
   - Prefab: GoblinShaman_Hildir
     AmountMin: 1
@@ -35,6 +39,10 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
@@ -46,6 +54,10 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
@@ -57,13 +69,17 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0.25
     DoubleQualityIncreaseChancePerLevel: false
     MaxQuality: 1
     MultiplyMaxQualityByLevel: true
 - Name: GoblinBruteBros_nochest
   DisplayName: Zil & Thungr
-  Enabled: false
+  Enabled: true
   Drops:
   - Prefab: GoblinShaman_Hildir_nochest
     AmountMin: 1
@@ -72,6 +88,10 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
@@ -83,6 +103,10 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
@@ -94,13 +118,17 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0.25
     DoubleQualityIncreaseChancePerLevel: false
     MaxQuality: 1
     MultiplyMaxQualityByLevel: true
 - Name: GoblinShaman_Hildir
   DisplayName: Zil
-  Enabled: false
+  Enabled: true
   Drops:
   - Prefab: chest_hildir3
     AmountMin: 1
@@ -109,6 +137,10 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
@@ -120,6 +152,10 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
@@ -131,13 +167,17 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0.25
     DoubleQualityIncreaseChancePerLevel: false
     MaxQuality: 1
     MultiplyMaxQualityByLevel: true
 - Name: GoblinShaman_Hildir_nochest
   DisplayName: Zil
-  Enabled: false
+  Enabled: true
   Drops:
   - Prefab: TrophyGoblinBruteBrosShaman
     AmountMin: 1
@@ -146,6 +186,10 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
@@ -157,6 +201,10 @@ Entries:
     OnePerPlayer: false
     DoubleAmountAndChancePerLevel: false
     IgnoreWorldResourceRate: true
+    MinLevel: 
+    MaxLevel: 
+    RequiredGlobalKey: 
+    ForbiddenGlobalKey: 
     QualityIncreaseChance: 0.25
     DoubleQualityIncreaseChancePerLevel: false
     MaxQuality: 1
