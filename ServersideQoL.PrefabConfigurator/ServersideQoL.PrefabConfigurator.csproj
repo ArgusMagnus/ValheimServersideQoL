@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Configure prefabs to your hearts content.</Description>
+    <Description>Configure prefabs to your hearts content. Increase the range of workstations. Make fireplaces/light sources toggleable or have infinite fuel. Change plant grow time or required space. Etc. etc. etc.</Description>
   </PropertyGroup>
 
   <ItemGroup>
