@@ -322,9 +322,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     var failed = false;
     var abort = false;
 
-    var networkVersion = (uint)typeof(Version).GetField(nameof(Version.c_networkVersion)).GetValue(null);
-    var itemDataVersion = (Version.Item)typeof(Version).GetField(nameof(Version.c_ItemDataVersion)).GetValue(null);
-    var worldVersion = (Version.World)typeof(Version).GetField(nameof(Version.c_WorldVersion)).GetValue(null);
+    var networkVersion = (uint)typeof(Version).GetField(nameof(Version.c_networkVersion)).GetRawConstantValue();
+    var itemDataVersion = (Version.Item)typeof(Version).GetField(nameof(Version.c_ItemDataVersion)).GetRawConstantValue();
+    var worldVersion = (Version.World)typeof(Version).GetField(nameof(Version.c_WorldVersion)).GetRawConstantValue();
 
     //if (gameVersion != ExpectedGameVersion)
     //{
@@ -807,7 +807,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     [HarmonyTargetMethods]
     public static IEnumerable<MethodInfo> GetTargetMethods() => [
       typeof(ZDO).GetProperty(nameof(ZDO.DataRevision), BindingFlags.Instance | BindingFlags.Public)!.SetMethod,
-      typeof(ZDO).GetProperty(nameof(ZDO.OwnerRevision), BindingFlags.Instance | BindingFlags.Public)!.SetMethod];
+      //typeof(ZDO).GetProperty(nameof(ZDO.OwnerRevision), BindingFlags.Instance | BindingFlags.Public)!.SetMethod
+      ];
 
     [HarmonyPostfix]
     public static void OnDataOrOwnerRevisionChanged(ZDO __instance)
