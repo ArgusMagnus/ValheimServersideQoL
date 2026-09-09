@@ -79,8 +79,8 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
     if (!_openResponseRegistered && Player.m_localPlayer is not null)
     {
-      /// <see cref="Container.RPC_OpenRespons"/>
-      RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = true);
+      /// <see cref="Container.RPC_OpenResponse"/>
+      RPC.Intercept.UpdateInterception(RPC.RpcName.Container.OpenResponse, RPC_OpenResponse, _openResponseRegistered = true);
     }
 
     //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
@@ -97,7 +97,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   protected internal override void Initialize()
   {
     _states.Clear();
-    RPC.Intercept.UpdateInterception("OpenRespons", RPC_OpenResponse, _openResponseRegistered = false);
+    RPC.Intercept.UpdateInterception(RPC.RpcName.Container.OpenResponse, RPC_OpenResponse, _openResponseRegistered = false);
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)

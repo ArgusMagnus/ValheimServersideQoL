@@ -4,7 +4,7 @@ public static class SingletonCache<T>
   where T : class, new()
 {
   [ThreadStatic]
-  static readonly T __instance = new();
+  static T? __instance;
 
-  public static T Instance => __instance;
+  public static T Instance => __instance ??= new();
 }

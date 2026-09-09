@@ -15,7 +15,7 @@ public sealed class TrapsProcessor : Processor<TrapsProcessor.PrefabInfo>
   {
     _rearmAfter.Clear();
 
-    RPC.Intercept.UpdateInterception("RPC_OnStateChanged", RPC_OnStateChanged, Config.Instance.Traps.AutoRearm.Value);
+    RPC.Intercept.UpdateInterception(RPC.RpcName.Trap.OnStateChanged, RPC_OnStateChanged, Config.Instance.Traps.AutoRearm.Value);
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)

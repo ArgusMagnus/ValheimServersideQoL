@@ -2,7 +2,6 @@
 using ServersideQoL.Utilities;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks.Sources;
 using UnityEngine;
 using static Skills;
 
@@ -27,7 +26,7 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
     add
     {
       if (_itemUsed is null && value is not null && !_estimateSkillLevels)
-        RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, true);
+        RPC.Intercept.UpdateInterception(RPC.RpcName.ZSyncAnimation.SetTrigger, OnZSyncAnimationSetTrigger, true);
       _itemUsed += value;
     }
     remove
@@ -35,7 +34,7 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
       var wasNotNull = _itemUsed is not null;
       _itemUsed -= value;
       if (_itemUsed is null && wasNotNull && !_estimateSkillLevels)
-        RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, false);
+        RPC.Intercept.UpdateInterception(RPC.RpcName.ZSyncAnimation.SetTrigger, OnZSyncAnimationSetTrigger, false);
     }
   }
 
@@ -59,9 +58,9 @@ public sealed class PlayerRegistryProcessor : Processor<ProcessorPrefabInfo<Play
         return;
       _estimateSkillLevels = !_estimateSkillLevels;
       if (_estimateSkillLevels && _itemUsed is null)
-        RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, true);
+        RPC.Intercept.UpdateInterception(RPC.RpcName.ZSyncAnimation.SetTrigger, OnZSyncAnimationSetTrigger, true);
       else if (!_estimateSkillLevels && _itemUsed is null)
-        RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger, false);
+        RPC.Intercept.UpdateInterception(RPC.RpcName.ZSyncAnimation.SetTrigger, OnZSyncAnimationSetTrigger, false);
     }
   }
 

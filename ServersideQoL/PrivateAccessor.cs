@@ -120,13 +120,13 @@ public static class PrivateAccessor
   public static Utilities.Location GetAndLoadLocationByHash(this ZoneSystem instance, int hash)
     => instance.GetLocationsByHash().TryGetValue(hash, out var loc) ? new(loc) : default;
 
-  static Func<ZoneSystem, ZoneLocation, int, Vector3, Quaternion, SpawnMode, List<GameObject>, GameObject> SpawnLocationFunc
+  static Func<ZoneSystem, ZoneLocation, int, Vector3, Quaternion, SpawnMode, List<GameObject>, bool, GameObject> SpawnLocationFunc
 #if DEBUG
   { get; } =
 #else
     => field ??=
 #endif
-      Expression.Lambda<Func<ZoneSystem, ZoneLocation, int, Vector3, Quaternion, SpawnMode, List<GameObject>, GameObject>>(
+      Expression.Lambda<Func<ZoneSystem, ZoneLocation, int, Vector3, Quaternion, SpawnMode, List<GameObject>, bool, GameObject>>(
       Expression.Call(
           Expression.Parameter(typeof(ZoneSystem)) is var par1 ? par1 : throw new Exception(),
           typeof(ZoneSystem).GetMethod("SpawnLocation", AccessFlags | BindingFlags.Instance),
@@ -135,11 +135,12 @@ public static class PrivateAccessor
           Expression.Parameter(typeof(Vector3)) is var par4 ? par4 : throw new Exception(),
           Expression.Parameter(typeof(Quaternion)) is var par5 ? par5 : throw new Exception(),
           Expression.Parameter(typeof(SpawnMode)) is var par6 ? par6 : throw new Exception(),
-          Expression.Parameter(typeof(List<GameObject>)) is var par7 ? par7 : throw new Exception()),
-      par1, par2, par3, par4, par5, par6, par7).Compile();
+          Expression.Parameter(typeof(List<GameObject>)) is var par7 ? par7 : throw new Exception(),
+          Expression.Parameter(typeof(bool)) is var par8 ? par8 : throw new Exception()),
+      par1, par2, par3, par4, par5, par6, par7, par8).Compile();
 
-  public static GameObject SpawnLocation(this ZoneSystem instance, ZoneLocation location, int seed, Vector3 pos, Quaternion rot, SpawnMode mode, List<GameObject>? spawnedGhostObjects = null)
-      => SpawnLocationFunc(instance, location, seed, pos, rot, mode, spawnedGhostObjects ?? []);
+  public static GameObject SpawnLocation(this ZoneSystem instance, ZoneLocation location, int seed, Vector3 pos, Quaternion rot, SpawnMode mode, List<GameObject>? spawnedGhostObjects = null, bool cheated = false)
+      => SpawnLocationFunc(instance, location, seed, pos, rot, mode, spawnedGhostObjects ?? [], cheated);
 
   static Action<ZoneSystem, long> SendGlobalKeysAction
 #if DEBUG

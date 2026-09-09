@@ -11,7 +11,7 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
 
   protected override void Initialize()
   {
-    RPC.Intercept.UpdateInterception("RPC_AnimateLever", RPC_AnimateLever,
+    RPC.Intercept.UpdateInterception(RPC.RpcName.Incinerator.AnimateLever, RPC_AnimateLever,
         Config.Instance.CanSacrificeMegingjord.Value ||
         Config.Instance.CanSacrificeCryptKey.Value ||
         Config.Instance.CanSacrificeWishbone.Value ||

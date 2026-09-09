@@ -36,8 +36,9 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
 
     _spawnedStates.Clear();
     _lastSummoningPlayer = null;
-    
-    RPC.Intercept.UpdateInterception("SetTrigger", OnZSyncAnimationSetTrigger,
+
+    /// <see cref="ZSyncAnimation.SetTrigger"/>
+    RPC.Intercept.UpdateInterception(RPC.RpcName.ZSyncAnimation.SetTrigger, OnZSyncAnimationSetTrigger,
         Config.Instance.BloodMagic.AllowReplacementSummonMinSkill.Value <= 100 || Config.Instance.BloodMagic.MakeSummonsFriendlyEnabled);
 
     if (_spawnInfo.Count is 0)
