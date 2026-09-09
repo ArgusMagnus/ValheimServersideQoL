@@ -43,10 +43,11 @@ Entries:
     MaxLevel: 
     RequiredGlobalKey: 
     ForbiddenGlobalKey: 
-    QualityIncreaseChance: 0
+    # Make Zil spawn with the same level
+    QualityIncreaseChance: 1
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
-    MultiplyMaxQualityByLevel: false
+    MultiplyMaxQualityByLevel: true
   - Prefab: TrophyGoblinBruteBrosBrute
     AmountMin: 1
     AmountMax: 1
@@ -92,10 +93,11 @@ Entries:
     MaxLevel: 
     RequiredGlobalKey: 
     ForbiddenGlobalKey: 
-    QualityIncreaseChance: 0
+    # Make Zil spawn with the same level
+    QualityIncreaseChance: 1
     DoubleQualityIncreaseChancePerLevel: true
     MaxQuality: 1
-    MultiplyMaxQualityByLevel: false
+    MultiplyMaxQualityByLevel: true
   - Prefab: TrophyGoblinBruteBrosBrute
     AmountMin: 1
     AmountMax: 1
