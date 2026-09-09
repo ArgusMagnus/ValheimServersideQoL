@@ -198,9 +198,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (steps > 0)
     {
       chance /= 100f;
-      if (creatureSpawner.m_maxLevel > creatureSpawner.m_minLevel)
-        chance = Mathf.Pow(chance, creatureSpawner.m_maxLevel - creatureSpawner.m_minLevel);
-      chance = Mathf.Pow(chance, 1f / steps) * 100f;
+      chance = Mathf.Pow(chance, Mathf.Max(1f, creatureSpawner.m_maxLevel - creatureSpawner.m_minLevel) / steps) * 100f;
       if (fields.UpdateValue(static () => x => x.m_levelupChance, chance))
         result |= ProcessResult.RecreateZDO;
     }
@@ -319,9 +317,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     if (steps is not 0)
     {
       chance /= 100f;
-      if (spawnData.MaxLevel > spawnData.MinLevel)
-        chance = Mathf.Pow(chance, spawnData.MaxLevel - spawnData.MinLevel);
-      chance = Mathf.Pow(chance, 1f / steps) * 100f;
+      chance = Mathf.Pow(chance, Mathf.Max(1f, spawnData.MaxLevel - spawnData.MinLevel) / steps) * 100f;
     }
 
     var level = Math.Min(spawnData.MinLevel, spawnData.MaxLevel); // Some SpawnArea, namely Spawner_CharredStone_event, have MinLevel > MaxLevel

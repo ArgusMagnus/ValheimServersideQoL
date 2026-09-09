@@ -320,9 +320,13 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
         Quaternion rotation = Quaternion.Euler(0f, UnityEngine.Random.Range(0, 360), 0f);
         Vector3 vector = UnityEngine.Random.insideUnitSphere * dropArea;
         GameObject gameObject = UnityEngine.Object.Instantiate(drop.m_prefab, centerPos + vector, rotation);
-        if (gameObject.GetComponent<ItemDrop>() is { } itemDrop)
+        var itemDrop = gameObject.GetComponent<ItemDrop>();
+        var character = gameObject.GetComponent<Character>();
+        if (itemDrop is not null || character is not null)
         {
-          itemDrop.m_itemData.m_worldLevel = (byte)Game.m_worldLevel;
+          if (itemDrop is not null)
+            itemDrop.m_itemData.m_worldLevel = (byte)Game.m_worldLevel;
+
           var chance = cfg.QualityIncreaseChance;
           if (cfg.DoubleQualityIncreaseChancePerLevel)
             chance *= levelMultiplier;
@@ -332,30 +336,32 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
           {
             maxQuality *= level;
             // keep max quality chance the same
-            if (cfg.MaxQuality > 1)
-              chance = Mathf.Pow(chance, cfg.MaxQuality - 1f);
-            chance = Mathf.Pow(chance, 1f / (maxQuality - 1f));
+            chance = Mathf.Pow(chance, Mathf.Max(1f, cfg.MaxQuality - 1f) / (maxQuality - 1f));
           }
 
           var quality = 0;
           while (++quality < maxQuality && UnityEngine.Random.value <= chance) ;
+
           if (quality > 1)
           {
-            itemDrop.SetQuality(quality);
-            ItemDrop.SaveToZDO(itemDrop.m_itemData, itemDrop.GetComponent<ZNetView>().GetZDO());
+            if (itemDrop is not null)
+            {
+              itemDrop.SetQuality(quality);
+              ItemDrop.SaveToZDO(itemDrop.m_itemData, itemDrop.GetComponent<ZNetView>().GetZDO());
+            }
+            character?.SetLevel(level);
           }
         }
 
-        Rigidbody component2 = gameObject.GetComponent<Rigidbody>();
-        if ((bool)component2)
+        if (gameObject.GetComponent<Rigidbody>() is { } rigidbody)
         {
           Vector3 insideUnitSphere = UnityEngine.Random.insideUnitSphere;
           if (insideUnitSphere.y < 0f)
           {
-            insideUnitSphere.y = 0f - insideUnitSphere.y;
+            insideUnitSphere.y = -insideUnitSphere.y;
           }
 
-          component2.AddForce(insideUnitSphere * 5f, ForceMode.VelocityChange);
+          rigidbody.AddForce(insideUnitSphere * 5f, ForceMode.VelocityChange);
         }
       }
     }
