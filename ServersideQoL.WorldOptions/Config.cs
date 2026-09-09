@@ -61,7 +61,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       {
         var cfgKey = $"Set{NormalizeKey(keys[group.Key]?.name ?? group.Key)}";
         var defaultValue = group.Key;
-        var itemNames = string.Join(", ", group.Select(static x => global::Localization.instance.Localize(x.m_prefab.m_itemData.m_shared.m_name)));
+        var itemNames = string.Join(", ", group.Select(static x => global::Localization.instance.Localize(x.m_prefab is null ? x.m_name : x.m_prefab.m_itemData.m_shared.m_name)));
         (entries ??= []).Add(cfg.Bind($"{trader.name}ProgressionRequirements", cfgKey, defaultValue, new ConfigDescription(
           $"The required global key for buying {itemNames} from {(global::Localization.instance.Localize(trader.m_name))}",
           accetableValues)));

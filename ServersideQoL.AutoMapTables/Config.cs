@@ -61,7 +61,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     {
       if (prefab.GetComponent<Smelter>() is { } smelter)
       {
-        foreach (var item in smelter.m_conversion.Select(x => x.m_from))
+        foreach (var item in smelter.m_conversion.Select(static x => x.m_from).Where(static x => x is not null))
           smelterInputs.TryAdd(item, null);
       }
       else if (prefab.GetComponent<MineRock5>() is { } mineRock)
@@ -79,7 +79,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       OreDepositConfig? entry = null;
       foreach (var item in mineRock.m_dropItems.m_drops.Select(static x => x.m_item.GetComponent<ItemDrop>()))
       {
-        if (!smelterInputs.TryGetValue(item, out entry))
+        if (item is null || !smelterInputs.TryGetValue(item, out entry))
           continue;
 
         if (entry is null)
