@@ -200,7 +200,7 @@ sealed class TrophyProcessor : Processor
         if (ShouldAttemptSpawn(state))
         {
             var level = 1;
-            var levelUpChance = Config.TrophySpawner.LevelUpChanceOverride.Value < 0 ? 0 : SpawnSystem.GetLevelUpChance(Config.TrophySpawner.LevelUpChanceOverride.Value);
+            var levelUpChance = Config.TrophySpawner.LevelUpChanceOverride.Value < 0 ? 0 : SpawnSystem.GetLevelUpChance(zdo.GetPosition(), Config.TrophySpawner.LevelUpChanceOverride.Value);
             if (levelUpChance > 0)
             {
                 for (; level < Config.TrophySpawner.MaxLevel.Value; level++)
@@ -229,8 +229,7 @@ sealed class TrophyProcessor : Processor
                 for (stepCount = 0; stepCount < maxStepCount; stepCount++)
                 {
                     var next = pos + (dir * step);
-                    var z = ZoneSystem.GetZone(next);
-                    if (!ZNetScene.InActiveArea(z, zone))
+                    if (!ZNetScene.InActiveArea(next, zone))
                     {
                         stepCount--;
                         break;

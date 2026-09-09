@@ -110,7 +110,7 @@ sealed class PortalProcessor : Processor
                 if (Utils.DistanceSqr(state.PortalPosition, state.Player.GetPosition()) > _rangeSqr)
                 {
                     if (state.Container.GetOwner() == state.Player.GetOwner() &&
-                        ZNetScene.InActiveArea(state.Container.GetSector(), state.Player.GetSector()))
+                        ZNetScene.InActiveArea(state.Player.GetPosition(), state.Container.GetSector()))
                     {
                         var now = DateTimeOffset.UtcNow;
                         if (now > state.NextRequest)
@@ -163,7 +163,7 @@ sealed class PortalProcessor : Processor
                 {
                     state.NextRequest = now.AddMilliseconds(200);
                     if (state.Container.GetOwner() != state.Player.GetOwner() ||
-                        !ZNetScene.InActiveArea(state.Container.GetSector(), state.Player.GetSector()))
+                        !ZNetScene.InActiveArea(state.Player.GetPosition(), state.Container.GetSector()))
                     {
                         state.Container.SetOwnerInternal(state.Player.GetOwner());
                         state.Container.SetPosition(state.Player.GetPosition() with { y = -1000 });

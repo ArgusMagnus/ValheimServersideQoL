@@ -331,7 +331,7 @@ sealed class CreatureLevelUpProcessor : Processor
             return;
 
         var maxLevel = spawnData.MaxLevel + increase;
-        var chance = SpawnSystem.GetLevelUpChance(spawnData.LevelUpChance);
+        var chance = SpawnSystem.GetLevelUpChance(pos, spawnData.LevelUpChance);
         var steps = maxLevel - spawnData.MinLevel;
         if (steps is not 0)
         {

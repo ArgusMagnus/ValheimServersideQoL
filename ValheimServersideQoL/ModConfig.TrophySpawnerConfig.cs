@@ -11,7 +11,7 @@ partial record ModConfigBase
 
         public ConfigEntry<int> ActivationDelay { get; } = cfg.BindEx(section, 3600, "Time in seconds before trophies start attracting mobs");
         public ConfigEntry<int> RespawnDelay { get; } = cfg.BindEx(section, 12, "Respawn delay in seconds");
-        static float MaxDistance => Mathf.Round(Mathf.Sqrt(2) * ZoneSystem.instance.m_activeArea * ZoneSystem.c_ZoneSize);
+        static float MaxDistance => Mathf.Round(Mathf.Sqrt(2) * ZoneSystem.instance.GetLoadedArea() * ZoneSystem.c_ZoneSize);
         public ConfigEntry<float> MinSpawnDistance { get; } = cfg.BindEx(section, MaxDistance,
             "Min distance from the trophy mobs can spawn", new AcceptableValueRange<float>(0, MaxDistance));
         public ConfigEntry<float> MaxSpawnDistance { get; } = cfg.BindEx(section, MaxDistance,

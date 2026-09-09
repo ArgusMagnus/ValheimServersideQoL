@@ -794,10 +794,10 @@ public sealed partial class Main : BaseUnityPlugin
         {
             var cmd = commands[command];
             if (cmd.GetAction() is { } consoleEvent)
-                consoleEvent(new MyConsoleEventArgs(command, args));
+                consoleEvent(new MyConsoleEventArgs(command, cmd, args));
             else if (cmd.GetActionFailable() is { } consoleEventFailable)
             {
-                var result = consoleEventFailable(new MyConsoleEventArgs(command, args));
+                var result = consoleEventFailable(new MyConsoleEventArgs(command, cmd, args));
                 if (result is not bool b || !b)
                     throw new Exception(result.ToString());
             }
@@ -807,8 +807,8 @@ public sealed partial class Main : BaseUnityPlugin
 
         sealed class MyConsoleEventArgs : ConsoleEventArgs
         {
-            public MyConsoleEventArgs(string command, params string[] args)
-                : base("", null)
+            public MyConsoleEventArgs(string command, Terminal.ConsoleCommand cmd, params string[] args)
+                : base("", null, cmd)
                 => Args = [command, .. args];
         }
     }

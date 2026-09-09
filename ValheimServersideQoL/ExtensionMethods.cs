@@ -11,9 +11,24 @@ static class ExtensionMethods
 {
     public static ExtendedZDO? GetExtendedZDO(this ZDOMan instance, ZDOID id) => (ExtendedZDO?)instance.GetZDO(id);
 
-    /// <see cref="ZNetScene.InActiveArea(Vector2i, Vector2i)"/>
-    public static int GetActiveArea(this ZoneSystem instance) => instance.m_activeArea - 1;
-    public static int GetLoadedArea(this ZoneSystem instance) => instance.m_activeArea;
+    // 1.0 replaced ZoneSystem's single private m_activeArea int with ZNet's
+    // public SimulationDistance (near/far/total), synced from the server.
+    // Near maps to the old "active" (fully simulated) radius; Total maps to
+    // the old "loaded" (near+far/ghost) radius.
+    public static int GetActiveArea(this ZoneSystem instance) => ZNet.instance.GetSyncedSimulationDistance().NearSimulationDistance;
+    public static int GetLoadedArea(this ZoneSystem instance) => ZNet.instance.GetSyncedSimulationDistance().TotalSimulationDistance;
+
+    // 1.0 changed ZDOMan.FindSectorObjects from (sector, nearDist, farDist,
+    // objects) to (sector, SimulationDistance, nearObjects, farObjects).
+    // Every call site in this codebase only ever passed farDist=0 and only
+    // wants the near list, so this shim preserves every existing call site
+    // unchanged rather than touching each one individually.
+    static readonly List<ZDO> s_discardZdos = [];
+    public static void FindSectorObjects(this ZDOMan instance, Vector2s sector, int distance, int _, List<ZDO> objects)
+    {
+        s_discardZdos.Clear();
+        instance.FindSectorObjects(sector, new SimulationDistance(distance, 0, false), objects, s_discardZdos);
+    }
 
     public static float GetHeight(this Heightmap hmap, Vector3 pos)
     {

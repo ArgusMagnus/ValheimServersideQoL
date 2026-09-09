@@ -232,7 +232,7 @@ static class SharedProcessorState
         for (int i = _zoneRoots.Count - 1; i >= 0; i--)
         {
             var (zone, root) = _zoneRoots[i];
-            if (peers.Any(x => ZNetScene.InActiveArea(zone, x.m_refPos)))
+            if (peers.Any(x => ZNetScene.InActiveArea(x.m_refPos, zone)))
                 continue;
 
             //Main.Instance.Logger.DevLog($"Destroying hmap for {zone}");
