@@ -72,7 +72,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
       if (state.LevelGroundMode is LevelGroundModes.Reset )
       {
         var zdos = new List<ZDO>();
-        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZoneSystem.instance.ActiveArea, 0, zdos);
+        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZNet.instance.GetSyncedSimulationDistance(), zdos);
         foreach (var zdo2 in zdos.Select(static x => x.ServersideQoLZDO))
         {
           var prefabInfo2 = GetPrefabInfo(zdo2);
@@ -107,7 +107,7 @@ public sealed class PlayerProcessor : Processor<PlayerProcessor.PrefabInfo>
         /// <see cref="ZoneSystem.instance.TestSpawnLocation"/>
         ZoneSystem.instance.SpawnLocation(location, 0, zdo.ZDO.GetPosition(), zdo.ZDO.GetRotation(), ZoneSystem.SpawnMode.Full);
         var zdos = new List<ZDO>();
-        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZoneSystem.instance.ActiveArea, 0, zdos);
+        ZDOMan.instance.FindSectorObjects(zdo.ZDO.GetSector(), ZNet.instance.GetSyncedSimulationDistance(), zdos);
         foreach (var zdo2 in zdos.Select(static x => x.ServersideQoLZDO))
         {
           if (GetPrefabInfo(zdo2).HasComponent<TerrainComp>() && TerrainCompData.Load(zdo2) is { } terrainComp)

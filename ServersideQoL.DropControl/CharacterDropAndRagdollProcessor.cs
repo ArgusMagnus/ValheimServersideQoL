@@ -267,7 +267,7 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
     {
       var drops = GenerateDropList(prefabInfo.CharacterDrop, zdo.Vars.GetLevel());
       /// <see cref="CharacterDrop.OnDeath"/>
-      CharacterDrop.DropItems(drops, zdo.ZDO.GetPosition() + offset, _dropArea);
+      CharacterDrop.DropItems(drops, zdo.ZDO.GetPosition() + offset, _dropArea, false);
     }
 
     static void SpawnDrops(ServersideQoLZDO zdo, CharacterDrop characterDrop, Config.DropsConfig.DropConfig dropConfig, Vector3 offset, float dropArea)

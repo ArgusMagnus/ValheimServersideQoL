@@ -549,7 +549,7 @@ public abstract class Processor
       for (int i = _zoneRoots.Count - 1; i >= 0; i--)
       {
         var (zone, root) = _zoneRoots[i];
-        if (peers.Any(x => ZNetScene.InActiveArea(zone, x.RefPos)))
+        if (peers.Any(x => ZNetScene.InActiveArea(x.RefPos, zone)))
           continue;
 
         //Main.Instance.Logger.DevLog($"Destroying hmap for {zone}");
