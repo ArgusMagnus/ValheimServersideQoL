@@ -76,3 +76,5 @@ Entries:
 ```
 
 </details>
+
+This mod is intentionally kept simple. If you want powerful scripting support, use Expand World Prefabs.

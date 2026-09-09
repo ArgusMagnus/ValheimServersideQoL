@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Make all container inventory sizes configurable</Description>
+    <Description>Make all container inventory sizes configurable and optionally let the grow infinitely if the contain only one item type</Description>
   </PropertyGroup>
 
   <ItemGroup>
