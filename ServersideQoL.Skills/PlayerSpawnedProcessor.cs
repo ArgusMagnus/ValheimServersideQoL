@@ -45,8 +45,11 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
     {
       if (Config.Instance.BloodMagic.AllowReplacementSummonMinSkill.Value <= 100 || Config.Instance.BloodMagic.MakeSummonsFriendlyEnabled)
       {
-        foreach (var item in ObjectDB.instance.m_items.Select(static x => x.GetComponent<ItemDrop>()))
+        foreach (var gameObject in ObjectDB.instance.m_items)
         {
+          if (gameObject.GetComponent<ItemDrop>() is not { } item)
+            continue;
+
           var attack = item.m_itemData.m_shared.m_attack;
           if (attack.m_attackProjectile?.GetComponent<SpawnAbility>() is not { } spawnAbility)
             continue;
