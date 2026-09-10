@@ -223,13 +223,16 @@ public abstract class Processor
     {
       if (__dataZDO is null)
       {
-        __dataZDO = ZDOMan.instance.CreateNewZDO(new(WorldGenerator.waterEdge * 10, -1000f, WorldGenerator.waterEdge * 10), Prefabs.Sconce).ServersideQoLZDO;
-        __dataZDO.ZDO.SetPrefab(Prefabs.Sconce);
+        var prefab = Prefabs.Sconce;
+
+        __dataZDO = ZDOMan.instance.CreateNewZDO(new(WorldGenerator.waterEdge * 10, -1000f, WorldGenerator.waterEdge * 10), prefab).ServersideQoLZDO;
+        __dataZDO.ZDO.SetPrefab(prefab);
         __dataZDO.ZDO.Persistent = true;
         __dataZDO.ZDO.Distant = false;
         __dataZDO.ZDO.Type = ZDO.ObjectType.Default;
         __dataZDO.SetModAsCreator(CreatorMarkers.DataZDO);
         __dataZDO.Vars.SetHealth(-1);
+        __dataZDO.PrefabInfo = ServersideQoLPlugin.Instance.GetPrefabInfo(prefab);
         __dataZDO.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
         __dataZDO.Fields<WearNTear>()
           .Set(static () => x => x.m_noRoofWear, false)
