@@ -1,3 +1,6 @@
+### v2.0.4
+- ContainerSigns: fixed signs do not appear when the container size is also changed [#190](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/190)
+
 ### v2.0.3
 - Fixed InvalidOperationException (missing PrefabInfo for Processor.DataZDO)
 

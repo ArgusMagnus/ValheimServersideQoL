@@ -45,6 +45,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   SectorState? _currentlyProcessing;
 
   readonly List<Processor> _unregister = [];
+  readonly List<Processor> _reregisterOnRecreate = [];
   List<(Processor, double)>? _processingTimes;
 
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
@@ -597,6 +598,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     var destroy = false;
     var recreate = false;
     _unregister.Clear();
+    _reregisterOnRecreate.Clear();
     foreach (var processor in zdo.Processors.Enumerate())
     {
       var result = processor.ProcessInternal(peers, zdo);
@@ -608,9 +610,16 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
       if ((result & Processor.ProcessResult.RecreateZDO) is not 0)
         recreate = true;
+
       var unregister = (result & Processor.ProcessResult.UnregisterProcessor) is not 0;
       if (unregister)
-        _unregister.Add(processor);
+      {
+        var reregisterOnRecreate = (result & Processor.ProcessResult.ReregisterOnRecreated) is not 0;
+        if (!recreate && !reregisterOnRecreate)
+          _unregister.Add(processor);
+        else if (reregisterOnRecreate)
+          _reregisterOnRecreate.Add(processor);
+      }
 
       if (!recreate && !unregister && (result & Processor.ScheduleReprocessingConst) is not 0)
         ScheduleReprocessing(zdo, processor.ScheduleReprocessingDelay);
@@ -620,6 +629,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     }
     if (!destroy)
     {
+      if (recreate && _reregisterOnRecreate.Count > 0)
+      {
+        foreach (var processor in _reregisterOnRecreate)
+          _unregister.Remove(processor);
+      }
+
       if (_unregister.Count > 0)
         zdo.Unregister(_unregister);
       if (recreate)
@@ -812,14 +827,13 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     [HarmonyTargetMethods]
     public static IEnumerable<MethodInfo> GetTargetMethods() => [
       typeof(ZDO).GetProperty(nameof(ZDO.DataRevision), BindingFlags.Instance | BindingFlags.Public)!.SetMethod,
-      //typeof(ZDO).GetProperty(nameof(ZDO.OwnerRevision), BindingFlags.Instance | BindingFlags.Public)!.SetMethod
-      ];
+      typeof(ZDO).GetProperty(nameof(ZDO.OwnerRevision), BindingFlags.Instance | BindingFlags.Public)!.SetMethod];
 
     [HarmonyPostfix]
     public static void OnDataOrOwnerRevisionChanged(ZDO __instance)
     {
       var zdo = __instance.ServersideQoLZDO;
-      if (zdo.UpdateOwnerAndDataRevisions())
+      if (zdo.UpdateOwnerAndDataRevisions() is { DataRevChanged: true } /*or { OwnerRevChanged: true }*/)
         Instance.OnDataOrOwnerRevisionChanged(zdo);
     }
   }

@@ -68,6 +68,9 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
 
     foreach (var item in Config.Instance.Prefabs.Value.Entries)
     {
+      if (!item.Enabled)
+        continue;
+
       if (!Config.Instance.Prefabs.Value.ValidComponents.TryGetValue(item.Component, out var componentInfo))
       {
         Logger.LogWarning($"Invalid component: {item.Component}");

@@ -54,7 +54,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     {
       item.m_dropPrefab = prefabInfo.ItemDrop.gameObject;
       inventory.Items.Add(item);
-      var (width, height) = GetBackpackSize(inventory.Items.Count);
+      var (width, height) = GetInventorySize(inventory.Items.Count, false);
       crate.ZDO.Fields<Container>()
           .Set(static () => x => x.m_width, width)
           .Set(static () => x => x.m_height, height);

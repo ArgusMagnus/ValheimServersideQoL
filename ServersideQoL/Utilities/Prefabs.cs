@@ -39,4 +39,5 @@ public static class Prefabs
   public static int StandingIronTorchBlue { get; } = "piece_groundtorch_blue".GetStableHashCode();
   //public static IReadOnlyList<int> Banners { get; } = [.. Enumerable.Range(1, 10).Select(static x => $"piece_banner{x:D2}".GetStableHashCode())];
   public static int MountainRemainsBuried { get; } = "Pickable_MountainRemains01_buried".GetStableHashCode();
+  public static int TombStone { get; } = "Player_tombstone".GetStableHashCode();
 }

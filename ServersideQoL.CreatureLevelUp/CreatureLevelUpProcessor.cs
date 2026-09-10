@@ -42,7 +42,7 @@ public sealed class CreatureLevelUpProcessor : Processor<CreatureLevelUpProcesso
     switch (prefabInfo)
     {
       case { CreatureSpawner: not null }:
-        result |= LevelUpSpawner(zdo, prefabInfo.CreatureSpawner);
+        result |= LevelUpSpawner(zdo, prefabInfo.CreatureSpawner) | ProcessResult.ReregisterOnRecreated;
         if ((result & ProcessResult.RecreateZDO) is not 0)
         {
           var sector = zdo.ZDO.GetSector();

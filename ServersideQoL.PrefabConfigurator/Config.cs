@@ -25,6 +25,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public sealed class ComponentConfig
     {
       public required string Component { get; init; }
+      public required bool Enabled { get; init; } = true;
       public required string[] PrefabNames { get; init; } = [];
       public required Dictionary<string, object?> Fields { get; init; }
     }
@@ -56,6 +57,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
           entries.Add(new()
           {
             Component = componentType.Name,
+            Enabled = false,
             PrefabNames = [name],
             Fields = fields.ToDictionary(static x => x.Name, x => Serialize(x.GetValue(component)))
           });

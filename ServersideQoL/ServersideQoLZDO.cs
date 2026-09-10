@@ -108,14 +108,13 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
 
   ushort _prevOwnerRev = ushort.MaxValue;
   uint _prevDataRev = uint.MaxValue;
-  internal bool UpdateOwnerAndDataRevisions()
+  internal (bool OwnerRevChanged, bool DataRevChanged) UpdateOwnerAndDataRevisions()
   {
-    if (ZDO.OwnerRevision != _prevOwnerRev)
+    var result = (OwnerRevChanged: ZDO.OwnerRevision != _prevOwnerRev, DataRevChanged: ZDO.DataRevision != _prevDataRev);
+    if (result.OwnerRevChanged)
       OwnerTimestamp = Timestamp.Now;
-    else if (ZDO.DataRevision == _prevDataRev)
-      return false;
     (_prevOwnerRev, _prevDataRev) = (ZDO.OwnerRevision, ZDO.DataRevision);
-    return true;
+    return result;
   }
 
   static void OnDestroyed(ZDO zdo)

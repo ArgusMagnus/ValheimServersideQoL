@@ -65,7 +65,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     }
     zdo.Destroyed += OnChestDestroyed;
 
-    return ProcessResult.UnregisterProcessor;
+    return ProcessResult.UnregisterProcessor | ProcessResult.ReregisterOnRecreated;
   }
 
   void OnChestDestroyed(ServersideQoLZDO zdo)

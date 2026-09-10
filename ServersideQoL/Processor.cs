@@ -382,17 +382,57 @@ public abstract class Processor
     return $"(?i)^{searchPattern}$";
   }
 
+  static List<Predicate<ItemDrop.ItemData>>? __isItemTeleportableEvaluationRequest;
+  protected static event Predicate<ItemDrop.ItemData>? IsItemTeleportableEvaluationRequest
+  {
+    add
+    {
+      if (value is not null)
+        (__isItemTeleportableEvaluationRequest ??= []).Add(value);
+    }
+    remove
+    {
+      if (value is not null && __isItemTeleportableEvaluationRequest is { Count: > 0 })
+        __isItemTeleportableEvaluationRequest.Remove(value);
+    }
+  }
+
+  protected static bool IsItemTeleportable(ItemDrop.ItemData item)
+  {
+    if (item.m_shared.m_teleportable || ZoneSystem.instance.GetGlobalKey(GlobalKeys.TeleportAll))
+      return true;
+    if (__isItemTeleportableEvaluationRequest is { Count: > 0 })
+    {
+      foreach (var pred in __isItemTeleportableEvaluationRequest)
+      {
+        if (pred(item))
+          return true;
+      }
+    }
+    return false;
+  }
+
+  protected static bool HasNonTeleportableItem(IEnumerable<ItemDrop.ItemData> items)
+  {
+    foreach (var item in items)
+    {
+      if (!IsItemTeleportable(item))
+        return true;
+    }
+    return false;
+  }
+
   [Flags]
   internal protected enum ProcessResult
   {
     Default = 0,
-    //WaitForZDORevisionChange = 1 << 0, not needed as long as no cyclic processors exist
     UnregisterProcessor = 1 << 1,
     DestroyZDO = 1 << 2,
     RecreateZDO = 1 << 3,
     SkipOtherProcessors = 1 << 4,
     [Obsolete($"Use {nameof(Processor.ScheduleReprocessing)}() instead")]
-    ScheduleReprocessing = 1 << 5
+    ScheduleReprocessing = 1 << 5,
+    ReregisterOnRecreated = 1 << 6
   }
 
 #pragma warning disable CS0618 // Type or member is obsolete
@@ -448,26 +488,42 @@ public abstract class Processor
     RPC.ShowInWorldText([0], type, zdo.ZDO.GetPosition(), $"{Path.GetFileNameWithoutExtension(callerFile)} L{callerLineNo}: {message}");
   }
 
-  protected internal static (int Width, int Height) GetBackpackSize(int slots)
+  protected internal static (int Width, int Height) GetInventorySize(int slots, bool exact)
   {
-    var height = slots switch
+    int width, height;
+    if (exact)
     {
-      < 4 => 1,
-      < 9 => 2,
-      < 16 => 3,
-      <= 8 * 4 => 4,
-      _ => 0
-    };
+      width = 1;
+      for (var w = Math.Min(8, slots); w > 1; w--)
+      {
+        if (slots % w == 0)
+        {
+          width = w;
+          break;
+        }
+      }
 
-    var width = 0;
-    if (height > 0)
-      width = (slots + height - 1) / height;
+      height = slots / width;
+    }
     else
     {
-      width = 8;
-      height = (slots + width - 1) / width;
-    }
+      height = slots switch
+      {
+        < 4 => 1,
+        < 9 => 2,
+        < 16 => 3,
+        <= 8 * 4 => 4,
+        _ => 0
+      };
 
+      if (height > 0)
+        width = (slots + height - 1) / height;
+      else
+      {
+        width = 8;
+        height = (slots + width - 1) / width;
+      }
+    }
     return (width, height);
   }
 
