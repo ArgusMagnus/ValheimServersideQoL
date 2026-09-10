@@ -750,9 +750,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         .GroupBy(static x => x.GetType()))
       {
         IReadOnlyList<MonoBehaviour> list = [.. group];
-        (components ??= []).Add(group.Key, list);
+        (components ??= [])[group.Key] = list;
         for (var type = group.Key.BaseType; type != typeof(MonoBehaviour); type = type.BaseType)
-          components.Add(type, list);
+          components.TryAdd(type, list);
       }
 
       if (components?.ContainsKey(typeof(Piece)) is true && PieceTablesByPieceName.TryGetValue(prefab.name, out var pieceTable))
@@ -910,6 +910,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   [Conditional("DEBUG")]
   static void GenerateDocs()
   {
+#if DEBUG
     var docsPath = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(DependencyDirectory)), "Docs");
     Logger.DevLog($"Generating docs in {docsPath} ...");
     var docsComponentsPath = Path.Combine(docsPath, "Components");
@@ -1082,5 +1083,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
         }
       }
     }
+#endif
   }
 }
