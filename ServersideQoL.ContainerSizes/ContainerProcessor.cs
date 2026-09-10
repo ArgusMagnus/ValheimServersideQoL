@@ -56,9 +56,14 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     if (sizeCfg.Growing)
     {
       checkShrink = false;
-      var key = new ItemDataKey(inventory.Items[0]);
-      for (int i = 1; !checkShrink && i < inventory.Items.Count; i++)
-        checkShrink = key != new ItemDataKey(inventory.Items[i]);
+      if (inventory.Items.Count is 1)
+        checkShrink = true;
+      else if (inventory.Items.Count > 1)
+      {
+        var key = new ItemDataKey(inventory.Items[0]);
+        for (int i = 1; !checkShrink && i < inventory.Items.Count; i++)
+          checkShrink = key != new ItemDataKey(inventory.Items[i]);
+      }
 
       if (!checkShrink)
         sizeCfg = sizeCfg with { Height = Math.Max(sizeCfg.Height, Mathf.CeilToInt((float)inventory.Items.Count / sizeCfg.Width) + 1) };
