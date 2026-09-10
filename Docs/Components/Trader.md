@@ -10,6 +10,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_standRange|System.Single|16|
 |m_greetRange|System.Single|5|
 |m_byeRange|System.Single|7|
+|m_hoverOffset|System.Single|0|
 |m_hideDialogDelay|System.Single|8|
 |m_randomTalkInterval|System.Single|30|
 |m_dialogHeight|System.Single|2.5|
@@ -22,6 +23,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_standRange|System.Single|16|
 |m_greetRange|System.Single|10|
 |m_byeRange|System.Single|15|
+|m_hoverOffset|System.Single|0|
 |m_hideDialogDelay|System.Single|8|
 |m_randomTalkInterval|System.Single|30|
 |m_dialogHeight|System.Single|1.5|
@@ -34,6 +36,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_standRange|System.Single|8|
 |m_greetRange|System.Single|8|
 |m_byeRange|System.Single|12|
+|m_hoverOffset|System.Single|0|
 |m_hideDialogDelay|System.Single|8|
 |m_randomTalkInterval|System.Single|30|
 |m_dialogHeight|System.Single|1.5|

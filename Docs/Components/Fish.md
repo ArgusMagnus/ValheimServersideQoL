@@ -32,6 +32,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -76,6 +77,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -120,6 +122,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -164,6 +167,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -208,6 +212,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -252,6 +257,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -296,6 +302,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -340,6 +347,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -384,6 +392,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -428,6 +437,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -472,6 +482,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|
@@ -516,6 +527,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_blockChangeDurationMin|System.Single|0.1|
 |m_blockChangeDurationMax|System.Single|0.6|
 |m_collisionFleeTimeout|System.Single|1.5|
+|m_hoverOffset|System.Single|0|
 |m_jumpSpeed|System.Single|5|
 |m_jumpHeight|System.Single|10|
 |m_jumpForwardStrength|System.Single|11|

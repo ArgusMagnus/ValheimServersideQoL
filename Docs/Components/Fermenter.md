@@ -12,4 +12,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_readyObject|UnityEngine.GameObject|_ready|
 |m_topObject|UnityEngine.GameObject|_top|
 |m_tapDelay|System.Single|2.5|
+|m_hoverOffset|System.Single|0|
 

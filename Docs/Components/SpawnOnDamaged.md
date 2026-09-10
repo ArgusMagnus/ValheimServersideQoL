@@ -14,3 +14,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_spawnOnDamage|UnityEngine.GameObject|bee_aoe|
 
+## piece_birdnest: piece_birdnest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnOnDamage|UnityEngine.GameObject|bee_aoe|
+

@@ -17,6 +17,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## Birch_Sapling: Birch_Sapling
@@ -34,6 +35,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+|m_attachDistance|System.Single|0|
+
+## FirTree_big_Sapling: FirTree_big_Sapling
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$prop_fir_big_sapling|
+|m_growTime|System.Single|3000|
+|m_growTimeMax|System.Single|5000|
+|m_minScale|System.Single|1|
+|m_maxScale|System.Single|2.5|
+|m_growRadius|System.Single|2|
+|m_growRadiusVines|System.Single|0|
+|m_needCultivatedGround|System.Boolean|False|
+|m_destroyIfCantGrow|System.Boolean|True|
+|m_tolerateHeat|System.Boolean|False|
+|m_tolerateCold|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## FirTree_Sapling: FirTree_Sapling
@@ -51,6 +71,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## Oak_Sapling: Oak_Sapling
@@ -68,6 +89,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## PineTree_Sapling: PineTree_Sapling
@@ -85,6 +107,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_barley: sapling_barley
@@ -102,6 +125,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_carrot: sapling_carrot
@@ -119,6 +143,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_flax: sapling_flax
@@ -136,6 +161,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_jotunpuffs: sapling_jotunpuffs
@@ -153,6 +179,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+|m_attachDistance|System.Single|0|
+
+## sapling_Kale: sapling_Kale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_sapling_kale|
+|m_growTime|System.Single|4000|
+|m_growTimeMax|System.Single|5000|
+|m_minScale|System.Single|0.9|
+|m_maxScale|System.Single|1.1|
+|m_growRadius|System.Single|0.5|
+|m_growRadiusVines|System.Single|0|
+|m_needCultivatedGround|System.Boolean|True|
+|m_destroyIfCantGrow|System.Boolean|True|
+|m_tolerateHeat|System.Boolean|False|
+|m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_magecap: sapling_magecap
@@ -170,6 +215,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+|m_attachDistance|System.Single|0|
+
+## sapling_oat: sapling_oat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_sapling_oat|
+|m_growTime|System.Single|4000|
+|m_growTimeMax|System.Single|5000|
+|m_minScale|System.Single|0.9|
+|m_maxScale|System.Single|1.1|
+|m_growRadius|System.Single|0.5|
+|m_growRadiusVines|System.Single|0|
+|m_needCultivatedGround|System.Boolean|True|
+|m_destroyIfCantGrow|System.Boolean|True|
+|m_tolerateHeat|System.Boolean|False|
+|m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_onion: sapling_onion
@@ -187,6 +251,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+|m_attachDistance|System.Single|0|
+
+## sapling_poteitr: sapling_poteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_sapling_poteitr|
+|m_growTime|System.Single|4000|
+|m_growTimeMax|System.Single|5000|
+|m_minScale|System.Single|0.9|
+|m_maxScale|System.Single|1.1|
+|m_growRadius|System.Single|0.5|
+|m_growRadiusVines|System.Single|0|
+|m_needCultivatedGround|System.Boolean|True|
+|m_destroyIfCantGrow|System.Boolean|True|
+|m_tolerateHeat|System.Boolean|False|
+|m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_seedcarrot: sapling_seedcarrot
@@ -204,6 +287,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+|m_attachDistance|System.Single|0|
+
+## sapling_seedkale: sapling_seedkale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_sapling_seedkale|
+|m_growTime|System.Single|4000|
+|m_growTimeMax|System.Single|5000|
+|m_minScale|System.Single|0.9|
+|m_maxScale|System.Single|1.1|
+|m_growRadius|System.Single|0.5|
+|m_growRadiusVines|System.Single|0|
+|m_needCultivatedGround|System.Boolean|True|
+|m_destroyIfCantGrow|System.Boolean|True|
+|m_tolerateHeat|System.Boolean|False|
+|m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_seedonion: sapling_seedonion
@@ -221,6 +323,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_seedturnip: sapling_seedturnip
@@ -238,6 +341,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## sapling_turnip: sapling_turnip
@@ -255,6 +359,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|True|
 |m_tolerateHeat|System.Boolean|False|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|0|
 
 ## VineAsh_sapling: VineAsh_sapling
@@ -272,6 +377,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|False|
 |m_tolerateHeat|System.Boolean|True|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|1.8|
 
 ## VineGreen_sapling: VineGreen_sapling
@@ -289,5 +395,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_destroyIfCantGrow|System.Boolean|False|
 |m_tolerateHeat|System.Boolean|True|
 |m_tolerateCold|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_attachDistance|System.Single|1.8|
 

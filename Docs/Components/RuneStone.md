@@ -13,6 +13,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_locationName|System.String||
 |m_pinName|System.String|Pin|
 |m_showMap|System.Boolean|False|
+|m_dreamCinematic|System.String|Mountains|
+|m_hoverOffset|System.Single|0|
 
 ## BossStone_DragonQueen: BossStone_DragonQueen
 
@@ -25,6 +27,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_locationName|System.String||
 |m_pinName|System.String|Pin|
 |m_showMap|System.Boolean|False|
+|m_dreamCinematic|System.String|Plains|
+|m_hoverOffset|System.Single|0|
 
 ## BossStone_Eikthyr: BossStone_Eikthyr
 
@@ -37,6 +41,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_locationName|System.String||
 |m_pinName|System.String|Pin|
 |m_showMap|System.Boolean|False|
+|m_dreamCinematic|System.String|Black Forest|
+|m_hoverOffset|System.Single|0|
 
 ## BossStone_Fader: BossStone_Fader
 
@@ -49,6 +55,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_locationName|System.String||
 |m_pinName|System.String|Pin|
 |m_showMap|System.Boolean|False|
+|m_dreamCinematic|System.String|Deep North|
+|m_hoverOffset|System.Single|0|
 
 ## BossStone_TheElder: BossStone_TheElder
 
@@ -61,6 +69,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_locationName|System.String||
 |m_pinName|System.String|Pin|
 |m_showMap|System.Boolean|False|
+|m_dreamCinematic|System.String|Swamp|
+|m_hoverOffset|System.Single|0|
 
 ## BossStone_TheQueen: BossStone_TheQueen
 
@@ -73,6 +83,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_locationName|System.String||
 |m_pinName|System.String|Pin|
 |m_showMap|System.Boolean|False|
+|m_dreamCinematic|System.String|Ashlands|
+|m_hoverOffset|System.Single|0|
 
 ## BossStone_Yagluth: BossStone_Yagluth
 
@@ -85,4 +97,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_locationName|System.String||
 |m_pinName|System.String|Pin|
 |m_showMap|System.Boolean|False|
+|m_dreamCinematic|System.String|Mistlands|
+|m_hoverOffset|System.Single|0|
 

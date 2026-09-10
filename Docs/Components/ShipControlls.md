@@ -10,6 +10,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxUseRange|System.Single|10|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 
 ## Raft: controls
 
@@ -19,6 +20,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxUseRange|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String||
+|m_hoverOffset|System.Single|0|
 
 ## Trailership: rudder_button
 
@@ -28,6 +30,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxUseRange|System.Single|10|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 
 ## VikingShip: rudder_button
 
@@ -37,6 +40,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxUseRange|System.Single|10|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 
 ## VikingShip_Ashlands: rudder_button
 
@@ -46,4 +50,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxUseRange|System.Single|10|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 

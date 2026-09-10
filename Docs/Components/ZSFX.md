@@ -2,6 +2,74 @@
 
 The following section headers are in the format `Prefab.name: Component.name`.
 
+## aspect_Fader_Fissure_AOE: sfx_fader_fissure_fire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|3|
+|m_minVol|System.Single|3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
+## aspect_Fader_Fissure_AOE: sfx_fader_fissure_pillar
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_fader|
+|m_secondaryCaptionToken|System.String|$caption_summoning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2.4|
+|m_minVol|System.Single|2.2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|4|
+|m_minDelay|System.Single|4|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
 ## Bat: SFX_Wingsloop
 
 |Field|Type|Default Value|
@@ -28,6 +96,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|539639948|
+
+## Bat_Swamp: SFX_Wingsloop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.4|
+|m_minPitch|System.Single|1.2|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|539639948|
 
 ## BatteringRam: Audio Source
@@ -56,6 +164,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1967749462|
 
 ## BatteringRam: Audio Source (1)
@@ -84,6 +198,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1709386197|
 
 ## bee_aoe: SFX
@@ -112,6 +232,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|487475079|
 
 ## Beehive: SFX
@@ -140,6 +266,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-898097404|
 
 ## Cart: Audio Source
@@ -168,6 +300,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1460302572|
 
 ## Cart: Audio Source (1)
@@ -196,6 +334,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|366047287|
 
 ## CastleKit_brazier: sfx_fire_loop
@@ -206,8 +350,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -224,7 +368,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## CastleKit_groundtorch: sfx_fire_loop
 
@@ -235,7 +385,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -252,7 +402,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## CastleKit_groundtorch_blue: sfx_fire_loop
 
@@ -263,7 +419,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -280,7 +436,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## CastleKit_groundtorch_green: sfx_fire_loop
 
@@ -291,7 +453,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -308,7 +470,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## CastleKit_metal_groundtorch_unlit: sfx_fire_loop
 
@@ -318,8 +486,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -336,7 +504,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## Catapult: Audio Source
 
@@ -364,6 +538,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1793677495|
 
 ## Catapult: Audio Source (1)
@@ -392,7 +572,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|585077863|
+
+## Catapult_Ammo_BloodGold_Projectile_AOE: sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.8|
+|m_minVol|System.Single|1.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1819115372|
 
 ## Catapult_Ammo_Projectile_AOE: sfx
 
@@ -420,6 +640,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1819115372|
 
 ## caverock_ice_stalagmite_destruction: sfx
@@ -448,6 +674,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2059401350|
 
 ## caverock_ice_wall_destruction: sfx
@@ -476,6 +708,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1482506592|
 
 ## ChainLightning: sfx_weapons_lightning_chain
@@ -504,6 +742,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-769042592|
+
+## ChainLightningRed: sfx_weapons_lightning_chain
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.3|
+|m_minPitch|System.Single|0.7|
+|m_maxVol|System.Single|1.2|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-769042592|
 
 ## charred_fireball_aoe: sfx_charred_mage_attack_impact
@@ -532,6 +810,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-446671762|
 
 ## CinderStorm: SFX
@@ -560,6 +844,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2074207832|
 
 ## Deathsquito: SFX
@@ -588,6 +878,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|78269307|
 
 ## dverger_demister: SFX
@@ -616,6 +912,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-350020457|
 
 ## dverger_demister_large: sfx_fire_loop
@@ -626,8 +928,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -644,7 +946,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## dverger_demister_ruins: SFX
 
@@ -672,6 +980,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2124986190|
 
 ## DvergerStaffFire_clusterbomb_aoe: sfx_fire_loop
@@ -682,8 +996,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -700,7 +1014,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## DvergerStaffFire_fire_aoe: sfx_fire_loop
 
@@ -710,8 +1030,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -728,7 +1048,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## DvergerStaffIce_projectile: sfx
 
@@ -756,7 +1082,353 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|736958345|
+
+## Enemy_Barka_Attack_BackSlam: Enemy_Barka_Attack_BackSlam
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|632690325|
+
+## Enemy_Barka_Attack_HeavyImpact: Enemy_Barka_Attack_HeavyImpact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-513576444|
+
+## Enemy_Barka_Attack_HeavySwings: Enemy_Barka_Attack_HeavySwings
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1200767284|
+
+## Enemy_Barka_Attack_SlamDrive: Enemy_Barka_Attack_SlamDrive
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1012356391|
+
+## Enemy_Barka_Attack_WhipFlurry: Enemy_Barka_Attack_WhipFlurry
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1956325121|
+
+## Enemy_Barka_Attack_WhipSlam: Enemy_Barka_Attack_WhipSlam
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-949653602|
+
+## Enemy_Barka_Death: Enemy_Barka_Death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.97|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1332975478|
+
+## Enemy_Barka_Footstep: Enemy_Barka_Footstep
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1477311798|
+
+## Enemy_Barka_Hurt: Enemy_Barka_Hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|1.05|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1990397971|
+
+## Enemy_Barka_Idle: Enemy_Barka_Idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.65|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-936290964|
 
 ## EvilHeart_Forest: sfx
 
@@ -784,6 +1456,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-958919317|
 
 ## EvilHeart_Swamp: sfx
@@ -812,6 +1490,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2039209986|
 
 ## Fader_Fissure_AOE: sfx_fader_fissure_fire
@@ -840,6 +1524,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-44709246|
 
 ## Fader_Fissure_AOE: sfx_fader_fissure_pillar
@@ -868,6 +1558,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-44709246|
 
 ## Fader_Roar_Projectile: sfx_fader_charredsummon_projectile
@@ -896,6 +1592,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-44709246|
 
 ## fermenter: SFX
@@ -924,7 +1626,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-646712673|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-73716780|
 
 ## fermenter: SFX
 
@@ -952,7 +1660,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-73716780|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-646712673|
 
 ## Fire: sfx_fire_loop
 
@@ -962,8 +1676,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -980,7 +1694,387 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
+
+## FrostWisp: SFX_MagicLoop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.25|
+|m_minPitch|System.Single|1.1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|887639025|
+
+## FrozenKing_p2: sfx_frozenking_death_crystal_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.35|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|987694202|
+
+## FrozenKing_P2_Projectile_Bonemass: sfx_fader_charredsummon_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
+## FrozenKing_P2_Projectile_Eikthyr: sfx_fader_charredsummon_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
+## FrozenKing_P2_Projectile_Elder: sfx_fader_charredsummon_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
+## FrozenKing_P2_Projectile_Fader: sfx_fader_charredsummon_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
+## FrozenKing_P2_Projectile_Moder: sfx_fader_charredsummon_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
+## FrozenKing_P2_Projectile_Queen: sfx_fader_charredsummon_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
+## FrozenKing_P2_Projectile_Yagluth: sfx_fader_charredsummon_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-44709246|
+
+## FrozenKing_p3: sfx_frozenking_idle_chained_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.07|
+|m_minVol|System.Single|0.07|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|95445879|
+
+## FrozenKing_p3: sfx_frozenking_idle_phase3_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.3|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-615069639|
 
 ## fx_Abomination_arise: sfx_abom_arise_init
 
@@ -1008,6 +2102,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-927076165|
 
 ## fx_Abomination_attack1: sfx_abom_impact
@@ -1036,6 +2136,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2085438394|
 
 ## fx_Abomination_attack1_start: fx_Abomination_attack1_start
@@ -1064,6 +2170,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-155500416|
 
 ## fx_Abomination_attack1_trailon: fx_Abomination_attack1_trailon
@@ -1092,6 +2204,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1292922220|
 
 ## fx_Abomination_attack2: sfx_abom_impact
@@ -1120,6 +2238,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|929526424|
 
 ## fx_Abomination_attack2: sfx_troll_rock_destroyed
@@ -1148,6 +2272,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-717941842|
 
 ## fx_Abomination_attack2_lift: fx_Abomination_attack2_lift
@@ -1176,6 +2306,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1632829971|
 
 ## fx_Abomination_attack2_start: fx_Abomination_attack2_start
@@ -1204,6 +2340,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1451534701|
 
 ## fx_Abomination_attack3: sfx_abom_impact
@@ -1232,6 +2374,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|368903662|
 
 ## fx_Abomination_attack3_start: fx_Abomination_attack3_start
@@ -1260,6 +2408,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1953661787|
 
 ## fx_Adrenaline1: sfx_shieldgenerator_startup
@@ -1288,6 +2442,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-653365451|
 
 ## fx_Adrenaline1: sfx_ui_player_firedamage_ignite
@@ -1316,6 +2476,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-217079593|
 
 ## fx_altar_charred_destruction: sfx
@@ -1344,6 +2510,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-231629478|
 
 ## fx_altar_crystal_destruction: sfx
@@ -1372,6 +2544,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1288909907|
 
 ## fx_asksvin_pet: SFX
@@ -1400,6 +2578,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|True|
+|m_controllerAudioVolume|System.Single|1.5|
 |m_hash|System.Int32|-81174574|
 
 ## fx_asksvin_tamed: SFX
@@ -1428,7 +2612,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|566740269|
+
+## fx_aspect_death: sfx_frozenking_spirit_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.5|
+|m_minVol|System.Single|1.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1900449153|
 
 ## fx_babyseeker_death: SFX
 
@@ -1456,6 +2680,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|837807764|
 
 ## fx_backstab: sfx_backstab
@@ -1484,6 +2714,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1536720079|
 
 ## fx_bat_death: SFX
@@ -1512,6 +2748,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1211009476|
 
 ## fx_bat_death: SFX_Vocal
@@ -1540,6 +2782,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-65985811|
 
 ## fx_bat_hit: SFX
@@ -1568,6 +2816,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1441564474|
 
 ## fx_bat_hit: sfx_vocal
@@ -1596,6 +2850,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1993733895|
 
 ## fx_batteringram_fire: sfx_battering_ram_impact
@@ -1624,6 +2884,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|944910193|
 
 ## fx_bjorn_death: sfx_lox_death
@@ -1652,6 +2918,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|566331989|
 
 ## fx_bjorn_hit: sfx_troll_hit
@@ -1680,6 +2952,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|675580105|
 
 ## fx_blobtar_tarball_hit: sfx
@@ -1708,6 +2986,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1241543689|
 
 ## fx_boar_pet: SFX
@@ -1736,6 +3020,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|True|
+|m_controllerAudioVolume|System.Single|1.5|
 |m_hash|System.Int32|1418173715|
 
 ## fx_Bonemass_aoe_start: fx_Bonemass_aoe_start
@@ -1764,6 +3054,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.75|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|235411336|
 
 ## fx_Bonemass_aoe_start: sfx_delayed
@@ -1792,6 +3088,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|896447216|
 
 ## fx_BonusYield: sfx_secretfound
@@ -1820,6 +3122,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|False|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-199638318|
 
 ## fx_candle_addfuel: sfx
@@ -1848,6 +3156,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1878711425|
 
 ## fx_candle_off: sfx
@@ -1876,6 +3190,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1669142365|
 
 ## fx_candle_on: sfx
@@ -1904,6 +3224,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1878711425|
 
 ## fx_chainlightning_hit: sfx_shockwave (1)
@@ -1932,6 +3258,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|891638325|
 
 ## fx_chicken_birth: sfx
@@ -1960,6 +3292,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-949774411|
 
 ## fx_chicken_death: sfx
@@ -1988,6 +3326,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1494140100|
 
 ## fx_chicken_lay_egg: sfx
@@ -2016,6 +3360,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1581436673|
 
 ## fx_chicken_pet: SFX
@@ -2044,6 +3394,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|True|
+|m_controllerAudioVolume|System.Single|1.5|
 |m_hash|System.Int32|-1586468556|
 
 ## fx_Cinder_storm_hit: SFX
@@ -2072,6 +3428,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1715052978|
 
 ## fx_CinderFire_Burn: sfx_tree_firedamage_tick
@@ -2100,6 +3462,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1567539468|
 
 ## fx_clusterbombstaff_hit: sfx_staff_grenade_impact_big
@@ -2128,6 +3496,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1646489655|
 
 ## fx_clusterbombstaff_splinter_hit: sfx_staff_grenade_impact_small
@@ -2156,6 +3530,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.75|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1533987619|
 
 ## fx_creature_tamed: SFX
@@ -2184,6 +3564,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1615524309|
 
 ## fx_crit: sfx_crit
@@ -2212,6 +3598,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-44573614|
 
 ## fx_crystal_destruction: sfx
@@ -2240,6 +3632,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-959542431|
 
 ## fx_deathsquito_hit: SFX
@@ -2268,6 +3666,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1974212346|
 
 ## fx_deatsquito_death: SFX
@@ -2296,6 +3700,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-56528395|
 
 ## fx_dragon_land: sfx_troll_footstep
@@ -2324,6 +3734,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1902907823|
 
 ## fx_dragon_land: sfx_troll_rock_destroyed
@@ -2352,6 +3768,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-393720232|
 
 ## fx_drown: SFX
@@ -2380,6 +3802,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1532844329|
 
 ## fx_Dverger_hit: sfx
@@ -2408,6 +3836,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|694215168|
 
 ## fx_DvergerMage_Fire_hit: sfx
@@ -2436,6 +3870,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1050842227|
 
 ## fx_DvergerMage_Ice_hit: sfx_dragon_coldball_explode
@@ -2464,6 +3904,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1932228860|
 
 ## fx_DvergerMage_Mistile_attack: sfx
@@ -2492,6 +3938,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1662744049|
 
 ## fx_DvergerMage_Mistile_die: sfx
@@ -2520,6 +3972,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1125874010|
 
 ## fx_DvergerMage_MistileSpawn: sfx
@@ -2548,6 +4006,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|95934580|
 
 ## fx_DvergerMage_Nova_ring: sfx_shockwave
@@ -2576,6 +4040,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1986065948|
 
 ## fx_DvergerMage_Support_hit: sfx
@@ -2604,6 +4074,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|692372271|
 
 ## fx_DvergerMage_Support_start: sfx
@@ -2632,6 +4108,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|139412511|
 
 ## fx_egg_splash: SFX
@@ -2660,6 +4142,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1661063049|
 
 ## fx_eikthyr_forwardshockwave: sfx_shockwave (1)
@@ -2688,6 +4176,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-300044128|
 
 ## fx_eikthyr_stomp: sfx_shockwave
@@ -2716,6 +4210,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-786114696|
 
 ## fx_eikthyr_stomp: sfx_shockwave (1)
@@ -2744,6 +4244,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2068195192|
 
 ## fx_fader_meteor_hit: sfx_fader_meteor_impact
@@ -2772,6 +4278,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-44709246|
 
 ## fx_fader_meteorsmash: sfx_fader_spawn_meteor_arrival
@@ -2800,6 +4312,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-977365984|
 
 ## fx_Fader_Roar_Projectile_Hit: sfx_fader_charredsummon_impact
@@ -2828,6 +4346,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-44709246|
 
 ## fx_fallenfalkyrie_spin: sfx_birdcall
@@ -2856,6 +4380,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|294182455|
 
 ## fx_fallenvalkyrie_death: SFX
@@ -2884,6 +4414,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|722731779|
 
 ## fx_FeastAshlandsEat: sfx_eat
@@ -2912,6 +4448,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastAshlandsEat: sfx_eat (1)
@@ -2940,6 +4482,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastBlackForestEat: sfx_eat
@@ -2968,6 +4516,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastBlackForestEat: sfx_eat (1)
@@ -2996,6 +4550,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastMeadowsEat: sfx_eat
@@ -3024,6 +4584,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastMeadowsEat: sfx_eat (1)
@@ -3052,6 +4618,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastMistlandsEat: sfx_eat
@@ -3080,6 +4652,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastMistlandsEat: sfx_eat (1)
@@ -3108,6 +4686,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastMountainsEat: sfx_eat
@@ -3136,6 +4720,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastMountainsEat: sfx_eat (1)
@@ -3164,6 +4754,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastOceansEat: sfx_eat
@@ -3192,6 +4788,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastOceansEat: sfx_eat (1)
@@ -3220,6 +4822,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastPlainsEat: sfx_eat
@@ -3248,6 +4856,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastPlainsEat: sfx_eat (1)
@@ -3276,6 +4890,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastSmall: fx_FeastSmall
@@ -3304,6 +4924,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-948773102|
 
 ## fx_FeastSwampsEat: sfx_eat
@@ -3332,6 +4958,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastSwampsEat: sfx_eat (1)
@@ -3360,6 +4992,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## fx_FeastTemplate: fx_FeastTemplate
@@ -3388,6 +5026,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2009483133|
 
 ## fx_fenring_burning_hand: SFX
@@ -3416,6 +5060,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|795098505|
 
 ## fx_fenring_burning_hand_long: SFX
@@ -3444,6 +5094,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|152554827|
 
 ## fx_fenring_flames: SFX
@@ -3472,6 +5128,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|300944766|
 
 ## fx_fenring_frost: SFX
@@ -3500,6 +5162,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-705164796|
 
 ## fx_fenring_frost_hand: SFX
@@ -3528,6 +5196,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1724586323|
 
 ## fx_fenring_frost_hand_aoestart: SFX
@@ -3556,6 +5230,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1320810244|
 
 ## fx_fenring_frost_hand_long: SFX
@@ -3584,6 +5264,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1453264935|
 
 ## fx_fenring_icenova: sfx_1
@@ -3612,6 +5298,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-904874209|
 
 ## fx_fenring_icenova: sfx_2
@@ -3640,6 +5332,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1416290930|
 
 ## fx_fenring_icenova: sfx_3
@@ -3668,7 +5366,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1035094778|
+
+## fx_fimbulvinter_meteor_hit: sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1679959319|
+
+## fx_fimbulvinter_meteor_hit: sfx (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-427744377|
 
 ## fx_fireball_staff_explosion: sfx
 
@@ -3696,6 +5468,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2008102564|
 
 ## fx_fireskeleton_nova: sfx_1
@@ -3724,6 +5502,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|718593356|
 
 ## fx_float_hitwater: sfx_footstep_water
@@ -3752,6 +5536,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-629509089|
 
 ## fx_float_nibble: sfx_footstep_water
@@ -3780,7 +5570,251 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1695250188|
+
+## fx_frostfoundry_addfuel: SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1345614794|
+
+## fx_frostfoundry_additem: sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1852866935|
+
+## fx_frozenking_chain_ground_impact_1: sfx_frozenking_frozenspark_whip
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|258912528|
+
+## fx_frozenking_chain_ground_impact_2: sfx_frozenking_frozenspark_whip
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|258912528|
+
+## fx_frozenking_spikesmash: sfx_fader_spawn_meteor_arrival
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|17.014|
+|m_minDelay|System.Single|17.014|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-977365984|
+
+## fx_frozenking_spin: sfx_frozenking_frozentwirl_coldvortex
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|420632163|
+
+## fx_frozenking_tendrilspawn: sfx_frozenking_tendril_grow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.95|
+|m_minVol|System.Single|0.65|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-320170353|
 
 ## fx_gdking_rootspawn: SFX
 
@@ -3808,6 +5842,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1487952048|
 
 ## fx_gjall_death: SFX
@@ -3836,6 +5876,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.75|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1416617399|
 
 ## fx_gjall_egg_splat: SFX
@@ -3864,6 +5910,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1109211070|
 
 ## fx_gjall_taunt: fx_gjall_taunt
@@ -3892,6 +5944,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1141932926|
 
 ## fx_gjall_taunt: sfx
@@ -3920,6 +5978,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|40|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1349223446|
 
 ## fx_goblinbrute_groundslam: sfx_troll_rock_destroyed
@@ -3948,6 +6012,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|980228123|
 
 ## fx_goblinking_death: sfx
@@ -3976,6 +6046,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1210960787|
 
 ## fx_goblinking_death: sfx (1)
@@ -4004,6 +6080,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1522398394|
 
 ## fx_goblinking_hit: fx_goblinking_hit
@@ -4032,6 +6114,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1039099864|
 
 ## fx_goblinking_meteor_hit: sfx
@@ -4060,6 +6148,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1679959319|
 
 ## fx_goblinking_meteor_hit: sfx (1)
@@ -4088,6 +6182,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.5|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-427744377|
 
 ## fx_goblinking_nova: sfx_shockwave
@@ -4116,6 +6216,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.7|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|782004445|
 
 ## fx_goblinking_nova: SFx_wall
@@ -4144,6 +6250,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1572243611|
 
 ## fx_GoblinShieldBreak: sfx
@@ -4172,6 +6284,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1865864975|
 
 ## fx_GoblinShieldHit: sfx
@@ -4200,6 +6318,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1095623265|
 
 ## fx_GP_Activation: sfx_expl
@@ -4228,6 +6352,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.3|
 |m_hash|System.Int32|2004057870|
 
 ## fx_GP_Activation: sfx_expl (1)
@@ -4256,7 +6386,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.3|
 |m_hash|System.Int32|1287294136|
+
+## fx_GP_Activation: sfx_expl (1)_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.3|
+|m_hash|System.Int32|1287294136|
+
+## fx_GP_Activation: sfx_expl_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.3|
+|m_hash|System.Int32|2004057870|
 
 ## fx_GP_Player: sfx_expl
 
@@ -4284,6 +6488,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-828974312|
 
 ## fx_GP_Player: sfx_expl (1)
@@ -4312,6 +6522,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1442548160|
 
 ## fx_GP_Stone: sfx
@@ -4340,6 +6556,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|697563483|
 
 ## fx_guardstone_activate: sfx
@@ -4368,6 +6590,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1072881022|
 
 ## fx_guardstone_deactivate: sfx
@@ -4396,6 +6624,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1672035775|
 
 ## fx_guardstone_permitted_add: sfx
@@ -4424,6 +6658,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-99430148|
 
 ## fx_guardstone_permitted_removed: sfx
@@ -4452,6 +6692,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|271325787|
 
 ## fx_hen_death: sfx
@@ -4480,6 +6726,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1136537376|
 
 ## fx_hen_love: sfx_love
@@ -4508,6 +6760,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2113971928|
 
 ## fx_HildirChest_Unlock: Creak
@@ -4536,6 +6794,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2115714513|
 
 ## fx_HildirChest_Unlock: Open Noise
@@ -4564,6 +6828,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-596534566|
 
 ## fx_HildirChest_Unlock: Unlock Noise
@@ -4592,6 +6862,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1035623852|
 
 ## fx_himminafl_aoe: sfx_shockwave (1)
@@ -4620,6 +6896,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1977922290|
 
 ## fx_himminafl_hit: sfx_shockwave (1)
@@ -4648,6 +6930,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-122229813|
 
 ## fx_hottub_addwood: sfx_hottub_add
@@ -4676,6 +6964,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|565753123|
 
 ## fx_icefloor_destruction: sfx
@@ -4704,6 +6998,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|493505808|
 
 ## fx_iceshard_hit: sfx
@@ -4732,6 +7032,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1482856841|
 
 ## fx_iceshard_launch: sfx
@@ -4760,7 +7066,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|0.6|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-780565009|
+
+## fx_IceShelf_Damage: sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$caption_iceshelf_breaking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.25|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-444302316|
 
 ## fx_icicle_destruction: sfx
 
@@ -4788,6 +7134,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2099152362|
 
 ## fx_jelly_pickup: sfx_MudDestroyed
@@ -4816,7 +7168,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1172617292|
+
+## fx_JotunWitch_LightningBolt_Explosion: sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-111093931|
+
+## fx_JotunWitch_LightningBolt_Trigger: sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-111093931|
 
 ## fx_leviathan_leave: SFX
 
@@ -4844,6 +7270,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|374235937|
 
 ## fx_leviathan_leave: SFX_delayed
@@ -4872,6 +7304,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1374925023|
 
 ## fx_leviathan_leave: SFX_rumble
@@ -4900,6 +7338,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1025999644|
 
 ## fx_leviathan_leave: SFX_sink
@@ -4928,6 +7372,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1242468946|
 
 ## fx_leviathan_reaction: SFX
@@ -4956,6 +7406,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1524663924|
 
 ## fx_leviathan_reaction: SFX_rumble
@@ -4984,6 +7440,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1761822665|
 
 ## fx_leviathanLava_leave: sfx_leviathanlava_sink
@@ -5012,6 +7474,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-143846449|
 
 ## fx_leviathanLava_reaction: sfx_leviathanlava_taunt
@@ -5040,6 +7508,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1206039251|
 
 ## fx_Lightning: sfx
@@ -5068,6 +7542,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|933372644|
+
+## fx_Lightning_red: sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|933372644|
 
 ## fx_lightningstaffprojectile_hit: sfx_shockwave (1)
@@ -5096,6 +7610,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1247007084|
 
 ## fx_lightningweapon_hit: sfx_shockwave (1)
@@ -5124,6 +7644,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1509150052|
 
 ## fx_lox_death: sfx_lox_death
@@ -5152,6 +7678,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|566331989|
 
 ## fx_lox_hit: sfx_troll_hit
@@ -5180,6 +7712,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|675580105|
 
 ## fx_lox_pet: SFX
@@ -5208,6 +7746,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|True|
+|m_controllerAudioVolume|System.Single|1.5|
 |m_hash|System.Int32|-64744723|
 
 ## fx_lox_tamed: SFX
@@ -5236,6 +7780,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|566740269|
 
 ## fx_loxcalf_death: sfx_lox_death
@@ -5264,7 +7814,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2131904671|
+
+## fx_moose_death: sfx_moose_death_explode
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_death|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2014605812|
+
+## fx_moose_hit: sfx_troll_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|675580105|
 
 ## fx_oven_add_food: sfx
 
@@ -5292,6 +7916,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1852866935|
 
 ## fx_oven_add_wood: SFX
@@ -5320,6 +7950,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1345614794|
 
 ## fx_oven_produce: SFX
@@ -5348,6 +7984,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1017210284|
 
 ## fx_perfectdodge: SFX
@@ -5376,6 +8018,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1771331381|
 
 ## fx_Potion_fireresist: sfx
@@ -5404,6 +8052,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1008964837|
 
 ## fx_Potion_frostresist: sfx
@@ -5432,6 +8086,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1008964837|
 
 ## fx_QueenPierceGround: SFX
@@ -5460,7 +8120,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|583407658|
+
+## fx_QueenPierceGround: SFX (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1438827396|
 
 ## fx_QueenPierceGround: SFX (1)
 
@@ -5488,35 +8188,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1731706305|
-
-## fx_QueenPierceGround: SFX (1)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1.1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.4|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-1438827396|
 
 ## fx_QueenPierceGround: SFX (2)
 
@@ -5544,6 +8222,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-832185785|
 
 ## fx_radiation_hit: sfx
@@ -5572,6 +8256,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1786854220|
 
 ## fx_redlightning_burst: sfx
@@ -5600,6 +8290,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-111093931|
 
 ## fx_refinery_addfuel: sfx (1)
@@ -5628,6 +8324,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2113960810|
 
 ## fx_refinery_addtissue: sfx
@@ -5656,6 +8358,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2102286842|
 
 ## fx_refinery_produce: SFX
@@ -5684,6 +8392,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-9746747|
 
 ## fx_seeker_death: SFX
@@ -5712,6 +8426,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2126856165|
 
 ## fx_seeker_melee_hit: fx_seeker_melee_hit
@@ -5740,6 +8460,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1073453773|
 
 ## fx_seeker_spawn: SFX
@@ -5768,6 +8494,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-144234685|
 
 ## fx_seekerbrute_death: SFX
@@ -5796,6 +8528,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1768793506|
 
 ## fx_shaman_fireball_expl: sfx
@@ -5824,6 +8562,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1242271322|
 
 ## fx_shaman_protect: sfx
@@ -5852,6 +8596,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1520535327|
 
 ## fx_shaman_protect: sfx_shield
@@ -5880,6 +8630,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1627483981|
 
 ## fx_shield_start: sfx
@@ -5908,7 +8664,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-958812875|
+
+## fx_shield_start_frost: sfx_stafffrostorbs_shield_spawn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.15|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
 
 ## fx_shieldgenerator_attack: sfx_shockwave
 
@@ -5936,6 +8732,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-622114542|
 
 ## fx_shieldgenerator_attack: sfx_shockwave (1)
@@ -5964,6 +8766,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|827472584|
 
 ## fx_skeleton_pet: SFX
@@ -5992,6 +8800,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|True|
+|m_controllerAudioVolume|System.Single|1.5|
 |m_hash|System.Int32|109997858|
 
 ## fx_sledge_demolisher_hit: scifisound
@@ -6020,6 +8834,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-372254122|
 
 ## fx_sledge_demolisher_hit: sfx_sledge_iron_hit
@@ -6048,6 +8868,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|367901035|
 
 ## fx_StaffShield_Break: sfx
@@ -6076,6 +8902,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1966136996|
 
 ## fx_StaffShield_Hit: sfx
@@ -6104,7 +8936,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1732087398|
+
+## fx_stone_L_destroyed: sfx_rock_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1869233457|
+
+## fx_stone_R_destroyed: sfx_rock_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1869233457|
 
 ## fx_summon_skeleton: sfx
 
@@ -6132,6 +9038,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2056305861|
 
 ## fx_summon_skeleton_spawn: sfx emerge
@@ -6160,6 +9072,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1933381218|
 
 ## fx_summon_skeleton_spawn: sfx magic
@@ -6188,6 +9106,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|370182470|
 
 ## fx_summon_skeleton_spawn: sfx rock 1
@@ -6216,7 +9140,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1037556014|
+
+## fx_summon_spirit_spawn: sfx_staffspiritcaller_summon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.65|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|0|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
 
 ## fx_summon_start: sfx
 
@@ -6244,6 +9208,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1708429379|
 
 ## fx_summon_troll: sfx_staff_trollstav_cast
@@ -6272,6 +9242,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|317753326|
 
 ## fx_summon_twitcher_spawn: sfx_charred_mage_spawn_ground
@@ -6300,6 +9276,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-752271563|
 
 ## fx_sw_addflax: sfx
@@ -6328,6 +9310,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1629254355|
 
 ## fx_sw_produce: sfx
@@ -6356,6 +9344,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-58954867|
 
 ## fx_tar_bubbles: sfx_tar_bubbles
@@ -6384,7 +9378,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|901212441|
+
+## fx_tendril_death: sfx_frozenking_tendril_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1287000645|
 
 ## fx_tentaroot_death: SFX
 
@@ -6412,6 +9446,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1795851206|
 
 ## fx_tick_death: SFX
@@ -6440,6 +9480,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1696846279|
 
 ## fx_tombstone_destroyed: sfx_rock_destroyed
@@ -6468,6 +9514,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1869233457|
 
 ## fx_totem_destroyed: sfx_dragonegg_destroy
@@ -6496,6 +9548,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1907528227|
 
 ## fx_trap_arm: sfx_build_hammer_metal
@@ -6524,6 +9582,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-215848851|
 
 ## fx_trap_arm: sfx_metal
@@ -6552,6 +9616,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2070890852|
 
 ## fx_trap_trigger: sfx_build_hammer_metal
@@ -6580,6 +9650,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1627883699|
 
 ## fx_trap_trigger: sfx_sledge_hit
@@ -6608,6 +9684,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|318055071|
 
 ## fx_turret_addammo: sfx
@@ -6636,6 +9718,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1413736147|
 
 ## fx_turret_fire: sfx
@@ -6664,6 +9752,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|209726272|
 
 ## fx_turret_newtarget: sfx_metal
@@ -6692,6 +9786,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1267688556|
 
 ## fx_turret_notarget: sfx_metal
@@ -6720,6 +9820,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2128801327|
 
 ## fx_turret_reload: sfx
@@ -6748,6 +9854,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-684035187|
 
 ## fx_turret_warmup: sfx_metal
@@ -6776,6 +9888,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|148772731|
 
 ## fx_unbjorn_death: sfx_lox_death
@@ -6804,6 +9922,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|566331989|
 
 ## fx_unbjorn_hit: sfx_troll_hit
@@ -6832,7 +9956,149 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|675580105|
+
+## fx_UpgradeStation_Fail: sfx_shockwave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-307133978|
+
+## fx_UpgradeStation_Fail: sfx_shockwave (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1871595387|
+
+## fx_UpgradeStation_Success: sfx_shockwave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-307133978|
+
+## fx_UpgradeStation_Success: sfx_shockwave (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1871595387|
 
 ## fx_vines_hit: sfx
 
@@ -6860,6 +10126,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1221803355|
 
 ## fx_WaterImpact_Big: SFX
@@ -6888,6 +10160,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1431975933|
 
 ## fx_wolf_pet: SFX
@@ -6916,6 +10194,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|True|
+|m_controllerAudioVolume|System.Single|1.5|
 |m_hash|System.Int32|681198179|
 
 ## hearth: sfx_fire_loop
@@ -6927,7 +10211,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|0.6|
@@ -6944,7 +10228,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## HouseFire: sfx_fire_loop
 
@@ -6954,8 +10244,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -6972,7 +10262,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## lightningAOE: sfx_shockwave
 
@@ -7000,6 +10296,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-307133978|
 
 ## lightningAOE: sfx_shockwave (1)
@@ -7028,6 +10330,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1871595387|
 
 ## Mistile: SFX
@@ -7056,7 +10364,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1401817141|
+
+## Morkhalla_giant_railing_torch: sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|6|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0.1|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## MountainKit_brazier: sfx_fire_loop
 
@@ -7067,7 +10415,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -7084,7 +10432,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## MountainKit_brazier_blue: sfx_fire_loop
 
@@ -7094,8 +10448,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -7112,7 +10466,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## MountainKit_brazier_purple: sfx_fire_loop
 
@@ -7122,8 +10482,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -7140,7 +10500,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
+
+## Pickable_FrostCoreHanger: sfx_frostcore_idle_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|8|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1590159190|
+
+## Pickable_GlowWorm: sfx_glowworm_idle_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|6|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.35|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2044458218|
 
 ## piece_beehive: SFX
 
@@ -7168,9 +10602,49 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1604073357|
 
-## piece_groundtorch: sfx_fire_loop
+## piece_birdnest: SFX
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1604073357|
+
+## piece_EternalPyre: sfx_EternalPyre_Drone_Loop
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7180,6 +10654,176 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|2|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-851502317|
+
+## piece_EternalPyre: sfx_EternalPyre_Embers_Loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-851502317|
+
+## piece_EternalPyre: sfx_EternalPyre_Fire_Loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-851502317|
+
+## piece_FrostFoundry: sfx_frostfoundry_activate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2036729124|
+
+## piece_FrostFoundry: sfx_frostfoundry_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-851502317|
+
+## piece_groundtorch: sfx_fire_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -7196,7 +10840,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## piece_groundtorch_blue: sfx_fire_loop
 
@@ -7207,7 +10857,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|6|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|0.6|
@@ -7224,7 +10874,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## piece_groundtorch_mist: SFX
 
@@ -7252,6 +10908,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-894077021|
 
 ## piece_jackoturnip: sfx_fire_loop
@@ -7262,8 +10924,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|2|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|5|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -7280,7 +10942,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## piece_magetable: SFX
 
@@ -7308,6 +10976,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1629322358|
 
 ## piece_shieldgenerator: sfx_shieldgenerator_powered_loop
@@ -7336,6 +11010,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|4|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2048667594|
 
 ## radiation: sfx
@@ -7364,6 +11044,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1552169052|
 
 ## SeekerQueen_spithit: sfx
@@ -7392,6 +11078,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-380323485|
 
 ## sfx_abomination_arise_end: sfx_abomination_arise_end
@@ -7420,6 +11112,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1271578521|
 
 ## sfx_Abomination_attack: sfx_Abomination_attack
@@ -7448,6 +11146,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1025224775|
 
 ## sfx_Abomination_Attack2_slam_whoosh: sfx_Abomination_Attack2_slam_whoosh
@@ -7476,6 +11180,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1223323157|
 
 ## sfx_Abomination_swing: sfx_Abomination_swing
@@ -7504,6 +11214,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1750715923|
 
 ## sfx_arbalest_fire: sfx_arbalest_fire
@@ -7532,6 +11248,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1411424932|
 
 ## sfx_archery_target_hit: sfx_archery_target_hit
@@ -7560,6 +11282,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1493305394|
 
 ## sfx_arrow_hit: sfx_arrow_hit
@@ -7588,6 +11316,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1238821377|
 
 ## sfx_asksvin_alert: sfx_asksvin_alert
@@ -7616,6 +11350,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1827415634|
 
 ## sfx_asksvin_bite: sfx_asksvin_bite
@@ -7644,6 +11384,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1040619061|
 
 ## sfx_asksvin_death: sfx_asksvin_death
@@ -7672,6 +11418,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1586767075|
 
 ## sfx_asksvin_footstep: sfx_asksvin_footstep
@@ -7700,6 +11452,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1354439244|
 
 ## sfx_asksvin_idle: sfx_asksvin_idle
@@ -7728,6 +11486,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1919005823|
 
 ## sfx_asksvin_pounce: sfx_asksvin_pounce
@@ -7756,6 +11520,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|109536489|
 
 ## sfx_atgeir_attack: sfx_atgeir_attack
@@ -7784,6 +11554,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-127946458|
 
 ## sfx_atgeir_attack_secondary: sfx_atgeir_attack_secondary
@@ -7812,6 +11588,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|730949931|
 
 ## sfx_axe_flint_hit: sfx_axe_flint_hit
@@ -7840,6 +11622,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-398723199|
 
 ## sfx_axe_hit: sfx_axe_hit
@@ -7852,10 +11640,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.95|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.85|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.4|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -7868,6 +11656,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-948773102|
 
 ## sfx_axe_swing: sfx_axe_swing
@@ -7896,7 +11690,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-105093066|
+
+## sfx_babyseal_idle: sfx_babyseal_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_seal_pup|
+|m_secondaryCaptionToken|System.String|$caption_idle|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-848093829|
 
 ## sfx_barley_hit: sfx_barley_hit
 
@@ -7924,6 +11758,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1735876063|
 
 ## sfx_barnacle_destroyed: sfx_barnacle_destroyed
@@ -7952,6 +11792,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1984239363|
 
 ## sfx_bat_alerted: sfx_bat_alerted
@@ -7980,6 +11826,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1817907027|
 
 ## sfx_bat_attack: sfx_bat_attack
@@ -8008,6 +11860,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-324449754|
 
 ## sfx_bat_idle: sfx_bat_idle
@@ -8036,6 +11894,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1699875992|
 
 ## sfx_battering_ram_anticipation: sfx_battering_ram_anticipation
@@ -8064,6 +11928,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1466997851|
 
 ## sfx_battleaxe_hit: sfx_battleaxe_hit
@@ -8076,10 +11946,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|0.8|
-|m_minPitch|System.Single|0.7|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|0.9|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.4|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -8092,7 +11962,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1461983786|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-668151532|
 
 ## sfx_battleaxe_swing_start: sfx_battleaxe_swing_start
 
@@ -8120,6 +11996,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1499687566|
 
 ## sfx_battleaxe_swing_wosh: sfx_battleaxe_swing_wosh
@@ -8148,6 +12030,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1544671131|
 
 ## sfx_bear_bite_attack: sfx_bear_bite_attack
@@ -8176,6 +12064,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1790193528|
 
 ## sfx_bear_bite_attack_impact: sfx_bear_bite_attack_impact
@@ -8204,6 +12098,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2136427640|
 
 ## sfx_bear_claw_attack slash: sfx_bear_claw_attack slash
@@ -8232,6 +12132,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|928532426|
 
 ## sfx_bear_claw_attack: sfx_bear_claw_attack
@@ -8260,6 +12166,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1695466617|
 
 ## sfx_bear_death: sfx_bear_death
@@ -8288,6 +12200,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|499014845|
 
 ## sfx_bear_footstep: sfx_bear_footstep
@@ -8316,6 +12234,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.7|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1235045673|
 
 ## sfx_bear_hurt: sfx_bear_hurt
@@ -8344,6 +12268,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1473318911|
 
 ## sfx_bear_idle: sfx_bear_idle
@@ -8372,6 +12302,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1607889661|
 
 ## sfx_beehive_destroyed: sfx_beehive_destroyed
@@ -8400,6 +12336,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|704275202|
 
 ## sfx_beehive_hit: sfx_beehive_hit
@@ -8428,6 +12370,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1648596837|
 
 ## sfx_blob_alerted: sfx_blob_alerted
@@ -8456,6 +12404,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2142334067|
 
 ## sfx_blob_attack: sfx_blob_attack
@@ -8484,6 +12438,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1541452372|
 
 ## sfx_blob_death: sfx_blob_death
@@ -8512,6 +12472,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1634464567|
 
 ## sfx_blob_hit: sfx_blob_hit
@@ -8540,6 +12506,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|698715087|
 
 ## sfx_blob_idle: sfx_blob_idle
@@ -8568,6 +12540,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-211425486|
 
 ## sfx_blob_jump: sfx_blob_jump
@@ -8596,6 +12574,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1312369329|
 
 ## sfx_bloblava_alert: sfx_bloblava_alert
@@ -8624,6 +12608,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1568725269|
 
 ## sfx_bloblava_death: sfx_bloblava_death
@@ -8652,6 +12642,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|942023757|
 
 ## sfx_blobLava_explosion: sfx_blobLava_explosion
@@ -8680,6 +12676,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2024597597|
 
 ## sfx_bloblava_grow: sfx_bloblava_grow
@@ -8708,6 +12710,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|757167130|
 
 ## sfx_bloblava_idle: sfx_bloblava_idle
@@ -8736,6 +12744,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|712395696|
 
 ## sfx_bloblava_jump: sfx_bloblava_jump
@@ -8764,6 +12778,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2100615021|
 
 ## sfx_blobtar_attack_spit: sfx_blobtar_attack_spit
@@ -8792,6 +12812,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1223994895|
 
 ## sfx_blobtar_idle: sfx_blobtar_idle
@@ -8820,6 +12846,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-272768786|
 
 ## sfx_boar_alerted: sfx_boar_alerted
@@ -8848,6 +12880,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|675469563|
 
 ## sfx_boar_attack: sfx_boar_attack
@@ -8876,6 +12914,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1315879777|
 
 ## sfx_boar_birth: sfx_boar_birth
@@ -8904,6 +12948,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1165831227|
 
 ## sfx_boar_death: sfx_boar_death
@@ -8932,6 +12982,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|817910831|
 
 ## sfx_boar_hit: sfx_boar_hit
@@ -8960,6 +13016,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1243024736|
 
 ## sfx_boar_idle: sfx_boar_idle
@@ -8988,6 +13050,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|933070853|
 
 ## sfx_boar_love: sfx_boar_love
@@ -9016,6 +13084,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1151431732|
 
 ## sfx_bogwitch_creak: sfx_bogwitch_creak
@@ -9044,6 +13118,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1947786524|
 
 ## sfx_bogwitch_greet: sfx_bogwitch_greet
@@ -9072,6 +13152,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1212655247|
 
 ## sfx_bogwitch_random: sfx_bogwitch_random
@@ -9100,6 +13186,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1212655247|
 
 ## sfx_bogwitch_trade: sfx_bogwitch_trade
@@ -9128,6 +13220,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1212655247|
 
 ## sfx_bomb_throw: sfx_bomb_throw
@@ -9156,6 +13254,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|831736313|
 
 ## sfx_bomblava_crumble: sfx_bomblava_crumble
@@ -9184,6 +13288,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1855150342|
 
 ## sfx_bomblava_fail: sfx_bomblava_fail
@@ -9212,6 +13322,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1216478107|
 
 ## sfx_bomblava_rocks: sfx_bomblava_rocks
@@ -9240,6 +13356,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1951980612|
 
 ## sfx_Bonemass_alert: sfx_Bonemass_alert
@@ -9268,6 +13390,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1906699395|
 
 ## sfx_Bonemass_death: GameObject
@@ -9296,6 +13424,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|515190100|
 
 ## sfx_Bonemass_death: sfx_Bonemass_death
@@ -9324,6 +13458,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1439633755|
 
 ## sfx_Bonemass_Hit: sfx_Bonemass_Hit
@@ -9352,6 +13492,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1265287899|
 
 ## sfx_Bonemass_idle: sfx_Bonemass_idle
@@ -9380,6 +13526,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-121578079|
 
 ## sfx_bonemaw_serpent_alert: sfx_bonemaw_serpent_alert
@@ -9408,6 +13560,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1006951142|
 
 ## sfx_bonemaw_serpent_bite: sfx_bonemaw_serpent_bite
@@ -9436,6 +13594,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2103797966|
 
 ## sfx_bonemaw_serpent_death: sfx_bonemaw_serpent_death
@@ -9464,6 +13628,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|577585831|
 
 ## sfx_bonemaw_serpent_spit: sfx_bonemaw_serpent_spit
@@ -9492,6 +13662,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2111670455|
 
 ## sfx_bonemaw_serpent_spit_hit: sfx_bonemaw_serpent_spit_hit
@@ -9520,6 +13696,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|496449190|
 
 ## sfx_bonepile_destroyed: sfx_bonepile_destroyed
@@ -9548,6 +13730,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1623813570|
 
 ## sfx_bones_pick: sfx_bones_pick
@@ -9576,6 +13764,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1853718635|
 
 ## sfx_bow_draw: sfx_bow_draw
@@ -9604,6 +13798,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-105785419|
 
 ## sfx_bow_fire: sfx_bow_fire
@@ -9632,6 +13832,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1485844491|
 
 ## sfx_bow_fire_silent: sfx_bow_fire_silent
@@ -9660,6 +13866,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|364520055|
 
 ## sfx_bowl_AddItem: sfx_bowl_AddItem
@@ -9688,7 +13900,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-783377086|
+
+## sfx_branch_break: sfx_branch_break
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.1|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1354439244|
+
+## sfx_branch_hit: sfx_branch_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.3|
+|m_minVol|System.Single|0.95|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1354439244|
 
 ## sfx_build_cultivator: sfx_build_cultivator
 
@@ -9716,6 +14002,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-565078184|
 
 ## sfx_build_hammer_crystal: sfx_build_hammer_crystal
@@ -9728,10 +14020,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|0|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.7|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -9744,7 +14036,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|234999397|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-369367762|
 
 ## sfx_build_hammer_default: sfx_build_hammer_default
 
@@ -9772,7 +14070,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2077294014|
+
+## sfx_build_hammer_ice: sfx_build_hammer_ice
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$item_hammer|
+|m_secondaryCaptionToken|System.String|$caption_building|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1882189601|
 
 ## sfx_build_hammer_metal: sfx_build_hammer_metal
 
@@ -9800,6 +14138,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-761714396|
 
 ## sfx_build_hammer_stone: sfx_build_hammer_stone
@@ -9828,6 +14172,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-745878035|
 
 ## sfx_build_hammer_wood: sfx_build_hammer_wood
@@ -9856,6 +14206,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1013226277|
 
 ## sfx_build_hoe: sfx_build_hoe
@@ -9884,6 +14240,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|148622436|
 
 ## sfx_bush_hit: sfx_bush_hit
@@ -9912,6 +14274,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1126251959|
 
 ## sfx_carrion_destroyed: sfx_carrion_destroyed
@@ -9940,6 +14308,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1608381387|
 
 ## sfx_cart_hit: sfx_cart_hit
@@ -9968,6 +14342,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|567333944|
 
 ## sfx_catapult_ammo_load: sfx_catapult_ammo_load
@@ -9996,6 +14376,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|314543748|
 
 ## sfx_catapult_charge: sfx_catapult_charge
@@ -10024,6 +14410,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2036729124|
 
 ## sfx_catapult_legs_down: sfx_catapult_legs_down
@@ -10052,6 +14444,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|419339832|
 
 ## sfx_catapult_legs_up: sfx_catapult_legs_up
@@ -10080,6 +14478,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-324646099|
 
 ## sfx_catapult_place_item: sfx_catapult_place_item
@@ -10108,6 +14512,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|162515589|
 
 ## sfx_catapult_shoot: sfx_catapult_shoot
@@ -10136,6 +14546,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|779521841|
 
 ## sfx_charred_alert: sfx_charred_alert
@@ -10164,6 +14580,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1299395217|
 
 ## sfx_charred_archer_bow_draw: sfx_charred_archer_bow_draw
@@ -10192,6 +14614,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1307772146|
 
 ## sfx_charred_archer_bow_release: sfx_charred_archer_bow_release
@@ -10220,6 +14648,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1305017033|
 
 ## sfx_charred_archer_volley_draw: sfx_charred_archer_volley_draw
@@ -10248,6 +14682,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1595500981|
 
 ## sfx_charred_archer_volley_release: sfx_charred_archer_volley_release
@@ -10276,6 +14716,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1656262855|
 
 ## sfx_charred_death: sfx_charred_death
@@ -10304,6 +14750,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1141778439|
 
 ## sfx_charred_hurt: sfx_charred_hurt
@@ -10332,6 +14784,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|449851786|
 
 ## sfx_charred_idle: sfx_charred_idle
@@ -10360,6 +14818,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|524428040|
 
 ## sfx_charred_mage_alert: sfx_charred_mage_alert
@@ -10388,6 +14852,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|413871588|
 
 ## sfx_charred_mage_attack_charge: sfx_charred_mage_attack_charge
@@ -10416,6 +14886,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|845667742|
 
 ## sfx_charred_mage_attack_shoot: sfx_charred_mage_attack_shoot
@@ -10444,6 +14920,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1306516702|
 
 ## sfx_charred_mage_spawn_staff: sfx_charred_mage_spawn_staff
@@ -10472,6 +14954,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-894771489|
 
 ## sfx_charred_melee_attack_lift: sfx_charred_melee_attack_lift
@@ -10500,6 +14988,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1519665386|
 
 ## sfx_charred_melee_attack_stab: sfx_charred_melee_attack_stab
@@ -10528,6 +15022,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1626297084|
 
 ## sfx_charred_melee_attack_swing: sfx_charred_melee_attack_swing
@@ -10556,6 +15056,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-970974941|
 
 ## sfx_charred_spawner_destroy: sfx_charred_spawner_destroy
@@ -10584,6 +15090,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|839015968|
 
 ## sfx_charred_twitcher_alert: sfx_charred_twitcher_alert
@@ -10612,6 +15124,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|947218960|
 
 ## sfx_charred_twitcher_attack: sfx_charred_twitcher_attack
@@ -10640,6 +15158,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|807362466|
 
 ## sfx_charred_twitcher_death: sfx_charred_twitcher_death
@@ -10668,6 +15192,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1633233524|
 
 ## sfx_charred_twitcher_hurt: sfx_charred_twitcher_hurt
@@ -10696,6 +15226,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1278475889|
 
 ## sfx_charred_twitcher_idle: sfx_charred_twitcher_idle
@@ -10724,6 +15260,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2052888891|
 
 ## sfx_charred_twitcher_summoned_alert: sfx_charred_twitcher_summoned_alert
@@ -10752,6 +15294,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|0|
 
 ## sfx_charred_twitcher_throw: sfx_charred_twitcher_throw
@@ -10780,6 +15328,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1648201774|
 
 ## sfx_charred_twitcher_throw_impact: sfx_charred_twitcher_throw_impact
@@ -10794,8 +15348,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.2|
 |m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.8|
-|m_minVol|System.Single|0.6|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -10808,7 +15362,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1262709217|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1862427433|
 
 ## sfx_chest_close: sfx_chest_close
 
@@ -10836,6 +15396,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1180851733|
 
 ## sfx_chest_open: sfx_chest_open
@@ -10864,6 +15430,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1530654944|
 
 ## sfx_chick_hurt: sfx_chick_hurt
@@ -10892,6 +15464,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1412311331|
 
 ## sfx_chicken_death: sfx_chicken_death
@@ -10920,6 +15498,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|111449086|
 
 ## sfx_chicken_eat: sfx_chicken_eat
@@ -10948,6 +15532,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-248247158|
 
 ## sfx_chicken_footstep: sfx_chicken_footstep
@@ -10976,6 +15566,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-347527492|
 
 ## sfx_chicken_hurt: sfx_chicken_hurt
@@ -11004,6 +15600,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1880349619|
 
 ## sfx_chicken_idle_vocal: sfx_chicken_idle_vocal
@@ -11032,6 +15634,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1700117413|
 
 ## sfx_chicken_idle_wingflap: sfx_chicken_idle_wingflap
@@ -11060,6 +15668,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2091078707|
 
 ## sfx_cinder_rain_hit: sfx_cinder_rain_hit
@@ -11088,6 +15702,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1651592604|
 
 ## sfx_claw_swing: sfx_claw_swing
@@ -11116,6 +15736,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1557958186|
 
 ## sfx_claw_swing: sfx_sword_swing_overlay
@@ -11144,6 +15770,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1903632133|
 
 ## sfx_clay_pot_break: sfx_clay_pot_break
@@ -11172,6 +15804,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1301601228|
 
 ## sfx_club_hit: sfx_club_hit
@@ -11200,6 +15838,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-183873512|
 
 ## sfx_club_swing: sfx_club_swing
@@ -11228,6 +15872,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1732511708|
 
 ## sfx_coins_destroyed: sfx_coins_destroyed
@@ -11256,6 +15906,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1151219142|
 
 ## sfx_coins_pile_destroyed: sfx_coins_pile_destroyed
@@ -11284,6 +15940,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1049255583|
 
 ## sfx_coins_pile_placed: sfx_coins_pile_placed
@@ -11312,6 +15974,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1043535018|
 
 ## sfx_coins_placed: sfx_coins_placed
@@ -11340,6 +16008,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2020684476|
 
 ## sfx_cooking_station_burnt: sfx_cooking_station_burnt
@@ -11368,6 +16042,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1038646138|
 
 ## sfx_cooking_station_done: sfx_cooking_station_done
@@ -11396,6 +16076,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|176732435|
 
 ## sfx_cooking_station_take: sfx_cooking_station_take
@@ -11424,6 +16110,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1821135167|
 
 ## sfx_creature_consume: sfx_creature_consume
@@ -11452,6 +16144,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-581989421|
 
 ## sfx_crow_death: sfx_crow_death
@@ -11480,6 +16178,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|985551811|
 
 ## sfx_deathsquito_attack: sfx_deathsquito_attack
@@ -11508,7 +16212,115 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1100413986|
+
+## sfx_deepnorth_gate_activate: sfx_deepnorth_gate_activate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1.2|
+|m_minVol|System.Single|1.2|
+|m_fadeInDuration|System.Single|2|
+|m_fadeOutDuration|System.Single|10|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## sfx_deepnorth_gate_close_loop: sfx_deepnorth_gate_close_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-940822275|
+
+## sfx_deepnorth_gate_open_loop: sfx_deepnorth_gate_open_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|2|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
 
 ## sfx_deer_alerted: sfx_deer_alerted
 
@@ -11536,6 +16348,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1388988568|
 
 ## sfx_deer_death: sfx_deer_death
@@ -11564,6 +16382,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|470743240|
 
 ## sfx_deer_idle: sfx_deer_idle
@@ -11592,6 +16416,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|367983924|
 
 ## sfx_demister_start: sfx_demister_start
@@ -11620,6 +16450,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1226650406|
 
 ## sfx_dodge: sfx_dodge
@@ -11648,6 +16484,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|745236533|
 
 ## sfx_dragon_alerted: sfx_dragon_alerted
@@ -11676,6 +16518,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-372324426|
 
 ## sfx_dragon_coldball_explode: sfx_dragon_coldball_explode
@@ -11704,6 +16552,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-544547295|
 
 ## sfx_dragon_coldball_launch: sfx_dragon_coldball_launch
@@ -11732,6 +16586,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|670907960|
 
 ## sfx_dragon_coldball_start: sfx_dragon_coldball_start
@@ -11760,6 +16620,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1813707255|
 
 ## sfx_dragon_coldbreath_start: sfx_dragon_coldbreath_start
@@ -11788,6 +16654,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1376599480|
 
 ## sfx_dragon_coldbreath_trailon: flame
@@ -11816,6 +16688,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-981705853|
 
 ## sfx_dragon_coldbreath_trailon: sfx_dragon_coldbreath_trailon
@@ -11844,6 +16722,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-516208485|
 
 ## sfx_dragon_death: sfx_dragon_death
@@ -11872,6 +16756,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-193474288|
 
 ## sfx_dragon_hurt: sfx_dragon_hurt
@@ -11900,6 +16790,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-426267950|
 
 ## sfx_dragon_idle: sfx_dragon_idle
@@ -11928,6 +16824,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-995187136|
 
 ## sfx_dragon_melee_hit: sfx_dragon_melee_hit
@@ -11956,6 +16858,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1983519553|
 
 ## sfx_dragon_melee_start: sfx_dragon_melee_start
@@ -11984,6 +16892,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|162764293|
 
 ## sfx_dragon_scream: sfx_dragon_scream
@@ -12012,6 +16926,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-915930202|
 
 ## sfx_dragonegg_destroy: sfx_dragonegg_destroy
@@ -12040,6 +16960,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2035409518|
 
 ## sfx_draugr_alerted: sfx_draugr_alerted
@@ -12068,6 +16994,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1272149461|
 
 ## sfx_draugr_death: sfx_draugr_death
@@ -12096,6 +17028,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-713255394|
 
 ## sfx_draugr_hit: sfx_draugr_hit
@@ -12124,6 +17062,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-192838274|
 
 ## sfx_draugr_idle: sfx_draugr_idle
@@ -12152,6 +17096,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-497064390|
 
 ## sfx_draugrpile_destroyed: sfx_draugrpile_destroyed
@@ -12180,6 +17130,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1126163137|
 
 ## sfx_draugrpile_hit: sfx_draugrpile_hit
@@ -12208,6 +17164,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2145537483|
 
 ## sfx_DraugrSpawn: sfx_DraugrSpawn
@@ -12236,6 +17198,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-208523405|
 
 ## sfx_drink: sfx_drink
@@ -12264,6 +17232,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-559354409|
 
 ## sfx_dverger_ball_start: sfx_dverger_ball_start
@@ -12292,6 +17266,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|637457374|
 
 ## sfx_dverger_fireball_rain_shot: sfx_dverger_fireball_rain_shot
@@ -12320,6 +17300,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|299415523|
 
 ## sfx_dverger_fireball_rain_start: sfx_dverger_fireball_rain_start
@@ -12348,6 +17334,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|853152294|
 
 ## sfx_dverger_footsteps: sfx_dverger_footsteps
@@ -12376,6 +17368,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1304862197|
 
 ## sfx_dverger_heal_finish: sfx_dverger_heal_finish
@@ -12404,6 +17402,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1441969137|
 
 ## sfx_dverger_heal_start: sfx_dverger_heal_start
@@ -12432,6 +17436,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-322038575|
 
 ## sfx_dverger_heavyattack_launch: sfx_dverger_heavyattack_launch
@@ -12460,6 +17470,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1811401804|
 
 ## sfx_dverger_ice_aoe_start: sfx_dverger_ice_aoe_start
@@ -12488,6 +17504,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1092353156|
 
 ## sfx_dverger_ice_projectile_start: sfx_dverger_ice_projectile_start
@@ -12516,6 +17538,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-434621534|
 
 ## sfx_dverger_staff_baseattack_foley: sfx_dverger_staff_baseattack_foley
@@ -12544,6 +17572,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|180479606|
 
 ## sfx_dverger_staff_kolvattack_foley: sfx_dverger_staff_kolvattack_foley
@@ -12572,6 +17606,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1111478887|
 
 ## sfx_dverger_staff_poke_foley: sfx_dverger_staff_poke_foley
@@ -12600,6 +17640,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|796937820|
 
 ## sfx_dverger_vo_alerted: sfx_dverger_vo_alerted
@@ -12628,6 +17674,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-468404318|
 
 ## sfx_dverger_vo_attack: sfx_dverger_vo_attack
@@ -12656,6 +17708,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1930555275|
 
 ## sfx_dverger_vo_death: sfx_dverger_vo_death
@@ -12684,6 +17742,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|136984468|
 
 ## sfx_dverger_vo_hurt: sfx_dverger_vo_hurt
@@ -12712,6 +17776,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1637855848|
 
 ## sfx_dverger_vo_idle: sfx_dverger_vo_idle
@@ -12740,6 +17810,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-428948801|
 
 ## sfx_eat: sfx_eat
@@ -12768,6 +17844,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1393165961|
 
 ## sfx_eikthyr_alert: sfx_eikthyr_alert
@@ -12796,6 +17878,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1116106254|
 
 ## sfx_eikthyr_death: sfx_eikthyr_death
@@ -12824,6 +17912,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1788272891|
 
 ## sfx_eikthyr_hit: sfx_eikthyr_hit
@@ -12852,6 +17946,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1607483878|
 
 ## sfx_eikthyr_idle: sfx_eikthyr_idle
@@ -12880,7 +17980,421 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-734759881|
+
+## sfx_elaking_alerted: sfx_elaking_alerted
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_goblin_alerted|
+|m_secondaryCaptionToken|System.String|$caption_grunting|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.2|
+|m_minVol|System.Single|0.17|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-31414192|
+
+## sfx_elaking_alerted_old: sfx_elaking_alerted_old
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_goblin_alerted|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|2.5|
+|m_minPitch|System.Single|1.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1235140646|
+
+## sfx_elaking_attack_claw: sfx_elaking_attack_claw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_elaking|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.25|
+|m_minVol|System.Single|0.18|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|825619254|
+
+## sfx_elaking_attack_claw_impact: sfx_elaking_attack_claw_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_elaking|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.36|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2120913720|
+
+## sfx_elaking_attack_jump: sfx_elaking_attack_jump
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_elaking|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.25|
+|m_minVol|System.Single|0.18|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1403093311|
+
+## sfx_elaking_attack_jump_impact: sfx_elaking_attack_jump_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_elaking|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.36|
+|m_minVol|System.Single|0.26|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-611083086|
+
+## sfx_elaking_death: sfx_elaking_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_goblin_dying|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.35|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1342119594|
+
+## sfx_elaking_death_old: sfx_elaking_death_old
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_goblin_death|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|2.6|
+|m_minPitch|System.Single|2|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-533246650|
+
+## sfx_elaking_hit: sfx_elaking_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_goblin_hurt|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1970345531|
+
+## sfx_elaking_hit_old: sfx_footstep_snow_walk
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1488623239|
+
+## sfx_elaking_idle: sfx_elaking_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_goblin_idle|
+|m_secondaryCaptionToken|System.String|$caption_grunting|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.25|
+|m_minPitch|System.Single|1.1|
+|m_maxVol|System.Single|0.2|
+|m_minVol|System.Single|0.12|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1217079245|
+
+## sfx_elaking_idle_old: sfx_elaking_idle_old
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_goblin_idle|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|3|
+|m_minPitch|System.Single|2|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1866400091|
 
 ## sfx_equip: sfx_equip
 
@@ -12908,6 +18422,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1512748419|
 
 ## sfx_equip_start: sfx_equip_start
@@ -12936,7 +18456,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1062504624|
+
+## sfx_equip_vibration_only: sfx_equip_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1512748419|
 
 ## sfx_fader_bell: sfx_fader_bell
 
@@ -12964,6 +18524,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-819418956|
 
 ## sfx_fader_bite_pre: sfx_fader_bite_pre
@@ -12992,6 +18558,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|891172186|
 
 ## sfx_fader_bite_snarl: sfx_fader_bite_snarl
@@ -13020,6 +18592,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|891172186|
 
 ## sfx_fader_claw_pre: sfx_fader_claw_pre
@@ -13048,6 +18626,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_claw_swipe: sfx_fader_claw_swipe
@@ -13076,6 +18660,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_death_explosion: sfx_fader_death_explosion
@@ -13104,6 +18694,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-977365984|
 
 ## sfx_fader_death_start: sfx_fader_death_start
@@ -13132,6 +18728,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-977365984|
 
 ## sfx_fader_firebreath_in: sfx_fader_firebreath_in
@@ -13160,6 +18762,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_firebreath_out: sfx_fader_firebreath_out
@@ -13188,6 +18796,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_firewall_fireburst: sfx_fader_firewall_fireburst
@@ -13216,6 +18830,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_firewall_start: sfx_fader_firewall_start
@@ -13244,6 +18864,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_fissure: sfx_fader_fissure
@@ -13272,6 +18898,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1111986399|
 
 ## sfx_fader_fissure_footimpact: sfx_fader_fissure_footimpact
@@ -13300,6 +18932,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_fissure_footslide: sfx_fader_fissure_footslide
@@ -13328,6 +18966,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_idle: sfx_fader_idle
@@ -13356,6 +19000,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-819418956|
 
 ## sfx_fader_spawn_meteor_ambience: sfx_fader_spawn_meteor_ambience
@@ -13384,6 +19034,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-977365984|
 
 ## sfx_fader_spawn_meteor_arrival: sfx_fader_spawn_meteor_arrival
@@ -13412,6 +19068,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-977365984|
 
 ## sfx_fader_spawn_meteor_impact: sfx_fader_spawn_meteor_impact
@@ -13440,6 +19102,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-977365984|
 
 ## sfx_fader_spin: sfx_fader_spin
@@ -13468,6 +19136,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_fader_taunt: sfx_fader_taunt
@@ -13496,6 +19170,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|484177600|
 
 ## sfx_fallenvalkyrie_alert: sfx_fallenvalkyrie_alert
@@ -13524,6 +19204,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2032932773|
 
 ## sfx_fallenvalkyrie_attack: sfx_fallenvalkyrie_attack
@@ -13552,6 +19238,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1481326964|
 
 ## sfx_fallenvalkyrie_attack_claw: sfx_fallenvalkyrie_attack_claw
@@ -13580,6 +19272,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1782184127|
 
 ## sfx_fallenvalkyrie_attack_spin_charge: sfx_fallenvalkyrie_attack_spin_charge
@@ -13608,6 +19306,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-230640738|
 
 ## sfx_fallenvalkyrie_attack_spin_release: sfx_fallenvalkyrie_attack_spin_release
@@ -13636,6 +19340,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|63437211|
 
 ## sfx_fallenvalkyrie_attack_spit_charge: sfx_fallenvalkyrie_attack_spit_charge
@@ -13664,6 +19374,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2082606873|
 
 ## sfx_fallenvalkyrie_attack_spit_projectile: sfx_fallenvalkyrie_attack_spit_projectile
@@ -13692,6 +19408,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1904898360|
 
 ## sfx_fallenvalkyrie_attack_spit_projectile_impact: sfx_fallenvalkyrie_attack_spit_projectile_impact
@@ -13720,6 +19442,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|257098879|
 
 ## sfx_fallenvalkyrie_attack_spit_vocal: sfx_fallenvalkyrie_attack_spit_vocal
@@ -13748,6 +19476,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1344600845|
 
 ## sfx_fallenvalkyrie_death: sfx_fallenvalkyrie_death
@@ -13776,6 +19510,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|937564530|
 
 ## sfx_fallenvalkyrie_idle: sfx_fallenvalkyrie_idle
@@ -13804,6 +19544,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|362696144|
 
 ## sfx_fallenvalkyrie_screech: sfx_fallenvalkyrie_screech
@@ -13832,6 +19578,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1604763765|
 
 ## sfx_fallenvalkyrie_taunt: sfx_fallenvalkyrie_taunt
@@ -13860,6 +19612,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1525337873|
 
 ## sfx_fallenvalkyrie_wingflap: sfx_fallenvalkyrie_wingflap
@@ -13888,7 +19646,183 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2032427513|
+
+## sfx_fallenwarrior_attack: sfx_fallenwarrior_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_fallenwarrio|
+|m_secondaryCaptionToken|System.String|$caption_attack|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|418079882|
+
+## sfx_fallenwarrior_attack_impact: sfx_fallenwarrior_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_fallenwarrio|
+|m_secondaryCaptionToken|System.String|$caption_attack|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2812329|
+
+## sfx_fallenwarrior_death: sfx_fallenwarrior_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_fallenwarrior|
+|m_secondaryCaptionToken|System.String|$caption_death|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-209264188|
+
+## sfx_fallenwarrior_hurt: sfx_fallenwarrior_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_fallenwarrior|
+|m_secondaryCaptionToken|System.String|$caption_hit|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-383842895|
+
+## sfx_fallenwarrior_idle: sfx_fallenwarrior_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_fallenwarrior|
+|m_secondaryCaptionToken|System.String|$caption_idle|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1560582994|
 
 ## sfx_feast_destroyed: sfx_feast_destroyed
 
@@ -13916,6 +19850,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|134610871|
 
 ## sfx_fenring_alerted: sfx_fenring_alerted
@@ -13944,6 +19884,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1087873975|
 
 ## sfx_fenring_claw_hit: sfx_fenring_claw_hit
@@ -13972,6 +19918,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|794659480|
 
 ## sfx_fenring_claw_start: sfx_fenring_claw_start
@@ -14000,6 +19952,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1074909620|
 
 ## sfx_fenring_claw_trailstart: sfx_fenring_claw_trailstart
@@ -14028,6 +19986,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-809527717|
 
 ## sfx_fenring_death: sfx_fenring_death
@@ -14056,6 +20020,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-963356498|
 
 ## sfx_fenring_fireclaw: sfx_fenring_fireclaw
@@ -14084,6 +20054,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1656295240|
 
 ## sfx_fenring_howl: sfx_fenring_howl
@@ -14112,6 +20088,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-518991559|
 
 ## sfx_fenring_idle: sfx_fenring_idle
@@ -14140,6 +20122,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1792493978|
 
 ## sfx_fenring_jump_start: sfx_fenring_jump_start
@@ -14168,6 +20156,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1301503239|
 
 ## sfx_fenring_jump_trailstart: sfx_fenring_jump_trailstart
@@ -14196,6 +20190,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1384294086|
 
 ## sfx_fenring_jump_trigger: sfx_fenring_jump_trigger
@@ -14224,6 +20224,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|652430021|
 
 ## sfx_fermenter_add: sfx_fermenter_add
@@ -14252,6 +20258,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1924998367|
 
 ## sfx_fermenter_tap: sfx_fermenter_tap
@@ -14280,6 +20292,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2103933502|
 
 ## sfx_FireAddFuel: sfx_FireAddFuel
@@ -14308,6 +20326,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1775683538|
 
 ## sfx_firestaff_launch: sfx_firestaff_launch
@@ -14336,6 +20360,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1750898712|
 
 ## sfx_firestaff_launch: sfx_sword_swing_overlay
@@ -14364,6 +20394,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1423250053|
 
 ## sfx_firework_explode: sfx explosion
@@ -14392,6 +20428,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.6|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-162637050|
 
 ## sfx_firework_explode: sfx launch
@@ -14420,6 +20462,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1732281302|
 
 ## sfx_fishingrod_linebreak: sfx_fishingrod_linebreak
@@ -14448,6 +20496,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1350085621|
 
 ## sfx_fishingrod_swing: sfx_fishingrod_swing
@@ -14476,6 +20530,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1895445486|
 
 ## sfx_fishingrod_swing: sfx_line
@@ -14504,6 +20564,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|962377041|
 
 ## sfx_fist_metal_blocked: sfx_fist_metal_blocked
@@ -14532,6 +20598,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|742082809|
 
 ## sfx_fist_metal_blocked: sfx_metal_blocked_overlay
@@ -14560,6 +20632,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1228376008|
 
 ## sfx_Frost_Start: sfx_Frost_Start
@@ -14574,6 +20652,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.42|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|240819596|
+
+## sfx_frostfoundry_activate: sfx_frostfoundry_activate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
 |m_maxVol|System.Single|1|
 |m_minVol|System.Single|1|
 |m_fadeInDuration|System.Single|0|
@@ -14588,7 +20700,2087 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-950505725|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2036729124|
+
+## sfx_frostfoundry_deactivate: sfx_frostfoundry_deactivate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2036729124|
+
+## sfx_frozenking_attackmelee_double_chain: sfx_frozenking_attackmelee_double_chain
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1859452925|
+
+## sfx_frozenking_attackmelee_double_impact: sfx_frozenking_attackmelee_double_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1522031137|
+
+## sfx_frozenking_attackmelee_double_whoosh_follow: sfx_frozenking_attackmelee_double_whoosh_follow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1092956825|
+
+## sfx_frozenking_attackmelee_double_whoosh_lead: sfx_frozenking_attackmelee_double_whoosh_lead
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|283675399|
+
+## sfx_frozenking_attackmelee_single_chainback: sfx_frozenking_attackmelee_single_chainback
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-600188099|
+
+## sfx_frozenking_attackmelee_single_charge: sfx_frozenking_attackmelee_single_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1303638165|
+
+## sfx_frozenking_attackmelee_single_impact: sfx_frozenking_attackmelee_single_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1.1|
+|m_minVol|System.Single|1.1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-45964295|
+
+## sfx_frozenking_attackmelee_single_whsh: sfx_frozenking_attackmelee_single_whsh
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.9|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2135204831|
+
+## sfx_frozenking_chainflurry_chain: sfx_frozenking_chainflurry_chain
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|2.5|
+|m_minVol|System.Single|2.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|1.8|
+|m_minDelay|System.Single|1.8|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-405898215|
+
+## sfx_frozenking_chainflurry_coldvortex: sfx_frozenking_chainflurry_coldvortex
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|1.8|
+|m_minDelay|System.Single|1.8|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-92204635|
+
+## sfx_frozenking_chainflurry_fly: sfx_frozenking_chainflurry_fly
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|3|
+|m_minVol|System.Single|3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|1.5|
+|m_minDelay|System.Single|1.5|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1697977866|
+
+## sfx_frozenking_chainflurry_start: sfx_frozenking_chainflurry_start
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.5|
+|m_minVol|System.Single|1.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1147178170|
+
+## sfx_frozenking_charge_chainback: sfx_frozenking_charge_chainback
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-233925333|
+
+## sfx_frozenking_charge_doublehookup: sfx_frozenking_charge_doublehookup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1417187334|
+
+## sfx_frozenking_charge_start: sfx_frozenking_charge_start
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-80212556|
+
+## sfx_frozenking_charge_whoosh: sfx_frozenking_charge_whoosh
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1406039798|
+
+## sfx_frozenking_death_crystal_break: sfx_frozenking_death_crystal_break
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-193616980|
+
+## sfx_frozenking_death_crystal_sequence: sfx_frozenking_death_crystal_sequence
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1568949810|
+
+## sfx_frozenking_death_p3_sequence: sfx_frozenking_death_p3_sequence
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|206358976|
+
+## sfx_frozenking_doubleslam_explosion: sfx_frozenking_doubleslam_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.3|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1587690654|
+
+## sfx_frozenking_frozenspark_whip: sfx_frozenking_frozenspark_whip
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|258912528|
+
+## sfx_frozenking_frozentwirl_charge: sfx_frozenking_frozentwirl_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.95|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1353328284|
+
+## sfx_frozenking_frozentwirl_coldvortex: sfx_frozenking_frozentwirl_coldvortex
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|420632163|
+
+## sfx_frozenking_frozentwirl_tornado: sfx_frozenking_frozentwirl_tornado
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-852893185|
+
+## sfx_frozenking_frozentwirl_wind: sfx_frozenking_frozentwirl_wind
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2043065747|
+
+## sfx_frozenking_idle_breath: sfx_frozenking_idle_breath
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|50|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-914532392|
+
+## sfx_frozenking_intro_chainpressure: sfx_frozenking_intro_chainpressure
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1263103131|
+
+## sfx_frozenking_intro_icepillar_left_break: sfx_frozenking_intro_icepillar_left_break
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|51359533|
+
+## sfx_frozenking_intro_icepillar_right_break: sfx_frozenking_intro_icepillar_right_break
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1120834830|
+
+## sfx_frozenking_intro_rise: sfx_frozenking_intro_rise
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-736950579|
+
+## sfx_frozenking_punchaoe_chain_end: sfx_frozenking_punchaoe_chain_end
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1260296473|
+
+## sfx_frozenking_punchaoe_chain_start: sfx_frozenking_punchaoe_chain_start
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-253949032|
+
+## sfx_frozenking_punchaoe_debris: sfx_frozenking_punchaoe_debris
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-17454687|
+
+## sfx_frozenking_punchaoe_punch_first: sfx_frozenking_punchaoe_punch_first
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1259697273|
+
+## sfx_frozenking_punchaoe_punch_second: sfx_frozenking_punchaoe_punch_second
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-147693988|
+
+## sfx_frozenking_punchaoe_punch_third: sfx_frozenking_punchaoe_punch_third
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1136173453|
+
+## sfx_frozenking_punchaoe_whoosh_punch: sfx_frozenking_punchaoe_whoosh_punch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1.6|
+|m_minVol|System.Single|1.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-508961562|
+
+## sfx_frozenking_punchaoe_whoosh_start: sfx_frozenking_punchaoe_whoosh_start
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-687061669|
+
+## sfx_frozenking_spikerain_chain: sfx_frozenking_spikerain_chain
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2144425492|
+
+## sfx_frozenking_spikerain_explosion: sfx_frozenking_spikerain_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.45|
+|m_minVol|System.Single|1.2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1260682676|
+
+## sfx_frozenking_spikerain_flyby: sfx_frozenking_spikerain_flyby
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|2|
+|m_minVol|System.Single|2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.3|
+|m_minDelay|System.Single|0.3|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|344868033|
+
+## sfx_frozenking_spikerain_iceceiling: sfx_frozenking_spikerain_iceceiling
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-225356821|
+
+## sfx_frozenking_spikerain_shards: sfx_frozenking_spikerain_shards
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-546138577|
+
+## sfx_frozenking_spirit_death: sfx_frozenking_spirit_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.5|
+|m_minVol|System.Single|1.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1900449153|
+
+## sfx_frozenking_spirit_summon: sfx_frozenking_spirit_summon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1.1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0.6|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1664465602|
+
+## sfx_frozenking_tendril_attack: sfx_frozenking_tendril_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|86066482|
+
+## sfx_frozenking_tendril_death: sfx_frozenking_tendril_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1287000645|
+
+## sfx_frozenking_tendril_grow: sfx_frozenking_tendril_grow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|4|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.95|
+|m_minVol|System.Single|0.65|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-320170353|
+
+## sfx_frozenking_tendril_summon: sfx_frozenking_tendril_summon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-85525561|
+
+## sfx_frozenking_turn: sfx_frozenking_turn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|40|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|431792846|
+
+## sfx_gameltroll_death: sfx_gameltroll_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1689957141|
+
+## sfx_gameltroll_hurt: sfx_gameltroll_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1648468708|
+
+## sfx_gameltroll_idle: sfx_gameltroll_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.52|
+|m_minVol|System.Single|0.46|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2067229723|
+
+## sfx_gameltroll_melee_attack: sfx_gameltroll_melee_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-521944808|
+
+## sfx_gameltroll_melee_attack_Impact: sfx_gameltroll_melee_attack_Impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-545619963|
+
+## sfx_gameltroll_stomp_attack: sfx_gameltroll_stomp_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1452353922|
+
+## sfx_gameltroll_stomp_attack_impact: sfx_gameltroll_stomp_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1.2|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|131000857|
+
+## sfx_gameltroll_stoneturn_death: sfx_gameltroll_stoneturn_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.92|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.75|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1495798574|
+
+## sfx_gameltroll_throw_attack: sfx_gameltroll_throw_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.35|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1315725355|
+
+## sfx_gameltroll_throw_attack_impact: sfx_gameltroll_throw_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_frosttroll|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1088531933|
 
 ## sfx_gdking_alert: sfx_gdking_alert
 
@@ -14616,6 +22808,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1176727902|
 
 ## sfx_gdking_death: GameObject
@@ -14644,6 +22842,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1175726774|
 
 ## sfx_gdking_death: sfx_gdking_death
@@ -14672,6 +22876,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-496363797|
 
 ## sfx_gdking_idle: sfx_gdking_idle
@@ -14700,6 +22910,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1559276703|
 
 ## sfx_gdking_punch: sfx_gdking_punch
@@ -14728,6 +22944,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1557514329|
 
 ## sfx_gdking_rock_destroyed: sfx_gdking_rock_destroyed
@@ -14756,6 +22978,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1332436527|
 
 ## sfx_gdking_scream: sfx_gdking_scream
@@ -14784,6 +23012,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1474851202|
 
 ## sfx_gdking_shoot_start: sfx_gdking_shoot_start
@@ -14812,6 +23046,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1775029039|
 
 ## sfx_gdking_shoot_trigger: sfx_gdking_shoot_trigger
@@ -14840,6 +23080,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1483996054|
 
 ## sfx_gdking_spawn: sfx_gdking_spawn
@@ -14868,6 +23114,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1706441037|
 
 ## sfx_gdking_stomp: sfx_gdking_stomp
@@ -14896,6 +23148,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-635173340|
 
 ## sfx_ghost_alert: sfx_ghost_alert
@@ -14924,6 +23182,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1783034003|
 
 ## sfx_ghost_attack: sfx_ghost_attack
@@ -14952,6 +23216,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1233949814|
 
 ## sfx_ghost_attack_hit: sfx_ghost_attack_hit
@@ -14980,6 +23250,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|532366925|
 
 ## sfx_ghost_death: sfx_ghost_death
@@ -15008,6 +23284,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-234918258|
 
 ## sfx_ghost_hurt: sfx_ghost_hurt
@@ -15036,6 +23318,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1789131585|
 
 ## sfx_ghost_idle: sfx_ghost_idle
@@ -15064,6 +23352,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|533610948|
 
 ## sfx_ghosts_death: sfx_ghosts_death
@@ -15092,6 +23386,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|616773316|
 
 ## sfx_ghosts_footstep: sfx_ghosts_footstep
@@ -15120,6 +23420,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-201370992|
 
 ## sfx_ghosts_hurt: sfx_ghosts_hurt
@@ -15148,6 +23454,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-687530586|
 
 ## sfx_ghosts_idle: sfx_ghosts_idle
@@ -15176,6 +23488,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2138700277|
 
 ## sfx_ghosts_melee_attack: sfx_ghosts_melee_attack
@@ -15204,6 +23522,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|250261266|
 
 ## sfx_ghosts_melee_attack_impact: sfx_ghosts_melee_attack_impact
@@ -15232,6 +23556,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|215198981|
 
 ## sfx_gjall_alerted: sfx_gjall_alerted
@@ -15260,6 +23590,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1084158238|
 
 ## sfx_gjall_attack_shake: sfx_gjall_attack_shake
@@ -15288,6 +23624,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|483058765|
 
 ## sfx_gjall_attack_tick_drop: sfx_gjall_attack_tick_drop
@@ -15316,6 +23658,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1168285072|
 
 ## sfx_gjall_death: sfx_gjall_death
@@ -15344,6 +23692,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|122637762|
 
 ## sfx_gjall_idle_blowout: sfx_gjall_idle_blowout
@@ -15372,6 +23726,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-892656767|
 
 ## sfx_gjall_idle_shiver: sfx_gjall_idle_shiver
@@ -15400,6 +23760,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|296313216|
 
 ## sfx_gjall_idle_vocals: sfx_gjall_idle_vocals
@@ -15428,6 +23794,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|613098880|
 
 ## sfx_gjall_spit: sfx_gjall_spit
@@ -15456,6 +23828,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1116582870|
 
 ## sfx_gjall_spit_fx: sfx_gjall_spit_fx
@@ -15484,6 +23862,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2031901322|
 
 ## sfx_gjall_spit_impact: sfx_gjall_spit_impact
@@ -15512,6 +23896,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-329856581|
 
 ## sfx_gjall_tick_drop: sfx_gjall_tick_drop
@@ -15540,7 +23930,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2024211046|
+
+## sfx_glowworm_pickup: sfx_glowworm_pickup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1354439244|
 
 ## sfx_goblin_alerted: sfx_goblin_alerted
 
@@ -15568,6 +23998,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|70415839|
 
 ## sfx_goblin_death: sfx_goblin_death
@@ -15596,6 +24032,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-533246650|
 
 ## sfx_goblin_hit: sfx_goblin_hit
@@ -15624,6 +24066,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|634748144|
 
 ## sfx_goblin_idle: sfx_goblin_idle
@@ -15652,6 +24100,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1866400091|
 
 ## sfx_goblinbrute_alerted: sfx_goblinbrute_alerted
@@ -15680,6 +24134,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|541501262|
 
 ## sfx_goblinbrute_clubhit: sfx_goblinbrute_clubhit
@@ -15708,6 +24168,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-287838560|
 
 ## sfx_goblinbrute_clubswing: sfx_goblinbrute_clubswing
@@ -15736,6 +24202,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1805377624|
 
 ## sfx_goblinbrute_death: sfx_goblinbrute_death
@@ -15764,6 +24236,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-422875449|
 
 ## sfx_goblinbrute_hit: sfx_goblinbrute_hit
@@ -15792,6 +24270,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1977938703|
 
 ## sfx_goblinking_beam: sfx_goblinking_beam
@@ -15820,6 +24304,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1691538769|
 
 ## sfx_goblinking_taunt: sfx_goblinking_taunt
@@ -15848,6 +24338,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1470127013|
 
 ## sfx_GoblinShaman_alerted: sfx_GoblinShaman_alerted
@@ -15876,6 +24372,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2010678343|
 
 ## sfx_GoblinShaman_death: sfx_GoblinShaman_death
@@ -15904,6 +24406,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2090989263|
 
 ## sfx_GoblinShaman_fireball_launch: sfx_GoblinShaman_fireball_launch
@@ -15932,6 +24440,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|944808571|
 
 ## sfx_GoblinShaman_hurt: sfx_GoblinShaman_hurt
@@ -15960,6 +24474,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|416866053|
 
 ## sfx_GoblinShaman_idle: sfx_GoblinShaman_idle
@@ -15988,7 +24508,217 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|879540619|
+
+## sfx_grapplinghook_detach: sfx_grapplinghook_detach
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-575375902|
+
+## sfx_grapplinghook_fire: sfx_grapplinghook_fire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-55092892|
+
+## sfx_grapplinghook_flying: sfx_grapplinghook_flying
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1632038032|
+
+## sfx_grapplinghook_hit: sfx_grapplinghook_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1001307834|
+
+## sfx_grapplinghook_reload: sfx_grapplinghook_reload
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1048907922|
+
+## sfx_grapplinghook_repel: sfx_grapplinghook_repel
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2402233|
 
 ## sfx_greydwarf_alerted: sfx_greydwarf_alerted
 
@@ -16016,6 +24746,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1859943259|
 
 ## sfx_greydwarf_attack: sfx_greydwarf_attack
@@ -16044,6 +24780,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1372013425|
 
 ## sfx_greydwarf_attack_hit: sfx_greydwarf_attack_hit
@@ -16072,6 +24814,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|621086923|
 
 ## sfx_greydwarf_death: sfx_greydwarf_death
@@ -16100,6 +24848,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|813555771|
 
 ## sfx_greydwarf_elite_alerted: sfx_greydwarf_elite_alerted
@@ -16128,6 +24882,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2060081778|
 
 ## sfx_greydwarf_elite_attack: sfx_greydwarf_elite_attack
@@ -16156,6 +24916,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1841353101|
 
 ## sfx_greydwarf_elite_death: sfx_greydwarf_elite_death
@@ -16184,6 +24950,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|816403079|
 
 ## sfx_greydwarf_elite_idle: sfx_greydwarf_elite_idle
@@ -16212,6 +24984,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-262249592|
 
 ## sfx_greydwarf_hit: sfx_greydwarf_hit
@@ -16240,6 +25018,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2046397619|
 
 ## sfx_greydwarf_idle: sfx_greydwarf_idle
@@ -16268,6 +25052,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1364502245|
 
 ## sfx_greydwarf_shaman_attack: sfx_greydwarf_shaman_attack
@@ -16296,6 +25086,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1427034083|
 
 ## sfx_greydwarf_shaman_heal: sfx_greydwarf_shaman_heal
@@ -16324,6 +25120,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|791914757|
 
 ## sfx_greydwarf_stone_hit: sfx_greydwarf_stone_hit
@@ -16352,6 +25154,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1183997116|
 
 ## sfx_greydwarf_throw: sfx_greydwarf_throw
@@ -16380,6 +25188,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|883996500|
 
 ## sfx_greydwarfnest_destroyed: sfx_greydwarfnest_destroyed
@@ -16408,6 +25222,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-203677679|
 
 ## sfx_greydwarfnest_hit: sfx_greydwarfnest_hit
@@ -16436,6 +25256,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1780396374|
 
 ## sfx_greyling_alerted: sfx_greyling_alerted
@@ -16464,6 +25290,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1763097406|
 
 ## sfx_greyling_attack: sfx_greyling_attack
@@ -16492,6 +25324,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1403293505|
 
 ## sfx_greyling_death: sfx_greyling_death
@@ -16520,6 +25358,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-321262540|
 
 ## sfx_greyling_hit: sfx_greyling_hit
@@ -16548,6 +25392,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-157760957|
 
 ## sfx_greyling_idle: sfx_greyling_idle
@@ -16576,6 +25426,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-666804260|
 
 ## sfx_GuckSackDestroyed: sfx_GuckSackDestroyed
@@ -16604,6 +25460,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1539335386|
 
 ## sfx_GuckSackHit: sfx_GuckSackHit
@@ -16632,6 +25494,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|830794116|
 
 ## sfx_gui_craftitem: sfx_gui_craftitem
@@ -16660,6 +25528,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1952917696|
 
 ## sfx_gui_craftitem_cauldron: sfx_gui_craftitem_cauldron
@@ -16688,6 +25562,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1811587335|
 
 ## sfx_gui_craftitem_cauldron_end: sfx_gui_craftitem_cauldron_end
@@ -16716,6 +25596,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1042189398|
 
 ## sfx_gui_craftitem_end: sfx_gui_craftitem_end
@@ -16744,6 +25630,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1593051851|
 
 ## sfx_gui_craftitem_forge: sfx_gui_craftitem_forge
@@ -16772,6 +25664,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|768747250|
 
 ## sfx_gui_craftitem_forge_end: sfx_gui_craftitem_forge_end
@@ -16800,6 +25698,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1361001701|
 
 ## sfx_gui_craftitem_workbench: sfx_gui_craftitem_workbench
@@ -16828,6 +25732,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1753764092|
 
 ## sfx_gui_craftitem_workbench_end: sfx_gui_craftitem_workbench_end
@@ -16856,6 +25766,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1833647024|
 
 ## sfx_gui_repairitem_forge: sfx_gui_repairitem_forge
@@ -16884,6 +25800,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1133868493|
 
 ## sfx_gui_repairitem_workbench: sfx_gui_repairitem_workbench
@@ -16912,6 +25834,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-951345263|
 
 ## sfx_haldor_greet: sfx_haldor_greet
@@ -16940,6 +25868,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|419582137|
 
 ## sfx_haldor_laugh: sfx_haldor_laugh
@@ -16968,6 +25902,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1623853138|
 
 ## sfx_haldor_yea: sfx_haldor_yea
@@ -16996,6 +25936,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|530392858|
 
 ## sfx_hare_alerted: sfx_hare_alerted
@@ -17024,6 +25970,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-32840192|
 
 ## sfx_hare_death_vocal: sfx_hare_death_vocal
@@ -17052,6 +26004,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-521622973|
 
 ## sfx_hare_idle: sfx_hare_idle
@@ -17080,6 +26038,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1669560129|
 
 ## sfx_hare_idle_eating: sfx_hare_idle_eating
@@ -17108,6 +26072,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-812944144|
 
 ## sfx_hatchling_alerted: sfx_hatchling_alerted
@@ -17136,6 +26106,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1696743727|
 
 ## sfx_hatchling_coldball_explode: sfx_hatchling_coldball_explode
@@ -17164,6 +26140,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|944568365|
 
 ## sfx_hatchling_coldball_launch: sfx_hatchling_coldball_launch
@@ -17192,6 +26174,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2075351857|
 
 ## sfx_hatchling_coldball_start: sfx_hatchling_coldball_start
@@ -17220,6 +26208,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2141697434|
 
 ## sfx_hatchling_death: sfx
@@ -17248,6 +26242,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1099361080|
 
 ## sfx_hatchling_death: sfx_hatchling_death
@@ -17276,6 +26276,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1827215111|
 
 ## sfx_hatchling_idle: sfx_hatchling_idle
@@ -17304,6 +26310,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1050361676|
 
 ## sfx_hatcling_hurt: sfx_hatcling_hurt
@@ -17332,6 +26344,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|345902667|
 
 ## sfx_hit: sfx_hit
@@ -17360,6 +26378,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1523647063|
+
+## sfx_hit_vibration_only: sfx_hit_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1.5|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1523647063|
 
 ## sfx_HiveQueen_acitspit: sfx_HiveQueen_acitspit
@@ -17388,6 +26446,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1600073027|
 
 ## sfx_HiveQueen_alerted: sfx_HiveQueen_alerted
@@ -17416,6 +26480,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1639111765|
 
 ## sfx_HiveQueen_backslam: sfx_HiveQueen_backslam
@@ -17444,6 +26514,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1591878630|
 
 ## sfx_HiveQueen_bite: sfx_HiveQueen_bite
@@ -17472,6 +26548,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1456067045|
 
 ## sfx_HiveQueen_burrow: sfx_HiveQueen_burrow
@@ -17500,6 +26582,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|693305553|
 
 ## sfx_HiveQueen_callout: sfx_HiveQueen_callout
@@ -17528,6 +26616,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|890724140|
 
 ## sfx_HiveQueen_doubleslash: sfx_HiveQueen_doubleslash
@@ -17556,6 +26650,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1245192537|
 
 ## sfx_HiveQueen_idle: sfx_HiveQueen_idle
@@ -17584,6 +26684,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-645367919|
 
 ## sfx_HiveQueen_move: sfx_HiveQueen_move
@@ -17612,6 +26718,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1670762550|
 
 ## sfx_HiveQueen_pierce: sfx_HiveQueen_pierce
@@ -17640,6 +26752,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1173781512|
 
 ## sfx_HiveQueen_rush: sfx_HiveQueen_rush
@@ -17668,6 +26786,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|120648057|
 
 ## sfx_HiveQueen_slash: sfx_HiveQueen_slash
@@ -17696,6 +26820,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-984932427|
 
 ## sfx_HiveQueen_slashcombo: sfx_HiveQueen_slashcombo
@@ -17724,6 +26854,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-974442505|
 
 ## sfx_HiveQueen_spitimpact: sfx_HiveQueen_spitimpact
@@ -17752,6 +26888,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-130272641|
 
 ## sfx_HiveQueen_turn: sfx_HiveQueen_turn
@@ -17780,6 +26922,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1260909202|
 
 ## sfx_ice_destroyed: sfx_ice_destroyed
@@ -17794,8 +26942,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.6|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.7|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -17808,7 +26956,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|552552670|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1597378821|
 
 ## sfx_ice_hit: sfx_ice_hit
 
@@ -17822,8 +26976,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.6|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.7|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -17836,7 +26990,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1655451836|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-538695143|
 
 ## sfx_icestaff_start: sfx_icestaff_start
 
@@ -17864,6 +27024,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|255920259|
 
 ## sfx_icestaff_start: sfx_sword_swing_overlay
@@ -17892,6 +27058,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1468846208|
 
 ## sfx_imp_alerted: sfx_imp_alerted
@@ -17920,6 +27092,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1575635940|
 
 ## sfx_imp_death: firexplk
@@ -17948,6 +27126,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|981843703|
 
 ## sfx_imp_death: sfx_imp_death
@@ -17976,6 +27160,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1399389047|
 
 ## sfx_imp_fireball_explode: sfx_imp_fireball_explode
@@ -18004,6 +27194,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-188685138|
 
 ## sfx_imp_fireball_launch: sfx_imp_fireball_launch
@@ -18032,6 +27228,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1138102202|
 
 ## sfx_imp_hit: sfx_imp_hit
@@ -18060,7 +27262,557 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1528761917|
+
+## sfx_jotunwarrior_attack1: sfx_jotunwarrior_attack1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwarrior|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1203739964|
+
+## sfx_jotunwarrior_attack2: sfx_jotunwarrior_attack2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwarrior|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1734274493|
+
+## sfx_jotunwarrior_death: sfx_jotunwarrior_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_jotunwarrior|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|259580429|
+
+## sfx_jotunwarrior_hurt: sfx_jotunwarrior_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_jotunwarrior|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1513712476|
+
+## sfx_jotunwarrior_Idle: sfx_jotunwarrior_Idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwarrior|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.2|
+|m_minVol|System.Single|0.17|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-219158379|
+
+## sfx_jotunwarrior_impact_flesh: sfx_jotunwarrior_impact_flesh
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwarrior|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1224841395|
+
+## sfx_jotunwarrior_impact_ground: sfx_jotunwarrior_impact_ground
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwarrior|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1247496730|
+
+## sfx_jotunwitch_attackball: sfx_jotunwitch_attackball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1298583879|
+
+## sfx_jotunwitch_attackball_impact: sfx_jotunwitch_attackball_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.95|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.65|
+|m_minVol|System.Single|1.65|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1725709541|
+
+## sfx_jotunwitch_attackblast: sfx_jotunwitch_attackblast
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.92|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|804639926|
+
+## sfx_jotunwitch_attackbuildup: sfx_jotunwitch_attackbuildup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.92|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-958502413|
+
+## sfx_jotunwitch_death: sfx_jotunwitch_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-713593281|
+
+## sfx_jotunwitch_dodge: sfx_jotunwitch_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.3|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|867669089|
+
+## sfx_jotunwitch_flight: sfx_jotunwitch_flight
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_flying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1.2|
+|m_minVol|System.Single|0.95|
+|m_fadeInDuration|System.Single|2|
+|m_fadeOutDuration|System.Single|10|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## sfx_jotunwitch_hurt: sfx_jotunwitch_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.65|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1578448181|
+
+## sfx_jotunwitch_Idle: sfx_jotunwitch_Idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_jotunwitch|
+|m_secondaryCaptionToken|System.String|$caption_groaning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.27|
+|m_minVol|System.Single|0.22|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|634684895|
 
 ## sfx_jump: sfx_jump
 
@@ -18088,6 +27840,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1823917420|
+
+## sfx_jump_vibration_only: sfx_jump_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.9|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1823917420|
 
 ## sfx_kiln_addore: sfx_kiln_addore
@@ -18116,6 +27908,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|998814001|
 
 ## sfx_kiln_produce: sfx_kiln_produce
@@ -18144,6 +27942,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2074656998|
 
 ## sfx_knife_swing: sfx_knife_swing
@@ -18172,6 +27976,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2033527569|
 
 ## sfx_kromsword_swing: sfx_kromsword_swing
@@ -18200,6 +28010,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1882553654|
 
 ## sfx_kvastur_death: firexplk
@@ -18228,6 +28044,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|981843703|
 
 ## sfx_kvastur_death: sfx_kvastur_death
@@ -18256,6 +28078,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1399389047|
 
 ## sfx_land: sfx_land
@@ -18284,6 +28112,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|3|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1127217534|
 
 ## sfx_land_water: sfx_land_water
@@ -18312,6 +28146,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|3|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1868652721|
 
 ## sfx_leech_alerted: sfx_leech_alerted
@@ -18340,6 +28180,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1976012965|
 
 ## sfx_leech_attack: sfx_leech_attack
@@ -18368,6 +28214,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1594397843|
 
 ## sfx_leech_attack_hit: sfx_leech_attack_hit
@@ -18396,6 +28248,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1029728427|
 
 ## sfx_leech_death: sfx_leech_death
@@ -18424,6 +28282,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-403143740|
 
 ## sfx_leech_hit: sfx_leech_hit
@@ -18452,6 +28316,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1429868456|
 
 ## sfx_leech_idle: sfx_leech_idle
@@ -18480,6 +28350,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1834972572|
 
 ## sfx_lootspawn: sfx_lootspawn
@@ -18508,6 +28384,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-916417657|
 
 ## sfx_lox_alerted: sfx_lox_alerted
@@ -18536,6 +28418,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-85200660|
 
 ## sfx_lox_attack_bite: sfx_lox_attack_bite
@@ -18564,6 +28452,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1973024579|
 
 ## sfx_lox_attack_stomp: sfx_lox_attack_stomp
@@ -18592,6 +28486,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|577056687|
 
 ## sfx_lox_shout: sfx_lox_shout
@@ -18620,6 +28520,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1272304477|
 
 ## sfx_loxcalf_alerted: sfx_loxcalf_alerted
@@ -18648,6 +28554,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.6|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-991818317|
 
 ## sfx_MeadBurp: sfx_MeadBurp
@@ -18676,6 +28588,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|325539515|
 
 ## sfx_MeadBurp: slurp
@@ -18704,6 +28622,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-348864710|
 
 ## sfx_metal_blocked: sfx_metal_blocked
@@ -18732,6 +28656,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-823513221|
 
 ## sfx_metal_blocked: sfx_metal_blocked_overlay
@@ -18760,6 +28690,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1565213496|
 
 ## sfx_metal_blocked_overlay: sfx_metal_blocked_overlay
@@ -18788,6 +28724,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1004094656|
 
 ## sfx_metal_shield_blocked: sfx_metal_shield_blocked
@@ -18816,6 +28758,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1522112637|
 
 ## sfx_metal_shield_blocked: sfx_metal_shield_blocked_overlay
@@ -18844,6 +28792,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1304449223|
 
 ## sfx_metal_shield_blocked_overlay: sfx_metal_shield_blocked_overlay
@@ -18872,6 +28826,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1334972413|
 
 ## sfx_mill_add: sfx_mill_add
@@ -18900,6 +28860,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2098430669|
 
 ## sfx_mill_produce: sfx_mill_produce
@@ -18928,7 +28894,591 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1760024603|
+
+## sfx_moleman_alert: sfx_moleman_alert
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_moleman|
+|m_secondaryCaptionToken|System.String|$caption_alerted|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1167926553|
+
+## sfx_moleman_attack: sfx_moleman_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_moleman|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2095722167|
+
+## sfx_moleman_death: sfx_moleman_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_moleman|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.65|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1402268700|
+
+## sfx_moleman_footsteps: sfx_moleman_footsteps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_moleman|
+|m_secondaryCaptionToken|System.String|$caption_footsteps|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1926599620|
+
+## sfx_moleman_hurt: sfx_moleman_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_moleman|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.6|
+|m_minVol|System.Single|0.4|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-33535455|
+
+## sfx_moleman_idle: sfx_moleman_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_moleman|
+|m_secondaryCaptionToken|System.String|$caption_grunting|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1234007011|
+
+## sfx_moleman_spawn: sfx_moleman_spawn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_moleman|
+|m_secondaryCaptionToken|System.String|$caption_spawning|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|441727995|
+
+## sfx_moleman_stonedust: sfx_moleman_stonedust
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_moleman|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.65|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1022697352|
+
+## sfx_moose_alert: sfx_moose_alert
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_alert|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1209985244|
+
+## sfx_moose_attack_melee: sfx_moose_attack_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_attack|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|808208644|
+
+## sfx_moose_attack_melee_hit: sfx_moose_attack_melee_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_attack|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|769136240|
+
+## sfx_moose_attack_melee_movement: sfx_moose_attack_melee_movement
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_attack|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.35|
+|m_minVol|System.Single|0.25|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1134674293|
+
+## sfx_moose_attack_melee_whoosh: sfx_moose_attack_melee_whoosh
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_attack|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|552752888|
+
+## sfx_moose_death: sfx_moose_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_death|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|514937958|
+
+## sfx_moose_death_explode: sfx_moose_death_explode
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_death|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2014605812|
+
+## sfx_moose_hurt: sfx_moose_hurt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_hurt|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2030122126|
+
+## sfx_moose_idle: sfx_moose_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_moose|
+|m_secondaryCaptionToken|System.String|$caption_idle|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|603304002|
 
 ## sfx_morgen_alert: sfx_morgen_alert
 
@@ -18956,6 +29506,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-157598202|
 
 ## sfx_morgen_attack: sfx_morgen_attack
@@ -18984,6 +29540,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|891172186|
 
 ## sfx_morgen_death: sfx_morgen_death
@@ -19012,6 +29574,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-977365984|
 
 ## sfx_morgen_idle: sfx_morgen_idle
@@ -19040,6 +29608,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-819418956|
 
 ## sfx_morgen_roll_jump: sfx_morgen_roll_jump
@@ -19068,6 +29642,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1034903919|
 
 ## sfx_morgen_roll_land: sfx_morgen_roll_land
@@ -19096,6 +29676,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1298121513|
 
 ## sfx_morgen_slap: sfx_morgen_slap
@@ -19124,6 +29710,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-529759759|
 
 ## sfx_morgen_slap_delayed: sfx_morgen_slap_delayed
@@ -19152,6 +29744,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-571752863|
 
 ## sfx_morgen_spawn: sfx_morgen_spawn
@@ -19180,6 +29778,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1914043689|
 
 ## sfx_MudDestroyed: sfx_MudDestroyed
@@ -19208,6 +29812,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-598941512|
 
 ## sfx_MudHit: sfx_MudHit
@@ -19236,6 +29846,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1593542550|
 
 ## sfx_neck_alerted: sfx_neck_alerted
@@ -19264,6 +29880,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1617296209|
 
 ## sfx_neck_attack: sfx_neck_attack
@@ -19292,6 +29914,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|468179265|
 
 ## sfx_neck_attack_hit: sfx_neck_attack_hit
@@ -19320,6 +29948,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1810133013|
 
 ## sfx_neck_death: sfx_neck_death
@@ -19348,6 +29982,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-243792784|
 
 ## sfx_neck_hit: sfx_neck_hit
@@ -19376,6 +30016,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1221476493|
 
 ## sfx_neck_idle: sfx_neck_idle
@@ -19404,6 +30050,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1174088491|
 
 ## sfx_obliterator_close: sfx_obliterator_close
@@ -19432,6 +30084,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|240431522|
 
 ## sfx_obliterator_open: sfx_obliterator_open
@@ -19460,6 +30118,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1491690386|
 
 ## sfx_offering: sfx_offering
@@ -19488,6 +30152,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-410530064|
 
 ## sfx_oozebomb_explode: sfx_oozebomb_explode
@@ -19516,6 +30186,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-129509600|
 
 ## sfx_OpenPortal: sfx_OpenPortal
@@ -19544,6 +30220,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|973313063|
 
 ## sfx_oven_burnt: sfx_oven_burnt
@@ -19572,6 +30254,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|832589361|
 
 ## sfx_oven_done: sfx_oven_done
@@ -19600,6 +30288,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1015993544|
 
 ## sfx_oven_take: sfx_oven_take
@@ -19628,6 +30322,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1040911607|
 
 ## sfx_perfect_dodge: sfx_perfect_dodge
@@ -19656,6 +30356,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1961132098|
 
 ## sfx_perfectblock: sfx_perfectblock
@@ -19684,6 +30390,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1896639457|
 
 ## sfx_pickable_pick: sfx_pickable_pick
@@ -19712,6 +30424,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-208157617|
 
 ## sfx_pickaxe_hit: sfx_pickaxe_hit
@@ -19740,6 +30458,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1591151971|
+
+## sfx_pickaxe_hit_vibration_only: sfx_pickaxe_hit_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.9|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1.5|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1591151971|
 
 ## sfx_pickaxe_swing: sfx_pickaxe_swing
@@ -19768,6 +30526,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|806539164|
 
 ## sfx_Poison_Start: sfx_Poison_Start
@@ -19796,6 +30560,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1119660672|
 
 ## sfx_Potion_eitr_minor: sfx_Potion_eitr_minor
@@ -19824,6 +30594,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|738799375|
 
 ## sfx_Potion_fireresist_Start: sfx_Potion_fireresist_Start
@@ -19852,6 +30628,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-294411855|
 
 ## sfx_Potion_frostresist_Start: sfx_Potion_frostresist_Start
@@ -19880,6 +30662,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1763094004|
 
 ## sfx_Potion_health_large: sfx_Potion_health_large
@@ -19908,6 +30696,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1476310589|
 
 ## sfx_Potion_health_medium: sfx_Potion_health_medium
@@ -19936,6 +30730,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1878836880|
 
 ## sfx_Potion_health_minor: sfx_Potion_health_minor
@@ -19964,6 +30764,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1691740647|
 
 ## sfx_Potion_health_Start: sfx_Potion_health_Start
@@ -19992,6 +30798,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|188022041|
 
 ## sfx_Potion_stamina_Start: sfx_Potion_stamina_Start
@@ -20020,6 +30832,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1083595262|
 
 ## sfx_Potion_stamina_Start_lingering: sfx_Potion_stamina_Start_lingering
@@ -20048,6 +30866,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|261187520|
 
 ## sfx_Potion_stamina_Start_medium: sfx_Potion_stamina_Start_medium
@@ -20076,6 +30900,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1091445849|
 
 ## sfx_prespawn: sfx_prespawn
@@ -20104,6 +30934,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1825899428|
 
 ## sfx_prespawn_fader: sfx_prespawn_fader
@@ -20132,7 +30968,115 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|619160358|
+
+## sfx_prespawn_fader_vibration_only: sfx_prespawn_fader_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|5|
+|m_fadeOutDuration|System.Single|5|
+|m_fadeOutDelay|System.Single|16|
+|m_fadeOutOnAwake|System.Boolean|True|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|1|
+|m_minDelay|System.Single|1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|619160358|
+
+## sfx_prespawn_vibration_only: sfx_prespawn_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|1|
+|m_fadeOutDuration|System.Single|1|
+|m_fadeOutDelay|System.Single|10|
+|m_fadeOutOnAwake|System.Boolean|True|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|1|
+|m_minDelay|System.Single|1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1825899428|
+
+## sfx_prespawnLastBossGate: sfx_prespawnLastBossGate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|1|
+|m_fadeOutDuration|System.Single|1|
+|m_fadeOutDelay|System.Single|10|
+|m_fadeOutOnAwake|System.Boolean|True|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|1|
+|m_minDelay|System.Single|1|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1825899428|
 
 ## sfx_ProjectileHit: sfx_ProjectileHit
 
@@ -20160,6 +31104,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|30986159|
 
 ## sfx_Puke_female: sfx_Puke_female
@@ -20188,6 +31138,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1874383303|
 
 ## sfx_Puke_male: sfx_Puke_male
@@ -20216,6 +31172,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1890150831|
 
 ## sfx_reload_done: sfx_reload_done
@@ -20244,6 +31206,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-31800556|
 
 ## sfx_reload_dverger_done: sfx_reload_dverger_done
@@ -20272,6 +31240,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-491945226|
 
 ## sfx_reload_dverger_start: sfx_reload_dverger_start
@@ -20300,6 +31274,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1053884870|
 
 ## sfx_reload_start: sfx_reload_start
@@ -20328,6 +31308,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|576428921|
 
 ## sfx_rock_destroyed: sfx_rock_destroyed
@@ -20356,6 +31342,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-407047565|
 
 ## sfx_rock_hit: sfx_rock_hit
@@ -20384,6 +31376,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2135240830|
 
 ## sfx_rock_wall_crumble: sfx_rock_wall_crumble
@@ -20412,6 +31410,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1349768650|
 
 ## sfx_rooster_idle: sfx_rooster_idle
@@ -20440,7 +31444,115 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-732241052|
+
+## sfx_seal_alert: sfx_seal_alert
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_seal|
+|m_secondaryCaptionToken|System.String|$caption_alert|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2089288792|
+
+## sfx_seal_death: sfx_seal_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_seal|
+|m_secondaryCaptionToken|System.String|$caption_death|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1577426525|
+
+## sfx_seal_idle: sfx_seal_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_seal|
+|m_secondaryCaptionToken|System.String|$caption_death|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.65|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1323626819|
 
 ## sfx_secretfound: sfx_secretfound
 
@@ -20468,6 +31580,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1876447340|
 
 ## sfx_serpent_alerted: sfx_serpent_alerted
@@ -20496,6 +31614,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|138469865|
 
 ## sfx_serpent_attack: sfx_serpent_attack
@@ -20524,6 +31648,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|917714100|
 
 ## sfx_serpent_attack_hit: sfx_serpent_attack_hit
@@ -20552,6 +31682,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2109359628|
 
 ## sfx_serpent_attack_trigger: sfx_serpent_attack_trigger
@@ -20580,6 +31716,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1968907827|
 
 ## sfx_serpent_attack_trigger: splash
@@ -20608,6 +31750,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1540627381|
 
 ## sfx_serpent_death: sfx_serpent_death
@@ -20636,6 +31784,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1719424735|
 
 ## sfx_serpent_hurt: sfx_serpent_hurt
@@ -20664,6 +31818,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|312387709|
 
 ## sfx_serpent_idle: sfx_serpent_idle
@@ -20692,6 +31852,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-351226043|
 
 ## sfx_serpent_taunt: sfx_serpent_taunt
@@ -20720,6 +31886,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2066849088|
 
 ## sfx_shieldgenerator_hit: sfx_shieldgenerator_hit
@@ -20748,6 +31920,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1290692405|
 
 ## sfx_shieldgenerator_refuel: sfx_shieldgenerator_refuel
@@ -20776,6 +31954,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-352284160|
 
 ## sfx_shieldgenerator_shutdown: sfx_shieldgenerator_shutdown
@@ -20804,6 +31988,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1874076861|
 
 ## sfx_shieldgenerator_startup: sfx_shieldgenerator_startup
@@ -20832,6 +32022,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-653365451|
 
 ## sfx_ship_destroyed: sfx_ship_destroyed
@@ -20860,6 +32056,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1741546123|
 
 ## sfx_ship_impact: sfx_ship_impact
@@ -20888,6 +32090,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1949836009|
+
+## sfx_ship_sailposition_change_vibration_only: sfx_ship_sailposition_change_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.7|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1949836009|
 
 ## sfx_silvermace_hit: iceball
@@ -20916,6 +32158,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-438972736|
 
 ## sfx_silvermace_hit: sfx_silvermace_hit
@@ -20944,6 +32192,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2083789081|
 
 ## sfx_skeleton_alerted: sfx_skeleton_alerted
@@ -20972,6 +32226,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-212474521|
 
 ## sfx_skeleton_attack: sfx_skeleton_attack
@@ -21000,6 +32260,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2023788253|
 
 ## sfx_skeleton_big_alerted: sfx_skeleton_big_alerted
@@ -21028,6 +32294,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|663322246|
 
 ## sfx_skeleton_big_death: sfx_skeleton_big_death
@@ -21056,6 +32328,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1760984710|
 
 ## sfx_skeleton_big_death: sfx_skeleton_idle
@@ -21084,6 +32362,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1385455413|
 
 ## sfx_skeleton_death: sfx_skeleton_death
@@ -21112,6 +32396,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1673751494|
 
 ## sfx_skeleton_hit: sfx_skeleton_hit
@@ -21140,6 +32430,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|252615969|
 
 ## sfx_skeleton_idle: sfx_skeleton_idle
@@ -21168,6 +32464,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1535757315|
 
 ## sfx_skeleton_mace_hit: sfx_skeleton_mace_hit
@@ -21196,6 +32498,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1664245518|
 
 ## sfx_skeleton_rise: sfx_skeleton_rise
@@ -21224,6 +32532,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1703137352|
 
 ## sfx_skull_summon_skeleton: sfx_skull_summon_skeleton
@@ -21252,6 +32566,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1058105604|
 
 ## sfx_skull_summon_skeleton: sfx_sword_swing_overlay
@@ -21280,6 +32600,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-17331042|
 
 ## sfx_sledge_hit: sfx_sledge_hit
@@ -21308,6 +32634,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2037600450|
 
 ## sfx_sledge_iron_hit: scifisound
@@ -21336,6 +32668,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-593752732|
 
 ## sfx_sledge_iron_hit: sfx_sledge_iron_hit
@@ -21364,6 +32702,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.8|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1358454673|
 
 ## sfx_sledge_swing: sfx_sledge_swing
@@ -21392,6 +32736,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1977092507|
 
 ## sfx_smelter_add: sfx_smelter_add
@@ -21420,6 +32770,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1125940328|
 
 ## sfx_smelter_produce: sfx_smelter_produce
@@ -21448,6 +32804,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-944405283|
 
 ## sfx_spawn: sfx_spawn
@@ -21476,6 +32838,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2076152356|
+
+## sfx_spawn_vibration_only: sfx_spawn_vibration_only
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2076152356|
 
 ## sfx_spear_flint_hit: sfx_spear_flint_hit
@@ -21504,6 +32906,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1021270244|
 
 ## sfx_spear_hit: sfx_spear_hit
@@ -21532,6 +32940,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|473159375|
 
 ## sfx_spear_poke: sfx_spear_poke
@@ -21560,6 +32974,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1366195635|
 
 ## sfx_spear_throw: sfx_spear_throw
@@ -21588,6 +33008,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|683591739|
 
 ## sfx_staff_elder_burst: sfx_staff_elder_burst
@@ -21616,6 +33042,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-462303125|
 
 ## sfx_staff_elder_cast: sfx_staff_elder_cast
@@ -21644,6 +33076,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|766562475|
 
 ## sfx_staff_elder_grow: sfx_staff_elder_grow
@@ -21672,6 +33110,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1617952269|
 
 ## sfx_staff_elder_root_hit: sfx_staff_elder_root_hit
@@ -21700,6 +33144,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|999747426|
 
 ## sfx_staff_elder_root_swing: sfx_staff_elder_root_swing
@@ -21728,6 +33178,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1976522324|
 
 ## sfx_staff_grenade_cast: sfx_staff_grenade_cast
@@ -21756,6 +33212,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1540196375|
 
 ## sfx_staff_lightning_charge: sfx_staff_lightning_charge
@@ -21784,6 +33246,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1323755873|
 
 ## sfx_staff_lightning_fire: sfx_staff_lightning_fire
@@ -21812,6 +33280,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1432398405|
 
 ## sfx_staff_trollstav_troll_impact: sfx_staff_trollstav_troll_impact
@@ -21840,7 +33314,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|941764562|
+
+## sfx_stafffrostorbs_cast: sfx_stafffrostorbs_cast
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.35|
+|m_minVol|System.Single|1.15|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## sfx_stafffrostorbs_shield_spawn: sfx_stafffrostorbs_shield_spawn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.15|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
 
 ## sfx_StaffLightning_charge: sfx_StaffLightning_charge
 
@@ -21868,6 +33416,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1949577871|
 
 ## sfx_StaffLightning_fire: sfx_StaffLightning_fire
@@ -21896,6 +33450,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|280375988|
 
 ## sfx_StaffLightning_fire: sfx_StaffLightning_fire
@@ -21924,7 +33484,217 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2142695449|
+
+## sfx_stafforbofahri_cast: sfx_stafforbofahri_cast
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.35|
+|m_minVol|System.Single|1.15|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## sfx_stafforbofahri_explosion: sfx_stafforbofahri_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.35|
+|m_minVol|System.Single|1.15|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|80|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## sfx_staffspiritcaller_cast: sfx_staffspiritcaller_cast
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.35|
+|m_minVol|System.Single|1.15|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## sfx_staffspiritcaller_summon: sfx_staffspiritcaller_summon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.65|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|0|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## sfx_staffthunderblood_cast: sfx_staffthunderblood_cast
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.45|
+|m_minVol|System.Single|1.2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## sfx_staffthunderblood_thunder: sfx_staffthunderblood_thunder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.3|
+|m_minVol|System.Single|1.1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|80|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
 
 ## sfx_stonegolem_alerted: sfx_stonegolem_alerted
 
@@ -21952,6 +33722,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-980736864|
 
 ## sfx_stonegolem_attack_hit: sfx_stonegolem_attack_hit
@@ -21980,6 +33756,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1759797111|
 
 ## sfx_stonegolem_attack_wosh: sfx_stonegolem_attack_wosh
@@ -22008,6 +33790,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1923675589|
 
 ## sfx_stonegolem_death: Rocknoise
@@ -22036,6 +33824,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2041387103|
 
 ## sfx_stonegolem_death: sfx_stonegolem_death
@@ -22064,6 +33858,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1511740603|
 
 ## sfx_stonegolem_hurt: sfx_stonegolem_hurt
@@ -22092,6 +33892,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1444302235|
 
 ## sfx_stonegolem_idle: sfx_stonegolem_idle
@@ -22120,6 +33926,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1980277505|
 
 ## sfx_stonegolem_primary_start: sfx_stonegolem_primary_start
@@ -22148,6 +33960,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1953424402|
 
 ## sfx_stonegolem_second_start: sfx_stonegolem_second_start
@@ -22176,6 +33994,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|804565039|
 
 ## sfx_stonegolem_spikeattack_trailon: sfx_stonegolem_spikeattack_trailon
@@ -22204,6 +34028,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-726596067|
 
 ## sfx_stonegolem_wakeup: sfx_stonegolem_wakeup
@@ -22232,6 +34062,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1435459795|
 
 ## sfx_sword_hit: sfx_sword_hit
@@ -22260,6 +34096,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1974876012|
 
 ## sfx_sword_hit: sfx_sword_hit_overlay
@@ -22288,6 +34130,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1518056283|
 
 ## sfx_sword_swing: sfx_sword_swing
@@ -22316,6 +34164,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-168304365|
 
 ## sfx_sword_swing: sfx_sword_swing_overlay
@@ -22344,6 +34198,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-485253317|
 
 ## sfx_tentaroot_attack: sfx_tentaroot_attack
@@ -22372,6 +34232,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1703626878|
 
 ## sfx_tick_alerted: sfx_tick_alerted
@@ -22400,6 +34266,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2095571242|
 
 ## sfx_tick_attack_drain: sfx_tick_attack_drain
@@ -22428,6 +34300,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2002211401|
 
 ## sfx_tick_attack_jump: sfx_tick_attack_jump
@@ -22456,6 +34334,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|153954956|
 
 ## sfx_tick_hurt: sfx_tick_hurt
@@ -22484,6 +34368,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1777489455|
 
 ## sfx_tick_idle: sfx_tick_idle
@@ -22512,6 +34402,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|174856198|
 
 ## sfx_torch_swing: sfx_torch_swing
@@ -22540,6 +34436,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2099942183|
 
 ## sfx_trainingdummy_alert: sfx_trainingdummy_alert
@@ -22568,6 +34470,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-723458919|
 
 ## sfx_trainingdummy_heavy_attack impact: sfx_trainingdummy_heavy_attack impact
@@ -22596,6 +34504,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1597618769|
 
 ## sfx_trainingdummy_heavy_attack: sfx_trainingdummy_heavy_attack
@@ -22624,6 +34538,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1997178571|
 
 ## sfx_trainingdummy_idle: sfx_trainingdummy_idle
@@ -22652,6 +34572,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1790353668|
 
 ## sfx_trainingdummy_light_attack impact: sfx_trainingdummy_light_attack impact
@@ -22680,6 +34606,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|325743416|
 
 ## sfx_trainingdummy_light_attack: sfx_trainingdummy_light_attack
@@ -22708,6 +34640,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1268134282|
 
 ## sfx_trainingdummy_stagger: sfx_trainingdummy_stagger
@@ -22736,6 +34674,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-786318541|
 
 ## sfx_trainingdummy_throw: sfx_trainingdummy_throw
@@ -22764,6 +34708,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|426100386|
 
 ## sfx_trainingdummy_throw_impact: sfx_trainingdummy_throw_impact
@@ -22792,6 +34742,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-183369544|
 
 ## sfx_treasurechest_destroyed: sfx_treasurechest_destroyed
@@ -22820,6 +34776,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-535520505|
 
 ## sfx_tree_fall: sfx_tree_fall
@@ -22848,6 +34810,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-210911293|
 
 ## sfx_tree_fall_abomination: sfx_tree_fall_abomination
@@ -22876,6 +34844,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1314391418|
 
 ## sfx_tree_fall_hit: sfx_tree_fall_hit
@@ -22890,8 +34864,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.8|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.6|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.35|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -22904,7 +34878,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|1352876597|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1536050105|
 
 ## sfx_tree_hit: sfx_tree_hit
 
@@ -22932,6 +34912,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1539956705|
 
 ## sfx_tree_hit_abomination: sfx_tree_hit_abomination
@@ -22960,6 +34946,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-988071809|
 
 ## sfx_troll_alerted: sfx_troll_alerted
@@ -22988,6 +34980,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-700922563|
 
 ## sfx_troll_attack_hit: sfx_troll_attack_hit
@@ -23016,6 +35014,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|480984132|
 
 ## sfx_troll_attacking: sfx_troll_attacking
@@ -23044,6 +35048,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1765862976|
 
 ## sfx_troll_death: sfx_troll_death
@@ -23072,6 +35082,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|603489774|
 
 ## sfx_troll_hit: sfx_troll_hit
@@ -23100,6 +35116,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2096980003|
 
 ## sfx_troll_idle: sfx_troll_idle
@@ -23128,6 +35150,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1832752294|
 
 ## sfx_troll_rock_destroyed: sfx_troll_rock_destroyed
@@ -23156,6 +35184,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1012638855|
 
 ## sfx_trollfire_attack_club_impact: sfx_trollfire_attack_club_impact
@@ -23184,6 +35218,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1421861176|
 
 ## sfx_trollfire_attack_club_swing_down: sfx_trollfire_attack_club_swing_down
@@ -23212,6 +35252,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1516330011|
 
 ## sfx_trollfire_attack_club_swing_up: sfx_trollfire_attack_club_swing_up
@@ -23240,6 +35286,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-968431037|
 
 ## sfx_trollfire_attack_slam_impact: sfx_trollfire_attack_slam_impact
@@ -23268,6 +35320,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1826023172|
 
 ## sfx_trollfire_attack_slam_start: sfx_trollfire_attack_slam_start
@@ -23296,6 +35354,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-547273102|
 
 ## sfx_trollfire_attack_slap_impact: sfx_trollfire_attack_slap_impact
@@ -23324,6 +35388,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|894508194|
 
 ## sfx_trollfire_attack_slap_start: sfx_trollfire_attack_slap_start
@@ -23352,6 +35422,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1109040811|
 
 ## sfx_trollfire_attack_slap_swing: sfx_trollfire_attack_slap_swing
@@ -23380,6 +35456,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-514303475|
 
 ## sfx_trollfire_attack_throw: sfx_trollfire_attack_throw
@@ -23408,6 +35490,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|955645001|
 
 ## sfx_trollfire_death: sfx_trollfire_death
@@ -23436,6 +35524,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|723205778|
 
 ## sfx_trollfire_idle: sfx_trollfire_idle
@@ -23464,6 +35558,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1852697210|
 
 ## sfx_trollfire_roar: sfx_trollfire_roar
@@ -23492,6 +35592,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1597816545|
 
 ## sfx_ulv_death: sfx_ulv_death
@@ -23520,6 +35626,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1658604540|
 
 ## sfx_unarmed_blocked: sfx_unarmed_blocked
@@ -23548,6 +35660,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|143819138|
 
 ## sfx_unarmed_hit: sfx_unarmed_hit
@@ -23576,6 +35694,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1581706881|
 
 ## sfx_unarmed_swing: sfx_unarmed_swing
@@ -23604,6 +35728,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2033543783|
 
 ## sfx_unbjorn_bite_attack: sfx_unbjorn_bite_attack
@@ -23632,6 +35762,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-343783393|
 
 ## sfx_unbjorn_bite_attack_impact: sfx_unbjorn_bite_attack_impact
@@ -23660,6 +35796,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1768061253|
 
 ## sfx_unbjorn_claw_attack: sfx_unbjorn_claw_attack
@@ -23688,6 +35830,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|116568888|
 
 ## sfx_unbjorn_claw_attack_slash: sfx_unbjorn_claw_attack_slash
@@ -23716,6 +35864,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|928532426|
 
 ## sfx_unbjorn_death: sfx_unbjorn_death
@@ -23744,6 +35898,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1322322619|
 
 ## sfx_unbjorn_footstep: sfx_unbjorn_footstep
@@ -23772,6 +35932,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.7|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1235045673|
 
 ## sfx_unbjorn_hurt: sfx_unbjorn_hurt
@@ -23800,6 +35966,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|434712508|
 
 ## sfx_unbjorn_idle: sfx_unbjorn_idle
@@ -23828,6 +36000,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|617826103|
 
 ## sfx_UndeadBurn_Start: sfx_UndeadBurn_Start
@@ -23856,6 +36034,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1337314319|
 
 ## sfx_unstablerock_explosion: sfx_unstablerock_explosion
@@ -23884,6 +36068,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2119564878|
 
 ## sfx_vulture_alert: sfx_vulture_alert
@@ -23912,6 +36102,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-590900496|
 
 ## sfx_vulture_attack_claw: sfx_vulture_attack_claw
@@ -23940,6 +36136,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|942245799|
 
 ## sfx_vulture_death: sfx_vulture_death
@@ -23968,6 +36170,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2109744754|
 
 ## sfx_vulture_eat_bite: sfx_vulture_eat_bite
@@ -23996,6 +36204,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-3852418|
 
 ## sfx_vulture_eat_break: sfx_vulture_eat_break
@@ -24024,6 +36238,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-346735049|
 
 ## sfx_vulture_eat_swallow: sfx_vulture_eat_swallow
@@ -24052,6 +36272,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-540951554|
 
 ## sfx_vulture_footstep: sfx_vulture_footstep
@@ -24080,6 +36306,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1129979455|
 
 ## sfx_vulture_idle: sfx_vulture_idle
@@ -24108,6 +36340,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-679802706|
 
 ## sfx_vulture_wing_flap: sfx_vulture_wing_flap
@@ -24136,6 +36374,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-496423598|
 
 ## sfx_weapons_nature_root: sfx_weapons_nature_root
@@ -24164,6 +36408,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-769042592|
 
 ## sfx_WishbonePing_closer: sfx_WishbonePing_closer
@@ -24192,6 +36442,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1752349820|
 
 ## sfx_WishbonePing_far: sfx_WishbonePing_far
@@ -24220,6 +36476,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|630146244|
 
 ## sfx_WishbonePing_further: sfx_WishbonePing_further
@@ -24248,6 +36510,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|548061073|
 
 ## sfx_WishbonePing_med: sfx_WishbonePing_med
@@ -24276,6 +36544,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1799739049|
 
 ## sfx_WishbonePing_near: sfx_WishbonePing_near
@@ -24304,6 +36578,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|602554460|
 
 ## sfx_wolf_alerted: sfx_wolf_alerted
@@ -24332,6 +36612,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1588909836|
 
 ## sfx_wolf_attack: sfx_wolf_attack
@@ -24360,6 +36646,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1034717216|
 
 ## sfx_wolf_attack_hit: sfx_wolf_attack_hit
@@ -24388,6 +36680,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1024306772|
 
 ## sfx_wolf_birth: sfx_wolf_birth
@@ -24416,6 +36714,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1045521702|
 
 ## sfx_wolf_death: sfx_wolf_death
@@ -24444,6 +36748,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-887506203|
 
 ## sfx_wolf_hit: sfx_wolf_hit
@@ -24472,6 +36782,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1701834194|
 
 ## sfx_wolf_love: sfx_wolf_love
@@ -24500,6 +36816,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|True|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-262300708|
 
 ## sfx_wood_blocked: sfx_wood_blocked
@@ -24528,6 +36850,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1774652806|
 
 ## sfx_wood_blocked: sfx_wood_blocked_overlay
@@ -24556,6 +36884,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|282207705|
 
 ## sfx_wood_blocked_overlay: sfx_wood_blocked_overlay
@@ -24584,6 +36918,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-711425909|
 
 ## sfx_wood_break: sfx_wood_break
@@ -24612,6 +36952,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1425178079|
 
 ## sfx_wood_destroyed: sfx_wood_destroyed
@@ -24640,6 +36986,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|119396869|
 
 ## sfx_wood_hit: sfx_wood_hit
@@ -24668,6 +37020,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|134610871|
 
 ## sfx_woosh_scythe: sfx_woosh_scythe
@@ -24696,6 +37054,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|148622436|
 
 ## sfx_wraith_alerted: sfx_wraith_alerted
@@ -24724,6 +37088,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-348129766|
 
 ## sfx_wraith_attack: sfx_wraith_attack
@@ -24752,6 +37122,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-750315680|
 
 ## sfx_wraith_attack_hit: sfx_wraith_attack_hit
@@ -24780,6 +37156,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-345288140|
 
 ## sfx_wraith_death: sfx
@@ -24808,6 +37190,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1040380291|
 
 ## sfx_wraith_death: sfx_wraith_death
@@ -24836,6 +37224,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-962523552|
 
 ## sfx_wraith_hit: sfx_wraith_hit
@@ -24864,6 +37258,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1910215749|
 
 ## sfx_wraith_idle: sfx_wraith_idle
@@ -24892,7 +37292,115 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1391005529|
+
+## sfx_writhan_bite_attack: sfx_writhan_bite_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|2.5|
+|m_minPitch|System.Single|2.5|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.6|
+|m_minDelay|System.Single|0.6|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1790193528|
+
+## sfx_writhan_bite_attack_impact: sfx_writhan_bite_attack_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2136427640|
+
+## sfx_writhan_fizz: sfx_writhan_fizz
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_bear|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2136427640|
 
 ## shieldgenerator_attack: fx_gjall_taunt
 
@@ -24920,6 +37428,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|446519181|
 
 ## shieldgenerator_attack: sfx
@@ -24948,6 +37462,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|40|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1129299213|
 
 ## siegebomb_explosion: sfx_bombsiege_explosion
@@ -24976,7 +37496,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-44709246|
+
+## Sled: Audio Source
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1460302572|
+
+## Sled: Audio Source (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|366047287|
 
 ## Spawner_CharredStone: sfx_charred_spawner_loop
 
@@ -25004,6 +37598,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1901222548|
 
 ## Spawner_CharredStone_Elite: sfx_charred_spawner_loop
@@ -25032,6 +37632,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1743477326|
 
 ## Spawner_CharredStone_event: sfx_charred_spawner_loop
@@ -25060,6 +37666,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2106158912|
 
 ## Spawner_DraugrPile: sfx
@@ -25088,6 +37700,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-189455566|
 
 ## Spawner_GreydwarfNest: sfx
@@ -25116,7 +37734,319 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1353403238|
+
+## Spawner_Hole: sfx_elaking_spawner_idle_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|8|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1354439244|
+
+## Spawner_Hole_double: sfx_elaking_spawner_idle_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|8|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1354439244|
+
+## staff_FrostOrbs_projectile: sfx_stafffrostorbs_shield_bounce
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.15|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|0.65|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## staff_FrostOrbs_projectile: sfx_stafforbofahri_projectile_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.65|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|60|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## staff_OrbofAhri_aoe: sfx_stafforbofahri_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.35|
+|m_minVol|System.Single|1.15|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|80|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## staff_OrbofAhri_projectile: sfx_stafforbofahri_projectile_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.65|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|60|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## staff_OrbofAhri_projectile_return: sfx_stafforbofahri_projectile_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.65|
+|m_minVol|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|60|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## staff_thunderblood_aoe: sfx_staffthunderblood_thunder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1.3|
+|m_minVol|System.Single|1.1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|80|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## staff_thunderblood_projectile: sfx
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|933372644|
 
 ## SwordIronFire: sfx_fire_loop
 
@@ -25127,7 +38057,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -25144,7 +38074,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 
 ## Troll_Summoned: sfx_trollfire_fire_loop
 
@@ -25172,7 +38108,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1058334735|
+
+## vfx_aspect_summoned_prespawn: sfx_frozenking_spirit_summon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1.1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0.6|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.1|
+|m_minDelay|System.Single|0.1|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1664465602|
 
 ## vfx_Burning: sfx_ui_player_firedamage_ignite
 
@@ -25200,6 +38176,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-217079593|
 
 ## vfx_Burning: sfx_ui_player_firedamage_loop
@@ -25228,6 +38210,148 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-307574091|
+
+## vfx_Burning_blue: sfx_ui_player_firedamage_ignite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$caption_catchfire|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-217079593|
+
+## vfx_Burning_blue: sfx_ui_player_firedamage_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-307574091|
+
+## vfx_Burning_green: sfx_ui_player_firedamage_ignite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$caption_catchfire|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-217079593|
+
+## vfx_Burning_green: sfx_ui_player_firedamage_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-307574091|
 
 ## vfx_cartograpertable_write: SFX
@@ -25256,6 +38380,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|43422213|
 
 ## vfx_corpse_destruction_large: sfx
@@ -25284,6 +38414,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-969444697|
 
 ## vfx_corpse_destruction_medium: sfx
@@ -25312,6 +38448,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.7|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-963627344|
 
 ## vfx_corpse_destruction_small: sfx
@@ -25340,6 +38482,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.4|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|879621895|
 
 ## vfx_dragon_death: sfx
@@ -25368,6 +38516,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-421541674|
 
 ## vfx_fenring_cultist_death: SFX
@@ -25396,6 +38550,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-426287674|
 
 ## vfx_fenring_cultist_hildir_death: SFX
@@ -25424,6 +38584,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1008000083|
 
 ## vfx_firetreecut_dead_abomination: sfx_troll_rock_destroyed
@@ -25452,6 +38618,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1886675957|
 
 ## vfx_FireWork_BlackCore: sfx explosion
@@ -25480,6 +38652,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1298481359|
 
 ## vfx_FireWork_BlackCore: sfx launch
@@ -25508,6 +38686,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-414966787|
 
 ## vfx_FireWork_SurtlingCore: sfx explosion
@@ -25536,6 +38720,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-596521778|
 
 ## vfx_FireWork_SurtlingCore: sfx launch
@@ -25564,6 +38754,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1621944839|
 
 ## vfx_FireWork_ThunderStone: sfx explosion
@@ -25592,6 +38788,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-900389312|
 
 ## vfx_FireWork_ThunderStone: sfx launch
@@ -25620,7 +38822,115 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1283150349|
+
+## vfx_FrostOrbs: sfx_stafffrostorbs_shield_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|0.7|
+|m_minPitch|System.Single|0.55|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.7|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|False|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-199537281|
+
+## vfx_frozenking_death: sfx_expl
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1472792818|
+
+## vfx_frozenking_final_death: sfx_expl
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1472792818|
 
 ## vfx_gjall_spit: sfx (1)
 
@@ -25648,6 +38958,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1464339505|
 
 ## vfx_GodExplosion: sfx_expl
@@ -25676,6 +38992,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-104800624|
 
 ## vfx_HealthUpgrade: sfx
@@ -25704,6 +39026,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-864562839|
 
 ## vfx_HealthUpgrade: sfx_expl
@@ -25732,6 +39060,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|954942842|
 
 ## vfx_hjall_spit_hit: sfx (1)
@@ -25760,6 +39094,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1673726838|
 
 ## vfx_lever: sfx_distant thunder
@@ -25788,6 +39128,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2046426470|
 
 ## vfx_lever: sfx_lever
@@ -25816,6 +39162,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-868106262|
 
 ## vfx_lever: sfx_sparks
@@ -25844,6 +39196,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|880939605|
 
 ## vfx_Place_HildirClothesRack: SFX
@@ -25872,6 +39230,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2046566964|
 
 ## vfx_Place_HildirFabricRoll: SFX
@@ -25900,6 +39264,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1582487236|
 
 ## vfx_Place_HildirTableClothes: SFX
@@ -25928,6 +39298,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|418116844|
 
 ## vfx_StaminaUpgrade: sfx
@@ -25956,6 +39332,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1090572286|
 
 ## vfx_StaminaUpgrade: sfx_expl
@@ -25984,6 +39366,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1533189957|
 
 ## vfx_troll_summoned_prespawn: sfx_staff_trollstav_meteorite
@@ -26012,6 +39400,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
+|m_vibrationModifier|System.Single|0.7|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-996629415|
 
 ## vfx_UndeadBurn: sfx_fire_loop
@@ -26023,7 +39417,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
 |m_maxConcurrentSources|System.Int32|4|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|1|
@@ -26040,5 +39434,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_hash|System.Int32|-851502317|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-79872451|
 

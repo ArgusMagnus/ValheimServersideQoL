@@ -26,7 +26,67 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Aspect_Bonemass: Aspect_Bonemass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Aspect_Eikthyr: Aspect_Eikthyr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Aspect_Elder: Aspect_Elder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Aspect_Fader: Aspect_Fader
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Aspect_Moder: Aspect_Moder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Aspect_SeekerQueen: Aspect_SeekerQueen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Aspect_TentaRoot: Aspect_TentaRoot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Aspect_Yagluth: Aspect_Yagluth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Barka: Barka
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Bat: Bat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Bat_Swamp: Bat_Swamp
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -38,7 +98,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Bjorn_sleeping: Bjorn_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Bjorn_spiritcaller: Bjorn_spiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Blob: Blob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## BlobAspect: BlobAspect
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -62,6 +140,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## BlobMork: BlobMork
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## BlobMorkMini: BlobMorkMini
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## BlobTar: BlobTar
 
 |Field|Type|Default Value|
@@ -75,6 +165,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## Boar_piggy: Boar_piggy
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Boar_spiritcaller: Boar_spiritcaller
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -170,6 +266,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Deer_White: Deer_White
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Dragon: Dragon
 
 |Field|Type|Default Value|
@@ -188,7 +290,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Draugr_Elite_sleeping: Draugr_Elite_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Draugr_Ranged: Draugr_Ranged
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Draugr_Ranged_sleeping: Draugr_Ranged_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Draugr_sleeping: Draugr_sleeping
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -201,6 +321,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## DvergerAshlands: DvergerAshlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## DvergerDeepNorth: DvergerDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -242,6 +368,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Elaking: Elaking
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## ElakingLantern: ElakingLantern
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## ElakingMole: ElakingMole
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Fader: Fader
 
 |Field|Type|Default Value|
@@ -249,6 +393,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## FallenValkyrie: FallenValkyrie
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## FallenWarrior: FallenWarrior
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -278,6 +428,36 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## FrostWisp: FrostWisp
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## FrozenKing: FrozenKing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## FrozenKing_p2: FrozenKing_p2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## FrozenKing_p3: FrozenKing_p3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Frysling: Frysling
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## gd_king: gd_king
 
 |Field|Type|Default Value|
@@ -285,6 +465,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## Ghost: Ghost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Ghost_old: Ghost_old
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Ghost_sleeping: Ghost_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Ghost_Void: Ghost_Void
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -338,6 +536,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## GoblinDeepNorth: GoblinDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## GoblinKing: GoblinKing
 
 |Field|Type|Default Value|
@@ -374,7 +578,19 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Greydwarf_Frozen: Greydwarf_Frozen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Greydwarf_Shaman: Greydwarf_Shaman
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Greydwarf_Shaman_Frozen: Greydwarf_Shaman_Frozen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -405,6 +621,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## Hive: Hive
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## JotunWarrior: JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## JotunWarriorDualWield: JotunWarriorDualWield
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## JotunWitch: JotunWitch
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -452,6 +686,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Moose: Moose
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Moose_calf: Moose_calf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Moose_spiritcaller: Moose_spiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Morgen: Morgen
 
 |Field|Type|Default Value|
@@ -488,6 +740,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|False|
 
+## Seal: Seal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Seal_Pup: Seal_Pup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Seeker: Seeker
 
 |Field|Type|Default Value|
@@ -518,7 +782,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## ShadowPerson: ShadowPerson
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Skeleton: Skeleton
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Skeleton_aspect: Skeleton_aspect
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Skeleton_DeepNorth: Skeleton_DeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -542,6 +824,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Skeleton_Meadows: Skeleton_Meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Skeleton_Meadows_noarcher: Skeleton_Meadows_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Skeleton_Mountains: Skeleton_Mountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Skeleton_Mountains_noarcher: Skeleton_Mountains_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Skeleton_NoArcher: Skeleton_NoArcher
 
 |Field|Type|Default Value|
@@ -549,6 +855,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## Skeleton_Poison: Skeleton_Poison
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Skeleton_Swamps: Skeleton_Swamps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Skeleton_Swamps_noarcher: Skeleton_Swamps_noarcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -572,7 +890,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Tendril: Tendril
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Tendril_back: Tendril_back
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## TentaRoot: TentaRoot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## TentaRoot_wild: TentaRoot_wild
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -602,7 +938,19 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Troll_sleeping: Troll_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Troll_Summoned: Troll_Summoned
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## TrollFrost: TrollFrost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -615,6 +963,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
 ## Unbjorn: Unbjorn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Valkyrie_End: Valkyrie_End
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -638,7 +992,19 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_smoothCharacterSpeeds|System.Boolean|True|
 
+## Wolf_spiritcaller: Wolf_spiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
 ## Wraith: Wraith
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_smoothCharacterSpeeds|System.Boolean|True|
+
+## Writhan: Writhan
 
 |Field|Type|Default Value|
 |-----|----|-------------|

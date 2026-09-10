@@ -8,4 +8,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_FeedItem|ItemDrop|*null*|
 |m_UpdateRate|System.Int32|7|
+|m_hoverOffset|System.Single|0|
 

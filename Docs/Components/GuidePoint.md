@@ -32,6 +32,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
+## frozenship: GuidePoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_ravenPrefab|UnityEngine.GameObject|Ravens|
+
 ## guard_stone: GuidePoint
 
 |Field|Type|Default Value|
@@ -45,6 +51,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
 ## piece_cartographytable: GuidePoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_ravenPrefab|UnityEngine.GameObject|Ravens|
+
+## piece_EternalPyre: GuidePoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_ravenPrefab|UnityEngine.GameObject|Ravens|
+
+## piece_FaderEmbers: GuidePoint
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -87,6 +105,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ravenPrefab|UnityEngine.GameObject|Ravens|
 
 ## smelter: GuidePoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_ravenPrefab|UnityEngine.GameObject|Ravens|
+
+## UpgradeStation: GuidePoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_ravenPrefab|UnityEngine.GameObject|Ravens|
+
+## Valkyrie_End: GuidePoint Hugin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_ravenPrefab|UnityEngine.GameObject|Ravens|
+
+## Valkyrie_End: GuidePoint Munin
 
 |Field|Type|Default Value|
 |-----|----|-------------|

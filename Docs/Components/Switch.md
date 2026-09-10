@@ -6,6 +6,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|$piece_armorstand|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -14,6 +15,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand back weapon|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -22,6 +24,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand back shield|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -30,6 +33,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand body|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -38,6 +42,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand left arm|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -46,6 +51,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand right arm|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -54,6 +60,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -62,6 +69,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand back weapon|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -70,6 +78,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand back shield|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -78,6 +87,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand body|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -86,6 +96,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand left arm|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -94,6 +105,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Armor stand right arm|
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -102,6 +114,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -110,6 +123,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|0.2|
@@ -118,6 +132,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_blastfurnace|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -126,6 +141,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_blastfurnace|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -134,6 +150,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -142,6 +159,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -150,6 +168,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -158,6 +177,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -166,6 +186,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|-1|
@@ -174,6 +195,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_charcoalkiln|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -182,6 +204,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|0.2|
@@ -190,6 +213,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_eitrrefinery|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -198,6 +222,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_eitrrefinery|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -206,6 +231,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String|Incinerate|
 |m_name|System.String|Incinerate!|
 |m_holdRepeatInterval|System.Single|5|
@@ -214,6 +240,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_bathtub|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -222,6 +249,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_cartographytable|
 |m_holdRepeatInterval|System.Single|-1|
@@ -230,14 +258,43 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_cartographytable|
 |m_holdRepeatInterval|System.Single|-1|
+
+## piece_FrostFoundry: add_food
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hoverOffset|System.Single|0|
+|m_hoverText|System.String||
+|m_name|System.String|$piece_frostfoundry|
+|m_holdRepeatInterval|System.Single|0.2|
+
+## piece_FrostFoundry: add_fuel
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hoverOffset|System.Single|0|
+|m_hoverText|System.String||
+|m_name|System.String|$piece_frostfoundry|
+|m_holdRepeatInterval|System.Single|0.2|
+
+## piece_FrostKiln: add_ore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hoverOffset|System.Single|0|
+|m_hoverText|System.String||
+|m_name|System.String|$piece_charcoalkiln|
+|m_holdRepeatInterval|System.Single|0.2|
 
 ## piece_oven: add_food
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_oven|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -246,6 +303,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_oven|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -254,6 +312,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String||
 |m_holdRepeatInterval|System.Single|0.2|
@@ -262,6 +321,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_spinningwheel|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -270,6 +330,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_smelter|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -278,6 +339,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_smelter|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -286,6 +348,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_windmill|
 |m_holdRepeatInterval|System.Single|0.2|
@@ -294,6 +357,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_hoverOffset|System.Single|0|
 |m_hoverText|System.String||
 |m_name|System.String|$piece_windmill|
 |m_holdRepeatInterval|System.Single|-1|

@@ -14,4 +14,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_highThreshold|System.Single|40|
 |m_emptyTreshold|System.Single|5|
 |m_regenPerSec|System.Single|0.0025|
+|m_hoverOffset|System.Single|0|
 

@@ -56,6 +56,51 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## AncientCoin: AncientCoin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AncientGemstoneBlack: AncientGemstoneBlack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AncientGemstoneGreen: AncientGemstoneGreen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AncientGemstoneOrange: AncientGemstoneOrange
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AncientGemstonePurple: AncientGemstonePurple
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## AncientSeed: AncientSeed
 
 |Field|Type|Default Value|
@@ -147,6 +192,60 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorCarapaceLegs: ArmorCarapaceLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorDeepNorthHeavyChest: ArmorDeepNorthHeavyChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorDeepNorthHeavylegs: ArmorDeepNorthHeavylegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorDeepNorthMageChest: ArmorDeepNorthMageChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorDeepNorthMagelegs: ArmorDeepNorthMagelegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorDeepNorthMediumChest: ArmorDeepNorthMediumChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorDeepNorthMediumlegs: ArmorDeepNorthMediumlegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -281,6 +380,87 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## ArmorGoldHeavyChestUncooked: ArmorGoldHeavyChestUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorGoldHeavyHelmetUncooked: ArmorGoldHeavyHelmetUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorGoldHeavyLegsUncooked: ArmorGoldHeavyLegsUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorGoldMageChestUncooked: ArmorGoldMageChestUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorGoldMageHelmetUncooked: ArmorGoldMageHelmetUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorGoldMageLegsUncooked: ArmorGoldMageLegsUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorGoldMediumChestUncooked: ArmorGoldMediumChestUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorGoldMediumHelmetUncooked: ArmorGoldMediumHelmetUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorGoldMediumLegsUncooked: ArmorGoldMediumLegsUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## ArmorHarvester1: ArmorHarvester1
 
 |Field|Type|Default Value|
@@ -327,6 +507,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ArmorLeatherLegs: ArmorLeatherLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorLoxChest: ArmorLoxChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ArmorLoxLegs: ArmorLoxLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -551,6 +749,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## ArrowBloodGold: ArrowBloodGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## ArrowBronze: ArrowBronze
 
 |Field|Type|Default Value|
@@ -749,6 +956,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## AtgeirGold: AtgeirGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AtgeirGold_BloodLightning: AtgeirGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AtgeirGold_FrostFire: AtgeirGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AtgeirGoldUncooked: AtgeirGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## AtgeirHimminAfl: AtgeirHimminAfl
 
 |Field|Type|Default Value|
@@ -772,6 +1015,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Axe1h_JotunWarrior 1: Axe1h_JotunWarrior 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Axe1h_JotunWarrior: Axe1h_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Axe2h_JotunWarrior: Axe2h_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
@@ -848,6 +1118,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## AxeGold: AxeGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AxeGold_BloodLightning: AxeGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AxeGold_FrostFire: AxeGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## AxeGoldUncooked: AxeGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## AxeHead1: AxeHead1
 
 |Field|Type|Default Value|
@@ -902,7 +1208,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## BakedPoteitr: BakedPoteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## BakedPoteitrUncooked: BakedPoteitrUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## BarberKit: BarberKit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BarkaBranch: BarkaBranch
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -984,6 +1317,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BattleaxeCrystal: BattleaxeCrystal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BattleaxeGold: BattleaxeGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BattleaxeGold_BloodLightning: BattleaxeGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BattleaxeGold_FrostFire: BattleaxeGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BattleaxeGoldUncooked: BattleaxeGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1208,6 +1577,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## BloodGoldKey: BloodGoldKey
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## BloodPudding: BloodPudding
 
 |Field|Type|Default Value|
@@ -1236,6 +1614,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## BoltBlackmetal: BoltBlackmetal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BoltBloodGold: BoltBloodGold
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1307,6 +1694,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## BombBlob_Morkhalla: BombBlob_Morkhalla
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## BombBlob_Poison: BombBlob_Poison
 
 |Field|Type|Default Value|
@@ -1326,6 +1722,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## BombBlob_Tar: BombBlob_Tar
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BombDynamite: BombDynamite
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1469,6 +1874,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## BowGold: BowGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowGold_BloodLightning: BowGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowGold_FrostFire: BowGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## BowGoldUncooked: BowGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## BowHuntsman: BowHuntsman
 
 |Field|Type|Default Value|
@@ -1560,6 +2001,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CapeAsksvin: CapeAsksvin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CapeDeepNorth: CapeDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CapeDeepNorthMage: CapeDeepNorthMage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1677,6 +2136,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## Catapult_ammo: Catapult_ammo
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Catapult_Ammo_BloodGold: Catapult_Ammo_BloodGold
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2153,6 +2621,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
+## CookedMooseMeat: CookedMooseMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## CookedSealBlubber: CookedSealBlubber
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
 ## CookedVoltureMeat: CookedVoltureMeat
 
 |Field|Type|Default Value|
@@ -2207,6 +2693,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## CrossbowGold: CrossbowGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CrossbowGold_BloodLightning: CrossbowGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CrossbowGold_FrostFire: CrossbowGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CrossbowGoldUncooked: CrossbowGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## CrossbowRipper: CrossbowRipper
 
 |Field|Type|Default Value|
@@ -2235,6 +2757,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## CrossbowRipperNature: CrossbowRipperNature
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## CrownJewel: CrownJewel
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2406,6 +2937,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## DvergerArbalest_shootAshlands: DvergerArbalest_shootAshlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## DvergerArbalest_shootDeepNorth: DvergerArbalest_shootDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2603,6 +3143,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## Elaking_AttackJump: Elaking_AttackJump
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Elaking_AttackLantern: Elaking_AttackLantern
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ElakingHairBundle: ElakingHairBundle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## ElderBark: ElderBark
 
 |Field|Type|Default Value|
@@ -2631,6 +3198,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## FaderDrop: FaderDrop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FaderEmber: FaderEmber
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2721,6 +3297,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FeastBlackforest_Material: FeastBlackforest_Material
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FeastDeepNorth: FeastDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FeastDeepNorth_Material: FeastDeepNorth_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2883,6 +3477,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FirCone: FirCone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FirConeFrost: FirConeFrost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3197,6 +3800,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## FishSoup: FishSoup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
 ## FishWraps: FishWraps
 
 |Field|Type|Default Value|
@@ -3225,6 +3837,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## FistFenrirClaw: FistFenrirClaw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FistGold: FistGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FistGold_BloodLightning: FistGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FistGold_FrostFire: FistGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FistGoldUncooked: FistGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3314,6 +3962,267 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## FrostCore: FrostCore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Frostwood: Frostwood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FrozenFuel: FrozenFuel
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FrozenKingDrop: FrozenKingDrop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorBronzeChest: FW_ArmorBronzeChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorBronzeLegs: FW_ArmorBronzeLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorFenringChest: FW_ArmorFenringChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorFenringLegs: FW_ArmorFenringLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorMageChest: FW_ArmorMageChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorMageChest_Ashlands: FW_ArmorMageChest_Ashlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorMageLegs: FW_ArmorMageLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorMageLegs_Ashlands: FW_ArmorMageLegs_Ashlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorPaddedCuirass: FW_ArmorPaddedCuirass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorPaddedGreaves: FW_ArmorPaddedGreaves
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorTrollLeatherChest: FW_ArmorTrollLeatherChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ArmorTrollLeatherLegs: FW_ArmorTrollLeatherLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_AxeBronze: FW_AxeBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_BattleaxeCrystal: FW_BattleaxeCrystal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_BowDraugrFang: FW_BowDraugrFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_CapeLinen: FW_CapeLinen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_CapeTrollHide: FW_CapeTrollHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_CapeWolf: FW_CapeWolf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_HelmetBronze: FW_HelmetBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_KnifeSilver: FW_KnifeSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_KnifeSkollAndHati: FW_KnifeSkollAndHati
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_ShieldBlackmetalTower: FW_ShieldBlackmetalTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_StaffFireball: FW_StaffFireball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_StaffLightning: FW_StaffLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## FW_SwordBlackmetal: FW_SwordBlackmetal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## GemstoneBlue: GemstoneBlue
 
 |Field|Type|Default Value|
@@ -3341,6 +4250,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## GenericMoldUncooked: GenericMoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## GiantBloodSack: GiantBloodSack
 
 |Field|Type|Default Value|
@@ -3349,6 +4267,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GlowWorm: GlowWorm
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## GoblinArmband: GoblinArmband
 
@@ -3467,6 +4394,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## GoblinClubDeepNorth: GoblinClubDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## GoblinHelmet: GoblinHelmet
 
 |Field|Type|Default Value|
@@ -3566,7 +4502,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## GoblinSpearDeepNorth: GoblinSpearDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## GoblinSword: GoblinSword
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoblinSwordDeepNorth: GoblinSwordDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3584,7 +4538,43 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## GoblinTorchDeepNorth: GoblinTorchDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## GoblinTotem: GoblinTotem
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Gold: Gold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GoldOre: GoldOre
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## GrapplingHook: GrapplingHook
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3639,6 +4629,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HareMeat: HareMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## HatefulBlood: HatefulBlood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3711,6 +4710,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetCelebration: HelmetCelebration
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## HelmetCrownofValheim: HelmetCrownofValheim
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## HelmetDNHeavy: HelmetDNHeavy
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## HelmetDNMage: HelmetDNMage
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## HelmetDNMediumHood: HelmetDNMediumHood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3872,6 +4907,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## HelmetLox: HelmetLox
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## HelmetMage: HelmetMage
 
 |Field|Type|Default Value|
@@ -3927,6 +4971,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## HelmetRoot: HelmetRoot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## HelmetRootCrown: HelmetRootCrown
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4034,6 +5087,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## Hook: Hook
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Ice: Ice
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## IceShoes: IceShoes
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## IceSkates: IceSkates
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Iron: Iron
 
 |Field|Type|Default Value|
@@ -4079,6 +5168,294 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## JotunHairFemale: JotunHairFemale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunHairMale: JotunHairMale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunHairMale2: JotunHairMale2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunHairMale3: JotunHairMale3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunHairMale4: JotunHairMale4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunHairMale5: JotunHairMale5
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunHairMale6: JotunHairMale6
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunHairMale7: JotunHairMale7
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunHairMale8: JotunHairMale8
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior_attack_charge: JotunWarrior_attack_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior_attack_cleave: JotunWarrior_attack_cleave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior_attack_dodge: JotunWarrior_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior_attack_slash: JotunWarrior_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior_attack_sword: JotunWarrior_attack_sword
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior1HAxe_attack_cleave: JotunWarrior1HAxe_attack_cleave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior1HAxe_attack_dodge: JotunWarrior1HAxe_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior1HAxe_attack_dodger: JotunWarrior1HAxe_attack_dodger
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior1HAxe_attack_slash: JotunWarrior1HAxe_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior1HAxe_attack_slashdw: JotunWarrior1HAxe_attack_slashdw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior2HAxe_attack_charge: JotunWarrior2HAxe_attack_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior2HAxe_attack_cleave: JotunWarrior2HAxe_attack_cleave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior2HAxe_attack_dodge: JotunWarrior2HAxe_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior2HAxe_attack_slash: JotunWarrior2HAxe_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior2HSword_attack_charge: JotunWarrior2HSword_attack_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior2HSword_attack_cleave: JotunWarrior2HSword_attack_cleave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior2HSword_attack_dodge: JotunWarrior2HSword_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarrior2HSword_attack_slash: JotunWarrior2HSword_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWarriorSword2h: JotunWarriorSword2h
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWitch_attack_dodge: JotunWitch_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWitch_attack_dodge_down: JotunWitch_attack_dodge_down
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWitch_attack_dodge_up: JotunWitch_attack_dodge_up
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## JotunWitch_attack_dodge2: JotunWitch_attack_dodge2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## JuteBlue: JuteBlue
 
 |Field|Type|Default Value|
@@ -4089,6 +5466,51 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## JuteRed: JuteRed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Kale: Kale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## KaleChips: KaleChips
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## KaleChipsUncooked: KaleChipsUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## KaleSeeds: KaleSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## KeysGoldUncooked: KeysGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4142,6 +5564,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## KnifeGold: KnifeGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## KnifeGold_BloodLightning: KnifeGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## KnifeGold_FrostFire: KnifeGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## KnifeGoldUncooked: KnifeGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## KnifeSilver: KnifeSilver
 
 |Field|Type|Default Value|
@@ -4152,6 +5610,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## KnifeSkollAndHati: KnifeSkollAndHati
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## KnifeVoid: KnifeVoid
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4178,7 +5645,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## Lantern_DN: Lantern_DN
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Lantern_hooded: Lantern_hooded
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Larva: Larva
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## LastBossGate_RuneTile: LastBossGate_RuneTile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4196,6 +5690,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## Leatherstraps: Leatherstraps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## LinenThread: LinenThread
 
 |Field|Type|Default Value|
@@ -4204,6 +5707,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Lingonberry: Lingonberry
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## Lingondricka: Lingondricka
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## LoxMeat: LoxMeat
 
@@ -4278,6 +5799,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MaceEldnerNature: MaceEldnerNature
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceGold: MaceGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceGold_BloodLightning: MaceGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceGold_FrostFire: MaceGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MaceGoldUncooked: MaceGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4718,6 +6275,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
+## MeatballsMashedPoteitr: MeatballsMashedPoteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
 ## MeatPlatter: MeatPlatter
 
 |Field|Type|Default Value|
@@ -4737,6 +6303,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## MechanicalSpring: MechanicalSpring
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MemorialCoal: MemorialCoal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4781,7 +6356,322 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## MoldArmorGoldChest: MoldArmorGoldChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldArmorGoldHelmet: MoldArmorGoldHelmet
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldArmorGoldLegs: MoldArmorGoldLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldArmorMageChest: MoldArmorMageChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldArmorMageHelmet: MoldArmorMageHelmet
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldArmorMageLegs: MoldArmorMageLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldArmormediumChest: MoldArmormediumChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldArmorMediumHelmet: MoldArmorMediumHelmet
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldArmorMediumLegs: MoldArmorMediumLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldAtgeir: MoldAtgeir
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldAxe: MoldAxe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldAxe2H: MoldAxe2H
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldBow: MoldBow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldCrossbow: MoldCrossbow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldFistweapon: MoldFistweapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldKeys: MoldKeys
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldKnife: MoldKnife
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldMace: MoldMace
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldMace2H: MoldMace2H
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldShieldBuckler: MoldShieldBuckler
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldShieldRound: MoldShieldRound
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldShieldTower: MoldShieldTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldSmallParts: MoldSmallParts
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldSpear: MoldSpear
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldStafffrostorbs: MoldStafffrostorbs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldStaffOrbofAhri: MoldStaffOrbofAhri
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldStaffspiritcaller: MoldStaffspiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldStaffthunderblood: MoldStaffthunderblood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldSword: MoldSword
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoldSword2H: MoldSword2H
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MoleClaws: MoleClaws
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## MoltenCore: MoltenCore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MooseHide: MooseHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MooseKebab: MooseKebab
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## MooseMeat: MooseMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## MooseSinew: MooseSinew
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4907,6 +6797,60 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## NornThread: NornThread
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Oat: Oat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## OatFlour: OatFlour
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## OatmealLingonberryJam: OatmealLingonberryJam
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## OatMilk: OatMilk
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## OatSeeds: OatSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Obsidian: Obsidian
 
 |Field|Type|Default Value|
@@ -4951,6 +6895,60 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## OozeMork: OozeMork
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## OrbFrostFire: OrbFrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## OrbThunderBlood: OrbThunderBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## OvenPancake: OvenPancake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## OvenPancakeUncooked: OvenPancakeUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Pancakes: Pancakes
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## PickaxeAntler: PickaxeAntler
 
@@ -5051,6 +7049,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## Poteitr: Poteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## PoteitrSeeds: PoteitrSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## PowderedDragonEgg: PowderedDragonEgg
 
 |Field|Type|Default Value|
@@ -5076,6 +7092,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## PulledBear: PulledBear
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## PungentPebbles: PungentPebbles
@@ -5175,7 +7200,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_autoPickup|System.Boolean|True|
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
-|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## RoundLog: RoundLog
 
@@ -5214,6 +7239,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SaddleLox: SaddleLox
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SaddleMoose: SaddleMoose
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5284,6 +7318,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SealBlubber: SealBlubber
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SealHide: SealHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SealSoup: SealSoup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|fx_FoodSteam_Small|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## SeekerAspic: SeekerAspic
 
@@ -5411,6 +7472,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## ShieldBucklerGoldUncooked: ShieldBucklerGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## ShieldCarapace: ShieldCarapace
 
 |Field|Type|Default Value|
@@ -5456,6 +7526,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## ShieldGold: ShieldGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ShieldGoldBuckler: ShieldGoldBuckler
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ShieldGoldTower: ShieldGoldTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## ShieldIronBuckler: ShieldIronBuckler
 
 |Field|Type|Default Value|
@@ -5492,6 +7589,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## ShieldRoots: ShieldRoots
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ShieldRoundGoldUncooked: ShieldRoundGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## ShieldSerpentscale: ShieldSerpentscale
 
 |Field|Type|Default Value|
@@ -5502,6 +7617,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## ShieldSilver: ShieldSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## ShieldTowerGoldUncooked: ShieldTowerGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5536,6 +7660,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_autoDestroy|System.Boolean|True|
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## Shovel: Shovel
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Silver: Silver
 
@@ -5582,6 +7715,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## skeleton_bow_meadows: skeleton_bow_meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_bow_mountains: skeleton_bow_mountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_bow_swamps: skeleton_bow_swamps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## skeleton_bow2: skeleton_bow2
 
 |Field|Type|Default Value|
@@ -5609,6 +7769,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## skeleton_mace_DeepNorth: skeleton_mace_DeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## skeleton_sword: skeleton_sword
 
 |Field|Type|Default Value|
@@ -5619,6 +7788,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## skeleton_sword_hildir: skeleton_sword_hildir
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_sword_meadows: skeleton_sword_meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_sword_mountains: skeleton_sword_mountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## skeleton_sword_swamps: skeleton_sword_swamps
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5654,6 +7850,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## SledgeGold: SledgeGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SledgeGold_BloodLightning: SledgeGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SledgeGold_FrostFire: SledgeGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SledgeGoldUncooked: SledgeGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## SledgeIron: SledgeIron
 
 |Field|Type|Default Value|
@@ -5681,7 +7913,304 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## SmallPartsGoldUncooked: SmallPartsGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SmokedFish: SmokedFish
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## SmokedMooseMeat: SmokedMooseMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
+
+## Snowball: Snowball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SnowballBig: SnowballBig
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Softtissue: Softtissue
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorBronzeChest: SP_ArmorBronzeChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorBronzeLegs: SP_ArmorBronzeLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorDress1: SP_ArmorDress1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorFenringChest: SP_ArmorFenringChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorFenringLegs: SP_ArmorFenringLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorLeatherLegs: SP_ArmorLeatherLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorMageChest: SP_ArmorMageChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorMageChest_Ashlands: SP_ArmorMageChest_Ashlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorMageLegs: SP_ArmorMageLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorMageLegs_Ashlands: SP_ArmorMageLegs_Ashlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorPaddedCuirass: SP_ArmorPaddedCuirass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorPaddedGreaves: SP_ArmorPaddedGreaves
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorTrollLeatherChest: SP_ArmorTrollLeatherChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorTrollLeatherLegs: SP_ArmorTrollLeatherLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ArmorTunic5: SP_ArmorTunic5
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_AxeBronze: SP_AxeBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_BattleaxeCrystal: SP_BattleaxeCrystal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_BowDraugrFang: SP_BowDraugrFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_CapeLinen: SP_CapeLinen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_CapeTrollHide: SP_CapeTrollHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_CapeWolf: SP_CapeWolf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_HelmetBronze: SP_HelmetBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_KnifeSilver: SP_KnifeSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_KnifeSkollAndHati: SP_KnifeSkollAndHati
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_ShieldBlackmetalTower: SP_ShieldBlackmetalTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_StaffFireball: SP_StaffFireball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_StaffLightning: SP_StaffLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SP_SwordBlackmetal: SP_SwordBlackmetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5753,6 +8282,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## SpearGold: SpearGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpearGold_BloodLightning: SpearGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpearGold_FrostFire: SpearGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SpearGoldUncooked: SpearGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## SpearSplitner: SpearSplitner
 
 |Field|Type|Default Value|
@@ -5816,6 +8381,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## SpiceDeepNorth: SpiceDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## SpiceForests: SpiceForests
 
 |Field|Type|Default Value|
@@ -5870,6 +8444,51 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
+## spiritbjorn_bite: spiritbjorn_bite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## spiritbjorn_claws: spiritbjorn_claws
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## spiritbjorn_swipe_combo: spiritbjorn_swipe_combo
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## spiritbjorn_swipe_l: spiritbjorn_swipe_l
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## spiritbjorn_swipe_r: spiritbjorn_swipe_r
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## staff_greenroots_tentaroot_attack: staff_greenroots_tentaroot_attack
 
 |Field|Type|Default Value|
@@ -5889,6 +8508,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffFireball: StaffFireball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffFrostOrbs: StaffFrostOrbs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffFrostOrbsUncooked: StaffFrostOrbsUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5924,6 +8561,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## StaffOrbofAhri: StaffOrbofAhri
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffOrbofAhriUncooked: StaffOrbofAhriUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## StaffRedTroll: StaffRedTroll
 
 |Field|Type|Default Value|
@@ -5943,6 +8598,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## StaffSkeleton: StaffSkeleton
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffSpiritCaller: StaffSpiritCaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffSpiritCallerUncooked: StaffSpiritCallerUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffThunderBlood: StaffThunderBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## StaffThunderbloodUncooked: StaffThunderbloodUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6050,6 +8741,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## Sword2h_JotunWarrior: Sword2h_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|False|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## SwordBlackmetal: SwordBlackmetal
 
 |Field|Type|Default Value|
@@ -6078,6 +8778,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## SwordDyrnwyn: SwordDyrnwyn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordGold: SwordGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordGold_BloodLightning: SwordGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordGold_FrostFire: SwordGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## SwordGoldUncooked: SwordGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6212,6 +8948,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## tendril_attack: tendril_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## tentaroot_attack: tentaroot_attack
 
 |Field|Type|Default Value|
@@ -6222,6 +8967,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## Thistle: Thistle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordGold: THSwordGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordGold_BloodLightning: THSwordGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordGold_FrostFire: THSwordGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## THSwordGoldUncooked: THSwordGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6339,6 +9120,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrinketBlackStamina: TrinketBlackStamina
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketBloodGoldHealth: TrinketBloodGoldHealth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrinketBloodGoldStamina: TrinketBloodGoldStamina
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6509,6 +9308,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## TrophyBarka: TrophyBarka
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## TrophyBjorn: TrophyBjorn
 
 |Field|Type|Default Value|
@@ -6528,6 +9336,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyBlob: TrophyBlob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBlob_Frost: TrophyBlob_Frost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBlob_Lava: TrophyBlob_Lava
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyBlob_Morkhalla: TrophyBlob_Morkhalla
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6626,6 +9461,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## TrophyDeerWhite: TrophyDeerWhite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## TrophyDragonQueen: TrophyDragonQueen
 
 |Field|Type|Default Value|
@@ -6672,6 +9516,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyEikthyr: TrophyEikthyr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyElaking: TrophyElaking
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6851,6 +9704,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## TrophyJotunWarrior: TrophyJotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyJotunWitch: TrophyJotunWitch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## TrophyKvastur: TrophyKvastur
 
 |Field|Type|Default Value|
@@ -6878,6 +9749,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## TrophyMole: TrophyMole
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophyMoose: TrophyMoose
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## TrophyMorgen: TrophyMorgen
 
 |Field|Type|Default Value|
@@ -6888,6 +9777,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## TrophyNeck: TrophyNeck
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TrophySeal: TrophySeal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7031,6 +9929,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## TrophyWrithan: TrophyWrithan
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## Turnip: Turnip
 
 |Field|Type|Default Value|
@@ -7059,6 +9966,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|fx_ItemSparkles|
 
 ## TurretBolt: TurretBolt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## TurretBoltBloodgold: TurretBoltBloodgold
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7166,6 +10082,150 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceEnableObj|UnityEngine.GameObject|*null*|
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
+## Upgrader0Armor: Upgrader0Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader0Weapon: Upgrader0Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader1Armor: Upgrader1Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader1Weapon: Upgrader1Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader2Armor: Upgrader2Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader2Weapon: Upgrader2Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader3Armor: Upgrader3Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader3Weapon: Upgrader3Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader4Armor: Upgrader4Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader4Weapon: Upgrader4Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader5Armor: Upgrader5Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader5Weapon: Upgrader5Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader6Armor: Upgrader6Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader6Weapon: Upgrader6Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader7Armor: Upgrader7Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Upgrader7Weapon: Upgrader7Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
 ## VegvisirShard_Bonemass: VegvisirShard_Bonemass
 
 |Field|Type|Default Value|
@@ -7212,6 +10272,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## VineGreenSeeds: VineGreenSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## Voidplasm: Voidplasm
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7347,6 +10416,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_pieceDisabledObj|UnityEngine.GameObject|*null*|
 
 ## wraith_melee: wraith_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## writhan_bite: writhan_bite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_autoPickup|System.Boolean|True|
+|m_autoDestroy|System.Boolean|True|
+|m_pieceEnableObj|UnityEngine.GameObject|*null*|
+|m_pieceDisabledObj|UnityEngine.GameObject|*null*|
+
+## WrithanRoots: WrithanRoots
 
 |Field|Type|Default Value|
 |-----|----|-------------|

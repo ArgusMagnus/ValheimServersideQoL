@@ -82,6 +82,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minElevation|System.Int32|-10000|
 |m_maxElevation|System.Int32|10000|
 
+## frozenship: Karve_Sail
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|66|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
 ## GuckSack: GuckSack
 
 |Field|Type|Default Value|
@@ -98,6 +108,86 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_OffObject|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|25|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Morkhalla_Chain: chain_long
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|50|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Morkhalla_Chain: chain1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|50|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Morkhalla_Chain: chain2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|50|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Morkhalla_Chain: Morkhalla_Chain
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|80|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Morkhalla_giant_railing_torch: torch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|66|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Morkhalla_MetalBar: metal_bar
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|50|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Morkhalla_WallChain1: chain2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|50|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Morkhalla_WallChain1: Morkhalla_WallChain1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|80|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
 |m_maxElevation|System.Int32|10000|
@@ -138,6 +228,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_OffObject|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|75|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Pickable_FrostCoreHanger: Pickable_FrostCoreHanger
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|45|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## Pickable_GlowWorm: Pickable_GlowWorm
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|60|
 |m_notInLava|System.Boolean|False|
 |m_minElevation|System.Int32|-10000|
 |m_maxElevation|System.Int32|10000|
@@ -193,6 +303,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxElevation|System.Int32|10000|
 
 ## piece_dvergr_pole: deco_low
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_OffObject|UnityEngine.GameObject|*null*|
+|m_chanceToSpawn|System.Single|50|
+|m_notInLava|System.Boolean|False|
+|m_minElevation|System.Int32|-10000|
+|m_maxElevation|System.Int32|10000|
+
+## prop_piece_cookingstation: prop_piece_cookingstation
 
 |Field|Type|Default Value|
 |-----|----|-------------|

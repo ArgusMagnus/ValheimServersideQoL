@@ -10,6 +10,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_add|System.String|$piece_shieldgenerator_add|
 |m_enabledObject|UnityEngine.GameObject|enabled|
 |m_disabledObject|UnityEngine.GameObject|disabled|
+|m_hoverOffset|System.Single|0|
 |m_maxFuel|System.Int32|10|
 |m_defaultFuel|System.Int32|0|
 |m_fuelPerDamage|System.Single|0.002|
@@ -33,6 +34,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_add|System.String|$piece_shieldgenerator_add|
 |m_enabledObject|UnityEngine.GameObject|enabled|
 |m_disabledObject|UnityEngine.GameObject|disabled|
+|m_hoverOffset|System.Single|0|
 |m_maxFuel|System.Int32|10|
 |m_defaultFuel|System.Int32|0|
 |m_fuelPerDamage|System.Single|0.002|

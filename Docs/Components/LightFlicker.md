@@ -26,6 +26,150 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0.5|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## aspect_aoe_nova: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.2|
+|m_flickerSpeed|System.Single|0|
+|m_movement|System.Single|1|
+|m_ttl|System.Single|10|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## aspect_bonemass_aoe: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|15|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Aspect_Eikthyr: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.4|
+|m_flickerSpeed|System.Single|100|
+|m_movement|System.Single|0.003|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## aspect_Fader_Fissure_AOE: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|17|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|3|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## aspect_Fader_Flamebreath_AOE: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|14|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## aspect_Fader_Flamebreath_AOE: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|14|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## aspect_Fader_Flamebreath_AOE: Point light (2)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|14|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## aspect_Fader_Flamebreath_AOE: Point light (3)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|14|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## aspect_Fader_Flamebreath_AOE: Point light (4)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|14|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## aspect_Fader_WallOfFire_AOE: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|20|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## AtgeirGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## AtgeirGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## AtgeirHimminAfl: Point light
 
 |Field|Type|Default Value|
@@ -38,6 +182,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## AxeGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## AxeGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## AxeJotunBane: Point light
 
 |Field|Type|Default Value|
@@ -48,6 +216,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## BattleaxeGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## BattleaxeGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## blackforge: Point light
@@ -75,6 +267,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## blackmarble_altar_crystal_broken: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## BombDynamite: Point light
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -180,6 +384,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## BowGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## BowGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## BowSpineSnap: Point light
@@ -290,6 +518,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## CrossbowGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## CrossbowGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## CrossbowRipperLightning: Point light
 
 |Field|Type|Default Value|
@@ -312,6 +564,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## deepnorth_lantern_standing: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.3|
+|m_flickerSpeed|System.Single|3|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## Demister: Point light
@@ -530,6 +794,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## Elaking_AttackLantern: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## EvilHeart_Forest: Point light
 
 |Field|Type|Default Value|
@@ -662,6 +938,66 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## FistGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## FistGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## FrostWisp: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## FW_BowDraugrFang: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## FW_StaffFireball: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## fx_Adrenaline1: Point light
 
 |Field|Type|Default Value|
@@ -672,6 +1008,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|2|
 |m_fadeDuration|System.Single|1.5|
 |m_fadeInDuration|System.Single|0.2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_aspect_death: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|2|
+|m_fadeDuration|System.Single|0.1|
+|m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## fx_babyseeker_death: Point Light
@@ -691,7 +1039,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_flickerIntensity|System.Single|0.5|
-|m_flickerSpeed|System.Single|100|
+|m_flickerSpeed|System.Single|80|
 |m_movement|System.Single|0.2|
 |m_ttl|System.Single|0.5|
 |m_fadeDuration|System.Single|0.3|
@@ -699,6 +1047,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## fx_chainlightning_spread: Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0.5|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_chainlightning_spread_red: Light
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -986,6 +1346,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## fx_fimbulvinter_meteor_hit: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|2|
+|m_fadeDuration|System.Single|0.1|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## fx_fireball_staff_explosion: Point light
 
 |Field|Type|Default Value|
@@ -1008,6 +1380,114 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|4|
 |m_fadeDuration|System.Single|1.4|
 |m_fadeInDuration|System.Single|1.8|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_chain_fury: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.6|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_chain_fury_ascending: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|2|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_chain_ground_impact_1: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.8|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_chain_rush: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|3|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_punch_aoe: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.8|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_spikerain_hit: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.8|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_spikerain_summoning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|3|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_spin: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_frozenking_tendrils_summoning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|3|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.5|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## fx_gjall_death: Point Light
@@ -1159,11 +1639,23 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_flickerIntensity|System.Single|0.4|
-|m_flickerSpeed|System.Single|100|
+|m_flickerSpeed|System.Single|80|
 |m_movement|System.Single|0.3|
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0|
 |m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_Lightning_red: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|80|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## fx_lightningstaffprojectile_hit: Point light (1)
@@ -1171,7 +1663,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_flickerIntensity|System.Single|0.5|
-|m_flickerSpeed|System.Single|100|
+|m_flickerSpeed|System.Single|80|
 |m_movement|System.Single|0.2|
 |m_ttl|System.Single|0.5|
 |m_fadeDuration|System.Single|0.3|
@@ -1183,7 +1675,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_flickerIntensity|System.Single|0.5|
-|m_flickerSpeed|System.Single|100|
+|m_flickerSpeed|System.Single|80|
 |m_movement|System.Single|0.2|
 |m_ttl|System.Single|0.5|
 |m_fadeDuration|System.Single|0.3|
@@ -1346,6 +1838,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## fx_shield_start_frost: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0|
+|m_flickerSpeed|System.Single|0|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|2|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## fx_shieldgenerator_attack: Point light (1)
 
 |Field|Type|Default Value|
@@ -1394,6 +1898,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0.1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## fx_stone_L_destroyed: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0|
+|m_flickerSpeed|System.Single|0|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|2.5|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|0.2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_stone_R_destroyed: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0|
+|m_flickerSpeed|System.Single|0|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|2.5|
+|m_fadeDuration|System.Single|2|
+|m_fadeInDuration|System.Single|0.2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## fx_summon_skeleton: Point light
 
 |Field|Type|Default Value|
@@ -1407,6 +1935,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## fx_summon_skeleton_spawn: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0|
+|m_flickerSpeed|System.Single|0|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|6|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|4|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_summon_spirit_spawn: Point light (1)
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1466,6 +2006,78 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0.2|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## fx_UpgradeStation_Fail: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|100|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_UpgradeStation_Fail: Point light (2)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|100|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_UpgradeStation_Success: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|100|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## fx_UpgradeStation_Success: Point light (2)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|100|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## GlowWorm: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|1|
+|m_movement|System.Single|0.5|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## HatefulBlood: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## IceBlocker: Point light (4)
 
 |Field|Type|Default Value|
@@ -1473,6 +2085,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## KnifeGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## KnifeGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Lantern_hooded: Spot Light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.025|
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|0|
@@ -1526,7 +2174,151 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## MaceGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## MaceGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## MemorialCoal: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.2|
+|m_flickerSpeed|System.Single|12|
+|m_movement|System.Single|0.15|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## Mistile: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_coal_pile_memorial: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.2|
+|m_flickerSpeed|System.Single|12|
+|m_movement|System.Single|0.15|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_Eye1: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_Eye2: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_Eye3: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_Eye4: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_Eye5_gemstone: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_Eye6_gemstone: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_Eye7_gemstone: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Morkhalla_giant_railing_torch: Point light
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1574,6 +2366,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## OrbFrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## OrbThunderBlood: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## Pickable_BlackCoreStand: Point light
 
 |Field|Type|Default Value|
@@ -1610,6 +2426,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## Pickable_FrostCoreHanger: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Pickable_FrostCoreHanger: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|1|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Pickable_GlowWorm: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## Pickable_MoltenCoreStand: Point light
 
 |Field|Type|Default Value|
@@ -1620,6 +2472,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Pickable_MorkHallaTreasure: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|1|
+|m_flickerSpeed|System.Single|2|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.2|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## Pickable_SurtlingCoreStand: Point light
@@ -1706,6 +2570,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## piece_EternalPyre: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## piece_FaderEmbers: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## piece_FrostFoundry: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## piece_groundtorch: Point light
 
 |Field|Type|Default Value|
@@ -1737,6 +2637,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_flickerIntensity|System.Single|0.1|
 |m_flickerSpeed|System.Single|10|
 |m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## piece_hoodedlantern: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.025|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## piece_hoodedlantern: Spot Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.025|
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|0|
@@ -1874,6 +2798,54 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0.1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## SledgeGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## SledgeGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## SP_BowDraugrFang: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## SP_StaffFireball: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## Spawner_DraugrPile: Point light
 
 |Field|Type|Default Value|
@@ -1896,6 +2868,66 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|1|
 |m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Spawner_Hole: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Spawner_Hole_double: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.05|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## Spawner_Hole_double: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.05|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## SpearGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## SpearGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## SpearSplitner_Lightning: Point light
@@ -1922,6 +2954,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## staff_OrbofAhri_aoe: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|1|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|4|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## staff_skeleton_projectile: Point light
 
 |Field|Type|Default Value|
@@ -1934,6 +2978,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## staff_thunderblood_aoe: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|100|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## staff_thunderblood_aoe: Point light (2)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.5|
+|m_flickerSpeed|System.Single|100|
+|m_movement|System.Single|0.2|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## StaffFireball: Point light
 
 |Field|Type|Default Value|
@@ -1944,6 +3012,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## StaffFrostOrbs: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## StaffGreenRoots: Point light
@@ -1982,6 +3062,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|1|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## StaffSpiritCaller: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## SwordDyrnwyn: Point Light
 
 |Field|Type|Default Value|
@@ -1992,6 +3084,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## SwordGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## SwordGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## SwordIronFire: Point light
@@ -2028,6 +3144,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0|
 |m_fadeDuration|System.Single|0.2|
 |m_fadeInDuration|System.Single|1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## THSwordGold_BloodLightning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|20|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## THSwordGold_FrostFire: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|0.1|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.5|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## THSwordSlayerLightning: Point light
@@ -2078,6 +3218,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## vfx_aspect_summoned_prespawn: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|2.5|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_blackice_destroyed: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## vfx_BugRepellent: Point light
 
 |Field|Type|Default Value|
@@ -2091,6 +3255,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## vfx_Burning: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_Burning_blue: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_Burning_green: Point light
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2186,6 +3374,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## vfx_FallenWarrior_death: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0.1|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## vfx_fenring_cultist_death: Point light
 
 |Field|Type|Default Value|
@@ -2220,6 +3420,66 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|0.5|
 |m_fadeDuration|System.Single|0.4|
 |m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_FrostOrbs: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0|
+|m_flickerSpeed|System.Single|0|
+|m_movement|System.Single|0|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|0|
+|m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_frozenking_blackice_destroyed: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_frozenking_death: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|2.5|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_frozenking_final_death: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|2.5|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_frozenking_final_death_ground: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|2|
+|m_fadeDuration|System.Single|0.2|
+|m_fadeInDuration|System.Single|0.8|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## vfx_ghost_death: Point light
@@ -2304,6 +3564,54 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|1|
 |m_fadeDuration|System.Single|0.5|
 |m_fadeInDuration|System.Single|0.1|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_HoleSpawner_destruction: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_HoleSpawner_double_destruction: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.05|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_HoleSpawner_double_destruction: Point light (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.05|
+|m_flickerSpeed|System.Single|5|
+|m_movement|System.Single|0.05|
+|m_ttl|System.Single|0|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_LastBossGate_destroyed: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## vfx_LightFoot: Point light
@@ -2436,6 +3744,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|2|
 |m_fadeDuration|System.Single|1|
 |m_fadeInDuration|System.Single|0.2|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## vfx_ShadowPerson_death: Point Light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|0.1|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
 ## vfx_sledge_iron_hit: Point light

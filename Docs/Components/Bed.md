@@ -7,16 +7,19 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_monsterCheckRadius|System.Single|20|
+|m_hoverOffset|System.Single|0|
 
 ## bed: bed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_monsterCheckRadius|System.Single|20|
+|m_hoverOffset|System.Single|0|
 
 ## piece_bed02: piece_bed02
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_monsterCheckRadius|System.Single|20|
+|m_hoverOffset|System.Single|0|
 

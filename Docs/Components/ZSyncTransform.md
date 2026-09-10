@@ -82,6 +82,56 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## AncientCoin: AncientCoin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AncientGemstoneBlack: AncientGemstoneBlack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AncientGemstoneGreen: AncientGemstoneGreen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AncientGemstoneOrange: AncientGemstoneOrange
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AncientGemstonePurple: AncientGemstonePurple
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## AncientSeed: AncientSeed
 
 |Field|Type|Default Value|
@@ -93,6 +143,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## arbalest_projectile_blackmetal: arbalest_projectile_blackmetal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## arbalest_projectile_bloodgold: arbalest_projectile_bloodgold
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -242,6 +302,66 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## ArmorDeepNorthHeavyChest: ArmorDeepNorthHeavyChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorDeepNorthHeavylegs: ArmorDeepNorthHeavylegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorDeepNorthMageChest: ArmorDeepNorthMageChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorDeepNorthMagelegs: ArmorDeepNorthMagelegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorDeepNorthMediumChest: ArmorDeepNorthMediumChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorDeepNorthMediumlegs: ArmorDeepNorthMediumlegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## ArmorDress1: ArmorDress1
 
 |Field|Type|Default Value|
@@ -382,6 +502,96 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## ArmorGoldHeavyChestUncooked: ArmorGoldHeavyChestUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorGoldHeavyHelmetUncooked: ArmorGoldHeavyHelmetUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorGoldHeavyLegsUncooked: ArmorGoldHeavyLegsUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorGoldMageChestUncooked: ArmorGoldMageChestUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorGoldMageHelmetUncooked: ArmorGoldMageHelmetUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorGoldMageLegsUncooked: ArmorGoldMageLegsUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorGoldMediumChestUncooked: ArmorGoldMediumChestUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorGoldMediumHelmetUncooked: ArmorGoldMediumHelmetUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorGoldMediumLegsUncooked: ArmorGoldMediumLegsUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## ArmorHarvester1: ArmorHarvester1
 
 |Field|Type|Default Value|
@@ -433,6 +643,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## ArmorLeatherLegs: ArmorLeatherLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorLoxChest: ArmorLoxChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArmorLoxLegs: ArmorLoxLegs
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -673,6 +903,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## ArmorWolfLegs: ArmorWolfLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ArrowBloodGold: ArrowBloodGold
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -952,6 +1192,136 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## aspect_aoe_explosion: aspect_aoe_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Aspect_Bonemass: Aspect_Bonemass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## aspect_bonemass_throw_projectile: aspect_bonemass_throw_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Aspect_Eikthyr: Aspect_Eikthyr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Aspect_Elder: Aspect_Elder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Aspect_Fader: Aspect_Fader
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## aspect_gdking_root_projectile: aspect_gdking_root_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Aspect_Moder: Aspect_Moder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## aspect_projectile_beam: aspect_projectile_beam
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Aspect_SeekerQueen: Aspect_SeekerQueen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## aspect_SeekerQueen_projectile_spit: aspect_SeekerQueen_projectile_spit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Aspect_TentaRoot: Aspect_TentaRoot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Aspect_Yagluth: Aspect_Yagluth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## AtgeirBlackmetal: AtgeirBlackmetal
 
 |Field|Type|Default Value|
@@ -963,6 +1333,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## AtgeirBronze: AtgeirBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AtgeirGold: AtgeirGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AtgeirGold_BloodLightning: AtgeirGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AtgeirGold_FrostFire: AtgeirGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AtgeirGoldUncooked: AtgeirGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -993,6 +1403,36 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## AtgeirWood: AtgeirWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Axe1h_JotunWarrior 1: Axe1h_JotunWarrior 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Axe1h_JotunWarrior: Axe1h_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Axe2h_JotunWarrior: Axe2h_JotunWarrior
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1082,6 +1522,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## AxeGold: AxeGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AxeGold_BloodLightning: AxeGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AxeGold_FrostFire: AxeGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## AxeGoldUncooked: AxeGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## AxeHead1: AxeHead1
 
 |Field|Type|Default Value|
@@ -1142,7 +1622,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## BakedPoteitr: BakedPoteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BakedPoteitrUncooked: BakedPoteitrUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## BarberKit: BarberKit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Barka: Barka
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BarkaBranch: BarkaBranch
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1232,6 +1752,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Bat_Swamp: Bat_Swamp
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## BatteringRam: BatteringRam
 
 |Field|Type|Default Value|
@@ -1263,6 +1793,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## BattleaxeCrystal: BattleaxeCrystal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BattleaxeGold: BattleaxeGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BattleaxeGold_BloodLightning: BattleaxeGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BattleaxeGold_FrostFire: BattleaxeGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BattleaxeGoldUncooked: BattleaxeGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1432,6 +2002,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Bjorn_sleeping: Bjorn_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## Bjorn_spiritcaller: Bjorn_spiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
 ## bjorn_swipe_combo: bjorn_swipe_combo
 
 |Field|Type|Default Value|
@@ -1562,6 +2152,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## BlobAspect: BlobAspect
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## BlobElite: BlobElite
 
 |Field|Type|Default Value|
@@ -1593,6 +2193,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## BlobLava_explosion: BlobLava_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BlobMork: BlobMork
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BlobMorkMini: BlobMorkMini
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1642,6 +2262,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## BloodGoldKey: BloodGoldKey
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## BloodPudding: BloodPudding
 
 |Field|Type|Default Value|
@@ -1682,6 +2312,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Boar_spiritcaller: Boar_spiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## BoarJerky: BoarJerky
 
 |Field|Type|Default Value|
@@ -1703,6 +2343,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## BoltBlackmetal: BoltBlackmetal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BoltBloodGold: BoltBloodGold
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1802,6 +2452,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## BombBlob_Morkhalla: BombBlob_Morkhalla
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BombBlob_Morkhalla_projectile: BombBlob_Morkhalla_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## BombBlob_Poison: BombBlob_Poison
 
 |Field|Type|Default Value|
@@ -1853,6 +2523,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## BombBlob_Tar_projectile: BombBlob_Tar_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BombDynamite: BombDynamite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## bombdynamite_projectile: bombdynamite_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2003,6 +2693,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## bow_projectile: bow_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## bow_projectile_bloodgold: bow_projectile_bloodgold
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2182,6 +2882,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## BowGold: BowGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BowGold_BloodLightning: BowGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BowGold_FrostFire: BowGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## BowGoldUncooked: BowGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## BowHuntsman: BowHuntsman
 
 |Field|Type|Default Value|
@@ -2303,6 +3043,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## CapeAsksvin: CapeAsksvin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## CapeDeepNorth: CapeDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## CapeDeepNorthMage: CapeDeepNorthMage
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -2483,6 +3243,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## Catapult_ammo: Catapult_ammo
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Catapult_Ammo_BloodGold: Catapult_Ammo_BloodGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Catapult_Ammo_BloodGold_Projectile: Catapult_Ammo_BloodGold_Projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3212,6 +3992,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## CookedMooseMeat: CookedMooseMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## CookedSealBlubber: CookedSealBlubber
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## CookedVoltureMeat: CookedVoltureMeat
 
 |Field|Type|Default Value|
@@ -3272,6 +4072,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## CrossbowGold: CrossbowGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## CrossbowGold_BloodLightning: CrossbowGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## CrossbowGold_FrostFire: CrossbowGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## CrossbowGoldUncooked: CrossbowGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## CrossbowRipper: CrossbowRipper
 
 |Field|Type|Default Value|
@@ -3313,6 +4153,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## Crow: Crow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## CrownJewel: CrownJewel
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3403,6 +4253,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## Deer: Deer
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Deer_White: Deer_White
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3562,7 +4422,37 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Draugr_Elite_sleeping: Draugr_Elite_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Draugr_Ranged: Draugr_Ranged
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Draugr_Ranged_sleeping: Draugr_Ranged_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Draugr_sleeping: Draugr_sleeping
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -3632,7 +4522,27 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## DvergerArbalest_shootDeepNorth: DvergerArbalest_shootDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## DvergerAshlands: DvergerAshlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## DvergerDeepNorth: DvergerDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4032,6 +4942,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Elaking: Elaking
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Elaking_AttackJump: Elaking_AttackJump
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Elaking_AttackLantern: Elaking_AttackLantern
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ElakingHairBundle: ElakingHairBundle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ElakingLantern: ElakingLantern
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ElakingMole: ElakingMole
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ElakingMole_Sandcloud_Projectile: ElakingMole_Sandcloud_Projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## ElderBark: ElderBark
 
 |Field|Type|Default Value|
@@ -4083,6 +5063,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## FaderDrop: FaderDrop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FaderEmber: FaderEmber
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4192,6 +5182,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## FallenWarrior: FallenWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## FeastAshlands_Material: FeastAshlands_Material
 
 |Field|Type|Default Value|
@@ -4203,6 +5203,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## FeastBlackforest_Material: FeastBlackforest_Material
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FeastDeepNorth_Material: FeastDeepNorth_Material
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4402,6 +5412,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## FirConeFrost: FirConeFrost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## FireworksRocket_Blue: FireworksRocket_Blue
 
 |Field|Type|Default Value|
@@ -4472,6 +5492,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## FirTree_Big_log: FirTree_Big_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## FirTree_big_log_half: FirTree_big_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
 ## FirTree_log: FirTree_log
 
 |Field|Type|Default Value|
@@ -4483,6 +5523,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## FirTree_log_half: FirTree_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## FirTree_Snow_log: FirTree_Snow_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## FirTree_Snow_log_half: FirTree_Snow_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4782,6 +5842,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## FishSoup: FishSoup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## FishWraps: FishWraps
 
 |Field|Type|Default Value|
@@ -4813,6 +5883,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## FistFenrirClaw: FistFenrirClaw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FistGold: FistGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FistGold_BloodLightning: FistGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FistGold_FrostFire: FistGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FistGoldUncooked: FistGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -4913,6 +6023,426 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## FreshSeaweed: FreshSeaweed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrostCore: FrostCore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrostWisp: FrostWisp
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Frostwood: Frostwood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenFuel: FrozenFuel
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing: FrozenKing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_p2: FrozenKing_p2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_P2_Projectile_Bonemass: FrozenKing_P2_Projectile_Bonemass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_P2_Projectile_Eikthyr: FrozenKing_P2_Projectile_Eikthyr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_P2_Projectile_Elder: FrozenKing_P2_Projectile_Elder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_P2_Projectile_Fader: FrozenKing_P2_Projectile_Fader
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_P2_Projectile_Moder: FrozenKing_P2_Projectile_Moder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_P2_Projectile_Queen: FrozenKing_P2_Projectile_Queen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_P2_Projectile_Yagluth: FrozenKing_P2_Projectile_Yagluth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKing_p3: FrozenKing_p3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FrozenKingDrop: FrozenKingDrop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Frysling: Frysling
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## frysling_snowball_projectile: frysling_snowball_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorBronzeChest: FW_ArmorBronzeChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorBronzeLegs: FW_ArmorBronzeLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorFenringChest: FW_ArmorFenringChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorFenringLegs: FW_ArmorFenringLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorMageChest: FW_ArmorMageChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorMageChest_Ashlands: FW_ArmorMageChest_Ashlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorMageLegs: FW_ArmorMageLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorMageLegs_Ashlands: FW_ArmorMageLegs_Ashlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorPaddedCuirass: FW_ArmorPaddedCuirass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorPaddedGreaves: FW_ArmorPaddedGreaves
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorTrollLeatherChest: FW_ArmorTrollLeatherChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ArmorTrollLeatherLegs: FW_ArmorTrollLeatherLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_AxeBronze: FW_AxeBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_BattleaxeCrystal: FW_BattleaxeCrystal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_BowDraugrFang: FW_BowDraugrFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_CapeLinen: FW_CapeLinen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_CapeTrollHide: FW_CapeTrollHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_CapeWolf: FW_CapeWolf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_HelmetBronze: FW_HelmetBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_KnifeSilver: FW_KnifeSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_KnifeSkollAndHati: FW_KnifeSkollAndHati
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_ShieldBlackmetalTower: FW_ShieldBlackmetalTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_StaffFireball: FW_StaffFireball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_StaffLightning: FW_StaffLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## FW_SwordBlackmetal: FW_SwordBlackmetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5102,6 +6632,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## fx_Lightning_red: fx_Lightning_red
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|False|
+|m_syncScale|System.Boolean|True|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## fx_Potion_fireresist: fx_Potion_fireresist
 
 |Field|Type|Default Value|
@@ -5202,7 +6742,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## GenericMoldUncooked: GenericMoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Ghost: Ghost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Ghost_old: Ghost_old
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Ghost_sleeping: Ghost_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Ghost_Void: Ghost_Void
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5243,6 +6823,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## gjall_spit_projectile: gjall_spit_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## GlowWorm: GlowWorm
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5452,6 +7042,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## GoblinClubDeepNorth: GoblinClubDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## GoblinDeepNorth: GoblinDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## GoblinHelmet: GoblinHelmet
 
 |Field|Type|Default Value|
@@ -5632,7 +7242,37 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## GoblinSpearDeepNorth: GoblinSpearDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## GoblinSpearDeepNorth_projectile: GoblinSpearDeepNorth_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## GoblinSword: GoblinSword
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## GoblinSwordDeepNorth: GoblinSwordDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5652,7 +7292,67 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## GoblinTorchDeepNorth: GoblinTorchDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## GoblinTotem: GoblinTotem
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Gold: Gold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## GoldOre: GoldOre
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## GrapplingHook: GrapplingHook
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## GrapplingPoint: GrapplingPoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## GrapplingPointSecondary: GrapplingPointSecondary
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5692,6 +7392,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Greydwarf_Frozen: Greydwarf_Frozen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Greydwarf_Shaman: Greydwarf_Shaman
 
 |Field|Type|Default Value|
@@ -5702,7 +7412,27 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Greydwarf_Shaman_Frozen: Greydwarf_Shaman_Frozen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Greydwarf_throw_projectile: Greydwarf_throw_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Greydwarf_throw_projectile_frozen: Greydwarf_throw_projectile_frozen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -5802,6 +7532,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## HatefulBlood: HatefulBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## HealthUpgrade_Bonemass: HealthUpgrade_Bonemass
 
 |Field|Type|Default Value|
@@ -5873,6 +7613,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## HelmetCelebration: HelmetCelebration
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## HelmetCrownofValheim: HelmetCrownofValheim
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## HelmetDNHeavy: HelmetDNHeavy
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## HelmetDNMage: HelmetDNMage
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## HelmetDNMediumHood: HelmetDNMediumHood
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6052,6 +7832,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## HelmetLox: HelmetLox
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## HelmetMage: HelmetMage
 
 |Field|Type|Default Value|
@@ -6113,6 +7903,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## HelmetRoot: HelmetRoot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## HelmetRootCrown: HelmetRootCrown
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6262,6 +8062,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Hook: Hook
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Ice: Ice
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## ice1: ice1
 
 |Field|Type|Default Value|
@@ -6270,6 +8090,136 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
 |m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_01: IceShelf_01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_02: IceShelf_02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_03: IceShelf_03
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_04: IceShelf_04
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_05: IceShelf_05
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_06: IceShelf_06
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_07: IceShelf_07
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_08: IceShelf_08
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_09: IceShelf_09
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShelf_10: IceShelf_10
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShoes: IceShoes
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## IceShoreShard: IceShoreShard
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## IceSkates: IceSkates
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
 ## Imp_fireball_projectile: Imp_fireball_projectile
@@ -6332,6 +8282,366 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## JotunHairFemale: JotunHairFemale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunHairMale: JotunHairMale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunHairMale2: JotunHairMale2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunHairMale3: JotunHairMale3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunHairMale4: JotunHairMale4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunHairMale5: JotunHairMale5
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunHairMale6: JotunHairMale6
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunHairMale7: JotunHairMale7
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunHairMale8: JotunHairMale8
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior: JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior_attack_charge: JotunWarrior_attack_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior_attack_cleave: JotunWarrior_attack_cleave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior_attack_dodge: JotunWarrior_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior_attack_slash: JotunWarrior_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior_attack_sword: JotunWarrior_attack_sword
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior1HAxe_attack_cleave: JotunWarrior1HAxe_attack_cleave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior1HAxe_attack_dodge: JotunWarrior1HAxe_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior1HAxe_attack_dodger: JotunWarrior1HAxe_attack_dodger
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior1HAxe_attack_slash: JotunWarrior1HAxe_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior1HAxe_attack_slashdw: JotunWarrior1HAxe_attack_slashdw
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior2HAxe_attack_charge: JotunWarrior2HAxe_attack_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior2HAxe_attack_cleave: JotunWarrior2HAxe_attack_cleave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior2HAxe_attack_dodge: JotunWarrior2HAxe_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior2HAxe_attack_slash: JotunWarrior2HAxe_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior2HSword_attack_charge: JotunWarrior2HSword_attack_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior2HSword_attack_cleave: JotunWarrior2HSword_attack_cleave
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior2HSword_attack_dodge: JotunWarrior2HSword_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarrior2HSword_attack_slash: JotunWarrior2HSword_attack_slash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarriorDualWield: JotunWarriorDualWield
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWarriorSword2h: JotunWarriorSword2h
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWitch: JotunWitch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWitch_attack_dodge: JotunWitch_attack_dodge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWitch_attack_dodge_down: JotunWitch_attack_dodge_down
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWitch_attack_dodge_up: JotunWitch_attack_dodge_up
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWitch_attack_dodge2: JotunWitch_attack_dodge2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## JotunWitch_projectile_lightningbolt: JotunWitch_projectile_lightningbolt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## JuteBlue: JuteBlue
 
 |Field|Type|Default Value|
@@ -6352,6 +8662,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Kale: Kale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## KaleChips: KaleChips
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## KaleChipsUncooked: KaleChipsUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## KaleSeeds: KaleSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Karve: Karve
 
 |Field|Type|Default Value|
@@ -6360,6 +8710,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
 |m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## KeysGoldUncooked: KeysGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
 ## KnifeBlackMetal: KnifeBlackMetal
@@ -6412,6 +8772,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## KnifeGold: KnifeGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## KnifeGold_BloodLightning: KnifeGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## KnifeGold_FrostFire: KnifeGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## KnifeGoldUncooked: KnifeGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## KnifeSilver: KnifeSilver
 
 |Field|Type|Default Value|
@@ -6423,6 +8823,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## KnifeSkollAndHati: KnifeSkollAndHati
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## KnifeVoid: KnifeVoid
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6452,7 +8862,37 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Lantern_DN: Lantern_DN
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Lantern_hooded: Lantern_hooded
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Larva: Larva
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## LastBossGate_RuneTile: LastBossGate_RuneTile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6483,6 +8923,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## LeatherScraps: LeatherScraps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Leatherstraps: Leatherstraps
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6533,6 +8983,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## LinenThread: LinenThread
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Lingonberry: Lingonberry
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Lingondricka: Lingondricka
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -6602,6 +9072,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## LuredFaderEmber: LuredFaderEmber
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|False|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## LuredWisp: LuredWisp
 
 |Field|Type|Default Value|
@@ -6653,6 +9133,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## MaceEldnerNature: MaceEldnerNature
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MaceGold: MaceGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MaceGold_BloodLightning: MaceGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MaceGold_FrostFire: MaceGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MaceGoldUncooked: MaceGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7142,6 +9662,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## MeatballsMashedPoteitr: MeatballsMashedPoteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## MeatPlatter: MeatPlatter
 
 |Field|Type|Default Value|
@@ -7163,6 +9693,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## MechanicalSpring: MechanicalSpring
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MemorialCoal: MemorialCoal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7222,7 +9762,387 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## MoldArmorGoldChest: MoldArmorGoldChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldArmorGoldHelmet: MoldArmorGoldHelmet
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldArmorGoldLegs: MoldArmorGoldLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldArmorMageChest: MoldArmorMageChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldArmorMageHelmet: MoldArmorMageHelmet
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldArmorMageLegs: MoldArmorMageLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldArmormediumChest: MoldArmormediumChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldArmorMediumHelmet: MoldArmorMediumHelmet
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldArmorMediumLegs: MoldArmorMediumLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldAtgeir: MoldAtgeir
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldAxe: MoldAxe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldAxe2H: MoldAxe2H
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldBow: MoldBow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldCrossbow: MoldCrossbow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldFistweapon: MoldFistweapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldKeys: MoldKeys
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldKnife: MoldKnife
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldMace: MoldMace
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldMace2H: MoldMace2H
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldShieldBuckler: MoldShieldBuckler
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldShieldRound: MoldShieldRound
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldShieldTower: MoldShieldTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldSmallParts: MoldSmallParts
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldSpear: MoldSpear
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldStafffrostorbs: MoldStafffrostorbs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldStaffOrbofAhri: MoldStaffOrbofAhri
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldStaffspiritcaller: MoldStaffspiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldStaffthunderblood: MoldStaffthunderblood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldSword: MoldSword
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoldSword2H: MoldSword2H
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MoleClaws: MoleClaws
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## MoltenCore: MoltenCore
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Moose: Moose
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## Moose_calf: Moose_calf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## Moose_spiritcaller: Moose_spiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## MooseHide: MooseHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MooseKebab: MooseKebab
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MooseMeat: MooseMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## MooseSinew: MooseSinew
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7392,6 +10312,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## NornThread: NornThread
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Oak_log: Oak_log
 
 |Field|Type|Default Value|
@@ -7410,6 +10340,56 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
 |m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## Oat: Oat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OatFlour: OatFlour
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OatmealLingonberryJam: OatmealLingonberryJam
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OatMilk: OatMilk
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OatSeeds: OatSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
 ## Obsidian: Obsidian
@@ -7473,6 +10453,66 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## oozebomb_projectile: oozebomb_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OozeMork: OozeMork
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OrbFrostFire: OrbFrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OrbThunderBlood: OrbThunderBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OvenPancake: OvenPancake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## OvenPancakeUncooked: OvenPancakeUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Pancakes: Pancakes
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7602,6 +10642,56 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## PineTree_Snow_log: PineTree_Snow_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## PineTree_Snow_log_half: PineTree_Snow_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## PineTree_Snow_log_half_frost_troll: PineTree_Snow_log_half_frost_troll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## PineTree_Snow_log_XL: PineTree_Snow_log_XL
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
+## PineTree_Snow_log_XL_half: PineTree_Snow_log_XL_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
 ## PiquantPie: PiquantPie
 
 |Field|Type|Default Value|
@@ -7672,6 +10762,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Poteitr: Poteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## PoteitrSeeds: PoteitrSeeds
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## PowderedDragonEgg: PowderedDragonEgg
 
 |Field|Type|Default Value|
@@ -7722,6 +10832,36 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## projectile_FimbulvinterMeteor: projectile_FimbulvinterMeteor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Projectile_GrapplingHook: Projectile_GrapplingHook
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Projectile_GrapplingHook_secondary: Projectile_GrapplingHook_secondary
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## projectile_lavaRock: projectile_lavaRock
 
 |Field|Type|Default Value|
@@ -7743,6 +10883,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## projectile_meteor_fader: projectile_meteor_fader
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## projectile_spikes_frozenking: projectile_spikes_frozenking
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -7813,6 +10963,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## Pukeberries: Pukeberries
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## PulledBear: PulledBear
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8002,6 +11162,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## SaddleMoose: SaddleMoose
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Salad: Salad
 
 |Field|Type|Default Value|
@@ -8073,6 +11243,56 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## Seagal: Seagal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Seal: Seal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Seal_Pup: Seal_Pup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SealBlubber: SealBlubber
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SealHide: SealHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SealSoup: SealSoup
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8242,6 +11462,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## ShadowPerson: ShadowPerson
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## shaman_attack_aoe: shaman_attack_aoe
 
 |Field|Type|Default Value|
@@ -8322,6 +11552,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## ShieldBucklerGoldUncooked: ShieldBucklerGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## ShieldCarapace: ShieldCarapace
 
 |Field|Type|Default Value|
@@ -8372,6 +11612,36 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## ShieldGold: ShieldGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ShieldGoldBuckler: ShieldGoldBuckler
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ShieldGoldTower: ShieldGoldTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## ShieldIronBuckler: ShieldIronBuckler
 
 |Field|Type|Default Value|
@@ -8412,6 +11682,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## ShieldRoots: ShieldRoots
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ShieldRoundGoldUncooked: ShieldRoundGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## ShieldSerpentscale: ShieldSerpentscale
 
 |Field|Type|Default Value|
@@ -8423,6 +11713,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## ShieldSilver: ShieldSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## ShieldTowerGoldUncooked: ShieldTowerGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8453,6 +11753,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## ShocklateSmoothie: ShocklateSmoothie
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Shovel: Shovel
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8522,6 +11832,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Skeleton_aspect: Skeleton_aspect
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## skeleton_bow: skeleton_bow
 
 |Field|Type|Default Value|
@@ -8532,7 +11852,47 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## skeleton_bow_meadows: skeleton_bow_meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## skeleton_bow_mountains: skeleton_bow_mountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## skeleton_bow_swamps: skeleton_bow_swamps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## skeleton_bow2: skeleton_bow2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Skeleton_DeepNorth: Skeleton_DeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8602,6 +11962,56 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## skeleton_mace_DeepNorth: skeleton_mace_DeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Skeleton_Meadows: Skeleton_Meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Skeleton_Meadows_noarcher: Skeleton_Meadows_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Skeleton_Mountains: Skeleton_Mountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Skeleton_Mountains_noarcher: Skeleton_Mountains_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Skeleton_NoArcher: Skeleton_NoArcher
 
 |Field|Type|Default Value|
@@ -8613,6 +12023,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## Skeleton_Poison: Skeleton_Poison
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Skeleton_Swamps: Skeleton_Swamps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Skeleton_Swamps_noarcher: Skeleton_Swamps_noarcher
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8642,6 +12072,36 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## skeleton_sword_meadows: skeleton_sword_meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## skeleton_sword_mountains: skeleton_sword_mountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## skeleton_sword_swamps: skeleton_sword_swamps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## skeleton_sword2: skeleton_sword2
 
 |Field|Type|Default Value|
@@ -8650,6 +12110,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncRotation|System.Boolean|True|
 |m_syncScale|System.Boolean|False|
 |m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Sled: Sled
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|True|
 |m_characterParentSync|System.Boolean|False|
 
 ## SledgeCheat: SledgeCheat
@@ -8663,6 +12133,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## SledgeDemolisher: SledgeDemolisher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SledgeGold: SledgeGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SledgeGold_BloodLightning: SledgeGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SledgeGold_FrostFire: SledgeGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SledgeGoldUncooked: SledgeGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8702,6 +12212,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## SmallPartsGoldUncooked: SmallPartsGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## smokebomb_projectile: smokebomb_projectile
 
 |Field|Type|Default Value|
@@ -8712,7 +12232,357 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## SmokedFish: SmokedFish
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SmokedMooseMeat: SmokedMooseMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Snowball: Snowball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## snowball_projectile: snowball_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SnowballBig: SnowballBig
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## snowballbig_projectile: snowballbig_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SnowRoller: SnowRoller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|True|
+|m_syncBodyVelocity|System.Boolean|True|
+|m_characterParentSync|System.Boolean|False|
+
 ## Softtissue: Softtissue
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorBronzeChest: SP_ArmorBronzeChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorBronzeLegs: SP_ArmorBronzeLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorDress1: SP_ArmorDress1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorFenringChest: SP_ArmorFenringChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorFenringLegs: SP_ArmorFenringLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorLeatherLegs: SP_ArmorLeatherLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorMageChest: SP_ArmorMageChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorMageChest_Ashlands: SP_ArmorMageChest_Ashlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorMageLegs: SP_ArmorMageLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorMageLegs_Ashlands: SP_ArmorMageLegs_Ashlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorPaddedCuirass: SP_ArmorPaddedCuirass
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorPaddedGreaves: SP_ArmorPaddedGreaves
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorTrollLeatherChest: SP_ArmorTrollLeatherChest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorTrollLeatherLegs: SP_ArmorTrollLeatherLegs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ArmorTunic5: SP_ArmorTunic5
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_AxeBronze: SP_AxeBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_BattleaxeCrystal: SP_BattleaxeCrystal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_BowDraugrFang: SP_BowDraugrFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_CapeLinen: SP_CapeLinen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_CapeTrollHide: SP_CapeTrollHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_CapeWolf: SP_CapeWolf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_HelmetBronze: SP_HelmetBronze
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_KnifeSilver: SP_KnifeSilver
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_KnifeSkollAndHati: SP_KnifeSkollAndHati
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_ShieldBlackmetalTower: SP_ShieldBlackmetalTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_StaffFireball: SP_StaffFireball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_StaffLightning: SP_StaffLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SP_SwordBlackmetal: SP_SwordBlackmetal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -8792,6 +12662,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## SpearGold: SpearGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SpearGold_BloodLightning: SpearGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SpearGold_FrostFire: SpearGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SpearGoldUncooked: SpearGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## SpearSplitner: SpearSplitner
 
 |Field|Type|Default Value|
@@ -8862,6 +12772,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## SpiceDeepNorth: SpiceDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## SpiceForests: SpiceForests
 
 |Field|Type|Default Value|
@@ -8922,6 +12842,56 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## spiritbjorn_bite: spiritbjorn_bite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## spiritbjorn_claws: spiritbjorn_claws
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## spiritbjorn_swipe_combo: spiritbjorn_swipe_combo
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## spiritbjorn_swipe_l: spiritbjorn_swipe_l
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## spiritbjorn_swipe_r: spiritbjorn_swipe_r
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## staff_clusterbombstaff_projectile: staff_clusterbombstaff_projectile
 
 |Field|Type|Default Value|
@@ -8943,6 +12913,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## staff_fireball_projectile: staff_fireball_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## staff_FrostOrbs_aoe: staff_FrostOrbs_aoe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## staff_FrostOrbs_projectile: staff_FrostOrbs_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9002,6 +12992,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## staff_OrbofAhri_projectile: staff_OrbofAhri_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## staff_OrbofAhri_projectile_return: staff_OrbofAhri_projectile_return
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## staff_redtroll_aoe: staff_redtroll_aoe
 
 |Field|Type|Default Value|
@@ -9032,6 +13042,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## staff_thunderblood_projectile: staff_thunderblood_projectile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## StaffClusterbomb: StaffClusterbomb
 
 |Field|Type|Default Value|
@@ -9043,6 +13063,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## StaffFireball: StaffFireball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## StaffFrostOrbs: StaffFrostOrbs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## StaffFrostOrbsUncooked: StaffFrostOrbsUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9082,6 +13122,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## StaffOrbofAhri: StaffOrbofAhri
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## StaffOrbofAhriUncooked: StaffOrbofAhriUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## StaffRedTroll: StaffRedTroll
 
 |Field|Type|Default Value|
@@ -9103,6 +13163,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## StaffSkeleton: StaffSkeleton
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## StaffSpiritCaller: StaffSpiritCaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## StaffSpiritCallerUncooked: StaffSpiritCallerUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## StaffThunderBlood: StaffThunderBlood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## StaffThunderbloodUncooked: StaffThunderbloodUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9252,6 +13352,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|True|
 |m_characterParentSync|System.Boolean|False|
 
+## Sword2h_JotunWarrior: Sword2h_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## SwordBlackmetal: SwordBlackmetal
 
 |Field|Type|Default Value|
@@ -9283,6 +13393,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## SwordDyrnwyn: SwordDyrnwyn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SwordGold: SwordGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SwordGold_BloodLightning: SwordGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SwordGold_FrostFire: SwordGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## SwordGoldUncooked: SwordGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9432,6 +13582,36 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Tendril: Tendril
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## tendril_attack: tendril_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Tendril_back: Tendril_back
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## TentaRoot: TentaRoot
 
 |Field|Type|Default Value|
@@ -9452,6 +13632,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## TentaRoot_wild: TentaRoot_wild
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## TheHive: TheHive
 
 |Field|Type|Default Value|
@@ -9463,6 +13653,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## Thistle: Thistle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## THSwordGold: THSwordGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## THSwordGold_BloodLightning: THSwordGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## THSwordGold_FrostFire: THSwordGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## THSwordGoldUncooked: THSwordGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9642,6 +13872,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## TrinketBloodGoldHealth: TrinketBloodGoldHealth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrinketBloodGoldStamina: TrinketBloodGoldStamina
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## TrinketBronzeHealth: TrinketBronzeHealth
 
 |Field|Type|Default Value|
@@ -9782,6 +14032,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Troll_sleeping: Troll_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Troll_Summoned: Troll_Summoned
 
 |Field|Type|Default Value|
@@ -9832,7 +14092,27 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## TrollFrost: TrollFrost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## TrollHide: TrollHide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## trollsnow_throw_projectile: trollsnow_throw_projectile
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9853,6 +14133,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## TrophyAsksvin: TrophyAsksvin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrophyBarka: TrophyBarka
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9883,6 +14173,36 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## TrophyBlob: TrophyBlob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrophyBlob_Frost: TrophyBlob_Frost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrophyBlob_Lava: TrophyBlob_Lava
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrophyBlob_Morkhalla: TrophyBlob_Morkhalla
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9992,6 +14312,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## TrophyDeerWhite: TrophyDeerWhite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## TrophyDragonQueen: TrophyDragonQueen
 
 |Field|Type|Default Value|
@@ -10043,6 +14373,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## TrophyEikthyr: TrophyEikthyr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrophyElaking: TrophyElaking
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -10242,6 +14582,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## TrophyJotunWarrior: TrophyJotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrophyJotunWitch: TrophyJotunWitch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## TrophyKvastur: TrophyKvastur
 
 |Field|Type|Default Value|
@@ -10272,6 +14632,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## TrophyMole: TrophyMole
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrophyMoose: TrophyMoose
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## TrophyMorgen: TrophyMorgen
 
 |Field|Type|Default Value|
@@ -10283,6 +14663,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## TrophyNeck: TrophyNeck
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TrophySeal: TrophySeal
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -10442,6 +14832,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## TrophyWrithan: TrophyWrithan
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Turnip: Turnip
 
 |Field|Type|Default Value|
@@ -10482,6 +14882,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Turret_projectile_bloodgold: Turret_projectile_bloodgold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Turret_projectilebone: Turret_projectilebone
 
 |Field|Type|Default Value|
@@ -10493,6 +14903,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## TurretBolt: TurretBolt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## TurretBoltBloodgold: TurretBoltBloodgold
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -10632,7 +15052,177 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Upgrader0Armor: Upgrader0Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader0Weapon: Upgrader0Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader1Armor: Upgrader1Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader1Weapon: Upgrader1Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader2Armor: Upgrader2Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader2Weapon: Upgrader2Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader3Armor: Upgrader3Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader3Weapon: Upgrader3Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader4Armor: Upgrader4Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader4Weapon: Upgrader4Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader5Armor: Upgrader5Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader5Weapon: Upgrader5Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader6Armor: Upgrader6Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader6Weapon: Upgrader6Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader7Armor: Upgrader7Armor
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Upgrader7Weapon: Upgrader7Weapon
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Valkyrie: Valkyrie
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Valkyrie_End: Valkyrie_End
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -10663,6 +15253,26 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## vfx_Burning: vfx_Burning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|False|
+|m_syncScale|System.Boolean|True|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## vfx_Burning_blue: vfx_Burning_blue
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|False|
+|m_syncScale|System.Boolean|True|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## vfx_Burning_green: vfx_Burning_green
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -10711,6 +15321,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncScale|System.Boolean|True|
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
+
+## vfx_FrostOrbs: vfx_FrostOrbs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|False|
+|m_syncScale|System.Boolean|True|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|True|
 
 ## vfx_goblinking_beam_OLD: vfx_goblinking_beam_OLD
 
@@ -10992,6 +15612,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## Voidplasm: Voidplasm
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## Volture: Volture
 
 |Field|Type|Default Value|
@@ -11073,6 +15703,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## Wolf_cub: Wolf_cub
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Wolf_spiritcaller: Wolf_spiritcaller
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -11173,6 +15813,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_characterParentSync|System.Boolean|False|
 
 ## wraith_melee: wraith_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## Writhan: Writhan
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## writhan_bite: writhan_bite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## writhan_explosion: writhan_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## WrithanRoots: WrithanRoots
 
 |Field|Type|Default Value|
 |-----|----|-------------|

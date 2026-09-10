@@ -7,7 +7,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ashDamageMsgTime|System.Single|10|
-|m_sailObject|UnityEngine.GameObject|Sail|
+|m_sailObject|UnityEngine.GameObject|*null*|
 |m_mastObject|UnityEngine.GameObject|mast|
 |m_rudderObject|UnityEngine.GameObject|rudder|
 |m_ashdamageEffects|UnityEngine.GameObject|ashdamageeffects|
@@ -33,13 +33,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_upsideDownDmgInterval|System.Single|1|
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|False|
+|m_hasSail|System.Boolean|True|
 
 ## Raft: Raft
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_ashDamageMsgTime|System.Single|10|
-|m_sailObject|UnityEngine.GameObject|Sail|
+|m_sailObject|UnityEngine.GameObject|*null*|
 |m_mastObject|UnityEngine.GameObject|mast|
 |m_rudderObject|UnityEngine.GameObject|rudder|
 |m_ashdamageEffects|UnityEngine.GameObject|ashdamageeffects|
@@ -65,6 +66,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_upsideDownDmgInterval|System.Single|1|
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|False|
+|m_hasSail|System.Boolean|True|
 
 ## Trailership: Trailership
 
@@ -97,6 +99,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_upsideDownDmgInterval|System.Single|1|
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|False|
+|m_hasSail|System.Boolean|False|
 
 ## VikingShip: VikingShip
 
@@ -129,6 +132,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_upsideDownDmgInterval|System.Single|1|
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|False|
+|m_hasSail|System.Boolean|True|
 
 ## VikingShip_Ashlands: VikingShip_Ashlands
 
@@ -161,4 +165,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_upsideDownDmgInterval|System.Single|1|
 |m_upsideDownDmg|System.Single|20|
 |m_ashlandsReady|System.Boolean|True|
+|m_hasSail|System.Boolean|True|
 

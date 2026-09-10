@@ -10,4 +10,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_defaultText|System.String|...|
 |m_writtenBy|System.String|Written by|
 |m_characterLimit|System.Int32|50|
+|m_hoverOffset|System.Single|0|
 

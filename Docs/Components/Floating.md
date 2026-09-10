@@ -46,6 +46,39 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## Axe1h_JotunWarrior 1: Axe1h_JotunWarrior 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## Axe1h_JotunWarrior: Axe1h_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## Axe2h_JotunWarrior: Axe2h_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## barrell: barrell
 
 |Field|Type|Default Value|
@@ -117,6 +150,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_waterLevelOffset|System.Single|0.7|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## BloodGoldKey: BloodGoldKey
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.9|
 |m_forceDistance|System.Single|1|
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
@@ -212,6 +256,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## BowFineWood: BowFineWood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## BowGold: BowGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## BowGold_BloodLightning: BowGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## BowGold_FrostFire: BowGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## BowGoldUncooked: BowGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -365,6 +453,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## CrossbowGold: CrossbowGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## CrossbowGold_BloodLightning: CrossbowGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## CrossbowGold_FrostFire: CrossbowGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## CrossbowGoldUncooked: CrossbowGoldUncooked
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## CrossbowRipper: CrossbowRipper
 
 |Field|Type|Default Value|
@@ -497,6 +629,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## DvergerArbalest_shootDeepNorth: DvergerArbalest_shootDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## DvergerStaffFire: DvergerStaffFire
 
 |Field|Type|Default Value|
@@ -585,6 +728,39 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## FirConeFrost: FirConeFrost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## FirTree_Big_log: FirTree_Big_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## FirTree_big_log_half: FirTree_big_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## FirTree_log: FirTree_log
 
 |Field|Type|Default Value|
@@ -597,6 +773,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## FirTree_log_half: FirTree_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## FirTree_Snow_log: FirTree_Snow_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## FirTree_Snow_log_half: FirTree_Snow_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -728,7 +926,73 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.1|
 |m_surfaceEffects|UnityEngine.GameObject|SurfaceEffect|
 
+## Frostwood: Frostwood
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.7|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## FrozenKingDrop: FrozenKingDrop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.6|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## FW_BowDraugrFang: FW_BowDraugrFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## FW_ShieldBlackmetalTower: FW_ShieldBlackmetalTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## FW_StaffLightning: FW_StaffLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## GoblinClub: GoblinClub
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## GoblinClubDeepNorth: GoblinClubDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -805,6 +1069,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## GrapplingHook: GrapplingHook
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.4|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## HardAntler: HardAntler
 
 |Field|Type|Default Value|
@@ -871,6 +1146,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## Ice: Ice
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## ice1: ice1
 
 |Field|Type|Default Value|
@@ -879,6 +1165,138 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_forceDistance|System.Single|0.5|
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_01: IceShelf_01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_02: IceShelf_02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_03: IceShelf_03
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_04: IceShelf_04
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_05: IceShelf_05
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_06: IceShelf_06
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_07: IceShelf_07
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_08: IceShelf_08
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_09: IceShelf_09
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShelf_10: IceShelf_10
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## IceShoreShard: IceShoreShard
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## JotunWarriorSword2h: JotunWarriorSword2h
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
@@ -927,6 +1345,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## MaceEldnerNature: MaceEldnerNature
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## MaceGold: MaceGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## MaceGold_BloodLightning: MaceGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## MaceGold_FrostFire: MaceGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## MaceGoldUncooked: MaceGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1069,6 +1531,61 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.03|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## PineTree_Snow_log: PineTree_Snow_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## PineTree_Snow_log_half: PineTree_Snow_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## PineTree_Snow_log_half_frost_troll: PineTree_Snow_log_half_frost_troll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## PineTree_Snow_log_XL: PineTree_Snow_log_XL
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## PineTree_Snow_log_XL_half: PineTree_Snow_log_XL_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.3|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.05|
+|m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## Player_tombstone: Player_tombstone
 
 |Field|Type|Default Value|
@@ -1136,6 +1653,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SaddleLox: SaddleLox
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.6|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SaddleMoose: SaddleMoose
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1245,6 +1773,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## ShieldGold: ShieldGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## ShieldGoldTower: ShieldGoldTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## ShieldIronSquare: ShieldIronSquare
 
 |Field|Type|Default Value|
@@ -1268,6 +1818,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## ShieldKnight: ShieldKnight
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## ShieldRoots: ShieldRoots
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1322,6 +1883,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
+## Sled: Sled
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.5|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|1.3|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
 ## SledgeStagbreaker: SledgeStagbreaker
 
 |Field|Type|Default Value|
@@ -1330,6 +1902,39 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_forceDistance|System.Single|0.5|
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SP_BowDraugrFang: SP_BowDraugrFang
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SP_ShieldBlackmetalTower: SP_ShieldBlackmetalTower
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SP_StaffLightning: SP_StaffLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.2|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
 |m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
@@ -1378,6 +1983,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## SpearFlint: SpearFlint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.4|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SpearGold: SpearGold
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.4|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SpearGold_BloodLightning: SpearGold_BloodLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.4|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SpearGold_FrostFire: SpearGold_FrostFire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.4|
+|m_forceDistance|System.Single|0.5|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.02|
+|m_damping|System.Single|0.05|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## SpearGoldUncooked: SpearGoldUncooked
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1507,6 +2156,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_force|System.Single|0.5|
 |m_balanceForceFraction|System.Single|0.05|
 |m_damping|System.Single|0.03|
+|m_surfaceEffects|UnityEngine.GameObject|*null*|
+
+## Sword2h_JotunWarrior: Sword2h_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_waterLevelOffset|System.Single|0.67|
+|m_forceDistance|System.Single|1|
+|m_force|System.Single|0.5|
+|m_balanceForceFraction|System.Single|0.03|
+|m_damping|System.Single|0.05|
 |m_surfaceEffects|UnityEngine.GameObject|*null*|
 
 ## Tar: Tar

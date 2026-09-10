@@ -57,3 +57,25 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxCorrectionSpeed|System.Single|0.025|
 |m_copyLayer|System.Boolean|True|
 
+## Snowball: Snowball
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_padding|System.Single|0|
+|m_waveMinOffset|System.Single|0|
+|m_waveFreq|System.Single|0|
+|m_waveAmp|System.Single|0|
+|m_maxCorrectionSpeed|System.Single|0.025|
+|m_copyLayer|System.Boolean|True|
+
+## SnowballBig: SnowballBig
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_padding|System.Single|0|
+|m_waveMinOffset|System.Single|0|
+|m_waveFreq|System.Single|0|
+|m_waveAmp|System.Single|0|
+|m_maxCorrectionSpeed|System.Single|0.025|
+|m_copyLayer|System.Boolean|True|
+

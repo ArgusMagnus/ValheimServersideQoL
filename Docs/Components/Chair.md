@@ -10,6 +10,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_mast|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## Karve: sit_box_fl
@@ -20,6 +21,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## Karve: sit_box_fr
@@ -30,6 +32,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## piece_asksvinskeleton: piece_asksvinskeleton
@@ -40,6 +43,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|3|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.60, 0.00)|
 |m_attachAnimation|System.String|attach_lox|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bathtub: SitPoint
@@ -50,6 +54,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bathtub: SitPoint (1)
@@ -60,6 +65,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bathtub: SitPoint (2)
@@ -70,6 +76,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bathtub: SitPoint (3)
@@ -80,6 +87,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bathtub: SitPoint (4)
@@ -90,6 +98,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bathtub: SitPoint (5)
@@ -100,6 +109,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bathtub: SitPoint (6)
@@ -110,6 +120,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## piece_bench_runed: SitPoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench_runed|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## piece_bench_runed: SitPoint (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench_runed|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## piece_bench_runed: SitPoint (2)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench_runed|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bench01: SitPoint
@@ -120,6 +164,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bench01: SitPoint (1)
@@ -130,6 +175,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bench01: SitPoint (2)
@@ -140,6 +186,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackmarble_bench: SitPoint
@@ -150,6 +197,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackmarble_bench: SitPoint (1)
@@ -160,6 +208,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackmarble_bench: SitPoint (2)
@@ -170,6 +219,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackmarble_throne: piece_blackmarble_throne
@@ -180,6 +230,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_throne|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackwood_bench: SitPoint
@@ -190,6 +241,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackwood_bench: SitPoint (1)
@@ -200,6 +252,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackwood_bench: SitPoint (2)
@@ -210,6 +263,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackwood_bench01: SitPoint
@@ -220,6 +274,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackwood_bench01: SitPoint (1)
@@ -230,6 +285,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_blackwood_bench01: SitPoint (2)
@@ -240,6 +296,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_bone_throne: piece_bone_throne
@@ -250,6 +307,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_throne|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_chair: piece_chair
@@ -260,6 +318,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## piece_chair_runed: piece_chair_runed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chair_runed|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_chair02: piece_chair02
@@ -270,6 +340,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_chair03: piece_chair03
@@ -280,6 +351,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_logbench01: SitPoint
@@ -290,6 +362,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_logbench01: SitPoint (1)
@@ -300,6 +373,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## piece_moose_throne: piece_moose_throne
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_moose_throne|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_throne|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_pot3_cracked: piece_pot3_cracked
@@ -310,6 +395,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.75, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_throne01: piece_throne01
@@ -320,6 +406,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_throne|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## piece_throne02: piece_throne02
@@ -330,6 +417,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_throne|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## prop_piece_bench_runed: SitPoint
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench_runed|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## prop_piece_bench_runed: SitPoint (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench01|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## prop_piece_bench_runed: SitPoint (2)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_bench01|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## Raft: mast
@@ -340,6 +461,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_mast|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## rug_Bjorn: SitPoint
@@ -350,6 +472,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|False|
+
+## Sled: collider
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_sledstool|
+|m_useDistance|System.Single|3|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## Trailership: front
@@ -360,6 +494,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_dragon|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## Trailership: mast
@@ -370,6 +505,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_mast|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## Trailership: sit_box
@@ -380,6 +516,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## Trailership: sit_box (1)
@@ -390,6 +527,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## Trailership: sit_box (2)
@@ -400,6 +538,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## Trailership: sit_box (3)
@@ -410,6 +549,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## Trailership: sit_box (4)
@@ -420,6 +560,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## VikingShip: front
@@ -430,6 +571,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_dragon|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## VikingShip: mast
@@ -440,6 +582,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_mast|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip: sit_box
@@ -450,6 +593,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip: sit_box (1)
@@ -460,6 +604,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip: sit_box (2)
@@ -470,6 +615,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip: sit_box (3)
@@ -480,6 +626,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: front
@@ -490,6 +637,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_dragon|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|False|
 
 ## VikingShip_Ashlands: mast
@@ -500,6 +648,95 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|2|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_attachAnimation|System.String|attach_mast|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|True|
+
+## VikingShip_Ashlands: sit_bench
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|True|
+
+## VikingShip_Ashlands: sit_bench (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|True|
+
+## VikingShip_Ashlands: sit_bench (2)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|True|
+
+## VikingShip_Ashlands: sit_bench (3)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|True|
+
+## VikingShip_Ashlands: sit_bench (4)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|True|
+
+## VikingShip_Ashlands: sit_bench (5)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|True|
+
+## VikingShip_Ashlands: sit_bench (6)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
+|m_inShip|System.Boolean|True|
+
+## VikingShip_Ashlands: sit_bench (7)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stool|
+|m_useDistance|System.Single|1.5|
+|m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (1)
@@ -510,6 +747,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (2)
@@ -520,6 +758,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (3)
@@ -530,6 +769,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (4)
@@ -540,6 +780,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (5)
@@ -550,6 +791,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (6)
@@ -560,6 +802,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (7)
@@ -570,6 +813,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (8)
@@ -580,6 +824,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 
 ## VikingShip_Ashlands: sit_box (9)
@@ -590,5 +835,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_sitship|
+|m_hoverOffset|System.Single|0|
 |m_inShip|System.Boolean|True|
 

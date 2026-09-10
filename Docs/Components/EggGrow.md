@@ -15,6 +15,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_requireCoverPercentige|System.Single|0.7|
 |m_growingObject|UnityEngine.GameObject|*null*|
 |m_notGrowingObject|UnityEngine.GameObject|Not Growing|
+|m_hoverOffset|System.Single|0|
 
 ## ChickenEgg: ChickenEgg
 
@@ -29,4 +30,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_requireCoverPercentige|System.Single|0.7|
 |m_growingObject|UnityEngine.GameObject|*null*|
 |m_notGrowingObject|UnityEngine.GameObject|Not Growing|
+|m_hoverOffset|System.Single|0|
 

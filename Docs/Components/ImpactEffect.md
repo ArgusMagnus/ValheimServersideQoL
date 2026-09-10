@@ -158,6 +158,32 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_toolTier|System.Int32|0|
 |m_interval|System.Single|0.25|
 
+## FirTree_Big_log: FirTree_Big_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|True|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
+## FirTree_big_log_half: FirTree_big_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|True|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
 ## FirTree_log: FirTree_log
 
 |Field|Type|Default Value|
@@ -172,6 +198,32 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_interval|System.Single|0.25|
 
 ## FirTree_log_half: FirTree_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|True|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
+## FirTree_Snow_log: FirTree_Snow_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|True|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
+## FirTree_Snow_log_half: FirTree_Snow_log_half
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -275,6 +327,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_toolTier|System.Int32|0|
 |m_interval|System.Single|0.25|
 
+## PineTree_Snow_log: PineTree_Snow_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|False|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
+## PineTree_Snow_log_half: PineTree_Snow_log_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|False|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
+## PineTree_Snow_log_half_frost_troll: PineTree_Snow_log_half_frost_troll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|False|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
+## PineTree_Snow_log_XL: PineTree_Snow_log_XL
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|False|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
+## PineTree_Snow_log_XL_half: PineTree_Snow_log_XL_half
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|1|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
+|m_damagePlayers|System.Boolean|True|
+|m_damageFish|System.Boolean|False|
+|m_toolTier|System.Int32|2|
+|m_interval|System.Single|0.25|
+
 ## Raft: Raft
 
 |Field|Type|Default Value|
@@ -283,6 +400,19 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minVelocity|System.Single|1.5|
 |m_maxVelocity|System.Single|7|
 |m_damageToSelf|System.Boolean|True|
+|m_damagePlayers|System.Boolean|False|
+|m_damageFish|System.Boolean|False|
+|m_toolTier|System.Int32|0|
+|m_interval|System.Single|0.5|
+
+## Sled: Sled
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_hitDestroyChance|System.Single|0|
+|m_minVelocity|System.Single|3|
+|m_maxVelocity|System.Single|5|
+|m_damageToSelf|System.Boolean|False|
 |m_damagePlayers|System.Boolean|False|
 |m_damageFish|System.Boolean|False|
 |m_toolTier|System.Int32|0|

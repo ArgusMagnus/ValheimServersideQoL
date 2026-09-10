@@ -2,6 +2,18 @@
 
 The following section headers are in the format `Prefab.name: Component.name`.
 
+## Aspect_SeekerQueen: drops-withdecals
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|40|
+
+## Aspect_SeekerQueen: flow
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|25|
+
 ## fx_babyseeker_death: drops-withdecals
 
 |Field|Type|Default Value|
@@ -92,6 +104,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_chance|System.Single|10|
 
+## fx_frozenking_chain_ground_impact_1: Decal 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## fx_frozenking_chain_ground_impact_1: Decal 2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## fx_frozenking_chain_ground_impact_2: Decal 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## fx_frozenking_chain_ground_impact_2: Decal 2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## fx_frozenking_punch_aoe: Decal 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## fx_frozenking_punch_aoe: Decal 2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
 ## fx_gjall_death: drops-withdecals
 
 |Field|Type|Default Value|
@@ -158,6 +206,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_chance|System.Single|10|
 
+## fx_moose_death: vfx_BloodHit 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|10|
+
+## fx_moose_hit: bloodchunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
 ## fx_morgen_death: vfx_BloodHit 1
 
 |Field|Type|Default Value|
@@ -211,6 +271,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_chance|System.Single|40|
+
+## fx_tendril_death: blobs
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## fx_tendril_death: splat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
 
 ## fx_tentaroot_death: blobs
 
@@ -272,6 +344,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_chance|System.Single|50|
 
+## sfx_elaking_hit_old: bloodchunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
 ## vfx_blob_death: Chunks
 
 |Field|Type|Default Value|
@@ -285,6 +363,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_chance|System.Single|100|
 
 ## vfx_blob_hit: chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## vfx_blobmork_death: Chunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## vfx_blobmork_hit: chunks
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -440,7 +530,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_chance|System.Single|100|
 
+## vfx_frozenking_final_death_ground: Decal 1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## vfx_frozenking_final_death_ground: Decal 2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
 ## vfx_goblin_death: bloodchunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## vfx_goblin_dn_death: bloodchunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## vfx_goblin_dn_hit: bloodchunks
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -579,6 +693,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_chance|System.Single|22|
 
 ## vfx_player_hit: bloodchunks
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_chance|System.Single|100|
+
+## vfx_seal_hit: bloodchunks
 
 |Field|Type|Default Value|
 |-----|----|-------------|

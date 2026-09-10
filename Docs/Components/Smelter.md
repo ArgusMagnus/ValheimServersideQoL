@@ -107,6 +107,27 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_requiresRoof|System.Boolean|False|
 |m_addOreAnimationDuration|System.Single|0|
 
+## piece_FrostKiln: piece_FrostKiln
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_frostkiln|
+|m_addOreTooltip|System.String|$piece_smelter_add $item_ice|
+|m_emptyOreTooltip|System.String|$piece_smelter_empty|
+|m_enabledObject|UnityEngine.GameObject|_enabled|
+|m_disabledObject|UnityEngine.GameObject|*null*|
+|m_haveFuelObject|UnityEngine.GameObject|*null*|
+|m_haveOreObject|UnityEngine.GameObject|*null*|
+|m_noOreObject|UnityEngine.GameObject|*null*|
+|m_fuelItem|ItemDrop|Ice|
+|m_maxOre|System.Int32|0|
+|m_maxFuel|System.Int32|25|
+|m_fuelPerProduct|System.Int32|5|
+|m_secPerProduct|System.Single|30|
+|m_spawnStack|System.Boolean|False|
+|m_requiresRoof|System.Boolean|False|
+|m_addOreAnimationDuration|System.Single|0|
+
 ## piece_spinningwheel: piece_spinningwheel
 
 |Field|Type|Default Value|

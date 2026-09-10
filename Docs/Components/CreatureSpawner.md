@@ -27,6 +27,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnGroupRadius|System.Single|0|
 |m_spawnerWeight|System.Single|1|
 
+## Spawner_Bjorn_sleeping: Spawner_Bjorn_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Bjorn_sleeping|
+|m_maxLevel|System.Int32|1|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
 ## Spawner_Blob: Spawner_Blob
 
 |Field|Type|Default Value|
@@ -602,6 +627,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnGroupRadius|System.Single|0|
 |m_spawnerWeight|System.Single|1|
 
+## Spawner_DvergerDeepNorth: Spawner_DvergerDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|DvergerDeepNorth|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
 ## Spawner_DvergerMage: Spawner_DvergerMage
 
 |Field|Type|Default Value|
@@ -647,6 +697,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_requiredGlobalKey|System.String||
 |m_blockingGlobalKey|System.String||
 |m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_ElakingMole_Wakeup: Spawner_ElakingMole_Wakeup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|ElakingMole|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|10|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|True|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|False|
 |m_spawnGroupID|System.Int32|0|
 |m_maxGroupSpawned|System.Int32|1|
 |m_spawnGroupRadius|System.Single|0|
@@ -727,11 +802,111 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnGroupRadius|System.Single|0|
 |m_spawnerWeight|System.Single|1|
 
+## Spawner_Frysling: Spawner_Frysling
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Frysling|
+|m_maxLevel|System.Int32|1|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|15|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Frysling_respawn_30: Spawner_Frysling_respawn_30
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Frysling|
+|m_maxLevel|System.Int32|1|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|15|
+|m_respawnTimeMinuts|System.Single|60|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
 ## Spawner_Ghost: Spawner_Ghost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_creaturePrefab|UnityEngine.GameObject|Ghost|
+|m_maxLevel|System.Int32|1|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Ghost_sleeping: Spawner_Ghost_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Ghost_sleeping|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|5|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|True|
+|m_spawnInterval|System.Int32|0|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Ghost_Void: Spawner_Ghost_Void
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Ghost_old|
 |m_maxLevel|System.Int32|1|
 |m_minLevel|System.Int32|1|
 |m_levelupChance|System.Single|10|
@@ -852,6 +1027,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnGroupRadius|System.Single|0|
 |m_spawnerWeight|System.Single|10000|
 
+## Spawner_GoblinDeepNorth: Spawner_GoblinDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|GoblinDeepNorth|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
 ## Spawner_GoblinShaman: Spawner_GoblinShaman
 
 |Field|Type|Default Value|
@@ -952,6 +1152,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnGroupRadius|System.Single|0|
 |m_spawnerWeight|System.Single|1|
 
+## Spawner_Greydwarf_Surprise: Spawner_Greydwarf_Surprise
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Greydwarf|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|5|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|True|
+|m_spawnInterval|System.Int32|0|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
 ## Spawner_Hatchling: Spawner_Hatchling
 
 |Field|Type|Default Value|
@@ -1036,6 +1261,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minLevel|System.Int32|1|
 |m_levelupChance|System.Single|10|
 |m_respawnTimeMinuts|System.Single|5|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_JotunDualWield: Spawner_JotunDualWield
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|JotunWarriorDualWield|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_JotunWarrior: Spawner_JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|JotunWarrior|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_JotunWitch: Spawner_JotunWitch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|JotunWitch|
+|m_maxLevel|System.Int32|2|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
 |m_triggerDistance|System.Single|60|
 |m_triggerNoise|System.Single|0|
 |m_spawnAtNight|System.Boolean|True|
@@ -1302,6 +1602,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnGroupRadius|System.Single|0|
 |m_spawnerWeight|System.Single|1|
 
+## Spawner_ShadowPerson: Spawner_ShadowPerson
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|ShadowPerson|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
 ## Spawner_Skeleton: Spawner_Skeleton
 
 |Field|Type|Default Value|
@@ -1376,6 +1701,106 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxGroupSpawned|System.Int32|1|
 |m_spawnGroupRadius|System.Single|33|
 |m_spawnerWeight|System.Single|10000|
+
+## Spawner_Skeleton_Meadows: Spawner_Skeleton_Meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Skeleton_Meadows|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Skeleton_Meadows_night_noarcher: Spawner_Skeleton_Meadows_night_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Skeleton_Meadows_noarcher|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|False|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Skeleton_Mountains: Spawner_Skeleton_Mountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Skeleton_Mountains|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Skeleton_Mountains_night_noarcher: Spawner_Skeleton_Mountains_night_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Skeleton_Mountains_noarcher|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|False|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
 
 ## Spawner_Skeleton_night_noarcher: Spawner_Skeleton_night_noarcher
 
@@ -1469,6 +1894,56 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnInPlayerBase|System.Boolean|False|
 |m_wakeUpAnimation|System.Boolean|True|
 |m_spawnInterval|System.Int32|0|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Skeleton_Swamp: Spawner_Skeleton_Swamp
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Skeleton_Swamps|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Skeleton_Swamp_night_noarcher: Spawner_Skeleton_Swamp_night_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Skeleton_Swamps_noarcher|
+|m_maxLevel|System.Int32|3|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|False|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|False|
+|m_spawnInterval|System.Int32|5|
 |m_requiredGlobalKey|System.String||
 |m_blockingGlobalKey|System.String||
 |m_setPatrolSpawnPoint|System.Boolean|True|
@@ -1602,6 +2077,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnGroupRadius|System.Single|0|
 |m_spawnerWeight|System.Single|1|
 
+## Spawner_TrollFrost: Spawner_TrollFrost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|TrollFrost|
+|m_maxLevel|System.Int32|1|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|10|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|120|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|True|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|True|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
 ## Spawner_Twitcher: Spawner_Twitcher
 
 |Field|Type|Default Value|
@@ -1692,7 +2192,32 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnAtDay|System.Boolean|True|
 |m_requireSpawnArea|System.Boolean|False|
 |m_spawnInPlayerBase|System.Boolean|False|
-|m_wakeUpAnimation|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|True|
+|m_spawnInterval|System.Int32|5|
+|m_requiredGlobalKey|System.String||
+|m_blockingGlobalKey|System.String||
+|m_setPatrolSpawnPoint|System.Boolean|True|
+|m_spawnGroupID|System.Int32|0|
+|m_maxGroupSpawned|System.Int32|1|
+|m_spawnGroupRadius|System.Single|0|
+|m_spawnerWeight|System.Single|1|
+
+## Spawner_Writhan: Spawner_Writhan
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_creaturePrefab|UnityEngine.GameObject|Writhan|
+|m_maxLevel|System.Int32|1|
+|m_minLevel|System.Int32|1|
+|m_levelupChance|System.Single|15|
+|m_respawnTimeMinuts|System.Single|0|
+|m_triggerDistance|System.Single|60|
+|m_triggerNoise|System.Single|0|
+|m_spawnAtNight|System.Boolean|True|
+|m_spawnAtDay|System.Boolean|False|
+|m_requireSpawnArea|System.Boolean|False|
+|m_spawnInPlayerBase|System.Boolean|False|
+|m_wakeUpAnimation|System.Boolean|True|
 |m_spawnInterval|System.Int32|5|
 |m_requiredGlobalKey|System.String||
 |m_blockingGlobalKey|System.String||

@@ -12,6 +12,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_turretBodyUnarmed|UnityEngine.GameObject|Body_Unarmed|
 |m_turretNeck|UnityEngine.GameObject|NeckRotation|
 |m_eye|UnityEngine.GameObject|Eye|
+|m_hoverOffset|System.Single|0|
 |m_turnRate|System.Single|45|
 |m_horizontalAngle|System.Single|50|
 |m_verticalAngle|System.Single|50|
@@ -49,6 +50,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_turretBodyUnarmed|UnityEngine.GameObject|Body_Unarmed|
 |m_turretNeck|UnityEngine.GameObject|NeckRotation|
 |m_eye|UnityEngine.GameObject|Eye|
+|m_hoverOffset|System.Single|0|
 |m_turnRate|System.Single|60|
 |m_horizontalAngle|System.Single|75|
 |m_verticalAngle|System.Single|75|
@@ -86,6 +88,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_turretBodyUnarmed|UnityEngine.GameObject|Body_Unarmed|
 |m_turretNeck|UnityEngine.GameObject|NeckRotation|
 |m_eye|UnityEngine.GameObject|Eye|
+|m_hoverOffset|System.Single|0|
 |m_turnRate|System.Single|45|
 |m_horizontalAngle|System.Single|50|
 |m_verticalAngle|System.Single|50|

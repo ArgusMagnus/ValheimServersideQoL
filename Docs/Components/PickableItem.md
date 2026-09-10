@@ -8,6 +8,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_itemPrefab|ItemDrop|*null*|
 |m_stack|System.Int32|0|
+|m_hoverOffset|System.Single|0|
 
 ## Pickable_ForestCryptRandom: Pickable_ForestCryptRandom
 
@@ -15,6 +16,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_itemPrefab|ItemDrop|*null*|
 |m_stack|System.Int32|0|
+|m_hoverOffset|System.Single|0|
 
 ## Pickable_Item: Pickable_Item
 
@@ -22,6 +24,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_itemPrefab|ItemDrop|*null*|
 |m_stack|System.Int32|0|
+|m_hoverOffset|System.Single|0|
+
+## Pickable_MorkHallaTreasure: Pickable_MorkHallaTreasure
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_itemPrefab|ItemDrop|*null*|
+|m_stack|System.Int32|0|
+|m_hoverOffset|System.Single|0|
 
 ## Pickable_MountainCaveRandom: Pickable_MountainCaveRandom
 
@@ -29,6 +40,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_itemPrefab|ItemDrop|*null*|
 |m_stack|System.Int32|0|
+|m_hoverOffset|System.Single|0|
 
 ## Pickable_RandomFood: Pickable_RandomFood
 
@@ -36,6 +48,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_itemPrefab|ItemDrop|*null*|
 |m_stack|System.Int32|0|
+|m_hoverOffset|System.Single|0|
 
 ## Pickable_SunkenCryptRandom: Pickable_SunkenCryptRandom
 
@@ -43,4 +56,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_itemPrefab|ItemDrop|*null*|
 |m_stack|System.Int32|0|
+|m_hoverOffset|System.Single|0|
 

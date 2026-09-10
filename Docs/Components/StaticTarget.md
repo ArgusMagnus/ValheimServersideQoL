@@ -30,6 +30,20 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_primaryTarget|System.Boolean|True|
 |m_randomTarget|System.Boolean|True|
 
+## Pickable_Kale: Pickable_Kale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
+## Pickable_Oat: Pickable_Oat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
 ## Pickable_Onion: Pickable_Onion
 
 |Field|Type|Default Value|
@@ -37,7 +51,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_primaryTarget|System.Boolean|False|
 |m_randomTarget|System.Boolean|True|
 
+## Pickable_Poteitr: Pickable_Poteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
 ## Pickable_SeedCarrot: Pickable_SeedCarrot
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_primaryTarget|System.Boolean|False|
+|m_randomTarget|System.Boolean|True|
+
+## Pickable_SeedKale: Pickable_SeedKale
 
 |Field|Type|Default Value|
 |-----|----|-------------|

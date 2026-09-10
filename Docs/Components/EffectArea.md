@@ -51,6 +51,20 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
+## Candle_resin: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## Candle_resin: PlayerBase (1)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
 ## CastleKit_brazier: FireBurn
 
 |Field|Type|Default Value|
@@ -163,6 +177,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
+## Frysling: FireWarmth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
 ## guard_stone: PlayerBase
 
 |Field|Type|Default Value|
@@ -171,6 +192,27 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playerOnly|System.Boolean|False|
 
 ## hearth: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## incinerator: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## Morkhalla_firepit: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## Morkhalla_giant_railing_torch: FireWarmth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -254,14 +296,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
-## piece_groundtorch: FireArea
+## piece_dvergr_lantern: PlayerBase
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
-## piece_groundtorch: PlayerBase
+## piece_dvergr_lantern_pole: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_EternalPyre: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_FrostFoundry: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_FrostKiln: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_groundtorch: FireArea
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -289,7 +359,35 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
+## piece_groundtorch_mist: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
 ## piece_groundtorch_wood: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_hoodedlantern: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_jackoturnip: PlayerBase (2)
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_Lavalantern: PlayerBase
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -310,7 +408,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
-## piece_shieldgenerator: PlayerBase
+## piece_sapcollector: PlayerBase
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -318,6 +416,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playerOnly|System.Boolean|False|
 
 ## piece_shieldgenerator: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_snowlantern: PlayerBase
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -338,7 +443,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_statusEffect|System.String||
 |m_playerOnly|System.Boolean|False|
 
+## piece_turret: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
 ## piece_walltorch: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## piece_wisplure: PlayerBase
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -367,6 +486,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playerOnly|System.Boolean|False|
 
 ## portal_wood: PlayerBase
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## prop_bonfire: PlayerBase
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -402,6 +528,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playerOnly|System.Boolean|False|
 
 ## TrophySurtling: FireWarmth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_statusEffect|System.String||
+|m_playerOnly|System.Boolean|False|
+
+## UpgradeStation: PlayerBase
 
 |Field|Type|Default Value|
 |-----|----|-------------|

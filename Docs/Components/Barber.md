@@ -10,4 +10,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_useDistance|System.Single|1.5|
 |m_detachOffset|UnityEngine.Vector3|(-0.50, 0.50, 0.00)|
 |m_attachAnimation|System.String|attach_chair|
+|m_hoverOffset|System.Single|0|
 

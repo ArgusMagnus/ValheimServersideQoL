@@ -19,6 +19,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -27,6 +28,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|15|
 |m_igniteInterval|System.Single|0|
 |m_igniteChance|System.Single|0|
@@ -53,6 +56,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -61,6 +65,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
+|m_snowMelter|UnityEngine.GameObject|snow_fire_big|
+|m_snowMelterInterval|System.Single|0.2|
 |m_fireworksMaxRandomAngle|System.Single|15|
 |m_igniteInterval|System.Single|5|
 |m_igniteChance|System.Single|0.75|
@@ -87,6 +93,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|True|
 |m_canRefill|System.Boolean|False|
 |m_lowWetOverHalf|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|*null*|
 |m_enabledObjectLow|UnityEngine.GameObject|low|
 |m_enabledObjectHigh|UnityEngine.GameObject|high|
@@ -95,6 +102,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|off|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Resin|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|25|
 |m_igniteChance|System.Single|0.0025|
@@ -121,6 +130,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|*null*|
 |m_enabledObjectHigh|UnityEngine.GameObject|*null*|
@@ -129,6 +139,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|*null*|
 |m_fuelItem|ItemDrop|Resin|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|0|
 |m_igniteChance|System.Single|0|
@@ -155,6 +167,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -163,6 +176,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
+|m_snowMelter|UnityEngine.GameObject|snow_fire|
+|m_snowMelterInterval|System.Single|0.2|
 |m_fireworksMaxRandomAngle|System.Single|15|
 |m_igniteInterval|System.Single|5|
 |m_igniteChance|System.Single|0.5|
@@ -189,6 +204,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -197,6 +213,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|15|
 |m_igniteInterval|System.Single|0|
 |m_igniteChance|System.Single|0|
@@ -223,6 +241,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -231,6 +250,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|15|
 |m_igniteInterval|System.Single|0|
 |m_igniteChance|System.Single|0|
@@ -257,6 +278,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -265,6 +287,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
+|m_snowMelter|UnityEngine.GameObject|snow_fire|
+|m_snowMelterInterval|System.Single|2.5|
 |m_fireworksMaxRandomAngle|System.Single|15|
 |m_igniteInterval|System.Single|5|
 |m_igniteChance|System.Single|0.5|
@@ -291,6 +315,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -299,6 +324,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Wood|
+|m_snowMelter|UnityEngine.GameObject|snow_fire_big|
+|m_snowMelterInterval|System.Single|0.2|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|5|
 |m_igniteChance|System.Single|0.5|
@@ -307,6 +334,43 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_igniteCapsuleStart|UnityEngine.Vector3|(0.63, 0.88, 0.00)|
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(-0.63, 0.88, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|Fire|
+
+## Morkhalla_firepit: Morkhalla_firepit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_fire|
+|m_startFuel|System.Single|10|
+|m_maxFuel|System.Single|10|
+|m_secPerFuel|System.Single|5000|
+|m_infiniteFuel|System.Boolean|True|
+|m_disableCoverCheck|System.Boolean|False|
+|m_checkTerrainOffset|System.Single|0.2|
+|m_coverCheckOffset|System.Single|0.5|
+|m_holdRepeatInterval|System.Single|0.2|
+|m_halfThreshold|System.Single|0.5|
+|m_canTurnOff|System.Boolean|False|
+|m_canRefill|System.Boolean|True|
+|m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
+|m_enabledObject|UnityEngine.GameObject|_enabled|
+|m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
+|m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
+|m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
+|m_fuelItem|ItemDrop|Wood|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
+|m_fireworksMaxRandomAngle|System.Single|15|
+|m_igniteInterval|System.Single|0|
+|m_igniteChance|System.Single|0|
+|m_igniteSpread|System.Int32|4|
+|m_igniteCapsuleRadius|System.Single|0|
+|m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_firePrefab|UnityEngine.GameObject|*null*|
 
 ## piece_brazierceiling01: piece_brazierceiling01
 
@@ -325,6 +389,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -333,6 +398,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Coal|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|5|
 |m_igniteChance|System.Single|0.5|
@@ -359,6 +426,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -367,6 +435,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Coal|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|5|
 |m_igniteChance|System.Single|0.5|
@@ -393,6 +463,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|_enabled_low|
 |m_enabledObjectHigh|UnityEngine.GameObject|_enabled_high|
@@ -401,6 +472,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|GreydwarfEye|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|5|
 |m_igniteChance|System.Single|0.5|
@@ -427,6 +500,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|*null*|
 |m_enabledObjectHigh|UnityEngine.GameObject|*null*|
@@ -435,6 +509,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Resin|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|10|
 |m_igniteChance|System.Single|1|
@@ -461,6 +537,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|*null*|
 |m_enabledObjectHigh|UnityEngine.GameObject|*null*|
@@ -469,6 +546,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|GreydwarfEye|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|10|
 |m_igniteChance|System.Single|1|
@@ -495,6 +574,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|*null*|
 |m_enabledObjectHigh|UnityEngine.GameObject|*null*|
@@ -503,6 +583,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Guck|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|10|
 |m_igniteChance|System.Single|1|
@@ -529,6 +611,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|*null*|
 |m_enabledObjectHigh|UnityEngine.GameObject|*null*|
@@ -537,6 +620,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Resin|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|10|
 |m_igniteChance|System.Single|1|
@@ -563,6 +648,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|*null*|
 |m_enabledObjectHigh|UnityEngine.GameObject|*null*|
@@ -571,6 +657,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|*null*|
 |m_fuelItem|ItemDrop|Resin|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|0|
 |m_igniteChance|System.Single|0|
@@ -579,6 +667,43 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_firePrefab|UnityEngine.GameObject|*null*|
+
+## piece_snowlantern: piece_snowlantern
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_snowlantern|
+|m_startFuel|System.Single|2|
+|m_maxFuel|System.Single|6|
+|m_secPerFuel|System.Single|20000|
+|m_infiniteFuel|System.Boolean|False|
+|m_disableCoverCheck|System.Boolean|True|
+|m_checkTerrainOffset|System.Single|0.57|
+|m_coverCheckOffset|System.Single|0.76|
+|m_holdRepeatInterval|System.Single|0.2|
+|m_halfThreshold|System.Single|0.5|
+|m_canTurnOff|System.Boolean|False|
+|m_canRefill|System.Boolean|True|
+|m_lowWetOverHalf|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+|m_enabledObject|UnityEngine.GameObject|_enabled|
+|m_enabledObjectLow|UnityEngine.GameObject|*null*|
+|m_enabledObjectHigh|UnityEngine.GameObject|*null*|
+|m_fullObject|UnityEngine.GameObject|*null*|
+|m_halfObject|UnityEngine.GameObject|*null*|
+|m_emptyObject|UnityEngine.GameObject|*null*|
+|m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
+|m_fuelItem|ItemDrop|Resin|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
+|m_fireworksMaxRandomAngle|System.Single|5|
+|m_igniteInterval|System.Single|10|
+|m_igniteChance|System.Single|0|
+|m_igniteSpread|System.Int32|1|
+|m_igniteCapsuleRadius|System.Single|0.1|
+|m_igniteCapsuleStart|UnityEngine.Vector3|(0.00, 0.65, 0.00)|
+|m_igniteCapsuleEnd|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
+|m_firePrefab|UnityEngine.GameObject|Fire|
 
 ## piece_walltorch: piece_walltorch
 
@@ -597,6 +722,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_canTurnOff|System.Boolean|False|
 |m_canRefill|System.Boolean|True|
 |m_lowWetOverHalf|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_enabledObject|UnityEngine.GameObject|_enabled|
 |m_enabledObjectLow|UnityEngine.GameObject|*null*|
 |m_enabledObjectHigh|UnityEngine.GameObject|*null*|
@@ -605,6 +731,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_emptyObject|UnityEngine.GameObject|*null*|
 |m_playerBaseObject|UnityEngine.GameObject|PlayerBase|
 |m_fuelItem|ItemDrop|Resin|
+|m_snowMelter|UnityEngine.GameObject|*null*|
+|m_snowMelterInterval|System.Single|0|
 |m_fireworksMaxRandomAngle|System.Single|5|
 |m_igniteInterval|System.Single|0|
 |m_igniteChance|System.Single|0|

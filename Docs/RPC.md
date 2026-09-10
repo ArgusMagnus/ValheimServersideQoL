@@ -10,7 +10,7 @@
 |ArmorStand|RPC_DropItemByName|Int64 sender, String name|
 |ArmorStand|RPC_RequestOwn|Int64 sender|
 |ArmorStand|RPC_SetPose|Int64 sender, Int32 index|
-|ArmorStand|RPC_SetVisualItem|Int64 sender, Int32 index, String itemName, Int32 variant|
+|ArmorStand|RPC_SetVisualItem|Int64 sender, Int32 index, Int32 itemHash, Int32 variant|
 |BaseAI|RPC_Alert|Int64 sender|
 |BaseAI|RPC_OnNearProjectileHit|Int64 sender, Vector3 center, Single range, ZDOID attacker|
 |BaseAI|RPC_SetAggravated|Int64 sender, Boolean aggro, Int32 reason|
@@ -30,14 +30,16 @@
 |Character|RPC_TeleportTo|Int64 sender, Vector3 pos, Quaternion rot, Boolean distantTeleport|
 |Chat|RPC_ChatMessage|Int64 sender, Vector3 position, Int32 type, UserInfo userInfo, String text|
 |Chat|RPC_TeleportPlayer|Int64 sender, Vector3 pos, Quaternion rot, Boolean distantTeleport|
-|Container|RPC_OpenRespons|Int64 uid, Boolean granted|
+|CinematicsManager|RPC_SetDreamCinematic|Int64 sender, String name|
+|Container|RPC_Discovered|Int64 sender, Int32 keyHash|
+|Container|RPC_OpenResponse|Int64 uid, Boolean granted|
 |Container|RPC_RequestOpen|Int64 uid, Int64 playerID|
 |Container|RPC_RequestStack|Int64 uid, Int64 playerID|
 |Container|RPC_RequestTakeAll|Int64 uid, Int64 playerID|
 |Container|RPC_StackResponse|Int64 uid, Boolean granted|
-|Container|RPC_TakeAllRespons|Int64 uid, Boolean granted|
+|Container|RPC_TakeAllResponse|Int64 uid, Boolean granted|
 |CookingStation|RPC_AddFuel|Int64 sender|
-|CookingStation|RPC_AddItem|Int64 sender, String itemName|
+|CookingStation|RPC_AddItem|Int64 sender, String itemName, Boolean cheated|
 |CookingStation|RPC_RemoveDoneItem|Int64 sender, Vector3 userPoint, Int32 amount|
 |CookingStation|RPC_SetSlotVisual|Int64 sender, Int32 slot, String item|
 |DamageText|RPC_DamageText|Int64 sender, ZPackage pkg|
@@ -47,7 +49,7 @@
 |Feast|RPC_EatConfirmation|Int64 sender|
 |Feast|RPC_OnEat|Int64 sender|
 |Feast|RPC_TryEat|Int64 sender|
-|Fermenter|RPC_AddItem|Int64 sender, Int32 nameHash|
+|Fermenter|RPC_AddItem|Int64 sender, Int32 nameHash, Boolean cheated|
 |Fermenter|RPC_Tap|Int64 sender|
 |Fireplace|RPC_AddFuel|Int64 sender|
 |Fireplace|RPC_AddFuelAmount|Int64 sender, Single amount|
@@ -61,6 +63,7 @@
 |Game|RPC_DiscoverLocationResponse|Int64 sender, String pinName, Int32 pinType, Vector3 pos, Boolean showMap|
 |Game|RPC_Ping|Int64 sender, Single time|
 |Game|RPC_Pong|Int64 sender, Single time|
+|Game|RPC_RegisterKill|Int64 sender, String enemyName, Int32 bossNumber, Int32 modifiers, Int32 attackers, Boolean cheatsUsed|
 |Game|RPC_SetConnection|Int64 sender, ZDOID portalID, ZDOID connectionID|
 |Humanoid|RPC_TeleportTo|Int64 sender, Vector3 pos, Quaternion rot, Boolean distantTeleport|
 |Incinerator|RPC_AnimateLever|Int64 uid|
@@ -74,6 +77,7 @@
 |ItemStand|RPC_RequestOwn|Int64 sender|
 |ItemStand|RPC_SetVisualItem|Int64 sender, Int32 itemHash, Int32 variant, Int32 quality, Int32 orientation|
 |ItemStand|RPC_UpdateVisual|Int64 sender|
+|Leviathan|RPC_Left|Int64 sender|
 |MapTable|RPC_MapData|Int64 sender, ZPackage pkg|
 |MasterClient|RPC_ServerList|ZRpc rpc, ZPackage pkg|
 |MaterialVariation|RPC_UpdateMaterial|Int64 sender, Int32 index|
@@ -86,9 +90,14 @@
 |MonsterAI|RPC_Sleep|Int64 sender|
 |MonsterAI|RPC_Wakeup|Int64 sender|
 |MusicVolume|RPC_PlayMusic|Int64 sender|
+|ObjectSwitcher|RPC_StateChanged|Int64 owner, Int32 state|
 |OfferingBowl|RPC_BossSpawnInitiated|Int64 senderId|
 |OfferingBowl|RPC_RemoveBossSpawnInventoryItems|Int64 senderId|
 |OfferingBowl|RPC_SpawnBoss|Int64 senderId, Vector3 point, Boolean removeItemsFromInventory|
+|PersistentEventSystem|RPC_RequestActiveEventsList|Int64 sender|
+|PersistentEventSystem|RPC_RequestStartEvent|Int64 sender, Int32 sourceEventId|
+|PersistentEventSystem|RPC_RequestStopEvent|Int64 sender, Int32 eventId|
+|PersistentEventSystem|RPC_UpdateClientEventsList|Int64 sender, String activeEventsJson|
 |Pickable|RPC_Pick|Int64 sender, Int32 bonus|
 |Pickable|RPC_SetPicked|Int64 sender, Boolean picked|
 |PickableItem|RPC_Pick|Int64 sender|
@@ -116,7 +125,7 @@
 |Sadle|RPC_RequestRespons|Int64 sender, Boolean granted|
 |SapCollector|RPC_Extract|Int64 caller|
 |SapCollector|RPC_UpdateEffects|Int64 caller|
-|SEMan|RPC_AddStatusEffect|Int64 sender, Int32 nameHash, Boolean resetTime, Int32 itemLevel, Single skillLevel|
+|SEMan|RPC_AddStatusEffect|Int64 sender, Int32 nameHash, Boolean resetTime, Int32 itemLevel, Single skillLevel, Int32 variant|
 |ShieldGenerator|RPC_AddFuel|Int64 sender|
 |ShieldGenerator|RPC_Attack|Int64 sender|
 |ShieldGenerator|RPC_HitNow|Int64 sender|
@@ -129,7 +138,7 @@
 |ShipControlls|RPC_RequestControl|Int64 sender, Int64 playerID|
 |ShipControlls|RPC_RequestRespons|Int64 sender, Boolean granted|
 |Smelter|RPC_AddFuel|Int64 sender|
-|Smelter|RPC_AddOre|Int64 sender, String name|
+|Smelter|RPC_AddOre|Int64 sender, String name, Boolean cheated|
 |Smelter|RPC_EmptyProcessed|Int64 sender|
 |Talker|RPC_Say|Int64 sender, Int32 ctype, UserInfo user, String text|
 |Tameable|RPC_AddSaddle|Int64 sender|
@@ -157,6 +166,7 @@
 |WearNTear|RPC_HealthChanged|Int64 peer, Single health|
 |WearNTear|RPC_Remove|Int64 sender, Boolean blockDrop|
 |WearNTear|RPC_Repair|Int64 sender|
+|WearNTear|RPC_SetSnow|Int64 sender, Single value|
 |ZDOMan|RPC_DestroyZDO|Int64 sender, ZPackage pkg|
 |ZDOMan|RPC_RequestZDO|Int64 sender, ZDOID id|
 |ZDOMan|RPC_ZDOData|ZRpc rpc, ZPackage pkg|
@@ -166,19 +176,24 @@
 |ZNet|RPC_ClientHandshake|ZRpc rpc, Boolean needPassword, String serverPasswordSalt|
 |ZNet|RPC_Disconnect|ZRpc rpc|
 |ZNet|RPC_Error|ZRpc rpc, Int32 error|
+|ZNet|RPC_HistoricalPlayerList|ZRpc rpc, ZPackage pkg|
 |ZNet|RPC_Kick|ZRpc rpc, String user|
 |ZNet|RPC_Kicked|ZRpc rpc|
 |ZNet|RPC_NetTime|ZRpc rpc, Double time|
 |ZNet|RPC_PeerInfo|ZRpc rpc, ZPackage pkg|
+|ZNet|RPC_PeerRealtimeMultiplaying|ZRpc rpc, Boolean multiplaying|
+|ZNet|RPC_PlayerID|ZRpc rpc, Int64 playerID|
 |ZNet|RPC_PlayerList|ZRpc rpc, ZPackage pkg|
 |ZNet|RPC_PrintBanned|ZRpc rpc|
 |ZNet|RPC_RemoteCommand|ZRpc rpc, String command|
 |ZNet|RPC_RemotePrint|ZRpc rpc, String text|
+|ZNet|RPC_RequestValidSimulationDistance|ZRpc rpc, ZPackage pkg|
 |ZNet|RPC_Save|ZRpc rpc|
 |ZNet|RPC_SavePlayerProfile|ZRpc rpc|
-|ZNet|RPC_ServerHandshake|ZRpc rpc|
+|ZNet|RPC_ServerHandshake|ZRpc rpc, String secretKey|
 |ZNet|RPC_ServerSyncedPlayerData|ZRpc rpc, ZPackage data|
 |ZNet|RPC_Unban|ZRpc rpc, String user|
+|ZNet|RPC_ValidatedSimulationDistance|ZRpc rpc, ZPackage pkg|
 |ZNetScene|RPC_SpawnObject|Int64 spawner, Vector3 pos, Quaternion rot, Int32 prefabHash|
 |ZoneSystem|RPC_GlobalKeys|Int64 sender, List`1 keys|
 |ZoneSystem|RPC_LocationIcons|Int64 sender, ZPackage pkg|

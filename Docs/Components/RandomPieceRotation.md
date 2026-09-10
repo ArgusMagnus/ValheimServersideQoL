@@ -387,6 +387,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_stepsY|System.Int32|4|
 |m_stepsZ|System.Int32|4|
 
+## Morkhalla_Banner1: new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_rotateX|System.Boolean|False|
+|m_rotateY|System.Boolean|True|
+|m_rotateZ|System.Boolean|False|
+|m_stepsX|System.Int32|0|
+|m_stepsY|System.Int32|2|
+|m_stepsZ|System.Int32|0|
+
+## Morkhalla_Banner2: new
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_rotateX|System.Boolean|False|
+|m_rotateY|System.Boolean|True|
+|m_rotateZ|System.Boolean|False|
+|m_stepsX|System.Int32|0|
+|m_stepsY|System.Int32|2|
+|m_stepsZ|System.Int32|0|
+
 ## piece_dvergr_pole: wood_high
 
 |Field|Type|Default Value|

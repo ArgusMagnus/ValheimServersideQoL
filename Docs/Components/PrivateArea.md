@@ -11,6 +11,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_updateConnectionsInterval|System.Single|5|
 |m_enabledByDefault|System.Boolean|True|
 |m_enabledEffect|UnityEngine.GameObject|WayEffect|
+|m_hoverOffset|System.Single|0|
 |m_connectEffect|UnityEngine.GameObject|vfx_guardstone_connection|
 |m_inRangeEffect|UnityEngine.GameObject|InRangeIndicator|
 
@@ -23,6 +24,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_updateConnectionsInterval|System.Single|5|
 |m_enabledByDefault|System.Boolean|False|
 |m_enabledEffect|UnityEngine.GameObject|WayEffect|
+|m_hoverOffset|System.Single|0|
 |m_connectEffect|UnityEngine.GameObject|vfx_guardstone_connection|
 |m_inRangeEffect|UnityEngine.GameObject|InRangeIndicator|
 
@@ -35,6 +37,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_updateConnectionsInterval|System.Single|5|
 |m_enabledByDefault|System.Boolean|False|
 |m_enabledEffect|UnityEngine.GameObject|WayEffect|
+|m_hoverOffset|System.Single|0|
 |m_connectEffect|UnityEngine.GameObject|*null*|
 |m_inRangeEffect|UnityEngine.GameObject|*null*|
 

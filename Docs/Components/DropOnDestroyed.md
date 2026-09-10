@@ -436,7 +436,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## BigBranch: BigBranch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## BirchStub: BirchStub
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## BlackIceShard_01: BlackIceShard_01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## BlackIceShard_02: BlackIceShard_02
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -457,6 +478,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## BlobMorkBig: BlobMorkBig
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## BlueberryBush: BlueberryBush
 
 |Field|Type|Default Value|
@@ -465,6 +493,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYStep|System.Single|0.3|
 
 ## Bush01: Bush01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Bush01_deepnorth: Bush01_deepnorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -560,6 +595,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## deepnorth_lantern_standing: deepnorth_lantern_standing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|3|
 |m_spawnYStep|System.Single|0.3|
 
 ## dungeon_sunkencrypt_irongate_rusty: dungeon_sunkencrypt_irongate_rusty
@@ -765,6 +807,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## elaking_trashpile: elaking_trashpile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.3|
+
 ## EvilHeart_Forest: EvilHeart_Forest
 
 |Field|Type|Default Value|
@@ -793,7 +842,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## FirTree_Big_plantable_Stub: FirTree_Big_plantable_Stub
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## FirTree_oldLog: FirTree_oldLog
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## FirTree_oldLog_deepnorth: FirTree_oldLog_deepnorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -814,7 +877,35 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## FirTree_Snow_Stub: FirTree_Snow_Stub
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## FirTree_Stub: FirTree_Stub
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## FrozenGD: FrozenGD
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## FrozenSkeleton_Pose1: FrozenSkeleton_Pose1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## FrozenSkeleton_Pose2: FrozenSkeleton_Pose2
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -947,6 +1038,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## Greydwarf_Surprise: Greydwarf_Surprise
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## GuckSack: GuckSack
 
 |Field|Type|Default Value|
@@ -968,7 +1066,112 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## HoleRock_root1: HoleRock_root1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0|
+|m_spawnYStep|System.Single|0|
+
+## HoleRock_rootBush1: HoleRock_rootBush1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0|
+|m_spawnYStep|System.Single|0|
+
+## HoleRock_rootFloor1: HoleRock_rootFloor1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0|
+|m_spawnYStep|System.Single|0|
+
+## HoleRock_rootWall1: HoleRock_rootWall1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0|
+|m_spawnYStep|System.Single|0|
+
 ## HugeRoot1: HugeRoot1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## ice1: ice1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## IceShard_01: IceShard_01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## IceShard_02: IceShard_02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## IceShard_03: IceShard_03
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## IceShard_04: IceShard_04
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## IceShard_05: IceShard_05
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## IceShard_06: IceShard_06
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## LargeBone: LargeBone
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## LargeBone_half01: LargeBone_half01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## LargeBone_half02: LargeBone_half02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## LingonberryBush: LingonberryBush
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -996,6 +1199,27 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## MemorialStone_Large: MemorialStone_Large
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## MemorialStone_Medium: MemorialStone_Medium
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## MemorialStone_Small: MemorialStone_Small
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## MineRock_Obsidian: MineRock_Obsidian
 
 |Field|Type|Default Value|
@@ -1015,6 +1239,160 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Banner1: Morkhalla_Banner1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Banner2: Morkhalla_Banner2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Bedroll1: Morkhalla_Bedroll1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Bedroll2: Morkhalla_Bedroll2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Bench: Morkhalla_Bench
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_coal_pile_memorial: Morkhalla_coal_pile_memorial
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_firepit: Morkhalla_firepit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_rubble_trashpile: Morkhalla_rubble_trashpile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rubble1: Morkhalla_Rubble1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rubble2: Morkhalla_Rubble2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rubble3: Morkhalla_Rubble3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rubble4: Morkhalla_Rubble4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rug_corner: Morkhalla_Rug_corner
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rug_end1: Morkhalla_Rug_end1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rug_end2: Morkhalla_Rug_end2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rug_middle: Morkhalla_Rug_middle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Rug_stair: Morkhalla_Rug_stair
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Stool: Morkhalla_Stool
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Table: Morkhalla_Table
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Trainingdummy1: Morkhalla_Trainingdummy1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_Trainingdummy2: Morkhalla_Trainingdummy2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Morkhalla_WeaponStand: Morkhalla_WeaponStand
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
 ## MountainGraveStone01: MountainGraveStone01
@@ -1136,6 +1514,258 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## Pinetree_Snow_Stub: Pinetree_Snow_Stub
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## placeable_bigrock_02: placeable_bigrock_02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_ashwood_bed: prop_ashwood_bed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_bed02: prop_bed02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_bonfire: prop_bonfire
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_cauldron_ext1_spice: prop_cauldron_ext1_spice
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_cauldron_ext3_butchertable: prop_cauldron_ext3_butchertable
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_cauldron_ext5_mortarandpestle: prop_cauldron_ext5_mortarandpestle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_cauldron_ext6_rollingpins: prop_cauldron_ext6_rollingpins
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_chest_warderobe: prop_chest_warderobe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_FeastAshlands: prop_FeastAshlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_FeastMeadows: prop_FeastMeadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_forge_ext2: prop_forge_ext2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_forge_ext5: prop_forge_ext5
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_hearth: prop_hearth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_itemstand: prop_itemstand
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_itemstand_TrophyDraugrElite: prop_itemstand_TrophyDraugrElite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_itemstand_TrophyGoblinBrute: prop_itemstand_TrophyGoblinBrute
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_itemstand_TrophyGoblinShaman: prop_itemstand_TrophyGoblinShaman
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_itemstand_TrophyGreydwarf: prop_itemstand_TrophyGreydwarf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_itemstand_TrophyGreydwarfBrute: prop_itemstand_TrophyGreydwarfBrute
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_itemstand_TrophySeekerBrute: prop_itemstand_TrophySeekerBrute
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_bench_runed: prop_piece_bench_runed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_brazierfloor01: prop_piece_brazierfloor01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_cauldron: prop_piece_cauldron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_chair03: prop_piece_chair03
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_cookingstation: prop_piece_cookingstation
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_MeadCauldron: prop_piece_MeadCauldron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_workbench_ext1: prop_piece_workbench_ext1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_workbench_ext2: prop_piece_workbench_ext2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_workbench_ext3: prop_piece_workbench_ext3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_piece_workbench_ext4: prop_piece_workbench_ext4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_preptable: prop_preptable
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_Tankard: prop_Tankard
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## prop_wood_stack: prop_wood_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## PropFeastDeepNorth: PropFeastDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## RaspberryBush: RaspberryBush
 
 |Field|Type|Default Value|
@@ -1150,6 +1780,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## Rock_4_deepnorth: Rock_4_deepnorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## Rock_4_plains: Rock_4_plains
 
 |Field|Type|Default Value|
@@ -1158,6 +1795,20 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYStep|System.Single|0.3|
 
 ## Rock_7: Rock_7
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Rock_7_deepnorth: Rock_7_deepnorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Rock_7_meadows: Rock_7_meadows
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1269,6 +1920,34 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|1|
 |m_spawnYStep|System.Single|0.3|
 
+## shipwreck_vikingship_front: shipwreck_vikingship_front
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.3|
+
+## shipwreck_vikingship_frontpiece: shipwreck_vikingship_frontpiece
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.3|
+
+## shipwreck_vikingship_mast1: shipwreck_vikingship_mast1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.3|
+
+## shipwreck_vikingship_rear: shipwreck_vikingship_rear
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.3|
+
 ## ShootStump: ShootStump
 
 |Field|Type|Default Value|
@@ -1284,6 +1963,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYStep|System.Single|0.3|
 
 ## shrub_2_heath: shrub_2_heath
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## SnowFirTree_small: SnowFirTree_small
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1325,7 +2011,42 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## Spawner_Hole: Spawner_Hole
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## Spawner_Hole_double: Spawner_Hole_double
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## stonewall_2: stonewall_2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## stonewall_3: stonewall_3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
 ## stubbe: stubbe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## stubbe_deepnorth: stubbe_deepnorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1339,7 +2060,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_spawnYOffset|System.Single|0.5|
 |m_spawnYStep|System.Single|0.3|
 
+## StumpHole: StumpHole
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.5|
+
+## StumpLog: StumpLog
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|1|
+|m_spawnYStep|System.Single|0.5|
+
 ## SwampTree1_Stub: SwampTree1_Stub
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_spawnYOffset|System.Single|0.5|
+|m_spawnYStep|System.Single|0.3|
+
+## TentaRoot_wild: TentaRoot_wild
 
 |Field|Type|Default Value|
 |-----|----|-------------|

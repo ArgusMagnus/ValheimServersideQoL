@@ -15,6 +15,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggeredByPlayers|System.Boolean|True|
 |m_forceStagger|System.Boolean|True|
 |m_startsArmed|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 
 ## piece_trap_troll: piece_trap_troll
 
@@ -29,4 +30,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_triggeredByPlayers|System.Boolean|True|
 |m_forceStagger|System.Boolean|True|
 |m_startsArmed|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 

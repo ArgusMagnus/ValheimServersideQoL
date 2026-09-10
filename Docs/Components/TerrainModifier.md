@@ -19,6 +19,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|3|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -41,6 +42,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|2.5|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|Stone|
 |m_chanceToSpawn|System.Single|0.33|
 |m_maxSpawned|System.Int32|1|
@@ -63,6 +65,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|2.5|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|Stone|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|2|
@@ -85,6 +88,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|6|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -107,6 +111,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|6|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -129,6 +134,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|3|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -151,6 +157,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|2|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -173,6 +180,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|2.2|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -195,6 +203,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|2.5|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -217,6 +226,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|2.2|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -239,6 +249,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -261,6 +272,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -283,6 +295,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -305,6 +318,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -327,6 +341,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -349,6 +364,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -371,6 +387,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -393,6 +410,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -415,6 +433,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -437,6 +456,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -459,6 +479,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -481,6 +502,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -503,6 +525,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -525,6 +548,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -547,6 +571,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -569,6 +594,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -591,6 +617,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|10.18|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -613,6 +640,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|True|
 |m_paintRadius|System.Single|4.12|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -635,6 +663,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|4.07|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -657,6 +686,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|3.99|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -679,6 +709,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|3.21|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|
@@ -701,6 +732,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_paintCleared|System.Boolean|True|
 |m_paintHeightCheck|System.Boolean|False|
 |m_paintRadius|System.Single|4.17|
+|m_paintStrength|System.Single|1|
 |m_spawnOnPlaced|UnityEngine.GameObject|*null*|
 |m_chanceToSpawn|System.Single|1|
 |m_maxSpawned|System.Int32|1|

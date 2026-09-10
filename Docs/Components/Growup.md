@@ -34,6 +34,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_inheritTame|System.Boolean|True|
 |m_grownPrefab|UnityEngine.GameObject|Lox|
 
+## Moose_calf: Moose_calf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_growTime|System.Single|3000|
+|m_inheritTame|System.Boolean|True|
+|m_grownPrefab|UnityEngine.GameObject|Moose|
+
 ## Wolf_cub: Wolf_cub
 
 |Field|Type|Default Value|

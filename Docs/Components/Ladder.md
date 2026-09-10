@@ -8,6 +8,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_ship_ladder|
 |m_useDistance|System.Single|2.5|
+|m_hoverOffset|System.Single|0|
 
 ## Raft: ladder
 
@@ -15,6 +16,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_ship_ladder|
 |m_useDistance|System.Single|2|
+|m_hoverOffset|System.Single|0|
 
 ## Trailership: ladder_left
 
@@ -22,6 +24,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|Ladder|
 |m_useDistance|System.Single|2|
+|m_hoverOffset|System.Single|0|
 
 ## Trailership: ladder_right
 
@@ -29,6 +32,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|Ladder|
 |m_useDistance|System.Single|2|
+|m_hoverOffset|System.Single|0|
 
 ## VikingShip: ladder_left
 
@@ -36,6 +40,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_ship_ladder|
 |m_useDistance|System.Single|2.5|
+|m_hoverOffset|System.Single|0|
 
 ## VikingShip: ladder_right
 
@@ -43,6 +48,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_ship_ladder|
 |m_useDistance|System.Single|2.5|
+|m_hoverOffset|System.Single|0|
 
 ## VikingShip_Ashlands: ladder_left
 
@@ -50,6 +56,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_ship_ladder|
 |m_useDistance|System.Single|3.5|
+|m_hoverOffset|System.Single|0|
 
 ## VikingShip_Ashlands: ladder_right
 
@@ -57,4 +64,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_ship_ladder|
 |m_useDistance|System.Single|3.5|
+|m_hoverOffset|System.Single|0|
 

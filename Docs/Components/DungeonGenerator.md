@@ -23,6 +23,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|44327|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -47,6 +48,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 256.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|True|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|73019|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -71,6 +73,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 256.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|True|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|28140|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -95,6 +98,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 256.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|True|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|14550|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -119,6 +123,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 50.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|0|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -143,6 +148,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|10771|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -167,7 +173,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 50.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|0|
+|m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## DG_HalfBurried_ForestCrypt: DG_HalfBurried_ForestCrypt
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_maxRooms|System.Int32|15|
+|m_minRooms|System.Int32|3|
+|m_minRequiredRooms|System.Int32|0|
+|m_alternativeFunctionality|System.Boolean|True|
+|m_doorChance|System.Single|0.5|
+|m_maxTilt|System.Single|10|
+|m_tileWidth|System.Single|8|
+|m_gridSize|System.Int32|4|
+|m_spawnChance|System.Single|1|
+|m_campRadiusMin|System.Single|15|
+|m_campRadiusMax|System.Single|30|
+|m_minAltitude|System.Single|1|
+|m_perimeterSections|System.Int32|0|
+|m_perimeterBuffer|System.Single|2|
+|m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
+|m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
+|m_generatedSeed|System.Int32|6818|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DG_Hildir_Cave: DG_Hildir_Cave
@@ -191,6 +223,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 256.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|True|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|17145|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -215,7 +248,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 50.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 256.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|True|
-|m_generatedSeed|System.Int32|13406|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
+|m_generatedSeed|System.Int32|80419|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DG_Hildir_PlainsFortress: DG_Hildir_PlainsFortress
@@ -239,7 +273,33 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(32.00, 132.00, 32.00)|
 |m_useCustomInteriorTransform|System.Boolean|True|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|40254|
+|m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## DG_Hole: DG_Hole
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_maxRooms|System.Int32|48|
+|m_minRooms|System.Int32|32|
+|m_minRequiredRooms|System.Int32|2|
+|m_alternativeFunctionality|System.Boolean|True|
+|m_doorChance|System.Single|1|
+|m_maxTilt|System.Single|10|
+|m_tileWidth|System.Single|8|
+|m_gridSize|System.Int32|4|
+|m_spawnChance|System.Single|1|
+|m_campRadiusMin|System.Single|15|
+|m_campRadiusMax|System.Single|32|
+|m_minAltitude|System.Single|1|
+|m_perimeterSections|System.Int32|0|
+|m_perimeterBuffer|System.Single|2|
+|m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_zoneSize|UnityEngine.Vector3|(64.00, 256.00, 64.00)|
+|m_useCustomInteriorTransform|System.Boolean|True|
+|m_addBaseSeedToRandomSpawn|System.Boolean|True|
+|m_generatedSeed|System.Int32|90960|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DG_MeadowsFarm: DG_MeadowsFarm
@@ -263,6 +323,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 50.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|0|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
@@ -287,7 +348,58 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 50.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|0|
+|m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## DG_MorkHalla: DG_MorkHalla
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_maxRooms|System.Int32|5|
+|m_minRooms|System.Int32|4|
+|m_minRequiredRooms|System.Int32|0|
+|m_alternativeFunctionality|System.Boolean|True|
+|m_doorChance|System.Single|1|
+|m_maxTilt|System.Single|10|
+|m_tileWidth|System.Single|8|
+|m_gridSize|System.Int32|4|
+|m_spawnChance|System.Single|1|
+|m_campRadiusMin|System.Single|15|
+|m_campRadiusMax|System.Single|32|
+|m_minAltitude|System.Single|1|
+|m_perimeterSections|System.Int32|0|
+|m_perimeterBuffer|System.Single|2|
+|m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_zoneSize|UnityEngine.Vector3|(64.00, 256.00, 64.00)|
+|m_useCustomInteriorTransform|System.Boolean|True|
+|m_addBaseSeedToRandomSpawn|System.Boolean|True|
+|m_generatedSeed|System.Int32|90960|
+|m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+
+## DG_NorthVillage: DG_NorthVillage
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_maxRooms|System.Int32|20|
+|m_minRooms|System.Int32|15|
+|m_minRequiredRooms|System.Int32|3|
+|m_alternativeFunctionality|System.Boolean|True|
+|m_doorChance|System.Single|0|
+|m_maxTilt|System.Single|25|
+|m_tileWidth|System.Single|10|
+|m_gridSize|System.Int32|4|
+|m_spawnChance|System.Single|0.5|
+|m_campRadiusMin|System.Single|28|
+|m_campRadiusMax|System.Single|30|
+|m_minAltitude|System.Single|1|
+|m_perimeterSections|System.Int32|8|
+|m_perimeterBuffer|System.Single|5|
+|m_zoneCenter|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
+|m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
+|m_generatedSeed|System.Int32|50902|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 
 ## DG_SunkenCrypt: DG_SunkenCrypt
@@ -311,6 +423,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_zoneCenter|UnityEngine.Vector3|(0.00, 50.00, 0.00)|
 |m_zoneSize|UnityEngine.Vector3|(64.00, 64.00, 64.00)|
 |m_useCustomInteriorTransform|System.Boolean|False|
+|m_addBaseSeedToRandomSpawn|System.Boolean|False|
 |m_generatedSeed|System.Int32|0|
 |m_originalPosition|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 

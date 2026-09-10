@@ -15,4 +15,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_killProjectile|System.Boolean|False|
 |m_raiseSkillMultiplier|System.Single|0.35|
 |m_returnPoint|UnityEngine.GameObject|ReturnPoint|
+|m_hoverOffset|System.Single|0|
 

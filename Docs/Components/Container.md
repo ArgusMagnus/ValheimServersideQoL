@@ -14,6 +14,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## Cart: Container
 
@@ -27,6 +28,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+|m_hoverOffset|System.Single|0|
 
 ## Chest: Chest
 
@@ -40,6 +42,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## incinerator: container
 
@@ -53,6 +56,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|open|
 |m_closed|UnityEngine.GameObject|closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## Karve: piece_chest
 
@@ -66,6 +70,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|open|
 |m_closed|UnityEngine.GameObject|closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+|m_hoverOffset|System.Single|0|
 
 ## loot_chest_stone: loot_chest_stone
 
@@ -79,6 +84,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## loot_chest_wood: loot_chest_wood
 
@@ -92,6 +98,49 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## loot_deepNorth_Granary: loot_deepNorth_Granary
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestbarrel|
+|m_width|System.Int32|6|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|Open|
+|m_closed|UnityEngine.GameObject|Closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## loot_deepNorth_TimberHall: loot_deepNorth_TimberHall
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestbarrel|
+|m_width|System.Int32|6|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|Open|
+|m_closed|UnityEngine.GameObject|Closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## Morkhalla_ChestAncient: Morkhalla_ChestAncient
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_morkhallachestancient|
+|m_width|System.Int32|8|
+|m_height|System.Int32|4|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|Open|
+|m_closed|UnityEngine.GameObject|Closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_chest: piece_chest
 
@@ -105,6 +154,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|ironchesttop_open|
 |m_closed|UnityEngine.GameObject|ironchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_chest_barrel: piece_chest_barrel
 
@@ -118,6 +168,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|Open|
 |m_closed|UnityEngine.GameObject|Closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_chest_blackmetal: piece_chest_blackmetal
 
@@ -131,6 +182,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|Open|
 |m_closed|UnityEngine.GameObject|Closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## piece_chest_grausten: piece_chest_grausten
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestgrausten|
+|m_width|System.Int32|8|
+|m_height|System.Int32|5|
+|m_checkGuardStone|System.Boolean|True|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|Open|
+|m_closed|UnityEngine.GameObject|Closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_chest_private: piece_chest_private
 
@@ -144,6 +210,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|privatechesttop_open|
 |m_closed|UnityEngine.GameObject|privatechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## piece_chest_warderobe: piece_chest_warderobe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestwarderobe|
+|m_width|System.Int32|5|
+|m_height|System.Int32|10|
+|m_checkGuardStone|System.Boolean|True|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|Open|
+|m_closed|UnityEngine.GameObject|Closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_chest_wood: piece_chest_wood
 
@@ -157,6 +238,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_gift1: piece_gift1
 
@@ -170,6 +252,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_gift2: piece_gift2
 
@@ -183,6 +266,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_gift3: piece_gift3
 
@@ -196,6 +280,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot1: piece_pot1
 
@@ -209,6 +294,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot1_cracked: piece_pot1_cracked
 
@@ -222,6 +308,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot1_red: piece_pot1_red
 
@@ -235,6 +322,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot2: piece_pot2
 
@@ -248,6 +336,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot2_cracked: piece_pot2_cracked
 
@@ -261,6 +350,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot2_red: piece_pot2_red
 
@@ -274,6 +364,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot3: piece_pot3
 
@@ -287,6 +378,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot3_cracked: piece_pot3_cracked
 
@@ -300,6 +392,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## piece_pot3_red: piece_pot3_red
 
@@ -313,6 +406,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## Player_tombstone: Player_tombstone
 
@@ -326,6 +420,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|*null*|
 |m_closed|UnityEngine.GameObject|*null*|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## shipwreck_karve_chest: shipwreck_karve_chest
 
@@ -339,6 +434,35 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## shipwreck_vikingship_chest: shipwreck_vikingship_chest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestwood|
+|m_width|System.Int32|5|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|True|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|woodchesttop_open|
+|m_closed|UnityEngine.GameObject|woodchesttop_closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## Sled: Container
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$msg_cart_storage|
+|m_width|System.Int32|4|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|*null*|
+|m_closed|UnityEngine.GameObject|*null*|
+|m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+|m_hoverOffset|System.Single|0|
 
 ## stonechest: stonechest
 
@@ -352,6 +476,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## Trailership: piece_chest
 
@@ -365,6 +490,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|open|
 |m_closed|UnityEngine.GameObject|closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_ashland_stone: TreasureChest_ashland_stone
 
@@ -378,6 +504,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_blackforest: TreasureChest_blackforest
 
@@ -391,6 +518,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_charredfortress: TreasureChest_charredfortress
 
@@ -404,6 +532,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## TreasureChest_deepnorth_village: TreasureChest_deepnorth_village
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestwood|
+|m_width|System.Int32|4|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|woodchesttop_open|
+|m_closed|UnityEngine.GameObject|woodchesttop_closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_dvergr_loose_stone: TreasureChest_dvergr_loose_stone
 
@@ -417,6 +560,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_dvergrtower: TreasureChest_dvergrtower
 
@@ -430,6 +574,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_dvergrtown: TreasureChest_dvergrtown
 
@@ -443,6 +588,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_fCrypt: TreasureChest_fCrypt
 
@@ -456,6 +602,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_forestcrypt: TreasureChest_forestcrypt
 
@@ -469,6 +616,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_forestcrypt_hildir: TreasureChest_forestcrypt_hildir
 
@@ -482,6 +630,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_heath: TreasureChest_heath
 
@@ -495,6 +644,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_heath_hildir: TreasureChest_heath_hildir
 
@@ -508,6 +658,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_meadows: TreasureChest_meadows
 
@@ -521,6 +672,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_meadows_01: TreasureChest_meadows_01
 
@@ -534,6 +686,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_meadows_02: TreasureChest_meadows_02
 
@@ -547,6 +700,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_meadows_buried: TreasureChest_meadows_buried
 
@@ -560,6 +714,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_meadows_combat: TreasureChest_meadows_combat
 
@@ -573,6 +728,35 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## TreasureChest_memorial_buried: TreasureChest_memorial_buried
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_chestwood|
+|m_width|System.Int32|4|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|False|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|woodchesttop_open|
+|m_closed|UnityEngine.GameObject|woodchesttop_closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
+
+## TreasureChest_morkhalla: TreasureChest_morkhalla
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_jotunchest|
+|m_width|System.Int32|4|
+|m_height|System.Int32|2|
+|m_checkGuardStone|System.Boolean|True|
+|m_autoDestroyEmpty|System.Boolean|False|
+|m_open|UnityEngine.GameObject|woodchesttop_open|
+|m_closed|UnityEngine.GameObject|woodchesttop_closed|
+|m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_mountaincave: TreasureChest_mountaincave
 
@@ -586,6 +770,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_mountaincave_hildir: TreasureChest_mountaincave_hildir
 
@@ -599,6 +784,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_mountains: TreasureChest_mountains
 
@@ -612,6 +798,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_plains_stone: TreasureChest_plains_stone
 
@@ -625,6 +812,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_plainsfortress_hildir: TreasureChest_plainsfortress_hildir
 
@@ -638,6 +826,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_sunkencrypt: TreasureChest_sunkencrypt
 
@@ -651,6 +840,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_swamp: TreasureChest_swamp
 
@@ -664,6 +854,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|woodchesttop_open|
 |m_closed|UnityEngine.GameObject|woodchesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## TreasureChest_trollcave: TreasureChest_trollcave
 
@@ -677,6 +868,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|stonechesttop_open|
 |m_closed|UnityEngine.GameObject|stonechesttop_closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## VikingShip: piece_chest
 
@@ -690,6 +882,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|open|
 |m_closed|UnityEngine.GameObject|closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+|m_hoverOffset|System.Single|0|
 
 ## VikingShip_Ashlands: piece_chest
 
@@ -703,4 +896,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_open|UnityEngine.GameObject|open|
 |m_closed|UnityEngine.GameObject|closed|
 |m_destroyedLootPrefab|UnityEngine.GameObject|CargoCrate|
+|m_hoverOffset|System.Single|0|
 

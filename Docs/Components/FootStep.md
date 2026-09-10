@@ -26,6 +26,62 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## Aspect_Eikthyr: Aspect_Eikthyr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|40|
+
+## Aspect_Elder: Aspect_Elder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
+## Aspect_Fader: Aspect_Fader
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
+## Aspect_Moder: Aspect_Moder
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
+## Aspect_SeekerQueen: Aspect_SeekerQueen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
+## Aspect_Yagluth: Aspect_Yagluth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Barka: Barka
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
 ## Bjorn: Bjorn
 
 |Field|Type|Default Value|
@@ -34,7 +90,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## Bjorn_sleeping: Bjorn_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Bjorn_spiritcaller: Bjorn_spiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## Blob: Blob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## BlobAspect: BlobAspect
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -66,6 +146,22 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## BlobMork: BlobMork
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## BlobMorkMini: BlobMorkMini
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## BlobTar: BlobTar
 
 |Field|Type|Default Value|
@@ -75,6 +171,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footstepCullDistance|System.Single|20|
 
 ## Boar: Boar
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Boar_spiritcaller: Boar_spiritcaller
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -154,6 +258,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## Deer_White: Deer_White
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## Dragon: Dragon
 
 |Field|Type|Default Value|
@@ -178,7 +290,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## Draugr_Elite_sleeping: Draugr_Elite_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## Draugr_Ranged: Draugr_Ranged
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Draugr_Ranged_sleeping: Draugr_Ranged_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Draugr_sleeping: Draugr_sleeping
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -195,6 +331,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footstepCullDistance|System.Single|20|
 
 ## DvergerAshlands: DvergerAshlands
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## DvergerDeepNorth: DvergerDeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -250,6 +394,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|40|
 
+## Elaking: Elaking
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## ElakingLantern: ElakingLantern
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## ElakingMole: ElakingMole
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## Fader: Fader
 
 |Field|Type|Default Value|
@@ -257,6 +425,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|50|
+
+## FallenWarrior: FallenWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
 
 ## Fenring: Fenring
 
@@ -290,6 +466,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## FrozenKing: FrozenKing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
+## FrozenKing_p2: FrozenKing_p2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
+## FrozenKing_p3: FrozenKing_p3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
 ## gd_king: gd_king
 
 |Field|Type|Default Value|
@@ -299,6 +499,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footstepCullDistance|System.Single|50|
 
 ## Ghost: Ghost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Ghost_old: Ghost_old
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Ghost_sleeping: Ghost_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Ghost_Void: Ghost_Void
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -362,6 +586,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## GoblinDeepNorth: GoblinDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## GoblinKing: GoblinKing
 
 |Field|Type|Default Value|
@@ -410,7 +642,23 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## Greydwarf_Frozen: Greydwarf_Frozen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## Greydwarf_Shaman: Greydwarf_Shaman
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Greydwarf_Shaman_Frozen: Greydwarf_Shaman_Frozen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -442,7 +690,55 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## JotunWarrior: JotunWarrior
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
+## JotunWarriorDualWield: JotunWarriorDualWield
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
+## JotunWitch: JotunWitch
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
 ## Lox: Lox
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Moose: Moose
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Moose_calf: Moose_calf
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Moose_spiritcaller: Moose_spiritcaller
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -467,6 +763,22 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footstepCullDistance|System.Single|50|
 
 ## Player: Player
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Seal: Seal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Seal_Pup: Seal_Pup
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -506,7 +818,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|50|
 
+## ShadowPerson: ShadowPerson
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
 ## Skeleton: Skeleton
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
+## Skeleton_aspect: Skeleton_aspect
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
+## Skeleton_DeepNorth: Skeleton_DeepNorth
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -538,6 +874,38 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
 
+## Skeleton_Meadows: Skeleton_Meadows
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
+## Skeleton_Meadows_noarcher: Skeleton_Meadows_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
+## Skeleton_Mountains: Skeleton_Mountains
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
+## Skeleton_Mountains_noarcher: Skeleton_Mountains_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
 ## Skeleton_NoArcher: Skeleton_NoArcher
 
 |Field|Type|Default Value|
@@ -553,6 +921,22 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
+
+## Skeleton_Swamps: Skeleton_Swamps
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
+
+## Skeleton_Swamps_noarcher: Skeleton_Swamps_noarcher
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
 
 ## StoneGolem: StoneGolem
 
@@ -586,7 +970,23 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|50|
 
+## Troll_sleeping: Troll_sleeping
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
 ## Troll_Summoned: Troll_Summoned
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|50|
+
+## TrollFrost: TrollFrost
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -625,4 +1025,20 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_footlessFootsteps|System.Boolean|False|
 |m_footlessTriggerDistance|System.Single|1|
 |m_footstepCullDistance|System.Single|20|
+
+## Wolf_spiritcaller: Wolf_spiritcaller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|20|
+
+## Writhan: Writhan
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_footlessFootsteps|System.Boolean|False|
+|m_footlessTriggerDistance|System.Single|1|
+|m_footstepCullDistance|System.Single|15|
 

@@ -11,7 +11,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Destroyed|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -19,6 +21,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|600|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -35,7 +43,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Blocks & Switches|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -43,6 +53,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -59,7 +75,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Blocks & Switches|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -67,6 +85,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -83,7 +107,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -91,6 +117,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -107,7 +139,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -115,6 +149,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|40|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -131,7 +171,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -139,6 +181,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|40|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -155,7 +203,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -163,6 +213,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -179,7 +235,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -187,6 +245,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -203,7 +267,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -211,6 +277,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|30|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -227,7 +299,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -235,6 +309,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|30|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -251,7 +331,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -259,6 +341,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -275,7 +363,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -283,6 +373,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.75, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -299,7 +395,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -307,6 +405,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -323,7 +427,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -331,6 +437,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -347,7 +459,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -355,6 +469,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -371,7 +491,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -379,6 +501,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(2.45, 2.10, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|666|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -395,7 +523,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -403,6 +533,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(1.05, 3.85, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|333|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -419,7 +555,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -427,6 +565,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -443,7 +587,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -451,6 +597,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -467,7 +619,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -475,6 +629,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -491,7 +651,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -499,6 +661,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -515,7 +683,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -523,6 +693,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|4000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -539,7 +715,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -547,6 +725,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|3000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -563,7 +747,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -571,6 +757,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -587,7 +779,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -595,6 +789,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -611,7 +811,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -619,6 +821,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|333|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -635,7 +843,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -643,6 +853,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|5|
 |m_hitNoise|System.Single|0|
@@ -659,7 +875,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -667,6 +885,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 3.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|6000|
 |m_minToolTier|System.Int32|5|
 |m_hitNoise|System.Single|0|
@@ -683,7 +907,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -691,6 +917,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|6000|
 |m_minToolTier|System.Int32|5|
 |m_hitNoise|System.Single|0|
@@ -707,7 +939,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -715,6 +949,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|5|
 |m_hitNoise|System.Single|0|
@@ -731,7 +971,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -739,6 +981,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -755,7 +1003,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -763,6 +1013,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -779,7 +1035,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -787,6 +1045,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -803,7 +1067,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -811,6 +1077,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -827,7 +1099,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -835,6 +1109,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -851,7 +1131,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -859,6 +1141,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.25, -0.25)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -875,7 +1163,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -883,6 +1173,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, -0.40)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -899,7 +1195,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -907,6 +1205,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -923,7 +1227,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -931,6 +1237,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|600|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -947,7 +1259,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -955,6 +1269,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -971,7 +1291,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -979,6 +1301,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -995,7 +1323,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1003,6 +1333,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1019,7 +1355,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1027,6 +1365,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1043,7 +1387,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1051,6 +1397,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1067,7 +1419,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1075,6 +1429,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1091,7 +1451,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1099,6 +1461,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1115,7 +1483,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1123,6 +1493,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1139,7 +1515,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1147,6 +1525,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1163,7 +1547,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1171,6 +1557,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1187,7 +1579,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1195,6 +1589,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1211,7 +1611,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1219,6 +1621,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|750|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1235,7 +1643,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1243,6 +1653,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|750|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1259,7 +1675,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1267,6 +1685,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.75, 1.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1283,7 +1707,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1291,6 +1717,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.75, 2.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1307,7 +1739,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1315,6 +1749,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|300|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1331,7 +1771,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1339,6 +1781,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|666|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1355,7 +1803,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1363,6 +1813,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|750|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1379,7 +1835,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1387,6 +1845,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1403,7 +1867,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1411,6 +1877,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-2.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|333|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1427,7 +1899,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1435,6 +1909,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(2.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|333|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1451,7 +1931,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1459,6 +1941,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|333|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1475,7 +1963,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1483,6 +1973,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1499,7 +1995,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1507,6 +2005,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-2.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1523,7 +2027,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1531,6 +2037,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(2.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1547,7 +2059,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1555,6 +2069,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(2.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|333|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1571,7 +2091,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1579,6 +2101,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-2.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|333|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1595,7 +2123,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1603,6 +2133,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|333|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1619,7 +2155,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1627,6 +2165,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1643,7 +2187,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1651,6 +2197,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|5|
 |m_hitNoise|System.Single|0|
@@ -1667,7 +2219,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1675,6 +2229,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1691,7 +2251,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1699,6 +2261,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1715,7 +2283,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1723,6 +2293,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1739,7 +2315,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1747,6 +2325,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1763,7 +2347,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1771,6 +2357,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1787,7 +2379,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1795,6 +2389,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1811,7 +2411,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1819,6 +2421,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1835,7 +2443,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1843,6 +2453,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1859,7 +2475,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1867,6 +2485,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1883,7 +2507,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1891,6 +2517,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1907,7 +2539,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -1915,6 +2549,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1931,7 +2571,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -1939,6 +2581,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.20, 1.10, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1955,7 +2603,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -1963,6 +2613,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.50, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -1979,7 +2635,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -1987,6 +2645,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.50, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2003,7 +2667,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2011,6 +2677,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2027,7 +2699,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2035,6 +2709,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2051,7 +2731,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2059,6 +2741,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2075,7 +2763,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2083,6 +2773,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2099,7 +2795,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2107,6 +2805,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2123,7 +2827,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2131,6 +2837,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2147,7 +2859,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2155,6 +2869,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2171,7 +2891,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2179,6 +2901,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2195,7 +2923,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2203,6 +2933,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2219,7 +2955,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2227,6 +2965,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2243,7 +2987,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2251,6 +2997,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2267,7 +3019,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2275,6 +3029,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2291,7 +3051,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2299,6 +3061,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2315,7 +3083,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2323,6 +3093,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2339,7 +3115,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2347,6 +3125,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2363,7 +3147,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2371,6 +3157,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2387,7 +3179,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2395,6 +3189,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.50, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2410,8 +3210,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2419,6 +3221,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2434,8 +3242,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2443,6 +3253,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2458,8 +3274,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2467,6 +3285,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2482,8 +3306,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2491,6 +3317,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## ashwood_wall_beam_67: ashwood_wall_beam_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2506,8 +3370,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0.9|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2515,6 +3381,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2530,8 +3402,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0.9|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2539,6 +3413,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2554,8 +3434,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|1.5|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2563,6 +3445,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2578,8 +3466,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|1.5|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2587,6 +3477,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## ashwood_wall_cross_67: ashwood_wall_cross_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|2.8|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2603,7 +3531,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2611,6 +3541,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2627,7 +3563,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2635,6 +3573,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2651,7 +3595,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2659,6 +3605,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2675,7 +3627,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2683,6 +3637,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## ashwood_wall_roof_67_a: ashwood_wall_roof_67_a
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## ashwood_wall_roof_67_upsidedown: ashwood_wall_roof_67_upsidedown
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2699,7 +3723,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -2707,6 +3733,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|150|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2723,7 +3755,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -2731,11 +3765,337 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|150|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## BakedPoteitr: BakedPoteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|pie|
+|m_worn|UnityEngine.GameObject|pie|
+|m_broken|UnityEngine.GameObject|pie|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_ancientmetal_stack: bar_ancientmetal_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_blackmetal_stack: bar_blackmetal_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_bronze_stack: bar_bronze_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_copper_stack: bar_copper_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_flametal_stack: bar_flametal_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_gold_stack: bar_gold_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_iron_stack: bar_iron_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_silver_stack: bar_silver_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## bar_tin_stack: bar_tin_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## BarleyWine: BarleyWine
@@ -2747,7 +4107,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -2755,6 +4117,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2771,7 +4139,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|True|
@@ -2779,6 +4149,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|3000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2795,7 +4171,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2803,6 +4181,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2819,7 +4203,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2827,6 +4213,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|20|
@@ -2843,7 +4235,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2851,6 +4245,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2867,7 +4267,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2875,6 +4277,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2891,7 +4299,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2899,6 +4309,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2915,7 +4331,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2923,6 +4341,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2939,7 +4363,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -2947,6 +4373,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## blackforge_ext5_apron: blackforge_ext5_apron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|new|
+|m_broken|UnityEngine.GameObject|new|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2963,7 +4427,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -2971,6 +4437,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -2987,7 +4459,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -2995,6 +4469,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3011,7 +4491,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3019,6 +4501,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3035,7 +4523,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3043,6 +4533,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3059,7 +4555,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3067,6 +4565,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3083,7 +4587,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3091,6 +4597,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.25, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3107,7 +4619,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3115,6 +4629,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3131,7 +4651,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3139,6 +4661,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3155,7 +4683,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3163,6 +4693,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3179,7 +4715,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3187,6 +4725,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3203,7 +4747,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3211,6 +4757,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3227,7 +4779,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3235,6 +4789,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|4000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3251,7 +4811,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3259,6 +4821,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3275,7 +4843,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3283,6 +4853,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3299,7 +4875,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3307,6 +4885,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, -0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3323,7 +4907,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3331,6 +4917,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3347,7 +4939,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3355,6 +4949,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3371,7 +4971,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3379,6 +4981,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3395,7 +5003,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3403,6 +5013,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|6000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3419,7 +5035,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -3427,6 +5045,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3443,7 +5067,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3451,6 +5077,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3467,7 +5099,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3475,6 +5109,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3491,7 +5131,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3499,6 +5141,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, -0.25)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3515,7 +5163,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3523,6 +5173,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, -0.25)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3539,7 +5195,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3547,6 +5205,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3563,7 +5227,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3571,6 +5237,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3587,7 +5259,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3595,6 +5269,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3611,7 +5291,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3619,6 +5301,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3635,7 +5323,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3643,6 +5333,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, 0.20)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3659,7 +5355,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3667,6 +5365,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -1.00, -0.54)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3683,7 +5387,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3691,6 +5397,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3707,7 +5419,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3715,6 +5429,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3731,7 +5451,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3739,6 +5461,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3755,7 +5483,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3763,6 +5493,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3779,7 +5515,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3787,6 +5525,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3803,7 +5547,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3811,6 +5557,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3827,7 +5579,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3835,6 +5589,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3851,7 +5611,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -3859,6 +5621,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3875,7 +5643,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -3883,6 +5653,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3899,7 +5675,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -3907,6 +5685,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3923,7 +5707,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3931,6 +5717,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3947,7 +5739,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -3955,6 +5749,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3971,7 +5771,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -3979,6 +5781,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -3995,7 +5803,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4003,6 +5813,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4019,7 +5835,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4027,6 +5845,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4043,7 +5867,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4051,6 +5877,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4067,7 +5899,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4075,6 +5909,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|300|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4091,7 +5931,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4099,6 +5941,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4115,7 +5963,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4123,6 +5973,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|5|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4139,7 +5995,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4147,6 +6005,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4163,7 +6027,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4171,6 +6037,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4187,7 +6059,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4195,6 +6069,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4211,7 +6091,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4219,6 +6101,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|20|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4235,7 +6123,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4243,6 +6133,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|20|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4259,7 +6155,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4267,6 +6165,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|20|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4283,7 +6187,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4291,6 +6197,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4307,7 +6219,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|True|
@@ -4315,6 +6229,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|3000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4331,7 +6251,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4339,6 +6261,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4355,7 +6283,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4363,6 +6293,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4379,7 +6315,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4387,6 +6325,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4403,7 +6347,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4411,6 +6357,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4427,7 +6379,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4435,6 +6389,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## cauldron_ext7_smoker: cauldron_ext7_smoker
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|new|
+|m_broken|UnityEngine.GameObject|new|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4451,7 +6443,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4459,6 +6453,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4475,7 +6475,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4483,6 +6485,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4499,7 +6507,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4507,6 +6517,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4523,7 +6539,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4531,6 +6549,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4547,7 +6571,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4555,6 +6581,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4571,7 +6603,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4579,6 +6613,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4595,7 +6635,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4603,12 +6645,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
-|m_autoCreateFragments|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
 
 ## CookedAsksvinMeat: CookedAsksvinMeat
 
@@ -4619,7 +6667,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4627,6 +6677,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4643,7 +6699,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4651,6 +6709,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4667,7 +6731,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4675,6 +6741,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4691,7 +6763,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4699,6 +6773,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4715,7 +6795,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4723,6 +6805,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4739,7 +6827,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4747,6 +6837,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4763,7 +6859,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4771,6 +6869,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4787,7 +6891,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4795,6 +6901,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4811,7 +6923,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|meat|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4819,6 +6933,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4835,7 +6955,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|meat|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4843,6 +6965,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## CookedMooseMeat: CookedMooseMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## CookedSealBlubber: CookedSealBlubber
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4859,7 +7051,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4867,6 +7061,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4883,7 +7083,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|meat|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -4891,6 +7093,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4907,7 +7115,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4915,6 +7125,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4931,7 +7147,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4939,6 +7157,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.20, 1.10, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4955,7 +7179,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4963,6 +7189,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -4979,7 +7211,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -4987,6 +7221,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5003,7 +7243,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5011,6 +7253,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## darkwood_beam_67: darkwood_beam_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5027,7 +7307,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5035,6 +7317,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5051,7 +7339,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5059,6 +7349,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5074,8 +7370,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5083,6 +7381,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5099,7 +7403,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5107,6 +7413,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5123,7 +7435,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5131,6 +7445,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5147,7 +7467,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5155,6 +7477,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5171,7 +7499,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5179,6 +7509,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5195,7 +7531,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5203,6 +7541,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## darkwood_roof_67: darkwood_roof_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5219,7 +7595,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5227,6 +7605,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5243,7 +7627,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5251,6 +7637,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## darkwood_roof_icorner_67: darkwood_roof_icorner_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5267,7 +7691,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5275,6 +7701,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5291,7 +7723,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5299,6 +7733,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## darkwood_roof_ocorner_67: darkwood_roof_ocorner_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5315,7 +7787,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5323,6 +7797,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5339,7 +7819,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5347,6 +7829,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## darkwood_roof_top_67: darkwood_roof_top_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5363,7 +7883,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5371,7 +7893,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## deepnorth_lantern_standing: deepnorth_lantern_standing
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|lantern|
+|m_worn|UnityEngine.GameObject|lantern|
+|m_broken|UnityEngine.GameObject|lantern|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 1.50, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -5387,7 +7947,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -5395,6 +7957,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5411,7 +7979,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5419,6 +7989,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5435,7 +8011,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5443,6 +8021,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5459,7 +8043,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5467,6 +8053,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5483,7 +8075,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5491,6 +8085,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5507,7 +8107,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5515,6 +8117,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5531,7 +8139,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5539,6 +8149,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5555,7 +8171,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5563,6 +8181,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5579,7 +8203,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5587,6 +8213,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5603,7 +8235,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5611,6 +8245,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5627,7 +8267,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5635,6 +8277,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5651,7 +8299,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5659,6 +8309,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5675,7 +8331,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5683,6 +8341,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5699,7 +8363,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5707,6 +8373,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5723,7 +8395,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5731,6 +8405,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5747,7 +8427,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5755,6 +8437,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.75, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5771,7 +8459,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|hook|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5779,6 +8469,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5795,7 +8491,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5803,6 +8501,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5819,7 +8523,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|lantern|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5827,6 +8533,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5843,7 +8555,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5851,6 +8565,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5867,7 +8587,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5875,6 +8597,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5891,7 +8619,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5899,6 +8629,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5915,7 +8651,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5923,6 +8661,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5939,7 +8683,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|WET|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5947,6 +8693,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5963,7 +8715,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5971,6 +8725,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -5987,7 +8747,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -5995,6 +8757,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|750|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6011,7 +8779,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6019,6 +8789,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6035,7 +8811,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6043,6 +8821,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6059,7 +8843,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6067,6 +8853,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6083,7 +8875,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6091,6 +8885,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|750|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6107,7 +8907,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6115,6 +8917,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6131,7 +8939,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6139,6 +8949,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6155,7 +8971,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6163,6 +8981,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6179,7 +9003,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6187,6 +9013,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6203,7 +9035,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6211,6 +9045,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## FeastDeepNorth: FeastDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6227,7 +9099,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6235,6 +9109,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6251,7 +9131,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6259,6 +9141,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6275,7 +9163,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6283,6 +9173,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6299,7 +9195,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6307,6 +9205,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6323,7 +9227,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6331,6 +9237,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6347,7 +9259,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6355,6 +9269,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6371,7 +9291,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6379,6 +9301,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6395,7 +9323,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6403,6 +9333,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6419,7 +9355,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6427,6 +9365,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6443,7 +9387,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6451,6 +9397,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6467,7 +9419,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6475,6 +9429,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6491,7 +9451,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6499,6 +9461,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6515,7 +9483,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6523,6 +9493,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## FishSoup: FishSoup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6539,7 +9547,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -6547,6 +9557,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6563,7 +9579,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|door|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -6571,7 +9589,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|3000|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## flint_pile: flint_pile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Worn|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -6587,7 +9643,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6595,6 +9653,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6611,7 +9675,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6619,6 +9685,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6635,7 +9707,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6643,6 +9717,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6659,7 +9739,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6667,6 +9749,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6683,7 +9771,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6691,6 +9781,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6707,7 +9803,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6715,6 +9813,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6731,7 +9835,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6739,6 +9845,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6755,7 +9867,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6763,6 +9877,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, -0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6779,7 +9899,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6787,12 +9909,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, -0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
+
+## GlowWorm: GlowWorm
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
 
 ## goblin_banner: goblin_banner
 
@@ -6803,7 +9963,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6811,6 +9973,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6827,7 +9995,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6835,6 +10005,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|20|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6851,7 +10027,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6859,6 +10037,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6875,7 +10059,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6883,6 +10069,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6899,7 +10091,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6907,6 +10101,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6923,7 +10123,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6931,6 +10133,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6947,7 +10155,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6955,6 +10165,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6971,7 +10187,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -6979,6 +10197,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -6995,7 +10219,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7003,6 +10229,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7019,7 +10251,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7027,6 +10261,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7043,7 +10283,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7051,6 +10293,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7067,7 +10315,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7075,6 +10325,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7091,7 +10347,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7099,6 +10357,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7115,7 +10379,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7123,6 +10389,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7139,7 +10411,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -7147,6 +10421,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7163,7 +10443,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7171,6 +10453,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7187,7 +10475,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7195,6 +10485,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|5000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7211,7 +10507,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7219,6 +10517,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7235,7 +10539,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7243,6 +10549,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7259,7 +10571,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7267,11 +10581,561 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Ice_ship_1: Ice_ship_1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|Ice|
+|m_worn|UnityEngine.GameObject|Ice|
+|m_broken|UnityEngine.GameObject|Ice|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Ice_ship_2: Ice_ship_2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|Ice|
+|m_worn|UnityEngine.GameObject|Ice|
+|m_broken|UnityEngine.GameObject|Ice|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Ice_ship_3: Ice_ship_3
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|Ice|
+|m_worn|UnityEngine.GameObject|Ice|
+|m_broken|UnityEngine.GameObject|Ice|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Ice_ship_4: Ice_ship_4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|Ice|
+|m_worn|UnityEngine.GameObject|Ice|
+|m_broken|UnityEngine.GameObject|Ice|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Ice_ship_5: Ice_ship_5
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|Ice|
+|m_worn|UnityEngine.GameObject|Ice|
+|m_broken|UnityEngine.GameObject|Ice|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Ice_ship_6: Ice_ship_6
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|Ice|
+|m_worn|UnityEngine.GameObject|Ice|
+|m_broken|UnityEngine.GameObject|Ice|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Ice_ship_7: Ice_ship_7
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|Ice|
+|m_worn|UnityEngine.GameObject|Ice|
+|m_broken|UnityEngine.GameObject|Ice|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## IceShelf_01: IceShelf_01
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_02: IceShelf_02
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_03: IceShelf_03
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_04: IceShelf_04
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_05: IceShelf_05
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_06: IceShelf_06
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_07: IceShelf_07
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_08: IceShelf_08
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_09: IceShelf_09
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## IceShelf_10: IceShelf_10
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String|jotun_invasion|
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|250|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
 |m_autoCreateFragments|System.Boolean|False|
 
 ## incinerator: incinerator
@@ -7282,8 +11146,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7291,6 +11157,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7307,7 +11179,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -7315,6 +11189,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, -0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7331,7 +11211,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -7339,6 +11221,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, -0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|True|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7355,7 +11243,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|WET|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -7363,6 +11253,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7379,7 +11275,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -7387,6 +11285,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7403,7 +11307,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -7411,6 +11317,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7427,7 +11339,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -7435,6 +11349,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7451,7 +11371,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -7459,6 +11381,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7475,7 +11403,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|WornBroken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7483,6 +11413,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7499,7 +11435,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7507,6 +11445,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7518,12 +11462,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject|rug|
-|m_worn|UnityEngine.GameObject|rug|
-|m_broken|UnityEngine.GameObject|rug|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7531,6 +11477,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7542,12 +11494,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject|rug|
-|m_worn|UnityEngine.GameObject|rug|
-|m_broken|UnityEngine.GameObject|rug|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7555,7 +11509,77 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Kale: Kale
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## KaleChips: KaleChips
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|pie|
+|m_worn|UnityEngine.GameObject|pie|
+|m_broken|UnityEngine.GameObject|pie|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -7571,7 +11595,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|visual_broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7579,7 +11605,77 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Lingonberry: Lingonberry
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Lingondricka: Lingondricka
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -7595,7 +11691,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7603,6 +11701,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7619,7 +11723,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7627,6 +11733,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## loot_deepNorth_Granary: loot_deepNorth_Granary
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## loot_deepNorth_TimberHall: loot_deepNorth_TimberHall
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7643,7 +11819,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -7651,6 +11829,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7667,7 +11851,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|pie|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7675,6 +11861,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7691,7 +11883,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7699,6 +11893,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7715,7 +11915,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7723,6 +11925,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7739,7 +11947,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7747,6 +11957,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7763,7 +11979,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7771,6 +11989,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7787,7 +12011,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7795,6 +12021,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7811,7 +12043,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7819,6 +12053,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7835,7 +12075,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7843,6 +12085,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7859,7 +12107,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7867,6 +12117,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7883,7 +12139,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7891,6 +12149,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7907,7 +12171,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7915,6 +12181,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7931,7 +12203,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7939,6 +12213,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7955,7 +12235,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7963,6 +12245,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -7979,7 +12267,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -7987,6 +12277,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8003,7 +12299,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8011,6 +12309,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8027,7 +12331,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8035,6 +12341,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8051,7 +12363,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|potion|
 |m_wet|UnityEngine.GameObject|potion|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8059,6 +12373,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8075,7 +12395,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|potion|
 |m_wet|UnityEngine.GameObject|potion|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8083,6 +12405,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8099,7 +12427,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|potion|
 |m_wet|UnityEngine.GameObject|potion|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8107,6 +12437,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8123,7 +12459,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8131,6 +12469,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8147,7 +12491,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8155,6 +12501,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8171,7 +12523,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8179,6 +12533,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8195,7 +12555,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8203,6 +12565,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8219,7 +12587,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|default|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8227,6 +12597,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## MeatballsMashedPoteitr: MeatballsMashedPoteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8243,7 +12651,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8251,6 +12661,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8267,7 +12683,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8275,6 +12693,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8291,7 +12715,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8299,6 +12725,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8315,7 +12747,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8323,12 +12757,370 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
+
+## MooseKebab: MooseKebab
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Morkhalla_Banner1: Morkhalla_Banner1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|new|
+|m_broken|UnityEngine.GameObject|new|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|True|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Morkhalla_Banner2: Morkhalla_Banner2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|new|
+|m_broken|UnityEngine.GameObject|new|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|True|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Morkhalla_Bench: Morkhalla_Bench
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Morkhalla_ChestAncient: Morkhalla_ChestAncient
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1000|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Morkhalla_coal_pile_memorial: Morkhalla_coal_pile_memorial
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Worn|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Morkhalla_Stonepile: Morkhalla_Stonepile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Worn|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Morkhalla_Stool: Morkhalla_Stool
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Morkhalla_Table: Morkhalla_Table
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Morkhalla_Trainingdummy1: Morkhalla_Trainingdummy1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|True|
+
+## Morkhalla_Trainingdummy2: Morkhalla_Trainingdummy2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|True|
 
 ## MountainKit_brazier_purple: MountainKit_brazier_purple
 
@@ -8339,7 +13131,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|MountainKit_brazier_purple|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8347,6 +13141,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8363,7 +13163,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8371,6 +13173,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8387,7 +13195,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8395,6 +13205,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8411,7 +13227,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8419,6 +13237,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8435,7 +13259,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8443,6 +13269,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8459,7 +13291,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8467,6 +13301,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8483,7 +13323,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8491,6 +13333,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8507,7 +13355,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8515,6 +13365,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8531,7 +13387,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|meat|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8539,12 +13397,146 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
+
+## Oat: Oat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## OatmealLingonberryJam: OatmealLingonberryJam
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## OatMilk: OatMilk
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## obsidian_pile: obsidian_pile
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Worn|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
 
 ## OLD_wood_roof: OLD_wood_roof
 
@@ -8555,7 +13547,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8563,6 +13557,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8579,7 +13579,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8587,6 +13589,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8603,7 +13611,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8611,6 +13621,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8627,7 +13643,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8635,6 +13653,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8651,7 +13675,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8659,6 +13685,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8675,7 +13707,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8683,6 +13717,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8699,7 +13739,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -8707,6 +13749,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## OvenPancake: OvenPancake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|pie|
+|m_worn|UnityEngine.GameObject|pie|
+|m_broken|UnityEngine.GameObject|pie|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## Pancakes: Pancakes
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8723,7 +13835,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|High|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8731,6 +13845,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8747,7 +13867,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8755,6 +13877,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8771,7 +13899,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8779,6 +13909,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.40, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|150|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8795,7 +13931,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8803,6 +13941,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8819,7 +13963,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8827,6 +13973,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8843,7 +13995,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8851,6 +14005,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8867,7 +14027,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8875,6 +14037,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8891,7 +14059,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8899,6 +14069,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8915,7 +14091,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8923,6 +14101,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8939,7 +14123,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8947,6 +14133,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8963,7 +14155,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8971,6 +14165,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -8987,7 +14187,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -8995,6 +14197,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9011,7 +14219,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9019,6 +14229,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9035,7 +14251,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9043,6 +14261,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9059,7 +14283,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9067,6 +14293,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9083,7 +14315,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9091,6 +14325,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9107,7 +14347,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9115,6 +14357,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|300|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9130,8 +14378,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9139,6 +14389,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_bench_runed: piece_bench_runed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9155,7 +14443,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9163,6 +14453,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_birdnest: piece_birdnest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|high|
+|m_worn|UnityEngine.GameObject|high|
+|m_broken|UnityEngine.GameObject|high|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9179,7 +14507,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9187,6 +14517,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9203,7 +14539,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9211,6 +14549,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9227,7 +14571,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9235,6 +14581,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9251,7 +14603,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|True|
@@ -9259,6 +14613,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9275,7 +14635,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|True|
@@ -9283,6 +14645,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9299,7 +14667,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9307,6 +14677,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9323,7 +14699,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9331,6 +14709,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9347,7 +14731,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9355,6 +14741,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9371,7 +14763,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9379,6 +14773,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9395,7 +14795,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9403,6 +14805,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9419,7 +14827,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9427,6 +14837,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.63, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9443,7 +14859,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9451,6 +14869,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9467,7 +14891,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9475,7 +14901,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_chair_runed: piece_chair_runed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -9491,7 +14955,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9499,6 +14965,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9514,8 +14986,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9523,6 +14997,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9539,7 +15019,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9547,6 +15029,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, -0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9562,8 +15050,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9571,6 +15061,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9587,7 +15083,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9595,6 +15093,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9611,7 +15115,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9619,6 +15125,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1000|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_chest_grausten: piece_chest_grausten
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9634,8 +15178,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9643,6 +15189,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9658,8 +15210,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9667,7 +15221,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_chest_warderobe: piece_chest_warderobe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -9682,8 +15274,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9691,6 +15285,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9707,7 +15307,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9715,6 +15317,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9731,7 +15339,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9739,6 +15349,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.79, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9755,7 +15371,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9763,6 +15381,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9779,7 +15403,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9787,6 +15413,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|20|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9803,7 +15435,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -9811,7 +15445,77 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_drawbridge: piece_drawbridge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1000|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_drawbridge_log: piece_drawbridge_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -9827,7 +15531,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9835,6 +15541,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9851,7 +15563,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9859,6 +15573,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.20, -3.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|300|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9875,7 +15595,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -9883,6 +15605,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9899,7 +15627,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9907,6 +15637,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9923,7 +15659,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9931,6 +15669,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9947,7 +15691,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9955,6 +15701,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9971,7 +15723,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -9979,6 +15733,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -9995,7 +15755,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10003,6 +15765,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10019,7 +15787,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|door|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10027,6 +15797,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10043,7 +15819,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10051,7 +15829,77 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_EternalPyre: piece_EternalPyre
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_FaderEmbers: piece_FaderEmbers
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|new|
+|m_broken|UnityEngine.GameObject|new|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -10067,7 +15915,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10075,6 +15925,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10090,8 +15946,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10099,6 +15957,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10115,7 +15979,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10123,11 +15989,81 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_FrostFoundry: piece_FrostFoundry
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## piece_FrostKiln: piece_FrostKiln
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
 
 ## piece_gift1: piece_gift1
@@ -10139,7 +16075,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10147,6 +16085,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10163,7 +16107,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10171,6 +16117,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10187,7 +16139,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10195,6 +16149,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10211,7 +16171,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10219,6 +16181,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10235,7 +16203,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10243,6 +16213,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10259,7 +16235,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10267,6 +16245,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|4000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10283,7 +16267,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10291,6 +16277,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.75, 1.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10307,7 +16299,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10315,6 +16309,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.38, 0.63, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10331,7 +16331,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10339,6 +16341,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10355,7 +16363,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10363,6 +16373,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10379,7 +16395,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10387,6 +16405,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.75, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10403,7 +16427,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10411,6 +16437,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10426,8 +16458,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10435,6 +16469,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10450,8 +16490,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10459,6 +16501,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10475,7 +16523,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10483,6 +16533,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10499,7 +16555,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10507,6 +16565,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10523,7 +16587,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10531,6 +16597,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.50, 0.00, 0.40)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10547,7 +16619,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10555,6 +16629,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.50, 0.00, 0.40)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10571,7 +16651,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10579,6 +16661,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.50, 0.00, 0.45)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10595,7 +16683,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10603,6 +16693,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.50, 0.00, 0.45)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10619,7 +16715,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10627,6 +16725,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, -0.35)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10643,7 +16747,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10651,6 +16757,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10667,7 +16779,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10675,6 +16789,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10691,7 +16811,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10699,6 +16821,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10715,7 +16843,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10723,6 +16853,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|3000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10739,7 +16875,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10747,6 +16885,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.25, 1.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10763,7 +16907,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10771,6 +16917,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(-0.25, 0.75, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10787,7 +16939,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10795,6 +16949,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1250|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10811,7 +16971,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -10819,6 +16981,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10835,7 +17003,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10843,6 +17013,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10859,7 +17035,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10867,6 +17045,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10883,7 +17067,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -10891,6 +17077,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10907,7 +17099,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|TorchModel|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10915,6 +17109,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10931,7 +17131,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10939,6 +17141,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -10955,7 +17163,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|door|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10963,12 +17173,82 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
+
+## piece_hoodedlantern: piece_hoodedlantern
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|default|
+|m_worn|UnityEngine.GameObject|default|
+|m_broken|UnityEngine.GameObject|default|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(-0.20, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_icecube: piece_icecube
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
 
 ## piece_jackoturnip: piece_jackoturnip
 
@@ -10979,7 +17259,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -10987,6 +17269,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11003,7 +17291,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11011,6 +17301,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11027,7 +17323,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11035,6 +17333,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11051,7 +17355,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11059,6 +17365,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11075,7 +17387,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11083,6 +17397,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11099,7 +17419,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11107,6 +17429,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11123,7 +17451,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11131,6 +17461,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_magetable_ext4: piece_magetable_ext4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|new|
+|m_broken|UnityEngine.GameObject|new|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11147,7 +17515,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11155,6 +17525,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11170,8 +17546,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -11179,6 +17557,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.63, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11195,7 +17579,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11203,12 +17589,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.25, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
+
+## piece_moose_throne: piece_moose_throne
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
 
 ## piece_oven: piece_oven
 
@@ -11219,7 +17643,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -11227,6 +17653,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11243,7 +17675,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11251,6 +17685,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|40|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11267,7 +17707,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11275,6 +17717,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|40|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11291,7 +17739,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11299,6 +17749,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|40|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11315,7 +17771,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11323,6 +17781,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11339,7 +17803,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11347,6 +17813,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11363,7 +17835,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11371,6 +17845,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11387,7 +17867,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11395,6 +17877,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|30|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11411,7 +17899,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11419,6 +17909,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|30|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11435,7 +17931,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11443,6 +17941,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|30|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11458,8 +17962,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|PrepTable_Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|False|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -11467,6 +17973,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.63, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11483,7 +17995,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|default|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11491,6 +18005,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11507,7 +18027,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11515,6 +18037,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11531,7 +18059,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -11539,7 +18069,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_snowlantern: piece_snowlantern
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|70|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -11555,7 +18123,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11563,6 +18133,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11579,7 +18155,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11587,6 +18165,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|450|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11603,7 +18187,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11611,6 +18197,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11627,7 +18219,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11635,6 +18229,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11651,7 +18251,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11659,6 +18261,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11675,7 +18283,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11683,7 +18293,77 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|150|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_table_runed: piece_table_runed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## piece_table_runed_small: piece_table_runed_small
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -11699,7 +18379,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11707,6 +18389,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|250|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11723,7 +18411,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -11731,6 +18421,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11747,7 +18443,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -11755,6 +18453,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, -0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|300|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11770,8 +18474,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|New|
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11779,6 +18485,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, -0.50, -0.50)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11795,7 +18507,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11803,6 +18517,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11819,7 +18539,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11827,6 +18549,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11843,7 +18571,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11851,6 +18581,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11867,7 +18603,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11875,6 +18613,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11891,7 +18635,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11899,6 +18645,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11915,7 +18667,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|new|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11923,6 +18677,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11939,7 +18699,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11947,6 +18709,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11963,7 +18731,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11971,6 +18741,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.15, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -11987,7 +18763,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -11995,6 +18773,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12011,7 +18795,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|FirTree_small|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12019,6 +18805,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12035,7 +18827,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12043,6 +18837,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12059,7 +18859,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -12067,6 +18869,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12083,7 +18891,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -12091,6 +18901,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12107,7 +18923,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12115,6 +18933,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12131,7 +18955,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -12139,6 +18965,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12155,7 +18987,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12163,12 +18997,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
+
+## Poteitr: Poteitr
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
 
 ## Pukeberries: Pukeberries
 
@@ -12179,7 +19051,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12187,6 +19061,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## PulledBear: PulledBear
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12203,7 +19115,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12211,6 +19125,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12227,7 +19147,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|hull_broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12235,6 +19157,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|300|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12251,7 +19179,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12259,6 +19189,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12275,7 +19211,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12283,6 +19221,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## RottenMeat: RottenMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|default|
+|m_worn|UnityEngine.GameObject|default|
+|m_broken|UnityEngine.GameObject|default|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12299,7 +19275,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12307,6 +19285,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12323,7 +19307,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|rug|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12331,6 +19317,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12347,7 +19339,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12355,6 +19349,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12366,12 +19366,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject|rug|
-|m_worn|UnityEngine.GameObject|rug|
-|m_broken|UnityEngine.GameObject|rug|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12379,6 +19381,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12390,12 +19398,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject|rug|
-|m_worn|UnityEngine.GameObject|rug|
-|m_broken|UnityEngine.GameObject|rug|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12403,6 +19413,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12419,7 +19435,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12427,6 +19445,76 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## rug_moose: rug_moose
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|rug|
+|m_worn|UnityEngine.GameObject|rug|
+|m_broken|UnityEngine.GameObject|rug|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## rug_seal: rug_seal
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12443,7 +19531,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12451,6 +19541,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12462,12 +19558,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject|rug|
-|m_worn|UnityEngine.GameObject|rug|
-|m_broken|UnityEngine.GameObject|rug|
+|m_new|UnityEngine.GameObject|*null*|
+|m_worn|UnityEngine.GameObject|*null*|
+|m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12475,6 +19573,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12491,7 +19595,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12499,6 +19605,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12515,7 +19627,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12523,12 +19637,498 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
+
+## scale_halfwall_1x2: scale_halfwall_1x2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_quarterwall_1x1: scale_quarterwall_1x1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_2x2: scale_wall_2x2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_26: scale_wall_roof_26
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_26_flipped: scale_wall_roof_26_flipped
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_26_upsidedown: scale_wall_roof_26_upsidedown
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_26_upsidedown_flipped: scale_wall_roof_26_upsidedown_flipped
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_45: scale_wall_roof_45
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_45_flipped: scale_wall_roof_45_flipped
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_45_upsidedown: scale_wall_roof_45_upsidedown
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_45_upsidedown_flipped: scale_wall_roof_45_upsidedown_flipped
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_67: scale_wall_roof_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_67_flipped: scale_wall_roof_67_flipped
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_67_upsidedown: scale_wall_roof_67_upsidedown
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## scale_wall_roof_67_upsidedown_flipped: scale_wall_roof_67_upsidedown_flipped
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
 
 ## ScorchingMedley: ScorchingMedley
 
@@ -12539,7 +20139,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12547,6 +20149,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## SealSoup: SealSoup
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12563,7 +20203,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12571,6 +20213,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12587,7 +20235,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12595,6 +20245,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12611,7 +20267,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12619,6 +20277,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12635,7 +20299,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12643,6 +20309,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12659,7 +20331,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12667,6 +20341,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12683,7 +20363,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12691,6 +20373,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12707,7 +20395,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12715,6 +20405,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12731,7 +20427,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12739,6 +20437,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12755,7 +20459,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12763,6 +20469,172 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## shipwreck_vikingship_chest: shipwreck_vikingship_chest
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## shipwreck_vikingship_front: shipwreck_vikingship_front
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(-5.52, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## shipwreck_vikingship_frontpiece: shipwreck_vikingship_frontpiece
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(-8.28, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|True|
+
+## shipwreck_vikingship_mast1: shipwreck_vikingship_mast1
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|100|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## shipwreck_vikingship_rear: shipwreck_vikingship_rear
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(8.85, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12779,7 +20651,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12787,6 +20661,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12803,7 +20683,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12811,6 +20693,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|600|
 |m_minToolTier|System.Int32|5|
 |m_hitNoise|System.Single|0|
@@ -12827,7 +20715,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12835,6 +20725,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12851,7 +20747,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12859,6 +20757,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12875,7 +20779,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12883,6 +20789,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12899,7 +20811,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12907,12 +20821,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|25|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
+
+## Sled: Sled
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
 
 ## smelter: smelter
 
@@ -12923,7 +20875,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -12931,12 +20885,82 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
+
+## SmokedFish: SmokedFish
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## SmokedMooseMeat: SmokedMooseMeat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|attach|
+|m_worn|UnityEngine.GameObject|attach|
+|m_broken|UnityEngine.GameObject|attach|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|False|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
 
 ## SparklingShroomshake: SparklingShroomshake
 
@@ -12947,7 +20971,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12955,6 +20981,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12971,7 +21003,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -12979,6 +21013,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -12995,7 +21035,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13003,7 +21045,589 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_beam_26: stave_beam_26
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_beam_2m: stave_beam_2m
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_beam_45: stave_beam_45
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_beam_4m: stave_beam_4m
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_beam_67: stave_beam_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_deco_beam_26: stave_deco_beam_26
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_deco_beam_2m: stave_deco_beam_2m
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_deco_beam_45: stave_deco_beam_45
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_deco_beam_67: stave_deco_beam_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_deco_pole_2m: stave_deco_pole_2m
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_deco_wall_2x2: stave_deco_wall_2x2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_gate: stave_gate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 2.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1000|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_pole_2m: stave_pole_2m
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_pole_4m: stave_pole_4m
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_wall_2x2: stave_wall_2x2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_wall_cross_26: stave_wall_cross_26
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0.9|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_wall_cross_45: stave_wall_cross_45
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|1.5|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## stave_wall_cross_67: stave_wall_cross_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|2.8|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|True|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|800|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -13019,7 +21643,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13027,6 +21653,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.60, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## stone_fence: stone_fence
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|new|
+|m_worn|UnityEngine.GameObject|worn|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13043,7 +21707,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13051,6 +21717,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13067,7 +21739,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13075,6 +21749,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13091,7 +21771,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13099,6 +21781,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13115,7 +21803,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13123,6 +21813,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13139,7 +21835,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13147,6 +21845,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13163,7 +21867,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13171,7 +21877,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## stone_wall_1x1_ruin: stone_wall_1x1_ruin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|broken|
+|m_worn|UnityEngine.GameObject|broken|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -13187,7 +21931,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13195,7 +21941,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## stone_wall_2x1_ruin: stone_wall_2x1_ruin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|broken|
+|m_worn|UnityEngine.GameObject|broken|
+|m_broken|UnityEngine.GameObject|broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -13211,7 +21995,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|True|
 |m_burnable|System.Boolean|False|
@@ -13219,7 +22005,77 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## stone_wall_ruin: stone_wall_ruin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|GameObject|
+|m_worn|UnityEngine.GameObject|GameObject|
+|m_broken|UnityEngine.GameObject|GameObject|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|600|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## stone_wall_ruin_2: stone_wall_ruin_2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|GameObject|
+|m_worn|UnityEngine.GameObject|GameObject|
+|m_broken|UnityEngine.GameObject|GameObject|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|True|
+|m_burnable|System.Boolean|False|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|600|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -13235,7 +22091,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|hull_broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13243,6 +22101,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13259,7 +22123,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|pile|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13267,6 +22133,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|100|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13283,7 +22155,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|stack|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13291,6 +22165,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|5|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13307,7 +22187,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13315,6 +22197,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13331,7 +22219,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13339,6 +22229,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13355,7 +22251,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13363,6 +22261,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## TreasureChest_deepnorth_village: TreasureChest_deepnorth_village
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13379,7 +22315,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13387,6 +22325,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13403,7 +22347,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13411,6 +22357,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13427,7 +22379,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13435,6 +22389,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13451,7 +22411,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13459,6 +22421,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13475,7 +22443,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13483,6 +22453,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13499,7 +22475,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13507,6 +22485,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13523,7 +22507,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13531,6 +22517,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13547,7 +22539,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13555,6 +22549,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13571,7 +22571,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13579,6 +22581,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13595,7 +22603,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13603,6 +22613,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13619,7 +22635,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13627,6 +22645,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13643,7 +22667,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13651,6 +22677,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13667,7 +22699,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13675,7 +22709,77 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## TreasureChest_memorial_buried: TreasureChest_memorial_buried
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## TreasureChest_morkhalla: TreasureChest_morkhalla
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|New|
+|m_broken|UnityEngine.GameObject|New|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|1500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -13691,7 +22795,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13699,6 +22805,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13715,7 +22827,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13723,6 +22837,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13739,7 +22859,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13747,6 +22869,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13763,7 +22891,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13771,6 +22901,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13787,7 +22923,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13795,6 +22933,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13811,7 +22955,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13819,6 +22965,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13835,7 +22987,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13843,6 +22997,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13859,7 +23019,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|*null*|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13867,6 +23029,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13883,7 +23051,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13891,6 +23061,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13907,7 +23083,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13915,6 +23093,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13931,7 +23115,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -13939,6 +23125,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13955,7 +23147,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -13963,6 +23157,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -13979,7 +23179,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|pie|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -13987,6 +23189,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14003,7 +23211,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|hull_broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14011,6 +23221,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14027,7 +23243,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|hull_broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|False|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|True|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14035,6 +23253,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|False|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|3000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14051,7 +23275,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|VineAsh|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14059,6 +23285,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|30|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14075,7 +23307,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -14083,6 +23317,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14099,7 +23339,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|VineGreen|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14107,6 +23349,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|30|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14123,7 +23371,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|New|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14131,6 +23381,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|20|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14147,7 +23403,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14155,6 +23413,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|1000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14171,7 +23435,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -14179,6 +23445,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14195,7 +23467,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -14203,6 +23477,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14219,7 +23499,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14227,6 +23509,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14243,7 +23531,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|WornBroken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14251,6 +23541,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14266,8 +23562,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14275,6 +23573,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14290,8 +23594,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|worn|
 |m_broken|UnityEngine.GameObject|worn|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14299,6 +23605,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_beam_67: wood_beam_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14315,7 +23659,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14323,6 +23669,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14339,7 +23691,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14347,6 +23701,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14363,7 +23723,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14371,6 +23733,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 1.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14387,7 +23755,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14395,7 +23765,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|200|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_fence_gate: wood_fence_gate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Worn|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -14411,7 +23819,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14419,6 +23829,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14435,7 +23851,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|WET|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14443,6 +23861,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14459,7 +23883,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|WET|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14467,12 +23893,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|True|
+
+## wood_frost_stack: wood_frost_stack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|10|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
 
 ## wood_gate: wood_gate
 
@@ -14483,7 +23947,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14491,6 +23957,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14507,7 +23979,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|WornBroken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14515,6 +23989,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14526,12 +24006,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
-|m_new|UnityEngine.GameObject|*null*|
-|m_worn|UnityEngine.GameObject|*null*|
-|m_broken|UnityEngine.GameObject|*null*|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14539,6 +24021,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14554,8 +24042,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
-|m_noRoofWear|System.Boolean|True|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14563,6 +24053,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_log_67: wood_log_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14579,7 +24107,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|WornBroken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14587,6 +24117,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14603,7 +24139,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|WornBroken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14611,12 +24149,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
-|m_autoCreateFragments|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
 
 ## wood_pole_log_4: wood_pole_log_4
 
@@ -14627,7 +24171,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|WornBroken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14635,7 +24181,45 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|False|
+
+## wood_pole_log_4_worn: wood_pole_log_4_worn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|WornBroken|
+|m_worn|UnityEngine.GameObject|WornBroken|
+|m_broken|UnityEngine.GameObject|WornBroken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
@@ -14651,7 +24235,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|WornBroken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14659,6 +24245,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14675,7 +24267,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14683,6 +24277,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14697,9 +24297,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_new|UnityEngine.GameObject|New|
 |m_worn|UnityEngine.GameObject|Worn|
 |m_broken|UnityEngine.GameObject|Broken|
-|m_wet|UnityEngine.GameObject|*null*|
+|m_wet|UnityEngine.GameObject|wood_roof_45_snow|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14707,6 +24309,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_roof_67: wood_roof_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14723,7 +24363,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14731,6 +24373,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14747,7 +24395,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14755,6 +24405,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_roof_icorner_67: wood_roof_icorner_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14771,7 +24459,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14779,6 +24469,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14795,7 +24491,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14803,6 +24501,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_roof_ocorner_67: wood_roof_ocorner_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14819,7 +24555,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14827,6 +24565,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14843,7 +24587,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14851,6 +24597,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_roof_top_67: wood_roof_top_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14867,7 +24651,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14875,6 +24661,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14891,7 +24683,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14899,6 +24693,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14915,7 +24715,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14923,6 +24725,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14939,7 +24747,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14947,6 +24757,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14963,7 +24779,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14971,6 +24789,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -14987,7 +24811,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -14995,6 +24821,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|500|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15011,7 +24843,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15019,6 +24853,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15035,7 +24875,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15043,6 +24885,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15059,7 +24907,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15067,6 +24917,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15083,7 +24939,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15091,6 +24949,108 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_wall_roof_67_a: wood_wall_roof_67_a
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_wall_roof_67_upsidedown: wood_wall_roof_67_upsidedown
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_wall_roof_a: wood_wall_roof_a
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15107,7 +25067,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0.9|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15115,6 +25077,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15131,7 +25099,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|1.5|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15139,6 +25109,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|400|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## wood_wall_roof_top_67: wood_wall_roof_top_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Broken|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|2.8|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15155,7 +25163,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|False|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15163,6 +25173,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15179,7 +25195,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15187,6 +25205,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15203,7 +25227,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15211,12 +25237,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.50, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|50|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
 |m_destroyNoise|System.Single|0|
 |m_triggerPrivateArea|System.Boolean|True|
 |m_autoCreateFragments|System.Boolean|False|
+
+## wooden_path: wooden_path
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|obj|
+|m_worn|UnityEngine.GameObject|obj|
+|m_broken|UnityEngine.GameObject|obj|
+|m_wet|UnityEngine.GameObject|obj|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|50|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_autoCreateFragments|System.Boolean|True|
 
 ## woodiron_beam: woodiron_beam
 
@@ -15227,7 +25291,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15235,6 +25301,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15251,7 +25323,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15259,6 +25333,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15275,7 +25355,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15283,6 +25365,44 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
+|m_health|System.Single|2000|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|True|
+|m_autoCreateFragments|System.Boolean|True|
+
+## woodiron_beam_67: woodiron_beam_67
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_new|UnityEngine.GameObject|New|
+|m_worn|UnityEngine.GameObject|Worn|
+|m_broken|UnityEngine.GameObject|Worn|
+|m_wet|UnityEngine.GameObject|*null*|
+|m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
+|m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
+|m_ashDamageImmune|System.Boolean|False|
+|m_ashDamageResist|System.Boolean|False|
+|m_burnable|System.Boolean|True|
+|m_supports|System.Boolean|True|
+|m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
+|m_forceCorrectCOMCalculation|System.Boolean|False|
+|m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15299,7 +25419,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Worn|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15307,6 +25429,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|2000|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15323,7 +25451,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|Broken|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|True|
@@ -15331,6 +25461,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|400|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|
@@ -15347,7 +25483,9 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_broken|UnityEngine.GameObject|attach|
 |m_wet|UnityEngine.GameObject|*null*|
 |m_noRoofWear|System.Boolean|True|
+|m_roofCheckOffset|System.Single|0|
 |m_noSupportWear|System.Boolean|True|
+|m_snowDamageImmune|System.Boolean|False|
 |m_ashDamageImmune|System.Boolean|False|
 |m_ashDamageResist|System.Boolean|False|
 |m_burnable|System.Boolean|False|
@@ -15355,6 +25493,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_comOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_forceCorrectCOMCalculation|System.Boolean|False|
 |m_staticPosition|System.Boolean|True|
+|m_requiredPersistentEvent|System.String||
+|m_takeDamageIfInsideEvent|System.Boolean|False|
+|m_eventDamage|System.Single|25|
+|m_eventDamageDeviation|System.Single|10|
+|m_snowBuildup|System.Single|0|
+|m_outsideRequiredBiomeDamage|System.Single|25|
 |m_health|System.Single|10|
 |m_minToolTier|System.Int32|0|
 |m_hitNoise|System.Single|0|

@@ -8,6 +8,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_activeEffect|UnityEngine.GameObject|active_effects|
 |m_completedMessage|System.String|$guardianstone_trophyplaced|
+|m_setsWorldKey|System.String||
 |m_emissiveMaterialIndex|System.Int32|0|
 
 ## BossStone_DragonQueen: BossStone_DragonQueen
@@ -16,6 +17,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_activeEffect|UnityEngine.GameObject|active_effects|
 |m_completedMessage|System.String|$guardianstone_trophyplaced|
+|m_setsWorldKey|System.String||
 |m_emissiveMaterialIndex|System.Int32|1|
 
 ## BossStone_Eikthyr: BossStone_Eikthyr
@@ -24,6 +26,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_activeEffect|UnityEngine.GameObject|active_effects|
 |m_completedMessage|System.String|$guardianstone_trophyplaced|
+|m_setsWorldKey|System.String||
 |m_emissiveMaterialIndex|System.Int32|1|
 
 ## BossStone_Fader: BossStone_Fader
@@ -32,6 +35,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_activeEffect|UnityEngine.GameObject|active_effects|
 |m_completedMessage|System.String|$guardianstone_trophyplaced|
+|m_setsWorldKey|System.String||
 |m_emissiveMaterialIndex|System.Int32|0|
 
 ## BossStone_TheElder: BossStone_TheElder
@@ -40,6 +44,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_activeEffect|UnityEngine.GameObject|active_effects|
 |m_completedMessage|System.String|$guardianstone_trophyplaced|
+|m_setsWorldKey|System.String||
 |m_emissiveMaterialIndex|System.Int32|0|
 
 ## BossStone_TheQueen: BossStone_TheQueen
@@ -48,6 +53,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_activeEffect|UnityEngine.GameObject|active_effects|
 |m_completedMessage|System.String|$guardianstone_trophyplaced|
+|m_setsWorldKey|System.String||
 |m_emissiveMaterialIndex|System.Int32|0|
 
 ## BossStone_Yagluth: BossStone_Yagluth
@@ -56,5 +62,15 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_activeEffect|UnityEngine.GameObject|active_effects|
 |m_completedMessage|System.String|$guardianstone_trophyplaced|
+|m_setsWorldKey|System.String||
+|m_emissiveMaterialIndex|System.Int32|0|
+
+## StartPlatform: StartPlatform
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_activeEffect|UnityEngine.GameObject|active_effects|
+|m_completedMessage|System.String|$stonecircle_itemplaced|
+|m_setsWorldKey|System.String|StoneCircle|
 |m_emissiveMaterialIndex|System.Int32|0|
 

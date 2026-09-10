@@ -13,6 +13,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
+## Barka_Ragdoll: Barka_Ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1|
+|m_ttl|System.Single|5|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|-0.5|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
 ## Bjorn_ragdoll: Bjorn_ragdoll
 
 |Field|Type|Default Value|
@@ -112,6 +123,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
+## Elaking_Ragdoll: Elaking_Ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1.5|
+|m_ttl|System.Single|2|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|-0.1|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
+## ElakingMole_Ragdoll: ElakingMole_Ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1.5|
+|m_ttl|System.Single|2|
+|m_float|System.Boolean|False|
+|m_floatOffset|System.Single|-0.1|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
 ## Fenring_cultist_ragdoll: Fenring_cultist_ragdoll
 
 |Field|Type|Default Value|
@@ -164,6 +197,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|10|
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|0|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
+## Goblin_DN_Dragdoll: Goblin_DN_Dragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|2|
+|m_ttl|System.Single|2|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|-0.2|
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
@@ -255,7 +299,29 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
+## Greydwarf_ragdoll_frozen: Greydwarf_ragdoll_frozen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1.5|
+|m_ttl|System.Single|2|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|-0.2|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
 ## Greydwarf_Shaman_ragdoll: Greydwarf_Shaman_ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1.5|
+|m_ttl|System.Single|2|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|-0.2|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
+## Greydwarf_Shaman_ragdoll_frozen: Greydwarf_Shaman_ragdoll_frozen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -299,6 +365,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
+## JotunWarrior_Ragdoll: JotunWarrior_Ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|2|
+|m_ttl|System.Single|2|
+|m_float|System.Boolean|False|
+|m_floatOffset|System.Single|-0.1|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
 ## lox_ragdoll: lox_ragdoll
 
 |Field|Type|Default Value|
@@ -318,6 +395,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ttl|System.Single|3|
 |m_float|System.Boolean|True|
 |m_floatOffset|System.Single|0.1|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
+## Moose_Calf_Ragdoll: Moose_Calf_Ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1|
+|m_ttl|System.Single|4|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|1|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
+## Moose_Ragdoll: Moose_Ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1|
+|m_ttl|System.Single|4|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|1|
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
@@ -376,6 +475,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_dropItems|System.Boolean|True|
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
+## seal_pup_ragdoll: seal_pup_ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1.4|
+|m_ttl|System.Single|4|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|-0.1|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
+## seal_ragdoll: seal_ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1.4|
+|m_ttl|System.Single|4|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|-0.1|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
 ## Stonegolem_ragdoll: Stonegolem_ragdoll
 
 |Field|Type|Default Value|
@@ -399,6 +520,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_lootSpawnJoint|UnityEngine.GameObject|*null*|
 
 ## Troll_summoned_ragdoll: Troll_summoned_ragdoll
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_velMultiplier|System.Single|1|
+|m_ttl|System.Single|8|
+|m_float|System.Boolean|True|
+|m_floatOffset|System.Single|0.2|
+|m_dropItems|System.Boolean|True|
+|m_lootSpawnJoint|UnityEngine.GameObject|*null*|
+
+## Trollsnow_ragdoll: Trollsnow_ragdoll
 
 |Field|Type|Default Value|
 |-----|----|-------------|

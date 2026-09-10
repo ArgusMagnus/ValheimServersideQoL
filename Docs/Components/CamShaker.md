@@ -2,7 +2,29 @@
 
 The following section headers are in the format `Prefab.name: Component.name`.
 
+## aspect_Fader_Fissure_AOE: aspect_Fader_Fissure_AOE
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1|
+|m_range|System.Single|25|
+|m_delay|System.Single|3|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
 ## ChainLightning: ChainLightning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|0.5|
+|m_range|System.Single|20|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## ChainLightningRed: ChainLightningRed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -74,6 +96,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_strength|System.Single|1.2|
 |m_range|System.Single|40|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_aspect_death: Camera Shake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|50|
+|m_delay|System.Single|2.5|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_aspect_death: fx_aspect_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1.34|
+|m_range|System.Single|50|
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
@@ -321,6 +365,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|
 
+## fx_fimbulvinter_meteor_hit: fx_fimbulvinter_meteor_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1.34|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
 ## fx_fireball_staff_explosion: sfx
 
 |Field|Type|Default Value|
@@ -330,6 +385,171 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_aspectspawn: fx_frozenking_aspectspawn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|0.5|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_chain_fury: fx_frozenking_chain_fury
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_chain_fury_ascending: fx_frozenking_chain_fury_ascending
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_chain_ground_impact_1: CamShake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|3|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_chain_ground_impact_2: CamShake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|3|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_chain_ground_impact_2: fx_frozenking_chain_ground_impact_2
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1.34|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_chain_rush: CamShake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|3|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_chain_rush_impact: CamShake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|3|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_chain_rush_impact: fx_frozenking_chain_rush_impact
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1.34|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_spikerain_hit: fx_frozenking_spikerain_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1.34|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_spikerain_summoning: fx_frozenking_spikerain_summoning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_spikesmash: fx_frozenking_spikesmash
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|50|
+|m_delay|System.Single|25.014|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_spin: fx_frozenking_spin
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_tendrils_summoning: fx_frozenking_tendrils_summoning
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_frozenking_tendrilspawn: fx_frozenking_tendrilspawn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1.32|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|True|
+|m_continousDuration|System.Single|1.55|
 |m_localOnly|System.Boolean|False|
 
 ## fx_gdking_rootspawn: fx_gdking_rootspawn
@@ -651,6 +871,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|
 
+## fx_shield_start_frost: fx_shield_start_frost
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1.5|
+|m_range|System.Single|50|
+|m_delay|System.Single|1.6|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
 ## fx_shieldgenerator_attack: fx_shieldgenerator_attack
 
 |Field|Type|Default Value|
@@ -696,6 +927,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_localOnly|System.Boolean|False|
 
 ## fx_summon_skeleton_spawn: fx_summon_skeleton_spawn
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1|
+|m_range|System.Single|50|
+|m_delay|System.Single|4|
+|m_continous|System.Boolean|True|
+|m_continousDuration|System.Single|0.5|
+|m_localOnly|System.Boolean|False|
+
+## fx_summon_spirit_spawn: fx_summon_spirit_spawn
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -760,6 +1002,39 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|True|
+
+## fx_UpgradeStation_Fail: fx_UpgradeStation_Fail
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|40|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_UpgradeStation_Success: fx_UpgradeStation_Success
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|40|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## fx_writhan_explosion: fx_writhan_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|1|
+|m_range|System.Single|40|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|True|
+|m_continousDuration|System.Single|0.5|
+|m_localOnly|System.Boolean|False|
 
 ## lightningAOE: lightningAOE
 
@@ -1036,6 +1311,17 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|
 
+## sfx_prespawnLastBossGate: sfx_prespawnLastBossGate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|0.8|
+|m_range|System.Single|50|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|True|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
 ## sfx_serpent_taunt: sfx_serpent_taunt
 
 |Field|Type|Default Value|
@@ -1146,6 +1432,39 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|
 
+## staff_OrbofAhri_aoe: staff_OrbofAhri_aoe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|40|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## staff_thunderblood_aoe: staff_thunderblood_aoe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|40|
+|m_delay|System.Single|0|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## vfx_aspect_summoned_prespawn: Camera Shake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|50|
+|m_delay|System.Single|2.5|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
 ## vfx_corpse_destruction_large: vfx_corpse_destruction_large
 
 |Field|Type|Default Value|
@@ -1197,6 +1516,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_strength|System.Single|2.5|
 |m_range|System.Single|70|
 |m_delay|System.Single|0.5|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## vfx_frozenking_death: Camera Shake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|50|
+|m_delay|System.Single|2.5|
+|m_continous|System.Boolean|False|
+|m_continousDuration|System.Single|0|
+|m_localOnly|System.Boolean|False|
+
+## vfx_frozenking_final_death: Camera Shake
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_strength|System.Single|2|
+|m_range|System.Single|50|
+|m_delay|System.Single|2.5|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|

@@ -12,6 +12,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|0|
 |m_areaRoot|UnityEngine.GameObject|minestuff|
 |m_baseModel|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## LeviathanLava: LeviathanLava
 
@@ -23,6 +24,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|3|
 |m_areaRoot|UnityEngine.GameObject|minestuff|
 |m_baseModel|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## MineRock_Copper: MineRock_Copper
 
@@ -34,6 +36,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|0|
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## MineRock_Iron: MineRock_Iron
 
@@ -45,6 +48,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|1|
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## MineRock_Meteorite: MineRock_Meteorite
 
@@ -56,6 +60,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|3|
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## MineRock_Stone: MineRock_Stone
 
@@ -67,6 +72,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|0|
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## mudpile_old: mudpile_old
 
@@ -78,6 +84,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|0|
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|base_model|
+|m_hoverOffset|System.Single|0|
 
 ## Rock_destructible_test: Rock_destructible_test
 
@@ -89,6 +96,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|0|
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## stoneblock_fracture: stoneblock_fracture
 
@@ -100,4 +108,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minToolTier|System.Int32|0|
 |m_areaRoot|UnityEngine.GameObject|*null*|
 |m_baseModel|UnityEngine.GameObject|Stoneblock|
+|m_hoverOffset|System.Single|0|
 

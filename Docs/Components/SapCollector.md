@@ -13,6 +13,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxLevel|System.Int32|10|
 |m_spawnItem|ItemDrop|Sap|
 |m_rayCheckConnectedBelow|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_extractText|System.String|$piece_sapcollector_extract|
 |m_drainingText|System.String|$piece_sapcollector_draining|
 |m_drainingSlowText|System.String|$piece_sapcollector_drainingslow|

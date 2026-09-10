@@ -13,6 +13,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_hitReactionChance|System.Single|0.1|
 |m_leaveDelay|System.Int32|20|
 |m_alignToWaterLevel|System.Boolean|True|
+|m_playerCheckSize|System.Single|37.13|
 
 ## LeviathanLava: LeviathanLava
 
@@ -25,4 +26,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_hitReactionChance|System.Single|0.01|
 |m_leaveDelay|System.Int32|20|
 |m_alignToWaterLevel|System.Boolean|False|
+|m_playerCheckSize|System.Single|15.42|
 

@@ -122,6 +122,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_delay|System.Single|10|
 |m_chanceToRemoveGib|System.Single|0|
 
+## elaking_trashpile_destruction: elaking_trashpile_destruction
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
 ## fx_altar_charred_destruction: fx_altar_charred_destruction
 
 |Field|Type|Default Value|
@@ -209,6 +224,96 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_maxRotVel|System.Single|8|
 |m_impactDirectionMix|System.Single|0.5|
 |m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## HoleRock_root1_destruction: HoleRock_root1_destruction
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|30|
+|m_maxRotVel|System.Single|2|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|6|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.2|
+
+## HoleRock_rootWall1_destruction: HoleRock_rootWall1_destruction
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|30|
+|m_maxRotVel|System.Single|2|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|6|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.2|
+
+## Morkhalla_Rubble_Destroyed: Morkhalla_Rubble_Destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|5|
+|m_maxVel|System.Single|10|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## Morkhalla_rubble_trashpile_destruction: Morkhalla_rubble_trashpile_destruction
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.2|
+
+## Morkhalla_woodboards_Destroyed: Morkhalla_woodboards_Destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|5|
+|m_maxVel|System.Single|10|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|1|
+
+## StumpHole_destroyed: StumpHole_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|10|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|5|
 |m_delay|System.Single|0|
 |m_chanceToRemoveGib|System.Single|0|
 
@@ -452,6 +557,141 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_delay|System.Single|0|
 |m_chanceToRemoveGib|System.Single|0|
 
+## vfx_bar_ancientmetal_stack_destroyed: vfx_bar_ancientmetal_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
+## vfx_bar_blackmetal_stack_destroyed: vfx_bar_blackmetal_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
+## vfx_bar_bronze_stack_destroyed: vfx_bar_bronze_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
+## vfx_bar_copper_stack_destroyed: vfx_bar_copper_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
+## vfx_bar_flametal_stack_destroyed: vfx_bar_flametal_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
+## vfx_bar_gold_stack_destroyed: vfx_bar_gold_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
+## vfx_bar_iron_stack_destroyed: vfx_bar_iron_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
+## vfx_bar_silver_stack_destroyed: vfx_bar_silver_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
+## vfx_bar_tin_stack_destroyed: vfx_bar_tin_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.3|
+
 ## vfx_barrle_destroyed: vfx_barrle_destroyed
 
 |Field|Type|Default Value|
@@ -466,6 +706,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_timeout|System.Single|5|
 |m_delay|System.Single|0|
 |m_chanceToRemoveGib|System.Single|0|
+
+## vfx_BigBlob_destroyed: vfx_BigBlob_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|4|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.5|
 
 ## vfx_bone_stack_destroyed: vfx_bone_stack_destroyed
 
@@ -693,6 +948,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_chanceToRemoveGib|System.Single|0|
 
 ## vfx_Destroyed_VikingShip: vfx_Destroyed_VikingShip
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|0|
+|m_maxVel|System.Single|1|
+|m_maxRotVel|System.Single|1|
+|m_impactDirectionMix|System.Single|0|
+|m_timeout|System.Single|30|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_Destroyed_VikingShip_frozen: vfx_Destroyed_VikingShip_frozen
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -992,6 +1262,201 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_delay|System.Single|0|
 |m_chanceToRemoveGib|System.Single|0|
 
+## vfx_flintpile_destroyed: vfx_flintpile_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_HoleSpawner_destruction: vfx_HoleSpawner_destruction
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|20|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_HoleSpawner_double_destruction: vfx_HoleSpawner_double_destruction
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|20|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_morkhalla_bench_destroyed: vfx_morkhalla_bench_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_morkhalla_firepit_destroyed: vfx_morkhalla_firepit_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_morkhalla_gatedoor_destroyed: vfx_morkhalla_gatedoor_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|20|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.2|
+
+## vfx_morkhalla_gatedoor02_destroyed: vfx_morkhalla_gatedoor02_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_morkhalla_gatedoor03_destroyed: vfx_morkhalla_gatedoor03_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0.5|
+
+## vfx_morkhalla_stool_destroyed: vfx_morkhalla_stool_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_morkhalla_table_destroyed: vfx_morkhalla_table_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_morkhalla_trainingdummy1_destroyed: vfx_morkhalla_trainingdummy1_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_morkhalla_trainingdummy2_destroyed: vfx_morkhalla_trainingdummy2_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_morkhalla_weaponstand_destroyed: vfx_morkhalla_weaponstand_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|10|
+|m_maxVel|System.Single|15|
+|m_maxRotVel|System.Single|20|
+|m_impactDirectionMix|System.Single|1|
+|m_timeout|System.Single|5|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
 ## vfx_mountainkit_chair_destroyed: vfx_mountainkit_chair_destroyed
 
 |Field|Type|Default Value|
@@ -1008,6 +1473,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_chanceToRemoveGib|System.Single|0|
 
 ## vfx_mountainkit_table_destroyed: vfx_mountainkit_table_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_obsidian_destroyed: vfx_obsidian_destroyed
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -1067,6 +1547,36 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_delay|System.Single|0|
 |m_chanceToRemoveGib|System.Single|0|
 
+## vfx_stone_wall_ruin_2_destroyed: vfx_stone_wall_ruin_2_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_stone_wall_ruin_destroyed: vfx_stone_wall_ruin_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|2|
+|m_maxVel|System.Single|5|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
 ## vfx_wagon_destroyed: vfx_wagon_destroyed
 
 |Field|Type|Default Value|
@@ -1089,8 +1599,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_gibHitEffect|UnityEngine.GameObject|*null*|
 |m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
-|m_minVel|System.Single|2|
-|m_maxVel|System.Single|5|
+|m_minVel|System.Single|4|
+|m_maxVel|System.Single|6|
 |m_maxRotVel|System.Single|8|
 |m_impactDirectionMix|System.Single|0.5|
 |m_timeout|System.Single|3|
@@ -1104,8 +1614,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_gibHitEffect|UnityEngine.GameObject|*null*|
 |m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
-|m_minVel|System.Single|2|
-|m_maxVel|System.Single|5|
+|m_minVel|System.Single|4|
+|m_maxVel|System.Single|6|
 |m_maxRotVel|System.Single|8|
 |m_impactDirectionMix|System.Single|0.5|
 |m_timeout|System.Single|3|
@@ -1119,8 +1629,23 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_gibHitEffect|UnityEngine.GameObject|*null*|
 |m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
-|m_minVel|System.Single|2|
-|m_maxVel|System.Single|5|
+|m_minVel|System.Single|4|
+|m_maxVel|System.Single|6|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_wood_frost_stack_destroyed: vfx_wood_frost_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|4|
+|m_maxVel|System.Single|6|
 |m_maxRotVel|System.Single|8|
 |m_impactDirectionMix|System.Single|0.5|
 |m_timeout|System.Single|3|
@@ -1134,8 +1659,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_gibHitEffect|UnityEngine.GameObject|*null*|
 |m_gibDestroyEffect|UnityEngine.GameObject|*null*|
 |m_gibHitDestroyChance|System.Single|0|
-|m_minVel|System.Single|2|
-|m_maxVel|System.Single|5|
+|m_minVel|System.Single|4|
+|m_maxVel|System.Single|6|
 |m_maxRotVel|System.Single|8|
 |m_impactDirectionMix|System.Single|0.5|
 |m_timeout|System.Single|3|
@@ -1143,6 +1668,21 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_chanceToRemoveGib|System.Single|0|
 
 ## vfx_wood_yggdrasil_stack_destroyed: vfx_wood_yggdrasil_stack_destroyed
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_gibHitEffect|UnityEngine.GameObject|*null*|
+|m_gibDestroyEffect|UnityEngine.GameObject|*null*|
+|m_gibHitDestroyChance|System.Single|0|
+|m_minVel|System.Single|4|
+|m_maxVel|System.Single|6|
+|m_maxRotVel|System.Single|8|
+|m_impactDirectionMix|System.Single|0.5|
+|m_timeout|System.Single|3|
+|m_delay|System.Single|0|
+|m_chanceToRemoveGib|System.Single|0|
+
+## vfx_wooden_path_destroyed: vfx_wooden_path_destroyed
 
 |Field|Type|Default Value|
 |-----|----|-------------|

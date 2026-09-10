@@ -9,6 +9,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## FeastBlackforest: FeastBlackforest
 
@@ -17,6 +18,16 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
+
+## FeastDeepNorth: FeastDeepNorth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_eatStacks|System.Int32|10|
+|m_useDistance|System.Single|4|
+|m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## FeastMeadows: FeastMeadows
 
@@ -25,6 +36,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## FeastMistlands: FeastMistlands
 
@@ -33,6 +45,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## FeastMountains: FeastMountains
 
@@ -41,6 +54,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## FeastOceans: FeastOceans
 
@@ -49,6 +63,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## FeastPlains: FeastPlains
 
@@ -57,6 +72,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
 
 ## FeastSwamps: FeastSwamps
 
@@ -65,4 +81,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_eatStacks|System.Int32|10|
 |m_useDistance|System.Single|4|
 |m_foodItem|ItemDrop|*null*|
+|m_hoverOffset|System.Single|0|
 

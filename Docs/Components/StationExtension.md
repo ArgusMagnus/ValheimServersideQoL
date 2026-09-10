@@ -11,6 +11,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.40, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## blackforge_ext1: blackforge_ext1
 
@@ -21,6 +22,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.40, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## blackforge_ext2_vise: blackforge_ext2_vise
 
@@ -31,6 +33,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.40, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## blackforge_ext3_metalcutter: blackforge_ext3_metalcutter
 
@@ -41,6 +44,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.40, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## blackforge_ext4_gemcutter: blackforge_ext4_gemcutter
 
@@ -51,6 +55,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.40, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+
+## blackforge_ext5_apron: blackforge_ext5_apron
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_maxStationDistance|System.Single|4|
+|m_stack|System.Boolean|False|
+|m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
+|m_connectionOffset|UnityEngine.Vector3|(0.00, 0.40, 0.00)|
+|m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## cauldron_ext1_spice: cauldron_ext1_spice
 
@@ -61,6 +77,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## cauldron_ext3_butchertable: cauldron_ext3_butchertable
 
@@ -71,6 +88,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## cauldron_ext4_pots: cauldron_ext4_pots
 
@@ -81,6 +99,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.45, 0.43)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## cauldron_ext5_mortarandpestle: cauldron_ext5_mortarandpestle
 
@@ -91,6 +110,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## cauldron_ext6_rollingpins: cauldron_ext6_rollingpins
 
@@ -101,6 +121,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+
+## cauldron_ext7_smoker: cauldron_ext7_smoker
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_maxStationDistance|System.Single|5|
+|m_stack|System.Boolean|False|
+|m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
+|m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
+|m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## forge_ext1: forge_ext1
 
@@ -111,6 +143,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.80, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## forge_ext2: forge_ext2
 
@@ -121,6 +154,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.90, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## forge_ext3: forge_ext3
 
@@ -131,6 +165,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.41, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## forge_ext4: forge_ext4
 
@@ -141,6 +176,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.50, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## forge_ext5: forge_ext5
 
@@ -151,6 +187,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## forge_ext6: forge_ext6
 
@@ -161,6 +198,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.00, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## piece_magetable_ext: piece_magetable_ext
 
@@ -171,6 +209,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection_mage|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## piece_magetable_ext2: piece_magetable_ext2
 
@@ -181,6 +220,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection_mage|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## piece_magetable_ext3: piece_magetable_ext3
 
@@ -191,6 +231,18 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection_mage|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+
+## piece_magetable_ext4: piece_magetable_ext4
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_maxStationDistance|System.Single|5|
+|m_stack|System.Boolean|False|
+|m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection_mage|
+|m_connectionOffset|UnityEngine.Vector3|(0.00, 1.10, 0.00)|
+|m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## piece_workbench_ext1: piece_workbench_ext1
 
@@ -201,6 +253,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## piece_workbench_ext2: piece_workbench_ext2
 
@@ -211,6 +264,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## piece_workbench_ext3: piece_workbench_ext3
 
@@ -221,6 +275,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 1.00, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 
 ## piece_workbench_ext4: piece_workbench_ext4
 
@@ -231,4 +286,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_connectionPrefab|UnityEngine.GameObject|vfx_ExtensionConnection|
 |m_connectionOffset|UnityEngine.Vector3|(0.00, 0.80, 0.00)|
 |m_continousConnection|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 

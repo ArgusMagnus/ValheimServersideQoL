@@ -8,9 +8,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_ashwood_door|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## darkwood_gate: darkwood_gate
@@ -19,9 +21,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_darkwoodgate|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## dungeon_forestcrypt_door: dungeon_forestcrypt_door
@@ -30,9 +34,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_wooddoor|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## dungeon_queen_door: dungeon_queen_door
@@ -41,9 +47,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_queendoor|
 |m_keyItem|ItemDrop|DvergrKey|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|green gass|
 
 ## dungeon_sunkencrypt_irongate: dungeon_sunkencrypt_irongate
@@ -52,9 +60,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_irongate|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## dvergrtown_secretdoor: dvergrtown_secretdoor
@@ -63,9 +73,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_secretdoor|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|True|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## dvergrtown_slidingdoor: dvergrtown_slidingdoor
@@ -74,9 +86,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_dv_gate|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|True|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## flametal_gate: flametal_gate
@@ -85,9 +99,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_flametalgate|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## iron_grate: iron_grate
@@ -96,9 +112,50 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_irongate|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
+|m_openEnable|UnityEngine.GameObject|*null*|
+
+## Morkborg_gate: Morkborg_gate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_morkborg_gate|
+|m_keyItem|ItemDrop|BloodGoldKey|
+|m_consumeKey|System.Boolean|False|
+|m_canNotBeClosed|System.Boolean|False|
+|m_invertedOpenClosedText|System.Boolean|False|
+|m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
+|m_openEnable|UnityEngine.GameObject|*null*|
+
+## Morkhalla_Drawbridge: Morkhalla_Drawbridge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$morkhalla_drawbridge|
+|m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
+|m_canNotBeClosed|System.Boolean|False|
+|m_invertedOpenClosedText|System.Boolean|False|
+|m_checkGuardStone|System.Boolean|False|
+|m_hoverOffset|System.Single|0|
+|m_openEnable|UnityEngine.GameObject|DrawBridgeAOE|
+
+## Morkhalla_jotun_gate: Morkhalla_jotun_gate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_jotungate|
+|m_keyItem|ItemDrop|BloodGoldKey|
+|m_consumeKey|System.Boolean|True|
+|m_canNotBeClosed|System.Boolean|True|
+|m_invertedOpenClosedText|System.Boolean|False|
+|m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## MountainKit_wood_gate: MountainKit_wood_gate
@@ -107,10 +164,38 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_woodgate|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
+
+## piece_drawbridge: piece_drawbridge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$morkhalla_drawbridge|
+|m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
+|m_canNotBeClosed|System.Boolean|False|
+|m_invertedOpenClosedText|System.Boolean|False|
+|m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
+|m_openEnable|UnityEngine.GameObject|DrawBridgeAOE|
+
+## piece_drawbridge_log: piece_drawbridge_log
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$morkhalla_drawbridge|
+|m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
+|m_canNotBeClosed|System.Boolean|False|
+|m_invertedOpenClosedText|System.Boolean|False|
+|m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
+|m_openEnable|UnityEngine.GameObject|DrawBridgeAOE|
 
 ## piece_dvergr_wood_door: piece_dvergr_wood_door
 
@@ -118,9 +203,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_dvergr_door|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|True|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## piece_hexagonal_door: piece_hexagonal_door
@@ -129,9 +216,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_hexagonalgate|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
+|m_openEnable|UnityEngine.GameObject|*null*|
+
+## stave_gate: stave_gate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_stavegate|
+|m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
+|m_canNotBeClosed|System.Boolean|False|
+|m_invertedOpenClosedText|System.Boolean|False|
+|m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## sunken_crypt_gate: sunken_crypt_gate
@@ -140,9 +242,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_irongate|
 |m_keyItem|ItemDrop|CryptKey|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## wood_door: wood_door
@@ -151,9 +255,24 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_wooddoor|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
+|m_openEnable|UnityEngine.GameObject|*null*|
+
+## wood_fence_gate: wood_fence_gate
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_name|System.String|$piece_woodfencegate|
+|m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
+|m_canNotBeClosed|System.Boolean|False|
+|m_invertedOpenClosedText|System.Boolean|False|
+|m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## wood_gate: wood_gate
@@ -162,9 +281,11 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_woodgate|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 
 ## wood_window: wood_window
@@ -173,8 +294,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_name|System.String|$piece_woodwindowshutter|
 |m_keyItem|ItemDrop|*null*|
+|m_consumeKey|System.Boolean|False|
 |m_canNotBeClosed|System.Boolean|False|
 |m_invertedOpenClosedText|System.Boolean|False|
 |m_checkGuardStone|System.Boolean|True|
+|m_hoverOffset|System.Single|0|
 |m_openEnable|UnityEngine.GameObject|*null*|
 

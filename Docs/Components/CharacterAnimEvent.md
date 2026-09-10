@@ -6,6 +6,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|1.5|
 |m_footOffset|System.Single|0.5|
@@ -26,6 +27,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -46,6 +48,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -62,10 +65,221 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
+## Aspect_Bonemass: model
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Aspect_Eikthyr: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Aspect_Elder: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|0.5|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|2|
+|m_stabalizeDistance|System.Single|0.2|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Aspect_Fader: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|1|
+|m_footOffset|System.Single|0.2|
+|m_footStepHeight|System.Single|5|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|True|
+|m_headRotation|System.Boolean|False|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.8|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Aspect_Moder: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|1|
+|m_footOffset|System.Single|0.2|
+|m_footStepHeight|System.Single|5|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|True|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.8|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Aspect_SeekerQueen: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|1|
+|m_footOffset|System.Single|0.2|
+|m_footStepHeight|System.Single|5|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|True|
+|m_headRotation|System.Boolean|False|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.8|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Aspect_TentaRoot: Tentaroots
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Aspect_Yagluth: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|1|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|3|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|1|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|0.4|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.4|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Barka: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|1|
+|m_footOffset|System.Single|0.2|
+|m_footStepHeight|System.Single|5|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|True|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.8|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
 ## Bat: CaveBat
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Bat_Swamp: CaveBat
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -86,6 +300,49 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Bjorn_sleeping: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Bjorn_spiritcaller: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -106,6 +363,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## BlobAspect: blob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -126,6 +405,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -146,6 +426,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -166,6 +447,49 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## BlobMork: blob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## BlobMorkMini: blob
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -186,6 +510,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -206,6 +531,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -226,6 +552,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Boar_spiritcaller: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -246,6 +594,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -266,6 +615,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -286,6 +636,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -306,6 +657,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -326,6 +678,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -346,6 +699,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -366,6 +720,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -386,6 +741,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -406,6 +762,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -426,6 +783,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -446,6 +804,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -466,6 +825,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -486,6 +846,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -506,6 +867,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Deer_White: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -526,6 +909,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -546,6 +930,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -566,6 +951,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Draugr_Elite_sleeping: _draugr_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -586,6 +993,49 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Draugr_Ranged_sleeping: _draugr_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Draugr_sleeping: _draugr_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -606,6 +1056,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -626,6 +1077,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## DvergerDeepNorth: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -646,6 +1119,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -666,6 +1140,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -686,6 +1161,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -706,6 +1182,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -726,6 +1203,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -746,6 +1224,70 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Elaking: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## ElakingLantern: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## ElakingMole: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -766,6 +1308,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -786,6 +1329,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -802,10 +1346,32 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
+## FallenWarrior: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|0.2|
+|m_footOffset|System.Single|0.12|
+|m_footStepHeight|System.Single|0.4|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|True|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
 ## Fenring: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.2|
 |m_footOffset|System.Single|0.15|
@@ -826,6 +1392,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.2|
 |m_footOffset|System.Single|0.15|
@@ -846,6 +1413,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.2|
 |m_footOffset|System.Single|0.15|
@@ -866,9 +1434,115 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.2|
 |m_footOffset|System.Single|0.15|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## FrostWisp: Sphere
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## FrozenKing: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|1|
+|m_footOffset|System.Single|0.2|
+|m_footStepHeight|System.Single|5|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|True|
+|m_headRotation|System.Boolean|False|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.8|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## FrozenKing_p2: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|1|
+|m_footOffset|System.Single|0.2|
+|m_footStepHeight|System.Single|5|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|True|
+|m_headRotation|System.Boolean|False|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.8|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## FrozenKing_p3: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|1|
+|m_footOffset|System.Single|0.2|
+|m_footStepHeight|System.Single|5|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|True|
+|m_headRotation|System.Boolean|False|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.8|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Frysling: model
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
 |m_footStepHeight|System.Single|1|
 |m_stabalizeDistance|System.Single|0|
 |m_useFeetValues|System.Boolean|False|
@@ -886,6 +1560,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.5|
 |m_footOffset|System.Single|0.1|
@@ -906,6 +1581,70 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Ghost_old: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Ghost_sleeping: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Ghost_Void: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -926,6 +1665,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -946,6 +1686,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -966,6 +1707,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -986,6 +1728,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1006,6 +1749,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.17|
@@ -1026,6 +1770,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.17|
@@ -1046,6 +1791,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.17|
@@ -1066,6 +1812,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.17|
@@ -1082,10 +1829,32 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
+## GoblinDeepNorth: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
 ## GoblinKing: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.1|
@@ -1106,6 +1875,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1126,6 +1896,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1146,6 +1917,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1166,6 +1938,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1186,6 +1959,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Greydwarf_Frozen: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1206,6 +2001,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Greydwarf_Shaman_Frozen: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1226,6 +2043,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1246,6 +2064,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1266,6 +2085,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1286,6 +2106,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1306,7 +2127,71 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## JotunWarrior: Jotun
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## JotunWarriorDualWield: Jotun
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## JotunWitch: Jotunwoman
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
 |m_footStepHeight|System.Single|1|
@@ -1326,6 +2211,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1346,6 +2232,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1366,6 +2253,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1386,6 +2274,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1406,6 +2295,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1422,10 +2312,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
+## Moose: offset
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Moose_calf: offset
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Moose_spiritcaller: offset
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
 ## Morgen: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -1446,6 +2400,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -1466,6 +2421,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1486,6 +2442,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1506,6 +2463,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.2|
 |m_footOffset|System.Single|0.12|
@@ -1522,10 +2480,53 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
+## Seal: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Seal_Pup: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
 ## Seeker: Visual
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -1546,6 +2547,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -1566,6 +2568,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -1586,6 +2589,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|1|
 |m_footOffset|System.Single|0.2|
@@ -1606,6 +2610,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1622,10 +2627,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_femaleOffset|System.Single|0.0004|
 |m_maleOffset|System.Single|0.0007651657|
 
+## ShadowPerson: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|0.2|
+|m_footOffset|System.Single|0.12|
+|m_footStepHeight|System.Single|0.4|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|True|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
 ## Skeleton: _skeleton_base
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Skeleton_aspect: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Skeleton_DeepNorth: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1646,6 +2715,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1666,6 +2736,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1686,6 +2757,91 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Skeleton_Meadows: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Skeleton_Meadows_noarcher: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Skeleton_Mountains: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Skeleton_Mountains_noarcher: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1706,6 +2862,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1726,6 +2883,49 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Skeleton_Swamps: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Skeleton_Swamps_noarcher: _skeleton_base
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1746,6 +2946,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1766,6 +2967,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.5|
 |m_footOffset|System.Single|0.1|
@@ -1786,6 +2988,49 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Tendril: Tentaroots
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Tendril_back: Tentaroots
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1806,6 +3051,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## TentaRoot_wild: Tentaroots
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1826,6 +3093,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1846,6 +3114,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1866,6 +3135,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1886,6 +3156,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|0.3|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|1|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|0.5|
+|m_eyeLookWeight|System.Single|1|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Troll_sleeping: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.3|
 |m_footOffset|System.Single|0.1|
@@ -1906,8 +3198,30 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|True|
 |m_footDownMax|System.Single|0.3|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|1|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|0.5|
+|m_eyeLookWeight|System.Single|1|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## TrollFrost: Visual
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|True|
+|m_footDownMax|System.Single|0.1|
 |m_footOffset|System.Single|0.1|
 |m_footStepHeight|System.Single|1|
 |m_stabalizeDistance|System.Single|0|
@@ -1926,6 +3240,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1946,6 +3261,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1966,6 +3282,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -1986,6 +3303,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -2006,6 +3324,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Wolf_spiritcaller: WolfSmooth
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
@@ -2026,6 +3366,28 @@ The following section headers are in the format `Prefab.name: Component.name`.
 
 |Field|Type|Default Value|
 |-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
+|m_footIK|System.Boolean|False|
+|m_footDownMax|System.Single|0.4|
+|m_footOffset|System.Single|0.1|
+|m_footStepHeight|System.Single|1|
+|m_stabalizeDistance|System.Single|0|
+|m_useFeetValues|System.Boolean|False|
+|m_headRotation|System.Boolean|True|
+|m_lookWeight|System.Single|0.5|
+|m_bodyLookWeight|System.Single|0.1|
+|m_headLookWeight|System.Single|1|
+|m_eyeLookWeight|System.Single|0|
+|m_lookClamp|System.Single|0.5|
+|m_femaleHack|System.Boolean|False|
+|m_femaleOffset|System.Single|0.0004|
+|m_maleOffset|System.Single|0.0007651657|
+
+## Writhan: Writhan
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_loopAudioSource|UnityEngine.GameObject|*null*|
 |m_footIK|System.Boolean|False|
 |m_footDownMax|System.Single|0.4|
 |m_footOffset|System.Single|0.1|
