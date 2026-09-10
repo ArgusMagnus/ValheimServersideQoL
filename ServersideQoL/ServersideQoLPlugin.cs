@@ -4,8 +4,10 @@ using HarmonyLib;
 using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Text;
 using UnityEngine;
 
 namespace ServersideQoL;
@@ -90,6 +92,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           yield return new WaitForSeconds(5);
           continue;
         }
+
         ZNetPeer? localPeer = null;
         if (!ZNet.instance.IsDedicated())
         {
@@ -264,6 +267,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   bool Initialize()
   {
+    GenerateDocs();
+
     foreach (var plugin in __plugins)
     {
       var config = plugin.Config; // Initialize
@@ -534,20 +539,20 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     else
       _unfinishedProcessingInRow = 0;
 
-//#if DEBUG
-//    var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
-//#else
-//        if (!Config.DiagnosticLogs.Value)
-//            return;
-//        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
-//#endif
+    //#if DEBUG
+    //    var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
+    //#else
+    //        if (!Config.DiagnosticLogs.Value)
+    //            return;
+    //        var logLevel = _unfinishedProcessingInRow is 0 ? LogLevel.Debug : LogLevel.Info;
+    //#endif
 
-//    var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
-//    Logger.Log(logLevel,
-//        Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
+    //    var elapsedMs = (Time.realtimeSinceStartupAsDouble - timeStartSeconds) * 1000;
+    //    Logger.Log(logLevel,
+    //        Invariant($"{nameof(Execute)} took {elapsedMs:F2} ms (budget: {timeBudgetSeconds * 1000:F2} ms) to process {processedZdos} of {totalZdos} ZDOs in {processedSectors} of {_playerSectors.Count} zones. Incomplete runs in row: {_unfinishedProcessingInRow}"));
 
-//    if (logLevel is > LogLevel.Info or LogLevel.None)
-//      return;
+    //    if (logLevel is > LogLevel.Info or LogLevel.None)
+    //      return;
 
     //(_processingTimes ??= new(Processor.DefaultProcessors.Count)).Clear();
     //foreach (var processor in Processor.DefaultProcessors.AsEnumerable())
@@ -606,7 +611,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       var unregister = (result & Processor.ProcessResult.UnregisterProcessor) is not 0;
       if (unregister)
         _unregister.Add(processor);
-      
+
       if (!recreate && !unregister && (result & Processor.ScheduleReprocessingConst) is not 0)
         ScheduleReprocessing(zdo, processor.ScheduleReprocessingDelay);
 
@@ -674,7 +679,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           graph[processor].Add(dependency);
           inDegree[dependency]++;
         }
-        else if(attr.RunBefore is false)
+        else if (attr.RunBefore is false)
         {
           graph[dependency].Add(processor);
           inDegree[processor]++;
@@ -897,6 +902,184 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
             globalKeys.Add(key);
         }
         return globalKeys;
+      }
+    }
+  }
+
+
+  [Conditional("DEBUG")]
+  static void GenerateDocs()
+  {
+    var docsPath = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(DependencyDirectory)), "Docs");
+    Logger.DevLog($"Generating docs in {docsPath} ...");
+    var docsComponentsPath = Path.Combine(docsPath, "Components");
+
+    try { Directory.Delete(docsComponentsPath, true); } catch (DirectoryNotFoundException) { }
+
+    Directory.CreateDirectory(docsComponentsPath);
+
+    HashSet<Type> validFieldTypes = [typeof(int), typeof(float), typeof(bool), typeof(Vector3), typeof(string), typeof(GameObject), typeof(ItemDrop)];
+    var componentFields = new ConcurrentDictionary<Type, IReadOnlyList<FieldInfo>>();
+    var prefabs = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
+    var prefabsFx = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
+    var prefabsSfx = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
+    var prefabsVfx = new ConcurrentBag<(string Prefab, string? Name, string Components)>();
+    var componentsBag = new ConcurrentDictionary<MonoBehaviour, string>();
+    Parallel.ForEach(ZNetScene.instance.m_prefabs, prefab =>
+    {
+      var components = prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>()
+              .Where(static x => x is not ZNetView)
+              .ToList();
+
+      if (components is not { Count: > 0 })
+        return;
+
+      string? name = null;
+
+      for (int i = components.Count - 1; i >= 0; i--)
+      {
+        var component = components[i];
+        var fields = componentFields.GetOrAdd(component.GetType(), type => type.GetFields(BindingFlags.Public | BindingFlags.Instance)
+                .Where(x => validFieldTypes.Contains(x.FieldType))
+                .ToList());
+
+        if (fields.Count is 0)
+        {
+          components.RemoveAt(i);
+          continue;
+        }
+
+        componentsBag.TryAdd(component, prefab.name);
+        name ??= component switch
+        {
+          ItemDrop itemDrop => itemDrop.m_itemData.m_shared.m_name,
+          _ => component.GetType().GetField("m_name")?.GetValue(component) as string
+        };
+      }
+
+      var bag = prefabs;
+      if (prefab.name.StartsWith("fx_"))
+        bag = prefabsFx;
+      else if (prefab.name.StartsWith("sfx_"))
+        bag = prefabsSfx;
+      else if (prefab.name.StartsWith("vfx_"))
+        bag = prefabsVfx;
+
+      // markdown link: ' ' -> '-', remove non-alphanumeric characters
+      bag.Add((prefab.name, name, string.Join(", ", components
+                  .Select(static x => (Type: x.GetType().Name, Name: x.name))
+                  .OrderBy(static x => x.Type).ThenBy(static x => x.Name)
+                  .Select(x => Invariant($"[{x.Type} ({x.Name})](Components/{x.Type}.md#{prefab.name.ToLowerInvariant().Replace(' ', '-')}-{x.Name.ToLowerInvariant().Replace(' ', '-')})")))));
+    });
+
+    Parallel.ForEach(componentsBag.GroupBy(static x => x.Key.GetType()), group =>
+    {
+      var componentType = group.Key;
+      var fields = componentFields[componentType];
+
+      using var writer = new StreamWriter(Path.Combine(docsComponentsPath, Invariant($"{componentType.Name}.md")), false, new UTF8Encoding(false));
+      writer.WriteLine(Invariant($"# {componentType.Name}"));
+      writer.WriteLine();
+      writer.WriteLine("The following section headers are in the format `Prefab.name: Component.name`.");
+      writer.WriteLine();
+      foreach (var (component, header) in group.Select(static x => (x.Key, Invariant($"## {x.Value}: {x.Key.name}"))).OrderBy(static x => x.Item2))
+      {
+        writer.WriteLine(header);
+        writer.WriteLine();
+        writer.WriteLine("|Field|Type|Default Value|");
+        writer.WriteLine("|-----|----|-------------|");
+        foreach (var field in fields)
+        {
+          var value = field.GetValue(component);
+          if (value is UnityEngine.Object obj)
+            value = obj.name;
+          writer.WriteLine(Invariant($"|{field.Name}|{field.FieldType}|{value ?? "*null*"}|"));
+        }
+        writer.WriteLine();
+      }
+    });
+
+    WritePrefabsFile(docsPath, "Prefabs.md", prefabs);
+    WritePrefabsFile(docsPath, "PrefabsFX.md", prefabsFx);
+    WritePrefabsFile(docsPath, "PrefabsSFX.md", prefabsSfx);
+    WritePrefabsFile(docsPath, "PrefabsVFX.md", prefabsVfx);
+
+    WriteLocalizationsFile(docsPath, "Localization.md");
+    WriteEventsFile(docsPath, "RandomEvents.md");
+    WriteRpcFile(docsPath, "RPC.md");
+
+    Logger.DevLog("Generating docs done");
+    return;
+
+    static void WritePrefabsFile(string path, string filename, IEnumerable<(string Prefab, string? Name, string Components)> prefabs)
+    {
+      using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
+      writer.WriteLine("# Prefabs");
+      writer.WriteLine();
+      writer.WriteLine("|Prefab|Components|");
+      writer.WriteLine("|------|----------|");
+      foreach (var (prefab, name, components) in prefabs.OrderBy(static x => x.Prefab))
+      {
+        var str = $"{prefab}<small><br>- Hash: {prefab.GetStableHashCode()}";
+        if (name is not null)
+        {
+          str += $"<br>- Name: {name}";
+          if (Localization.instance.Localize(name) is { } localized && localized != name)
+            str += $"<br>- English Name: {localized}";
+        }
+        str += "</small>";
+        writer.WriteLine(Invariant($"|{str}|{components}|"));
+      }
+    }
+
+    static void WriteLocalizationsFile(string path, string filename)
+    {
+      using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
+      writer.WriteLine("# Localization");
+      writer.WriteLine();
+      writer.WriteLine("|Key|English|");
+      writer.WriteLine("|---|-------|");
+      foreach (var (key, value) in Localization.instance.GetStrings().Select(static x => (x.Key, x.Value)).OrderBy(static x => x.Key))
+        writer.WriteLine(Invariant($"|{key}|{value?.Replace("\n", "<br>") ?? "*null*"}|"));
+    }
+
+    static void WriteEventsFile(string path, string filename)
+    {
+      using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
+      writer.WriteLine("# Random Events");
+      writer.WriteLine();
+      writer.WriteLine("|Name|Player: required **not** known items (all)|Player: required **not** set keys (all)|Player: required known items (any)|Player: required keys (any)|Player: required keys (all)|");
+      writer.WriteLine("|----|------------------------------------------|---------------------------------------|----------------------------------|---------------------------|---------------------------|");
+      foreach (var ev in RandEventSystem.instance.m_events.Where(static x => x.m_enabled && x.m_random).OrderBy(static x => x.m_name))
+      {
+        //Instance.Logger.DevLog($"{ev.m_name}: {string.Join(", ", ev.m_notRequiredGlobalKeys)} / {string.Join(", ", ev.m_requiredGlobalKeys)}");
+        /// <see cref="RandEventSystem.PlayerIsReadyForEvent(Player, RandomEvent)"/>
+        var altRequiredNotKnownItems = string.Join("<br>", ev.m_altRequiredNotKnownItems.Select(static x => $"- {x.name}"));
+        var altNotRequiredPlayerKeys = string.Join("<br>", ev.m_altNotRequiredPlayerKeys.Select(static x => $"- {x}"));
+        var altRequiredKnownItems = string.Join("<br>", ev.m_altRequiredKnownItems.Select(static x => $"- {x.name}"));
+        var altRequiredPlayerKeysAny = string.Join("<br>", ev.m_altRequiredPlayerKeysAny.Select(static x => $"- {x}"));
+        var altRequiredPlayerKeysAll = string.Join("<br>", ev.m_altRequiredPlayerKeysAll.Select(static x => $"- {x}"));
+        writer.WriteLine(Invariant($"|{ev.m_name}|{altRequiredNotKnownItems}|{altNotRequiredPlayerKeys}|{altRequiredKnownItems}|{altRequiredPlayerKeysAny}|{altRequiredPlayerKeysAll}|"));
+      }
+    }
+
+    static void WriteRpcFile(string path, string filename)
+    {
+      using var writer = new StreamWriter(Path.Combine(path, filename), false, new UTF8Encoding(false));
+      writer.WriteLine("# RPC");
+      writer.WriteLine();
+      writer.WriteLine("|Type|Method|Parameters|");
+      writer.WriteLine("|----|------|----------|");
+
+      foreach (var type in typeof(ZNet).Assembly.ExportedTypes.OrderBy(static x => x.Name))
+      {
+        foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static).OrderBy(static x => x.Name))
+        {
+          if (!method.Name.StartsWith("RPC_"))
+            continue;
+          var parameters = string.Join(", ", method.GetParameters().Select(static x => $"{x.ParameterType.Name} {x.Name}"));
+          writer.WriteLine($"|{type.Name}|{method.Name}|{parameters}|");
+        }
       }
     }
   }

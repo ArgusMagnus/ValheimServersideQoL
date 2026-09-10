@@ -50,7 +50,7 @@ public static class RPC
       public static RpcName Remove { get; } = new("RPC_Remove");
     }
 
-    public static class Character
+    public static class SEMan
     {
       public static RpcName AddStatusEffect { get; } = new("RPC_AddStatusEffect");
       public static RpcName SetTamed { get; } = new("RPC_SetTamed");
@@ -168,11 +168,11 @@ public static class RPC
     InvokeRoutedRPC(piece.ZDO.GetOwner(), piece.ZDO.m_uid, RpcName.Piece.Remove, parameters: [false]);
   }
 
-  public static void AddStatusEffect(ServersideQoLZDO character, int nameHash, bool resetTime = false, int itemLevel = 0, float skillLevel = 0f)
+  public static void AddStatusEffect(ServersideQoLZDO character, int nameHash, bool resetTime = false, int itemLevel = 0, float skillLevel = 0f, int variant = -1)
   {
     character.AssertIs<Character>();
     /// <see cref="SEMan.AddStatusEffect"/>
-    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.Character.AddStatusEffect, parameters: [nameHash, resetTime, itemLevel, skillLevel]);
+    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.SEMan.AddStatusEffect, parameters: [nameHash, resetTime, itemLevel, skillLevel, variant]);
   }
 
   public static void RequestStack(ServersideQoLZDO container, ServersideQoLZDO player, PlayerID playerID = default)
@@ -214,7 +214,7 @@ public static class RPC
     character.AssertIs<Character>();
 
     /// <see cref="Character.SetTamed(bool)"/>
-    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.Character.SetTamed, parameters: [tamed]);
+    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.SEMan.SetTamed, parameters: [tamed]);
   }
 
   public static void Damage(ServersideQoLZDO character, HitData hitData)
@@ -222,7 +222,7 @@ public static class RPC
     character.AssertIs<Character>();
 
     /// <see cref="Character.Damage(HitData)"/>
-    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.Character.Damage, parameters: [hitData]);
+    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.SEMan.Damage, parameters: [hitData]);
   }
 
   public static void RequestOwn(ServersideQoLZDO itemDrop, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
