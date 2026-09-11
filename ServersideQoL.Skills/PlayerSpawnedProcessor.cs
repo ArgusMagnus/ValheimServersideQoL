@@ -17,7 +17,7 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
 
   bool _enabled;
 
-  readonly Dictionary<string, SpawnInfo> _spawnInfo = [];
+  readonly Dictionary<(string AttackAnimation, ItemDrop Item), SpawnInfo> _spawnInfo = [];
   readonly Dictionary<int, List<ServersideQoLZDO>> _spawnedByPrefab = [];
   readonly Dictionary<ServersideQoLZDO, SpawnedState> _spawnedStates = [];
   PlayerState? _lastSummoningPlayer;
@@ -37,9 +37,9 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
     _spawnedStates.Clear();
     _lastSummoningPlayer = null;
 
-    /// <see cref="ZSyncAnimation.SetTrigger"/>
-    RPC.Intercept.UpdateInterception(RPC.RpcName.ZSyncAnimation.SetTrigger, OnZSyncAnimationSetTrigger,
-        Config.Instance.BloodMagic.AllowReplacementSummonMinSkill.Value <= 100 || Config.Instance.BloodMagic.MakeSummonsFriendlyEnabled);
+    Instance<PlayerRegistryProcessor>().ItemUsed -= OnPlayerItemUsed;
+    if (Config.Instance.BloodMagic.AllowReplacementSummonMinSkill.Value <= 100 || Config.Instance.BloodMagic.MakeSummonsFriendlyEnabled)
+      Instance<PlayerRegistryProcessor>().ItemUsed += OnPlayerItemUsed;
 
     if (_spawnInfo.Count is 0)
     {
@@ -66,7 +66,9 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
             dict.Add(hash, list);
           }
           if (dict.Count > 0)
-            _spawnInfo.Add(attack.m_attackAnimation, new(spawnAbility.m_maxSpawned, spawnAbility.m_maxSummonReached, dict));
+          {
+            _spawnInfo.TryAdd((attack.m_attackAnimation, item), new(spawnAbility.m_maxSpawned, spawnAbility.m_maxSummonReached, dict));
+          }
         }
 
         foreach (var zdo in ZDOMan.instance.GetObjects().Select(static x => x.ServersideQoLZDO))
@@ -278,11 +280,12 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
     return result;
   }
 
-  /// <see cref="ZSyncAnimation.SetTrigger(string)"/>
-  void OnZSyncAnimationSetTrigger(ZRoutedRpc.RoutedRPCData data, string name)
+  void OnPlayerItemUsed(PlayerState state, string animationTriggerName)
   {
-    if (!_spawnInfo.TryGetValue(name, out var spawnInfo) || (_lastSummoningPlayer = Instance<PlayerRegistryProcessor>().GetStateForPeerID(data.m_senderPeerID)) is null)
+    if (state.LastUsedItem is null || !_spawnInfo.TryGetValue((animationTriggerName, state.LastUsedItem), out var spawnInfo))
       return;
+
+    _lastSummoningPlayer = state;
 
     if (!(Config.Instance.BloodMagic.AllowReplacementSummonMinSkill.Value <= _lastSummoningPlayer.GetEstimatedSkillLevel(SkillType.BloodMagic)))
       return;
@@ -292,7 +295,7 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
       if (list.Count < spawnInfo.MaxSpawned)
         continue;
 
-      if (list[0].ZDO.GetOwner() == data.m_senderPeerID &&
+      if (list[0].ZDO.GetOwner() == state.Owner &&
           ZNetScene.InActiveArea(list[0].ZDO.GetPosition(), _lastSummoningPlayer.ZDO.ZDO.GetSector()))
       {
         RPC.Damage(list[0], new(float.MaxValue) { m_attacker = _lastSummoningPlayer.ZDO.ZDO.m_uid });
@@ -301,7 +304,7 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
       {
         list[0].Destroy(); // does not show death animation, but is faster and therefore more reliable
       }
-      RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, spawnInfo.MaxSummonReached);
+      RPC.ShowMessage(state.Owner, MessageHud.MessageType.Center, spawnInfo.MaxSummonReached);
     }
   }
 
