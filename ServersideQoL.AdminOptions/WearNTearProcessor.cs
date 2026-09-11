@@ -19,12 +19,12 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
     const PlayerProcessor.BuildModifiers Unset = (PlayerProcessor.BuildModifiers)uint.MaxValue;
     var modifiers = __adminBuildModifiersVar.Get(zdo, Unset);
     var creator = zdo.Vars.GetCreator();
-    if (modifiers is not Unset)
-      return ProcessResult.UnregisterProcessor;
-
-    modifiers = Instance<PlayerProcessor>().GetBuildModifiers(creator);
-    if (modifiers is not PlayerProcessor.BuildModifiers.None)
-      __adminBuildModifiersVar.Set(zdo, modifiers);
+    if (modifiers is Unset)
+    {
+      modifiers = Instance<PlayerProcessor>().GetBuildModifiers(creator);
+      if (modifiers is not PlayerProcessor.BuildModifiers.None)
+        __adminBuildModifiersVar.Set(zdo, modifiers);
+    }
 
     var fields = zdo.Fields<WearNTear>();
     var result = ProcessResult.UnregisterProcessor;

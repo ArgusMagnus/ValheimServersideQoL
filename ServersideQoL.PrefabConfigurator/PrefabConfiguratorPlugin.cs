@@ -7,5 +7,7 @@ partial class PrefabConfiguratorPlugin : ServersideQoLPluginBase<PrefabConfigura
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);
 
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
-    .Add<PrefabProcessor>();
+    .Add<PrefabProcessor>()
+    .Add<FireplaceProcessor>()
+    .Add<BuildPieceProcessor>();
 }

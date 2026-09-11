@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using YamlDotNet.Serialization;
 
@@ -11,8 +12,37 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
     "Enables/disables the entire mod");
-
+  public FireplacesConfig Fireplaces { get; } = new(cfg);
+  public BuildPiecesConfig BuildPieces { get; } = new(cfg);
   public YamlConfigEntry<PrefabsConfig> Prefabs { get; } = BindYaml<PrefabsConfig>(cfg);
+
+  public sealed class FireplacesConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<bool> MakeToggleable { get; } = BindEx(cfg, section, false,
+      "True to make all fireplaces (including torches, braziers, etc.) toggleable");
+    public ConfigEntry<bool> InfiniteFuel { get; } = BindEx(cfg, section, false,
+      "True to make all fireplaces have infinite fuel");
+  }
+
+  public sealed class BuildPiecesConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<bool> DisableRainDamage { get; } = BindEx(cfg, section, false,
+      "True to prevent rain from damaging build pieces");
+
+    public ConfigEntry<DisableSupportRequirementsOptions> DisableSupportRequirements { get; } = BindEx(cfg, section, DisableSupportRequirementsOptions.None,
+      "Ignore support requirements on build pieces", AcceptableEnum<DisableSupportRequirementsOptions>.Default);
+
+    public ConfigEntry<bool> MakeIndestructible { get; } = BindEx(cfg, section, false,
+      "True to make player-built pieces indestructible");
+
+    [Flags]
+    public enum DisableSupportRequirementsOptions
+    {
+      None,
+      PlayerBuilt = 1 << 0,
+      World = 1 << 1
+    }
+  }
 
   public sealed class PrefabsConfig
   {
