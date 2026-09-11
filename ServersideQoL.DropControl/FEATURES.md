@@ -30,7 +30,7 @@ Entries:
 # Give Zil & Thungr a chance to drop a chicken egg with a chance for quality increase based on their level (number of stars)
 - Name: GoblinBruteBros
   DisplayName: Zil & Thungr
-  Enabled: true
+  Enabled: true # required, otherwhise entry will be ignored and use vanilla drops
   Drops:
   - Prefab: GoblinShaman_Hildir
     AmountMin: 1
