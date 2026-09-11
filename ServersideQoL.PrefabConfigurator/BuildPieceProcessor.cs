@@ -11,6 +11,9 @@ public sealed class BuildPieceProcessor : Processor<BuildPieceProcessor.PrefabIn
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
+    if (zdo.IsModCreator())
+      return ProcessResult.UnregisterProcessor;
+
     var result = ProcessResult.UnregisterProcessor;
     var fields = zdo.Fields<WearNTear>();
     var isPlayerBuilt = prefabInfo is { Piece: not null, PieceTable: not null } && zdo.Vars.GetCreator() != default;

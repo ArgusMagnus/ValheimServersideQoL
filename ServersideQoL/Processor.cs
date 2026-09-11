@@ -280,7 +280,7 @@ public abstract class Processor
     }
   }
 
-  internal protected bool ClaimExclusive(ServersideQoLZDO zdo) => PlacedObjects.Contains(zdo);
+  internal protected virtual bool ClaimExclusive(ServersideQoLZDO zdo) => PlacedObjects.Contains(zdo);
 
   //protected bool CheckMinDistance(IReadOnlyList<Peer> peers, ZDO zdo)
   //    => CheckMinDistance(peers, zdo, Config.Instance.MinPlayerDistance.Value);
@@ -316,10 +316,19 @@ public abstract class Processor
 
   void OnPlacedObjectDestroyed(ServersideQoLZDO zdo) => PlacedObjects.Remove(zdo);
 
-  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
-      => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker, owner);
+  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, float rot)
+    => PlaceObject(pos, prefab, rot, marker: CreatorMarkers.None);
+  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker)
+    => PlaceObject(pos, prefab, rot, marker, owner: 0);
+  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, float rot, CreatorMarkers marker, long owner)
+    => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker, owner);
 
-  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None, long owner = 0)
+  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot)
+    => PlaceObject(pos, prefab, rot);
+  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker)
+    => PlaceObject(pos, prefab, rot, marker, owner: 0);
+
+  protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker, long owner)
   {
     var zdo = ZDOMan.instance.CreateNewZDO(pos, prefab).ServersideQoLZDO;
     zdo.ZDO.SetPrefab(prefab);
@@ -337,15 +346,23 @@ public abstract class Processor
     zdo.PrefabInfo = ServersideQoLPlugin.Instance.GetPrefabInfo(prefab);
     PlacedObjects.Add(zdo);
     zdo.Destroyed += OnPlacedObjectDestroyed;
+
+    if (ClaimExclusive(zdo) && !zdo.Processors.Contains(this))
+      zdo.UnregisterAll();
     return zdo;
   }
 
-  protected ServersideQoLZDO PlacePiece(Vector3 pos, int prefab, float rot, CreatorMarkers marker = CreatorMarkers.None)
-      => PlacePiece(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
+  protected ServersideQoLZDO PlacePiece(Vector3 pos, int prefab, float rot)
+    => PlacePiece(pos, prefab, rot, CreatorMarkers.None);
+  protected ServersideQoLZDO PlacePiece(Vector3 pos, int prefab, float rot, CreatorMarkers marker)
+    => PlacePiece(pos, prefab, Quaternion.Euler(0, rot, 0), marker);
 
-  protected ServersideQoLZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker = CreatorMarkers.None)
+  protected ServersideQoLZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot)
+    => PlacePiece(pos, prefab, rot, CreatorMarkers.None);
+
+  protected ServersideQoLZDO PlacePiece(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker)
   {
-    var zdo = PlaceObject(pos, prefab, rot, marker);
+    var zdo = PlaceObject(pos, prefab, rot, marker, 0);
     zdo.Fields<Piece>().Set(static () => x => x.m_canBeRemoved, false);
     zdo.Fields<WearNTear>()
         .Set(static () => x => x.m_noRoofWear, false)
@@ -624,7 +641,6 @@ public abstract class Processor
 public abstract class Processor<TPrefabInfo> : Processor
     where TPrefabInfo : notnull, ProcessorPrefabInfo
 {
-
   readonly ConstructorInfo? _prefabInfoCtor;
   readonly ParameterInfo[]? _prefabInfoCtorParameters;
   readonly bool?[]? _prefabInfoCtorParametersNullable;
@@ -647,7 +663,7 @@ public abstract class Processor<TPrefabInfo> : Processor
     var ext = prefabInfo.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>();
     if (ext.PrefabInfo is null)
     {
-      ext.PrefabInfo = GetProcessorPrefabInfo(prefabInfo);
+      ext.PrefabInfo = CreateProcessorPrefabInfo(prefabInfo);
       ext.PrefabInfo?.PrefabInfo = prefabInfo;
     }
     return ext.PrefabInfo is { IsValid: true };
@@ -660,7 +676,7 @@ public abstract class Processor<TPrefabInfo> : Processor
   public static void AssertHasProcessorPrefabInfo(ServersideQoLZDO zdo)
     => zdo.AssertHasProcessorPrefabInfo<TPrefabInfo>();
 
-  TPrefabInfo? GetProcessorPrefabInfo(PrefabInfo prefabInfo)
+  TPrefabInfo? CreateProcessorPrefabInfo(PrefabInfo prefabInfo)
   {
     if (_prefabInfoCtor is null || _prefabInfoCtorParameters is null || _prefabInfoCtorParametersNullable is null)
       throw new InvalidOperationException();

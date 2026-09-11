@@ -11,19 +11,15 @@ public sealed class WearNTearProcessor : Processor<WearNTearProcessor.PrefabInfo
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
-    if (Config.Instance.ToggleDisableRainDamageEmote.Value is ConfigBase.DisabledEmote &&
-        Config.Instance.ToggleDisableSupportRequirements.Value is ConfigBase.DisabledEmote &&
-        Config.Instance.ToggleMakeIndestructible.Value is ConfigBase.DisabledEmote)
-      return ProcessResult.UnregisterProcessor;
-
     const PlayerProcessor.BuildModifiers Unset = (PlayerProcessor.BuildModifiers)uint.MaxValue;
     var modifiers = __adminBuildModifiersVar.Get(zdo, Unset);
-    var creator = zdo.Vars.GetCreator();
     if (modifiers is Unset)
     {
+      var creator = zdo.Vars.GetCreator();
       modifiers = Instance<PlayerProcessor>().GetBuildModifiers(creator);
-      if (modifiers is not PlayerProcessor.BuildModifiers.None)
-        __adminBuildModifiersVar.Set(zdo, modifiers);
+      if (modifiers is PlayerProcessor.BuildModifiers.None)
+        return ProcessResult.UnregisterProcessor;
+      __adminBuildModifiersVar.Set(zdo, modifiers);
     }
 
     var fields = zdo.Fields<WearNTear>();

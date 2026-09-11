@@ -28,7 +28,7 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
       Initialize(zdo, prefabInfo);
     }
 
-    if (prefabInfo.Skip)
+    if (prefabInfo.Skip || zdo.IsModCreator())
       return ProcessResult.UnregisterProcessor;
 
     zdo.SetComponentHasFields();

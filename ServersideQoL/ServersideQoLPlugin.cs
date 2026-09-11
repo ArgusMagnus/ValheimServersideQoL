@@ -566,7 +566,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     if (!zdo.ExclusivityCheckDone)
     {
       zdo.ExclusivityCheckDone = true;
-      var allProcessors = zdo.Processors!;
+      var allProcessors = zdo.Processors;
       if (allProcessors.Count > 1)
       {
         Processor? claimedExclusiveBy = null;
@@ -577,7 +577,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           if (claimedExclusiveBy is null)
             claimedExclusiveBy = processor;
           else if (Config.DiagnosticLogs.Value)
-            Logger.LogError(Invariant($"ZDO {zdo.ZDO.m_uid} claimed exclusive by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
+            Logger.LogError(Invariant($"ZDO {zdo.PrefabInfo?.PrefabName} claimed exclusively by {processor.GetType().Name} while already claimed by {claimedExclusiveBy.GetType().Name}"));
         }
 
         if (claimedExclusiveBy is not null)
@@ -605,7 +605,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       if (unregister)
       {
         var reregisterOnRecreate = (result & Processor.ProcessResult.ReregisterOnRecreated) is not 0;
-        if (!recreate && !reregisterOnRecreate)
+        if (!(recreate && reregisterOnRecreate))
           _unregister.Add(processor);
         else if (reregisterOnRecreate)
           _reregisterOnRecreate.Add(processor);

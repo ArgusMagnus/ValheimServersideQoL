@@ -1,3 +1,6 @@
+### v2.0.7
+- Fixed bug in the core processing logic that caused a lot of issues in ServersideQoL mods
+
 ### v2.0.6
 - Update for valheim 1.0.12
 

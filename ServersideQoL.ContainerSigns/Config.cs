@@ -27,10 +27,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public bool AutoPickup => Shared.AutoPickup?.Value ?? false;
   public ConfigEntry<int> AutoPickupMaxRange { get; } = Shared.AutoPickupMaxRange = BindEx(cfg, Section, (int)ZoneSystem.c_ZoneSize,
-    $"Max auto pickup range players can set per chest (by putting '{SignProcessor.MagnetEmoji}<Range>' on a chest sign).");
+    $"Max auto pickup range players can set per chest (by putting '{ContainerAndSignProcessor.MagnetEmoji}<Range>' on a chest sign).");
   public bool FeedFromContainers => Shared.FeedFromContainers?.Value ?? false;
   public ConfigEntry<int> FeedFromContainersMaxRange { get; } = Shared.FeedFromContainersMaxRange = BindEx(cfg, Section, (int)ZoneSystem.c_ZoneSize,
-      $"Max feeding range players can set per chest (by putting '{SignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign)");
+    $"Max feeding range players can set per chest (by putting '{ContainerAndSignProcessor.LeftRightArrowEmoji}<Range>' on a chest sign)");
 
   public ConfigEntry<SignOptions> WoodChestSigns { get; } = BindEx(cfg, Section, SignOptions.None,
     "Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default);
