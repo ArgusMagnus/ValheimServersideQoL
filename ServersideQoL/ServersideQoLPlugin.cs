@@ -62,7 +62,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     if (_patcherSucceeded)
       HarmonyInstance.PatchAll(typeof(ServersideQoLPlugin).Assembly);
     else
-      Logger.LogError($"{Path.GetFileName(typeof(Patchers.PatchersPlugin).Assembly.Location)} was not installed correctly. Put it in {Paths.PatcherPluginPath}");
+      Logger.LogError($"{Patchers.PatchersPlugin.PluginName}.dll was not installed correctly. Put it in {Paths.PatcherPluginPath}");
 
     [MethodImpl(MethodImplOptions.NoInlining)]
     static void AssertPatcher()
