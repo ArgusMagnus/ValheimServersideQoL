@@ -1,7 +1,10 @@
 Configure every vanilla compatible field in the game.
 
-On startup, a template configuration file with all the available component-prefab combinations and their fields with default values
-will be generated.
+The main config has toggles for various presets (like enabling infinite fuel for fireplaces/lightsources or making build pieces indestructible/ignore rain damage).
+For anything else you'll need to copy and edit `$(ValheimInstallDir)/BepInEx/config/ArgusMagnus.{PluginName}/Prefabs.default.yml` (see example below). This file is generated on startup
+and contains all the available component-prefab combinations and their fields with default values. If the yml-file contains entries that conflict with a preset
+set in the main config, the yml-file will win.
+
 <details>
   <summary><b>Examples:</b></summary>
 
@@ -29,44 +32,10 @@ Entries:
   Fields:
     m_fermentationDuration: /2
 
-# Give all fireplaces infinite fuel
-- Component: Fireplace
-  Fields:
-    # m_infiniteFuel: true disables toggling, this way toggling still works
-    m_secPerFuel: 0
-    m_canRefill: false
-    # m_canTurnOff: true # Make all toggleable
-    
-# Disable space requirements and halve grow time for all plants
-- Component: Plant
-  Fields:
-    m_growRadius: 0
-    m_destroyIfCantGrow: false
-    m_growTime: /2
-    m_growTimeMax: /2
-
-# Allow all ships/carts to be deconstructed with the build hammer
-- Component: Piece
-  PrefabNames:
-  - Raft
-  - Karve
-  - VikingShip
-  - VikingShip_Ashlands
-  - Cart
-  - BatteringRam
-  - Catapult
-  Fields:
-    m_canBeRemoved: true
-
 # Ignore wind intensity for windmills (run full power even if there is no wind)
 - Component: Windmill
   Fields:
     m_minWindSpeed: -3.4028235E+38 # float.MinValue
-    
-# Ignore item weight in carts
-- Component: Vagon
-  Fields:
-    m_itemWeightMassFactor: 0
 
 # Disable unsummoning of skeletts
 - Component: Tameable

@@ -10,5 +10,7 @@ partial class PrefabConfiguratorPlugin : ServersideQoLPluginBase<PrefabConfigura
     .Add<PrefabProcessor>()
     .Add<FireplaceProcessor>()
     .Add<BuildPieceProcessor>()
-    .Add<PlantProcessor>();
+    .Add<PlantProcessor>()
+    .Add<CartProcessor>()
+    .Add<ShipProcessor>();
 }

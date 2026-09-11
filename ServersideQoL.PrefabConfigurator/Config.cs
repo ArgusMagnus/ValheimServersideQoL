@@ -15,6 +15,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public FireplacesConfig Fireplaces { get; } = new(cfg);
   public BuildPiecesConfig BuildPieces { get; } = new(cfg);
   public PlantsConfig Plants { get; } = new(cfg);
+  public CartsConfig Carts { get; } = new(cfg);
+  public ShipsConfig Ships { get; } = new(cfg);
   public YamlConfigEntry<PrefabsConfig> Prefabs { get; } = BindYaml<PrefabsConfig>(cfg);
 
   public sealed class FireplacesConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
@@ -53,6 +55,22 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       "Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
     public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = BindEx(cfg, section, false,
       "True to keep plants that can't grow alive");
+  }
+
+  public sealed class CartsConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<float> ContentMassMultiplier { get; } = BindEx(cfg, section, 1f,
+        "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight",
+        new AcceptableValueRange<float>(0, float.PositiveInfinity));
+
+    public ConfigEntry<bool> DeconstructWithHammer { get; } = BindEx(cfg, section, false,
+        "If enabled, carts can be deconstructed with the build hammer");
+  }
+
+  public sealed class ShipsConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<bool> DeconstructWithHammer { get; } = BindEx(cfg, section, false,
+        "If enabled, ships can be deconstructed with the build hammer");
   }
 
   public sealed class PrefabsConfig

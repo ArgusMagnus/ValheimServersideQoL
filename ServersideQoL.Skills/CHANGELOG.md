@@ -1,4 +1,4 @@
-### v2.0.6-beta.1
+### v2.0.6
 - Fix throws duplicate staff_summon error on Valheim 1.0.7 [#194](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/194)
 
 ### v2.0.1
