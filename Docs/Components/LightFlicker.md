@@ -2762,7 +2762,31 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_fadeInDuration|System.Single|0|
 |m_accessibilityBrightnessMultiplier|System.Single|1|
 
+## shaman_attack_aoe_frozen: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|1.5|
+|m_fadeDuration|System.Single|0.5|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
 ## shaman_heal_aoe: Point light
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_flickerIntensity|System.Single|0.1|
+|m_flickerSpeed|System.Single|10|
+|m_movement|System.Single|0.1|
+|m_ttl|System.Single|2.5|
+|m_fadeDuration|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_accessibilityBrightnessMultiplier|System.Single|1|
+
+## shaman_heal_aoe_frozen: Point light
 
 |Field|Type|Default Value|
 |-----|----|-------------|

@@ -17,6 +17,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_addItemTooltip|System.String|$piece_cstand_cook|
 |m_noCookableItemsMessage|System.String|$msg_nocookitems|
 |m_fullyCookedTooltip|System.String||
+|m_spawnFullDurability|System.Boolean|True|
 |m_requireFire|System.Boolean|True|
 |m_fireCheckRadius|System.Single|0.25|
 |m_useFuel|System.Boolean|False|
@@ -43,6 +44,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_addItemTooltip|System.String|$piece_cstand_cook|
 |m_noCookableItemsMessage|System.String|$msg_nocookitems|
 |m_fullyCookedTooltip|System.String||
+|m_spawnFullDurability|System.Boolean|True|
 |m_requireFire|System.Boolean|True|
 |m_fireCheckRadius|System.Single|0.25|
 |m_useFuel|System.Boolean|False|
@@ -69,6 +71,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_addItemTooltip|System.String|$piece_frostfoundry_additem|
 |m_noCookableItemsMessage|System.String|$msg_noprocessableitems|
 |m_fullyCookedTooltip|System.String|$piece_frostfoundry_takeitem|
+|m_spawnFullDurability|System.Boolean|True|
 |m_requireFire|System.Boolean|False|
 |m_fireCheckRadius|System.Single|0.25|
 |m_useFuel|System.Boolean|True|
@@ -95,6 +98,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_addItemTooltip|System.String|$piece_oven_additem|
 |m_noCookableItemsMessage|System.String|$msg_nocookitems|
 |m_fullyCookedTooltip|System.String||
+|m_spawnFullDurability|System.Boolean|True|
 |m_requireFire|System.Boolean|False|
 |m_fireCheckRadius|System.Single|0.25|
 |m_useFuel|System.Boolean|True|

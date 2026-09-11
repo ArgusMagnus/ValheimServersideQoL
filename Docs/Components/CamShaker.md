@@ -789,7 +789,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_strength|System.Single|1|
 |m_range|System.Single|50|
-|m_delay|System.Single|0|
+|m_delay|System.Single|0.2|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|
@@ -800,7 +800,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |-----|----|-------------|
 |m_strength|System.Single|1|
 |m_range|System.Single|50|
-|m_delay|System.Single|0.2|
+|m_delay|System.Single|0|
 |m_continous|System.Boolean|False|
 |m_continousDuration|System.Single|0|
 |m_localOnly|System.Boolean|False|

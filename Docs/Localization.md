@@ -116,8 +116,10 @@
 |achievement_details|Achievement details|
 |achievements_cheated_item_inventory|This item was summoned through cheating means.|
 |achievements_confirm_cheat|That command is a cheat, please enter 'confirmcheats' in the console to use cheats. <color=red>Using cheats will permanently disable the ability to unlock achievements for this character and this world.</color>|
-|achievements_permanently_cheated_character|Achievement progress is permanently disabled for this character due to having cheated.|
-|achievements_permanently_cheated_world|Achievement progress is permanently disabled for this world due to using cheated world modifiers.|
+|achievements_dropped_cheated_item|No more cheated items in inventory. Achievement progress is re-enabled.|
+|achievements_permanently_cheated_bypass|Achievement progress is enabled for this character even though dev commands have been used.|
+|achievements_permanently_cheated_character|Achievement progress is permanently disabled for this character due to dev command usage.|
+|achievements_permanently_cheated_world|Achievement progress is permanently disabled for this world due to using dev command world modifiers.|
 |achievements_picked_up_cheated_item|Picked up cheated item. Achievement progress is temporarily disabled.|
 |achievements_temporarily_cheated|Achievement progress is temporarily disabled for this character due to possession of cheated items.|
 |alternate_key_label|Alternate function: +|
@@ -1777,8 +1779,8 @@
 |item_entrails_description|A slimy length of something's insides.|
 |item_eyescream|Eyescream|
 |item_eyescream_description|Crispy cool and creamy.|
-|item_fader_drop|Fader Relic|
-|item_fader_drop_description|The mystical power will be revealed another day.|
+|item_fader_drop|Kindled Ribs|
+|item_fader_drop_description|The smouldering remains of a patriarch.|
 |item_faderember|Embers|
 |item_faderember_description|Every flying ember is a burning wish to repent.|
 |item_falldamage|Fall damage|

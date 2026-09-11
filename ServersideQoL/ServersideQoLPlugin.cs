@@ -297,36 +297,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       config.ConfigChanged += OnConfigChanged;
     }
 
-    //if (_mainConfig is not null)
-    //    _mainConfig.ConfigFile.SettingChanged -= OnConfigChanged;
-    //if (_worldConfig is not null)
-    //    _worldConfig.ConfigFile.SettingChanged -= OnConfigChanged;
-    //_worldConfig = null;
-
-    //if (Config.General.ConfigPerWorld.Value)
-    //{
-    //    var path = ZNet.World.GetRootPath(FileHelpers.FileSource.Local);
-    //    path = $"{path}.{PluginName}.cfg";
-    //    if (!File.Exists(path) && File.Exists(base.Config.ConfigFilePath))
-    //        File.Copy(base.Config.ConfigFilePath, path);
-
-    //    var srcDir = Path.Combine(Path.GetDirectoryName(base.Config.ConfigFilePath), Path.GetFileNameWithoutExtension(base.Config.ConfigFilePath));
-    //    if (Directory.Exists(srcDir))
-    //    {
-    //        var dstDir = Path.Combine(Path.GetDirectoryName(path), Path.GetFileNameWithoutExtension(path));
-    //        Directory.CreateDirectory(dstDir);
-    //        foreach (var file in Directory.EnumerateFiles(srcDir))
-    //        {
-    //            var dstFile = Path.Combine(dstDir, Path.GetFileName(file));
-    //            if (!File.Exists(dstFile))
-    //                File.Copy(file, dstFile);
-    //        }
-    //    }
-
-    //    Logger.LogInfo("Using world config file");
-    //    _worldConfig = new(new(path, saveOnInit: false, new(PluginGuid, PluginName, PluginVersion)));
-    //}
-
     var cfg = Config;
     Logger.LogInfo(Invariant($"Enabled: {cfg.Enabled.Value}, DiagnosticLogs: {cfg.DiagnosticLogs.Value}"));
 
@@ -345,12 +315,12 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
           .Select(static x => Invariant($"{(!x.Value.BoxedValue.Equals(x.Value.DefaultValue) ? "*" : "")}[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}")))]));
     }
 
-    var failed = false;
-    var abort = false;
+    //var failed = false;
+    //var abort = false;
 
-    var networkVersion = (uint)typeof(Version).GetField(nameof(Version.c_networkVersion)).GetRawConstantValue();
-    var itemDataVersion = (Version.Item)typeof(Version).GetField(nameof(Version.c_ItemDataVersion)).GetRawConstantValue();
-    var worldVersion = (Version.World)typeof(Version).GetField(nameof(Version.c_WorldVersion)).GetRawConstantValue();
+    //var networkVersion = (uint)typeof(Version).GetField(nameof(Version.c_networkVersion)).GetRawConstantValue();
+    //var itemDataVersion = (Version.Item)typeof(Version).GetField(nameof(Version.c_ItemDataVersion)).GetRawConstantValue();
+    //var worldVersion = (Version.World)typeof(Version).GetField(nameof(Version.c_WorldVersion)).GetRawConstantValue();
 
     //if (gameVersion != ExpectedGameVersion)
     //{
@@ -358,35 +328,35 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     //    failed = true;
     //    abort |= !Config.Instance.IgnoreGameVersionCheck.Value;
     //}
-    if (networkVersion != Version.c_networkVersion)
-    {
-      Logger.LogWarning(Invariant($"Unsupported network version: {networkVersion}, expected: {Version.c_networkVersion}"));
-      failed = true;
-      abort |= !Config.Instance.IgnoreNetworkVersionCheck.Value;
-    }
-    if (itemDataVersion != Version.c_ItemDataVersion)
-    {
-      Logger.LogWarning(Invariant($"Unsupported item data version: {itemDataVersion:D} [{itemDataVersion}], expected: {Version.c_ItemDataVersion:D} [{Version.c_ItemDataVersion}]"));
-      failed = true;
-      abort |= !Config.Instance.IgnoreItemDataVersionCheck.Value;
-    }
-    if (worldVersion != Version.c_WorldVersion)
-    {
-      Logger.LogWarning(Invariant($"Unsupported world version: {worldVersion:D} [{worldVersion}], expected: {Version.c_WorldVersion:D} [{Version.c_WorldVersion}]"));
-      failed = true;
-      abort |= !Config.Instance.IgnoreWorldVersionCheck.Value;
-    }
+    //if (networkVersion != Version.c_networkVersion)
+    //{
+    //  Logger.LogWarning(Invariant($"Unsupported network version: {networkVersion}, expected: {Version.c_networkVersion}"));
+    //  failed = true;
+    //  abort |= !Config.Instance.IgnoreNetworkVersionCheck.Value;
+    //}
+    //if (itemDataVersion != Version.c_ItemDataVersion)
+    //{
+    //  Logger.LogWarning(Invariant($"Unsupported item data version: {itemDataVersion:D} [{itemDataVersion}], expected: {Version.c_ItemDataVersion:D} [{Version.c_ItemDataVersion}]"));
+    //  failed = true;
+    //  abort |= !Config.Instance.IgnoreItemDataVersionCheck.Value;
+    //}
+    //if (worldVersion != Version.c_WorldVersion)
+    //{
+    //  Logger.LogWarning(Invariant($"Unsupported world version: {worldVersion:D} [{worldVersion}], expected: {Version.c_WorldVersion:D} [{Version.c_WorldVersion}]"));
+    //  failed = true;
+    //  abort |= !Config.Instance.IgnoreWorldVersionCheck.Value;
+    //}
 
-    if (failed)
-    {
-      if (!abort)
-        Logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
-      else
-      {
-        Logger.LogError("Version checks failed. Mod execution is stopped");
-        return false;
-      }
-    }
+    //if (failed)
+    //{
+    //  if (!abort)
+    //    Logger.LogError("Version checks failed, but you chose to ignore the checks (config). Continuing...");
+    //  else
+    //  {
+    //    Logger.LogError("Version checks failed. Mod execution is stopped. This check can be disabled in the config.");
+    //    return false;
+    //  }
+    //}
 
     foreach (var zdo in _sectors.Values.SelectMany(static x => x.Changed))
     {

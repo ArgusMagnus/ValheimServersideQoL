@@ -50,9 +50,9 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public sealed class PlantsConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
   {
     public ConfigEntry<float> GrowTimeMultiplier { get; } = BindEx(cfg, section, 1f,
-      "Multiply plant grow time by this factor. 0 to make them grow almost instantly.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+      "Multiply plant grow time by this factor. 0 to make them grow almost instantly.");
     public ConfigEntry<float> SpaceRequirementMultiplier { get; } = BindEx(cfg, section, 1f,
-      "Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+      "Multiply plant space requirement by this factor. 0 to disable space requirements.");
     public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = BindEx(cfg, section, false,
       "True to keep plants that can't grow alive");
   }
@@ -60,8 +60,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public sealed class CartsConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
   {
     public ConfigEntry<float> ContentMassMultiplier { get; } = BindEx(cfg, section, 1f,
-        "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight",
-        new AcceptableValueRange<float>(0, float.PositiveInfinity));
+        "Multiplier for a carts content weight. E.g. set to 0 to ignore a cart's content weight");
 
     public ConfigEntry<bool> DeconstructWithHammer { get; } = BindEx(cfg, section, false,
         "If enabled, carts can be deconstructed with the build hammer");

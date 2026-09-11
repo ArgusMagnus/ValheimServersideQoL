@@ -5697,6 +5697,23 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_hitEffectBigThreshold|System.Single|0|
 |m_hitEffectBuildUpThreshold|System.Single|0|
 
+## SnowRoller: SnowRoller
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_health|System.Single|150|
+|m_minDamageTreshold|System.Single|0|
+|m_minToolTier|System.Int32|0|
+|m_hitNoise|System.Single|0|
+|m_destroyNoise|System.Single|0|
+|m_triggerPrivateArea|System.Boolean|False|
+|m_ttl|System.Single|0|
+|m_spawnWhenDamaged|UnityEngine.GameObject|*null*|
+|m_spawnWhenDestroyed|UnityEngine.GameObject|snow_increase_roller|
+|m_autoCreateFragments|System.Boolean|False|
+|m_hitEffectBigThreshold|System.Single|0|
+|m_hitEffectBuildUpThreshold|System.Single|0|
+
 ## Spawner_CharredCross: Spawner_CharredCross
 
 |Field|Type|Default Value|

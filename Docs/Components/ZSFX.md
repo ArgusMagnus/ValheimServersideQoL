@@ -274,6 +274,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-898097404|
 
+## BlackIce_Start: sfx_malicious_ice_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1706967519|
+
+## bombdynamite_projectile: sfx_bombdynamite_fuse
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1003017188|
+
 ## Cart: Audio Source
 
 |Field|Type|Default Value|
@@ -374,7 +442,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## CastleKit_groundtorch: sfx_fire_loop
 
@@ -408,7 +476,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## CastleKit_groundtorch_blue: sfx_fire_loop
 
@@ -442,7 +510,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## CastleKit_groundtorch_green: sfx_fire_loop
 
@@ -476,7 +544,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## CastleKit_metal_groundtorch_unlit: sfx_fire_loop
 
@@ -510,7 +578,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## Catapult: Audio Source
 
@@ -952,7 +1020,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## dverger_demister_ruins: SFX
 
@@ -1020,7 +1088,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## DvergerStaffFire_fire_aoe: sfx_fire_loop
 
@@ -1054,7 +1122,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## DvergerStaffIce_projectile: sfx
 
@@ -1098,8 +1166,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_barka|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -1122,7 +1190,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|632690325|
+|m_hash|System.Int32|-1196384333|
 
 ## Enemy_Barka_Attack_HeavyImpact: Enemy_Barka_Attack_HeavyImpact
 
@@ -1132,12 +1200,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_barka|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|0.85|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.45|
+|m_maxVol|System.Single|0.4|
+|m_minVol|System.Single|0.25|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -1156,7 +1224,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-513576444|
+|m_hash|System.Int32|1801471513|
 
 ## Enemy_Barka_Attack_HeavySwings: Enemy_Barka_Attack_HeavySwings
 
@@ -1166,8 +1234,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_barka|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -1190,7 +1258,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1200767284|
+|m_hash|System.Int32|-918638298|
 
 ## Enemy_Barka_Attack_SlamDrive: Enemy_Barka_Attack_SlamDrive
 
@@ -1200,8 +1268,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_barka|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -1224,7 +1292,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1012356391|
+|m_hash|System.Int32|1305584596|
 
 ## Enemy_Barka_Attack_WhipFlurry: Enemy_Barka_Attack_WhipFlurry
 
@@ -1234,8 +1302,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_barka|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -1258,7 +1326,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1956325121|
+|m_hash|System.Int32|-107693980|
 
 ## Enemy_Barka_Attack_WhipSlam: Enemy_Barka_Attack_WhipSlam
 
@@ -1268,8 +1336,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_barka|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -1292,7 +1360,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-949653602|
+|m_hash|System.Int32|-49569431|
 
 ## Enemy_Barka_Death: Enemy_Barka_Death
 
@@ -1302,7 +1370,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_barka|
 |m_secondaryCaptionToken|System.String|$caption_dying|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
+|m_maxConcurrentSources|System.Int32|2|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|0.97|
 |m_minPitch|System.Single|0.9|
@@ -1326,22 +1394,22 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1332975478|
+|m_hash|System.Int32|369842540|
 
-## Enemy_Barka_Footstep: Enemy_Barka_Footstep
+## Enemy_Barka_Death_Debris: Enemy_Barka_Death_Debris
 
 |Field|Type|Default Value|
 |-----|----|-------------|
 |m_playOnAwake|System.Boolean|True|
 |m_closedCaptionToken|System.String|$enemy_barka|
-|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_secondaryCaptionToken|System.String|$caption_dying|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
+|m_maxConcurrentSources|System.Int32|2|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
+|m_maxPitch|System.Single|0.97|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.35|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -1360,7 +1428,41 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1477311798|
+|m_hash|System.Int32|-629050385|
+
+## Enemy_Barka_Footstep: Enemy_Barka_Footstep
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.5|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-49953229|
 
 ## Enemy_Barka_Hurt: Enemy_Barka_Hurt
 
@@ -1404,10 +1506,10 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_barka|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
+|m_maxConcurrentSources|System.Int32|3|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
 |m_maxVol|System.Single|0.75|
 |m_minVol|System.Single|0.65|
 |m_fadeInDuration|System.Single|0|
@@ -1428,7 +1530,41 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-936290964|
+|m_hash|System.Int32|2012237502|
+
+## Enemy_Barka_Verse_Death: Enemy_Barka_Verse_Death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_barka|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|0.97|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.7|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|730637224|
 
 ## EvilHeart_Forest: sfx
 
@@ -1632,7 +1768,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-73716780|
+|m_hash|System.Int32|-646712673|
 
 ## fermenter: SFX
 
@@ -1666,7 +1802,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-646712673|
+|m_hash|System.Int32|-73716780|
 
 ## Fire: sfx_fire_loop
 
@@ -1700,7 +1836,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## FrostWisp: SFX_MagicLoop
 
@@ -5476,40 +5612,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-2008102564|
 
-## fx_fireskeleton_nova: sfx_1
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|1.5|
-|m_minDelay|System.Single|1.5|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_useVibration|System.Boolean|False|
-|m_vibrateAllAudible|System.Boolean|False|
-|m_vibrationModifier|System.Single|1|
-|m_playThroughController|System.Boolean|False|
-|m_playThroughAllControllers|System.Boolean|False|
-|m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|718593356|
-
 ## fx_float_hitwater: sfx_footstep_water
 
 |Field|Type|Default Value|
@@ -5814,7 +5916,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-320170353|
+|m_hash|System.Int32|-1440913601|
 
 ## fx_gdking_rootspawn: SFX
 
@@ -8149,8 +8251,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
+|m_maxDelay|System.Single|0.15|
+|m_minDelay|System.Single|0.15|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
@@ -8160,7 +8262,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1438827396|
+|m_hash|System.Int32|-1731706305|
 
 ## fx_QueenPierceGround: SFX (1)
 
@@ -8183,8 +8285,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_randomPan|System.Boolean|False|
 |m_minPan|System.Single|-1|
 |m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0.15|
-|m_minDelay|System.Single|0.15|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
@@ -8194,7 +8296,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1731706305|
+|m_hash|System.Int32|-1438827396|
 
 ## fx_QueenPierceGround: SFX (2)
 
@@ -9418,7 +9520,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1287000645|
+|m_hash|System.Int32|-1238547809|
 
 ## fx_tentaroot_death: SFX
 
@@ -9964,7 +10066,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|675580105|
 
-## fx_UpgradeStation_Fail: sfx_shockwave
+## fx_UpgradeStation_Fail: sfx_forgeofpotential_fail
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -9972,12 +10074,46 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.65|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-193616980|
+
+## fx_UpgradeStation_Success: sfx_forgeofpotential_success
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.55|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -9996,41 +10132,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-307133978|
-
-## fx_UpgradeStation_Fail: sfx_shockwave (1)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_useVibration|System.Boolean|False|
-|m_vibrateAllAudible|System.Boolean|False|
-|m_vibrationModifier|System.Single|1|
-|m_playThroughController|System.Boolean|False|
-|m_playThroughAllControllers|System.Boolean|False|
-|m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1871595387|
+|m_hash|System.Int32|-193616980|
 
 ## fx_UpgradeStation_Success: sfx_shockwave
 
@@ -10044,8 +10146,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.75|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -10058,47 +10160,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_useVibration|System.Boolean|False|
-|m_vibrateAllAudible|System.Boolean|False|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|True|
 |m_vibrationModifier|System.Single|1|
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-307133978|
-
-## fx_UpgradeStation_Success: sfx_shockwave (1)
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|1|
-|m_maxVol|System.Single|1|
-|m_minVol|System.Single|1|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_useVibration|System.Boolean|False|
-|m_vibrateAllAudible|System.Boolean|False|
-|m_vibrationModifier|System.Single|1|
-|m_playThroughController|System.Boolean|False|
-|m_playThroughAllControllers|System.Boolean|False|
-|m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1871595387|
 
 ## fx_vines_hit: sfx
 
@@ -10234,7 +10302,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## HouseFire: sfx_fire_loop
 
@@ -10268,7 +10336,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## lightningAOE: sfx_shockwave
 
@@ -10372,7 +10440,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1401817141|
 
-## Morkhalla_giant_railing_torch: sfx_fire_loop
+## Morkhalla_giant_railing_torch: sfx_morkhalla_torch_loop
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -10380,14 +10448,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|6|
+|m_maxConcurrentSources|System.Int32|3|
 |m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.1|
 |m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.6|
-|m_minVol|System.Single|0.4|
-|m_fadeInDuration|System.Single|0.1|
-|m_fadeOutDuration|System.Single|0.1|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.3|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
 |m_fadeOutDelay|System.Single|0|
 |m_fadeOutOnAwake|System.Boolean|False|
 |m_randomPan|System.Boolean|False|
@@ -10404,7 +10472,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1717874308|
 
 ## MountainKit_brazier: sfx_fire_loop
 
@@ -10438,7 +10506,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## MountainKit_brazier_blue: sfx_fire_loop
 
@@ -10472,7 +10540,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## MountainKit_brazier_purple: sfx_fire_loop
 
@@ -10506,7 +10574,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## Pickable_FrostCoreHanger: sfx_frostcore_idle_loop
 
@@ -10846,7 +10914,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## piece_groundtorch_blue: sfx_fire_loop
 
@@ -10880,7 +10948,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## piece_groundtorch_mist: SFX
 
@@ -10948,7 +11016,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## piece_magetable: SFX
 
@@ -11706,7 +11774,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$sfx_seal_pup|
 |m_secondaryCaptionToken|System.String|$caption_idle|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
+|m_maxConcurrentSources|System.Int32|3|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
@@ -11730,7 +11798,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-848093829|
+|m_hash|System.Int32|232791856|
 
 ## sfx_barley_hit: sfx_barley_hit
 
@@ -13261,6 +13329,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|831736313|
+
+## sfx_bombdynamite_drop: sfx_bombdynamite_drop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2121412277|
+
+## sfx_bombdynamite_explosion: sfx_bombdynamite_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-830209366|
 
 ## sfx_bomblava_crumble: sfx_bomblava_crumble
 
@@ -18294,7 +18430,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1970345531|
 
-## sfx_elaking_hit_old: sfx_footstep_snow_walk
+## sfx_elaking_hit_old: sfx_wood_break_snow
 
 |Field|Type|Default Value|
 |-----|----|-------------|
@@ -18302,12 +18438,12 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String||
 |m_secondaryCaptionToken|System.String||
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
+|m_maxConcurrentSources|System.Int32|2|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.5|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.95|
+|m_minVol|System.Single|0.75|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -18320,13 +18456,13 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
 |m_customReverbDistance|System.Single|10|
-|m_useVibration|System.Boolean|False|
+|m_useVibration|System.Boolean|True|
 |m_vibrateAllAudible|System.Boolean|False|
 |m_vibrationModifier|System.Single|1|
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1488623239|
+|m_hash|System.Int32|724936679|
 
 ## sfx_elaking_idle: sfx_elaking_idle
 
@@ -21420,7 +21556,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1587690654|
+|m_hash|System.Int32|-1298939109|
 
 ## sfx_frozenking_frozenspark_whip: sfx_frozenking_frozenspark_whip
 
@@ -21606,6 +21742,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.55|
 |m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|50|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|787421721|
+
+## sfx_frozenking_idle_chained: sfx_frozenking_idle_chained
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.45|
+|m_minVol|System.Single|0.35|
 |m_fadeInDuration|System.Single|0|
 |m_fadeOutDuration|System.Single|0|
 |m_fadeOutDelay|System.Single|0|
@@ -22066,7 +22236,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-2144425492|
+|m_hash|System.Int32|1532236271|
 
 ## sfx_frozenking_spikerain_explosion: sfx_frozenking_spikerain_explosion
 
@@ -22100,7 +22270,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1260682676|
+|m_hash|System.Int32|1154583393|
 
 ## sfx_frozenking_spikerain_flyby: sfx_frozenking_spikerain_flyby
 
@@ -22134,7 +22304,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|344868033|
+|m_hash|System.Int32|-1332318639|
 
 ## sfx_frozenking_spikerain_iceceiling: sfx_frozenking_spikerain_iceceiling
 
@@ -22168,7 +22338,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-225356821|
+|m_hash|System.Int32|909220714|
 
 ## sfx_frozenking_spikerain_shards: sfx_frozenking_spikerain_shards
 
@@ -22202,7 +22372,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-546138577|
+|m_hash|System.Int32|594042650|
 
 ## sfx_frozenking_spirit_death: sfx_frozenking_spirit_death
 
@@ -22304,7 +22474,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|86066482|
+|m_hash|System.Int32|-202125631|
 
 ## sfx_frozenking_tendril_death: sfx_frozenking_tendril_death
 
@@ -22338,7 +22508,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1287000645|
+|m_hash|System.Int32|-1238547809|
 
 ## sfx_frozenking_tendril_grow: sfx_frozenking_tendril_grow
 
@@ -22372,7 +22542,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-320170353|
+|m_hash|System.Int32|-1440913601|
 
 ## sfx_frozenking_tendril_summon: sfx_frozenking_tendril_summon
 
@@ -22406,7 +22576,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-85525561|
+|m_hash|System.Int32|1355355708|
 
 ## sfx_frozenking_turn: sfx_frozenking_turn
 
@@ -22442,6 +22612,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|431792846|
 
+## sfx_frozenking_voice_attack: sfx_frozenking_voice_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1952875806|
+
+## sfx_frozenking_voice_scream: sfx_frozenking_voice_scream
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_frozenking|
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.65|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|True|
+|m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-524496576|
+
 ## sfx_gameltroll_death: sfx_gameltroll_death
 
 |Field|Type|Default Value|
@@ -22450,8 +22688,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_dying|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.05|
 |m_minPitch|System.Single|0.95|
 |m_maxVol|System.Single|0.5|
@@ -22474,7 +22712,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1689957141|
+|m_hash|System.Int32|170396345|
 
 ## sfx_gameltroll_hurt: sfx_gameltroll_hurt
 
@@ -22484,8 +22722,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_hurt|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.05|
 |m_minPitch|System.Single|0.95|
 |m_maxVol|System.Single|0.45|
@@ -22508,7 +22746,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1648468708|
+|m_hash|System.Int32|491493939|
 
 ## sfx_gameltroll_idle: sfx_gameltroll_idle
 
@@ -22518,8 +22756,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_groaning|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.05|
 |m_minPitch|System.Single|0.95|
 |m_maxVol|System.Single|0.52|
@@ -22542,7 +22780,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|2067229723|
+|m_hash|System.Int32|1571088784|
 
 ## sfx_gameltroll_melee_attack: sfx_gameltroll_melee_attack
 
@@ -22552,8 +22790,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.5|
@@ -22569,14 +22807,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
+|m_customReverbDistance|System.Single|20|
 |m_useVibration|System.Boolean|False|
 |m_vibrateAllAudible|System.Boolean|False|
 |m_vibrationModifier|System.Single|1|
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-521944808|
+|m_hash|System.Int32|-2033359390|
 
 ## sfx_gameltroll_melee_attack_Impact: sfx_gameltroll_melee_attack_Impact
 
@@ -22586,8 +22824,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.5|
@@ -22603,14 +22841,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
+|m_customReverbDistance|System.Single|20|
 |m_useVibration|System.Boolean|True|
 |m_vibrateAllAudible|System.Boolean|True|
 |m_vibrationModifier|System.Single|0.8|
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-545619963|
+|m_hash|System.Int32|-2028521994|
 
 ## sfx_gameltroll_stomp_attack: sfx_gameltroll_stomp_attack
 
@@ -22620,8 +22858,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.5|
@@ -22637,14 +22875,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
+|m_customReverbDistance|System.Single|20|
 |m_useVibration|System.Boolean|False|
 |m_vibrateAllAudible|System.Boolean|False|
 |m_vibrationModifier|System.Single|1|
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1452353922|
+|m_hash|System.Int32|-668395510|
 
 ## sfx_gameltroll_stomp_attack_impact: sfx_gameltroll_stomp_attack_impact
 
@@ -22654,8 +22892,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.5|
@@ -22671,14 +22909,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
+|m_customReverbDistance|System.Single|20|
 |m_useVibration|System.Boolean|True|
 |m_vibrateAllAudible|System.Boolean|True|
 |m_vibrationModifier|System.Single|1.2|
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|131000857|
+|m_hash|System.Int32|-1805640461|
 
 ## sfx_gameltroll_stoneturn_death: sfx_gameltroll_stoneturn_death
 
@@ -22688,8 +22926,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_dying|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1.05|
 |m_minPitch|System.Single|0.92|
 |m_maxVol|System.Single|0.55|
@@ -22712,7 +22950,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1495798574|
+|m_hash|System.Int32|39621230|
 
 ## sfx_gameltroll_throw_attack: sfx_gameltroll_throw_attack
 
@@ -22722,8 +22960,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.5|
@@ -22739,14 +22977,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
+|m_customReverbDistance|System.Single|20|
 |m_useVibration|System.Boolean|False|
 |m_vibrateAllAudible|System.Boolean|False|
 |m_vibrationModifier|System.Single|1|
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1315725355|
+|m_hash|System.Int32|-29683259|
 
 ## sfx_gameltroll_throw_attack_impact: sfx_gameltroll_throw_attack_impact
 
@@ -22756,8 +22994,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_frosttroll|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.45|
@@ -22773,14 +23011,14 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_minDelay|System.Single|0|
 |m_distanceReverb|System.Boolean|True|
 |m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
+|m_customReverbDistance|System.Single|20|
 |m_useVibration|System.Boolean|True|
 |m_vibrateAllAudible|System.Boolean|True|
 |m_vibrationModifier|System.Single|1|
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1088531933|
+|m_hash|System.Int32|-1151008699|
 
 ## sfx_gdking_alert: sfx_gdking_alert
 
@@ -24584,40 +24822,6 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-55092892|
 
-## sfx_grapplinghook_flying: sfx_grapplinghook_flying
-
-|Field|Type|Default Value|
-|-----|----|-------------|
-|m_playOnAwake|System.Boolean|True|
-|m_closedCaptionToken|System.String||
-|m_secondaryCaptionToken|System.String||
-|m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
-|m_maxPitch|System.Single|1|
-|m_minPitch|System.Single|0.9|
-|m_maxVol|System.Single|0.5|
-|m_minVol|System.Single|0.6|
-|m_fadeInDuration|System.Single|0|
-|m_fadeOutDuration|System.Single|0|
-|m_fadeOutDelay|System.Single|0|
-|m_fadeOutOnAwake|System.Boolean|False|
-|m_randomPan|System.Boolean|False|
-|m_minPan|System.Single|-1|
-|m_maxPan|System.Single|1|
-|m_maxDelay|System.Single|0|
-|m_minDelay|System.Single|0|
-|m_distanceReverb|System.Boolean|True|
-|m_useCustomReverbDistance|System.Boolean|False|
-|m_customReverbDistance|System.Single|10|
-|m_useVibration|System.Boolean|False|
-|m_vibrateAllAudible|System.Boolean|False|
-|m_vibrationModifier|System.Single|1|
-|m_playThroughController|System.Boolean|False|
-|m_playThroughAllControllers|System.Boolean|False|
-|m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1632038032|
-
 ## sfx_grapplinghook_hit: sfx_grapplinghook_hit
 
 |Field|Type|Default Value|
@@ -24855,6 +25059,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|813555771|
+
+## sfx_greydwarf_deepnorth_death: sfx_greydwarf_deepnorth_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_greydwarf|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.2|
+|m_minPitch|System.Single|1.1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1649969377|
+
+## sfx_greydwarf_deepnorth_verse_attack: sfx_greydwarf_deepnorth_verse_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_greydwarf|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1372013425|
 
 ## sfx_greydwarf_elite_alerted: sfx_greydwarf_elite_alerted
 
@@ -28562,6 +28834,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-991818317|
 
+## sfx_malicious_ice_break: sfx_malicious_ice_break
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.35|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|548086904|
+
 ## sfx_MeadBurp: sfx_MeadBurp
 
 |Field|Type|Default Value|
@@ -28834,6 +29140,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1334972413|
 
+## sfx_metalbars_break: sfx_metalbars_break
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|1.1|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|548086904|
+
+## sfx_metalbars_hit: sfx_metalbars_hit
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-255012953|
+
 ## sfx_mill_add: sfx_mill_add
 
 |Field|Type|Default Value|
@@ -28910,8 +29284,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_moleman|
 |m_secondaryCaptionToken|System.String|$caption_alerted|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -28934,7 +29308,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1167926553|
+|m_hash|System.Int32|2049967920|
 
 ## sfx_moleman_attack: sfx_moleman_attack
 
@@ -28944,8 +29318,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_moleman|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -28968,7 +29342,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|2095722167|
+|m_hash|System.Int32|-498351889|
 
 ## sfx_moleman_death: sfx_moleman_death
 
@@ -28978,8 +29352,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_moleman|
 |m_secondaryCaptionToken|System.String|$caption_dying|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.65|
@@ -29002,7 +29376,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|1402268700|
+|m_hash|System.Int32|1907311469|
 
 ## sfx_moleman_footsteps: sfx_moleman_footsteps
 
@@ -29012,7 +29386,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_moleman|
 |m_secondaryCaptionToken|System.String|$caption_footsteps|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
+|m_maxConcurrentSources|System.Int32|3|
 |m_ignoreConcurrencyDistance|System.Boolean|False|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
@@ -29036,7 +29410,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1926599620|
+|m_hash|System.Int32|113667676|
 
 ## sfx_moleman_hurt: sfx_moleman_hurt
 
@@ -29046,8 +29420,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_moleman|
 |m_secondaryCaptionToken|System.String|$caption_hurt|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.6|
@@ -29070,7 +29444,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-33535455|
+|m_hash|System.Int32|274121331|
 
 ## sfx_moleman_idle: sfx_moleman_idle
 
@@ -29080,8 +29454,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_moleman|
 |m_secondaryCaptionToken|System.String|$caption_grunting|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -29104,7 +29478,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1234007011|
+|m_hash|System.Int32|-1687421910|
 
 ## sfx_moleman_spawn: sfx_moleman_spawn
 
@@ -29114,8 +29488,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_moleman|
 |m_secondaryCaptionToken|System.String|$caption_spawning|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.7|
@@ -29138,7 +29512,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|441727995|
+|m_hash|System.Int32|-1779756805|
 
 ## sfx_moleman_stonedust: sfx_moleman_stonedust
 
@@ -29148,8 +29522,8 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_closedCaptionToken|System.String|$enemy_moleman|
 |m_secondaryCaptionToken|System.String|$caption_attacking|
 |m_minimumCaptionVolume|System.Single|0.3|
-|m_maxConcurrentSources|System.Int32|0|
-|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
 |m_maxPitch|System.Single|1|
 |m_minPitch|System.Single|1|
 |m_maxVol|System.Single|0.8|
@@ -29172,7 +29546,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-1022697352|
+|m_hash|System.Int32|385678516|
 
 ## sfx_moose_alert: sfx_moose_alert
 
@@ -29343,6 +29717,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|552752888|
+
+## sfx_moose_calf_verse: sfx_moose_calf_verse
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$sfx_seal_pup|
+|m_secondaryCaptionToken|System.String|$caption_idle|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.55|
+|m_minVol|System.Single|0.45|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-2128994319|
 
 ## sfx_moose_death: sfx_moose_death
 
@@ -29785,6 +30193,108 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1914043689|
+
+## sfx_morkhalla_gate_open_end: sfx_morkhalla_gate_open_end
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|7|
+|m_minDelay|System.Single|7|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1988417994|
+
+## sfx_morkhalla_gate_open_start: sfx_morkhalla_gate_open_start
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-738129501|
+
+## sfx_morkhalla_gate_slide: sfx_morkhalla_gate_slide
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|1|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1764288980|
 
 ## sfx_MudDestroyed: sfx_MudDestroyed
 
@@ -32268,6 +32778,142 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2023788253|
 
+## sfx_skeleton_basic_attack_melee: sfx_skeleton_basic_attack_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-33988170|
+
+## sfx_skeleton_basic_death: sfx_skeleton_basic_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-671259800|
+
+## sfx_skeleton_basic_verse_attack: sfx_skeleton_basic_verse_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1249778078|
+
+## sfx_skeleton_basic_verse_idle: sfx_skeleton_basic_verse_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1901968389|
+
 ## sfx_skeleton_big_alerted: sfx_skeleton_big_alerted
 
 |Field|Type|Default Value|
@@ -32404,6 +33050,312 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1673751494|
 
+## sfx_skeleton_frozen_attack_melee: sfx_skeleton_frozen_attack_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.75|
+|m_minDelay|System.Single|0.75|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1477307822|
+
+## sfx_skeleton_frozen_death: sfx_skeleton_frozen_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|128300248|
+
+## sfx_skeleton_frozen_verse_attack: sfx_skeleton_frozen_verse_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1284294703|
+
+## sfx_skeleton_frozen_verse_idle: sfx_skeleton_frozen_verse_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-795455899|
+
+## sfx_skeleton_hildir_attack_melee: sfx_skeleton_hildir_attack_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|778796880|
+
+## sfx_skeleton_hildir_attack_skill: sfx_skeleton_hildir_attack_skill
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|283586891|
+
+## sfx_skeleton_hildir_death: sfx_skeleton_hildir_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2055181442|
+
+## sfx_skeleton_hildir_verse_attack: sfx_skeleton_hildir_verse_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2090044262|
+
+## sfx_skeleton_hildir_verse_idle: sfx_skeleton_hildir_verse_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-666011788|
+
 ## sfx_skeleton_hit: sfx_skeleton_hit
 
 |Field|Type|Default Value|
@@ -32506,6 +33458,142 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1664245518|
 
+## sfx_skeleton_poison_attack_melee: sfx_skeleton_poison_attack_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.75|
+|m_minDelay|System.Single|0.75|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1891937936|
+
+## sfx_skeleton_poison_death: sfx_skeleton_poison_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1068219165|
+
+## sfx_skeleton_poison_verse_attack: sfx_skeleton_poison_verse_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1460953172|
+
+## sfx_skeleton_poison_verse_idle: sfx_skeleton_poison_verse_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|2081054377|
+
 ## sfx_skeleton_rise: sfx_skeleton_rise
 
 |Field|Type|Default Value|
@@ -32539,6 +33627,142 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1703137352|
+
+## sfx_skeleton_swamp_attack_melee: sfx_skeleton_swamp_attack_melee
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|455138466|
+
+## sfx_skeleton_swamp_death: sfx_skeleton_swamp_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|662391053|
+
+## sfx_skeleton_swamp_verse_attack: sfx_skeleton_swamp_verse_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1182440047|
+
+## sfx_skeleton_swamp_verse_idle: sfx_skeleton_swamp_verse_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_skeleton|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.8|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|274179820|
 
 ## sfx_skull_summon_skeleton: sfx_skull_summon_skeleton
 
@@ -32811,6 +34035,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-944405283|
+
+## sfx_snow_hit_debris: sfx_snow_hit_debris
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String|$caption_building|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0.1|
+|m_fadeOutDuration|System.Single|0.1|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0.3|
+|m_minDelay|System.Single|0.3|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1882189601|
+
+## sfx_snow_hit_transient: sfx_snow_hit_transient
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String|$caption_building|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|0.8|
+|m_maxVol|System.Single|1.5|
+|m_minVol|System.Single|1.5|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|30|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1882189601|
 
 ## sfx_spawn: sfx_spawn
 
@@ -37300,6 +38592,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-1391005529|
 
+## sfx_writhan_bite: sfx_writhan_bite
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_writhan|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1175648369|
+
 ## sfx_writhan_bite_attack: sfx_writhan_bite_attack
 
 |Field|Type|Default Value|
@@ -37368,6 +38694,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2136427640|
 
+## sfx_writhan_death_charge: sfx_writhan_death_charge
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_writhan|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|217102052|
+
+## sfx_writhan_death_explosion: sfx_writhan_death_explosion
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_writhan|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.05|
+|m_minPitch|System.Single|0.95|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.75|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|True|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-527653066|
+
 ## sfx_writhan_fizz: sfx_writhan_fizz
 
 |Field|Type|Default Value|
@@ -37401,6 +38795,142 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|2136427640|
+
+## sfx_writhan_idle: sfx_writhan_idle
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_writhn|
+|m_secondaryCaptionToken|System.String|$caption_grunting|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.15|
+|m_minPitch|System.Single|0.85|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|1|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-895304568|
+
+## sfx_writhan_step: sfx_writhan_step
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.35|
+|m_minVol|System.Single|0.2|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|53231616|
+
+## sfx_writhan_verse_attack: sfx_writhan_verse_attack
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_writhan|
+|m_secondaryCaptionToken|System.String|$caption_attacking|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|1|
+|m_minVol|System.Single|0.85|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1927112172|
+
+## sfx_writhan_verse_death: sfx_writhan_verse_death
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String|$enemy_writhan|
+|m_secondaryCaptionToken|System.String|$caption_dying|
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|0|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1|
+|m_minPitch|System.Single|1|
+|m_maxVol|System.Single|0.8|
+|m_minVol|System.Single|0.6|
+|m_fadeInDuration|System.Single|0|
+|m_fadeOutDuration|System.Single|0|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|1000220800|
 
 ## shieldgenerator_attack: fx_gjall_taunt
 
@@ -37503,6 +39033,74 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|-44709246|
+
+## Skeleton_Hildir: sfx_skeleton_hildir_torch_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-851502317|
+
+## Skeleton_Hildir_nochest: sfx_skeleton_hildir_torch_loop
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|2|
+|m_ignoreConcurrencyDistance|System.Boolean|False|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.75|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-851502317|
 
 ## Sled: Audio Source
 
@@ -38080,7 +39678,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 
 ## Troll_Summoned: sfx_trollfire_fire_loop
 
@@ -38115,6 +39713,40 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
 |m_hash|System.Int32|1058334735|
+
+## UpgradeStation: amb_forgeofpotential_main
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_playOnAwake|System.Boolean|True|
+|m_closedCaptionToken|System.String||
+|m_secondaryCaptionToken|System.String||
+|m_minimumCaptionVolume|System.Single|0.3|
+|m_maxConcurrentSources|System.Int32|3|
+|m_ignoreConcurrencyDistance|System.Boolean|True|
+|m_maxPitch|System.Single|1.1|
+|m_minPitch|System.Single|0.9|
+|m_maxVol|System.Single|0.85|
+|m_minVol|System.Single|0.55|
+|m_fadeInDuration|System.Single|0.4|
+|m_fadeOutDuration|System.Single|0.4|
+|m_fadeOutDelay|System.Single|0|
+|m_fadeOutOnAwake|System.Boolean|False|
+|m_randomPan|System.Boolean|False|
+|m_minPan|System.Single|-1|
+|m_maxPan|System.Single|1|
+|m_maxDelay|System.Single|0|
+|m_minDelay|System.Single|0|
+|m_distanceReverb|System.Boolean|True|
+|m_useCustomReverbDistance|System.Boolean|False|
+|m_customReverbDistance|System.Single|10|
+|m_useVibration|System.Boolean|False|
+|m_vibrateAllAudible|System.Boolean|False|
+|m_vibrationModifier|System.Single|1|
+|m_playThroughController|System.Boolean|False|
+|m_playThroughAllControllers|System.Boolean|False|
+|m_controllerAudioVolume|System.Single|0.5|
+|m_hash|System.Int32|-1717874308|
 
 ## vfx_aspect_summoned_prespawn: sfx_frozenking_spirit_summon
 
@@ -39440,5 +41072,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_playThroughController|System.Boolean|False|
 |m_playThroughAllControllers|System.Boolean|False|
 |m_controllerAudioVolume|System.Single|0.5|
-|m_hash|System.Int32|-79872451|
+|m_hash|System.Int32|-1532386660|
 

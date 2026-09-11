@@ -11482,7 +11482,27 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_syncBodyVelocity|System.Boolean|False|
 |m_characterParentSync|System.Boolean|False|
 
+## shaman_attack_aoe_frozen: shaman_attack_aoe_frozen
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
 ## shaman_heal_aoe: shaman_heal_aoe
+
+|Field|Type|Default Value|
+|-----|----|-------------|
+|m_syncPosition|System.Boolean|True|
+|m_syncRotation|System.Boolean|True|
+|m_syncScale|System.Boolean|False|
+|m_syncBodyVelocity|System.Boolean|False|
+|m_characterParentSync|System.Boolean|False|
+
+## shaman_heal_aoe_frozen: shaman_heal_aoe_frozen
 
 |Field|Type|Default Value|
 |-----|----|-------------|

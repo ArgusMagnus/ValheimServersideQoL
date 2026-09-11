@@ -326,7 +326,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_viewAngle|System.Single|90|
 |m_hearRange|System.Single|15|
 |m_mistVision|System.Boolean|False|
-|m_idleSoundInterval|System.Single|15|
+|m_idleSoundInterval|System.Single|10|
 |m_idleSoundChance|System.Single|0.5|
 |m_moveMinAngle|System.Single|90|
 |m_smoothMovement|System.Boolean|True|
@@ -371,7 +371,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_viewAngle|System.Single|10|
 |m_hearRange|System.Single|2|
 |m_mistVision|System.Boolean|False|
-|m_idleSoundInterval|System.Single|15|
+|m_idleSoundInterval|System.Single|8|
 |m_idleSoundChance|System.Single|0.5|
 |m_moveMinAngle|System.Single|90|
 |m_smoothMovement|System.Boolean|True|
@@ -416,7 +416,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_viewAngle|System.Single|10|
 |m_hearRange|System.Single|2|
 |m_mistVision|System.Boolean|False|
-|m_idleSoundInterval|System.Single|15|
+|m_idleSoundInterval|System.Single|7|
 |m_idleSoundChance|System.Single|0.5|
 |m_moveMinAngle|System.Single|90|
 |m_smoothMovement|System.Boolean|True|

@@ -59,7 +59,7 @@ public sealed partial class $(ClassName)Plugin
 			<Output TaskParameter="TargetOutputs" ItemName="DependencyPaths" />
 		</MSBuild>
 
-		<Exec Command='powershell -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName).zip"' />
+		<Exec Command='pwsh -ExecutionPolicy Bypass -File "$(MSBuildThisFileDirectory)Create-Package.ps1" -Path "$(TargetPath)" -Url "$(RepositoryUrl)" -Description "$(Description)" -Dependencies "@(DependencyPaths)" -StoreDependencies "@(StoreDependencies)" -Destination "$(MSBuildThisFileDirectory)plugins\$(Configuration)\$(MSBuildProjectName).zip"' />
 	</Target>
 
 </Project>

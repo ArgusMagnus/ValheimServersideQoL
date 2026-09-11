@@ -1,3 +1,6 @@
+### v2.0.6
+- Update for valheim 1.0.12
+
 ### v2.0.5
 - Log error and abort when the patcher was not installed correctly
 

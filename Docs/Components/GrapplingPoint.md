@@ -31,6 +31,7 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_attachOffsetHand|UnityEngine.Vector3|(0.10, -0.07, 0.66)|
 |m_attachOffsetProjectile|UnityEngine.Vector3|(0.00, 0.00, -0.64)|
 |m_rotateCharacter|System.Boolean|True|
+|m_pullSound|UnityEngine.GameObject|sfx_grapplinghook_pull|
 
 ## GrapplingPointSecondary: GrapplingPointSecondary
 
@@ -61,4 +62,5 @@ The following section headers are in the format `Prefab.name: Component.name`.
 |m_attachOffsetHand|UnityEngine.Vector3|(0.10, -0.07, 0.66)|
 |m_attachOffsetProjectile|UnityEngine.Vector3|(0.00, 0.00, -0.64)|
 |m_rotateCharacter|System.Boolean|False|
+|m_pullSound|UnityEngine.GameObject|*null*|
 

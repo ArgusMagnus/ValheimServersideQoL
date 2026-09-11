@@ -1,12 +1,10 @@
-﻿using static Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser;
-
-namespace ServersideQoL.PrefabConfigurator;
+﻿namespace ServersideQoL.PrefabConfigurator;
 
 [Processor(Id)]
 [RunBefore<PrefabProcessor>]
 public sealed class ShipProcessor : Processor<ShipProcessor.PrefabInfo>
 {
-  public const string Id = "";
+  public const string Id = "30b54643-5490-4e55-aca9-d9ad7b634398";
   public sealed record PrefabInfo(Ship Ship, Piece Piece, PieceTable PieceTable) : ProcessorPrefabInfo;
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
