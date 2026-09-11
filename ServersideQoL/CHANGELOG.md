@@ -1,3 +1,6 @@
+### v2.0.x
+- Log error and abort when the patcher was not installed correctly
+
 ### v2.0.4
 - ContainerSigns: fixed signs do not appear when the container size is also changed [#190](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/190)
 

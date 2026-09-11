@@ -1,4 +1,5 @@
-﻿using BepInEx.Bootstrap;
+﻿using BepInEx;
+using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using HarmonyLib;
 using ServersideQoL.Processors;
@@ -7,6 +8,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Text;
 using UnityEngine;
 
@@ -18,6 +20,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
   readonly Dictionary<Guid, Processor> _processorsById = [];
   readonly List<Processor> _enabledProcessors = [];
   List<Processor>? _preprocessors;
+  bool _patcherSucceeded;
 
   internal static Harmony HarmonyInstance { get; } = new(PluginGuid);
   internal IReadOnlyDictionary<Guid, Processor> Processors => _processorsById;
@@ -52,11 +55,28 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
 
   partial void OnAwake()
   {
-    HarmonyInstance.PatchAll(typeof(ServersideQoLPlugin).Assembly);
+    _patcherSucceeded = true;
+    try { AssertPatcher(); }
+    catch (MissingMemberException) { _patcherSucceeded = false; }
+
+    if (_patcherSucceeded)
+      HarmonyInstance.PatchAll(typeof(ServersideQoLPlugin).Assembly);
+    else
+      Logger.LogError($"{Path.GetFileName(typeof(Patchers.PatchersPlugin).Assembly.Location)} was not installed correctly. Put it in {Paths.PatcherPluginPath}");
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    static void AssertPatcher()
+    {
+      if (new ZDO().ServersideQoLZDO is null)
+        throw new Exception();
+    }
   }
 
   void Start()
   {
+    if (!_patcherSucceeded)
+      return;
+
     StartCoroutine(CallExecute());
 
     IEnumerator<YieldInstruction?> CallExecute()
