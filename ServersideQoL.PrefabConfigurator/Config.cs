@@ -14,6 +14,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Enables/disables the entire mod");
   public FireplacesConfig Fireplaces { get; } = new(cfg);
   public BuildPiecesConfig BuildPieces { get; } = new(cfg);
+  public PlantsConfig Plants { get; } = new(cfg);
   public YamlConfigEntry<PrefabsConfig> Prefabs { get; } = BindYaml<PrefabsConfig>(cfg);
 
   public sealed class FireplacesConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
@@ -42,6 +43,16 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       PlayerBuilt = 1 << 0,
       World = 1 << 1
     }
+  }
+
+  public sealed class PlantsConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
+  {
+    public ConfigEntry<float> GrowTimeMultiplier { get; } = BindEx(cfg, section, 1f,
+      "Multiply plant grow time by this factor. 0 to make them grow almost instantly.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+    public ConfigEntry<float> SpaceRequirementMultiplier { get; } = BindEx(cfg, section, 1f,
+      "Multiply plant space requirement by this factor. 0 to disable space requirements.", new AcceptableValueRange<float>(0, float.PositiveInfinity));
+    public ConfigEntry<bool> DontDestroyIfCantGrow { get; } = BindEx(cfg, section, false,
+      "True to keep plants that can't grow alive");
   }
 
   public sealed class PrefabsConfig

@@ -9,5 +9,6 @@ partial class PrefabConfiguratorPlugin : ServersideQoLPluginBase<PrefabConfigura
   protected override void RegisterProcessors(IProcessorCollection processors) => processors
     .Add<PrefabProcessor>()
     .Add<FireplaceProcessor>()
-    .Add<BuildPieceProcessor>();
+    .Add<BuildPieceProcessor>()
+    .Add<PlantProcessor>();
 }
