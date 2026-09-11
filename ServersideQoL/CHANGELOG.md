@@ -1,4 +1,4 @@
-### v2.0.x
+### v2.0.5
 - Log error and abort when the patcher was not installed correctly
 
 ### v2.0.4
