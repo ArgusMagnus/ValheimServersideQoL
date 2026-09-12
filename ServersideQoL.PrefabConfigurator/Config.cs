@@ -94,8 +94,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       HashSet<Type> validFieldTypes = [typeof(int), typeof(float), typeof(bool), typeof(Vector3), typeof(string), typeof(GameObject), typeof(ItemDrop)];
 
       List <ComponentConfig> entries = [];
-      foreach (var group in ZNetScene.instance.m_prefabs
-        .SelectMany(static x => x.GetComponent<ZNetView>().GetComponentsInChildren<MonoBehaviour>().Where(static x => x is not ZNetView).Select(c => (x.name, component: c)))
+      foreach (var group in ZNetScene.instance.ZNetViews
+        .SelectMany(static x => x.GetComponentsInChildren<MonoBehaviour>().Where(static x => x is not ZNetView).Select(c => (x.name, component: c)))
         .GroupBy(static x => x.component.GetType())
         .OrderBy(static x => x.Key.Name))
       {

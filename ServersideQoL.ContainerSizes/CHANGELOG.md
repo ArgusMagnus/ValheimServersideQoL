@@ -1,3 +1,6 @@
+### v2.0.8
+- Bugfixes
+
 ### v2.0.1
 - Fix exception [#184](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/184)
 

@@ -1,3 +1,6 @@
+### v2.0.8
+- Bugfixes
+
 ### v2.0.7
 - Fixed compatiblity issues with other ServersideQoL mods
 

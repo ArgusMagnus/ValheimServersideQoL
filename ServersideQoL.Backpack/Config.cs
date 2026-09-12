@@ -32,25 +32,27 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     DropItems
   }
 
-  //public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
-  //public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+  public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
 
-  //public sealed class LocalizationConfig
-  //{
-  //  string ContainerSorted { get; init; } = "{0} sorted";
-  //  public string FormatContainerSorted(string containerName) => string.Format(ContainerSorted, containerName);
-  //  string AutoPickup { get; init; } = "{0}: $msg_added {1} {2}x";
-  //  public string FormatAutoPickup(string containerName, string itemName, int stack) => string.Format(AutoPickup, containerName, itemName, stack);
-  //}
+  public sealed class LocalizationConfig
+  { 
+    public string BackpackName { get; init; } = "Backpack";
+    public string ForbiddenItems { get; init; } = "Backpack cannot contain non-teleportable items";
+    string WeightLimitExceeded { get; init; } = "Backpack weight limit ({0}) exceeded";
+    public string FormatWeightLimitExceeded(int maxWeight) => string.Format(WeightLimitExceeded, maxWeight);
+  }
 
-  //public sealed class AdvancedConfig
-  //{
-  //  public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
+  public sealed class AdvancedConfig
+  {
+    public float OpenBackpackDelay { get; init; } = 0.2f;
+    public sealed record BackpackOnDeathDropTombStoneConfig(float VerticalOffset, float AutoCollectDistance) { BackpackOnDeathDropTombStoneConfig() : this(default, default) { } }
+    public sealed record BackpackOnDeathDropItemsConfig(float ScatterRadius, float VerticalOffset, bool PreventAutoDestroy, bool PreventAutoPickup)
+    {
+      BackpackOnDeathDropItemsConfig() : this(default, default, default, default) { }
+    }
 
-  //  public sealed class ProcessingDelaysConfig
-  //  {
-  //    public float AfterItemDropOwnershipRequest { get; init; } = 0.1f;
-  //    public float StackContainerWhenMovingItems { get; init; } = 0.1f;
-  //  }
-  //}
+    public BackpackOnDeathDropTombStoneConfig BackpackOnDeathDropTombStone { get; init; } = new(2, 2);
+    public BackpackOnDeathDropItemsConfig BackpackOnDeathDropItems { get; init; } = new(2, 1, true, false);
+  }
 }

@@ -28,6 +28,7 @@ public static class RPC
     {
       public static RpcName UseStamina { get; } = new("UseStamina");
       public static RpcName TeleportTo { get; } = new("RPC_TeleportTo");
+      public static RpcName OnDeath { get; } = new("OnDeath");
     }
 
     public static class ZoneSystem

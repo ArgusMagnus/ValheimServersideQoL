@@ -1,3 +1,7 @@
+### v2.0.8
+- Support [backpacks](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpacks)
+- Bugfixes
+
 ### v2.0.7
 - Fixed bug in the core processing logic that caused a lot of issues in ServersideQoL mods
 

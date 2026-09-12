@@ -19,18 +19,21 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
   readonly List<State> _containers = [];
   float _rangeSqr;
 
-  public IReadOnlyDictionary<ItemDrop.ItemData, GameObject> TeleportableItems => _teleportableItems;
-
   protected override void Initialize()
   {
     _rangeSqr = Config.Instance.PortalRange.Value;
     _rangeSqr *= _rangeSqr;
     _containers.Clear();
 
+    IsItemTeleportableEvaluationRequest -= OnIsItemTeleportableEvaluationRequest;
+    IsItemTeleportableEvaluationRequest += OnIsItemTeleportableEvaluationRequest;
+
     ServersideQoLPlugin.Instance.GlobalKeysChanged -= UpdateTeleportableItems;
     UpdateTeleportableItems();
     ServersideQoLPlugin.Instance.GlobalKeysChanged += UpdateTeleportableItems;
   }
+
+  bool OnIsItemTeleportableEvaluationRequest(ItemDrop.ItemData obj) => _teleportableItems.ContainsKey(obj);
 
   protected override void PreProcess(PeersEnumerable peers)
   {
@@ -137,16 +140,16 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
       if (_containers.Any(x => x.Player == player))
         continue;
 
-      var container = PlacePiece(player.ZDO.ZDO.GetPosition() with { y = -1000 }, Prefabs.PrivateChest, 0);
+      var container = PlacePiece(player.ZDO.ZDO.GetPosition() with { y = -1000 }, ContainerPrefabHash, 0);
       container.UnregisterAll();
-      var h = Math.Max(4, TeleportableItems.Count);
+      var h = Math.Max(4, _teleportableItems.Count);
       container.Fields<Container>()
           .Set(static () => x => x.m_width, 8)
           .Set(static () => x => x.m_height, h);
       int y = 0;
       var containerState = Instance<ContainerRegistryProcessor>().GetState(container)!;
       var inventory = containerState.GetInventory();
-      foreach (var (item, dropPrefab) in TeleportableItems)
+      foreach (var (item, dropPrefab) in _teleportableItems)
       {
         var clone = item.Clone();
         clone.m_dropPrefab = dropPrefab;

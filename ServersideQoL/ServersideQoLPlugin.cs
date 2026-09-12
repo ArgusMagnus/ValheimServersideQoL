@@ -933,8 +933,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     Parallel.ForEach(ZNetScene.instance.m_prefabs, prefab =>
     {
       var components = prefab.GetComponent<ZNetView>()?.gameObject.GetComponentsInChildren<MonoBehaviour>()
-              .Where(static x => x is not ZNetView)
-              .ToList();
+        .Where(static x => x is not ZNetView)
+        .ToList();
 
       if (components is not { Count: > 0 })
         return;

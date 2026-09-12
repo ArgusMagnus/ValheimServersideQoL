@@ -100,8 +100,8 @@ partial class ServersideQoLZDO
     public bool GetAttachJoint(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_attachJointHash, defaultValue);
     public PlayerID GetUser(PlayerID defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_user, defaultValue.Value));
     public bool GetIsDead(bool defaultValue = default) => _zdo.GetBool(global::ZDOVars.s_dead, defaultValue);
-    public long GetOwner(long defaultValue = 0) => _zdo.GetLong(global::ZDOVars.s_owner, defaultValue);
-    public void SetOwner(long value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_owner, value); }
+    public PlayerID GetOwner(PlayerID defaultValue = default) => new(_zdo.GetLong(global::ZDOVars.s_owner, defaultValue.Value));
+    public void SetOwner(PlayerID value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_owner, value.Value); }
     public string GetOwnerName(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_ownerName, defaultValue);
     public void SetOwnerName(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_ownerName, value); }
     public float GetScaleScalar(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_scaleScalarHash, defaultValue);

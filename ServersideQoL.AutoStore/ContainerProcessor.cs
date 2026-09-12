@@ -167,7 +167,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     if (changed)
     {
       if (!zdo.IsOwnerOrUnassigned())
-        return ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, zdo.Vars.GetCreator(), state));
+        return ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(state, zdo.Vars.GetCreator()));
 
       inventory.Save();
       ShowMessage(peers, zdo, Config.Instance.Localization.Value.FormatContainerSorted(prefabInfo.Container.m_name), Config.Instance.SortedMessageType.Value);
@@ -390,7 +390,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
           if (requestContainerOwn)
           {
-            Instance<ContainerRegistryProcessor>().RequestOwnership(containerZdo, stackContainerState.PlayerZDO.Vars.GetPlayerID(), containerState);
+            Instance<ContainerRegistryProcessor>().RequestOwnership(containerState, stackContainerState.PlayerZDO.Vars.GetPlayerID());
             continue;
           }
 

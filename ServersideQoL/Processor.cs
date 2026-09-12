@@ -733,20 +733,20 @@ public abstract class Processor<TPrefabInfo> : Processor
     if (warn is not null)
       Logger.LogWarning($"{typeof(TPrefabInfo).FullName} has the following property types which are not lists but have multiple components in the prefab: {string.Join(", ", warn.Select(static x => x.FullName))}. Only the first component will be used.");
 
-#if DEBUG
-    var set = new HashSet<(Type, bool)>(_prefabInfoCtorParameters.Length);
-    for (int i = 0; i < _prefabInfoCtorParameters.Length; i++)
-      set.Add((_prefabInfoCtorParameters[i].ParameterType, _prefabInfoCtorParametersNullable[i] ??= IsNullable(_prefabInfoCtorParameters[i], ref defaultNullable)));
+//#if DEBUG
+//    var set = new HashSet<(Type, bool)>(_prefabInfoCtorParameters.Length);
+//    for (int i = 0; i < _prefabInfoCtorParameters.Length; i++)
+//      set.Add((_prefabInfoCtorParameters[i].ParameterType, _prefabInfoCtorParametersNullable[i] ??= IsNullable(_prefabInfoCtorParameters[i], ref defaultNullable)));
 
-    var hash = 0;
-    foreach (var item in set)
-      hash = (hash, item).GetHashCode();
+//    var hash = 0;
+//    foreach (var item in set)
+//      hash = (hash, item).GetHashCode();
 
-    if (!__prefabInfoTypes.TryGetValue(hash, out var otherType))
-      __prefabInfoTypes.Add(hash, typeof(TPrefabInfo));
-    else if (otherType != typeof(TPrefabInfo))
-      Logger.LogWarning($"{typeof(TPrefabInfo).FullName} and {otherType.FullName} use the same parameters, consider using the same type");
-#endif
+//    if (!__prefabInfoTypes.TryGetValue(hash, out var otherType))
+//      __prefabInfoTypes.Add(hash, typeof(TPrefabInfo));
+//    else if (otherType != typeof(TPrefabInfo))
+//      Logger.LogWarning($"{typeof(TPrefabInfo).FullName} and {otherType.FullName} use the same parameters, consider using the same type");
+//#endif
 
     return (TPrefabInfo)_prefabInfoCtor.Invoke(args);
 

@@ -102,7 +102,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     }
 
     if (result is ProcessResult.RecreateZDO && !zdo.IsOwnerOrUnassigned())
-      result = ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(zdo, zdo.Vars.GetCreator(), state));
+      result = ScheduleReprocessing(Instance<ContainerRegistryProcessor>().RequestOwnership(state, zdo.Vars.GetCreator()));
 
     return result;
   }

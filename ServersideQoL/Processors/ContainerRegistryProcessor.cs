@@ -70,11 +70,15 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
   }
 
   public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
-      => RequestOwnership(zdo, playerID, _states[zdo], caller, callerLineNo);
+      => RequestOwnership(GetState(zdo, zdo.PrefabInfo!.GetRequiredComponent<Container>()), playerID, caller, callerLineNo);
 
+  [Obsolete("Use one of the other overloads", true)]
   public float RequestOwnership(ServersideQoLZDO zdo, PlayerID playerID, ContainerState state, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
+    => RequestOwnership(state, playerID, caller, callerLineNo);
+
+  public float RequestOwnership(ContainerState state, PlayerID playerID, [CallerFilePath] string caller = default!, [CallerLineNumber] int callerLineNo = default)
   {
-    if (zdo.IsOwnerOrUnassigned() || state is not ContainerStateImpl s || Timestamp.Now < s.NextOwnershipRequest)
+    if (state.ZDO.IsOwnerOrUnassigned() || state is not ContainerStateImpl s || Timestamp.Now < s.NextOwnershipRequest)
       return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
 
     if (!_openResponseRegistered && Player.m_localPlayer is not null)
@@ -86,11 +90,11 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
     //Logger.DevLog($"Container {zdo.m_uid}: RequestOwnership");
     s.NextOwnershipRequest = Timestamp.Now.AddSeconds(Config.Instance.Advanced.Value.Containers.MinOwnershipRequestInterval);
     s.WaitingForResponse = true;
-    s.PreviousOwner = zdo.ZDO.GetOwner();
+    s.PreviousOwner = state.ZDO.ZDO.GetOwner();
 
 
     //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
-    RPC.RequestOpen(zdo, playerID);
+    RPC.RequestOpen(state.ZDO, playerID);
     return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
   }
 
