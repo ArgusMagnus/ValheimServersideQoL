@@ -1,6 +1,6 @@
 ### v2.0.8
 - Fix: prevent exceptions in one SQoL mod from killing all other SQoL mods [#206](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/206)
-- Support [backpacks](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpacks)
+- Support for [backpack](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpack) mod
 - Bugfixes
 
 ### v2.0.7

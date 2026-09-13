@@ -1,5 +1,5 @@
 ### v2.0.8
-- Support [backpacks](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpacks)
+- Integration with [backpack](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_Backpack) mod
 
 ### v2.0.0
 - Initial release
