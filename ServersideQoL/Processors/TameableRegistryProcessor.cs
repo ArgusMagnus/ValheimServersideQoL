@@ -1,5 +1,4 @@
 ﻿using ServersideQoL.Utilities;
-using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 namespace ServersideQoL.Processors;
@@ -74,25 +73,38 @@ public sealed class TameableRegistryProcessor : Processor<TameableRegistryProces
     readonly ServersideQoLZDO _zdo = zdo;
     readonly PrefabInfo _prefabInfo = prefabInfo;
     States _state;
+    Action<TameableState>? _stateChanged;
     float _tameness;
     string _followPlayerName = "";
     public override PrefabInfo PrefabInfo => _prefabInfo;
     public override ServersideQoLZDO ZDO => _zdo;
     public override States State => _state;
+    public override event Action<TameableState>? StateChanged
+    {
+      add => _stateChanged += value;
+      remove => _stateChanged -= value;
+    }
     public override float Tameness => _tameness;
     public override string FollowPlayerName => _followPlayerName;
     public Vector3 LastKey { get; set; }
 
     public void SetTamed()
     {
+      if (_state is States.Tamed)
+        return;
       _state = States.Tamed;
       _tameness = 1;
+      _stateChanged?.Invoke(this);
     }
 
     public void Update(float tameTime, float tameTimeLeft)
     {
-      _state = tameTimeLeft < tameTime ? States.Taming : States.Wild;
+      var state = tameTimeLeft < tameTime ? States.Taming : States.Wild;
       _tameness = 1f - Mathf.Clamp01(tameTimeLeft / tameTime);
+      if (state == _state)
+        return;
+      _state = state;
+      _stateChanged?.Invoke(this);
     }
 
     public bool UpdateFollow(string playerName, out string oldValue)

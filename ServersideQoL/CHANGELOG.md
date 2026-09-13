@@ -1,5 +1,6 @@
 ### v2.0.9
 - Fix: hard crash that stopped all SQoL mods [#214](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/214)
+- Fix: Some TameAssist features not working properly [#212](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/212)
 
 ### v2.0.8
 - Fix: prevent exceptions in one SQoL mod from killing all other SQoL mods [#206](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/206)

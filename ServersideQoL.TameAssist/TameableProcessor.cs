@@ -67,7 +67,7 @@ public sealed class TameableProcessor : Processor<TameableRegistryProcessor.Pref
         if (!_states.TryGetValue(zdo, out var tamingState))
         {
           _states.Add(zdo, tamingState = new());
-          zdo.Destroyed += x => _states.Remove(x, out _);
+          zdo.Destroyed += x => _states.Remove(x);
         }
 
         var now = Timestamp.Now;
@@ -85,6 +85,11 @@ public sealed class TameableProcessor : Processor<TameableRegistryProcessor.Pref
       }
     }
 
+    if (state.State is not TameableState.States.Tamed && (result & ProcessResult.UnregisterProcessor) is not 0)
+    {
+      result |= ProcessResult.ReregisterOnRecreated;
+      state.StateChanged += static state => state.ZDO.ReregisterAll();
+    }
     return result;
   }
 
