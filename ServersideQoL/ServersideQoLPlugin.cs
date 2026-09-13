@@ -753,7 +753,14 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     state.Repeat.Add(zdo);
   }
 
-  internal PrefabInfo GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
+  PrefabInfo DummyPrefabInfo => field ??= new Func<PrefabInfo>(() =>
+  {
+    var prefabInfo = _prefabInfoFactory();
+    prefabInfo.Init(default!, 0, "Dummy", null);
+    return prefabInfo;
+  }).Invoke();
+
+  internal PrefabInfo? GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
   {
     PrefabInfo? prefabInfo = null;
     if (ZNetScene.instance.GetPrefab(prefabHash) is { } prefab &&
@@ -789,15 +796,8 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       }
       SortProcessors(prefabInfo.EnabledProcessors, isPrefabList: true);
     }
-    return prefabInfo ?? DummyPrefabInfo.Instance;
+    return prefabInfo ?? DummyPrefabInfo;
   });
-
-  sealed class DummyPrefabInfo : PrefabInfo
-  {
-    public static DummyPrefabInfo Instance { get; } = new();
-
-    DummyPrefabInfo() { Init(default!, 0, "Dummy", null); }
-  }
 
   [HarmonyPatch]
   static class PrefabChangedPatches
