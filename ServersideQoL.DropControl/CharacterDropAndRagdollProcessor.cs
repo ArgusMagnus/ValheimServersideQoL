@@ -241,14 +241,16 @@ public sealed class CharacterDropAndRagdollProcessor : Processor<CharacterDropAn
   {
     var character = characterDrop.GetComponent<Character>();
     var lvlBkp = character.GetLevel();
-    character.SetLevel(level);
+    try { character.SetLevel(level); }
+    catch (NullReferenceException) { System.Diagnostics.Debug.Assert(character.GetLevel() == level); }
     try
     {
       return characterDrop.GenerateDropList();
     }
     finally
     {
-      character.SetLevel(lvlBkp);
+      try { character.SetLevel(lvlBkp); }
+      catch (NullReferenceException) { System.Diagnostics.Debug.Assert(character.GetLevel() == lvlBkp); }
     }
   }
 

@@ -591,7 +591,15 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
     _reregisterOnRecreate.Clear();
     foreach (var processor in zdo.Processors.Enumerate())
     {
-      var result = processor.ProcessInternal(peers, zdo);
+      Processor.ProcessResult result;
+      try { result = processor.ProcessInternal(peers, zdo); }
+      catch (Exception ex)
+      {
+        Logger.LogError($"{processor.GetType().Name} threw while processing ZDO ({zdo.PrefabInfo?.PrefabName}), disabling it for this ZDO: {ex}");
+        _unregister.Add(processor);
+        continue;
+      }
+
       if (destroy = (result & Processor.ProcessResult.DestroyZDO) is not 0)
       {
         zdo.Destroy();
