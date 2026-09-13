@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace ServersideQoL;
 
-partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin, Config>
+partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlugin, Config>
 {
   static readonly HashSet<IServersideQoLPlugin> __plugins = [];
   readonly Dictionary<Guid, Processor> _processorsById = [];

@@ -29,8 +29,13 @@ public abstract class ServersideQoLPluginBase : BaseUnityPlugin, IServersideQoLP
   void IServersideQoLPlugin.RegisterProcessors() => RegisterProcessors();
 }
 
-public abstract class ServersideQoLPluginBase<TSelf, TConfig> : ServersideQoLPluginBase
+[BepInDependency(ServersideQoLPlugin.PluginGuid, ServersideQoLPlugin.PluginVersion)]
+public abstract class ServersideQoLPluginBase<TSelf, TConfig> : ServersideQoLPluginBaseCore<TSelf, TConfig>
     where TSelf : ServersideQoLPluginBase<TSelf, TConfig>
+    where TConfig : ConfigBase<TConfig>;
+
+public abstract class ServersideQoLPluginBaseCore<TSelf, TConfig> : ServersideQoLPluginBase
+    where TSelf : ServersideQoLPluginBaseCore<TSelf, TConfig>
     where TConfig : ConfigBase<TConfig>
 {
   public static TSelf Instance { get; private set; } = default!;
@@ -56,7 +61,7 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : ServersideQoLPlu
   readonly HashSet<Processor> _processors = [];
   private protected sealed override IReadOnlyCollection<Processor> GetProcessors() => _processors;
 
-  protected ServersideQoLPluginBase()
+  private protected ServersideQoLPluginBaseCore()
   {
     Instance = (TSelf)this;
     Logger = new(BepInPlugin.Name);
@@ -74,7 +79,7 @@ public abstract class ServersideQoLPluginBase<TSelf, TConfig> : ServersideQoLPlu
   private protected sealed override void RegisterProcessors()
       => RegisterProcessors(new ProcessorCollection(this, Logger));
 
-  sealed class ProcessorCollection(ServersideQoLPluginBase<TSelf, TConfig> plugin, Logger logger) : IProcessorCollection
+  sealed class ProcessorCollection(ServersideQoLPluginBaseCore<TSelf, TConfig> plugin, Logger logger) : IProcessorCollection
   {
     public IProcessorCollection Add<T>() where T : Processor, new()
     {

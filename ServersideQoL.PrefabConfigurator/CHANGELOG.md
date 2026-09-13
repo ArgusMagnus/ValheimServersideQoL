@@ -1,4 +1,4 @@
-### v2.0.9
+### v2.0.10
 - Fixed conflict with [ServersideQoL.AdminOptions](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_AdminOptions) [#230](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/230)
 
 ### v2.0.8
