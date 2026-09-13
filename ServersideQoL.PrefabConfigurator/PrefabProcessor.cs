@@ -2,10 +2,11 @@
 
 namespace ServersideQoL.PrefabConfigurator;
 
-[Processor("d597c8f7-129e-4c43-901a-20cea6520f14",
+[Processor(Id,
   Priority = int.MinValue)] // Run before every other processor to allow the others to overwrite the values set by this processor
 public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
 {
+  public const string Id = "d597c8f7-129e-4c43-901a-20cea6520f14";
   public sealed record PrefabInfo : ProcessorPrefabInfo
   {
     // todo: initialize lists beforehand and set IsValid accordingly. Would make Skip/Initialized obsolete.

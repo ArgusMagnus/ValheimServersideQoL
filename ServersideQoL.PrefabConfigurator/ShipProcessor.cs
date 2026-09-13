@@ -1,6 +1,7 @@
 ﻿namespace ServersideQoL.PrefabConfigurator;
 
-[Processor(Id)]
+[Processor(Id,
+  Priority = int.MinValue)] // Run before every other processor to allow the others to overwrite the values set by this processor
 [RunBefore<PrefabProcessor>]
 public sealed class ShipProcessor : Processor<ShipProcessor.PrefabInfo>
 {
