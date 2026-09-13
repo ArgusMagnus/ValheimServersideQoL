@@ -597,6 +597,9 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBase<ServersideQoLPlugin,
       {
         Logger.LogError($"{processor.GetType().Name} threw while processing ZDO ({zdo.PrefabInfo?.PrefabName}), disabling it for this ZDO: {ex}");
         _unregister.Add(processor);
+#if DEBUG
+        RPC.ShowMessage(ZRoutedRpc.Everybody, MessageHud.MessageType.Center, "Processor exception thrown");
+#endif
         continue;
       }
 
