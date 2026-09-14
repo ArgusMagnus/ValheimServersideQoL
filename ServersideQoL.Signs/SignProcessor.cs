@@ -49,10 +49,12 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
       var newText = _defaultColorRegex.Replace(text, match =>
       {
         found = true;
-        return $"<color=\"{Config.Instance.DefaultColor.Value}\" d>";
+        if (Config.Instance.DefaultColor.Value is { Length: > 0 } and not Config.NotSetDefaultColor)
+          return $"<color=\"{Config.Instance.DefaultColor.Value}\" d>";
+        return "";
       }, 1);
 
-      if (!found && !string.IsNullOrEmpty(Config.Instance.DefaultColor.Value))
+      if (!found && Config.Instance.DefaultColor.Value is { Length: > 0 } and not Config.NotSetDefaultColor)
         newText = $"<color=\"{Config.Instance.DefaultColor.Value}\" d>{text}";
 
       if (newText != text)
