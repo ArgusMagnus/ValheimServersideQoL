@@ -18,7 +18,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       Set both of these values to -1 to disable this feature.
       """);
 
-    public ConfigEntry<int> RockCollapseThresholdAtMaxSkill { get; } = BindEx(cfg, section, 0, $"""
+    public ConfigEntry<int> RockCollapseThresholdAtMaxSkill { get; } = BindEx(cfg, section, 1, $"""
       The percentage of destroyed parts required to collapse a rock or ore deposit at pickaxe skill level 100.
       The actual required percentage scales linearly between this value and {nameof(RockCollapseThresholdAtMinSkill)} with skill level.
       Set both of these values to -1 to disable this feature.

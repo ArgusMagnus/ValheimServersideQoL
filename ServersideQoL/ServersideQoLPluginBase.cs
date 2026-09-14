@@ -51,17 +51,50 @@ public abstract class ServersideQoLPluginBaseCore<TSelf, TConfig> : ServersideQo
     IConfig? cfg = _config;
     if (cfg is null)
     {
-      cfg = _config = CreateConfigSingleton(GetConfigFile(), Logger);
+      cfg = _config = CreateConfigSingleton(GetConfigFile(base.Config), Logger);
+      if (_config is Config { ConfigPerWorld.Value: true })
+      {
+        Logger.LogInfo("Using world config file");
+        cfg = _config = CreateConfigSingleton(GetPerWorldConfigFile(base.Config), Logger);
+      }
       cfg.RaiseInitialized(this);
     }
     return cfg;
-  }
 
-  ConfigFile GetConfigFile()
-  {
-    if (this is ServersideQoLPlugin || !ServersideQoL.Config.Instance.UnifiedConfig.Value)
-      return base.Config;
-    return ServersideQoL.Config.Instance.ConfigFile;
+    static ConfigFile GetConfigFile(ConfigFile configFile)
+    {
+      if (typeof(TConfig) != typeof(Config))
+      {
+        if (ServersideQoL.Config.Instance.UnifiedConfig.Value)
+          configFile = ServersideQoL.Config.Instance.ConfigFile;
+        else if (ServersideQoL.Config.Instance.ConfigPerWorld.Value)
+          configFile = GetPerWorldConfigFile(configFile);
+      }
+      return configFile;
+    }
+
+    static ConfigFile GetPerWorldConfigFile(ConfigFile configFile)
+    {
+      var path = ZNet.World.GetSaveDirectory(FileHelpers.FileSource.Local);
+      path = Path.Combine(path, Path.GetFileName(configFile.ConfigFilePath));
+      if (!File.Exists(path) && File.Exists(configFile.ConfigFilePath))
+        File.Copy(configFile.ConfigFilePath, path);
+
+      var srcDir = Path.Combine(Path.GetDirectoryName(configFile.ConfigFilePath), Path.GetFileNameWithoutExtension(configFile.ConfigFilePath));
+      if (Directory.Exists(srcDir))
+      {
+        var dstDir = Path.Combine(Path.GetDirectoryName(path), Path.GetFileNameWithoutExtension(path));
+        Directory.CreateDirectory(dstDir);
+        foreach (var file in Directory.EnumerateFiles(srcDir))
+        {
+          var dstFile = Path.Combine(dstDir, Path.GetFileName(file));
+          if (!File.Exists(dstFile))
+            File.Copy(file, dstFile);
+        }
+      }
+
+      return new(path, saveOnInit: false, BepInPlugin);
+    }
   }
 
   public static new Logger Logger { get; private set; } = default!;

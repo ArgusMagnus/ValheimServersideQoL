@@ -10,11 +10,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
 
-  public ConfigEntry<bool> AutoSort { get; } = BindEx(cfg, false, "True to auto sort container inventories");
+  public ConfigEntry<bool> AutoSort { get; } = BindEx(cfg, true, "True to auto sort container inventories");
   public ConfigEntry<MessageTypes> SortedMessageType { get; } = BindEx(cfg, MessageTypes.None,
     "Type of message to show when a container was sorted", AcceptableEnum<MessageTypes>.Default);
 
-  public ConfigEntry<bool> AutoPickup { get; } = Shared.AutoPickup = BindEx(cfg, false,
+  public ConfigEntry<bool> AutoPickup { get; } = Shared.AutoPickup = BindEx(cfg, true,
     "True to automatically put dropped items into containers if they already contain said item");
   public ConfigEntry<float> AutoPickupRange { get; } = BindEx(cfg, ZoneSystem.c_ZoneSize,
     $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overridden per chest with the {nameof(ServersideQoL)}.ContainerSigns mod.");
@@ -31,7 +31,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = BindEx(cfg, MessageTypes.None,
     "Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default);
 
-  public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = BindEx(cfg, DisabledEmote, $"""
+  public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = BindEx(cfg, Emotes.Wave, $"""
     Emote to stack inventory into containers.
     If a player uses this emote, their inventory will be automatically stacked into nearby containers.
     The rules for which containers are used are the same as for auto pickup.
