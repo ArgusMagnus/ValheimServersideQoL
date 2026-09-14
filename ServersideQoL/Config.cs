@@ -8,8 +8,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Enables/disables the entire mod");
   public ConfigEntry<bool> DiagnosticLogs { get; } = BindEx(cfg, false,
     "Enables/disables diagnostic logs");
-  public ConfigEntry<bool> UnifiedConfig { get; } = BindEx(cfg, false,
-    "True to use a single config file for all SQoL mods");
+  public ConfigEntry<bool> UnifiedConfig { get; } = BindEx(cfg, false, """
+    True to use a single config file for all SQoL mods.
+    DO NOT turn this on unless you've updated all SQoL mods to v2.0.11 minimum.
+    """);
+    
   public ConfigEntry<bool> ConfigPerWorld { get; } = BindEx(cfg, false,
     "True to save the config files for each world separately in the world save directory");
   //public ConfigEntry<bool> IgnoreGameVersionCheck { get; } = BindEx(cfg, Section, true,
