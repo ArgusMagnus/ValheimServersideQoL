@@ -31,7 +31,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = BindEx(cfg, MessageTypes.None,
     "Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default);
 
-  public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = BindEx(cfg, Emotes.Wave, $"""
+  public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = BindEx(cfg, Emotes.Sit, $"""
     Emote to stack inventory into containers.
     If a player uses this emote, their inventory will be automatically stacked into nearby containers.
     The rules for which containers are used are the same as for auto pickup.
