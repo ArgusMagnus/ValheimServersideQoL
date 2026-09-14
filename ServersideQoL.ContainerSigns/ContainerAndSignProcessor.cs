@@ -69,7 +69,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
       var r = zdo.ZDO.GetRotation();
       var rot = r.eulerAngles.y + 90;
       var signs = new List<ServersideQoLZDO>();
-      p.y += signOffset.Top / 2;
+      p.y += signOffset.VerticalOffset;
       if (signOptions.HasFlag(SignOptions.Left))
         signs.Add(PlacePiece(p + r * Vector3.right * signOffset.Left, Prefabs.Sign, rot));
       if (signOptions.HasFlag(SignOptions.Right))

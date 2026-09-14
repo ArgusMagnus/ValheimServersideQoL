@@ -78,18 +78,18 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public sealed class AdvancedConfig
   {
-    public sealed record ChestSignOffset(float Left, float Right, float Front, float Back, float Top) { ChestSignOffset() : this(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN) { } }
+    public sealed record ChestSignOffset(float Left, float Right, float Front, float Back, float VerticalOffset, float Top) { ChestSignOffset() : this(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN) { } }
 
     [YamlMember(Alias = nameof(ChestSignOffsets))]
     Dictionary<string, ChestSignOffset> ChestSignOffsetsYaml { get; init; } = new()
     {
-      [PrefabNames.WoodChest] = new(0.8f, 0.8f, 0.4f, 0.4f, 0.8f),
-      [PrefabNames.ReinforcedChest] = new(0.85f, 0.85f, 0.5f, 0.5f, 1.1f),
-      [PrefabNames.BlackmetalChest] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f),
-      [PrefabNames.GraustenChest] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f),
-      [PrefabNames.Wardrobe] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f),
-      [PrefabNames.Barrel] = new(0.4f, 0.4f, 0.4f, 0.4f, 0.9f),
-      [PrefabNames.Incinerator] = new(float.NaN, float.NaN, 0.1f, float.NaN, 3f)
+      [PrefabNames.WoodChest] = new(0.8f, 0.8f, 0.4f, 0.4f, 0.4f, 0.8f),
+      [PrefabNames.ReinforcedChest] = new(0.85f, 0.85f, 0.5f, 0.5f, 0.55f, 1.1f),
+      [PrefabNames.BlackmetalChest] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f/2, 0.95f),
+      [PrefabNames.GraustenChest] = new(0.8f, 0.8f, 0.5f, 0.5f, 0.5f, 1.2f),
+      [PrefabNames.Wardrobe] = new(0.8f, 0.8f, 0.5f, 0.5f, 1f, 2.7f),
+      [PrefabNames.Barrel] = new(0.4f, 0.4f, 0.4f, 0.4f, 0.45f, 0.9f),
+      [PrefabNames.Incinerator] = new(float.NaN, float.NaN, 0.1f, float.NaN, 1.5f, float.NaN)
     };
 
     [YamlIgnore]
