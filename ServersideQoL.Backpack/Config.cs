@@ -4,12 +4,10 @@ namespace ServersideQoL.Backpack;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  const string Section = "Backpack";
-
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
 
-  public ConfigEntry<Emotes> OpenBackpackEmote { get; } = BindEx(cfg, Section, Emotes.Wave, $"""
+  public ConfigEntry<Emotes> OpenBackpackEmote { get; } = BindEx(cfg, Emotes.Wave, $"""
     Emote to open the backpack.
     If a player uses this emote, a virtual container acting as their backpack will open.
     {AnyEmote} to use any emote as trigger.
@@ -18,10 +16,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
     """, new AcceptableEnum<Emotes>([AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
 
-  public ConfigEntry<int> InitialBackpackSlots { get; } = BindEx(cfg, Section, 4, "Initial available slots in the backpack");
-  public ConfigEntry<int> AdditionalBackpackSlotsPerDefeatedBoss { get; } = BindEx(cfg, Section, 4, "Additional backpack slots per defeated boss");
-  public ConfigEntry<int> MaxBackpackWeight { get; } = BindEx(cfg, Section, 0, "Maximum backpack weight. 0 for no limit.");
-  public ConfigEntry<BackPackOnDeathOptions> BackpackOnDeath { get; } = BindEx(cfg, Section, BackPackOnDeathOptions.SameAsInventory, "What happens to backpack contents on player death");
+  public ConfigEntry<int> InitialBackpackSlots { get; } = BindEx(cfg, 4, "Initial available slots in the backpack");
+  public ConfigEntry<int> AdditionalBackpackSlotsPerDefeatedBoss { get; } = BindEx(cfg, 4, "Additional backpack slots per defeated boss");
+  public ConfigEntry<int> MaxBackpackWeight { get; } = BindEx(cfg, 0, "Maximum backpack weight. 0 for no limit.");
+  public ConfigEntry<BackPackOnDeathOptions> BackpackOnDeath { get; } = BindEx(cfg, BackPackOnDeathOptions.SameAsInventory, "What happens to backpack contents on player death");
 
   public enum BackPackOnDeathOptions
   {

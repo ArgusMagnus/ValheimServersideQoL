@@ -308,11 +308,10 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
     if (cfg.DiagnosticLogs.Value)
     {
-      Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. __plugins
-        .Where(static x => x.Config.Enabled.Value)
-        .SelectMany(static x => x.Config.ConfigFile
+      Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. (cfg.UnifiedConfig.Value ?
+        [cfg.ConfigFile] : __plugins.Where(static x => x.Config.Enabled.Value).Select(static x => x.Config.ConfigFile)).SelectMany(static x => x)
           //.Where(static x => !x.Value.BoxedValue.Equals(x.Value.DefaultValue))
-          .Select(static x => Invariant($"{(!x.Value.BoxedValue.Equals(x.Value.DefaultValue) ? "*" : "")}[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}")))]));
+          .Select(static x => Invariant($"{(!x.Value.BoxedValue.Equals(x.Value.DefaultValue) ? "*" : "")}[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
     }
 
     //var failed = false;
@@ -721,7 +720,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       var node = ready[^1];
       ready.RemoveAt(ready.Count - 1);
       if (!isPrefabList && node.Attribute.Priority is not 0 && ready.Count > 0 && ready[^1] is { } next && next.Attribute.Priority == node.Attribute.Priority)
-        Logger.LogWarning($"Processors {node.GetType().FullName} and {next.GetType().FullName} share the same non-default priority ({node.Attribute.Priority})");
+        Logger.DevLog($"Processors {node.GetType().FullName} and {next.GetType().FullName} share the same non-default priority ({node.Attribute.Priority})");
 
       processors.Add(node);
 
@@ -760,7 +759,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
     return prefabInfo;
   }).Invoke();
 
-  internal PrefabInfo? GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
+  internal PrefabInfo GetPrefabInfo(int prefab) => _prefabInfos.GetOrAdd(prefab, prefabHash =>
   {
     PrefabInfo? prefabInfo = null;
     if (ZNetScene.instance.GetPrefab(prefabHash) is { } prefab &&

@@ -4,9 +4,7 @@ namespace ServersideQoL.DropControl;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  const string Section = "DropControl";
-
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
 
   public YamlConfigEntry<DropsConfig> Drops { get; } = BindYaml<DropsConfig>(cfg);

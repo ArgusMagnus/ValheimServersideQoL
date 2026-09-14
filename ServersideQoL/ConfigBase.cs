@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using ServersideQoL.Utilities;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.TypeInspectors;
@@ -8,9 +9,9 @@ namespace ServersideQoL;
 
 interface IConfig
 {
-  void RaiseInitialized();
+  void RaiseInitialized(IServersideQoLPlugin plugin);
   event EventHandler<SettingChangedEventArgs>? ConfigChanged;
-  IServersideQoLPlugin Plugin { get; set; }
+  IServersideQoLPlugin Plugin { get; }
   ConfigEntry<bool> Enabled { get; }
   ConfigFile ConfigFile { get; }
 }
@@ -177,9 +178,12 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
 
   static Dictionary<string, IYamlConfigEntry>? __yaml = [];
 
-  IServersideQoLPlugin IConfig.Plugin { get => field; set => field = value; } = default!;
+  IServersideQoLPlugin _plugin = default!;
+  IServersideQoLPlugin IConfig.Plugin => _plugin;
 
   public static TSelf Instance { get => field ?? throw new InvalidOperationException("Config has not been initialized yet"); private set; }
+  protected static string Section => field ??= ((typeof(TSelf) == typeof(Config) || !Config.Instance.UnifiedConfig.Value) ? __section : $"M.{__section}");
+  static readonly string __section = typeof(TSelf).Namespace.Split('.') is { Length: > 1 } parts ? parts[^1] : "General";
 
   protected static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => Processor.BossesByBiome;
   public ConfigFile ConfigFile { get; } = configFile;
@@ -207,8 +211,10 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   void OnSettingsChanged(object? sender, SettingChangedEventArgs args)
       => _configChanged?.Invoke(this, args);
 
-  void IConfig.RaiseInitialized()
+  [MemberNotNull(nameof(_plugin))]
+  void IConfig.RaiseInitialized(IServersideQoLPlugin plugin)
   {
+    _plugin = plugin;
     Instance = (TSelf)this;
 
     foreach (var (configPath, entry) in __yaml!)
@@ -219,12 +225,26 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   }
 
   public static bool IsDeprecated(ConfigEntryBase entry)
-      => __deprecatedEntries.Contains(entry);
+    => __deprecatedEntries.Contains(entry);
 
-  protected static ConfigEntry<T> BindEx<T>(ConfigFile config, string section, T defaultValue, string description,
-      AcceptableValueBase? acceptableValues = null,
-      Deprecated? deprecated = null,
-      [CallerMemberName] string key = default!)
+  protected static ConfigEntry<T> BindEx<T>(ConfigFile config, T defaultValue, string description,
+    AcceptableValueBase? acceptableValues = null,
+    Deprecated? deprecated = null,
+    [CallerMemberName] string key = default!)
+    => BindExCore(config, Section, defaultValue, description, acceptableValues, deprecated, key);
+
+  protected static ConfigEntry<T> BindEx<T>(ConfigFile config, string subSection, T defaultValue, string description,
+    AcceptableValueBase? acceptableValues = null,
+    Deprecated? deprecated = null,
+    [CallerMemberName] string key = default!)
+  {
+    var section = Config.Instance.UnifiedConfig.Value ? $"{Section}.{subSection}" : subSection;
+    return BindExCore(config, section, defaultValue, description, acceptableValues, deprecated, key);
+  }
+
+  static ConfigEntry<T> BindExCore<T>(ConfigFile config, string section, T defaultValue, string description,
+    AcceptableValueBase? acceptableValues,
+    Deprecated? deprecated, string key)
   {
     if (deprecated is not null)
       description = string.Join(Environment.NewLine, [$"DEPRECATED: {deprecated.Reason}", description]);
@@ -260,6 +280,8 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     if (__yaml is null)
       throw new InvalidOperationException("Config alredy initialized");
 
+    if (typeof(TSelf) != typeof(Config) && Config.Instance.UnifiedConfig.Value)
+      fileName = $"{__section}.{fileName}";
     var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), ServersideQoLPlugin.PluginGuid);
     var configPath = Path.Combine(configDir, $"{Path.GetFileNameWithoutExtension(cfg.ConfigFilePath)}.{fileName}.yml");
 

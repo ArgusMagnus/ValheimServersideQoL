@@ -8,9 +8,7 @@ namespace ServersideQoL.PrefabConfigurator;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  const string Section = "PrefabConfigurator";
-
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
   public FireplacesConfig Fireplaces { get; } = new(cfg);
   public BuildPiecesConfig BuildPieces { get; } = new(cfg);

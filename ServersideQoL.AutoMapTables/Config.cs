@@ -5,36 +5,34 @@ namespace ServersideQoL.AutoMapTables;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  const string Section = "AutoMapTables";
-
   static readonly AcceptableEnum<Minimap.PinType> __acceptablePins = new([Minimap.PinType.None, Minimap.PinType.Icon0, Minimap.PinType.Icon1, Minimap.PinType.Icon2, Minimap.PinType.Icon3, Minimap.PinType.Icon4]);
 
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
-  public ConfigEntry<float> MapTableRange { get; } = BindEx(cfg, Section, ZoneSystem.c_ZoneSize,
+  public ConfigEntry<float> MapTableRange { get; } = BindEx(cfg, ZoneSystem.c_ZoneSize,
     "If a player enters this range around a map table, their discovered information (portal/ship/ore deposits/etc. position) is transfered to the map table.");
-  public ConfigEntry<Minimap.PinType> PortalsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Icon4,
+  public ConfigEntry<Minimap.PinType> PortalsPinType { get; } = BindEx(cfg, Minimap.PinType.Icon4,
     "The pin type for portals on the map table", __acceptablePins);
-  public ConfigEntry<Minimap.PinType> ShipsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Player,
+  public ConfigEntry<Minimap.PinType> ShipsPinType { get; } = BindEx(cfg, Minimap.PinType.Player,
     "The pin type for ships on the map table", new AcceptableEnum<Minimap.PinType>([..__acceptablePins.AcceptableValues, Minimap.PinType.Player]));
-  public ConfigEntry<Minimap.PinType> DungeonsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Icon2,
+  public ConfigEntry<Minimap.PinType> DungeonsPinType { get; } = BindEx(cfg, Minimap.PinType.Icon2,
     "The pin type for dungeons on the map table", __acceptablePins);
-  public ConfigEntry<string> DungeonsLabel { get; } = BindEx(cfg, Section, DefaultOreDepositName,
+  public ConfigEntry<string> DungeonsLabel { get; } = BindEx(cfg, DefaultOreDepositName,
     "The pin label for dungeons");
-  public ConfigEntry<float> DungeonsDiscoverRange { get; } = BindEx(cfg, Section, 4f,
+  public ConfigEntry<float> DungeonsDiscoverRange { get; } = BindEx(cfg, 4f,
     "A dungeon is considered 'discovered by a player' when that player is detected within this range around the entrance");
 
   public sealed record OreDepositConfig(ConfigEntry<Minimap.PinType> PinType, ConfigEntry<string> Label);
   public IReadOnlyDictionary<int, OreDepositConfig> AutoUpdateOreDeposits { get; } = GetPrefabPinConfig(cfg, logger) ?? EmptyReadOnlyCollections<int, OreDepositConfig>.Dictionary;
 
-  public ConfigEntry<float> OreDepositsDiscoverRange { get; } = BindEx(cfg, Section, ZoneSystem.c_ZoneSizeHalf,
+  public ConfigEntry<float> OreDepositsDiscoverRange { get; } = BindEx(cfg, ZoneSystem.c_ZoneSizeHalf,
     "An ore deposit is considered 'discovered by a player' when that player was within this range around the deposit while it was struck by a pickaxe");
 
-  public ConfigEntry<MessageTypes> UpdatedMessageType { get; } = BindEx(cfg, Section, MessageTypes.None,
+  public ConfigEntry<MessageTypes> UpdatedMessageType { get; } = BindEx(cfg, MessageTypes.None,
     "Type of message to show when a map table is updated", AcceptableEnum<MessageTypes>.Default);
-  public ConfigEntry<MessageTypes> DiscoveredMessageType { get; } = BindEx(cfg, Section, MessageTypes.TopLeftFar,
+  public ConfigEntry<MessageTypes> DiscoveredMessageType { get; } = BindEx(cfg, MessageTypes.TopLeftFar,
     "Type of message to show to a player when they discovered map information", new AcceptableEnum<MessageTypes>([MessageTypes.None, MessageTypes.TopLeftFar, MessageTypes.CenterFar, MessageTypes.InWorld]));
-  public ConfigEntry<bool> DiscardPlayerPins { get; } = BindEx(cfg, Section, false,
+  public ConfigEntry<bool> DiscardPlayerPins { get; } = BindEx(cfg, false,
     "True to discard custom player pins from map tables");
   public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
   public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);

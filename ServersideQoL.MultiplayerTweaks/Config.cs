@@ -4,21 +4,19 @@ namespace ServersideQoL.MultiplayerTweaks;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  const string Section = "MultiplayerTweaks";
-
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
-  public ConfigEntry<bool> ForcePlayerMapPin { get; } = BindEx(cfg, Section, false,
+  public ConfigEntry<bool> ForcePlayerMapPin { get; } = BindEx(cfg, false,
     "True to force player map pins to be visible for all players");
-  public ConfigEntry<bool> AssignInteractablesToClosestPlayer { get; } = BindEx(cfg, Section, false, """
+  public ConfigEntry<bool> AssignInteractablesToClosestPlayer { get; } = BindEx(cfg, false, """
     True to assign ownership of some interactable objects (such as smelters or cooking stations) to the closest player.
     This should help avoiding the loss of ore, etc. due to networking issues.
     """);
-  public ConfigEntry<bool> AssignMobsToClosestPlayer { get; } = BindEx(cfg, Section, false, """
+  public ConfigEntry<bool> AssignMobsToClosestPlayer { get; } = BindEx(cfg, false, """
     True to assign ownership of hostile mobs to the closest player.
     This should help reduce issues with dodging/parrying due to networking issues.
     """);
-  public ConfigEntry<bool> AssignShipsToCaptain { get; } = BindEx(cfg, Section, false, """
+  public ConfigEntry<bool> AssignShipsToCaptain { get; } = BindEx(cfg, false, """
     True to assign ownership of ships to the player controlling the ship.
     This should help reduce issues with ship control due to networking issues.
     """);

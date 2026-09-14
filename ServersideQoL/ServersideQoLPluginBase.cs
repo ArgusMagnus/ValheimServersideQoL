@@ -7,6 +7,7 @@ namespace ServersideQoL;
 
 interface IServersideQoLPlugin
 {
+  BepInPlugin BepInPlugin { get; }
   IConfig Config { get; }
   IReadOnlyCollection<Processor> Processors { get; }
   void RegisterProcessors();
@@ -23,10 +24,12 @@ public abstract class ServersideQoLPluginBase : BaseUnityPlugin, IServersideQoLP
   private protected abstract IConfig GetConfig();
   private protected abstract IReadOnlyCollection<Processor> GetProcessors();
   private protected abstract void RegisterProcessors();
+  private protected abstract BepInPlugin GetBepInPlugin();
 
   IConfig IServersideQoLPlugin.Config => GetConfig();
   IReadOnlyCollection<Processor> IServersideQoLPlugin.Processors => GetProcessors();
   void IServersideQoLPlugin.RegisterProcessors() => RegisterProcessors();
+  BepInPlugin IServersideQoLPlugin.BepInPlugin => GetBepInPlugin();
 }
 
 [BepInDependency(ServersideQoLPlugin.PluginGuid, ServersideQoLPlugin.PluginVersion)]
@@ -48,15 +51,22 @@ public abstract class ServersideQoLPluginBaseCore<TSelf, TConfig> : ServersideQo
     IConfig? cfg = _config;
     if (cfg is null)
     {
-      cfg = _config = CreateConfigSingleton(base.Config, Logger);
-      cfg.Plugin = this;
-      cfg.RaiseInitialized();
+      cfg = _config = CreateConfigSingleton(GetConfigFile(), Logger);
+      cfg.RaiseInitialized(this);
     }
     return cfg;
   }
 
+  ConfigFile GetConfigFile()
+  {
+    if (this is ServersideQoLPlugin || !ServersideQoL.Config.Instance.UnifiedConfig.Value)
+      return base.Config;
+    return ServersideQoL.Config.Instance.ConfigFile;
+  }
+
   public static new Logger Logger { get; private set; } = default!;
   public static BepInPlugin BepInPlugin { get; } = typeof(TSelf).GetCustomAttribute<BepInPlugin>();
+  private protected sealed override BepInPlugin GetBepInPlugin() => BepInPlugin;
 
   readonly HashSet<Processor> _processors = [];
   private protected sealed override IReadOnlyCollection<Processor> GetProcessors() => _processors;

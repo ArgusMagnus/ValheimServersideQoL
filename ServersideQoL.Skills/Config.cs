@@ -5,7 +5,7 @@ namespace ServersideQoL.Skills;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, "Skills", true,
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
 
   public PickaxeConfig Pickaxe { get; } = new(cfg);

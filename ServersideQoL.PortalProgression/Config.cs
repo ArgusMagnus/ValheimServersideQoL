@@ -5,23 +5,22 @@ namespace ServersideQoL.PortalProgression;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  const string Section = "PortalProgression";
   internal const string BossKeyNone = "--";
 
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true, """
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true, """
     Enables/disables the entire mod
     Items which are not teleportable by default (e.g. ores, metals, etc.) will be temporarily taken from a player's inventory when they enter a certain range around a portal so that they can travel through, according to the settings below.
     When the player leaves the range (e.g. by travelling through the portal), the items will be returned to their inventory.
     """);
     
 
-  public ConfigEntry<float> PortalRange { get; } = BindEx(cfg, Section, 4f, """
+  public ConfigEntry<float> PortalRange { get; } = BindEx(cfg, 4f, """
     The range around a portal in which items will be taken from a player's inventory.
     Decreasing this value will lead to a longer delay before players with non-teleportable items in their inventory can use the portal.
     Increasing this value will leave players unable to have certain items in their inventory in a larger range around portals.
     """);
 
-  public ConfigEntry<MessageTypes> MessageType { get; } = BindEx(cfg, Section, MessageTypes.None,
+  public ConfigEntry<MessageTypes> MessageType { get; } = BindEx(cfg, MessageTypes.None,
     "Type of message to show when a non-teleportable item is taken from/returned to a player's inventory", AcceptableEnum<MessageTypes>.Default);
 
   public sealed record Entry(ItemDrop ItemDrop, ConfigEntry<string> Config);
@@ -29,8 +28,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public IReadOnlyList<Entry> Entries { get; } = new Func<IReadOnlyList<Entry>>(() =>
   {
     var acceptableValues = new AcceptableValueList<string>([BossKeyNone, .. BossesByBiome.Values
-                .OrderBy(static x => x.m_health)
-                .Select(static x => x.m_defeatSetGlobalKey)]);
+      .OrderBy(static x => x.m_health)
+      .Select(static x => x.m_defeatSetGlobalKey)]);
 
     List<Entry> result = new();
     foreach (var item in ObjectDB.instance.m_items)

@@ -6,22 +6,20 @@ namespace ServersideQoL.ContainerSigns;
 
 public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(cfg, logger)
 {
-  const string Section = "ContainerSigns";
-
-  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, Section, true,
+  public override ConfigEntry<bool> Enabled { get; } = BindEx(cfg, true,
     "Enables/disables the entire mod");
 
   const string DefaultPlaceholderString = "•";
-  public ConfigEntry<string> ChestSignsDefaultText { get; } = BindEx(cfg, Section, DefaultPlaceholderString, "Default text for chest signs");
-  public ConfigEntry<string> ChestSignsContentListPlaceholder { get; } = BindEx(cfg, Section, DefaultPlaceholderString,
+  public ConfigEntry<string> ChestSignsDefaultText { get; } = BindEx(cfg, DefaultPlaceholderString, "Default text for chest signs");
+  public ConfigEntry<string> ChestSignsContentListPlaceholder { get; } = BindEx(cfg, DefaultPlaceholderString,
     "If this value is found in the text of a chest sign, it will be replaced by a list of contained items in that chest");
-  public ConfigEntry<int> ChestSignsContentListMaxCount { get; } = BindEx(cfg, Section, 3,
+  public ConfigEntry<int> ChestSignsContentListMaxCount { get; } = BindEx(cfg, 3,
     "Max number of entries to show in the content list on chest signs.");
-  public ConfigEntry<string> ChestSignsContentListSeparator { get; } = BindEx(cfg, Section, "<br>",
+  public ConfigEntry<string> ChestSignsContentListSeparator { get; } = BindEx(cfg, "<br>",
     "Separator to use for content lists on chest signs");
-  public ConfigEntry<string> ChestSignsContentListNameRest { get; } = BindEx(cfg, Section, "Other",
+  public ConfigEntry<string> ChestSignsContentListNameRest { get; } = BindEx(cfg, "Other",
     "Text to show for the entry summarizing the rest of the items");
-  public ConfigEntry<string> ChestSignsContentListEntryFormat { get; } = BindEx(cfg, Section, "{0} {1}",
+  public ConfigEntry<string> ChestSignsContentListEntryFormat { get; } = BindEx(cfg, "{0} {1}",
     $"Format string for entries in the content list, the first argument is the name of the item, the second is the total number of per item.",
   new AcceptableFormatString(["Test", 0]));
 
@@ -30,15 +28,15 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public bool FeedFromContainers => Shared.FeedFromContainers?.Value ?? false;
   public int? FeedFromContainersMaxRange => Shared.FeedFromContainersMaxRange?.Value;
 
-  public ConfigEntry<SignOptions> WoodChestSigns { get; } = BindEx(cfg, Section, SignOptions.None,
+  public ConfigEntry<SignOptions> WoodChestSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on wood chests", AcceptableEnum<SignOptions>.Default);
-  public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = BindEx(cfg, Section, SignOptions.None,
+  public ConfigEntry<SignOptions> ReinforcedChestSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default);
-  public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = BindEx(cfg, Section, SignOptions.None,
+  public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default);
-  public ConfigEntry<SignOptions> BarrelSigns { get; } = BindEx(cfg, Section, SignOptions.None,
+  public ConfigEntry<SignOptions> BarrelSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on barrels", AcceptableEnum<SignOptions>.Default);
-  public ConfigEntry<SignOptions> ObliteratorSigns { get; } = BindEx(cfg, Section, SignOptions.None,
+  public ConfigEntry<SignOptions> ObliteratorSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on obliterators", new AcceptableEnum<SignOptions>([SignOptions.Front]));
 
   internal SignOptions GetSignOptions(int prefab)
