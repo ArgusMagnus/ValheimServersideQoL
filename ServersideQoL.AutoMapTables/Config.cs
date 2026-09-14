@@ -20,7 +20,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
   public ConfigEntry<Minimap.PinType> DungeonsPinType { get; } = BindEx(cfg, Section, Minimap.PinType.Icon2,
     "The pin type for dungeons on the map table", __acceptablePins);
   public ConfigEntry<string> DungeonsLabel { get; } = BindEx(cfg, Section, DefaultOreDepositName,
-    "The pin label for duengons");
+    "The pin label for dungeons");
   public ConfigEntry<float> DungeonsDiscoverRange { get; } = BindEx(cfg, Section, 4f,
     "A dungeon is considered 'discovered by a player' when that player is detected within this range around the entrance");
 
