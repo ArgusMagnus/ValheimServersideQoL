@@ -10,15 +10,8 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
   readonly Regex _clockRegex = new($@"(?:{string.Join("|", ClockEmojis.Select(Regex.Escape))})(?:\s*\d\d\:\d\d)?");
 
   readonly Regex _defaultColorRegex = new(@"<color=[^>]+ d>");
-  string _defaultColor = "";
 
   string? _timeText;
-
-  protected override void Initialize()
-  {
-    _defaultColor = Config.Instance.DefaultColor.Value.StartsWith('#') ? Config.Instance.DefaultColor.Value :
-        string.IsNullOrEmpty(Config.Instance.DefaultColor.Value) ? "" : $"\"{Config.Instance.DefaultColor.Value}\"";
-  }
 
   protected override void PreProcess(PeersEnumerable peers)
   {
@@ -56,11 +49,11 @@ public sealed class SignProcessor : Processor<ProcessorPrefabInfo<Sign>>
       var newText = _defaultColorRegex.Replace(text, match =>
       {
         found = true;
-        return $"<color={_defaultColor} d>";
+        return $"<color=\"{Config.Instance.DefaultColor.Value}\" d>";
       }, 1);
 
-      if (!found && !string.IsNullOrEmpty(_defaultColor))
-        newText = $"<color={_defaultColor} d>{text}";
+      if (!found && !string.IsNullOrEmpty(Config.Instance.DefaultColor.Value))
+        newText = $"<color=\"{Config.Instance.DefaultColor.Value}\" d>{text}";
 
       if (newText != text)
         zdo.Vars.SetText(text = newText);
