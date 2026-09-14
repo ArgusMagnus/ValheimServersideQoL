@@ -42,20 +42,60 @@ public abstract class ConfigBase
 
   private protected interface IYamlConfigEntry
   {
-    object Value { get; set; }
+    string FilePath { get; }
+    object Value { get; }
+    void Deserialize();
   }
 
-  public sealed class YamlConfigEntry<T>(T value) : IYamlConfigEntry
+  public sealed class YamlConfigEntry<T>(string filePath, T value) : IYamlConfigEntry
     where T : notnull
   {
+    readonly string _filePath = filePath;
     public T Value { get; private set { IsDefault = value.Equals(field); field = value; } } = value;
     public bool IsDefault { get; private set; } = true;
+    public event Action<YamlConfigEntry<T>>? ValueChanged;
+    readonly FileSystemWatcher _fileWatcher = new(Path.GetDirectoryName(filePath), Path.GetFileName(filePath));
 
-    object IYamlConfigEntry.Value
+    string IYamlConfigEntry.FilePath => _filePath;
+    object IYamlConfigEntry.Value => Value;
+
+    void Deserialize()
     {
-      get => Value;
-      set => Value = (T)value;
+      if (!File.Exists(_filePath))
+        return;
+
+      _fileWatcher.EnableRaisingEvents = false;
+      try
+      {
+        var deserializer = new DeserializerBuilder()
+            .IncludeNonPublicProperties()
+            .EnablePrivateConstructors()
+            //.WithObjectFactory(new MyObjectFactory())
+            .WithTypeInspector(static x => new MyTypeInspector(x))
+            .Build();
+
+        using (var stream = new StreamReader(_filePath))
+          Value = (T?)deserializer.Deserialize(stream, typeof(T)) ?? Value;
+
+        ServersideQoLPlugin.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(_filePath)}");
+        ValueChanged?.Invoke(this);
+      }
+      catch (Exception ex)
+      {
+        ServersideQoLPlugin.Logger.LogWarning($"{Path.GetFileName(_filePath)}: {ex}");
+      }
+      _fileWatcher.EnableRaisingEvents = true;
     }
+
+    void IYamlConfigEntry.Deserialize()
+    {
+      Deserialize();
+      _fileWatcher.Created += OnFileCreatedOrChanged;
+      _fileWatcher.Changed += OnFileCreatedOrChanged;
+      _fileWatcher.EnableRaisingEvents = true;
+    }
+
+    void OnFileCreatedOrChanged(object sender, FileSystemEventArgs e) => Deserialize();
   }
 
   private protected sealed class MyTypeInspector(ITypeInspector inner) : TypeInspectorSkeleton
@@ -177,6 +217,7 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   static readonly HashSet<ConfigEntryBase> __deprecatedEntries = [];
 
   static Dictionary<string, IYamlConfigEntry>? __yaml = [];
+  //static readonly Dictionary<string, FileSystemWatcher> __yamlFileWatchers = new(StringComparer.OrdinalIgnoreCase);
 
   IServersideQoLPlugin _plugin = default!;
   IServersideQoLPlugin IConfig.Plugin => _plugin;
@@ -217,8 +258,8 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     _plugin = plugin;
     Instance = (TSelf)this;
 
-    foreach (var (configPath, entry) in __yaml!)
-      BindYaml(configPath, entry);
+    foreach (var entry in __yaml!.Values)
+      BindYaml(entry);
     __yaml = null;
 
     Initialized?.Invoke(ConfigFile, (TSelf)this);
@@ -275,7 +316,11 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   }
 
   protected static YamlConfigEntry<T> BindYaml<T>(ConfigFile cfg, [CallerMemberName] string fileName = default!)
-      where T : notnull, new()
+    where T : notnull, new()
+    => BindYaml<T>(cfg, null!, fileName);
+
+  protected static YamlConfigEntry<T> BindYaml<T>(ConfigFile cfg, Action<T> onChanged, [CallerMemberName] string fileName = default!)
+    where T : notnull, new()
   {
     if (__yaml is null)
       throw new InvalidOperationException("Config alredy initialized");
@@ -285,54 +330,37 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     var configDir = Path.Combine(Path.GetDirectoryName(cfg.ConfigFilePath), ServersideQoLPlugin.PluginGuid);
     var configPath = Path.Combine(configDir, $"{Path.GetFileNameWithoutExtension(cfg.ConfigFilePath)}.{fileName}.yml");
 
-    var entry = new YamlConfigEntry<T>(new());
+    var entry = new YamlConfigEntry<T>(configPath, new());
+    if (onChanged is not null)
+      entry.ValueChanged += x => onChanged(x.Value);
     __yaml.Add(configPath, entry);
     return entry;
   }
 
-  static void BindYaml(string configPath, IYamlConfigEntry entry)
+  static void BindYaml(IYamlConfigEntry entry)
   {
-    var configDir = Path.GetDirectoryName(configPath);
+    var configDir = Path.GetDirectoryName(entry.FilePath);
 
     var serializer = new SerializerBuilder()
         .IncludeNonPublicProperties()
         .WithTypeInspector(static x => new MyTypeInspector(x))
+        .DisableAliases()
         .Build();
 
     {
       Directory.CreateDirectory(configDir);
-      var defaultConfigPath = Path.ChangeExtension(configPath, "default.yml");
+      var defaultConfigPath = Path.ChangeExtension(entry.FilePath, "default.yml");
       using var file = new StreamWriter(defaultConfigPath, append: false);
       file.WriteLine($"""
         # {Path.GetFileName(defaultConfigPath)} contains the default values and is overwritten regularly.
-        # Rename it to {Path.GetFileName(configPath)} if you want to change values.
+        # Rename it to {Path.GetFileName(entry.FilePath)} if you want to change values.
         """);
       file.WriteLine();
       WriteYamlHeader(file);
       serializer.Serialize(file, entry.Value);
     }
 
-    if (!File.Exists(configPath))
-      return;
-
-    try
-    {
-      var deserializer = new DeserializerBuilder()
-          .IncludeNonPublicProperties()
-          .EnablePrivateConstructors()
-          //.WithObjectFactory(new MyObjectFactory())
-          .WithTypeInspector(static x => new MyTypeInspector(x))
-          .Build();
-
-      using (var stream = new StreamReader(configPath))
-        entry.Value = deserializer.Deserialize(stream, entry.Value.GetType()) ?? entry.Value;
-
-      ServersideQoLPlugin.Logger.LogInfo($"Advanced config loaded from {Path.GetFileName(configPath)}");
-    }
-    catch (Exception ex)
-    {
-      ServersideQoLPlugin.Logger.LogWarning($"{Path.GetFileName(configPath)}: {ex}");
-    }
+    entry.Deserialize();
   }
 
   static void WriteYamlHeader(StreamWriter writer) => writer.WriteLine("""

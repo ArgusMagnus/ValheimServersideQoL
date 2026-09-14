@@ -9,6 +9,8 @@ public static class PrefabNames
   public const string BlackmetalChest = "piece_chest_blackmetal";
   public const string ReinforcedChest = "piece_chest";
   public const string WoodChest = "piece_chest_wood";
+  public const string GraustenChest = "piece_chest_grausten";
+  public const string Wardrobe = "piece_chest_warderobe";
   public const string Barrel = "piece_chest_barrel";
   public const string Incinerator = "incinerator";
   public const string GiantBrain = "giant_brain";
@@ -29,6 +31,8 @@ public static class Prefabs
   public static int Candle { get; } = "Candle_resin".GetStableHashCode();
   public static int BlackmetalChest { get; } = PrefabNames.BlackmetalChest.GetStableHashCode();
   public static int ReinforcedChest { get; } = PrefabNames.ReinforcedChest.GetStableHashCode();
+  public static int GraustenChest { get; } = PrefabNames.GraustenChest.GetStableHashCode();
+  public static int Wardrobe { get; } = PrefabNames.Wardrobe.GetStableHashCode();
   public static int Barrel { get; } = PrefabNames.Barrel.GetStableHashCode();
   public static int WoodChest { get; } = PrefabNames.WoodChest.GetStableHashCode();
   public static int Incinerator { get; } = PrefabNames.Incinerator.GetStableHashCode();

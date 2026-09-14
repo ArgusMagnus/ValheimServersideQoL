@@ -34,6 +34,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "Options to automatically put signs on reinforced chests", AcceptableEnum<SignOptions>.Default);
   public ConfigEntry<SignOptions> BlackmetalChestSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on blackmetal chests", AcceptableEnum<SignOptions>.Default);
+  public ConfigEntry<SignOptions> GraustenChestSigns { get; } = BindEx(cfg, SignOptions.None,
+    "Options to automatically put signs on grausten chests", AcceptableEnum<SignOptions>.Default);
+  public ConfigEntry<SignOptions> WardrobeSigns { get; } = BindEx(cfg, SignOptions.None,
+    "Options to automatically put signs on wardrobes", AcceptableEnum<SignOptions>.Default);
   public ConfigEntry<SignOptions> BarrelSigns { get; } = BindEx(cfg, SignOptions.None,
     "Options to automatically put signs on barrels", AcceptableEnum<SignOptions>.Default);
   public ConfigEntry<SignOptions> ObliteratorSigns { get; } = BindEx(cfg, SignOptions.None,
@@ -47,6 +51,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       return ReinforcedChestSigns.Value;
     if (prefab == Prefabs.BlackmetalChest)
       return BlackmetalChestSigns.Value;
+    if (prefab == Prefabs.GraustenChest)
+      return GraustenChestSigns.Value;
+    if (prefab == Prefabs.Wardrobe)
+      return WardrobeSigns.Value;
     if (prefab == Prefabs.Barrel)
       return BarrelSigns.Value;
     if (prefab == Prefabs.Incinerator)
@@ -54,18 +62,18 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     return default;
   }
 
-  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);
+  public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg, static x => x.Reset());
 
   [Flags]
   public enum SignOptions
   {
     None,
-    Left = (1 << 0),
-    Right = (1 << 1),
-    Front = (1 << 2),
-    Back = (1 << 3),
-    TopLongitudinal = (1 << 4),
-    TopLateral = (1 << 5)
+    Left = 1 << 0,
+    Right = 1 << 1,
+    Front = 1 << 2,
+    Back = 1 << 3,
+    TopLongitudinal = 1 << 4,
+    TopLateral = 1 << 5
   }
 
   public sealed class AdvancedConfig
@@ -78,11 +86,19 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
       [PrefabNames.WoodChest] = new(0.8f, 0.8f, 0.4f, 0.4f, 0.8f),
       [PrefabNames.ReinforcedChest] = new(0.85f, 0.85f, 0.5f, 0.5f, 1.1f),
       [PrefabNames.BlackmetalChest] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f),
+      [PrefabNames.GraustenChest] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f),
+      [PrefabNames.Wardrobe] = new(0.95f, 0.95f, 0.7f, 0.7f, 0.95f),
       [PrefabNames.Barrel] = new(0.4f, 0.4f, 0.4f, 0.4f, 0.9f),
       [PrefabNames.Incinerator] = new(float.NaN, float.NaN, 0.1f, float.NaN, 3f)
     };
 
     [YamlIgnore]
-    public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets => field ??= ChestSignOffsetsYaml.ToDictionary(static x => x.Key.GetStableHashCode(), static x => x.Value);
+    public IReadOnlyDictionary<int, ChestSignOffset> ChestSignOffsets
+    {
+      get => field ??= ChestSignOffsetsYaml.ToDictionary(static x => x.Key.GetStableHashCode(), static x => x.Value);
+      private set => field = value;
+    }
+
+    internal void Reset() => ChestSignOffsets = default!;
   }
 }

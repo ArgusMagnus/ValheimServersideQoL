@@ -1,6 +1,7 @@
 ### v2.0.11
 - New option to use a single config file for all SQoL mods: `UnifiedConfig`
 - New option to have a separate set of config files for each world: `ConfigPerWorld`
+- Auto-reload YAML config files
 
 ### v2.0.10
 - Required for PrefabConfigurator
