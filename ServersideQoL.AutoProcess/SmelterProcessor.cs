@@ -23,7 +23,7 @@ public sealed class SmelterProcessor : Processor<SmelterProcessor.PrefabInfo>
     Instance<ContainerRegistryProcessor>().ContainerChanged -= OnContainerChanged;
     if (Config.Instance.FeedFromContainers.Value)
     {
-      _smelters = new(Mathf.Max(Config.Instance.FeedFromContainersRange.Value, Config.Instance.FeedFromContainersMaxRange ?? 0));
+      _smelters = new(Mathf.Max(Config.Instance.FeedFromContainersRange.Value, Config.Instance.FeedFromContainersMaxRange.Value));
       _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(_smelters.SectorWidth);
       Instance<ContainerRegistryProcessor>().ContainerChanged += OnContainerChanged;
     }

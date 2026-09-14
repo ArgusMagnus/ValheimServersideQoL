@@ -1,3 +1,7 @@
+### v2.0.11
+- Move `FeedFromContainersMaxRange` config option from ContainerSigns to AutoProcess
+- Move `AutoPickupMaxRange` config option from ContainerSigns to AutoStore
+
 ### v2.0.7
 - Fixed compatiblity issues with ServersideQoL.PrefabConfigurator
 

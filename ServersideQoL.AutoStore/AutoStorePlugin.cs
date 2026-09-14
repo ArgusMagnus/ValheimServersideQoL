@@ -3,7 +3,6 @@ using BepInEx.Configuration;
 
 namespace ServersideQoL.AutoStore;
 
-[BepInDependency(ServersideQoLPlugin.PluginGuid, ServersideQoLPlugin.PluginVersion)]
 partial class AutoStorePlugin : ServersideQoLPluginBase<AutoStorePlugin, Config>
 {
   protected override Config CreateConfigSingleton(ConfigFile configFile, Logger logger) => new(configFile, logger);

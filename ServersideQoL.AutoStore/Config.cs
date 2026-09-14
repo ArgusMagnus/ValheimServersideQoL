@@ -1,4 +1,7 @@
-﻿using BepInEx.Configuration;
+﻿extern alias ContainerSigns;
+using BepInEx.Configuration;
+using ContainerAndSignProcessor = ContainerSigns::ServersideQoL.ContainerSigns.ContainerAndSignProcessor;
+using ContainerSignsPlugin = ContainerSigns::ServersideQoL.ContainerSigns.ContainerSignsPlugin;
 
 namespace ServersideQoL.AutoStore;
 
@@ -17,7 +20,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "True to automatically put dropped items into containers if they already contain said item");
   public ConfigEntry<float> AutoPickupRange { get; } = BindEx(cfg, Section, ZoneSystem.c_ZoneSize,
     $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overridden per chest with the {nameof(ServersideQoL)}.ContainerSigns mod.");
-  public int? AutoPickupMaxRange => Shared.AutoPickupMaxRange?.Value;
+  public ConfigEntry<int> AutoPickupMaxRange { get; } = Shared.AutoPickupMaxRange = BindEx(cfg, Section, (int)ZoneSystem.c_ZoneSize, $"""
+    Requires the ${ContainerSignsPlugin.PluginName} mod. 
+    Max auto pickup range players can set per chest (by putting '{ContainerAndSignProcessor.PickupRangeEmoji}<Range>' on a chest sign, e.g. '{ContainerAndSignProcessor.PickupRangeEmoji}16').
+    """);
   public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = BindEx(cfg, Section, 4f,
     "Min distance all players must have to a dropped item for it to be picked up");
   public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = BindEx(cfg, Section, true,

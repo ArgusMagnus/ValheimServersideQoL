@@ -1,4 +1,7 @@
-﻿using BepInEx.Configuration;
+﻿extern alias ContainerSigns;
+using BepInEx.Configuration;
+using ContainerAndSignProcessor = ContainerSigns::ServersideQoL.ContainerSigns.ContainerAndSignProcessor;
+using ContainerSignsPlugin = ContainerSigns::ServersideQoL.ContainerSigns.ContainerSignsPlugin;
 
 namespace ServersideQoL.AutoProcess;
 
@@ -14,7 +17,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     Required proximity of a container to a smelter to be used as feeding source.
     Can be overridden per chest with the {nameof(ServersideQoL)}.ContainerSigns mod.
     """);
-  public int? FeedFromContainersMaxRange => Shared.FeedFromContainersMaxRange?.Value;
+  public ConfigEntry<int> FeedFromContainersMaxRange { get; } = Shared.FeedFromContainersMaxRange = BindEx(cfg, Section, (int)ZoneSystem.c_ZoneSize, $"""
+    Requires the {ContainerSignsPlugin.PluginName} mod.
+    Max feeding range players can set per chest (by putting '{ContainerAndSignProcessor.FeedRangeEmoji}<Range>' on a chest sign, e.g. '{ContainerAndSignProcessor.FeedRangeEmoji}64')
+    """);
   public ConfigEntry<float> FeedFromContainersMinPlayerDistance { get; } = BindEx(cfg, Section, 4f,
     "Min distance all players must have to a processing station");
   public ConfigEntry<int> FeedFromContainersLeaveAtLeastFuel { get; } = BindEx(cfg, Section, 1,

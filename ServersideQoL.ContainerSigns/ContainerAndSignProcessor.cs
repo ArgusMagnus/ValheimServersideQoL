@@ -18,11 +18,11 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
   readonly Dictionary<ServersideQoLZDO, List<ServersideQoLZDO>> _signsByChests = [];
   readonly Dictionary<ServersideQoLZDO, ServersideQoLZDO> _chestsBySigns = [];
 
-  internal const string MagnetEmoji = "🧲";
-  readonly Regex _chestPickupRangeRegex = new($@"{Regex.Escape(MagnetEmoji)}\s*(?<R>\d+)");
+  public const string PickupRangeEmoji = "🧲";
+  readonly Regex _chestPickupRangeRegex = new($@"{Regex.Escape(PickupRangeEmoji)}\s*(?<R>\d+)");
 
-  internal const string LeftRightArrowEmoji = "↔️";
-  readonly Regex _chestFeedRangeRegex = new($@"{Regex.Escape(LeftRightArrowEmoji)}\s*(?<R>\d+)");
+  public const string FeedRangeEmoji = "↔️";
+  readonly Regex _chestFeedRangeRegex = new($@"{Regex.Escape(FeedRangeEmoji)}\s*(?<R>\d+)");
 
   //internal const string LinkEmoji = "🔗";
   //readonly Regex _incineratorTagRegex = new($@"{Regex.Escape(LinkEmoji)}\s*(?<T>\w*)");
@@ -105,7 +105,7 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
       var text = zdo.Vars.GetText();
       var newText = text;
       ContainerState? containerState = null;
-      if (Config.Instance.AutoPickup)
+      if (Config.Instance.AutoPickup && Config.Instance.AutoPickupMaxRange is { } autoPickupMaxRange)
       {
         containerState ??= Instance<ContainerRegistryProcessor>().GetState(chest)!;
         containerState.PickupRange = null;
@@ -113,16 +113,16 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
         {
           var result = match.Value;
           var range = int.Parse(match.Groups["R"].Value);
-          if (range > Config.Instance.AutoPickupMaxRange.Value)
+          if (range > autoPickupMaxRange)
           {
-            range = Config.Instance.AutoPickupMaxRange.Value;
-            result = Invariant($"{MagnetEmoji}{range}");
+            range = autoPickupMaxRange;
+            result = Invariant($"{PickupRangeEmoji}{range}");
           }
           containerState.PickupRange = range;
           return result;
         });
       }
-      if (Config.Instance.FeedFromContainers)
+      if (Config.Instance.FeedFromContainers && Config.Instance.FeedFromContainersMaxRange is { } feedMaxRange)
       {
         containerState ??= Instance<ContainerRegistryProcessor>().GetState(chest)!;
         containerState.FeedRange = null;
@@ -130,10 +130,10 @@ public sealed class ContainerAndSignProcessor : Processor<ContainerAndSignProces
         {
           var result = match.Value;
           var range = int.Parse(match.Groups["R"].Value);
-          if (range > Config.Instance.FeedFromContainersMaxRange.Value)
+          if (range > feedMaxRange)
           {
-            range = Config.Instance.FeedFromContainersMaxRange.Value;
-            result = Invariant($"{LeftRightArrowEmoji}{range}");
+            range = feedMaxRange;
+            result = Invariant($"{FeedRangeEmoji}{range}");
           }
           containerState.FeedRange = range;
           return result;

@@ -25,7 +25,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     }
     else
     {
-      _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(Mathf.Max(Config.Instance.AutoPickupRange.Value, Config.Instance.AutoPickupMaxRange ?? 0));
+      _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(Mathf.Max(Config.Instance.AutoPickupRange.Value, Config.Instance.AutoPickupMaxRange.Value));
       _containers = Instance<ContainerRegistryProcessor>().GetContainers(_containersByItemName.SectorWidth);
       Instance<PlayerRegistryProcessor>().EmoteDetected += OnPlayerEmoteDetected;
     }
