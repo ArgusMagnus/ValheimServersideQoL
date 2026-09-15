@@ -76,6 +76,7 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
     {
       _updateHub = false;
       UpdatePortalHub();
+      Game.instance.ConnectPortals();
     }
   }
 
@@ -89,10 +90,11 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       var (portal, state) = _knownPortals.FirstOrDefault(x => x.Value.HubSign == zdo);
       if (state is not null && zdo.Vars.GetText().RemoveRichTextTags() is { } tag && state.Tag != tag)
       {
-        var authorId = zdo.Vars.GetAuthor();
         state.Tag = tag;
-        portal.RPC.TeleportWorld.SetTag(tag, authorId);
-        state.HubPortal?.RPC.TeleportWorld.SetTag(tag, authorId);
+        portal.Vars.SetTag(tag);
+        ZDOMan.instance.SetDirtyPortals();
+        ZDOMan.instance.ForceSendZDO(portal.ZDO.m_uid);
+        state.HubPortal?.Vars.SetTag(tag);
         state.HubSign?.Vars.SetText($"<color=white>{tag}");
         _updateHub = true;
       }
@@ -107,9 +109,10 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       var (portal, state) = _knownPortals.FirstOrDefault(x => x.Value.HubPortal == zdo);
       if (state is not null && zdo.Vars.GetTag() is { } tag && state.Tag != tag)
       {
-        var authorId = zdo.Vars.GetAuthor();
         state.Tag = tag;
-        portal.RPC.TeleportWorld.SetTag(tag, authorId);
+        portal.Vars.SetTag(tag);
+        ZDOMan.instance.SetDirtyPortals();
+        ZDOMan.instance.ForceSendZDO(portal.ZDO.m_uid);
         state.HubSign?.Vars.SetText($"<color=white>{tag}");
         _updateHub = true;
       }
