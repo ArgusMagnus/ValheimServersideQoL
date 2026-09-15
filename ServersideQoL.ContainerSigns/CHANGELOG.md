@@ -4,6 +4,7 @@
 - Support for the new core options `UnifiedConfig` and `ConfigPerWorld`
 - Support for grausten chests and wardrobes
     - Added `VerticalOffset` config options for chest signs in advanced (yml) config [#101](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/101)
+- Fixed signs disappearing under certain conditions [#190](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/190)
 
 ### v2.0.7
 - Fixed compatiblity issues with ServersideQoL.PrefabConfigurator
