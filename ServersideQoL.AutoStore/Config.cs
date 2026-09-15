@@ -24,7 +24,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     """);    
   public ConfigEntry<int> AutoPickupMaxRange { get; } = Shared.AutoPickupMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod. 
-    Max auto pickup range players can set per chest (by putting '{ContainerAndSignProcessor.PickupRangeEmoji}<Range>' on a chest sign, e.g. '{ContainerAndSignProcessor.PickupRangeEmoji}16').
+    Max auto pickup range players can set per chest (by putting '{ContainerAndSignProcessor.PickupRangeEmoji}<Range>' on a chest sign).
     """);
   public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = BindEx(cfg, 4f,
     "Min distance all players must have to a dropped item for it to be picked up");

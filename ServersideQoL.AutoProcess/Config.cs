@@ -19,7 +19,7 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     """);
   public ConfigEntry<int> FeedFromContainersMaxRange { get; } = Shared.FeedFromContainersMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod.
-    Max feeding range players can set per chest (by putting '{ContainerAndSignProcessor.FeedRangeEmoji}<Range>' on a chest sign, e.g. '{ContainerAndSignProcessor.FeedRangeEmoji}64')
+    Max feeding range players can set per chest (by putting '{ContainerAndSignProcessor.FeedRangeEmoji}<Range>' on a chest sign)
     """);
   public ConfigEntry<float> FeedFromContainersMinPlayerDistance { get; } = BindEx(cfg, 4f,
     "Min distance all players must have to a processing station");
