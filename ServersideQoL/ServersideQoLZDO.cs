@@ -53,8 +53,6 @@ public sealed partial class ServersideQoLZDO(ZDO zdo) : IEquatable<ServersideQoL
     remove => _destroyed -= value;
   }
 
-  public ZDOVars Vars => new(ZDO);
-
   public TPrefabInfo? GetProcessorPrefabInfo<TPrefabInfo>()
       where TPrefabInfo : notnull, ProcessorPrefabInfo
       => PrefabInfo?.GetExtension<IProcessorPrefabInfo<TPrefabInfo>>().PrefabInfo;

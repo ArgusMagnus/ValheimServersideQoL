@@ -41,14 +41,14 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
       return ProcessResult.UnregisterProcessor;
 
     if (Config.Instance.CanSacrificeMegingjord.Value && GetSacrifiedMegingjord(state.PlayerID))
-      RPC.AddStatusEffect(zdo, StatusEffects.Megingjord);
+      zdo.RPC.Character.AddStatusEffect(StatusEffects.Megingjord);
     if (Config.Instance.CanSacrificeWishbone.Value && GetSacrifiedWishbone(state.PlayerID))
-      RPC.AddStatusEffect(zdo, StatusEffects.Wishbone);
+      zdo.RPC.Character.AddStatusEffect(StatusEffects.Wishbone);
     if (Config.Instance.CanSacrificeTornSpirit.Value && GetSacrifiedTornSpirit(state.PlayerID))
-      RPC.AddStatusEffect(zdo, StatusEffects.Demister);
+      zdo.RPC.Character.AddStatusEffect(StatusEffects.Demister);
 
 #if DEBUG
-    RPC.AddStatusEffect(zdo, "Rested".GetStableHashCode());
+    zdo.RPC.Character.AddStatusEffect(StatusEffects.Rested);
 #endif
 
     return ProcessResult.UnregisterProcessor;
@@ -57,11 +57,11 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
   void OnPlayerStaminaUpdated(PlayerState state)
   {
     if (state.Stamina < state.PrefabInfo.Component.m_encumberedStaminaDrain && Config.Instance.InfiniteEncumberedStamina.Value && state.ZDO.Vars.GetAnimationIsEncumbered())
-      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Component.m_encumberedStaminaDrain);
+      state.ZDO.RPC.Player.UseStamina(-state.PrefabInfo.Component.m_encumberedStaminaDrain);
     else if (state.Stamina < state.PrefabInfo.Component.m_sneakStaminaDrain && Config.Instance.InfiniteSneakingStamina.Value && state.ZDO.Vars.GetAnimationIsCrouching())
-      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Component.m_sneakStaminaDrain);
+      state.ZDO.RPC.Player.UseStamina(-state.PrefabInfo.Component.m_sneakStaminaDrain);
     else if (state.Stamina < state.PrefabInfo.Component.m_swimStaminaDrainMinSkill && Config.Instance.InfiniteSwimmingStamina.Value && state.ZDO.Vars.GetAnimationInWater())
-      RPC.UseStamina(state.ZDO, -state.PrefabInfo.Component.m_swimStaminaDrainMinSkill);
+      state.ZDO.RPC.Player.UseStamina(-state.PrefabInfo.Component.m_swimStaminaDrainMinSkill);
   }
 
   void OnPlayerItemUsed(PlayerState state, string animationTriggerName)
@@ -90,7 +90,7 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
     {
       var requiredStamina = state.LastUsedItem.m_itemData.m_shared.m_attack.m_attackStamina;
       if (state.ZDO.Vars.GetStamina() < 2 * requiredStamina)
-        RPC.UseStamina(state.ZDO, -requiredStamina);
+        state.ZDO.RPC.Player.UseStamina(-requiredStamina);
     }
   }
 
@@ -109,7 +109,7 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
       else
       {
         SetSacrifiedMegingjord(playerState.PlayerID, true);
-        RPC.AddStatusEffect(playerState.ZDO, StatusEffects.Megingjord);
+        playerState.ZDO.RPC.Character.AddStatusEffect(StatusEffects.Megingjord);
         RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Instance.Localization.Value.SacrificedMegingjord);
       }
     }
@@ -132,7 +132,7 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
       else
       {
         SetSacrifiedWishbone(playerState.PlayerID, true);
-        RPC.AddStatusEffect(playerState.ZDO, StatusEffects.Wishbone);
+        playerState.ZDO.RPC.Character.AddStatusEffect(StatusEffects.Wishbone);
         RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Instance.Localization.Value.SacrificedWishbone);
       }
     }
@@ -144,7 +144,7 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
       else
       {
         SetSacrifiedTornSpirit(playerState.PlayerID, true);
-        RPC.AddStatusEffect(playerState.ZDO, StatusEffects.Demister);
+        playerState.ZDO.RPC.Character.AddStatusEffect(StatusEffects.Demister);
         RPC.ShowMessage(data.m_senderPeerID, MessageHud.MessageType.Center, Config.Instance.Localization.Value.SacrificedTornSpirit);
       }
     }
@@ -156,7 +156,7 @@ public sealed class PlayerProcessor : Processor<ProcessorPrefabInfo<global::Play
       return;
 
     if (_attachedCartsByPlayer.TryGetValue(state.ZDO, out var cart) && cart.ZDO.GetOwner() == state.Owner && cart.Vars.GetAttachJoint())
-      RPC.OpenResponse(cart, true);
+      cart.RPC.Container.OpenResponse(true);
   }
 
   internal void UpdateAttachedCart(ServersideQoLZDO cart)

@@ -1,6 +1,7 @@
 ﻿using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using UnityEngine;
+using static ServersideQoL.ServersideQoLZDO;
 using static Skills;
 
 namespace ServersideQoL.Skills;
@@ -78,7 +79,7 @@ public sealed class MineRockProcessor : Processor<MineRockProcessor.PrefabInfo>
         hit.m_damage.m_damage = health;
         hit.m_toolTier = short.MaxValue;
         hit.m_hitType = HitData.HitType.Structural;
-        RPC.DamageMineRock5(zdo, hit, idx);
+        zdo.RPC.MineRock5.Damage(hit, idx);
       }
     }
     return default;

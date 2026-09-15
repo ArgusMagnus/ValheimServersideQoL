@@ -237,7 +237,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     if (requestOwn)
     {
       zdo.DelaySchedulingFor(Config.Instance.Advanced.Value.ProcessingDelays.AfterItemDropOwnershipRequest);
-      RPC.RequestOwn(zdo);
+      zdo.RPC.ItemDrop.RequestOwn();
     }
 
     _itemDrops.TryAdd(zdo);

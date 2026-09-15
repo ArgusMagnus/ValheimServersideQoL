@@ -30,7 +30,7 @@ public sealed class TrapsProcessor : Processor<TrapsProcessor.PrefabInfo>
       }
       
       if (prefabInfo.Trap is not null)
-        RPC.RequestStateChange(zdo, 1); /// <see cref="Trap.TrapState.Armed"/>
+        zdo.RPC.Trap.RequestStateChange(1); /// <see cref="Trap.TrapState.Armed"/>
       return default;
     }
 

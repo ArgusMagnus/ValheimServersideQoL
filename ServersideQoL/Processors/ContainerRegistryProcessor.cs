@@ -94,7 +94,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
 
 
     //DevShowMessage(zdo, "Requesting ownership", DamageText.TextType.Normal, caller, callerLineNo);
-    RPC.RequestOpen(state.ZDO, playerID);
+    state.ZDO.RPC.Container.RequestOpen(playerID);
     return Config.Instance.Advanced.Value.ProcessingDelays.AfterContainerOwnershipRequest;
   }
 
@@ -122,7 +122,7 @@ public sealed class ContainerRegistryProcessor : Processor<ContainerRegistryProc
         else if (zdo.ZDO.GetOwner() != playerState.Owner)
           zdo.ZDO.SetOwner(playerState.Owner);
         else
-          RPC.TakeAllResponse(zdo, true);
+          zdo.RPC.Container.TakeAllResponse(true);
       }
       return ScheduleReprocessing();
     }

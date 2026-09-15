@@ -89,9 +89,10 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       var (portal, state) = _knownPortals.FirstOrDefault(x => x.Value.HubSign == zdo);
       if (state is not null && zdo.Vars.GetText().RemoveRichTextTags() is { } tag && state.Tag != tag)
       {
+        var authorId = zdo.Vars.GetAuthor();
         state.Tag = tag;
-        portal.Vars.SetTag(tag);
-        state.HubPortal?.Vars.SetTag(tag);
+        portal.RPC.TeleportWorld.SetTag(tag, authorId);
+        state.HubPortal?.RPC.TeleportWorld.SetTag(tag, authorId);
         state.HubSign?.Vars.SetText($"<color=white>{tag}");
         _updateHub = true;
       }
@@ -106,8 +107,9 @@ public sealed class PortalHubProcessor : Processor<PortalHubProcessor.PrefabInfo
       var (portal, state) = _knownPortals.FirstOrDefault(x => x.Value.HubPortal == zdo);
       if (state is not null && zdo.Vars.GetTag() is { } tag && state.Tag != tag)
       {
+        var authorId = zdo.Vars.GetAuthor();
         state.Tag = tag;
-        portal.Vars.SetTag(tag);
+        portal.RPC.TeleportWorld.SetTag(tag, authorId);
         state.HubSign?.Vars.SetText($"<color=white>{tag}");
         _updateHub = true;
       }

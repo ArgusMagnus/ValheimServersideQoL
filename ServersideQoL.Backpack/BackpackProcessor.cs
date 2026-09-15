@@ -145,7 +145,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
         if (state.OpenBackpackAfter < Timestamp.Now)
         {
           state.OpenBackpackAfter = null;
-          RPC.OpenResponse(state.BackpackContainer, true);
+          state.BackpackContainer.RPC.Container.OpenResponse(true);
         }
         else if (state.BackpackContainer.ZDO.GetPosition() is { y: > -1000 } &&
             Vector3.Distance(zdo.ZDO.GetPosition(), state.BackpackContainer.ZDO.GetPosition()) > InventoryGui.instance.m_autoCloseDistance)
@@ -201,7 +201,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
     else
     {
       state.OpenBackpackAfter = null;
-      RPC.OpenResponse(state.BackpackContainer, true);
+      state.BackpackContainer.RPC.Container.OpenResponse(true);
     }
   }
 

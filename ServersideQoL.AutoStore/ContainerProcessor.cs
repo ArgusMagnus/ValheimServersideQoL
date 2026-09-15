@@ -236,7 +236,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       container.ZDO.SetOwnerInternal(state.ZDO.ZDO.GetOwner());
       _stackContainers.Add(container, new(state.ZDO));
       container.Destroyed += OnStackContainerDestroyed;
-      RPC.StackResponse(container, true);
+      container.RPC.Container.StackResponse(true);
     }
   }
 
@@ -250,7 +250,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     else if (stackContainerState.Stacked)
     {
       if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
-        RPC.TakeAllResponse(zdo, true);
+        zdo.RPC.Container.TakeAllResponse(true);
       else if (MoveItems(zdo, state, stackContainerState))
       {
         zdo.Destroyed -= OnStackContainerDestroyed;
@@ -288,7 +288,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     }
     else
     {
-      RPC.StackResponse(zdo, true);
+      zdo.RPC.Container.StackResponse(true);
     }
     return default;
   }

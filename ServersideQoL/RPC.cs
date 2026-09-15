@@ -51,7 +51,7 @@ public static class RPC
       public static RpcName Remove { get; } = new("RPC_Remove");
     }
 
-    public static class SEMan
+    public static class Character
     {
       public static RpcName AddStatusEffect { get; } = new("RPC_AddStatusEffect");
       public static RpcName SetTamed { get; } = new("RPC_SetTamed");
@@ -92,6 +92,11 @@ public static class RPC
     {
       public static RpcName AnimateLever { get; } = new("RPC_AnimateLever");
     }
+
+    public static class TeleportWorld
+    {
+      public static RpcName SetTag { get; } = new("RPC_SetTag");
+    }
   }
 
   public static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
@@ -110,13 +115,6 @@ public static class RPC
   {
     foreach (var peer in peers)
       ShowMessage(peer, type, message);
-  }
-
-  public static void UseStamina(ServersideQoLZDO playerZdo, float value)
-  {
-    playerZdo.AssertIs<Player>();
-    /// <see cref="Player.UseStamina(float)"/>
-    InvokeRoutedRPC(playerZdo.ZDO.GetOwner(), playerZdo.ZDO.m_uid, RpcName.Player.UseStamina, parameters: [value]);
   }
 
   public static void SendGlobalKeys(Peer peer, List<string> keys)
@@ -155,113 +153,80 @@ public static class RPC
   public static void TeleportPlayer(Peer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
       => TeleportPlayer(peer.ZNetPeer.m_uid, pos, rot, distantTeleport);
 
+  const string NameOfZdoRpc = $"{nameof(ServersideQoLZDO)}.{nameof(ServersideQoLZDO.RPC)}";
+  const string NameOfZdoPlayerRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.Player)}";
+
+  [Obsolete($"Use {NameOfZdoPlayerRpc}.{nameof(ServersideQoLZDO.RPC.Player.UseStamina)} instead", true)]
+  public static void UseStamina(ServersideQoLZDO playerZdo, float value)
+    => playerZdo.RPC.Player.UseStamina(value);
+
+  [Obsolete($"Use {NameOfZdoPlayerRpc}.{nameof(ServersideQoLZDO.RPC.Player.TeleportTo)} instead", true)]
   public static void TeleportPlayer(ServersideQoLZDO player, Vector3 pos, Quaternion rot, bool distantTeleport)
-  {
-    player.AssertIs<Player>();
-    /// <see cref="Player.TeleportTo(Vector3, Quaternion, bool)"/>
-    InvokeRoutedRPC(player.ZDO.GetOwner(), player.ZDO.m_uid, RpcName.Player.TeleportTo, parameters: [pos, rot, distantTeleport]);
-  }
+    => player.RPC.Player.TeleportTo(pos, rot, distantTeleport);
 
-  public static void Remove(ServersideQoLZDO piece, bool blockDrop = false)
-  {
-    piece.AssertIs<Piece>();
-    /// <see cref="WearNTear.RPC_Remove"/>
-    InvokeRoutedRPC(piece.ZDO.GetOwner(), piece.ZDO.m_uid, RpcName.Piece.Remove, parameters: [false]);
-  }
+  const string NameOfZdoPieceRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.Piece)}";
 
-  public static void AddStatusEffect(ServersideQoLZDO character, int nameHash, bool resetTime = false, int itemLevel = 0, float skillLevel = 0f, int variant = -1)
-  {
-    character.AssertIs<Character>();
-    /// <see cref="SEMan.AddStatusEffect"/>
-    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.SEMan.AddStatusEffect, parameters: [nameHash, resetTime, itemLevel, skillLevel, variant]);
-  }
+  [Obsolete($"Use {NameOfZdoPieceRpc}.{nameof(ServersideQoLZDO.RPC.Piece.Remove)} instead", true)]
+  public static void Remove(ServersideQoLZDO piece, bool blockDrop)
+    => piece.RPC.Piece.Remove(blockDrop);
 
-  public static void RequestStack(ServersideQoLZDO container, ServersideQoLZDO player, PlayerID playerID = default)
-  {
-    container.AssertIs<Container>();
-    player.AssertIs<Player>();
+  const string NameOfZdoCharacterRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.Character)}";
 
-    /// <see cref="Container.RPC_RequestStack"/>
-    if (playerID.Value is 0)
-      playerID = player.Vars.GetPlayerID();
-    InvokeRoutedRPCAsSender(player.ZDO.GetOwner(), container.ZDO.GetOwner(), container.ZDO.m_uid, RpcName.Container.RequestStack, parameters: [playerID.Value]);
-  }
+  [Obsolete($"Use {NameOfZdoCharacterRpc}.{nameof(ServersideQoLZDO.RPC.Character.AddStatusEffect)} instead", true)]
+  public static void AddStatusEffect(ServersideQoLZDO character, int nameHash, bool resetTime, int itemLevel, float skillLevel, int variant)
+    => character.RPC.Character.AddStatusEffect(nameHash, resetTime, itemLevel, skillLevel, variant);
 
-  public static void StackResponse(ServersideQoLZDO container, bool granted)
-  {
-    container.AssertIs<Container>();
-
-    /// <see cref="Container.RPC_StackResponse"/>
-    InvokeRoutedRPC(container.ZDO.GetOwner(), container.ZDO.m_uid, RpcName.Container.StackResponse, parameters: [granted]);
-  }
-
-  public static void TakeAllResponse(ServersideQoLZDO container, bool granted)
-  {
-    container.AssertIs<Container>();
-    /// <see cref="Container.RPC_TakeAllRespons"/>
-    InvokeRoutedRPC(container.ZDO.GetOwner(), container.ZDO.m_uid, RpcName.Container.TakeAllResponse, parameters: [granted]);
-  }
-
-  public static void RequestStateChange(ServersideQoLZDO trap, int state)
-  {
-    trap.AssertIs<Trap>();
-
-    /// <see cref="Trap.RPC_RequestStateChange"/>"/>
-    InvokeRoutedRPC(trap.ZDO.GetOwner(), trap.ZDO.m_uid, RpcName.Trap.RequestStateChange, parameters: [state]);
-  }
-
+  [Obsolete($"Use {NameOfZdoCharacterRpc}.{nameof(ServersideQoLZDO.RPC.Character.SetTamed)} instead", true)]
   public static void SetTamed(ServersideQoLZDO character, bool tamed)
-  {
-    character.AssertIs<Character>();
+    => character.RPC.Character.SetTamed(tamed);
 
-    /// <see cref="Character.SetTamed(bool)"/>
-    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.SEMan.SetTamed, parameters: [tamed]);
-  }
-
+  [Obsolete($"Use {NameOfZdoCharacterRpc}.{nameof(ServersideQoLZDO.RPC.Character.Damage)} instead", true)]
   public static void Damage(ServersideQoLZDO character, HitData hitData)
-  {
-    character.AssertIs<Character>();
+    => character.RPC.Character.Damage(hitData);
 
-    /// <see cref="Character.Damage(HitData)"/>
-    InvokeRoutedRPC(character.ZDO.GetOwner(), character.ZDO.m_uid, RpcName.SEMan.Damage, parameters: [hitData]);
-  }
+  const string NameOfZdoContainerRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.Container)}";
 
-  public static void RequestOwn(ServersideQoLZDO itemDrop, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
-  {
-    itemDrop.AssertIs<ItemDrop>();
-    //DevShowMessage(itemDrop, "Ownership requested", DamageText.TextType.Normal, callerFile, callerLineNo);
-    /// <see cref="ItemDrop.RequestOwn"/>
-    InvokeRoutedRPC(itemDrop.ZDO.GetOwner(), itemDrop.ZDO.m_uid, RpcName.ItemDrop.RequestOwn);
-  }
+  [Obsolete($"Use {NameOfZdoContainerRpc}.{nameof(ServersideQoLZDO.RPC.Container.RequestStack)} instead", true)]
+  public static void RequestStack(ServersideQoLZDO container, ServersideQoLZDO player, PlayerID playerID)
+    => container.RPC.Container.RequestStack(player, playerID);
 
+  [Obsolete($"Use {NameOfZdoContainerRpc}.{nameof(ServersideQoLZDO.RPC.Container.StackResponse)} instead", true)]
+  public static void StackResponse(ServersideQoLZDO container, bool granted)
+    => container.RPC.Container.StackResponse(granted);
+
+  [Obsolete($"Use {NameOfZdoContainerRpc}.{nameof(ServersideQoLZDO.RPC.Container.TakeAllResponse)} instead", true)]
+  public static void TakeAllResponse(ServersideQoLZDO container, bool granted)
+    => container.RPC.Container.TakeAllResponse(granted);
+
+  [Obsolete($"Use {NameOfZdoContainerRpc}.{nameof(ServersideQoLZDO.RPC.Container.RequestOpen)} instead", true)]
   public static void RequestOpen(ServersideQoLZDO container, PlayerID playerID)
-  {
-    container.AssertIs<Container>();
-    /// <see cref="Container.RPC_RequestOpen"/>
-    InvokeRoutedRPC(container.ZDO.GetOwner(), container.ZDO.m_uid, RpcName.Container.RequestOpen, parameters: [playerID.Value]);
-  }
+    => container.RPC.Container.RequestOpen(playerID);
 
+  [Obsolete($"Use {NameOfZdoContainerRpc}.{nameof(ServersideQoLZDO.RPC.Container.RequestOpenFor)} instead", true)]
   public static void RequestOpenFor(ServersideQoLZDO player, ServersideQoLZDO container)
-  {
-    player.AssertIs<Player>();
-    container.AssertIs<Container>();
-    /// <see cref="Container.RPC_RequestOpen"/>
-    InvokeRoutedRPCAsSender(player.ZDO.GetOwner(), container.ZDO.GetOwner(), container.ZDO.m_uid, RpcName.Container.RequestOpen, parameters: [player.Vars.GetPlayerID()]);
-  }
+    => container.RPC.Container.RequestOpenFor(player);
 
+  [Obsolete($"Use {NameOfZdoContainerRpc}.{nameof(ServersideQoLZDO.RPC.Container.OpenResponse)} instead", true)]
   public static void OpenResponse(ServersideQoLZDO container, bool granted)
-  {
-    container.AssertIs<Container>();
-    /// <see cref="Container.RPC_OpenRespons"/>
-    InvokeRoutedRPC(container.ZDO.GetOwner(), container.ZDO.m_uid, RpcName.Container.OpenResponse, parameters: [granted]);
-  }
+    => container.RPC.Container.OpenResponse(granted);
 
+  const string NameOfZdoItemDropRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.ItemDrop)}";
+
+  [Obsolete($"Use {NameOfZdoItemDropRpc}.{nameof(ServersideQoLZDO.RPC.ItemDrop.RequestOwn)} instead", true)]
+  public static void RequestOwn(ServersideQoLZDO itemDrop, [CallerFilePath] string callerFile = default!, [CallerLineNumber] int callerLineNo = default)
+    => itemDrop.RPC.ItemDrop.RequestOwn();
+
+  const string NameOfZdoTrapRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.Trap)}";
+
+  [Obsolete($"Use {NameOfZdoTrapRpc}.{nameof(ServersideQoLZDO.RPC.Trap.RequestStateChange)} instead", true)]
+  public static void RequestStateChange(ServersideQoLZDO trap, int state)
+    => trap.RPC.Trap.RequestStateChange(state);
+
+  const string NameOfZdoMineRock5Rpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.MineRock5)}";
+
+  [Obsolete($"Use {NameOfZdoMineRock5Rpc}.{nameof(ServersideQoLZDO.RPC.MineRock5.Damage)} instead", true)]
   public static void DamageMineRock5(ServersideQoLZDO minerock5, HitData hit, int hitAreaIndex)
-  {
-    minerock5.AssertIs<MineRock5>();
-    /// <see cref="MineRock5.RPC_Damage"/>
-    InvokeRoutedRPC(minerock5.ZDO.GetOwner(), minerock5.ZDO.m_uid, RpcName.MineRock5.Damage, parameters: [hit, hitAreaIndex]);
-  }
+    => minerock5.RPC.MineRock5.Damage(hit, hitAreaIndex);
 
   static readonly Dictionary<string, int> __invokeCounters = [];
   static readonly Dictionary<string, int> __invokeAsSenderCounters = [];
@@ -281,7 +246,7 @@ public static class RPC
     ZRoutedRpc.instance.InvokeRoutedRPC(targetPeerId, methodNameStr, parameters ?? []);
   }
 
-  static void InvokeRoutedRPC(long targetPeerId, ZDOID targetZDO, RpcName methodName, object[]? parameters = null)
+  internal static void InvokeRoutedRPC(long targetPeerId, ZDOID targetZDO, RpcName methodName, object[]? parameters = null)
   {
     var methodNameStr = methodName.ToString();
     if (Config.Instance.DiagnosticLogs.Value)
@@ -297,7 +262,7 @@ public static class RPC
 
   static Action<ZRoutedRpc, long, ZDOID, string, object[], long>? __invokeRouteRPCAsSender;
 
-  static void InvokeRoutedRPCAsSender(long senderPeerId, long targetPeerID, ZDOID targetZDO, RpcName methodName, object[] parameters)
+  internal static void InvokeRoutedRPCAsSender(long senderPeerId, long targetPeerID, ZDOID targetZDO, RpcName methodName, object[] parameters)
   {
     var methodNameStr = methodName.ToString();
     if (Config.Instance.DiagnosticLogs.Value)

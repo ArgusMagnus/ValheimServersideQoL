@@ -7,6 +7,8 @@ namespace ServersideQoL;
 
 partial class ServersideQoLZDO
 {
+  public ZDOVars Vars => new(ZDO);
+
   public readonly struct ZDOVars(ZDO zdo)
   {
     readonly ZDO _zdo = zdo;
@@ -37,6 +39,7 @@ partial class ServersideQoLZDO
     public void SetItems(byte[]? value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_items, value); }
     public string GetTag(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_tag, defaultValue);
     public void SetTag(string value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_tag, value); }
+    public string GetAuthor(string defaultValue = "") => _zdo.GetString(global::ZDOVars.s_author, defaultValue);
     public byte[]? GetData(byte[]? defaultValue = null) => _zdo.GetByteArray(global::ZDOVars.s_data, defaultValue);
     public void SetData(byte[]? value, [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNo = 0) { ValidateOwnership(filePath, lineNo); _zdo.Set(global::ZDOVars.s_data, value); }
     public float GetStamina(float defaultValue = default) => _zdo.GetFloat(global::ZDOVars.s_stamina, defaultValue);

@@ -1,6 +1,7 @@
 ﻿using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
 using UnityEngine;
+using static ServersideQoL.ServersideQoLZDO.ZDORpc;
 
 namespace ServersideQoL.PortalProgression;
 
@@ -56,7 +57,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
             if (now > state.NextRequest)
             {
               state.NextRequest = now.AddSeconds(0.2f);
-              RPC.TakeAllResponse(state.Container.ZDO, true);
+              state.Container.ZDO.RPC.Container.TakeAllResponse(true);
               ShowMessage([state.Peer], state.PortalPosition, Config.Instance.Localization.Value.ItemsReturned, Config.Instance.MessageType.Value);
             }
           }
@@ -112,7 +113,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
             state.Container.ZDO.UnregisterAll();
             state.Container.ZDO.Destroyed += OnContainerDestroyed;
           }
-          RPC.StackResponse(state.Container.ZDO, true);
+          state.Container.ZDO.RPC.Container.StackResponse(true);
           RPC.ShowMessage(state.Player.Owner, MessageHud.MessageType.Center, "");
         }
       }
@@ -163,7 +164,7 @@ public sealed class PortalProcessor : Processor<PortalProcessor.PrefabInfo>
       container.Destroyed += OnContainerDestroyed;
       if (!peer.ZNetPeer.m_server)
         player.ZDO.Destroyed += OnPlayerDestroyed;
-      RPC.StackResponse(container, true);
+      container.RPC.Container.StackResponse(true);
       RPC.ShowMessage(player.Owner, MessageHud.MessageType.Center, "");
     }
 

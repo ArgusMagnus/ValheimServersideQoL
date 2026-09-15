@@ -181,7 +181,7 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
         if (makeFriendlyChance >= 0 && UnityEngine.Random.Range(0, 100) <= makeFriendlyChance)
         {
           result &= ~ProcessResult.UnregisterProcessor;
-          RPC.SetTamed(zdo, true);
+          zdo.RPC.Character.SetTamed(true);
           zdo.Vars.SetTamed(true);
         }
       }
@@ -298,7 +298,7 @@ public sealed class PlayerSpawnedProcessor : Processor<PlayerSpawnedProcessor.Pr
       if (list[0].ZDO.GetOwner() == state.Owner &&
           ZNetScene.InActiveArea(list[0].ZDO.GetPosition(), _lastSummoningPlayer.ZDO.ZDO.GetSector()))
       {
-        RPC.Damage(list[0], new(float.MaxValue) { m_attacker = _lastSummoningPlayer.ZDO.ZDO.m_uid });
+        list[0].RPC.Character.Damage(new(float.MaxValue) { m_attacker = _lastSummoningPlayer.ZDO.ZDO.m_uid });
       }
       else
       {
