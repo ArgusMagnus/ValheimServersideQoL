@@ -20,10 +20,20 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
     internal IReadOnlyList<(int, string, bool)>? StringValues { get; set; }
   }
 
+  readonly HashSet<PrefabInfo> _prefabInfos = [];
+
+  protected override void Initialize()
+  {
+    Config.Instance.Prefabs.ValueChanged -= OnConfigChanged;
+    Config.Instance.Prefabs.ValueChanged += OnConfigChanged;
+  }
+
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     if (!prefabInfo.Initialized)
     {
+      prefabInfo.Initialized = true;
+      _prefabInfos.Add(prefabInfo);
       if (Config.Instance.Prefabs.IsDefault)
         return ProcessResult.UnregisterProcessor;
       Initialize(zdo, prefabInfo);
@@ -58,10 +68,14 @@ public sealed class PrefabProcessor : Processor<PrefabProcessor.PrefabInfo>
     return result;
   }
 
+  void OnConfigChanged(ConfigBase.YamlConfigEntry<Config.PrefabsConfig> obj)
+  {
+    foreach (var prefabInfo in _prefabInfos)
+      prefabInfo.Initialized = false;
+  }
+
   void Initialize(ServersideQoLZDO zdo, PrefabInfo prefabInfo)
   {
-    prefabInfo.Initialized = true;
-
     List<(int, int, bool)>? intValues = null;
     List<(int, float, bool)>? floatValues = null;
     List<(int, Vector3, bool)>? vector3Values = null;

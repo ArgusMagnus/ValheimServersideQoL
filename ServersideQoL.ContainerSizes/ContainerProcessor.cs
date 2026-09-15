@@ -6,10 +6,11 @@ using UnityEngine;
 
 namespace ServersideQoL.ContainerSizes;
 
-[Processor("9212deb1-7a75-40e6-b74a-79843d5fe465")]
+[Processor(Id)]
 [RunBefore<ContainerRegistryProcessor>]
 public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.PrefabInfo>
 {
+  public const string Id = "9212deb1-7a75-40e6-b74a-79843d5fe465";
   readonly record struct ContainerSizeConfig(int Width, int Height, bool Growing);
   readonly Dictionary<int, ContainerSizeConfig> _containerSizes = [];
 
