@@ -11,6 +11,9 @@ You can help by testing the beta versions on [hexium](https://valheim.hexium.gg/
 {Features}
 [Other ServersideQoL mods](https://valheim.hexium.gg/?q=ArgusMagnus)
 
+### Documentation
+The best documentation is the config file. Read the description of the config options for a better idea of how this mod works.
+
 ### Feature Requests
 If you have an idea you think might fit this mod, you can create a feature request issue in the
 [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Aenhancement%20)

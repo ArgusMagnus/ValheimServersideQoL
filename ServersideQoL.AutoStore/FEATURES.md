@@ -1,3 +1,4 @@
 - Stack player inventory into nearby containers
+    - For example, with a xbox controller you can use D-Pad down to execute the `Sit` emote to dump your inventory into chests (and dodge roll to get up quickly again)
 - Automatically put dropped items in nearby containers
 - Automatically sort containers
