@@ -85,6 +85,6 @@ public sealed class CryptDoorProcessor : Processor<CryptDoorProcessor.PrefabInfo
         return ProcessResult.RecreateZDO;
     }
 
-    return default;
+    return ScheduleReprocessing(0.1f);
   }
 }
