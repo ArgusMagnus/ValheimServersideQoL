@@ -16,8 +16,12 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public ConfigEntry<bool> AutoPickup { get; } = Shared.AutoPickup = BindEx(cfg, true,
     "True to automatically put dropped items into containers if they already contain said item");
-  public ConfigEntry<float> AutoPickupRange { get; } = BindEx(cfg, ZoneSystem.c_ZoneSize,
-    $"Required proximity of a container to a dropped item to be considered as auto pickup target. Can be overridden per chest with the {nameof(ServersideQoL)}.ContainerSigns mod.");
+  public ConfigEntry<float> AutoPickupRange { get; } = BindEx(cfg, ZoneSystem.c_ZoneSize, $"""
+    Required proximity of a container to a dropped item to be considered as auto pickup target.
+    Can be overridden per chest by putting '{ContainerAndSignProcessor.PickupRangeEmoji}<Range>' on a chest sign, e.g. '{ContainerAndSignProcessor.PickupRangeEmoji}16'.
+      For example, '{ContainerAndSignProcessor.PickupRangeEmoji}0' will disable auto pickup/stacking from player inventory into that chest.
+      Only works with automatic chest signs added by the {ContainerSignsPlugin.PluginName} mod.
+    """);    
   public ConfigEntry<int> AutoPickupMaxRange { get; } = Shared.AutoPickupMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod. 
     Max auto pickup range players can set per chest (by putting '{ContainerAndSignProcessor.PickupRangeEmoji}<Range>' on a chest sign, e.g. '{ContainerAndSignProcessor.PickupRangeEmoji}16').

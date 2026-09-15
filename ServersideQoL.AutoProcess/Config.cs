@@ -13,7 +13,9 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "True to automatically feed smelters from nearby containers");
   public ConfigEntry<float> FeedFromContainersRange { get; } = BindEx(cfg, 4f, $"""
     Required proximity of a container to a smelter to be used as feeding source.
-    Can be overridden per chest with the {nameof(ServersideQoL)}.ContainerSigns mod.
+    Can be overridden per chest by putting '{ContainerAndSignProcessor.FeedRangeEmoji}<Range>' on a chest sign, e.g. '{ContainerAndSignProcessor.FeedRangeEmoji}64'.
+      For example, '{ContainerAndSignProcessor.FeedRangeEmoji}64' increase the range of that chest to 64m.
+      Only works with automatic chest signs added by the {ContainerSignsPlugin.PluginName} mod.
     """);
   public ConfigEntry<int> FeedFromContainersMaxRange { get; } = Shared.FeedFromContainersMaxRange = BindEx(cfg, (int)ZoneSystem.c_ZoneSize, $"""
     Requires the {ContainerSignsPlugin.PluginName} mod.

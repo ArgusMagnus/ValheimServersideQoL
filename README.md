@@ -12,12 +12,11 @@ You can help by testing the beta versions on [hexium](https://valheim.hexium.gg/
 [Other ServersideQoL mods](https://valheim.hexium.gg/?q=ArgusMagnus)
 
 ### Documentation
-The best documentation is the config file. Read the description of the config options for a better idea of how this mod works.
+The best available documentation is the config file. Read the description of the config options for a better idea of how this mod works.
 
 ### Feature Requests
 If you have an idea you think might fit this mod, you can create a feature request issue in the
-[github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Aenhancement%20)
-or the [hexium mod page](https://valheim.hexium.gg/mods/ArgusMagnus/{PluginManifestName}#fn-threads).
+[github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Aenhancement%20). If a similar request already exist, you can add a 👍 reaction to it.
 
 ## Known Issues
 Known issues are listed in the [github project](https://github.com/ArgusMagnus/ValheimServersideQoL/issues?q=is%3Aissue%20label%3Abug%20(state%3Aopen%20OR%20label%3Awontfix)).
