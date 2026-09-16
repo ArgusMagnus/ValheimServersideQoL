@@ -54,10 +54,17 @@ public abstract class ConfigBase
     public T Value { get; private set { IsDefault = value.Equals(field); field = value; } } = value;
     public bool IsDefault { get; private set; } = true;
     public event Action<YamlConfigEntry<T>>? ValueChanged;
-    readonly FileSystemWatcher _fileWatcher = new(Path.GetDirectoryName(filePath), Path.GetFileName(filePath));
+    readonly FileSystemWatcher _fileWatcher = GetFileWatcher(filePath);
 
     string IYamlConfigEntry.FilePath => _filePath;
     object IYamlConfigEntry.Value => Value;
+
+    static FileSystemWatcher GetFileWatcher(string filePath)
+    {
+      var dir = Path.GetDirectoryName(filePath);
+      Directory.CreateDirectory(dir);
+      return new(dir, Path.GetFileName(filePath));
+    }
 
     void Deserialize()
     {

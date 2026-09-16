@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/ArgusMagnus/ValheimServersideQoL</RepositoryUrl>
     <DependencyDirectory>$(MSBuildThisFileDirectory)Dependencies\</DependencyDirectory>
 
-    <Version>2.0.11</Version>
+    <Version>2.0.12</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('.Patchers')) == 'true'">
