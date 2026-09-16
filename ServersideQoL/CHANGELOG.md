@@ -1,5 +1,6 @@
 ### v2.0.13
 - Required for AutoStore v2.0.13
+- Fix: `PlaceObject(Vector3, int, Quaternion)` recursed into itself, causing a `StackOverflowException` and server hang (affected LetItFloat) [#248](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/248)
 
 ### v2.0.12
 - Fixed crash on startup on first time installations
