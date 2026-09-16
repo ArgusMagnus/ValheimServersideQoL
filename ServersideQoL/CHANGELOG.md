@@ -1,5 +1,5 @@
 ### v2.0.13
-- Required for AutoStore v2.0.13
+- Fixed StackOverflowException (infinite recursion) [#248](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/248)
 
 ### v2.0.12
 - Fixed crash on startup on first time installations

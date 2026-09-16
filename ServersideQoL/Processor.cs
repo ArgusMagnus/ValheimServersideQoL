@@ -324,7 +324,7 @@ public abstract class Processor
     => PlaceObject(pos, prefab, Quaternion.Euler(0, rot, 0), marker, owner);
 
   protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot)
-    => PlaceObject(pos, prefab, rot);
+    => PlaceObject(pos, prefab, rot, CreatorMarkers.None);
   protected ServersideQoLZDO PlaceObject(Vector3 pos, int prefab, Quaternion rot, CreatorMarkers marker)
     => PlaceObject(pos, prefab, rot, marker, owner: 0);
 
