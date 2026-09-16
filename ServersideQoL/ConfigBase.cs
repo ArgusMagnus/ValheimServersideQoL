@@ -216,35 +216,63 @@ public abstract class ConfigBase
     => Invariant($"# Acceptable value formats: .NET Format strings for {testArgs.Length} arguments ({string.Join(", ", testArgs.Select(static x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method");
   }
 
-  protected sealed class AcceptableArrayValues<T>(T[] values) : AcceptableValueBase(typeof(T[]))
+  private protected interface ICustomConfigType
   {
-    readonly T[] _values = values;
+    void EnsureConverterAdded();
+  }
+
+  public sealed class ConfigArray<T>(IReadOnlyList<T> value) : ICustomConfigType
+  {
+    public static ConfigArray<T> Empty => field ??= new([]);
+    public IReadOnlyList<T> Items { get; } = value;
+
+    public override bool Equals(object obj) => ReferenceEquals(this, obj) || obj is ConfigArray<T> other && Items.SequenceEqual(other.Items);
+    public override int GetHashCode() => Items.GetHashCode();
+
+    void ICustomConfigType.EnsureConverterAdded()
+    {
+      if (TomlTypeConverter.CanConvert(typeof(ConfigArray<T>)))
+        return;
+      if (!TomlTypeConverter.CanConvert(typeof(T)))
+        throw new NotSupportedException();
+      TomlTypeConverter.AddConverter(typeof(ConfigArray<T>), new()
+      {
+        ConvertToObject = static (str, type) => string.IsNullOrWhiteSpace(str) ? Empty : new([.. str.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(static x => TomlTypeConverter.ConvertToValue<T>(x))]),
+        ConvertToString = static (obj, type) => string.Join(", ", ((ConfigArray<T>)obj).Items.Select(static x => TomlTypeConverter.ConvertToString(x, typeof(T))))
+      });
+    }
+  }
+
+  protected sealed class AcceptableArrayValues<T>(IReadOnlyList<T> values) : AcceptableValueBase(typeof(ConfigArray<T>))
+  {
+    readonly ConfigArray<T> _values = new(values);
     readonly HashSet<T> _allowedValues = [.. values];
 
-    public override object Clamp(object value)
+    ConfigArray<T> ClampCore(object value)
     {
-      if (value is not T[] arr)
-        return Array.Empty<T>();
+      if (value is not ConfigArray<T> arr)
+        return ConfigArray<T>.Empty;
 
-      foreach (var item in arr)
+      foreach (var item in arr.Items)
       {
         if (!_allowedValues.Contains(item))
-          return arr.Where(_allowedValues.Contains).ToArray();
+          return new([.. arr.Items.Where(_allowedValues.Contains)]);
       }
       return arr;
     }
 
+    public override object Clamp(object value) => ClampCore(value);
     public override bool IsValid(object value) => Equals(value, Clamp(value));
 
     public override string ToDescriptionString() => Invariant($"""
-      # Acceptable values: {TomlTypeConverter.ConvertToString(_values, typeof(T[]))}
+      # Acceptable values: {TomlTypeConverter.ConvertToString(_values, _values.GetType())}
       # Multiple values can be set at the same time by separating them with , (e.g. Debug, Warning)
       """);
   }
 
   protected static class AcceptableArrayValues
   {
-    public static AcceptableArrayValues<T> Get<T>(T[] values) => new(values);
+    public static AcceptableArrayValues<T> Get<T>(IReadOnlyList<T> values) => new(values);
   }
 }
 
@@ -322,18 +350,11 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     return BindExCore(config, section, defaultValue, description, acceptableValues, deprecated, key);
   }
 
-  static void AddArrayConverter<TElement>() => TomlTypeConverter.AddConverter(typeof(TElement[]), new()
-  {
-    ConvertToObject = static (str, type) => string.IsNullOrWhiteSpace(str) ? [] : str.Split(',').Select(static x => TomlTypeConverter.ConvertToValue<TElement>(x.Trim())).ToArray(),
-    ConvertToString = static (obj, type) => string.Join(", ", ((TElement[])obj).Select(static x => TomlTypeConverter.ConvertToString(x, typeof(TElement))))
-  });
-
   static ConfigEntry<T> BindExCore<T>(ConfigFile config, string section, T defaultValue, string description,
     AcceptableValueBase? acceptableValues,
     Deprecated? deprecated, string key)
   {
-    if (typeof(T).IsArray && !TomlTypeConverter.CanConvert(typeof(T)) && TomlTypeConverter.CanConvert(typeof(T).GetElementType()))
-      ((Delegate)AddArrayConverter<object>).Method.GetGenericMethodDefinition().MakeGenericMethod(typeof(T).GetElementType()).Invoke(null, null);
+    (defaultValue as ICustomConfigType)?.EnsureConverterAdded();
 
     if (deprecated is not null)
       description = string.Join(Environment.NewLine, [$"DEPRECATED: {deprecated.Reason}", description]);

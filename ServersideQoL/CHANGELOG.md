@@ -1,3 +1,6 @@
+### v2.0.14
+- Required for [AutoStore](https://valheim.hexium.gg/mods/ArgusMagnus/ServersideQoL_AutoStore) v2.0.14
+
 ### v2.0.13
 - Fixed StackOverflowException (infinite recursion) [#248](https://github.com/ArgusMagnus/ValheimServersideQoL/issues/248)
 

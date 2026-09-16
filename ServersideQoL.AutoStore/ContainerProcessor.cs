@@ -39,7 +39,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     void UpdateExcludedTypes(object? sender, EventArgs? args)
     {
       _excludedTypes.Clear();
-      foreach (var type in Config.Instance.StackInventoryIntoContainersExcludeItemTypes.Value)
+      foreach (var type in Config.Instance.StackInventoryIntoContainersExcludeItemTypes.Value.Items)
         _excludedTypes.Add(type);
     }
   }

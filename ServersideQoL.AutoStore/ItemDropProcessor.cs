@@ -41,7 +41,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     void UpdateExcludedTypes(object? sender, EventArgs? args)
     {
       _excludedTypes.Clear();
-      foreach (var type in Config.Instance.AutoPickupExcludeItemTypes.Value)
+      foreach (var type in Config.Instance.AutoPickupExcludeItemTypes.Value.Items)
         _excludedTypes.Add(type);
     }
   }
