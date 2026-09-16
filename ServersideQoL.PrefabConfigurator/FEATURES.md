@@ -32,6 +32,13 @@ Entries:
   Fields:
     m_fermentationDuration: /2
 
+# Increase beehive honey capacity
+- Component: Beehive
+  Enabled: true
+  Fields:
+    # m_secPerUnit: /2 # double production rate by halving the time per unit
+    m_maxHoney: 50
+
 # Ignore wind intensity for windmills (run full power even if there is no wind)
 - Component: Windmill
   Fields:
