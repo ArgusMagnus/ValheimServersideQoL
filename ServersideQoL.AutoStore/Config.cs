@@ -34,8 +34,10 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     "True to exclude food items for tames when tames are within search range");
   public ConfigEntry<bool> AutoPickupRequestOwnership { get; } = BindEx(cfg, true,
     "True to make the server request (and receive) ownership of dropped items from the clients before they are picked up. This will reduce the risk of data conflicts (e.g. item duplication) but will drastically decrease performance");
-  public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = BindEx(cfg, MessageTypes.None,
+  public ConfigEntry<MessageTypes> PickedUpMessageType { get; } = BindEx(cfg, MessageTypes.InWorld,
     "Type of message to show when a dropped item is added to a container", AcceptableEnum<MessageTypes>.Default);
+  public ConfigEntry<bool> ShowContainerModifiedEffect { get; } = BindEx(cfg, true,
+    "True to show an effect when a container is modified due to auto pickup or player inventory stacking");
 
   public ConfigEntry<Emotes> StackInventoryIntoContainersEmote { get; } = BindEx(cfg, Emotes.Sit, $"""
     Emote to stack inventory into containers.
@@ -68,10 +70,13 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     public string FormatContainerSorted(string containerName) => string.Format(ContainerSorted, containerName);
     string AutoPickup { get; init; } = "{0}: $msg_added {1} {2}x";
     public string FormatAutoPickup(string containerName, string itemName, int stack) => string.Format(AutoPickup, containerName, itemName, stack);
+    string Stacked { get; init; } = "{0}: $msg_added {1} {2}x";
+    public string FormatStacked(string containerName, string itemName, int stack) => string.Format(Stacked, containerName, itemName, stack);
   }
 
   public sealed class AdvancedConfig
   {
+    public string ContainerModifiedEffectPrefabName { get; init; } = "fx_Potion_frostresist";
     public ProcessingDelaysConfig ProcessingDelays { get; init; } = new();
 
     public sealed class ProcessingDelaysConfig

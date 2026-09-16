@@ -97,6 +97,11 @@ public static class RPC
     {
       public static RpcName SetTag { get; } = new("RPC_SetTag");
     }
+
+    public static class ZNetScene
+    {
+      public static RpcName SpawnObject { get; } = new("RPC_SpawnObject");
+    }
   }
 
   public static void ShowMessage(long targetPeerId, MessageHud.MessageType type, string message)
@@ -152,6 +157,15 @@ public static class RPC
 
   public static void TeleportPlayer(Peer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
       => TeleportPlayer(peer.ZNetPeer.m_uid, pos, rot, distantTeleport);
+
+  public static void SpawnObject(Vector3 pos, Quaternion rot, int prefab)
+    => SpawnObject(ZRoutedRpc.Everybody, pos, rot, prefab);
+
+  public static void SpawnObject(long targetPeerID, Vector3 pos, Quaternion rot, int prefab)
+  {
+    /// <see cref="ZNetScene.SpawnObject(Vector3, Quaternion, GameObject)"/>
+    InvokeRoutedRPC(targetPeerID, RpcName.ZNetScene.SpawnObject, parameters: [pos, rot, prefab]);
+  }
 
   const string NameOfZdoRpc = $"{nameof(ServersideQoLZDO)}.{nameof(ServersideQoLZDO.RPC)}";
   const string NameOfZdoPlayerRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.Player)}";

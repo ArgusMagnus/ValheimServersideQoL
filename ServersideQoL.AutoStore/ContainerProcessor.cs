@@ -15,6 +15,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
   SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>? _containersByItemName;
   SectorDictionary<HashSet<ServersideQoLZDO>>? _containers;
   readonly HashSet<ItemDrop.ItemData.ItemType> _excludedTypes = [];
+  internal int EffectPrefab { get; private set; }
 
   protected override void Initialize()
   {
@@ -31,7 +32,6 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       Instance<PlayerRegistryProcessor>().EmoteDetected += OnPlayerEmoteDetected;
     }
 
-
     Config.Instance.StackInventoryIntoContainersExcludeItemTypes.SettingChanged -= UpdateExcludedTypes;
     UpdateExcludedTypes(null, null);
     Config.Instance.StackInventoryIntoContainersExcludeItemTypes.SettingChanged += UpdateExcludedTypes;
@@ -41,6 +41,23 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       _excludedTypes.Clear();
       foreach (var type in Config.Instance.StackInventoryIntoContainersExcludeItemTypes.Value.Items)
         _excludedTypes.Add(type);
+    }
+
+    Config.Instance.Advanced.ValueChanged -= UpdateEffectPrefab;
+    UpdateEffectPrefab(Config.Instance.Advanced);
+    Config.Instance.Advanced.ValueChanged += UpdateEffectPrefab;
+
+    void UpdateEffectPrefab(ConfigBase.YamlConfigEntry<Config.AdvancedConfig> sender)
+    {
+      EffectPrefab = 0;
+      var prefabName = sender.Value.ContainerModifiedEffectPrefabName.Trim();
+      if (string.IsNullOrEmpty(prefabName))
+        return;
+      var hash = prefabName.GetStableHashCode();
+      if (ZNetScene.instance.GetPrefab(hash)?.GetComponent<TimedDestruction>() is null)
+        Logger.LogWarning($"Prefab '{prefabName}' does not have the {nameof(TimedDestruction)} component and is not suitable as effect");
+      else
+      EffectPrefab = hash;
     }
   }
 
@@ -267,7 +284,7 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     {
       if (stackContainerState.RemoveAfter < DateTimeOffset.UtcNow)
         zdo.RPC.Container.TakeAllResponse(true);
-      else if (MoveItems(zdo, state, stackContainerState))
+      else if (MoveItems(zdo, peers, state, stackContainerState))
       {
         zdo.Destroyed -= OnStackContainerDestroyed;
         _stackContainers.Remove(zdo);
@@ -309,11 +326,11 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
     return default;
   }
 
-  bool MoveItems(ServersideQoLZDO zdo, ContainerState state, StackContainerState stackContainerState)
+  bool MoveItems(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, ContainerState state, StackContainerState stackContainerState)
   {
-    var changed = false;
     HashSet<Vector2i>? usedSlots = null;
     List<ServersideQoLZDO>? toRemove = null;
+    HashSet<ServersideQoLZDO>? modified = null;
     var inventory = state.GetInventory();
     for (int i = inventory.Items.Count - 1; i >= 0; i--)
     {
@@ -414,10 +431,11 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
           {
             containerInventory.Save();
             (item.m_stack, stack) = (stack, item.m_stack);
-            changed = true;
-            //ShowMessage(peers, containerZdo,
-            //    Config.Instance.Localization.Value.FormatAutoPickup(containerState.PrefabInfo.Container.m_name, item.m_shared.m_name, stack),
-            //    Config.Instance.PickedUpMessageType.Value);
+            (modified ??= []).Add(containerZdo);
+            ShowMessage(peers, containerZdo,
+                Config.Instance.Localization.Value.FormatStacked(containerState.Container.m_name, item.m_shared.m_name, stack),
+                //Config.Instance.StackInventoryIntoContainersMessageType.Value);
+                Config.Instance.PickedUpMessageType.Value);
           }
 
           if (item.m_stack is 0)
@@ -438,9 +456,17 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       }
     }
 
-    if (changed)
+    if (modified is not null)
+    {
       inventory.Save();
-    return changed;
+      if (EffectPrefab is not 0)
+      {
+        foreach (var container in modified)
+          Spawn(EffectPrefab, container.ZDO.GetPosition(), container.ZDO.GetRotation());
+      }
+      return true;
+    }
+    return false;
   }
 
   sealed record StackContainerState(ServersideQoLZDO PlayerZDO)
