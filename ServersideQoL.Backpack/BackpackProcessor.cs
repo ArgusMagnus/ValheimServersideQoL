@@ -281,7 +281,7 @@ sealed class BackpackProcessor : Processor<BackpackProcessor.PrefabInfo>
       case Config.BackPackOnDeathOptions.SameAsInventory:
         if (ZoneSystem.instance.GetGlobalKey(GlobalKeys.DeathDeleteItems) || ZoneSystem.instance.GetGlobalKey(GlobalKeys.DeathDeleteUnequipped))
           DestroyBackpack(data.m_senderPeerID);
-        else
+        else if (!ZoneSystem.instance.GetGlobalKey(GlobalKeys.DeathKeepInventory))
           DropBackback(data.m_senderPeerID);
         break;
 
