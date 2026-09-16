@@ -28,6 +28,8 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     """);
   public ConfigEntry<float> AutoPickupMinPlayerDistance { get; } = BindEx(cfg, 4f,
     "Min distance all players must have to a dropped item for it to be picked up");
+  public ConfigEntry<ItemDrop.ItemData.ItemType[]> AutoPickupExcludeItemTypes { get; } = BindEx(cfg, Array.Empty<ItemDrop.ItemData.ItemType>(),
+    "Item types which will be excluded from auto pickup", __acceptableExcludeItemTypes);
   public ConfigEntry<bool> AutoPickupExcludeFodder { get; } = BindEx(cfg, true,
     "True to exclude food items for tames when tames are within search range");
   public ConfigEntry<bool> AutoPickupRequestOwnership { get; } = BindEx(cfg, true,
@@ -43,11 +45,19 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
     For example, on xbox you can use D-Pad down to execute the {Emotes.Sit} emote.
     If you use emotes exclusively for this feature, it is recommended to set the value to {AnyEmote} as it is more reliably detected than specific emotes, especially on bad connection/with crossplay.
     """, new AcceptableEnum<Emotes>([DisabledEmote, AnyEmote, .. Enum.GetValues(typeof(Emotes)).Cast<Emotes>()]));
-
+  public ConfigEntry<ItemDrop.ItemData.ItemType[]> StackInventoryIntoContainersExcludeItemTypes { get; } = BindEx(cfg, Array.Empty<ItemDrop.ItemData.ItemType>(),
+    "Item types which will be excluded from stacking into containers via emote", __acceptableExcludeItemTypes);
   public ConfigEntry<float> StackInventoryIntoContainersReturnDelay { get; } = BindEx(cfg, 1f, """
     Time in seconds after which items which could not be stacked into containers are returned to the player.
     Increasing this value can help with bad connections.
     """, new AcceptableValueRange<float>(1f, 10f));
+
+  static readonly AcceptableArrayValues<ItemDrop.ItemData.ItemType> __acceptableExcludeItemTypes = new([.. ObjectDB.instance.m_items
+    .Select(static x => x.GetComponent<ItemDrop>()?.m_itemData.m_shared)
+    .Where(static x => x is { m_icons.Length: > 0 })
+    .Select(static x => x!.m_itemType)
+    .Distinct()
+    .OrderBy(static x => x.ToString())]);
 
   public YamlConfigEntry<LocalizationConfig> Localization { get; } = BindYaml<LocalizationConfig>(cfg);
   public YamlConfigEntry<AdvancedConfig> Advanced { get; } = BindYaml<AdvancedConfig>(cfg);

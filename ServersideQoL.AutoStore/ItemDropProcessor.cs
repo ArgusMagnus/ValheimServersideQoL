@@ -15,6 +15,7 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
   readonly Dictionary<ServersideQoLZDO, DateTimeOffset> _eggDropTime = [];
   SectorDictionary<HashSet<ServersideQoLZDO>>? _itemDrops;
   SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>? _containersByItemName;
+  readonly HashSet<ItemDrop.ItemData.ItemType> _excludedTypes = [];
 
   protected override void Initialize()
   {
@@ -32,11 +33,24 @@ public sealed class ItemDropProcessor : Processor<ItemDropProcessor.PrefabInfo>
     }
 
     _eggDropTime.Clear();
+
+    Config.Instance.AutoPickupExcludeItemTypes.SettingChanged -= UpdateExcludedTypes;
+    UpdateExcludedTypes(null, null);
+    Config.Instance.AutoPickupExcludeItemTypes.SettingChanged += UpdateExcludedTypes;
+
+    void UpdateExcludedTypes(object? sender, EventArgs? args)
+    {
+      _excludedTypes.Clear();
+      foreach (var type in Config.Instance.AutoPickupExcludeItemTypes.Value)
+        _excludedTypes.Add(type);
+    }
   }
 
   protected override ProcessResult Process(ServersideQoLZDO zdo, IReadOnlyList<Peer> peers, PrefabInfo prefabInfo)
   {
     if (_containersByItemName is null || _itemDrops is null)
+      return ProcessResult.UnregisterProcessor;
+    if (_excludedTypes.Contains(prefabInfo.ItemDrop.m_itemData.m_shared.m_itemType))
       return ProcessResult.UnregisterProcessor;
     if (prefabInfo.Piece is not null && zdo.Vars.GetPiece())
       return ProcessResult.UnregisterProcessor; // ignore placed items (such as feasts)

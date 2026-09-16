@@ -311,7 +311,7 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
       Logger.LogInfo(string.Join($"{Environment.NewLine}  ", ["Config:", .. (cfg.UnifiedConfig.Value ?
         [cfg.ConfigFile] : __plugins.Where(static x => x.Config.Enabled.Value).Select(static x => x.Config.ConfigFile)).SelectMany(static x => x)
           //.Where(static x => !x.Value.BoxedValue.Equals(x.Value.DefaultValue))
-          .Select(static x => Invariant($"{(!x.Value.BoxedValue.Equals(x.Value.DefaultValue) ? "*" : "")}[{x.Key.Section}].[{x.Key.Key}] = {x.Value.BoxedValue}"))]));
+          .Select(static x => Invariant($"{(!x.Value.BoxedValue.Equals(x.Value.DefaultValue) ? "*" : "")}[{x.Key.Section}].[{x.Key.Key}] = {TomlTypeConverter.ConvertToString(x.Value.BoxedValue, x.Value.SettingType)}"))]));
     }
 
     //var failed = false;

@@ -1,5 +1,6 @@
 ﻿using BepInEx.Configuration;
 using ServersideQoL.Utilities;
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using YamlDotNet.Serialization;
@@ -214,6 +215,37 @@ public abstract class ConfigBase
     public override string ToDescriptionString()
     => Invariant($"# Acceptable value formats: .NET Format strings for {testArgs.Length} arguments ({string.Join(", ", testArgs.Select(static x => x.GetType().Name))}): https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string-format#get-started-with-the-stringformat-method");
   }
+
+  protected sealed class AcceptableArrayValues<T>(T[] values) : AcceptableValueBase(typeof(T[]))
+  {
+    readonly T[] _values = values;
+    readonly HashSet<T> _allowedValues = [.. values];
+
+    public override object Clamp(object value)
+    {
+      if (value is not T[] arr)
+        return Array.Empty<T>();
+
+      foreach (var item in arr)
+      {
+        if (!_allowedValues.Contains(item))
+          return arr.Where(_allowedValues.Contains).ToArray();
+      }
+      return arr;
+    }
+
+    public override bool IsValid(object value) => Equals(value, Clamp(value));
+
+    public override string ToDescriptionString() => Invariant($"""
+      # Acceptable values: {TomlTypeConverter.ConvertToString(_values, typeof(T[]))}
+      # Multiple values can be set at the same time by separating them with , (e.g. Debug, Warning)
+      """);
+  }
+
+  protected static class AcceptableArrayValues
+  {
+    public static AcceptableArrayValues<T> Get<T>(T[] values) => new(values);
+  }
 }
 
 public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : ConfigBase, IConfig
@@ -290,10 +322,19 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     return BindExCore(config, section, defaultValue, description, acceptableValues, deprecated, key);
   }
 
+  static void AddArrayConverter<TElement>() => TomlTypeConverter.AddConverter(typeof(TElement[]), new()
+  {
+    ConvertToObject = static (str, type) => string.IsNullOrWhiteSpace(str) ? [] : str.Split(',').Select(static x => TomlTypeConverter.ConvertToValue<TElement>(x.Trim())).ToArray(),
+    ConvertToString = static (obj, type) => string.Join(", ", ((TElement[])obj).Select(static x => TomlTypeConverter.ConvertToString(x, typeof(TElement))))
+  });
+
   static ConfigEntry<T> BindExCore<T>(ConfigFile config, string section, T defaultValue, string description,
     AcceptableValueBase? acceptableValues,
     Deprecated? deprecated, string key)
   {
+    if (typeof(T).IsArray && !TomlTypeConverter.CanConvert(typeof(T)) && TomlTypeConverter.CanConvert(typeof(T).GetElementType()))
+      ((Delegate)AddArrayConverter<object>).Method.GetGenericMethodDefinition().MakeGenericMethod(typeof(T).GetElementType()).Invoke(null, null);
+
     if (deprecated is not null)
       description = string.Join(Environment.NewLine, [$"DEPRECATED: {deprecated.Reason}", description]);
     var cfg = config.Bind(section, key, defaultValue, new ConfigDescription(description, acceptableValues));

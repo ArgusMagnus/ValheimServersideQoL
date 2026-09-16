@@ -4,20 +4,21 @@ using UnityEngine;
 
 namespace ServersideQoL.AutoStore;
 
-[Processor("e1c6ea7a-996b-4aad-8595-af86f02fe25b")]
+[Processor(Id)]
 [RunBefore<ContainerRegistryProcessor>]
 [DependsOn<PlayerRegistryProcessor>]
 public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.PrefabInfo>
 {
+  public const string Id = "e1c6ea7a-996b-4aad-8595-af86f02fe25b";
   readonly Dictionary<ItemDataKey, int> _stackPerItem = [];
   readonly Dictionary<ServersideQoLZDO, StackContainerState> _stackContainers = [];
   SectorDictionary<SharedItemDataKey, HashSet<ServersideQoLZDO>>? _containersByItemName;
   SectorDictionary<HashSet<ServersideQoLZDO>>? _containers;
+  readonly HashSet<ItemDrop.ItemData.ItemType> _excludedTypes = [];
 
   protected override void Initialize()
   {
     Instance<PlayerRegistryProcessor>().EmoteDetected -= OnPlayerEmoteDetected;
-
     if (Config.Instance.StackInventoryIntoContainersEmote.Value is ConfigBase.DisabledEmote)
     {
       _containersByItemName = null;
@@ -28,6 +29,18 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
       _containersByItemName = Instance<ContainerRegistryProcessor>().GetContainersByItemName(Mathf.Max(Config.Instance.AutoPickupRange.Value, Config.Instance.AutoPickupMaxRange.Value));
       _containers = Instance<ContainerRegistryProcessor>().GetContainers(_containersByItemName.SectorWidth);
       Instance<PlayerRegistryProcessor>().EmoteDetected += OnPlayerEmoteDetected;
+    }
+
+
+    Config.Instance.StackInventoryIntoContainersExcludeItemTypes.SettingChanged -= UpdateExcludedTypes;
+    UpdateExcludedTypes(null, null);
+    Config.Instance.StackInventoryIntoContainersExcludeItemTypes.SettingChanged += UpdateExcludedTypes;
+
+    void UpdateExcludedTypes(object? sender, EventArgs? args)
+    {
+      _excludedTypes.Clear();
+      foreach (var type in Config.Instance.StackInventoryIntoContainersExcludeItemTypes.Value)
+        _excludedTypes.Add(type);
     }
   }
 
@@ -206,7 +219,10 @@ public sealed class ContainerProcessor : Processor<ContainerRegistryProcessor.Pr
 
         var containerInventory = containerState.GetInventory();
         foreach (var item in containerInventory.Items)
-          (items ??= []).TryAdd(item.m_shared, item);
+        {
+          if (!_excludedTypes.Contains(item.m_shared.m_itemType))
+            (items ??= []).TryAdd(item.m_shared, item);
+        }
       }
 
       if (toRemove is not null)

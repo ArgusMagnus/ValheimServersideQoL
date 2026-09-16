@@ -1,3 +1,6 @@
+### v2.0.13
+- Required for AutoStore v2.0.13
+
 ### v2.0.12
 - Fixed crash on startup on first time installations
 
