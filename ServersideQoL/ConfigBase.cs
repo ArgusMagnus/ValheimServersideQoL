@@ -18,7 +18,11 @@ interface IConfig
 
 public abstract class ConfigBase
 {
-  private protected ConfigBase() { }
+  private protected ConfigBase(ConfigFile configFile, Logger logger)
+  {
+    ConfigFile = configFile;
+    Logger = logger;
+  }
 
   protected static class Shared
   {
@@ -39,6 +43,29 @@ public abstract class ConfigBase
   public const Emotes AnyEmote = (Emotes)(-2);
 
   protected static IReadOnlyDictionary<string, PieceTable> PieceTablesByPieceName => ServersideQoLPlugin.Instance.PieceTablesByPieceName;
+  protected static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => Processor.BossesByBiome;
+  public ConfigFile ConfigFile { get; }
+  protected Logger Logger { get; }
+  public abstract ConfigEntry<bool> Enabled { get; }
+
+  static readonly bool __configWatcherInstalled = AppDomain.CurrentDomain.GetAssemblies().Any(static x => !x.IsDynamic && Path.GetFileName(x.Location) is "ConfigWatcher.dll");
+  static readonly Dictionary<ConfigFile, DebouncedFileWatcher> __fileWatcher = [];
+
+  private protected void InitializeFileWatcher()
+  {
+    if (__configWatcherInstalled || __fileWatcher.ContainsKey(ConfigFile))
+      return;
+
+    var fileWatcher = new DebouncedFileWatcher(ConfigFile.ConfigFilePath);
+    fileWatcher.FileCreatedOrChanged += (_, _) =>
+    {
+      (var saveOnConfigSet, ConfigFile.SaveOnConfigSet) = (ConfigFile.SaveOnConfigSet, false);
+      ConfigFile.Reload();
+      ConfigFile.SaveOnConfigSet = saveOnConfigSet;
+    };
+    fileWatcher.Enabled = true;
+    __fileWatcher.Add(ConfigFile, fileWatcher);
+  }
 
   private protected interface IYamlConfigEntry
   {
@@ -149,7 +176,7 @@ public abstract class ConfigBase
       }
     }
 
-    public override object Clamp(object value)
+    T ClampCore(object value)
     {
       if (value is not T e)
         return _default;
@@ -168,6 +195,8 @@ public abstract class ConfigBase
       }
       return e;
     }
+
+    public override object Clamp(object value) => ClampCore(value);
 
     public override bool IsValid(object value)
     {
@@ -267,7 +296,7 @@ public abstract class ConfigBase
   }
 }
 
-public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : ConfigBase, IConfig
+public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : ConfigBase(configFile, logger), IConfig
   where TSelf : ConfigBase<TSelf>
 {
   static event Action<ConfigFile, TSelf>? Initialized;
@@ -284,19 +313,16 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   protected static string Section => field ??= ((typeof(TSelf) == typeof(Config) || !Config.Instance.UnifiedConfig.Value) ? __section : $"M.{__section}");
   static readonly string __section = typeof(TSelf).Namespace.Split('.') is { Length: > 1 } parts ? parts[^1] : "General";
 
-  protected static IReadOnlyDictionary<Heightmap.Biome, Character> BossesByBiome => Processor.BossesByBiome;
-  public ConfigFile ConfigFile { get; } = configFile;
-  protected Logger Logger { get; } = logger;
-  public abstract ConfigEntry<bool> Enabled { get; }
-
   EventHandler<SettingChangedEventArgs>? _configChanged;
-
   public event EventHandler<SettingChangedEventArgs>? ConfigChanged
   {
     add
     {
-      if (_configChanged is null)
+      if (_configChanged is null && value is not null)
+      {
+        ConfigFile.SettingChanged -= OnSettingsChanged;
         ConfigFile.SettingChanged += OnSettingsChanged;
+      }
       _configChanged += value;
     }
     remove
@@ -308,7 +334,20 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
   }
 
   void OnSettingsChanged(object? sender, SettingChangedEventArgs args)
-      => _configChanged?.Invoke(this, args);
+  {
+    if (_configChanged is null)
+      return;
+
+    if (Config.Instance.UnifiedConfig.Value)
+    {
+      var expectedSection = Section;
+      var section = args.ChangedSetting.Definition.Section;
+      if (section != expectedSection && !section.StartsWith($"{expectedSection}."))
+        return;
+    }
+
+    _configChanged(this, args);
+  }
 
   [MemberNotNull(nameof(_plugin))]
   void IConfig.RaiseInitialized(IServersideQoLPlugin plugin)
@@ -321,6 +360,8 @@ public abstract class ConfigBase<TSelf>(ConfigFile configFile, Logger logger) : 
     __yaml = null;
 
     Initialized?.Invoke(ConfigFile, (TSelf)this);
+
+    InitializeFileWatcher();
   }
 
   public static bool IsDeprecated(ConfigEntryBase entry)

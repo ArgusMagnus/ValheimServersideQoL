@@ -220,9 +220,6 @@ partial class ServersideQoLPlugin : ServersideQoLPluginBaseCore<ServersideQoLPlu
 
     _prefabInfoFactory = prefabInfoBuilder.GetFactory();
 
-    foreach (var plugin in __plugins)
-      plugin.Config.ConfigChanged += OnConfigChanged;
-
     return true;
   }
 
