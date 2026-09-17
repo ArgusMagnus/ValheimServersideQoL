@@ -19,8 +19,11 @@ public sealed class Config(ConfigFile cfg, Logger logger) : ConfigBase<Config>(c
 
   public sealed class FireplacesConfig(ConfigFile cfg, [CallerMemberName] string section = default!)
   {
-    public ConfigEntry<bool> MakeToggleable { get; } = BindEx(cfg, section, false,
-      "True to make all fireplaces (including torches, braziers, etc.) toggleable");
+    public ConfigEntry<bool> MakeToggleable { get; } = BindEx(cfg, section, false, """
+      True to make all fireplaces/lightsources (including torches, braziers, etc.) toggleable.
+      BEWARE: toggleable fireplaces/lightsources will be toggled off automatically by rain/heavy wind.
+      """);
+      
     public ConfigEntry<bool> InfiniteFuel { get; } = BindEx(cfg, section, false,
       "True to make all fireplaces have infinite fuel");
   }

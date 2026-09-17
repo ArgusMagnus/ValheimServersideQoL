@@ -1,6 +1,5 @@
 ﻿using ServersideQoL.Processors;
 using ServersideQoL.Utilities;
-using System.ComponentModel;
 using UnityEngine;
 using YamlDotNet.Core.Tokens;
 
@@ -243,9 +242,15 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
         zdo.Destroyed += OnOreDepositDestroyed;
         ids ??= __playerIDsVar.Get(zdo) ?? [];
         ids.Add(playerID);
-        playerState.UpToDateMapTables.Clear();
-        if (prefabInfo.MineRockPinConfig.PinType.Value is not Minimap.PinType.None)
-          ShowMessage([peer], zdo, Config.Instance.Localization.Value.Discovered(prefabInfo.MineRock5.m_name), Config.Instance.DiscoveredMessageType.Value);
+
+        if (prefabInfo.MineRockPinConfig.PinType.Value is Minimap.PinType.None)
+          continue;
+
+        ShowMessage([peer], zdo, Config.Instance.Localization.Value.Discovered(prefabInfo.MineRock5.m_name), Config.Instance.DiscoveredMessageType.Value);
+        if ((Config.Instance.OreDepositsPinTarget.Value & Config.PinTargets.MapTable) is not 0)
+          playerState.UpToDateMapTables.Clear();
+        if ((Config.Instance.OreDepositsPinTarget.Value & Config.PinTargets.DiscoveringPlayer) is not 0)
+          RPC.DiscoverLocationResponse(peer.ZNetPeer.m_uid, prefabInfo.MineRockPinConfig.Label.Value, prefabInfo.MineRockPinConfig.PinType.Value, zdo.ZDO.GetPosition(), showMap: false);
       }
       if (ids is not null)
         __playerIDsVar.Set(zdo, ids);
@@ -282,9 +287,15 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
             continue;
           ids ??= __playerIDsVar.Get(zdo) ?? [];
           ids.Add(playerID);
-          playerState.UpToDateMapTables.Clear();
-          if (Config.Instance.DungeonsPinType.Value is not Minimap.PinType.None)
-            ShowMessage([peer], zdo, Config.Instance.Localization.Value.Discovered(component.m_enterText), Config.Instance.DiscoveredMessageType.Value);
+
+          if (Config.Instance.DungeonsPinType.Value is Minimap.PinType.None)
+            continue;
+
+          ShowMessage([peer], zdo, Config.Instance.Localization.Value.Discovered(component.m_enterText), Config.Instance.DiscoveredMessageType.Value);
+          if ((Config.Instance.DungeonsPinTarget.Value & Config.PinTargets.MapTable) is not 0)
+            playerState.UpToDateMapTables.Clear();
+          if ((Config.Instance.DungeonsPinTarget.Value & Config.PinTargets.DiscoveringPlayer) is not 0)
+            RPC.DiscoverLocationResponse(peer.ZNetPeer.m_uid, Config.Instance.DungeonsLabel.Value is Config.DefaultOreDepositName ? component.m_enterText : Config.Instance.DungeonsLabel.Value, Config.Instance.DungeonsPinType.Value, zdo.ZDO.GetPosition(), showMap: false);
         }
 
         break;
@@ -398,7 +409,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
           _pins.Add(new(playerState.PlayerID.AsModPlayerID(), GetProcessorPrefabInfo(zdo)!.Piece!.m_name, zdo.ZDO.GetPosition(), Config.Instance.ShipsPinType.Value, false, AutoMapTablesPlugin.PluginGuid));
       }
 
-      if (_oreDepositPins.Count is not 0)
+      if (_oreDepositPins.Count is not 0 && (Config.Instance.OreDepositsPinTarget.Value & Config.PinTargets.MapTable) is not 0)
       {
         foreach (var zdo in playerState.OreVeins)
         {
@@ -407,7 +418,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
         }
       }
 
-      if (Config.Instance.DungeonsPinType.Value is not Minimap.PinType.None)
+      if (Config.Instance.DungeonsPinType.Value is not Minimap.PinType.None && (Config.Instance.DungeonsPinTarget.Value & Config.PinTargets.MapTable) is not 0)
       {
         List<(ServersideQoLZDO, Vector3, string)>? updatedPos = null;
         foreach (var (zdo, nullableValue) in playerState.Dungeons)
@@ -519,7 +530,7 @@ public sealed class AutoMapTablesProcessor : Processor<AutoMapTablesProcessor.Pr
     {
       if (!_playerStates.TryGetValue(id, out var state))
         continue;
-      if (state.OreVeins.Remove(zdo))
+      if (state.OreVeins.Remove(zdo) && (Config.Instance.OreDepositsPinTarget.Value & Config.PinTargets.MapTable) is not 0)
         state.UpToDateMapTables.Clear();
     }
   }

@@ -36,6 +36,11 @@ public static class RPC
       public static RpcName GlobalKeys { get; } = new("GlobalKeys");
     }
 
+    public static class Game
+    {
+      public static RpcName DiscoverLocationResponse { get; } = new("RPC_DiscoverLocationResponse");
+    }
+
     public static class DamageText
     {
       public static RpcName RPC_DamageText { get; } = new("RPC_DamageText");
@@ -149,11 +154,9 @@ public static class RPC
   //public static void ShowInWorldText(Peer peer, DamageText.TextType type, Vector3 pos, string text)
   //    => ShowInWorldText([peer.m_uid], type, pos, text);
 
+  /// <see cref="Chat.TeleportPlayer(long, Vector3, Quaternion, bool)"/>
   static void TeleportPlayer(long targetPeerID, Vector3 pos, Quaternion rot, bool distantTeleport)
-  {
-    /// <see cref="Chat.TeleportPlayer(long, Vector3, Quaternion, bool)"/>
-    InvokeRoutedRPC(targetPeerID, RpcName.Chat.TeleportPlayer, parameters: [pos, rot, distantTeleport]);
-  }
+    => InvokeRoutedRPC(targetPeerID, RpcName.Chat.TeleportPlayer, parameters: [pos, rot, distantTeleport]);
 
   public static void TeleportPlayer(Peer peer, Vector3 pos, Quaternion rot, bool distantTeleport)
       => TeleportPlayer(peer.ZNetPeer.m_uid, pos, rot, distantTeleport);
@@ -161,11 +164,13 @@ public static class RPC
   public static void SpawnObject(Vector3 pos, Quaternion rot, int prefab)
     => SpawnObject(ZRoutedRpc.Everybody, pos, rot, prefab);
 
+  /// <see cref="ZNetScene.SpawnObject(Vector3, Quaternion, GameObject)"/>
   public static void SpawnObject(long targetPeerID, Vector3 pos, Quaternion rot, int prefab)
-  {
-    /// <see cref="ZNetScene.SpawnObject(Vector3, Quaternion, GameObject)"/>
-    InvokeRoutedRPC(targetPeerID, RpcName.ZNetScene.SpawnObject, parameters: [pos, rot, prefab]);
-  }
+    => InvokeRoutedRPC(targetPeerID, RpcName.ZNetScene.SpawnObject, parameters: [pos, rot, prefab]);
+
+  /// <see cref="Game.DiscoverClosestLocation(string, Vector3, string, int, bool, bool)"/>
+  public static void DiscoverLocationResponse(long targetPeerID, string pinName, Minimap.PinType pinType, Vector3 pos, bool showMap)
+    => InvokeRoutedRPC(targetPeerID, RpcName.Game.DiscoverLocationResponse, parameters: [pinName, (int)pinType, pos, showMap]);
 
   const string NameOfZdoRpc = $"{nameof(ServersideQoLZDO)}.{nameof(ServersideQoLZDO.RPC)}";
   const string NameOfZdoPlayerRpc = $"{NameOfZdoRpc}.{nameof(ServersideQoLZDO.RPC.Player)}";

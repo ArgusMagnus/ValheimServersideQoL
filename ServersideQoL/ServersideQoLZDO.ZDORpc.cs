@@ -1,5 +1,4 @@
 ﻿using ServersideQoL.Utilities;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using static ServersideQoL.RPC;
 
@@ -9,12 +8,12 @@ partial class ServersideQoLZDO
 {
   public ZDORpc RPC => new(this);
 
-  public readonly struct ZDORpc(ServersideQoLZDO zdo)
+  public readonly ref struct ZDORpc(ServersideQoLZDO zdo)
   {
     readonly ServersideQoLZDO _zdo = zdo;
 
     public PlayerRpc Player => new(_zdo);
-    public readonly struct PlayerRpc(ServersideQoLZDO zdo)
+    public readonly ref struct PlayerRpc(ServersideQoLZDO zdo)
     {
       readonly ZDO _zdo = AssertAndGetZDO<Player>(zdo);
 
@@ -25,10 +24,13 @@ partial class ServersideQoLZDO
       /// <see cref="Player.TeleportTo(Vector3, Quaternion, bool)"/>
       public void TeleportTo(Vector3 pos, Quaternion rot, bool distantTeleport)
         => InvokeRoutedRPC(_zdo.GetOwner(), _zdo.m_uid, RpcName.Player.TeleportTo, parameters: [pos, rot, distantTeleport]);
+
+      public void AddMapPin(string pinName, Minimap.PinType pinType, Vector3 pos, bool showMap)
+        => DiscoverLocationResponse(_zdo.GetOwner(), pinName, pinType, pos, showMap);
     }
 
     public CharacterRpc Character => new(_zdo);
-    public readonly struct CharacterRpc(ServersideQoLZDO zdo)
+    public readonly ref struct CharacterRpc(ServersideQoLZDO zdo)
     {
       readonly ZDO _zdo = AssertAndGetZDO<Character>(zdo);
 
@@ -46,7 +48,7 @@ partial class ServersideQoLZDO
     }
 
     public ContainerRpc Container => new(_zdo);
-    public readonly struct ContainerRpc(ServersideQoLZDO zdo)
+    public readonly ref struct ContainerRpc(ServersideQoLZDO zdo)
     {
       readonly ZDO _zdo = AssertAndGetZDO<Container>(zdo);
 
@@ -85,7 +87,7 @@ partial class ServersideQoLZDO
     }
 
     public TeleportWorldRpc TeleportWorld => new(_zdo);
-    public readonly struct TeleportWorldRpc(ServersideQoLZDO zdo)
+    public readonly ref struct TeleportWorldRpc(ServersideQoLZDO zdo)
     {
       readonly ZDO _zdo = AssertAndGetZDO<TeleportWorld>(zdo);
 
@@ -95,7 +97,7 @@ partial class ServersideQoLZDO
     }
 
     public PieceRpc Piece => new(_zdo);
-    public readonly struct PieceRpc(ServersideQoLZDO zdo)
+    public readonly ref struct PieceRpc(ServersideQoLZDO zdo)
     {
       readonly ZDO _zdo = AssertAndGetZDO<Piece>(zdo);
 
@@ -105,7 +107,7 @@ partial class ServersideQoLZDO
     }
 
     public ItemDropRpc ItemDrop => new(_zdo);
-    public readonly struct ItemDropRpc(ServersideQoLZDO zdo)
+    public readonly ref struct ItemDropRpc(ServersideQoLZDO zdo)
     {
       readonly ZDO _zdo = AssertAndGetZDO<ItemDrop>(zdo);
 
@@ -115,7 +117,7 @@ partial class ServersideQoLZDO
     }
 
     public TrapRpc Trap => new(_zdo);
-    public readonly struct TrapRpc(ServersideQoLZDO zdo)
+    public readonly ref struct TrapRpc(ServersideQoLZDO zdo)
     {
       readonly ZDO _zdo = AssertAndGetZDO<Trap>(zdo);
 
@@ -126,7 +128,7 @@ partial class ServersideQoLZDO
     }
 
     public MineRock5Rpc MineRock5 => new(_zdo);
-    public readonly struct MineRock5Rpc(ServersideQoLZDO zdo)
+    public readonly ref struct MineRock5Rpc(ServersideQoLZDO zdo)
     {
       readonly ZDO _zdo = AssertAndGetZDO<MineRock5>(zdo);
 

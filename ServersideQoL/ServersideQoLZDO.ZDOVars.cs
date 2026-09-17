@@ -9,7 +9,7 @@ partial class ServersideQoLZDO
 {
   public ZDOVars Vars => new(ZDO);
 
-  public readonly struct ZDOVars(ZDO zdo)
+  public readonly ref struct ZDOVars(ZDO zdo)
   {
     readonly ZDO _zdo = zdo;
 
